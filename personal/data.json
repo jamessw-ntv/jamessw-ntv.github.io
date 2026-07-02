@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-02",
-    "fetched": "2026-07-02T19:41:51+00:00",
+    "fetched": "2026-07-02T21:16:24+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -25,7 +25,7 @@
       },
       {
         "day": "Sat",
-        "min": 7,
+        "min": 6,
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -34,7 +34,7 @@
       {
         "day": "Sun",
         "min": 4,
-        "max": 12,
+        "max": 11,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -72,45 +72,24 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88907.0,
-        "pct": 1.97
+        "price": 88918.0,
+        "pct": 1.55
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2453.59,
-        "pct": 4.65
+        "price": 2462.02,
+        "pct": 4.72
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Taylor Swift Wedding Frenzy: The Power Guest List, the NDAs and A-List Panic Over Lack of Details",
+      "title": "Anne Hathaway Quit ‘Knocked Up’ Over Graphic Birthing Scene, Says Seth Rogen: ‘She Felt That It Was Not Her Brand’",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/taylor-swift-wedding-invites-harry-styles-guests-1236800998/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Final Emmy Predictions: ‘Pluribus’ and ‘The Pitt’ Lead the Pack as ‘Widow’s Bay’ Surges and Netflix Looks to Rule the Day",
-      "when": "2 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/lists/2026-emmys-predictions/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Moana 3’ in the Works at Disney, According to Dwayne Johnson",
-      "when": "2 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/moana-3-disney-1236235124/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Chicago PD’ Star LaRoyce Hawkins to Exit Series in Season 14",
-      "when": "2 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/chicago-pd-laroyce-hawkins-exit-season-14-1236800914/"
+      "url": "https://variety.com/2026/film/news/anne-hathaway-quit-knocked-up-birthing-scene-seth-rogen-1236800898/"
     },
     {
       "cat": "Trek/Wars",
@@ -122,14 +101,35 @@
     {
       "cat": "Trek/Wars",
       "title": "‘The Art of Star Wars: Andor’ Uncovers New Secrets Behind the Acclaimed Series",
-      "when": "1 Jul",
+      "when": "2 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/the-art-of-star-wars-andor-uncovers-new-secrets-behind-the-acclaimed-series.html"
     },
     {
+      "cat": "Film/TV",
+      "title": "‘Young Washington’ Director Jon Erwin Breaks Down Film’s Use of AI: Tech Made Production ‘Safer and More Affordable’ (EXCLUSIVE)",
+      "when": "2 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/young-washington-director-jon-erwin-ai-1236801002/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Midjourney Seeks to Reveal Studios’ Use of AI in High-Stakes Copyright Battle",
+      "when": "2 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/midjourney-studios-ai-copyright-discovery-1236800902/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Rhythm Heaven Groove’ Is Back After a Decade to Test Your Reflexes With Over 100 Games",
+      "when": "2 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/gaming/news/rhythm-heaven-groove-video-game-1236800585/"
+    },
+    {
       "cat": "Trek/Wars",
       "title": "‘The Ninth Jedi’ Spin-Off Animated Series to Debut First Trailer Tomorrow",
-      "when": "1 Jul",
+      "when": "2 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/the-ninth-jedi-spin-off-animated-series-to-debut-first-trailer-tomorrow.html"
     },
