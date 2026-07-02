@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-02",
-    "fetched": "2026-07-02T10:48:02+00:00",
+    "fetched": "2026-07-02T13:01:56+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 9,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 20
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 19
     },
     "days": [
       {
         "day": "Today",
-        "min": 9,
+        "min": 8,
         "max": 11,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 100
-      },
-      {
-        "day": "Fri",
-        "min": 7,
-        "max": 12,
         "icon": "⛈️",
         "desc": "Thunderstorm",
         "rain": 100
       },
       {
-        "day": "Sat",
-        "min": 6,
-        "max": 10,
+        "day": "Fri",
+        "min": 7,
+        "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 88
+        "rain": 100
+      },
+      {
+        "day": "Sat",
+        "min": 7,
+        "max": 11,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 90
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88651.0,
-        "pct": 4.34
+        "price": 88778.0,
+        "pct": 4.41
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2382.52,
-        "pct": 4.51
+        "price": 2399.01,
+        "pct": 5.23
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Award-Winning Independent Factual Producer Proper Content Shutters Citing Market Conditions: ‘There Simply Isn’t the Commissioning Risk’",
+      "title": "Bryan Fuller’s ‘Dust Bunny’ Leads Fangoria Chainsaw Awards 2026 Nominees (EXCLUSIVE)",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/proper-content-shuts-down-market-1236800633/"
+      "url": "https://variety.com/2026/awards/news/fangoria-chainsaw-awards-2026-nominees-dust-bunny-1236799587/"
     },
     {
       "cat": "Film/TV",
-      "title": "Korea’s Lotte Cinema-Megabox Merger Collapses as JoongAng Group’s Financial Crisis Deepens",
+      "title": "‘Your Name,’ ‘Ghost in the Shell 2’ Lead Disney+ and Anime Limited’s U.K., France Film Deal as Animayhem Returns (EXCLUSIVE)",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/korea-lotte-cinema-megabox-merger-collapses-joongang-crisis-1236800622/"
+      "url": "https://variety.com/2026/tv/news/your-name-ghost-in-the-shell-2-disney-anime-limited-uk-france-deal-1236800605/"
     },
     {
       "cat": "Film/TV",
-      "title": "Nagraj Manjule’s ‘Khashaba’ Unveils Teaser, Worldwide Release Date From Jio Studios (EXCLUSIVE)",
+      "title": "‘Doctor’ Donald Trump Posts AI Video Dragging Rosie O’Donnell, Whoopi Goldberg, Robert De Niro and More for Suffering From ‘Trump Derangement Syndrome’",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/nagraj-manjule-khashaba-teaser-jio-studios-1236799319/"
+      "url": "https://variety.com/2026/digital/news/dr-trump-fake-ai-video-trump-derangement-syndrome-rosie-odonnell-whoopi-goldberg-robert-de-niro-1236800663/"
     },
     {
       "cat": "Film/TV",
-      "title": "Chief Oscars Officer Teni Melidonian Transitions to AMPAS Consultant as Awards Production Moves Under Jennifer Davidson",
+      "title": "Bad Bunny, ‘Despacito’ and the End of English as Pop’s Global Currency: Manuel Abud on Latin Music’s Transformation",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/awards/awards/oscars-officer-teni-melidonian-exits-ampas-1236800583/"
+      "url": "https://variety.com/2026/music/news/bad-bunny-despacito-latin-music-manuel-abud-golden-melody-festival-1236800767/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
