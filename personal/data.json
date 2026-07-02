@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-02",
-    "fetched": "2026-07-02T07:39:19+00:00",
+    "fetched": "2026-07-02T10:48:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 22
+      "temp": 9,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 20
     },
     "days": [
       {
         "day": "Today",
         "min": 9,
-        "max": 12,
+        "max": 11,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 100
@@ -27,8 +27,8 @@
         "day": "Fri",
         "min": 7,
         "max": 12,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
         "rain": 100
       },
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 87128.0,
-        "pct": 2.34
+        "price": 88651.0,
+        "pct": 4.34
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2341.78,
-        "pct": 2.35
+        "price": 2382.52,
+        "pct": 4.51
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Award-Winning Independent Factual Producer Proper Content Shutters Citing Market Conditions: ‘There Simply Isn’t the Commissioning Risk’",
+      "when": "2 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/proper-content-shuts-down-market-1236800633/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Korea’s Lotte Cinema-Megabox Merger Collapses as JoongAng Group’s Financial Crisis Deepens",
+      "when": "2 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/korea-lotte-cinema-megabox-merger-collapses-joongang-crisis-1236800622/"
+    },
     {
       "cat": "Film/TV",
       "title": "Nagraj Manjule’s ‘Khashaba’ Unveils Teaser, Worldwide Release Date From Jio Studios (EXCLUSIVE)",
@@ -97,20 +111,6 @@
       "when": "2 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/awards/awards/oscars-officer-teni-melidonian-exits-ampas-1236800583/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Josh Gad to Join Margot Robbie and Bradley Cooper’s ‘Ocean’s’ Prequel (EXCLUSIVE)",
-      "when": "2 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/margot-robbie-bradley-cooper-oceans-prequel-josh-gad-1236799715/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Rosalía’s Brilliant ‘Lux’ Tour Brings Cross-Disciplinary Delight and Splendor to L.A.’s Kia Forum: Concert Review",
-      "when": "2 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/concert-reviews/rosalia-tour-concert-review-forum-lux-1236799736/"
     },
     {
       "cat": "Trek/Wars",
