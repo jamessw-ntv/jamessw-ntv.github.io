@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-02",
-    "fetched": "2026-07-02T13:01:56+00:00",
+    "fetched": "2026-07-02T15:22:33+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 19
+      "temp": 8,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 18
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 11,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
-        "rain": 100
-      },
-      {
-        "day": "Fri",
         "min": 7,
         "max": 11,
         "icon": "🌦️",
@@ -37,7 +29,15 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 90
+        "rain": 82
+      },
+      {
+        "day": "Sun",
+        "min": 4,
+        "max": 12,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88778.0,
-        "pct": 4.41
+        "price": 88757.0,
+        "pct": 1.46
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2399.01,
-        "pct": 5.23
+        "price": 2445.69,
+        "pct": 3.84
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Bryan Fuller’s ‘Dust Bunny’ Leads Fangoria Chainsaw Awards 2026 Nominees (EXCLUSIVE)",
+      "title": "Questlove Teams Up With North Road for Digital Talk Show ‘The Next Move’",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/awards/news/fangoria-chainsaw-awards-2026-nominees-dust-bunny-1236799587/"
+      "url": "https://variety.com/2026/tv/news/questlove-north-road-talk-show-the-next-move-1236800361/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Your Name,’ ‘Ghost in the Shell 2’ Lead Disney+ and Anime Limited’s U.K., France Film Deal as Animayhem Returns (EXCLUSIVE)",
+      "title": "Studiocanal Unveils Teaser for ‘Les Miserables,’ Fred Cavayé’s Sweeping Take on Victor Hugo’s Classic Novel Starring Vincent Lindon and Tahar Rahim",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/your-name-ghost-in-the-shell-2-disney-anime-limited-uk-france-deal-1236800605/"
+      "url": "https://variety.com/2026/film/global/studiocanal-teaser-les-miserables-fred-cavaye-victor-hugo-1236800839/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Doctor’ Donald Trump Posts AI Video Dragging Rosie O’Donnell, Whoopi Goldberg, Robert De Niro and More for Suffering From ‘Trump Derangement Syndrome’",
+      "title": "Peyton Manning’s Omaha Productions Builds Line-Up Tied to Women’s Sports",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/dr-trump-fake-ai-video-trump-derangement-syndrome-rosie-odonnell-whoopi-goldberg-robert-de-niro-1236800663/"
+      "url": "https://variety.com/2026/tv/news/omaha-productions-womens-sports-peyton-manning-1236800007/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bad Bunny, ‘Despacito’ and the End of English as Pop’s Global Currency: Manuel Abud on Latin Music’s Transformation",
+      "title": "Gary Glitter Charged With ‘Historic’ Sexual Offenses, Including Alleged Intercourse With Girl Under 13 Years Old",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/bad-bunny-despacito-latin-music-manuel-abud-golden-melody-festival-1236800767/"
+      "url": "https://variety.com/2026/music/global/gary-glitter-charged-historic-sexual-offenses-girl-under-13-1236800827/"
     },
     {
       "cat": "Trek/Wars",
