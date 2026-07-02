@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-02",
-    "fetched": "2026-07-02T15:22:33+00:00",
+    "fetched": "2026-07-02T17:57:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 8,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 18
+      "wind": 21
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88757.0,
-        "pct": 1.46
+        "price": 89115.0,
+        "pct": 2.25
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2445.69,
-        "pct": 3.84
+        "price": 2451.3,
+        "pct": 4.3
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Questlove Teams Up With North Road for Digital Talk Show ‘The Next Move’",
+      "title": "‘Chicago PD’ Star LaRoyce Hawkins to Exit Series in Season 14",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/questlove-north-road-talk-show-the-next-move-1236800361/"
+      "url": "https://variety.com/2026/tv/news/chicago-pd-laroyce-hawkins-exit-season-14-1236800914/"
     },
     {
       "cat": "Film/TV",
-      "title": "Studiocanal Unveils Teaser for ‘Les Miserables,’ Fred Cavayé’s Sweeping Take on Victor Hugo’s Classic Novel Starring Vincent Lindon and Tahar Rahim",
+      "title": "Taylor Swift and Travis Kelce Donated $26 Million to Charities Ahead of Wedding",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/studiocanal-teaser-les-miserables-fred-cavaye-victor-hugo-1236800839/"
+      "url": "https://variety.com/2026/music/news/taylor-swift-travis-kelce-donate-26-million-charity-wedding-1236800905/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘Monopoly: Star Wars Heroes and Villains’ Is a Fun Spin on a Classic Boardgame",
+      "when": "2 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/review-monopoly-star-wars-heroes-and-villains-is-a-fun-spin-on-a-classic-boardgame.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Peyton Manning’s Omaha Productions Builds Line-Up Tied to Women’s Sports",
+      "title": "Crunchyroll Founder Launches AniBiz, New Global Anime Licensing Platform With Offerings From Aniplex, Toei and More Top IP Holders (EXCLUSIVE)",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/omaha-productions-womens-sports-peyton-manning-1236800007/"
+      "url": "https://variety.com/2026/tv/news/crunchyroll-founder-new-anime-website-anibiz-1236800890/"
     },
     {
       "cat": "Film/TV",
-      "title": "Gary Glitter Charged With ‘Historic’ Sexual Offenses, Including Alleged Intercourse With Girl Under 13 Years Old",
+      "title": "‘Dutton Ranch’ Season Finale Sneak Peek: Watch Rip Punch a Dude Who Foolishly Puts His Hands on Beth (EXCLUSIVE)",
       "when": "2 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/global/gary-glitter-charged-historic-sexual-offenses-girl-under-13-1236800827/"
+      "url": "https://variety.com/2026/tv/news/dutton-ranch-season-finale-preview-rip-punches-guy-beth-1236799670/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "1 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/the-ninth-jedi-spin-off-animated-series-to-debut-first-trailer-tomorrow.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘Rogue One: Saw Gerrera’ Manages to Plumb New Depths of the Rebel Extremist",
-      "when": "1 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/review-rogue-one-saw-gerrera-manages-to-plumb-new-depths-of-the-rebel-extremist.html"
     },
     {
       "cat": "Games",
