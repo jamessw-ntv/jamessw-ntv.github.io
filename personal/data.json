@@ -3,25 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-03",
-    "fetched": "2026-07-03T07:29:53+00:00",
+    "fetched": "2026-07-03T10:44:56+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 17
+      "temp": 9,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
         "min": 7,
-        "max": 11,
+        "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 100
+        "rain": 99
       },
       {
         "day": "Sat",
@@ -29,12 +29,12 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 90
+        "rain": 94
       },
       {
         "day": "Sun",
         "min": 4,
-        "max": 11,
+        "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 4
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88778.0,
-        "pct": 1.8
+        "price": 89010.0,
+        "pct": 0.38
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2469.31,
-        "pct": 5.4
+        "price": 2504.59,
+        "pct": 5.09
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘My Indian Boyfriend: The Golden Mile’ Lands RFT Films for U.K. and Ireland Theatrical Distribution (EXCLUSIVE)",
+      "title": "Spain’s SETT, South Africa’s KAG Launch $28.5 Million Audiovisual Venture",
       "when": "3 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/my-indian-boyfriend-golden-mile-uk-ireland-rft-films-1236801248/"
+      "url": "https://variety.com/2026/global/markets-festivals/spain-sett-south-africa-kag-joint-investment-1236801260/"
     },
     {
       "cat": "Film/TV",
-      "title": "U.K. Culture Secretary Lisa Nandy Quits Elon Musk’s X Over ‘Abuse and Misinformation’",
+      "title": "Wes Anderson, Bill Murray Tease Western Project at Cinema Paradiso Event at Paris’ Louvre",
       "when": "3 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/lisa-nandy-quits-x-uk-culture-secretary-1236801244/"
+      "url": "https://variety.com/2026/film/global/wes-anderson-bill-murray-western-cinema-paradiso-mk2-louvre-1236800900/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Brothers for Life,’ ‘Thousand Dollar Baby’ Lead Skyline Media, Galaxy Play’s International Sales Slate (EXCLUSIVE)",
+      "title": "Peter Mullan, Rebecca Lucy Taylor, Iwan Rheon to Star in Celyn Jones’ Next Feature ‘Mountain’ (EXCLUSIVE)",
       "when": "3 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/brothers-for-life-thousand-dollar-baby-skyline-galaxy-play-1236801240/"
+      "url": "https://variety.com/2026/film/global/peter-mullan-iwan-rheon-celyn-jones-mountain-film-1236801278/"
     },
     {
       "cat": "Film/TV",
-      "title": "AI-Created Indian Musical Microdrama ‘Mohini – Khud Se Pyaar’ Unveils Debut Track ‘Angaat Aalay Ka’ (EXCLUSIVE)",
+      "title": "Venice Classics to Feature Roberto Rossellini’s ‘Journey to Italy,’ Roger Corman’s ‘The Wild Angels’ and Dev Benegal’s ‘English, August’",
       "when": "3 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ai-indian-musical-microdrama-mohini-debut-track-1236800841/"
+      "url": "https://variety.com/2026/film/festivals/venice-classics-roberto-rossellini-to-italy-roger-corman-1236801267/"
     },
     {
       "cat": "Trek/Wars",
