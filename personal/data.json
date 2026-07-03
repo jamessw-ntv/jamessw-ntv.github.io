@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-03",
-    "fetched": "2026-07-03T19:38:58+00:00",
+    "fetched": "2026-07-03T21:15:36+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89592.0,
-        "pct": 0.78
+        "price": 90544.0,
+        "pct": 1.81
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2514.98,
-        "pct": 2.53
+        "price": 2550.79,
+        "pct": 3.63
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Prince William Joins ‘New Heights’ Podcast on Taylor Swift and Travis Kelce’s Wedding Day",
+      "when": "3 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/prince-william-new-heights-taylor-swift-travis-kelce-1236801557/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "22 Best Movies New to Streaming in July: ‘Project Hail Mary,’ ‘Devil Wears Prada 2,’ ‘The Drama,’ ‘Super Mario Galaxy Movie’ and More",
+      "when": "3 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/lists/best-movies-streaming-july-2026/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "AI ‘Organisms’ Come Alive in Kuala Lumpur as Dutch Artist Unveils Immersive Show",
+      "when": "3 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/digital/news/algorithmic-organisms-2-0-opens-kuala-lumpur-1236801509/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Kjell Nilsson, Who Played Lord Humungus in ‘Mad Max 2: The Road Warrior’, Dies at 76",
       "when": "3 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/obituaries-people-news/kjell-nilsson-dead-lord-humungus-mad-max-2-road-warrior-1236801512/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Dustin Hoffman Emotionally Accepts Karlovy Vary Award, Says Filmmaking Makes Him ‘Feel Alive’: ‘Grateful to Have Had the Opportunity to Do What I Love’",
-      "when": "3 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/dustin-hoffman-karlovy-vary-award-maggie-gyllenhaal-1236801477/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Donald Trump’s Great American State Fair Postponed Due to Extreme Heat",
-      "when": "3 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/politics/news/donald-trump-great-american-state-fair-postponed-weather-1236801505/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Strictly Business From Cannes Lions: NBCUniversal, IBM, State Farm, Autodesk and Coinbase Leaders on Marketplace Trends, AI and Reaching Consumers",
-      "when": "3 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/cannes-lions-nbcuniversal-ibm-variety-strictly-business-1236801488/"
     },
     {
       "cat": "Trek/Wars",
