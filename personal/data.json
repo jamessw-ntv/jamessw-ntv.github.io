@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-03",
-    "fetched": "2026-07-03T13:01:05+00:00",
+    "fetched": "2026-07-03T15:15:33+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 10
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
         "min": 7,
-        "max": 12,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 99
-      },
-      {
-        "day": "Sat",
-        "min": 6,
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 94
+        "rain": 95
       },
       {
         "day": "Sun",
-        "min": 4,
+        "min": 5,
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 4
+        "rain": 2
+      },
+      {
+        "day": "Mon",
+        "min": 2,
+        "max": 13,
+        "icon": "☀️",
+        "desc": "Clear",
+        "rain": 0
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89224.0,
-        "pct": 0.6
+        "price": 89628.0,
+        "pct": 1.06
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2499.4,
-        "pct": 4.27
+        "price": 2508.72,
+        "pct": 2.74
       }
     ]
   },
   "releases": [
     {
-      "cat": "Film/TV",
-      "title": "‘Power Book III: Raising Kanan’ Introduces Young [SPOILER], Character to Appear in ‘Power: Origins’",
+      "cat": "Trek/Wars",
+      "title": "Paz Vizsla – ‘Star Wars’ Character Spotlight",
       "when": "3 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/power-book-iii-raising-kanan-jarita-power-origins-1236801042/"
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/paz-vizsla-star-wars-character-spotlight.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Cannes Winner Diego Céspedes Preps ‘Wild’ Second Feature, ‘The Case of the Boy Who Lost His Heart’ (EXCLUSIVE)",
+      "title": "Diljit Dosanjh’s ‘Satluj’, Formerly ‘Punjab ’95’ That Was Pulled From Toronto, Streams Uncut on ZEE5 Global: ‘This Is the Complete Film, Without Any Cuts or Compromises’",
       "when": "3 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/diego-cespedes-preps-the-case-of-the-boy-who-lost-his-heart-1236790602/"
+      "url": "https://variety.com/2026/tv/news/diljit-dosanjh-satluj-punjab-95-uncut-zee5-global-1236801418/"
     },
     {
       "cat": "Film/TV",
-      "title": "Laura Jackson Returns to Host CNN’s Global Culture Show ‘Seasons’ (EXCLUSIVE)",
+      "title": "‘Mary Oliver: Saved by the Beauty of the World’ Review: A Portrait of America’s Favorite Poet That Reckons With Her Popularity and Her Privacy",
       "when": "3 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/laura-jackson-returns-host-cnn-global-culture-show-seasons-1236801364/"
+      "url": "https://variety.com/2026/film/reviews/mary-oliver-saved-by-the-beauty-of-the-world-review-1236800644/"
     },
     {
       "cat": "Film/TV",
-      "title": "TAICCA, MoMI Expand Partnership for Taiwanese Immersive Content in New York – Global Bulletin",
+      "title": "Morocco Bets on Hollywood With $25 Million Film Hub in ‘Gladiator 2’ Location Ouarzazate",
       "when": "3 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/taicca-momi-skip-city-kinetec-biff-afa-dean-global-bulletin-1236801358/"
+      "url": "https://variety.com/2026/film/global/morocco-cinema-city-studios-ouarzazate-gladiator-2-1236801384/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Busan, Palm Springs Selection ‘Max, Min & Meowzaki’ Sets India Theatrical Release With Platoon One Films (EXCLUSIVE)",
+      "when": "3 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/max-min-meowzaki-india-release-platoon-one-1236801373/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "3 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/review-monopoly-star-wars-heroes-and-villains-is-a-fun-spin-on-a-classic-boardgame.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘The Art of Star Wars: Andor’ Uncovers New Secrets Behind the Acclaimed Series",
-      "when": "3 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/the-art-of-star-wars-andor-uncovers-new-secrets-behind-the-acclaimed-series.html"
     },
     {
       "cat": "Games",
