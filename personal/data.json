@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-03",
-    "fetched": "2026-07-03T03:51:57+00:00",
+    "fetched": "2026-07-03T07:29:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 19
+      "temp": 10,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 17
     },
     "days": [
       {
@@ -72,52 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88415.0,
-        "pct": 0.02
+        "price": 88778.0,
+        "pct": 1.8
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2456.81,
-        "pct": 3.41
+        "price": 2469.31,
+        "pct": 5.4
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘My Indian Boyfriend: The Golden Mile’ Lands RFT Films for U.K. and Ireland Theatrical Distribution (EXCLUSIVE)",
+      "when": "3 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/my-indian-boyfriend-golden-mile-uk-ireland-rft-films-1236801248/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "U.K. Culture Secretary Lisa Nandy Quits Elon Musk’s X Over ‘Abuse and Misinformation’",
+      "when": "3 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/digital/news/lisa-nandy-quits-x-uk-culture-secretary-1236801244/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Brothers for Life,’ ‘Thousand Dollar Baby’ Lead Skyline Media, Galaxy Play’s International Sales Slate (EXCLUSIVE)",
+      "when": "3 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/brothers-for-life-thousand-dollar-baby-skyline-galaxy-play-1236801240/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "AI-Created Indian Musical Microdrama ‘Mohini – Khud Se Pyaar’ Unveils Debut Track ‘Angaat Aalay Ka’ (EXCLUSIVE)",
+      "when": "3 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/ai-indian-musical-microdrama-mohini-debut-track-1236800841/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars Visions: The Ninth Jedi’ Trailer Officially Revealed, All Episodes Streaming on August 5",
       "when": "3 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-the-ninth-jedi-trailer-officially-revealed-all-episodes-streaming-august-5.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "War Drama ‘Peluru Senja: The Ghost & the Gun’ Locks Malaysia Theatrical Date, Drops Trailer (EXCLUSIVE)",
-      "when": "3 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/peluru-senja-malaysia-release-date-trailer-1236800826/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jodie Foster Says Brad Pitt’s ‘F1’ Seemed Like It Was Made by AI and Written by a Computer: ‘Wasn’t It?’",
-      "when": "2 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jodie-foster-brad-pitt-f1-ai-written-by-computer-1236801120/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Moritz Borman, Producer of ‘Terminator’ Movies and Oliver Stone Films, Dies at 71",
-      "when": "2 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/moritz-borman-dead-terminator-1236801160/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "The Best Horror Movies of 2026 (So Far), Ranked: ‘Obsession,’ ‘Backrooms,’ ‘Hokum’ and More",
-      "when": "2 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/lists/best-horror-movies-2026-ranked/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
