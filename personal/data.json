@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-04",
-    "fetched": "2026-07-04T09:27:50+00:00",
+    "fetched": "2026-07-04T11:39:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 7
+      "temp": 8,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 10
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 92
+        "rain": 100
       },
       {
         "day": "Sun",
@@ -29,7 +29,7 @@
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 6
       },
       {
         "day": "Mon",
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89902.0,
-        "pct": 1.29
+        "price": 90009.0,
+        "pct": 0.99
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2532.41,
-        "pct": 1.93
+        "price": 2533.06,
+        "pct": 1.03
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Karlovy Vary Focuses on Next Generation of European Filmmakers With Future Frames Program",
+      "when": "4 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/karlovy-vary-future-frames-1236801671/"
+    },
     {
       "cat": "Film/TV",
       "title": "Šimon Holý Turns Drag, Family and Small-Town Life Into a Tender Political Statement in ‘Chica Checa’",
@@ -104,13 +111,6 @@
       "when": "4 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/rob-reiner-trump-george-washington-larry-david-hbo-show-1236801101/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Dutton Ranch’ Star Juan Pablo Raba Has a Wild Theory About [SPOILER]’s Murder: ‘There’s a Lot of Questions to Be Answered’",
-      "when": "4 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/features/dutton-ranch-joaquin-didnt-shoot-rob-will-1236801208/"
     },
     {
       "cat": "Trek/Wars",
