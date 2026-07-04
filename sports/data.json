@@ -3,7 +3,7 @@
     "title": "Multi-Sport Dashboard",
     "updated": "2026-07-04",
     "note": "Static snapshot. World Cup results through 24 June (Groups A, B and C complete; remaining groups decide 25 to 27 June); AFL through Round 15; NRL through Round 16; Origin series level 1-1, decider 8 July. AFL and NRL for/against and differential figures pending re-verification.",
-    "fetched": "2026-07-04T09:27:24+00:00"
+    "fetched": "2026-07-04T13:47:50+00:00"
   },
   "nextup": {
     "mine": [
@@ -2550,6 +2550,18 @@
       ],
       [
         10,
+        "Carlton",
+        16,
+        8,
+        8,
+        0,
+        1328,
+        1384,
+        96.0,
+        32
+      ],
+      [
+        11,
         "North Melbourne",
         15,
         8,
@@ -2561,7 +2573,7 @@
         32
       ],
       [
-        11,
+        12,
         "GWS GIANTS",
         16,
         7,
@@ -2573,7 +2585,7 @@
         28
       ],
       [
-        12,
+        13,
         "Gold Coast SUNS",
         16,
         7,
@@ -2582,18 +2594,6 @@
         1457,
         1447,
         100.7,
-        28
-      ],
-      [
-        13,
-        "Carlton",
-        15,
-        7,
-        8,
-        0,
-        1254,
-        1312,
-        95.6,
         28
       ],
       [
@@ -2635,13 +2635,13 @@
       [
         17,
         "Richmond",
-        15,
+        16,
         2,
-        13,
+        14,
         0,
-        987,
-        1598,
-        61.8,
+        1059,
+        1672,
+        63.3,
         8
       ],
       [
@@ -2659,10 +2659,10 @@
     ],
     "focus": {
       "team": "Carlton",
-      "pos": 13,
-      "record": "7–8",
-      "pct": 95.6,
-      "pts": 28,
+      "pos": 10,
+      "record": "8–8",
+      "pct": 96.0,
+      "pts": 32,
       "note": "Five wins in a row under interim coach Josh Fraser (Voss departed after Round 9 at 1-8). The 'Blue tsunami' has revived a dead season. Finals are a long shot but mathematically alive.",
       "form": [
         "W",

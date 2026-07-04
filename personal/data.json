@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-04",
-    "fetched": "2026-07-04T11:39:09+00:00",
+    "fetched": "2026-07-04T13:48:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 10
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 7
     },
     "days": [
       {
@@ -25,7 +25,7 @@
       },
       {
         "day": "Sun",
-        "min": 5,
+        "min": 6,
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90009.0,
-        "pct": 0.99
+        "price": 90037.0,
+        "pct": 0.67
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2533.06,
-        "pct": 1.03
+        "price": 2537.43,
+        "pct": 0.82
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Sweating It Out: The Best Home Saunas to Try Out The Latest Wellness Craze",
+      "when": "4 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/best-home-saunas-buy-online-1235955729/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Watch Mark Ruffalo, Sarah Jessica Parker, Margaret Atwood, Judd Apatow and More Give Instructions to Combat Trump’s Tyranny on July 4th",
+      "when": "4 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/politics/news/july-4-trump-warning-mark-ruffalo-sarah-jessica-parker-margaret-atwood-judd-apatow-1236801648/"
+    },
     {
       "cat": "Film/TV",
       "title": "Karlovy Vary Focuses on Next Generation of European Filmmakers With Future Frames Program",
@@ -97,20 +111,6 @@
       "when": "4 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/simon-holy-chica-checa-1236793680/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Celina Vikram Jaitly Returns to the Big Screen as Sister Nibedita, the Irish-Born Disciple of Swami Vivekananda (EXCLUSIVE)",
-      "when": "4 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/celina-jaitly-sister-nibedita-ram-kamal-mukherjee-1236801458/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Rob Reiner Gets the ‘Last Laugh’ Against Trump in Secret Final Role as George Washington in Larry David’s HBO Show",
-      "when": "4 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/rob-reiner-trump-george-washington-larry-david-hbo-show-1236801101/"
     },
     {
       "cat": "Trek/Wars",
