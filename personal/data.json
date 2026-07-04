@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-04",
-    "fetched": "2026-07-04T15:12:33+00:00",
+    "fetched": "2026-07-04T17:13:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 6
+      "temp": 6,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 8
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90484.0,
-        "pct": 0.95
+        "price": 90563.0,
+        "pct": 1.05
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2572.04,
-        "pct": 2.52
+        "price": 2565.03,
+        "pct": 2.6
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Dustin Hoffman Says America Is as ‘Divided’ as During Vietnam War … and Jokes He Is Still Trying to Figure Out Who He Is",
+      "title": "Maggie Gyllenhaal on Subverting Female Stereotypes and Why She Never Set Out to Break Taboos: ‘I’m Just Trying to Make Space for My Own Experience to Be Expressed’",
       "when": "4 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/dustin-hoffman-america-divided-vietnam-war-1236801687/"
+      "url": "https://variety.com/2026/film/festivals/karlovy-vary-maggie-gyllenhaal-1236801706/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sweating It Out: The Best Home Saunas to Try Out The Latest Wellness Craze",
+      "title": "How Taylor Swift’s Wedding Puts a Cap on Her 20 Years of Writing About Marriage, From ‘Love Story’ to the Bitter ‘You’re Losing Me’ to the Triumphant ‘Eldest Daughter’",
       "when": "4 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/best-home-saunas-buy-online-1235955729/"
+      "url": "https://variety.com/2026/music/columns/taylor-swift-wedding-lyrical-attitudes-journey-matrimony-1236801727/"
     },
     {
       "cat": "Film/TV",
-      "title": "Watch Mark Ruffalo, Sarah Jessica Parker, Margaret Atwood, Judd Apatow and More Give Instructions to Combat Trump’s Tyranny on July 4th",
+      "title": "Beyoncé Drops Unreleased Song ‘Morning Dew (Donk)’ Ahead of ‘B’Day’ 20th Anniversary Reissue",
       "when": "4 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/news/july-4-trump-warning-mark-ruffalo-sarah-jessica-parker-margaret-atwood-judd-apatow-1236801648/"
+      "url": "https://variety.com/2026/music/news/beyonce-morning-dew-donk-bday-20th-anniversary-reissue-1236801739/"
     },
     {
       "cat": "Film/TV",
-      "title": "Karlovy Vary Focuses on Next Generation of European Filmmakers With Future Frames Program",
+      "title": "Box Office: ‘Minions & Monsters’ Scares Up $16 Million on Friday",
       "when": "4 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/karlovy-vary-future-frames-1236801671/"
+      "url": "https://variety.com/2026/film/news/box-office-minions-and-monsters-supergirl-toy-story-5-1236801622/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
