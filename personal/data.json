@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-07-03",
-    "fetched": "2026-07-03T23:12:10+00:00",
+    "updated": "2026-07-04",
+    "fetched": "2026-07-04T03:44:12+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 11,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 9
+      "wind": 14
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 100
+        "rain": 92
       },
       {
         "day": "Sun",
@@ -29,7 +29,7 @@
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 1
+        "rain": 2
       },
       {
         "day": "Mon",
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90178.0,
-        "pct": 1.79
+        "price": 90416.0,
+        "pct": 2.24
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2533.05,
-        "pct": 3.63
+        "price": 2530.89,
+        "pct": 3.1
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Dutton Ranch’ Season 1 Finale: [SPOILER] Is Murdered, [SPOILER] Is a Fentanyl Tycoon and [SPOILER] Is Kidnapped by the Cartel in Wild Cliffhanger",
-      "when": "3 Jul",
+      "title": "Rob Reiner Gets the ‘Last Laugh’ Against Trump in Secret Final Role as George Washington in Larry David’s HBO Show",
+      "when": "4 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/recaps/dutton-ranch-season-finale-recap-rob-will-killed-1236796018/"
+      "url": "https://variety.com/2026/tv/news/rob-reiner-trump-george-washington-larry-david-hbo-show-1236801101/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Solo Leveling’ Movie ‘Beyond the System’ From Crunchyroll and Aniplex Now in Production",
-      "when": "3 Jul",
+      "title": "‘Dutton Ranch’ Star Juan Pablo Raba Has a Wild Theory About [SPOILER]’s Murder: ‘There’s a Lot of Questions to Be Answered’",
+      "when": "4 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/solo-leveling-movie-beyond-the-system-in-production-1236801606/"
+      "url": "https://variety.com/2026/tv/features/dutton-ranch-joaquin-didnt-shoot-rob-will-1236801208/"
     },
     {
       "cat": "Film/TV",
-      "title": "Prince William Joins ‘New Heights’ Podcast on Taylor Swift and Travis Kelce’s Wedding Day",
+      "title": "Adam Sandler Officiated Taylor Swift and Travis Kelce’s Wedding",
       "when": "3 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/prince-william-new-heights-taylor-swift-travis-kelce-1236801557/"
+      "url": "https://variety.com/2026/film/news/adam-sandler-officiated-taylor-swift-travis-kelces-wedding-1236801628/"
     },
     {
       "cat": "Film/TV",
-      "title": "22 Best Movies New to Streaming in July: ‘Project Hail Mary,’ ‘Devil Wears Prada 2,’ ‘The Drama,’ ‘Super Mario Galaxy Movie’ and More",
+      "title": "Sienna Spiro’s ‘The Visitor’ Introduces an Electrifying Voice That’s Here to Stay: Album Review",
       "when": "3 Jul",
       "source": "Variety",
-      "url": "https://variety.com/lists/best-movies-streaming-july-2026/"
+      "url": "https://variety.com/2026/music/album-reviews/sienna-spiro-visitor-album-review-1236801598/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘The Ninth Jedi’ Creators Discuss Expanding the Story Into a Full Series",
+      "when": "3 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/the-ninth-jedi-creators-discuss-expanding-the-story-into-a-full-series.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "3 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-the-ninth-jedi-trailer-officially-revealed-all-episodes-streaming-august-5.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘Monopoly: Star Wars Heroes and Villains’ Is a Fun Spin on a Classic Boardgame",
-      "when": "3 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/review-monopoly-star-wars-heroes-and-villains-is-a-fun-spin-on-a-classic-boardgame.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
