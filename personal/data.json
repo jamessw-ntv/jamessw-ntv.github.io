@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-04",
-    "fetched": "2026-07-04T17:13:47+00:00",
+    "fetched": "2026-07-04T19:23:45+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90563.0,
-        "pct": 1.05
+        "price": 91077.0,
+        "pct": 1.62
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2565.03,
-        "pct": 2.6
+        "price": 2581.99,
+        "pct": 2.71
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "‘I Will Find You’ Star Britt Lower on Rachel’s ‘Spidey Sense’ and Why [SPOILER] as the Murderous Villain Was ‘Perfect Casting’",
+      "when": "4 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/streaming/columns/i-will-find-you-britt-lower-rachel-netflix-milo-ventimiglia-1236801455/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Inside Taylor Swift and Travis Kelce’s Wedding: Everything We Learned About the Star-Studded Ceremony at Madison Square Garden",
+      "when": "4 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/taylor-swift-travis-kelce-wedding-guest-gifts-stevie-nicks-1236801759/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Hollywood Movies Have Always Been About America. On the 250th July 4, Are They Still?",
+      "when": "4 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/columns/hollywood-movies-are-about-america-but-are-they-still-1236801526/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Galactic Racer’ Developers Confirm Game Will Receive Post-Launch DLC",
+      "when": "4 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-galactic-racer-developers-confirm-game-will-receive-post-launch-dlc.html"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Maggie Gyllenhaal on Subverting Female Stereotypes and Why She Never Set Out to Break Taboos: ‘I’m Just Trying to Make Space for My Own Experience to Be Expressed’",
       "when": "4 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/festivals/karlovy-vary-maggie-gyllenhaal-1236801706/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How Taylor Swift’s Wedding Puts a Cap on Her 20 Years of Writing About Marriage, From ‘Love Story’ to the Bitter ‘You’re Losing Me’ to the Triumphant ‘Eldest Daughter’",
-      "when": "4 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/columns/taylor-swift-wedding-lyrical-attitudes-journey-matrimony-1236801727/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Beyoncé Drops Unreleased Song ‘Morning Dew (Donk)’ Ahead of ‘B’Day’ 20th Anniversary Reissue",
-      "when": "4 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/beyonce-morning-dew-donk-bday-20th-anniversary-reissue-1236801739/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Box Office: ‘Minions & Monsters’ Scares Up $16 Million on Friday",
-      "when": "4 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/box-office-minions-and-monsters-supergirl-toy-story-5-1236801622/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "3 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/paz-vizsla-star-wars-character-spotlight.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars Visions: The Ninth Jedi’ Trailer Officially Revealed, All Episodes Streaming on August 5",
-      "when": "3 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-the-ninth-jedi-trailer-officially-revealed-all-episodes-streaming-august-5.html"
     },
     {
       "cat": "Games",
