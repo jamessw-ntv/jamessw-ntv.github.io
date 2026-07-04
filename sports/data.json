@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "Multi-Sport Dashboard",
-    "updated": "2026-07-03",
+    "updated": "2026-07-04",
     "note": "Static snapshot. World Cup results through 24 June (Groups A, B and C complete; remaining groups decide 25 to 27 June); AFL through Round 15; NRL through Round 16; Origin series level 1-1, decider 8 July. AFL and NRL for/against and differential figures pending re-verification.",
-    "fetched": "2026-07-03T13:00:38+00:00"
+    "fetched": "2026-07-04T06:52:39+00:00"
   },
   "nextup": {
     "mine": [
@@ -2443,13 +2443,13 @@
       [
         1,
         "Fremantle",
-        15,
+        16,
         14,
-        1,
+        2,
         0,
-        1491,
-        1006,
-        148.2,
+        1579,
+        1115,
+        141.6,
         56
       ],
       [
@@ -2467,13 +2467,13 @@
       [
         3,
         "Hawthorn",
-        15,
+        16,
         10,
-        4,
+        5,
         1,
-        1457,
-        1281,
-        113.7,
+        1547,
+        1406,
+        110.0,
         42
       ],
       [
@@ -2502,6 +2502,18 @@
       ],
       [
         6,
+        "Melbourne",
+        16,
+        10,
+        6,
+        0,
+        1555,
+        1463,
+        106.3,
+        40
+      ],
+      [
+        7,
         "Geelong Cats",
         16,
         9,
@@ -2510,18 +2522,6 @@
         1591,
         1359,
         117.1,
-        36
-      ],
-      [
-        7,
-        "Melbourne",
-        15,
-        9,
-        6,
-        0,
-        1430,
-        1373,
-        104.2,
         36
       ],
       [
@@ -2574,6 +2574,18 @@
       ],
       [
         12,
+        "GWS GIANTS",
+        16,
+        7,
+        9,
+        0,
+        1471,
+        1460,
+        100.8,
+        28
+      ],
+      [
+        13,
         "Carlton",
         15,
         7,
@@ -2585,7 +2597,7 @@
         28
       ],
       [
-        13,
+        14,
         "St Kilda",
         15,
         6,
@@ -2594,18 +2606,6 @@
         1334,
         1326,
         100.6,
-        24
-      ],
-      [
-        14,
-        "GWS GIANTS",
-        15,
-        6,
-        9,
-        0,
-        1362,
-        1372,
-        99.3,
         24
       ],
       [
@@ -2659,7 +2659,7 @@
     ],
     "focus": {
       "team": "Carlton",
-      "pos": 12,
+      "pos": 13,
       "record": "7–8",
       "pct": 95.6,
       "pts": 28,
