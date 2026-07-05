@@ -341,6 +341,48 @@
         "",
         "",
         "Round 18 · Sat 11 Jul · MCG"
+      ],
+      [
+        "Collingwood",
+        "A",
+        "",
+        "",
+        "Round 19 · Sat 18 Jul · MCG"
+      ],
+      [
+        "Gold Coast SUNS",
+        "H",
+        "",
+        "",
+        "Round 20 · Sat 25 Jul · Marvel"
+      ],
+      [
+        "Brisbane Lions",
+        "H",
+        "",
+        "",
+        "Round 21 · Sat 1 Aug · Marvel"
+      ],
+      [
+        "St Kilda",
+        "A",
+        "",
+        "",
+        "Round 22 · Sun 9 Aug · Marvel"
+      ],
+      [
+        "Western Bulldogs",
+        "A",
+        "",
+        "",
+        "Round 23 · Marvel"
+      ],
+      [
+        "Fremantle",
+        "H",
+        "",
+        "",
+        "Round 24 · Marvel"
       ]
     ]
   },
@@ -690,9 +732,9 @@
           }
         },
         {
-          "stage": "Rounds 16–23 · Now",
+          "stage": "Rounds 16–24 · Now",
           "title": "Climb into the top 8",
-          "req": "Now 8-8 on 32 points in 10th, four points outside the eight after making it seven wins in a row. Carlton must keep winning and get results elsewhere, and lift a modest 96.0 percentage.",
+          "req": "8-8 on 32 points in 10th, four points outside the eight after seven straight wins. Seven games to climb in. Win-chance below is a model read from current ladder form and venue, not a live market.",
           "odds": 18,
           "status": "current",
           "games": [
@@ -710,12 +752,62 @@
             ],
             [
               "v Hawthorn",
-              "R18 · 11 Jul · MCG",
+              "R18 · Sat 11 Jul · MCG",
               "",
-              "tbd"
+              "tbd",
+              "35%",
+              "model · Hawks favourite, Blues +12.5"
+            ],
+            [
+              "at Collingwood",
+              "R19 · Sat 18 Jul · MCG",
+              "",
+              "tbd",
+              "~45%",
+              "model win chance"
+            ],
+            [
+              "v Gold Coast",
+              "R20 · Sat 25 Jul · Marvel",
+              "",
+              "tbd",
+              "~60%",
+              "model win chance"
+            ],
+            [
+              "v Brisbane Lions",
+              "R21 · Sat 1 Aug · Marvel",
+              "",
+              "tbd",
+              "~38%",
+              "model win chance"
+            ],
+            [
+              "at St Kilda",
+              "R22 · Sun 9 Aug · Marvel",
+              "",
+              "tbd",
+              "~55%",
+              "model win chance"
+            ],
+            [
+              "at Western Bulldogs",
+              "R23 · Marvel",
+              "",
+              "tbd",
+              "~50%",
+              "model win chance"
+            ],
+            [
+              "v Fremantle",
+              "R24 · Marvel",
+              "",
+              "tbd",
+              "~30%",
+              "model win chance"
             ]
           ],
-          "note": "Percentage still needs work: they have to win big, not just win."
+          "note": "Win-chance is our own model (ladder form + home/away), not bookmaker odds: live AFL markets aren't reachable from this build. R18 is anchored to an external model line (Hawthorn favourite, Carlton +12.5). Percentage still needs lifting, so the Blues must win big."
         },
         {
           "stage": "Finals · Week 1",

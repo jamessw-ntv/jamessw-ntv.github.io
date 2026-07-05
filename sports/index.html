@@ -239,6 +239,8 @@
   .gate-game .gr.w{background:rgba(34,197,94,.15);color:var(--green)}
   .gate-game .gr.l{background:rgba(239,68,68,.15);color:var(--red)}
   .gate-game .gr.tbd{background:none;color:var(--yellow);font-weight:800;font-size:11px}
+  .gate-game .gr.odds{background:rgba(234,179,8,.12);color:var(--yellow);font-weight:800;font-size:12px}
+  .gate-game .gm .gm-odds{display:block;color:var(--yellow);font-size:11px;font-weight:600;margin-top:2px;letter-spacing:.01em}
   .gate-tap{font-size:10px;color:var(--yellow);font-weight:700;letter-spacing:.04em;margin-top:6px;display:inline-block}
   .branch-marker{display:flex;align-items:center;gap:10px;margin:2px 0 2px 56px;padding:8px 14px;
     background:linear-gradient(90deg,rgba(234,179,8,.12),transparent);border-left:3px solid var(--yellow);
@@ -505,8 +507,15 @@ function renderPath(elId, path){
     const detailId = elId+'-d'+i;
     const gamesHtml = (g.games||[]).map(gm=>{
       const rc = gm[3]||'tbd';
-      const rdisp = gm[2]!=='' ? gm[2] : 'TBD';
-      return `<div class="gate-game"><div class="gm">${gm[0]}<small>${gm[1]}</small></div><div class="gr ${rc}">${rdisp}</div></div>`;
+      /* optional gm[4] = odds/chance shown in the result slot for an upcoming game;
+         optional gm[5] = small caption under the label (e.g. "model win chance"). */
+      const od = gm[4], cap = gm[5];
+      let rdisp, rcls;
+      if(gm[2]!==''){ rdisp = gm[2]; rcls = rc; }
+      else if(od){ rdisp = od; rcls = 'odds'; }
+      else { rdisp = 'TBD'; rcls = 'tbd'; }
+      const capHtml = cap ? `<span class="gm-odds">${cap}</span>` : '';
+      return `<div class="gate-game"><div class="gm">${gm[0]}<small>${gm[1]}</small>${capHtml}</div><div class="gr ${rcls}">${rdisp}</div></div>`;
     }).join('');
     const noteHtml = g.note ? `<div class="gate-req" style="margin-top:10px;font-style:italic;color:var(--muted)">${g.note}</div>` : '';
     html += `<div class="gate ${g.status}">
