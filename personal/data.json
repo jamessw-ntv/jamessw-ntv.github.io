@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-05",
-    "fetched": "2026-07-05T18:10:09+00:00",
+    "fetched": "2026-07-05T20:19:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 2,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 4
+      "wind": 3
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90209.0,
-        "pct": -0.89
+        "price": 90467.0,
+        "pct": -0.65
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2562.24,
-        "pct": -1.11
+        "price": 2564.71,
+        "pct": -0.46
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Box Office: ‘Obsession’ Surpasses $400 Million Globally",
+      "title": "Tom Holland Thought Christopher Nolan Hated His ‘Odyssey’ Performance on His First Day Filming: ‘I Thought I Was Totally S—-ing the Bed’",
       "when": "5 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/obsession-box-office-milestone-400-million-globally-1236801943/"
+      "url": "https://variety.com/2026/film/news/tom-holland-christopher-nolan-hated-odyssey-performance-1236801979/"
     },
     {
       "cat": "Film/TV",
-      "title": "Box Office: ‘Minions & Monsters’ Nears $100 Million Overseas, ‘Toy Story 5’ Climbs to $764 Million Globally",
+      "title": "Ateez Lands Third No. 1 on Albums Chart With ‘Golden Hour : Part.5’",
       "when": "5 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/box-office-minions-and-monsters-international-success-toy-story-5-milestone-1236801925/"
+      "url": "https://variety.com/2026/music/news/ateez-lands-third-no-1-albums-chart-golden-hour-part-5-1236801984/"
     },
     {
       "cat": "Film/TV",
-      "title": "Anime Expo in Los Angeles Bookends a Boom Year for the Sector and a Growth Spurt for Crunchyroll",
+      "title": "How Filmmaker Tonia Mishiali Tackles Immigration, Patriarchy and Women’s Resilience in ’The Lion at My Back’",
       "when": "5 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/anime-expo-crunchyroll-boom-witch-hat-atelier-1236801809/"
+      "url": "https://variety.com/2026/film/festivals/tonia-mishiali-lion-at-my-back-1236791484/"
     },
     {
       "cat": "Film/TV",
-      "title": "Box Office: ‘Minions & Monsters’ Fizzles Over July 4th Weekend With Franchise-Low $61 Million Debut, ‘Supergirl’ Suffers Brutal 74% Drop",
+      "title": "Kristina Grozeva and Petar Valchanov Probe Corruption and Pro-Russia Nostalgia in ‘Black Money for White Nights’",
       "when": "5 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/minions-and-monsters-box-office-franchise-worst-start-supergirl-brutal-drop-1236801905/"
+      "url": "https://variety.com/2026/film/festivals/black-money-for-white-nights-1236795831/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
