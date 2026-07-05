@@ -286,7 +286,6 @@
 <div class="sportbar">
   <div class="sp-wrap">
     <button class="active" data-sport="next">⏭ Next Up</button>
-    <button data-sport="wc">⚽ World Cup</button>
     <button data-sport="afl">🏉 AFL</button>
     <button data-sport="nrl">🏈 NRL</button>
     <span id="updStamp" class="upd-stamp"></span>
@@ -303,7 +302,6 @@
       <div class="eyebrow">Across all your sports</div>
       <h1>Next <span>Up</span></h1>
       <div class="hero-meta">
-        <div>⚽ <b>Socceroos</b></div>
         <div>🏉 <b>Carlton</b></div>
         <div>🏈 <b>Storm</b></div>
         <div>QLD · <b>Origin</b></div>
@@ -311,97 +309,8 @@
     </div>
   </header>
   <main class="sp-main" id="nextUpBox"></main>
-  <footer class="sp-foot"><div class="sp-wrap">Fixtures current 5 Jul 2026, all times AEST. The World Cup is into the knockout rounds; footy is shown through the latest completed games.</div></footer>
+  <footer class="sp-foot"><div class="sp-wrap">Fixtures current 5 Jul 2026, all times AEST. Footy is shown through the latest completed games.</div></footer>
 </div><!-- /sp-next -->
-
-<!-- ===================== WORLD CUP PANEL ===================== -->
-<div class="sport-panel" id="sp-wc">
-  <header class="hero">
-    <div class="sp-wrap">
-      <div class="eyebrow">United States · Canada · Mexico</div>
-      <h1>FIFA World Cup <span>2026</span></h1>
-      <div class="hero-meta">
-        <div><b>48</b> teams</div>
-        <div><b>104</b> matches</div>
-        <div><b>16</b> stadiums</div>
-        <div>11 Jun → <b>19 Jul</b></div>
-        <div>Final · <b>New York / New Jersey</b></div>
-      </div>
-    </div>
-  </header>
-  <nav class="tabs">
-    <div class="sp-wrap">
-      <button class="active" data-t="groups">Groups &amp; Tables</button>
-      <button data-t="path">Socceroos Path</button>
-      <button data-t="schedule">Full Schedule</button>
-      <button data-t="upcoming">Upcoming Odds</button>
-      <button data-t="third">3rd-Place Race</button>
-      <button data-t="bracket">Knockout Bracket</button>
-      <button data-t="odds">Title Odds</button>
-    </div>
-  </nav>
-  <main class="sp-main">
-    <section id="groups" class="active">
-      <div class="sec-head">
-        <h2>Group Stage</h2>
-        <p>Top 2 of each group advance, plus the 8 best third-placed teams. Green bar = advanced from the group. All 12 groups are complete. The eight third-placed qualifiers are Congo DR, Sweden, Ecuador, Ghana, Bosnia, Algeria, Paraguay and Senegal; Iran, Korea Republic, Scotland and Uruguay missed out. Australia went through as Group D runners-up, then lost to Egypt in the Round of 32. See the Knockout Bracket for the live draw.</p>
-      </div>
-      <div class="group-grid" id="groupGrid"></div>
-    </section>
-    <section id="path">
-      <div class="sec-head">
-        <h2>Socceroos Path to Glory</h2>
-        <p>Every gate Australia must pass to go as far as possible. Tap a gate to see the specific games. Percentages are rough survival odds at each stage, compounding as you go deeper.</p>
-      </div>
-      <div id="pathBox-wc"></div>
-    </section>
-    <section id="schedule">
-      <div class="sec-head">
-        <h2>Match Schedule</h2>
-        <p>All 104 fixtures, day by day. Results in green where the match has been played.</p>
-      </div>
-      <div id="schedList"></div>
-    </section>
-    <section id="upcoming">
-      <div class="sec-head">
-        <h2>Upcoming Match Odds</h2>
-        <p>Win / Draw / Win in decimal (dollar) odds, with Melbourne kickoff times. A $1 stake returns that amount, e.g. $1.61 returns $1.61 total. Lower = more likely. Hand-entered from major books on 5 July for the Round of 16 (some converted from American lines).</p>
-      </div>
-      <div id="upcomingList"></div>
-    </section>
-    <section id="third">
-      <div class="sec-head">
-        <h2>Third-Place Race</h2>
-        <p>The expanded format means the <b>8 best third-placed teams</b> (of 12) advance to the Round of 32. This is the table the big sites bury. Final: the top eight are in, the bottom four are out.</p>
-      </div>
-      <div class="third-wrap" id="thirdTable"></div>
-      <div class="legend">
-        <span><i style="background:var(--green)"></i> Currently in (top 8)</span>
-        <span><i style="background:var(--red)"></i> Currently out</span>
-        <span><i style="background:var(--line)"></i> Group not yet complete</span>
-      </div>
-    </section>
-    <section id="bracket">
-      <div class="sec-head">
-        <h2>Knockout Bracket</h2>
-        <p>Round of 32 through the final. The Round of 32 is complete and the Round of 16 is under way; later rounds fill as winners are decided.</p>
-      </div>
-      <div class="bracket-scroll"><div class="bracket" id="bracketBox"></div></div>
-    </section>
-    <section id="odds">
-      <div class="sec-head">
-        <h2>Title Odds</h2>
-        <p>Outright odds to lift the trophy. Indicative pre/early-tournament American-style lines from major books, they move constantly.</p>
-      </div>
-      <div class="note">Data current through the <b>Round of 32</b>. <b>France</b> are clear favourites ahead of <b>Argentina</b> and <b>Spain</b>, with <b>Brazil, England</b> and <b>Portugal</b> the next tier. <b>Australia</b> were knocked out by <b>Egypt</b> on penalties. Odds shown cover the fourteen teams still alive in the Round of 16.</div>
-      <div class="odds-grid" id="oddsGrid"></div>
-    </section>
-  </main>
-  <footer class="sp-foot">
-    <div class="sp-wrap">Static snapshot, updated <span class="upd-date"></span> · fixtures &amp; results via FIFA / Sky / NBC, odds via BetMGM &amp; FanDuel reporting (early July 2026).<br>
-    For live scores check <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026">fifa.com</a>.</div>
-  </footer>
-</div><!-- /sp-wc -->
 
 <!-- ===================== AFL PANEL ===================== -->
 <div class="sport-panel" id="sp-afl">
@@ -431,11 +340,11 @@
       <div id="aflFocus"></div>
     </section>
     <section id="afl-path">
-      <div class="sec-head"><h2>Carlton: Path to Finals</h2><p>The road from 11th to a premiership. Tap a gate for the games. Carlton's reality: they must first climb into the top 8, which is the steepest gate of all.</p></div>
+      <div class="sec-head"><h2>Carlton: Path to Finals</h2><p>The road from 10th to a premiership. Tap a gate for the games. Carlton's reality: they must first climb into the top 8, which is the steepest gate of all.</p></div>
       <div id="pathBox-afl"></div>
     </section>
     <section id="afl-ladder">
-      <div class="sec-head"><h2>AFL Ladder</h2><p>After the played Round 17 games (two Sunday 5 July games still to come). Green bar = top 8 (finals places). Gold line marks the 8th-place cut. Carlton highlighted. For, against and percentage could not be re-verified from source; a dash marks a figure still pending.</p></div>
+      <div class="sec-head"><h2>AFL Ladder</h2><p>After the played Round 17 games (two Sunday 5 July games still to come). Green bar = top 8 (finals places). Gold line marks the 8th-place cut. Carlton highlighted. Points for and against and percentage are live.</p></div>
       <div class="ladder-wrap" id="aflLadder"></div>
     </section>
     <section id="afl-fixtures">
@@ -483,7 +392,7 @@
       <div id="nrlFocus"></div>
     </section>
     <section id="nrl-ladder">
-      <div class="sec-head"><h2>NRL Ladder</h2><p>After Round 17 (Round 18 is an Origin-week round in progress). Green bar = top 8. Gold line marks the cut. Storm highlighted. Differential and unconfirmed figures could not be re-verified from source and show a dash.</p></div>
+      <div class="sec-head"><h2>NRL Ladder</h2><p>After Round 17 (Round 18, an Origin-week round, in progress). Green bar = top 8. Gold line marks the cut. Storm highlighted. Win/loss is derived from competition points and byes; point differential and the bottom of the table could not be fully re-verified and show a dash.</p></div>
       <div class="ladder-wrap" id="nrlLadder"></div>
     </section>
     <section id="nrl-fixtures">
@@ -506,81 +415,6 @@ async function load(){
     try{ const r = await fetch(url,{cache:"no-store"}); if(r.ok) return [await r.json(), url.split("?")[0]]; }catch(e){}
   }
   throw new Error("Could not load data.json (tried " + RAW + " and same-origin).");
-}
-
-/* ---------- WORLD CUP ---------- */
-function renderWC(wc){
-  /* reset containers that use += so a re-render (refresh button) doesn't duplicate */
-  ['groupGrid','schedList','bracketBox','oddsGrid','upcomingList'].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML='';});
-  /* groups */
-  const gg = document.getElementById('groupGrid');
-  Object.entries(wc.groups).forEach(([g,d])=>{
-    const sorted = [...d.rows].sort((a,b)=> b[7]-a[7] || (b[5]-b[6])-(a[5]-a[6]) || b[5]-a[5]);
-    const rows = sorted.map((r,i)=>{
-      const st = wc.status[r[0]];
-      const badge = st==='q' ? '<span class="badge q">Through</span>' : st==='e' ? '<span class="badge e">Out</span>' : '';
-      return `<tr class="${i<2?'q':''}"><td>${r[0]}${badge}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}-${r[6]}</td><td><b>${r[7]}</b></td></tr>`;
-    }).join('');
-    const ms = d.matches.map(m=>{
-      const played = m[2]!=='';
-      return `<div class="m"><span class="teams">${m[0]} v ${m[1]}</span><span class="score ${played?'':'tbd'}">${played?m[2]:'—'}</span></div>`;
-    }).join('');
-    gg.innerHTML += `<div class="group">
-      <h3>Group ${g}<span class="pill">12 groups</span></h3>
-      <table class="standings"><thead><tr><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>${rows}</tbody></table>
-      <div class="matches">${ms}</div>
-    </div>`;
-  });
-
-  /* schedule */
-  const sl = document.getElementById('schedList');
-  wc.schedule.forEach(([date,fx])=>{
-    const f = fx.map(x=>{
-      const hasRes = x[2]!=='';
-      return `<div class="fixt"><span class="grp">${x[0]}</span><span class="mt">${x[1]}${hasRes?` <span class="res">${x[2]}</span>`:''}</span><span class="ven">${x[3]}</span></div>`;
-    }).join('');
-    sl.innerHTML += `<div class="day"><div class="date">${date}</div>${f}</div>`;
-  });
-
-  /* bracket */
-  const bb = document.getElementById('bracketBox');
-  wc.bracket.forEach(([name,ties])=>{
-    const t = ties.map(x=>`<div class="tie ${x[0]==='M104'?'final':''}"><div class="mno">${x[0]}</div><div class="side">${x[1]}</div><div class="side">${x[2]}</div></div>`).join('');
-    bb.innerHTML += `<div class="round"><h4>${name}</h4>${t}</div>`;
-  });
-
-  /* title odds */
-  const og = document.getElementById('oddsGrid');
-  const ranked = wc.odds.filter(o=>o[1]!=='N/A').sort((a,b)=>parseInt(a[1].replace('+',''))-parseInt(b[1].replace('+','')));
-  ranked.forEach((o,i)=>{
-    og.innerHTML += `<div class="odd ${i<5?'fav':''}"><span class="rk">${i+1}</span><span class="nm">${o[0]}</span><span class="val">${o[1]}</span></div>`;
-  });
-
-  /* upcoming odds */
-  const ul = document.getElementById('upcomingList');
-  wc.upcoming.forEach(([date,games])=>{
-    const rows = games.map(m=>{
-      const vals = [parseFloat(m[5]),parseFloat(m[6]),parseFloat(m[7])];
-      const favIdx = vals.indexOf(Math.min(...vals));
-      const cells = [m[5],m[6],m[7]].map((v,i)=>`<div class="o ${i===favIdx?'fav':''}"><b>${i===0?'1':i===1?'X':'2'}</b>$${v}</div>`).join('');
-      return `<div class="up-row">
-        <div class="mu"><span class="grp">${m[0]}</span>${m[1]} v ${m[2]}<span class="tm"><b>${m[3]}</b> Melbourne · ${m[4]}</span></div>
-        <div class="odds3">${cells}</div>
-      </div>`;
-    }).join('');
-    ul.innerHTML += `<div class="up-day"><div class="date">${date}</div>${rows}</div>`;
-  });
-
-  /* third-place race */
-  const tt = document.getElementById('thirdTable');
-  const sortedThirds = [...wc.thirds].sort((a,b)=> b[3]-a[3] || b[4]-a[4] || b[5]-a[5]);
-  const trows = sortedThirds.map((t,i)=>{
-    const cls = !t[6] ? 'pending' : (i<8 ? 'in' : 'out');
-    return `<tr class="${cls}"><td>${i+1}. ${t[0]}</td><td>${t[1]}</td><td>${t[2]}</td><td>${t[4]>0?'+':''}${t[4]}</td><td>${t[5]}</td><td><b>${t[3]}</b></td></tr>`;
-  }).join('');
-  tt.innerHTML = `<table>
-    <thead><tr><th>Third-placed team</th><th>Grp</th><th>P</th><th>GD</th><th>GF</th><th>Pts</th></tr></thead>
-    <tbody>${trows}</tbody></table>`;
 }
 
 /* ---------- AFL / NRL ladders ---------- */
@@ -779,7 +613,6 @@ async function refresh(){
   try{
     const [DATA] = await load();
     renderNextUp(DATA.nextup);
-    renderWC(DATA.wc);
     renderLadder(document.getElementById('aflLadder'), DATA.afl.ladder, "Carlton", ["P","W","L","D","PF","PA","%","Pts"]);
     renderLadder(document.getElementById('nrlLadder'), DATA.nrl.ladder, "Melbourne Storm", ["P","W","L","D","Diff","Pts"]);
     renderFocus(document.getElementById('aflFocus'), DATA.afl.focus, true);
@@ -787,7 +620,6 @@ async function refresh(){
     renderAuFixtures(document.getElementById('aflFixtures'), DATA.afl.fixtures);
     renderAuFixtures(document.getElementById('nrlFixtures'), DATA.nrl.fixtures);
     renderOrigin(DATA.nrl.origin);
-    renderPath('pathBox-wc', DATA.paths.wc);
     renderPath('pathBox-afl', DATA.paths.afl);
     renderPath('pathBox-nrl', DATA.paths.nrl);
     document.querySelectorAll('.upd-date').forEach(el=>el.textContent = (DATA.meta && DATA.meta.updated) || "");
