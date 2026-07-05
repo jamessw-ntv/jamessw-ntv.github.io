@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-05",
-    "fetched": "2026-07-05T16:15:05+00:00",
+    "fetched": "2026-07-05T18:10:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90278.0,
-        "pct": -0.18
+        "price": 90209.0,
+        "pct": -0.89
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2554.61,
-        "pct": -0.64
+        "price": 2562.24,
+        "pct": -1.11
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Box Office: ‘Obsession’ Surpasses $400 Million Globally",
+      "when": "5 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/obsession-box-office-milestone-400-million-globally-1236801943/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Box Office: ‘Minions & Monsters’ Nears $100 Million Overseas, ‘Toy Story 5’ Climbs to $764 Million Globally",
+      "when": "5 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/box-office-minions-and-monsters-international-success-toy-story-5-milestone-1236801925/"
+    },
     {
       "cat": "Film/TV",
       "title": "Anime Expo in Los Angeles Bookends a Boom Year for the Sector and a Growth Spurt for Crunchyroll",
@@ -97,20 +111,6 @@
       "when": "5 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/box-office/minions-and-monsters-box-office-franchise-worst-start-supergirl-brutal-drop-1236801905/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Chica Checa’ Review: Šimon Holý’s Karlovy Vary Competition Entry Is Worthy but Clumsy",
-      "when": "5 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/chica-checa-review-1236801898/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jesse Eisenberg on Why It Would Be ‘Silly’ to Leave U.S. Because of Trump, Says ‘The Debut’ Is ‘The Opposite of AI’ Following A24 DeepMind Partnership",
-      "when": "5 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/jesse-eisenberg-trump-the-debut-a24-1236801881/"
     },
     {
       "cat": "Trek/Wars",
