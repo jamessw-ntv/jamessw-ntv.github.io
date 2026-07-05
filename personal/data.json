@@ -2,22 +2,22 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-07-04",
-    "fetched": "2026-07-04T23:09:17+00:00",
+    "updated": "2026-07-05",
+    "fetched": "2026-07-05T12:21:43+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 5,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 11
+      "wind": 8
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
+        "min": 4,
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
@@ -33,10 +33,10 @@
       },
       {
         "day": "Tue",
-        "min": 2,
-        "max": 12,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "min": 3,
+        "max": 11,
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 0
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91131.0,
-        "pct": 1.07
+        "price": 90178.0,
+        "pct": 0.15
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2571.82,
-        "pct": 1.56
+        "price": 2535.45,
+        "pct": 0.05
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Vin Diesel Shares Behind-the-Scenes Look at ‘Fast Forever’: ‘We’ve Been Grinding’",
-      "when": "4 Jul",
+      "title": "‘Chica Checa’ Review: Šimon Holý’s Karlovy Vary Competition Entry Is Worthy but Clumsy",
+      "when": "5 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/vin-diesel-behind-the-scenes-fast-forever-1236801804/"
+      "url": "https://variety.com/2026/film/reviews/chica-checa-review-1236801898/"
     },
     {
       "cat": "Film/TV",
-      "title": "Abdullah Mason vs. Albert Bell Boxing Livestream: How to Watch TNT Sports’ ‘The Fight’ Online for Free",
-      "when": "4 Jul",
+      "title": "Jesse Eisenberg on Why It Would Be ‘Silly’ to Leave U.S. Because of Trump, Says ‘The Debut’ Is ‘The Opposite of AI’ Following A24 DeepMind Partnership",
+      "when": "5 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/abdullah-mason-albert-bell-boxing-fight-free-stream-online-1236801043/"
+      "url": "https://variety.com/2026/film/global/jesse-eisenberg-trump-the-debut-a24-1236801881/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘I Will Find You’ Star Britt Lower on Rachel’s ‘Spidey Sense’ and Why [SPOILER] as the Murderous Villain Was ‘Perfect Casting’",
-      "when": "4 Jul",
+      "title": "Trine Dyrholm Crashes a Party in Mads Mengel’s ‘The Guest,’ Proving She’s ‘Simply One of Denmark’s Greatest Actors’",
+      "when": "5 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/streaming/columns/i-will-find-you-britt-lower-rachel-netflix-milo-ventimiglia-1236801455/"
+      "url": "https://variety.com/2026/film/global/trine-dyrholm-mads-mengel-the-guest-karlovy-vary-1236801780/"
     },
     {
       "cat": "Film/TV",
-      "title": "Inside Taylor Swift and Travis Kelce’s Wedding: Everything We Learned About the Star-Studded Ceremony at Madison Square Garden",
-      "when": "4 Jul",
+      "title": "Switzerland Shows Its Dark Side in Jan-Eric Mack’s ‘A Happy Family’: ‘People Don’t Talk’",
+      "when": "5 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/taylor-swift-travis-kelce-wedding-guest-gifts-stevie-nicks-1236801759/"
+      "url": "https://variety.com/2026/film/global/switzerland-jan-eric-mack-a-happy-family-karlovy-vary-1236801865/"
     },
     {
       "cat": "Trek/Wars",
