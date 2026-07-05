@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-05",
-    "fetched": "2026-07-05T04:03:14+00:00",
+    "fetched": "2026-07-05T07:34:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 15
+      "temp": 8,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 10
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90309.0,
-        "pct": 0.04
+        "price": 90377.0,
+        "pct": 0.22
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2534.43,
-        "pct": 0.24
+        "price": 2539.24,
+        "pct": 0.27
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Murciélago’ Manga Gets 2027 TV Anime Adaptation on HIDIVE",
+      "when": "5 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/murcielago-manga-tv-anime-adaptation-hidive-1236801853/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘The Pitt’ Star Noah Wyle Was Offered Roles in ‘Saving Private Ryan’ and ‘Good Night, and Good Luck’ but ‘Couldn’t Get Out’ of Filming ‘ER’",
@@ -104,13 +111,6 @@
       "when": "4 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/shopping/news/abdullah-mason-albert-bell-boxing-fight-free-stream-online-1236801043/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘I Will Find You’ Star Britt Lower on Rachel’s ‘Spidey Sense’ and Why [SPOILER] as the Murderous Villain Was ‘Perfect Casting’",
-      "when": "4 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/streaming/columns/i-will-find-you-britt-lower-rachel-netflix-milo-ventimiglia-1236801455/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
