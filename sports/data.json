@@ -1,135 +1,79 @@
 {
   "meta": {
     "title": "Multi-Sport Dashboard",
-    "updated": "2026-07-04",
-    "note": "Static snapshot. World Cup results through 24 June (Groups A, B and C complete; remaining groups decide 25 to 27 June); AFL through Round 15; NRL through Round 16; Origin series level 1-1, decider 8 July. AFL and NRL for/against and differential figures pending re-verification.",
-    "fetched": "2026-07-04T13:47:50+00:00"
+    "updated": "2026-07-05",
+    "note": "Static snapshot. World Cup group stage complete (all 12 groups); Round of 32 done and the Round of 16 under way, Australia eliminated by Egypt on penalties. AFL through the played Round 17 games (two Sunday 5 July games still to come); NRL ladder reflects Round 17 with Round 18 an Origin-week round in progress; State of Origin level 1-1 with the decider on 8 July. AFL for and against and NRL differential figures could not be re-verified from source and show a dash.",
+    "fetched": "2026-07-05T02:20:00+00:00"
   },
   "nextup": {
     "mine": [
-      [
-        "⚽",
-        "Socceroos",
-        "Paraguay v Australia",
-        "Fri 26 Jun · 12:00pm",
-        "Group D decider · Levi's Stadium, Santa Clara"
-      ],
-      [
-        "🏉",
-        "Carlton",
-        "Carlton v West Coast",
-        "Sat 27 Jun · 1:15pm",
-        "AFL Round 16 · Marvel Stadium"
-      ],
-      [
-        "🏈",
-        "Storm",
-        "Manly v Storm",
-        "Sat 27 Jun · 7:35pm",
-        "NRL Round 17 · 4 Pines Park (away)"
-      ],
-      [
-        "🏉",
-        "Carlton",
-        "Richmond v Carlton",
-        "Sat 4 Jul",
-        "AFL Round 17 · MCG (away)"
-      ],
-      [
-        "🏈",
-        "Storm",
-        "Storm v Warriors",
-        "Sat 5 Jul",
-        "NRL Round 18 · AAMI Park"
-      ],
       [
         "🏈",
         "Queensland",
         "Origin III · QLD v NSW",
         "Wed 8 Jul · 8:05pm",
         "Series decider · Suncorp Stadium, Brisbane"
+      ],
+      [
+        "🏉",
+        "Carlton",
+        "Carlton v Hawthorn",
+        "Sat 11 Jul",
+        "AFL Round 18 · MCG"
+      ],
+      [
+        "🏈",
+        "Storm",
+        "Storm v Gold Coast Titans",
+        "Round 19",
+        "NRL Round 19 · AAMI Park (after the R18 bye)"
       ]
     ],
     "matches": {
-      "⚽ World Cup": [
+      "⚽ World Cup · Round of 16": [
         [
-          "Switzerland v Canada",
-          "Thu 25 Jun · 5:00am",
-          "Group B · Vancouver"
+          "Brazil v Norway",
+          "Mon 6 Jul · 6:00am",
+          "NY/NJ"
         ],
         [
-          "Bosnia & Herzegovina v Qatar",
-          "Thu 25 Jun · 5:00am",
-          "Group B · Seattle"
+          "Mexico v England",
+          "Mon 6 Jul · 10:00am",
+          "Mexico City"
         ],
         [
-          "Scotland v Brazil",
-          "Thu 25 Jun · 8:00am",
-          "Group C · Miami"
+          "Portugal v Spain",
+          "Tue 7 Jul · 5:00am",
+          "Dallas"
         ],
         [
-          "Morocco v Haiti",
-          "Thu 25 Jun · 8:00am",
-          "Group C · Atlanta"
+          "USA v Belgium",
+          "Tue 7 Jul · 10:00am",
+          "Seattle"
         ],
         [
-          "Czechia v Mexico",
-          "Thu 25 Jun · 11:00am",
-          "Group A · Mexico City"
+          "Argentina v Egypt",
+          "Wed 8 Jul · 2:00am",
+          "Atlanta"
+        ],
+        [
+          "Switzerland v Colombia",
+          "Wed 8 Jul · 6:00am",
+          "Vancouver"
         ]
       ],
-      "🏉 AFL · Round 16": [
+      "🏈 State of Origin": [
         [
-          "Brisbane Lions v Sydney Swans",
-          "Thu 25 Jun · 7:30pm",
-          "The Gabba"
-        ],
-        [
-          "Hawthorn v GWS Giants",
-          "Fri 26 Jun · 7:40pm",
-          "MCG"
-        ],
-        [
-          "Carlton v West Coast",
-          "Sat 27 Jun · 1:15pm",
-          "Marvel Stadium"
-        ],
-        [
-          "Collingwood v Richmond",
-          "Sat 27 Jun · 4:15pm",
-          "MCG"
-        ],
-        [
-          "Port Adelaide v Adelaide",
-          "Sat 27 Jun · 7:35pm",
-          "Adelaide Oval"
+          "Origin III · QLD v NSW",
+          "Wed 8 Jul · 8:05pm",
+          "Series decider · Suncorp Stadium"
         ]
       ],
-      "🏈 NRL · Round 17": [
+      "🏉 AFL · Round 18": [
         [
-          "Eels v Rabbitohs",
-          "Thu 25 Jun · 7:50pm",
-          "CommBank Stadium"
-        ],
-        [
-          "Titans v Bulldogs",
-          "Fri 26 Jun · 6:00pm",
-          "Cbus Super Stadium"
-        ],
-        [
-          "Broncos v Roosters",
-          "Fri 26 Jun · 8:00pm",
-          "Suncorp Stadium"
-        ],
-        [
-          "Dolphins v Warriors",
-          "Sat 27 Jun · 3:00pm",
-          "Suncorp Stadium"
-        ],
-        [
-          "Cowboys v Panthers",
-          "Sat 27 Jun · 5:30pm",
-          "QCB Stadium, Townsville"
+          "Carlton v Hawthorn",
+          "Sat 11 Jul",
+          "MCG"
         ]
       ]
     }
@@ -368,43 +312,43 @@
         "rows": [
           [
             "USA",
-            2,
+            3,
             2,
             0,
-            0,
-            6,
             1,
+            8,
+            4,
             6
           ],
           [
             "Australia",
-            2,
+            3,
             1,
-            0,
+            1,
             1,
             2,
             2,
-            3
+            4
           ],
           [
             "Paraguay",
-            2,
+            3,
             1,
-            0,
+            1,
             1,
             2,
             4,
-            3
+            4
           ],
           [
             "Türkiye",
-            2,
-            0,
-            0,
-            2,
-            0,
             3,
-            0
+            1,
+            0,
+            2,
+            3,
+            5,
+            3
           ]
         ],
         "matches": [
@@ -431,12 +375,12 @@
           [
             "Türkiye",
             "USA",
-            ""
+            "3–2"
           ],
           [
             "Paraguay",
             "Australia",
-            ""
+            "0–0"
           ]
         ]
       },
@@ -444,42 +388,42 @@
         "rows": [
           [
             "Germany",
-            2,
+            3,
             2,
             0,
-            0,
-            9,
-            2,
+            1,
+            10,
+            4,
             6
           ],
           [
             "Côte d'Ivoire",
+            3,
             2,
-            1,
             0,
             1,
+            4,
             2,
-            2,
-            3
+            6
           ],
           [
             "Ecuador",
+            3,
+            1,
+            1,
+            1,
             2,
-            0,
-            1,
-            1,
-            0,
-            1,
-            1
+            2,
+            4
           ],
           [
             "Curaçao",
-            2,
+            3,
             0,
             1,
+            2,
             1,
-            1,
-            7,
+            9,
             1
           ]
         ],
@@ -507,12 +451,12 @@
           [
             "Curaçao",
             "Côte d'Ivoire",
-            ""
+            "0–2"
           ],
           [
             "Ecuador",
             "Germany",
-            ""
+            "2–1"
           ]
         ]
       },
@@ -520,42 +464,42 @@
         "rows": [
           [
             "Netherlands",
+            3,
             2,
             1,
-            1,
             0,
-            7,
-            3,
-            4
+            10,
+            4,
+            7
           ],
           [
             "Japan",
+            3,
+            1,
             2,
-            1,
-            1,
             0,
-            6,
-            2,
-            4
+            7,
+            3,
+            5
           ],
           [
             "Sweden",
-            2,
+            3,
             1,
-            0,
             1,
-            6,
-            6,
-            3
+            1,
+            7,
+            7,
+            4
           ],
           [
             "Tunisia",
-            2,
+            3,
             0,
             0,
+            3,
             2,
-            1,
-            9,
+            12,
             0
           ]
         ],
@@ -583,55 +527,55 @@
           [
             "Japan",
             "Sweden",
-            ""
+            "1–1"
           ],
           [
             "Tunisia",
             "Netherlands",
-            ""
+            "1–3"
           ]
         ]
       },
       "G": {
         "rows": [
           [
-            "Egypt",
+            "Belgium",
+            3,
+            1,
             2,
-            1,
-            1,
             0,
-            4,
+            6,
             2,
-            4
+            5
+          ],
+          [
+            "Egypt",
+            3,
+            1,
+            2,
+            0,
+            5,
+            3,
+            5
           ],
           [
             "IR Iran",
-            2,
+            3,
             0,
-            2,
+            3,
             0,
-            2,
-            2,
-            2
-          ],
-          [
-            "Belgium",
-            2,
-            0,
-            2,
-            0,
-            1,
-            1,
-            2
+            3,
+            3,
+            3
           ],
           [
             "New Zealand",
-            2,
+            3,
             0,
             1,
-            1,
-            3,
-            5,
+            2,
+            4,
+            10,
             1
           ]
         ],
@@ -659,12 +603,12 @@
           [
             "Egypt",
             "IR Iran",
-            ""
+            "1–1"
           ],
           [
             "New Zealand",
             "Belgium",
-            ""
+            "1–5"
           ]
         ]
       },
@@ -672,43 +616,43 @@
         "rows": [
           [
             "Spain",
+            3,
             2,
             1,
-            1,
             0,
-            4,
+            5,
             0,
-            4
-          ],
-          [
-            "Uruguay",
-            2,
-            0,
-            2,
-            0,
-            3,
-            3,
-            2
+            7
           ],
           [
             "Cabo Verde",
-            2,
+            3,
+            0,
+            3,
             0,
             2,
+            2,
+            3
+          ],
+          [
+            "Uruguay",
+            3,
             0,
             2,
-            2,
+            1,
+            3,
+            4,
             2
           ],
           [
             "Saudi Arabia",
-            2,
+            3,
             0,
-            1,
+            2,
             1,
             1,
             5,
-            1
+            2
           ]
         ],
         "matches": [
@@ -735,12 +679,12 @@
           [
             "Cabo Verde",
             "Saudi Arabia",
-            ""
+            "0–0"
           ],
           [
             "Uruguay",
             "Spain",
-            ""
+            "0–1"
           ]
         ]
       },
@@ -748,42 +692,42 @@
         "rows": [
           [
             "France",
-            2,
-            2,
+            3,
+            3,
             0,
             0,
-            6,
-            1,
-            6
+            10,
+            2,
+            9
           ],
           [
             "Norway",
-            2,
-            2,
-            0,
-            0,
-            7,
             3,
+            2,
+            0,
+            1,
+            8,
+            7,
             6
           ],
           [
             "Senegal",
-            2,
-            0,
-            0,
-            2,
             3,
+            1,
+            0,
+            2,
+            8,
             6,
-            0
+            3
           ],
           [
             "Iraq",
-            2,
+            3,
             0,
             0,
-            2,
+            3,
             1,
-            7,
+            12,
             0
           ]
         ],
@@ -811,12 +755,12 @@
           [
             "Norway",
             "France",
-            ""
+            "1–4"
           ],
           [
             "Senegal",
             "Iraq",
-            ""
+            "5–0"
           ]
         ]
       },
@@ -824,42 +768,42 @@
         "rows": [
           [
             "Argentina",
-            2,
-            2,
+            3,
+            3,
             0,
             0,
-            5,
-            0,
-            6
+            8,
+            1,
+            9
           ],
           [
             "Austria",
-            2,
-            1,
-            0,
-            1,
             3,
-            3,
-            3
+            1,
+            1,
+            1,
+            6,
+            6,
+            4
           ],
           [
             "Algeria",
-            2,
+            3,
             1,
-            0,
             1,
-            2,
-            4,
-            3
+            1,
+            5,
+            7,
+            4
           ],
           [
             "Jordan",
-            2,
+            3,
             0,
             0,
-            2,
-            2,
-            5,
+            3,
+            3,
+            8,
             0
           ]
         ],
@@ -887,12 +831,12 @@
           [
             "Algeria",
             "Austria",
-            ""
+            "3–3"
           ],
           [
             "Jordan",
             "Argentina",
-            ""
+            "1–3"
           ]
         ]
       },
@@ -900,42 +844,42 @@
         "rows": [
           [
             "Colombia",
+            3,
             2,
-            2,
-            0,
+            1,
             0,
             4,
             1,
-            6
+            7
           ],
           [
             "Portugal",
+            3,
+            1,
             2,
-            1,
-            1,
             0,
             6,
             1,
-            4
+            5
           ],
           [
             "Congo DR",
-            2,
-            0,
+            3,
             1,
             1,
             1,
-            2,
-            1
+            4,
+            3,
+            4
           ],
           [
             "Uzbekistan",
-            2,
+            3,
             0,
             0,
+            3,
             2,
-            1,
-            8,
+            11,
             0
           ]
         ],
@@ -963,12 +907,12 @@
           [
             "Colombia",
             "Portugal",
-            ""
+            "0–0"
           ],
           [
             "Congo DR",
             "Uzbekistan",
-            ""
+            "3–1"
           ]
         ]
       },
@@ -976,42 +920,42 @@
         "rows": [
           [
             "England",
+            3,
             2,
             1,
-            1,
             0,
-            4,
+            6,
             2,
-            4
-          ],
-          [
-            "Ghana",
-            2,
-            1,
-            1,
-            0,
-            1,
-            0,
-            4
+            7
           ],
           [
             "Croatia",
+            3,
             2,
-            1,
             0,
             1,
+            5,
+            5,
+            6
+          ],
+          [
+            "Ghana",
             3,
-            4,
-            3
+            1,
+            1,
+            1,
+            2,
+            2,
+            4
           ],
           [
             "Panama",
-            2,
+            3,
             0,
             0,
-            2,
+            3,
             0,
-            2,
+            4,
             0
           ]
         ],
@@ -1039,35 +983,65 @@
           [
             "Panama",
             "England",
-            ""
+            "0–2"
           ],
           [
             "Croatia",
             "Ghana",
-            ""
+            "2–1"
           ]
         ]
       }
     },
     "status": {
       "Mexico": "q",
-      "USA": "q",
-      "Germany": "q",
-      "France": "q",
-      "Norway": "q",
-      "Argentina": "q",
-      "Haiti": "e",
-      "Türkiye": "e",
-      "Tunisia": "e",
-      "Jordan": "e",
       "South Africa": "q",
       "Switzerland": "q",
       "Canada": "q",
+      "Bosnia & Herzegovina": "q",
       "Brazil": "q",
       "Morocco": "q",
+      "USA": "q",
+      "Australia": "q",
+      "Paraguay": "q",
+      "Germany": "q",
+      "Côte d'Ivoire": "q",
+      "Ecuador": "q",
+      "Netherlands": "q",
+      "Japan": "q",
+      "Sweden": "q",
+      "Belgium": "q",
+      "Egypt": "q",
+      "Spain": "q",
+      "Cabo Verde": "q",
+      "France": "q",
+      "Norway": "q",
+      "Senegal": "q",
+      "Argentina": "q",
+      "Austria": "q",
+      "Algeria": "q",
       "Colombia": "q",
+      "Portugal": "q",
+      "Congo DR": "q",
+      "England": "q",
+      "Croatia": "q",
+      "Ghana": "q",
+      "Korea Republic": "e",
       "Czechia": "e",
-      "Qatar": "e"
+      "Qatar": "e",
+      "Scotland": "e",
+      "Haiti": "e",
+      "Türkiye": "e",
+      "Curaçao": "e",
+      "IR Iran": "e",
+      "New Zealand": "e",
+      "Uruguay": "e",
+      "Saudi Arabia": "e",
+      "Iraq": "e",
+      "Jordan": "e",
+      "Uzbekistan": "e",
+      "Panama": "e",
+      "Tunisia": "e"
     },
     "schedule": [
       [
@@ -1470,37 +1444,37 @@
           [
             "E",
             "Curaçao v Côte d'Ivoire",
-            "",
+            "0–2",
             "Philadelphia"
           ],
           [
             "E",
             "Ecuador v Germany",
-            "",
+            "2–1",
             "NY/NJ"
           ],
           [
             "F",
             "Japan v Sweden",
-            "",
+            "1–1",
             "Dallas"
           ],
           [
             "F",
             "Tunisia v Netherlands",
-            "",
+            "1–3",
             "Kansas City"
           ],
           [
             "D",
             "Türkiye v USA",
-            "",
+            "3–2",
             "Los Angeles"
           ],
           [
             "D",
             "Paraguay v Australia",
-            "",
+            "0–0",
             "San Francisco"
           ]
         ]
@@ -1511,37 +1485,37 @@
           [
             "I",
             "Norway v France",
-            "",
+            "1–4",
             "Boston"
           ],
           [
             "I",
             "Senegal v Iraq",
-            "",
+            "5–0",
             "Toronto"
           ],
           [
             "G",
             "Egypt v IR Iran",
-            "",
+            "1–1",
             "Seattle"
           ],
           [
             "G",
             "New Zealand v Belgium",
-            "",
+            "1–5",
             "Vancouver"
           ],
           [
             "H",
             "Cabo Verde v Saudi Arabia",
-            "",
+            "0–0",
             "Houston"
           ],
           [
             "H",
             "Uruguay v Spain",
-            "",
+            "0–1",
             "Guadalajara"
           ]
         ]
@@ -1552,37 +1526,37 @@
           [
             "L",
             "Panama v England",
-            "",
+            "0–2",
             "NY/NJ"
           ],
           [
             "L",
             "Croatia v Ghana",
-            "",
+            "2–1",
             "Philadelphia"
           ],
           [
             "J",
             "Algeria v Austria",
-            "",
+            "3–3",
             "Kansas City"
           ],
           [
             "J",
             "Jordan v Argentina",
-            "",
+            "1–3",
             "Dallas"
           ],
           [
             "K",
             "Colombia v Portugal",
-            "",
+            "0–0",
             "Miami"
           ],
           [
             "K",
             "Congo DR v Uzbekistan",
-            "",
+            "3–1",
             "Atlanta"
           ]
         ]
@@ -1592,8 +1566,8 @@
         [
           [
             "—",
-            "A2 v B2 (M73)",
-            "",
+            "South Africa v Canada",
+            "0–1",
             "Los Angeles"
           ]
         ]
@@ -1603,20 +1577,20 @@
         [
           [
             "—",
-            "E1 v 3rd ABCDF (M74)",
-            "",
+            "Germany v Paraguay",
+            "1–1 (3–4p)",
             "Boston"
           ],
           [
             "—",
-            "F1 v C2 (M75)",
-            "",
+            "Netherlands v Morocco",
+            "1–1 (2–3p)",
             "Monterrey"
           ],
           [
             "—",
-            "C1 v F2 (M76)",
-            "",
+            "Brazil v Japan",
+            "2–1",
             "Houston"
           ]
         ]
@@ -1626,20 +1600,20 @@
         [
           [
             "—",
-            "I1 v 3rd CDFGH (M77)",
-            "",
+            "France v Sweden",
+            "3–0",
             "NY/NJ"
           ],
           [
             "—",
-            "E2 v I2 (M78)",
-            "",
+            "Côte d'Ivoire v Norway",
+            "1–2",
             "Dallas"
           ],
           [
             "—",
-            "A1 v 3rd CEFHI (M79)",
-            "",
+            "Mexico v Ecuador",
+            "2–0",
             "Mexico City"
           ]
         ]
@@ -1649,20 +1623,20 @@
         [
           [
             "—",
-            "L1 v 3rd EHIJK (M80)",
-            "",
+            "England v Congo DR",
+            "2–1",
             "Atlanta"
           ],
           [
             "—",
-            "D1 v 3rd BEFIJ (M81)",
-            "",
+            "USA v Bosnia & Herzegovina",
+            "2–0",
             "San Francisco"
           ],
           [
             "—",
-            "G1 v 3rd AEHIJ (M82)",
-            "",
+            "Belgium v Senegal",
+            "3–2 (a.e.t.)",
             "Seattle"
           ]
         ]
@@ -1672,20 +1646,20 @@
         [
           [
             "—",
-            "K2 v L2 (M83)",
-            "",
+            "Portugal v Croatia",
+            "2–1",
             "Toronto"
           ],
           [
             "—",
-            "H1 v J2 (M84)",
-            "",
+            "Spain v Austria",
+            "3–0",
             "Los Angeles"
           ],
           [
             "—",
-            "B1 v 3rd EFGIJ (M85)",
-            "",
+            "Switzerland v Algeria",
+            "2–0",
             "Vancouver"
           ]
         ]
@@ -1695,20 +1669,20 @@
         [
           [
             "—",
-            "J1 v H2 (M86)",
-            "",
+            "Argentina v Cabo Verde",
+            "3–2 (a.e.t.)",
             "Miami"
           ],
           [
             "—",
-            "K1 v 3rd DEIJL (M87)",
-            "",
+            "Colombia v Ghana",
+            "1–0",
             "Kansas City"
           ],
           [
             "—",
-            "D2 v G2 (M88)",
-            "",
+            "Australia v Egypt",
+            "1–1 (2–4p)",
             "Dallas"
           ]
         ]
@@ -1718,14 +1692,14 @@
         [
           [
             "—",
-            "W74 v W77 (M89)",
-            "",
+            "Paraguay v France",
+            "0–1",
             "Philadelphia"
           ],
           [
             "—",
-            "W73 v W75 (M90)",
-            "",
+            "Canada v Morocco",
+            "0–3",
             "Houston"
           ]
         ]
@@ -1735,13 +1709,13 @@
         [
           [
             "—",
-            "W76 v W78 (M91)",
+            "Brazil v Norway",
             "",
             "NY/NJ"
           ],
           [
             "—",
-            "W79 v W80 (M92)",
+            "Mexico v England",
             "",
             "Mexico City"
           ]
@@ -1752,13 +1726,13 @@
         [
           [
             "—",
-            "W83 v W84 (M93)",
+            "Portugal v Spain",
             "",
             "Dallas"
           ],
           [
             "—",
-            "W81 v W82 (M94)",
+            "USA v Belgium",
             "",
             "Seattle"
           ]
@@ -1769,13 +1743,13 @@
         [
           [
             "—",
-            "W86 v W88 (M95)",
+            "Argentina v Egypt",
             "",
             "Atlanta"
           ],
           [
             "—",
-            "W85 v W87 (M96)",
+            "Switzerland v Colombia",
             "",
             "Vancouver"
           ]
@@ -1786,7 +1760,7 @@
         [
           [
             "—",
-            "W89 v W90 (M97)",
+            "France v Morocco",
             "",
             "Boston"
           ]
@@ -1797,7 +1771,7 @@
         [
           [
             "—",
-            "W93 v W94 (M98)",
+            "Por/Esp v USA/Bel",
             "",
             "Los Angeles"
           ]
@@ -1808,13 +1782,13 @@
         [
           [
             "—",
-            "W91 v W92 (M99)",
+            "Bra/Nor v Mex/Eng",
             "",
             "Miami"
           ],
           [
             "—",
-            "W95 v W96 (M100)",
+            "Arg/Egy v Swi/Col",
             "",
             "Kansas City"
           ]
@@ -1825,7 +1799,7 @@
         [
           [
             "—",
-            "W97 v W98 (M101)",
+            "Winner QF1 v Winner QF2",
             "",
             "Dallas"
           ]
@@ -1836,7 +1810,7 @@
         [
           [
             "—",
-            "W99 v W100 (M102)",
+            "Winner QF3 v Winner QF4",
             "",
             "Atlanta"
           ]
@@ -1847,7 +1821,7 @@
         [
           [
             "—",
-            "L101 v L102 (M103)",
+            "Loser SF1 v Loser SF2",
             "",
             "Miami"
           ]
@@ -1858,7 +1832,7 @@
         [
           [
             "—",
-            "W101 v W102 (M104)",
+            "Winner SF1 v Winner SF2",
             "",
             "New York / New Jersey"
           ]
@@ -1868,290 +1842,172 @@
     "odds": [
       [
         "France",
-        "+450"
-      ],
-      [
-        "Spain",
-        "+475"
-      ],
-      [
-        "England",
-        "+700"
-      ],
-      [
-        "Brazil",
-        "+800"
-      ],
-      [
-        "Portugal",
-        "+900"
+        "+175"
       ],
       [
         "Argentina",
-        "+900"
+        "+430"
       ],
       [
-        "Germany",
+        "Spain",
+        "+550"
+      ],
+      [
+        "England",
+        "+1000"
+      ],
+      [
+        "Brazil",
+        "+1100"
+      ],
+      [
+        "Portugal",
         "+1400"
       ],
       [
-        "Netherlands",
-        "+1600"
-      ],
-      [
-        "Belgium",
-        "+2500"
-      ],
-      [
-        "Italy*",
-        "N/A"
-      ],
-      [
-        "Uruguay",
-        "+3300"
-      ],
-      [
-        "Croatia",
-        "+4000"
+        "Morocco",
+        "+2200"
       ],
       [
         "Colombia",
-        "+4000"
-      ],
-      [
-        "Morocco",
-        "+3500"
-      ],
-      [
-        "USA",
-        "+5000"
+        "+2200"
       ],
       [
         "Mexico",
-        "+5500"
+        "+2700"
       ],
       [
-        "Japan",
-        "+6000"
-      ],
-      [
-        "Switzerland",
-        "+8000"
-      ],
-      [
-        "Senegal",
-        "+8000"
-      ],
-      [
-        "Denmark*",
-        "N/A"
-      ],
-      [
-        "Ecuador",
-        "+10000"
-      ],
-      [
-        "Korea Republic",
-        "+12500"
-      ],
-      [
-        "Canada",
-        "+15000"
+        "USA",
+        "+3000"
       ],
       [
         "Norway",
-        "+8000"
+        "+4000"
       ],
       [
-        "Côte d'Ivoire",
-        "+15000"
+        "Belgium",
+        "+4500"
       ],
       [
-        "Austria",
-        "+15000"
-      ],
-      [
-        "Türkiye",
-        "+11000"
+        "Switzerland",
+        "+7000"
       ],
       [
         "Egypt",
-        "+20000"
-      ],
-      [
-        "Paraguay",
         "+25000"
-      ],
-      [
-        "Scotland",
-        "+25000"
-      ],
-      [
-        "Sweden",
-        "+20000"
-      ],
-      [
-        "Ghana",
-        "+25000"
-      ],
-      [
-        "Panama",
-        "+50000"
-      ],
-      [
-        "Algeria",
-        "+30000"
-      ],
-      [
-        "Qatar",
-        "+100000"
-      ],
-      [
-        "Australia",
-        "+20000"
-      ],
-      [
-        "Tunisia",
-        "+50000"
-      ],
-      [
-        "Saudi Arabia",
-        "+50000"
-      ],
-      [
-        "IR Iran",
-        "+50000"
-      ],
-      [
-        "Uzbekistan",
-        "+50000"
-      ],
-      [
-        "Jordan",
-        "+100000"
-      ],
-      [
-        "Iraq",
-        "+100000"
-      ],
-      [
-        "New Zealand",
-        "+100000"
-      ],
-      [
-        "Cabo Verde",
-        "+100000"
-      ],
-      [
-        "Curaçao",
-        "+150000"
-      ],
-      [
-        "Haiti",
-        "+150000"
-      ],
-      [
-        "Congo DR",
-        "+50000"
-      ],
-      [
-        "South Africa",
-        "+50000"
-      ],
-      [
-        "Bosnia & Herzegovina",
-        "+30000"
       ]
     ],
     "upcoming": [
       [
-        "Thu 25 Jun (AEST)",
+        "Mon 6 Jul (AEST)",
         [
           [
-            "B",
-            "Bosnia & Herzegovina",
-            "Qatar",
-            "5:00am Thu",
-            "3:00pm Wed ET",
-            "1.40",
-            "5.25",
-            "7.00"
-          ],
-          [
-            "C",
-            "Scotland",
+            "R16",
             "Brazil",
-            "8:00am Thu",
-            "6:00pm Wed ET",
-            "8.50",
-            "5.30",
-            "1.46"
+            "Norway",
+            "6:00am Mon",
+            "4:00pm Sun ET",
+            "1.80",
+            "3.60",
+            "4.60"
           ],
           [
-            "C",
-            "Morocco",
-            "Haiti",
-            "8:00am Thu",
-            "6:00pm Wed ET",
-            "1.18",
-            "7.00",
-            "15.00"
-          ],
-          [
-            "A",
-            "Czechia",
+            "R16",
             "Mexico",
-            "11:00am Thu",
-            "9:00pm Wed ET",
-            "3.70",
-            "3.90",
-            "1.91"
-          ],
-          [
-            "A",
-            "South Africa",
-            "Korea Republic",
-            "11:00am Thu",
-            "9:00pm Wed ET",
-            "5.90",
-            "3.90",
-            "1.61"
+            "England",
+            "10:00am Mon",
+            "8:00pm Sun ET",
+            "3.10",
+            "3.10",
+            "2.45"
           ]
         ]
       ],
       [
-        "Fri 26 Jun (AEST)",
+        "Tue 7 Jul (AEST)",
         [
           [
-            "D",
-            "Türkiye",
-            "USA",
-            "12:00pm Fri",
-            "10:00pm Thu ET",
-            "3.85",
-            "4.25",
-            "2.45"
+            "R16",
+            "Portugal",
+            "Spain",
+            "5:00am Tue",
+            "3:00pm Mon ET",
+            "4.10",
+            "3.60",
+            "1.87"
           ],
           [
-            "D",
-            "Paraguay",
-            "Australia",
-            "12:00pm Fri",
-            "10:00pm Thu ET",
-            "3.06",
-            "2.30",
-            "4.26"
+            "R16",
+            "USA",
+            "Belgium",
+            "10:00am Tue",
+            "8:00pm Mon ET",
+            "2.65",
+            "3.40",
+            "2.65"
+          ]
+        ]
+      ],
+      [
+        "Wed 8 Jul (AEST)",
+        [
+          [
+            "R16",
+            "Argentina",
+            "Egypt",
+            "2:00am Wed",
+            "12:00pm Tue ET",
+            "1.37",
+            "4.70",
+            "9.00"
+          ],
+          [
+            "R16",
+            "Switzerland",
+            "Colombia",
+            "6:00am Wed",
+            "4:00pm Tue ET",
+            "3.45",
+            "3.20",
+            "2.20"
           ]
         ]
       ]
     ],
     "thirds": [
       [
-        "Korea Republic",
-        "A",
+        "Congo DR",
+        "K",
         3,
+        4,
+        1,
+        4,
+        true
+      ],
+      [
+        "Sweden",
+        "F",
         3,
-        -1,
+        4,
+        0,
+        7,
+        true
+      ],
+      [
+        "Ecuador",
+        "E",
+        3,
+        4,
+        0,
+        2,
+        true
+      ],
+      [
+        "Ghana",
+        "L",
+        3,
+        4,
+        0,
         2,
         true
       ],
@@ -2165,6 +2021,51 @@
         true
       ],
       [
+        "Algeria",
+        "J",
+        3,
+        4,
+        -2,
+        5,
+        true
+      ],
+      [
+        "Paraguay",
+        "D",
+        3,
+        4,
+        -2,
+        2,
+        true
+      ],
+      [
+        "Senegal",
+        "I",
+        3,
+        3,
+        2,
+        8,
+        true
+      ],
+      [
+        "IR Iran",
+        "G",
+        3,
+        3,
+        0,
+        3,
+        true
+      ],
+      [
+        "Korea Republic",
+        "A",
+        3,
+        3,
+        -1,
+        2,
+        true
+      ],
+      [
         "Scotland",
         "C",
         3,
@@ -2174,85 +2075,13 @@
         true
       ],
       [
-        "Paraguay",
-        "D",
-        2,
-        3,
-        -2,
-        2,
-        false
-      ],
-      [
-        "Ecuador",
-        "E",
-        2,
-        1,
-        -1,
-        0,
-        false
-      ],
-      [
-        "Sweden",
-        "F",
-        2,
-        3,
-        0,
-        6,
-        false
-      ],
-      [
-        "Belgium",
-        "G",
-        2,
-        2,
-        0,
-        1,
-        false
-      ],
-      [
-        "Cabo Verde",
+        "Uruguay",
         "H",
-        2,
-        2,
-        0,
-        2,
-        false
-      ],
-      [
-        "Senegal",
-        "I",
-        2,
-        0,
-        -3,
         3,
-        false
-      ],
-      [
-        "Algeria",
-        "J",
         2,
-        3,
-        -2,
-        2,
-        false
-      ],
-      [
-        "Congo DR",
-        "K",
-        2,
-        1,
-        -1,
-        1,
-        false
-      ],
-      [
-        "Croatia",
-        "L",
-        2,
-        3,
         -1,
         3,
-        false
+        true
       ]
     ],
     "bracket": [
@@ -2261,83 +2090,83 @@
         [
           [
             "M73",
-            "A2",
-            "B2"
+            "South Africa",
+            "Canada"
           ],
           [
             "M74",
-            "E1",
-            "3rd ABCDF"
+            "Germany",
+            "Paraguay"
           ],
           [
             "M75",
-            "F1",
-            "C2"
+            "Netherlands",
+            "Morocco"
           ],
           [
             "M76",
-            "C1",
-            "F2"
+            "Brazil",
+            "Japan"
           ],
           [
             "M77",
-            "I1",
-            "3rd CDFGH"
+            "France",
+            "Sweden"
           ],
           [
             "M78",
-            "E2",
-            "I2"
+            "Côte d'Ivoire",
+            "Norway"
           ],
           [
             "M79",
-            "A1",
-            "3rd CEFHI"
+            "Mexico",
+            "Ecuador"
           ],
           [
             "M80",
-            "L1",
-            "3rd EHIJK"
+            "England",
+            "Congo DR"
           ],
           [
             "M81",
-            "D1",
-            "3rd BEFIJ"
+            "USA",
+            "Bosnia & Herzegovina"
           ],
           [
             "M82",
-            "G1",
-            "3rd AEHIJ"
+            "Belgium",
+            "Senegal"
           ],
           [
             "M83",
-            "K2",
-            "L2"
+            "Portugal",
+            "Croatia"
           ],
           [
             "M84",
-            "H1",
-            "J2"
+            "Spain",
+            "Austria"
           ],
           [
             "M85",
-            "B1",
-            "3rd EFGIJ"
+            "Switzerland",
+            "Algeria"
           ],
           [
             "M86",
-            "J1",
-            "H2"
+            "Argentina",
+            "Cabo Verde"
           ],
           [
             "M87",
-            "K1",
-            "3rd DEIJL"
+            "Colombia",
+            "Ghana"
           ],
           [
             "M88",
-            "D2",
-            "G2"
+            "Australia",
+            "Egypt"
           ]
         ]
       ],
@@ -2346,43 +2175,43 @@
         [
           [
             "M89",
-            "W74",
-            "W77"
+            "Paraguay",
+            "France"
           ],
           [
             "M90",
-            "W73",
-            "W75"
+            "Canada",
+            "Morocco"
           ],
           [
             "M91",
-            "W76",
-            "W78"
+            "Brazil",
+            "Norway"
           ],
           [
             "M92",
-            "W79",
-            "W80"
+            "Mexico",
+            "England"
           ],
           [
             "M93",
-            "W83",
-            "W84"
+            "Portugal",
+            "Spain"
           ],
           [
             "M94",
-            "W81",
-            "W82"
+            "USA",
+            "Belgium"
           ],
           [
             "M95",
-            "W86",
-            "W88"
+            "Argentina",
+            "Egypt"
           ],
           [
             "M96",
-            "W85",
-            "W87"
+            "Switzerland",
+            "Colombia"
           ]
         ]
       ],
@@ -2391,23 +2220,23 @@
         [
           [
             "M97",
-            "W89",
-            "W90"
+            "France",
+            "Morocco"
           ],
           [
             "M98",
-            "W93",
-            "W94"
+            "Por/Esp",
+            "USA/Bel"
           ],
           [
             "M99",
-            "W91",
-            "W92"
+            "Bra/Nor",
+            "Mex/Eng"
           ],
           [
             "M100",
-            "W95",
-            "W96"
+            "Arg/Egy",
+            "Swi/Col"
           ]
         ]
       ],
@@ -2447,9 +2276,9 @@
         14,
         2,
         0,
-        1579,
-        1115,
-        141.6,
+        "—",
+        "—",
+        "—",
         56
       ],
       [
@@ -2459,9 +2288,9 @@
         13,
         3,
         0,
-        1751,
-        1279,
-        136.9,
+        "—",
+        "—",
+        "—",
         52
       ],
       [
@@ -2471,9 +2300,9 @@
         10,
         5,
         1,
-        1547,
-        1406,
-        110.0,
+        "—",
+        "—",
+        "—",
         42
       ],
       [
@@ -2483,9 +2312,9 @@
         10,
         6,
         0,
-        1674,
-        1498,
-        111.7,
+        "—",
+        "—",
+        "—",
         40
       ],
       [
@@ -2495,9 +2324,9 @@
         10,
         6,
         0,
-        1427,
-        1281,
-        111.4,
+        "—",
+        "—",
+        "—",
         40
       ],
       [
@@ -2507,9 +2336,9 @@
         10,
         6,
         0,
-        1555,
-        1463,
-        106.3,
+        "—",
+        "—",
+        "—",
         40
       ],
       [
@@ -2519,9 +2348,9 @@
         9,
         7,
         0,
-        1591,
-        1359,
-        117.1,
+        "—",
+        "—",
+        "—",
         36
       ],
       [
@@ -2531,9 +2360,9 @@
         9,
         7,
         0,
-        1325,
-        1459,
-        90.8,
+        "—",
+        "—",
+        "—",
         36
       ],
       [
@@ -2543,57 +2372,57 @@
         8,
         7,
         1,
-        1357,
-        1299,
-        104.5,
+        "—",
+        "—",
+        "—",
         34
       ],
       [
         10,
-        "Carlton",
-        16,
-        8,
-        8,
-        0,
-        1328,
-        1384,
-        96.0,
-        32
-      ],
-      [
-        11,
         "North Melbourne",
         15,
         8,
         7,
         0,
-        1294,
-        1404,
-        92.2,
+        "—",
+        "—",
+        "—",
+        32
+      ],
+      [
+        11,
+        "Carlton",
+        16,
+        8,
+        8,
+        0,
+        "—",
+        "—",
+        "—",
         32
       ],
       [
         12,
-        "GWS GIANTS",
-        16,
-        7,
-        9,
-        0,
-        1471,
-        1460,
-        100.8,
-        28
-      ],
-      [
-        13,
         "Gold Coast SUNS",
         16,
         7,
         9,
         0,
-        1457,
-        1447,
-        100.7,
+        "—",
+        "—",
+        "—",
+        28
+      ],
+      [
+        13,
+        "GWS GIANTS",
+        16,
+        7,
+        9,
+        0,
+        "—",
+        "—",
+        "—",
         28
       ],
       [
@@ -2603,9 +2432,9 @@
         6,
         9,
         0,
-        1334,
-        1326,
-        100.6,
+        "—",
+        "—",
+        "—",
         24
       ],
       [
@@ -2615,9 +2444,9 @@
         5,
         10,
         0,
-        1221,
-        1211,
-        100.8,
+        "—",
+        "—",
+        "—",
         20
       ],
       [
@@ -2627,9 +2456,9 @@
         4,
         12,
         0,
-        1161,
-        1623,
-        71.5,
+        "—",
+        "—",
+        "—",
         16
       ],
       [
@@ -2639,9 +2468,9 @@
         2,
         14,
         0,
-        1059,
-        1672,
-        63.3,
+        "—",
+        "—",
+        "—",
         8
       ],
       [
@@ -2651,19 +2480,19 @@
         1,
         14,
         0,
-        1092,
-        1537,
-        71.0,
+        "—",
+        "—",
+        "—",
         4
       ]
     ],
     "focus": {
       "team": "Carlton",
-      "pos": 10,
+      "pos": 11,
       "record": "8–8",
-      "pct": 96.0,
+      "pct": "—",
       "pts": 32,
-      "note": "Five wins in a row under interim coach Josh Fraser (Voss departed after Round 9 at 1-8). The 'Blue tsunami' has revived a dead season. Finals are a long shot but mathematically alive.",
+      "note": "Seven straight. Josh Fraser's interim reign (Voss was sacked at 1-8 after Round 9) has hauled a dead season back to 8-8 and the fringe of the eight, capped by a two-point escape over Richmond at the MCG in Round 17.",
       "form": [
         "W",
         "W",
@@ -2672,19 +2501,12 @@
         "W"
       ],
       "next": {
-        "opp": "West Coast Eagles",
-        "when": "Sat 27 Jun, 1:15pm AEST",
-        "venue": "Marvel Stadium, Melbourne"
+        "opp": "Hawthorn",
+        "when": "Sat 11 Jul, MCG",
+        "venue": "MCG, Melbourne"
       }
     },
     "fixtures": [
-      [
-        "Western Bulldogs",
-        "H",
-        "W",
-        "74–62",
-        "Round 10 · 16 May"
-      ],
       [
         "Port Adelaide",
         "A",
@@ -2723,23 +2545,23 @@
       [
         "West Coast Eagles",
         "H",
-        "",
-        "",
-        "Round 16 · Sat 27 Jun, 1:15pm AEST · Marvel"
+        "W",
+        "117–64",
+        "Round 16 · 27 Jun · Marvel"
       ],
       [
         "Richmond",
         "A",
-        "",
-        "",
-        "Round 17 · Sat 4 Jul · MCG"
+        "W",
+        "74–72",
+        "Round 17 · 4 Jul · MCG"
       ],
       [
         "Hawthorn",
         "H",
         "",
         "",
-        "Round 18 · Sat 11 Jul, 7:35pm AEST · MCG"
+        "Round 18 · Sat 11 Jul · MCG"
       ]
     ]
   },
@@ -2748,19 +2570,19 @@
       [
         1,
         "Penrith Panthers",
-        14,
+        15,
         12,
-        2,
+        3,
         0,
-        272,
+        "—",
         28
       ],
       [
         2,
         "New Zealand Warriors",
-        14,
-        10,
-        4,
+        "—",
+        "—",
+        "—",
         0,
         "—",
         24
@@ -2771,9 +2593,9 @@
         "—",
         "—",
         "—",
+        0,
         "—",
-        "—",
-        22
+        24
       ],
       [
         4,
@@ -2781,9 +2603,9 @@
         "—",
         "—",
         "—",
+        0,
         "—",
-        "—",
-        22
+        24
       ],
       [
         5,
@@ -2791,9 +2613,9 @@
         "—",
         "—",
         "—",
+        0,
         "—",
-        "—",
-        22
+        24
       ],
       [
         6,
@@ -2801,9 +2623,9 @@
         "—",
         "—",
         "—",
+        0,
         "—",
-        "—",
-        20
+        22
       ],
       [
         7,
@@ -2811,19 +2633,19 @@
         "—",
         "—",
         "—",
+        0,
         "—",
-        "—",
-        20
+        22
       ],
       [
         8,
         "Cronulla Sharks",
+        14,
+        8,
+        6,
+        0,
         "—",
-        "—",
-        "—",
-        "—",
-        "—",
-        20
+        22
       ],
       [
         9,
@@ -2831,69 +2653,69 @@
         "—",
         "—",
         "—",
+        0,
         "—",
-        "—",
-        18
+        20
       ],
       [
         10,
-        "Wests Tigers",
+        "Canterbury Bulldogs",
         "—",
         "—",
         "—",
-        "—",
+        0,
         "—",
         18
       ],
       [
         11,
-        "Melbourne Storm",
-        15,
-        7,
-        8,
+        "Wests Tigers",
+        "—",
+        "—",
+        "—",
         0,
         "—",
-        16
+        18
       ],
       [
         12,
-        "Canterbury Bulldogs",
-        "—",
-        "—",
-        "—",
-        "—",
+        "Melbourne Storm",
+        16,
+        7,
+        9,
+        0,
         "—",
         16
       ],
       [
         13,
         "Brisbane Broncos",
-        "—",
-        "—",
-        "—",
-        "—",
+        15,
+        5,
+        10,
+        0,
         "—",
         14
       ],
       [
         14,
-        "Parramatta Eels",
-        "—",
-        "—",
-        "—",
-        "—",
-        "—",
-        14
-      ],
-      [
-        15,
         "Canberra Raiders",
         "—",
         "—",
         "—",
-        "—",
+        0,
         "—",
         12
+      ],
+      [
+        15,
+        "Parramatta Eels",
+        "—",
+        "—",
+        "—",
+        0,
+        "—",
+        "—"
       ],
       [
         16,
@@ -2901,9 +2723,9 @@
         "—",
         "—",
         "—",
+        0,
         "—",
-        "—",
-        12
+        "—"
       ],
       [
         17,
@@ -2911,29 +2733,29 @@
         "—",
         "—",
         "—",
-        "—",
+        0,
         "—",
         "—"
       ]
     ],
     "focus": {
       "team": "Melbourne Storm",
-      "pos": 11,
-      "record": "7–8",
+      "pos": 12,
+      "record": "7–9",
       "diff": "—",
       "pts": 16,
-      "note": "Four wins from their last five, including a 42-20 demolition of Canberra, but still 11th and about four points outside the eight. Coach Bellamy's 24th and final season.",
+      "note": "Bellamy's final season sits 12th at 7-9, six points outside the eight after a chastening 30-4 loss to Manly. The R18 bye buys a reset before the run home.",
       "form": [
-        "W",
         "L",
         "W",
         "W",
-        "W"
+        "W",
+        "L"
       ],
       "next": {
-        "opp": "Sea Eagles",
-        "when": "Sat 27 Jun, 7:35pm AEST",
-        "venue": "4 Pines Park, Sydney"
+        "opp": "Gold Coast Titans",
+        "when": "Round 19, after the R18 bye",
+        "venue": "AAMI Park, Melbourne"
       }
     },
     "fixtures": [
@@ -2977,21 +2799,28 @@
         "H",
         "W",
         "42–20",
-        "Round 16 · Sun 21 Jun · AAMI Park"
+        "Round 16 · 21 Jun · AAMI Park"
       ],
       [
         "Sea Eagles",
         "A",
-        "",
-        "",
-        "Round 17 · Sat 27 Jun, 7:35pm AEST · 4 Pines Park"
+        "L",
+        "4–30",
+        "Round 17 · 27 Jun · 4 Pines Park"
       ],
       [
-        "Warriors",
+        "Bye",
+        "-",
+        "",
+        "",
+        "Round 18 · bye (Origin week)"
+      ],
+      [
+        "Gold Coast Titans",
         "H",
         "",
         "",
-        "Round 18 · Sat 5 Jul, 5:30pm AEST · AAMI Park"
+        "Round 19 · AAMI Park"
       ]
     ],
     "origin": {
@@ -3026,20 +2855,20 @@
           "nsw": null,
           "venue": "Suncorp Stadium, Brisbane",
           "date": "Wed 8 Jul, 8:05pm AEST",
-          "qldScorers": "QLD enter as likely favourites after dominating Game 2. Win at home takes the series.",
-          "nswScorers": ""
+          "qldScorers": "QLD name Patrick Carrigan, Jeremiah Nanai and Corey Horsburgh and start home favourites after the 44-24 Game 2 rout, with the series on the line at Suncorp.",
+          "nswScorers": "NSW rang six changes under Laurie Daley, including debutant winger Jack Bostock and a reshaped centre pairing of Stephen Crichton and Bradman Best."
         }
       ]
     }
   },
   "paths": {
     "wc": {
-      "finalOdds": "~0.5%",
+      "finalOdds": "Eliminated · Round of 32",
       "gates": [
         {
-          "stage": "Group D · Played",
+          "stage": "Group D · Matchdays 1-2",
           "title": "Survive the opening two games",
-          "req": "Needed at least a draw to stay alive. Done: lost to USA, beat Türkiye.",
+          "req": "Beat Türkiye, lost to USA. Alive going into the final round.",
           "odds": 100,
           "status": "passed",
           "games": [
@@ -3060,110 +2889,51 @@
         {
           "marker": {
             "type": "branch",
-            "text": "Branch point: 2nd place decides everything"
+            "text": "Branch point: the Paraguay game decided 2nd place"
           }
         },
         {
           "stage": "Group D · Final game",
-          "title": "Beat Paraguay to reach the Round of 32",
-          "req": "Win and Australia finish 2nd and qualify directly. A draw means relying on other groups' third-placed teams. A loss almost certainly ends it.",
-          "odds": 55,
-          "status": "current",
+          "title": "Get a result against Paraguay",
+          "req": "Drew Paraguay 0–0 and pipped them for 2nd in Group D on goal difference. Through to the Round of 32.",
+          "odds": 100,
+          "status": "passed",
           "games": [
             [
-              "Australia v Paraguay",
-              "Thu 25 Jun, 10am AEST · Santa Clara",
-              "",
-              "tbd"
+              "Australia 0–0 Paraguay",
+              "Matchday 3 · Santa Clara",
+              "0–0",
+              "d"
             ]
           ],
-          "note": "Both teams on 3 points. This is effectively a knockout for 2nd behind USA."
+          "note": "Both finished on 4 points; Australia's 0 goal difference edged Paraguay's -2."
         },
         {
           "stage": "Round of 32",
-          "title": "Win one knockout game",
-          "req": "Likely face a Group C/E runner-up or a strong group winner. Single elimination from here.",
-          "odds": 30,
-          "status": "locked",
+          "title": "Win a knockout game",
+          "req": "Drawn against Egypt in Dallas. 1–1 after extra time, then beaten 4–2 in the shootout. Souttar's miss proved the difference.",
+          "odds": 0,
+          "status": "out",
           "games": [
             [
-              "2nd Group D v TBC",
-              "R32 · 28 Jun – 3 Jul",
-              "",
-              "tbd"
+              "Australia 1–1 Egypt (a.e.t.)",
+              "R32 · 3 Jul · Dallas · lost 2–4 on pens",
+              "1–1 (2–4p)",
+              "l"
             ]
-          ]
-        },
-        {
-          "stage": "Round of 16",
-          "title": "Survive the round of 16",
-          "req": "Win again. Opponents get sharply harder, a likely seeded group winner.",
-          "odds": 14,
-          "status": "locked",
-          "games": [
-            [
-              "Winner R32 v TBC",
-              "R16 · 4–7 Jul",
-              "",
-              "tbd"
-            ]
-          ]
+          ],
+          "note": "The Socceroos' World Cup ends at the Round of 32."
         },
         {
           "marker": {
             "type": "wall",
-            "text": "The wall: quarter-final is the historical Socceroos ceiling"
+            "text": "Out: beaten by Egypt on penalties. The run is over."
           }
-        },
-        {
-          "stage": "Quarter-final",
-          "title": "Reach the last 8",
-          "req": "No Australian men's side has ever gone past the round of 16 at a World Cup. This is uncharted territory.",
-          "odds": 5,
-          "status": "locked",
-          "games": [
-            [
-              "Winner R16 v TBC",
-              "QF · 9–11 Jul",
-              "",
-              "tbd"
-            ]
-          ]
-        },
-        {
-          "stage": "Semi-final",
-          "title": "Reach the last 4",
-          "req": "Beat a genuine title contender. Dreamland.",
-          "odds": 2,
-          "status": "locked",
-          "games": [
-            [
-              "Winner QF v TBC",
-              "SF · 14–15 Jul",
-              "",
-              "tbd"
-            ]
-          ]
-        },
-        {
-          "stage": "Final",
-          "title": "Lift the World Cup",
-          "req": "Two more wins against the best teams on earth.",
-          "odds": 0.5,
-          "status": "locked",
-          "games": [
-            [
-              "Winner SF v TBC",
-              "Final · 19 Jul · NY/NJ",
-              "",
-              "tbd"
-            ]
-          ]
         }
       ]
     },
     "afl": {
-      "finalOdds": "~1%",
+      "finalOdds": "~1.5%",
       "gates": [
         {
           "stage": "Rounds 10–15 · Done",
@@ -3213,21 +2983,21 @@
         {
           "stage": "Rounds 16–23 · Now",
           "title": "Climb into the top 8",
-          "req": "Currently 14th on 24 points. The 8th-placed Brisbane are on 32. Carlton must win most of their run home AND have results fall their way. Brutal but not dead.",
-          "odds": 14,
+          "req": "Now 8-8 on 32 points in 11th, about four points outside the eight after making it seven wins in a row. Carlton must keep winning and get results elsewhere, and lift a modest percentage.",
+          "odds": 18,
           "status": "current",
           "games": [
             [
-              "v West Coast",
+              "def West Coast",
               "R16 · 27 Jun · Marvel",
-              "",
-              "tbd"
+              "117–64",
+              "w"
             ],
             [
-              "v Richmond",
+              "def Richmond",
               "R17 · 4 Jul · MCG",
-              "",
-              "tbd"
+              "74–72",
+              "w"
             ],
             [
               "v Hawthorn",
@@ -3236,7 +3006,7 @@
               "tbd"
             ]
           ],
-          "note": "Percentage also needs lifting: they must win big, not just win."
+          "note": "Percentage still needs work: they have to win big, not just win."
         },
         {
           "stage": "Finals · Week 1",
@@ -3307,7 +3077,7 @@
       ]
     },
     "nrl": {
-      "finalOdds": "~1.5%",
+      "finalOdds": "~1%",
       "gates": [
         {
           "stage": "Rounds 11–16 · Done",
@@ -3357,24 +3127,30 @@
         {
           "stage": "Rounds 17–27 · Now",
           "title": "Force into the top 8",
-          "req": "7–8 record, 16 points, about four points behind the 8th-placed Sharks. Storm must win most of their run home and overtake several teams.",
-          "odds": 18,
+          "req": "7-9 on 16 points, 12th and six points behind the 8th-placed Sharks. Storm must win most of their run home and reel in several teams, starting after the Round 18 bye.",
+          "odds": 12,
           "status": "current",
           "games": [
             [
-              "v Sea Eagles",
+              "lost Sea Eagles",
               "R17 · 27 Jun · away",
+              "4–30",
+              "l"
+            ],
+            [
+              "Bye",
+              "R18 · Origin week",
               "",
               "tbd"
             ],
             [
-              "v Warriors",
-              "R18 · 5 Jul · AAMI",
+              "v Titans",
+              "R19 · AAMI Park",
               "",
               "tbd"
             ]
           ],
-          "note": "Bellamy's final season: the dressing-room motivation is real, but the maths is unforgiving."
+          "note": "Bellamy's farewell year: the motivation is real, the maths unforgiving."
         },
         {
           "stage": "Finals · Week 1",
