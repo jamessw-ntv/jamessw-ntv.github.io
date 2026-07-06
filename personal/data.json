@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-06",
-    "fetched": "2026-07-06T21:45:16+00:00",
+    "fetched": "2026-07-06T23:13:51+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
+      "temp": 6,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 5
+      "wind": 4
     },
     "days": [
       {
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92229.0,
-        "pct": 1.72
+        "price": 92280.0,
+        "pct": 0.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2605.02,
-        "pct": 1.56
+        "price": 2595.71,
+        "pct": 0.16
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Odyssey’ First Reactions Are Raves for Christopher Nolan’s ‘Astonishing’ Epic and ‘Flawless Filmmaking’: ‘Breathtaking, Bold and Perfection’",
+      "title": "Amazon’s New ‘Tomb Raider’ Video Game Star on Becoming Lara Croft, Sophie Turner’s TV Series and the ‘Really, Really Big’ Adventure Coming in ‘Catalyst’",
       "when": "6 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-odyssey-first-reactions-christopher-nolan-1236802321/"
+      "url": "https://variety.com/2026/digital/news/amazon-new-tomb-raider-game-star-atlantis-catalyst-tv-series-1236802652/"
     },
     {
       "cat": "Film/TV",
-      "title": "V/H/S Franchise Sets New Roy Lee and Steven Schneider-Produced Movie Based on SCP Foundation Universe (EXCLUSIVE)",
+      "title": "‘Dutton Ranch’ Breakout Natalie Alyn Lind on Sobbing Over That Murder, Discovering Oreana’s Life-Changing News and Season 2 Plans",
       "when": "6 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/vhs-anthology-film-scp-foundation-universe-roy-lee-1236802817/"
+      "url": "https://variety.com/2026/tv/features/dutton-ranch-natalie-alyn-lind-oreana-pregnancy-dad-death-1236802556/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Zara Larsson Signs to RCA Records",
+      "when": "6 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/zara-larsson-signs-rca-records-sources-confirm-1236802926/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Production Assistants on ‘Chicago Fire’ and ‘Chicago Med’ Ratify Union Contract",
+      "when": "6 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/production-assistants-chicago-fire-med-union-contract-1236802870/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +118,6 @@
       "when": "6 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/leia-and-rey-head-to-tython-in-new-star-wars-legacy-excerpt.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Orbital Studios Moving to Television City Lot – Film News in Brief",
-      "when": "6 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/film-news-in-brief-july-6-2026-1236802346/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Julia Garner to Star in Apple TV True Crime Series ‘Guilty Creatures’ From Craig Gillespie, Stuart Zicherman",
-      "when": "6 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/julia-garner-apple-tv-guilty-creatures-1236802666/"
     },
     {
       "cat": "Trek/Wars",
