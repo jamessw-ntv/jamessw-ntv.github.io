@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-06",
-    "fetched": "2026-07-06T14:31:34+00:00",
+    "fetched": "2026-07-06T17:48:31+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 3,
+      "temp": 1,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 2
+      "wind": 5
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89482.0,
-        "pct": -0.82
+        "price": 91567.0,
+        "pct": 1.53
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2525.89,
-        "pct": -0.62
+        "price": 2572.94,
+        "pct": 0.42
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "25 Hottest Soccer Stars at the 2026 World Cup: Rodrigo De Paul, Jude Bellingham, Christian Pulisic and More",
+      "title": "Lauren Bennett, ‘Party Rock Anthem’ Singer and G.R.L. Member, Dies at 37",
       "when": "6 Jul",
       "source": "Variety",
-      "url": "https://variety.com/lists/world-cup-2026-hottest-soccer-stars-christian-pulisic-jude-bellingham-rodrigo-de-paul/"
+      "url": "https://variety.com/2026/music/news/lauren-bennett-dead-party-rock-anthem-paradiso-girls-grl-1236802627/"
     },
     {
       "cat": "Film/TV",
-      "title": "Xbox to Lay Off Up to 3,200 Staffers in ‘Most Significant Restructure’ in Company’s History",
+      "title": "‘Succession’ Duo Peter Friedman and David Rasche Reunite in Short Film ‘Elderwood’ (EXCLUSIVE)",
       "when": "6 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/xbox-layoffs-3200-4-studios-sold-1236802326/"
+      "url": "https://variety.com/2026/film/news/succession-peter-friedman-david-rasche-reunite-short-film-1236802547/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Black Demon: Atlantis’: The Making of a Shark Thriller at 8,600 Feet Above Sea Level in Colombia",
+      "title": "Adam Sandler Told Taylor Swift and Travis Kelce While Officiating Their Wedding: ‘Kiss Every Chance You Have. Every Day’",
       "when": "6 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/black-demon-atlantis-shark-movie-at-8600-ft-in-colombia-1236801959/"
+      "url": "https://variety.com/2026/music/news/adam-sandler-taylor-swift-kiss-travis-kelce-wedding-1236802521/"
     },
     {
       "cat": "Film/TV",
-      "title": "TV’s ‘Fall of Rome’ Broken Down by Scott Free’s David W. Zucker, Talking With ‘Wednesday’ Exec Producer Steve Stark at Italian Global Series Fest",
+      "title": "‘Robert Richardson: The White Devil’ Review: Candid Documentary Turns the Camera on a Cinematography Legend",
       "when": "6 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/scott-free-david-w-zucker-wednesday-steve-stark-1236802331/"
+      "url": "https://variety.com/2026/film/reviews/robert-richardson-the-white-devil-review-1236801907/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Trek: Strange New Worlds’ Cast Talks Season 4, Improvising On Set, and Checking All The Boxes",
+      "when": "6 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/06/star-trek-strange-new-worlds-cast-talks-season-4-improvising-on-set-and-checking-all-the-boxes/"
     },
     {
       "cat": "Trek/Wars",
@@ -153,13 +160,6 @@
       "when": "18 Jun",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/06/18/review-exo-6s-star-trek-deep-space-nine-garak-is-no-plain-simple-figure/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Paul Wesley And Ethan Peck Still Waiting For The Call To Return In ‘Star Trek: Year One’ As Kirk And Spock",
-      "when": "18 Jun",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/06/17/paul-wesley-and-ethan-peck-still-waiting-for-the-call-to-return-in-star-trek-year-one-as-kirk-and-spock/"
     },
     {
       "cat": "Games",
