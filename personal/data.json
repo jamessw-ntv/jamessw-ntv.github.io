@@ -3,30 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-06",
-    "fetched": "2026-07-06T10:51:31+00:00",
+    "fetched": "2026-07-06T14:31:34+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 4
+      "temp": 3,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 2
     },
     "days": [
       {
         "day": "Today",
         "min": 1,
-        "max": 13,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Tue",
-        "min": 3,
-        "max": 11,
+        "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -35,6 +27,14 @@
         "day": "Wed",
         "min": 4,
         "max": 12,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
+      },
+      {
+        "day": "Thu",
+        "min": 4,
+        "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90575.0,
-        "pct": 0.3
+        "price": 89482.0,
+        "pct": -0.82
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2552.0,
-        "pct": 0.7
+        "price": 2525.89,
+        "pct": -0.62
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Kevin Costner’s ‘Dances With Wolves’ Set for New Restored Director’s Cut That Will Launch at Locarno",
+      "title": "25 Hottest Soccer Stars at the 2026 World Cup: Rodrigo De Paul, Jude Bellingham, Christian Pulisic and More",
       "when": "6 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/kevin-costner-dances-with-wolves-restored-cut-locarno-1236802288/"
+      "url": "https://variety.com/lists/world-cup-2026-hottest-soccer-stars-christian-pulisic-jude-bellingham-rodrigo-de-paul/"
     },
     {
       "cat": "Film/TV",
-      "title": "Secret Cinema Boss on ‘Grease’ Returning and Record-Breaking ’Pirates of the Caribbean’ Pre-Sales: ‘When People Step Into This Room, They’re Going To Be Beside Themselves’",
+      "title": "Xbox to Lay Off Up to 3,200 Staffers in ‘Most Significant Restructure’ in Company’s History",
       "when": "6 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/secret-cinema-pirates-of-the-caribbean-london-2027-1236788269/"
+      "url": "https://variety.com/2026/gaming/news/xbox-layoffs-3200-4-studios-sold-1236802326/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Replica’ Leads Next Interactive Studio’s Bucheon Showcase",
+      "title": "‘The Black Demon: Atlantis’: The Making of a Shark Thriller at 8,600 Feet Above Sea Level in Colombia",
       "when": "6 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/replica-next-interactive-studio-bucheon-1236802281/"
+      "url": "https://variety.com/2026/film/global/black-demon-atlantis-shark-movie-at-8600-ft-in-colombia-1236801959/"
     },
     {
       "cat": "Film/TV",
-      "title": "Anurag Kashyap Boards Rotterdam-Premiered Bangladeshi Drama ‘Delupi’ (EXCLUSIVE)",
+      "title": "TV’s ‘Fall of Rome’ Broken Down by Scott Free’s David W. Zucker, Talking With ‘Wednesday’ Exec Producer Steve Stark at Italian Global Series Fest",
       "when": "6 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/anurag-kashyap-rotterdam-bangladesh-delupi-1236802252/"
+      "url": "https://variety.com/2026/tv/global/scott-free-david-w-zucker-wednesday-steve-stark-1236802331/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
