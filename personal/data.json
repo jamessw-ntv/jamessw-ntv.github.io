@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-07",
-    "fetched": "2026-07-07T07:47:59+00:00",
+    "fetched": "2026-07-07T11:15:10+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 5
+      "temp": 4,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 7
     },
     "days": [
       {
         "day": "Today",
         "min": 2,
-        "max": 11,
+        "max": 10,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90893.0,
-        "pct": 0.02
+        "price": 90824.0,
+        "pct": 0.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2552.72,
-        "pct": -0.09
+        "price": 2549.86,
+        "pct": 0.07
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Toy Story 5’ Holds No. 1 as ‘Minions & Monsters’ Chases at U.K. and Ireland Box Office",
+      "title": "Jay-Z Adds London Date to ‘Jay-Z 30’ Concert Series",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/toy-story-5-minions-monsters-uk-ireland-box-office-1236803117/"
+      "url": "https://variety.com/2026/music/global/jay-z-london-concert-jay-z-30-1236803179/"
     },
     {
       "cat": "Film/TV",
-      "title": "Herb Alpert & the Tijuana Brass Whip It Good at the Hollywood Bowl, Returning After 59 Years for a Great Sugar Rush of a Show: Concert Review",
+      "title": "Lauren McQueen to Lead Michael J. Long’s British Psychological Drama ‘Crack’d’ (EXCLUSIVE)",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/concert-reviews/herb-alpert-tijuana-brass-hollywood-bowl-concert-review-1236802736/"
+      "url": "https://variety.com/2026/film/global/lauren-mcqueen-psychological-drama-crackd-michael-long-1236803133/"
     },
     {
       "cat": "Film/TV",
-      "title": "U.S. Men’s National Soccer Team Eliminated From World Cup Competition in Loss to Belgium",
+      "title": "AI Music Start-Up Suno Hires Atlantic Records, YouTube Alums to Lead Marketing and Music Business Development (EXCLUSIVE)",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/u-s-mens-national-soccer-team-eliminated-world-cup-belgium-1236803018/"
+      "url": "https://variety.com/2026/music/news/suno-hires-grace-james-christian-bowne-executives-1236802750/"
     },
     {
       "cat": "Film/TV",
-      "title": "LISTEN: ‘Minions and Monsters’ Has Tepid U.S. Opening as ‘Young Washington’ Impresses; Why Comcast’s Sky is Buying ITV",
+      "title": "‘Made in India: A Titan Story’ Team Reunites for ‘The Tatas,’ Saga About Prominent Indian Business Family (EXCLUSIVE)",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/minions-and-monsters-young-washington-box-office-sky-itv-1236802981/"
+      "url": "https://variety.com/2026/tv/news/made-in-india-team-reunites-the-tatas-1236803148/"
     },
     {
       "cat": "Trek/Wars",
