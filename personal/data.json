@@ -3,30 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-07",
-    "fetched": "2026-07-07T11:15:10+00:00",
+    "fetched": "2026-07-07T14:51:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
+      "temp": 3,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 7
+      "wind": 5
     },
     "days": [
       {
         "day": "Today",
-        "min": 2,
-        "max": 10,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Wed",
-        "min": 4,
-        "max": 12,
+        "min": 3,
+        "max": 11,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -37,6 +29,14 @@
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
+        "rain": 0
+      },
+      {
+        "day": "Fri",
+        "min": 2,
+        "max": 14,
+        "icon": "🌤️",
+        "desc": "Mainly clear",
         "rain": 0
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90824.0,
-        "pct": 0.36
+        "price": 91004.0,
+        "pct": 1.87
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2549.86,
-        "pct": 0.07
+        "price": 2558.58,
+        "pct": 1.5
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Jay-Z Adds London Date to ‘Jay-Z 30’ Concert Series",
+      "title": "Abbie Cornish Transforms Into Anna Nicole Smith in First Look at ‘Trust Me, I’m a Doctor (EXCLUSIVE)",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/global/jay-z-london-concert-jay-z-30-1236803179/"
+      "url": "https://variety.com/2026/film/columns/abbie-cornish-anna-nicole-smith-trust-me-im-a-doctor-kal-penn-1236802989/"
     },
     {
       "cat": "Film/TV",
-      "title": "Lauren McQueen to Lead Michael J. Long’s British Psychological Drama ‘Crack’d’ (EXCLUSIVE)",
+      "title": "Jude Bellingham, Harry Kane-Led England World Cup Win Draws Record BBC Audience – Global Bulletin",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/lauren-mcqueen-psychological-drama-crackd-michael-long-1236803133/"
+      "url": "https://variety.com/2026/tv/news/jude-bellingham-harry-kane-england-world-cup-win-record-bbc-audience-1236803403/"
     },
     {
       "cat": "Film/TV",
-      "title": "AI Music Start-Up Suno Hires Atlantic Records, YouTube Alums to Lead Marketing and Music Business Development (EXCLUSIVE)",
+      "title": "Dolly Parton’s ‘Dolly: A True Original Musical’ Sets Broadway Run, With Previews Beginning in December",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/suno-hires-grace-james-christian-bowne-executives-1236802750/"
+      "url": "https://variety.com/2026/legit/news/dolly-parton-broadway-musical-sets-opening-1236803367/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Made in India: A Titan Story’ Team Reunites for ‘The Tatas,’ Saga About Prominent Indian Business Family (EXCLUSIVE)",
+      "title": "Gucci Family Series ‘Game Over’ Reveals First-Look Images as Sky Italia Announces Further Cast",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/made-in-india-team-reunites-the-tatas-1236803148/"
+      "url": "https://variety.com/2026/tv/global/gucci-family-series-game-over-first-look-images-1236803287/"
     },
     {
       "cat": "Trek/Wars",
