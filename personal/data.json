@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-07",
-    "fetched": "2026-07-07T21:37:41+00:00",
+    "fetched": "2026-07-07T23:07:33+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
+      "temp": 6,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 4
+      "wind": 6
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91556.0,
-        "pct": -0.72
+        "price": 91762.0,
+        "pct": -0.57
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2562.44,
-        "pct": -1.5
+        "price": 2565.03,
+        "pct": -1.23
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Anne Hathaway ‘Spent a Week’ Prepping for Harley Quinn Before ‘Dark Knight Rises’ Meeting; Nolan Didn’t Reveal Catwoman Until Two Hours Into Their Chat",
+      "when": "7 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/anne-hathaway-harley-quinn-dark-knight-rises-nolan-catwoman-1236803349/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Selamlik’ Wins Eurimages Co-Production Development Award at Karlovy Vary Film Festival",
+      "when": "7 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/selamlik-eurimages-co-production-development-award-1236804017/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Autographed Lionel Messi Memorabilia Drops Online as Argentine Star Leads Team Into World Cup Quarterfinals",
+      "when": "7 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/athletes/best-lionel-messi-autograph-jersey-signed-merch-buy-online-1236799022/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "‘NCIS: New York’ Casts Jennifer Beals, Jacqueline Byers, Shane Harper, Devin Druid",
       "when": "7 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/ncis-new-york-cast-jennifer-beals-jacqueline-byers-1236803956/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Christopher Nolan Says ‘The Odyssey’s’ Modern English Dialogue ‘Was a No-Brainer’ Even If ‘It Might Bite Me on the Ass’ and ‘I Was Maybe Being Naïve’",
-      "when": "7 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/christopher-nolan-defends-odyssey-accents-english-dialogue-1236803556/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How ‘RuneScape’ Studio Is Prepping a 25-Year-Old PC Franchise for Its First-Ever Console Release, Including Crossplay",
-      "when": "7 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/runescape-dragonwilds-update-changes-console-crossplay-1236803785/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sky Yang Signs With Range Media Partners (EXCLUSIVE)",
-      "when": "7 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/sky-yang-range-media-partners-1236803867/"
     },
     {
       "cat": "Trek/Wars",
