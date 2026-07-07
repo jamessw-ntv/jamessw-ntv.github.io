@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-07",
-    "fetched": "2026-07-07T17:23:07+00:00",
+    "fetched": "2026-07-07T20:05:29+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
+      "temp": 5,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 5
@@ -18,25 +18,25 @@
       {
         "day": "Today",
         "min": 3,
-        "max": 11,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Thu",
-        "min": 4,
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
-        "day": "Fri",
+        "day": "Thu",
         "min": 2,
+        "max": 13,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
+      },
+      {
+        "day": "Fri",
+        "min": 1,
         "max": 14,
-        "icon": "🌤️",
-        "desc": "Mainly clear",
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 0
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92231.0,
-        "pct": 0.38
+        "price": 92063.0,
+        "pct": 0.73
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2597.38,
-        "pct": 0.56
+        "price": 2581.85,
+        "pct": 0.46
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Dwayne Johnson to Star as Motorcycle Stuntman With Dementia in ‘Free Byrd’ From ‘Sing Sing’ Director Greg Kwedar (EXCLUSIVE)",
+      "title": "Sky Yang Signs With Range Media Partners (EXCLUSIVE)",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/dwayne-johnson-free-byrd-artists-equity-greg-kwedar-1236803636/"
+      "url": "https://variety.com/2026/tv/news/sky-yang-range-media-partners-1236803867/"
     },
     {
       "cat": "Film/TV",
-      "title": "Mariska Hargitay to Host Emmys; First Woman to Emcee the Show In 15 Years",
+      "title": "Craig Kilborn Sets Directorial Debut ‘The Life Golden’ Starring Lauren German and Tom Byrne (EXCLUSIVE)",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/mariska-hargitay-host-emmys-nbc-first-woman-in-15-years-1236803622/"
+      "url": "https://variety.com/2026/film/news/craig-kilborn-the-life-golden-lauren-german-tom-byrne-1236803833/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Shark Tank’ Sets Season 18 Guest Sharks: MrBeast, Mindy Kaling, ‘Diary of a CEO’ Host and More",
+      "title": "Rachel Zegler-Led Psychological Thriller ‘NDA’ Acquired by Bleecker Street",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/shark-tank-season-18-sharks-1236803706/"
+      "url": "https://variety.com/2026/film/news/rachel-zegler-nda-bleecker-street-audrey-ellis-fox-1236803454/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Big Brother 28’ Cast Revealed: ‘Drag Race’ Star Jason De Puy, MMA Fighter Kamuela ‘Kamu’ Kirk and More",
+      "title": "‘Enola Holmes 3’ Debuts With 20.7 Million Views in Five Days",
       "when": "7 Jul",
       "source": "Variety",
-      "url": "https://variety.com/lists/big-brother-28-cast-drag-race-mma-fighter/"
+      "url": "https://variety.com/2026/tv/news/enola-holmes-3-ratings-netflix-views-1236803843/"
     },
     {
       "cat": "Trek/Wars",
