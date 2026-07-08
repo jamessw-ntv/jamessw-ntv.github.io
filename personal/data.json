@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-08",
-    "fetched": "2026-07-08T17:44:40+00:00",
+    "fetched": "2026-07-08T19:43:42+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
+      "temp": 2,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 2
+      "wind": 1
     },
     "days": [
       {
         "day": "Today",
-        "min": 3,
-        "max": 12,
+        "min": 2,
+        "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89738.0,
-        "pct": -2.89
+        "price": 89626.0,
+        "pct": -2.57
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2510.04,
-        "pct": -3.52
+        "price": 2504.46,
+        "pct": -2.94
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Focus Features Acquires Andrew Scott’s Ian Charleson Biopic ‘Elsinore,’ Eyes Fall Release and Festival Bow (EXCLUSIVE)",
+      "title": "‘The Pitt’ Stars Brittany Allen and Jeff Kober Scored Emmy Noms After Self-Submitting: ‘A Week Ago I Couldn’t Get a Good Agent’",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/focus-features-elsinore-andrew-scott-acquisition-1236801625/"
+      "url": "https://variety.com/2026/tv/awards/the-pitt-emmys-brittany-allen-jeff-kober-self-submit-nominations-1236802978/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Visions’ and ‘Maul: Shadow Lord’ Among List of Nominees for the 2026 Emmys",
+      "when": "8 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-and-maul-shadow-lord-among-list-of-nominees-for-the-2026-emmys.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Country Music Association Names Brittany Schaffer as New CEO to Succeed Sarah Trahern",
+      "title": "Justin Bieber Joins Madonna, BTS and Shakira for FIFA World Cup Final Halftime Show",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/country-music-association-brittany-schaffer-new-ceo-1236804657/"
+      "url": "https://variety.com/2026/music/news/justin-bieber-joins-fifa-world-cup-final-haltime-show-1236804858/"
     },
     {
       "cat": "Film/TV",
-      "title": "Wes Anderson Was Stuck in the Academy Museum Elevator With James L. Brooks and Luke Wilson",
+      "title": "Amazon MGM Studios Ups Kara Smith to Head of Drama TV as Jen Chambers, Michael McDonald and Odetta Watkins Exit",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/wes-anderson-academy-museum-elevator-luke-wilson-1236804569/"
+      "url": "https://variety.com/2026/tv/news/amazon-kara-smith-head-drama-tv-1236804852/"
     },
     {
       "cat": "Film/TV",
-      "title": "Lego Releases Five New Pokémon Sets, Including Arcanine, Rayquaza and Munchlax Builds",
+      "title": "‘Cheetah Girls 4’: Raven-Symoné Confirms Her Return in ‘Next Gen’ Reboot",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/pokemon-lego-sets-arcanine-rayquaza-order-online-1236804080/"
+      "url": "https://variety.com/2026/tv/news/cheetah-girls-4-raven-symone-next-gen-reboot-1236804771/"
     },
     {
       "cat": "Trek/Wars",
@@ -142,13 +149,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "ILM Mourns the Passing of Brian Johnson and Dick Dova Spah",
-      "when": "6 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/ilm-mourns-the-passing-of-brian-johnson-and-dick-dova-spah.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "‘Star Trek: Strange New Worlds’ Cast Talks Season 4, Improvising On Set, and Checking All The Boxes",
       "when": "6 Jul",
       "source": "TrekMovie",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
