@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-08",
-    "fetched": "2026-07-08T19:43:42+00:00",
+    "fetched": "2026-07-08T21:15:37+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 2,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 1
+      "wind": 2
     },
     "days": [
       {
@@ -72,24 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89626.0,
-        "pct": -2.57
+        "price": 89373.0,
+        "pct": -2.46
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2504.46,
-        "pct": -2.94
+        "price": 2498.34,
+        "pct": -2.62
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Pitt’ Stars Brittany Allen and Jeff Kober Scored Emmy Noms After Self-Submitting: ‘A Week Ago I Couldn’t Get a Good Agent’",
+      "title": "‘Hacks’ Spinoff Will Never Happen, Paul W. Downs Says: ‘We Feel So Happy With How It Ended’",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/awards/the-pitt-emmys-brittany-allen-jeff-kober-self-submit-nominations-1236802978/"
+      "url": "https://variety.com/2026/tv/news/hacks-spinoff-will-never-happen-1236804951/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "DoorDash Is Offering the Chance to Win Tickets to the World Cup Final Through Its Summer of Dashpass Campaign",
+      "when": "8 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/doordash-summer-of-dashpass-deal-world-cup-1236804973/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Emmy Nominee Reactions: Shailene Woodley Was Getting a Lash Lift, Sepideh Moafi Cries and Jonathan Pryce Jokes About Joining ‘Love Island’",
+      "when": "8 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/lists/emmy-nominees-2026-reactions-shailene-woodley-sepideh-moafi/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Casey Bloys on HBO’s Huge Emmy Noms Haul, ‘The Pitt’ Dominance, Whether He Has ‘Heated Rivalry’ Regrets and His Own Future Post-Merger",
+      "when": "8 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/hbo-emmy-nomination-casey-bloys-future-the-pitt-1236804809/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +118,6 @@
       "when": "8 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-and-maul-shadow-lord-among-list-of-nominees-for-the-2026-emmys.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Justin Bieber Joins Madonna, BTS and Shakira for FIFA World Cup Final Halftime Show",
-      "when": "8 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/justin-bieber-joins-fifa-world-cup-final-haltime-show-1236804858/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Amazon MGM Studios Ups Kara Smith to Head of Drama TV as Jen Chambers, Michael McDonald and Odetta Watkins Exit",
-      "when": "8 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/amazon-kara-smith-head-drama-tv-1236804852/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Cheetah Girls 4’: Raven-Symoné Confirms Her Return in ‘Next Gen’ Reboot",
-      "when": "8 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/cheetah-girls-4-raven-symone-next-gen-reboot-1236804771/"
     },
     {
       "cat": "Trek/Wars",
