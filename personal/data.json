@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-08",
-    "fetched": "2026-07-08T15:27:06+00:00",
+    "fetched": "2026-07-08T17:44:40+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 4,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 4
+      "wind": 2
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88979.0,
-        "pct": -3.09
+        "price": 89738.0,
+        "pct": -2.89
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2479.7,
-        "pct": -3.95
+        "price": 2510.04,
+        "pct": -3.52
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Bone Thugs-n-Harmony Honored With Walk of Fame Star: ‘Anybody Harmonizing, Rapping Fast, People Know Where That Came From’",
+      "title": "Focus Features Acquires Andrew Scott’s Ian Charleson Biopic ‘Elsinore,’ Eyes Fall Release and Festival Bow (EXCLUSIVE)",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/focus/bone-thugs-n-harmony-hollywood-walk-of-fame-1236791417/"
+      "url": "https://variety.com/2026/film/awards/focus-features-elsinore-andrew-scott-acquisition-1236801625/"
     },
     {
       "cat": "Film/TV",
-      "title": "Box Office: ‘Moana’ Could Be Headed for Choppy Waters",
+      "title": "Country Music Association Names Brittany Schaffer as New CEO to Succeed Sarah Trahern",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/moana-remake-box-office-opening-weekend-tracking-1236803797/"
+      "url": "https://variety.com/2026/music/news/country-music-association-brittany-schaffer-new-ceo-1236804657/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Moana’ Review: The First Disney Live-Action Remake That Works 100%",
+      "title": "Wes Anderson Was Stuck in the Academy Museum Elevator With James L. Brooks and Luke Wilson",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/moana-live-action-review-dwayne-johnson-1236802858/"
+      "url": "https://variety.com/2026/film/news/wes-anderson-academy-museum-elevator-luke-wilson-1236804569/"
     },
     {
       "cat": "Film/TV",
-      "title": "Pure Flix Founder Michael Scott Teams With ‘Duck Dynasty’ Stars Willie and Korie Robertson on Faith-Based Company EKKL Entertainment (EXCLUSIVE)",
+      "title": "Lego Releases Five New Pokémon Sets, Including Arcanine, Rayquaza and Munchlax Builds",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/duck-dynasty-stars-willie-and-korie-robertson-ekkl-entertainment-1236802297/"
+      "url": "https://variety.com/2026/shopping/news/pokemon-lego-sets-arcanine-rayquaza-order-online-1236804080/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
