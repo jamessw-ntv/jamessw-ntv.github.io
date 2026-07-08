@@ -3,21 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-08",
-    "fetched": "2026-07-08T00:09:25+00:00",
+    "fetched": "2026-07-08T04:19:27+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 5
+      "temp": 12,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 2
     },
     "days": [
       {
         "day": "Today",
-        "min": 3,
+        "min": 2,
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
@@ -33,11 +33,11 @@
       },
       {
         "day": "Fri",
-        "min": 1,
+        "min": 2,
         "max": 14,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
+        "icon": "⛅",
+        "desc": "Partly cloudy",
+        "rain": 6
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91552.0,
-        "pct": -0.51
+        "price": 90456.0,
+        "pct": -0.47
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2560.47,
-        "pct": -0.97
+        "price": 2526.69,
+        "pct": -0.78
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Disney and Luxury Fashion Brand Ganni Continue Partnership With Daisy Duck Collection (EXCLUSIVE)",
+      "when": "8 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/disney-ganni-daisy-duck-collection-shop-online-2-1236803580/"
+    },
     {
       "cat": "Film/TV",
       "title": "Anne Hathaway ‘Spent a Week’ Prepping for Harley Quinn Before ‘Dark Knight Rises’ Meeting; Nolan Didn’t Reveal Catwoman Until Two Hours Into Their Chat",
@@ -104,13 +111,6 @@
       "when": "7 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/shopping/athletes/best-lionel-messi-autograph-jersey-signed-merch-buy-online-1236799022/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘NCIS: New York’ Casts Jennifer Beals, Jacqueline Byers, Shane Harper, Devin Druid",
-      "when": "7 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ncis-new-york-cast-jennifer-beals-jacqueline-byers-1236803956/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
