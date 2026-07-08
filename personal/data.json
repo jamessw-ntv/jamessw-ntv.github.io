@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-08",
-    "fetched": "2026-07-08T10:25:45+00:00",
+    "fetched": "2026-07-08T12:25:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
+      "temp": 3,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 3
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 6
+        "rain": 2
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89546.0,
-        "pct": -1.77
+        "price": 89812.0,
+        "pct": -1.95
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2508.48,
-        "pct": -2.11
+        "price": 2519.64,
+        "pct": -2.17
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Mubi Acquires ‘Making Marie Antoinette,’ Eleanor Coppola’s Behind-the-Scenes Doc About Sofia Coppola’s Oscar-Winning Film",
+      "title": "Tony Rayns, British Critic and Champion of East Asian Cinema, Dies at 78",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/mubi-marie-antoinette-eleanor-coppola-doc-sofia-coppola-film-1236804188/"
+      "url": "https://variety.com/2026/film/obituaries-people-news/tony-rayns-dead-east-asian-cinema-champion-1236804242/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Freakonomics’ Creator Stephen Dubner Is Launching a Talk Show With Guests at His New York City Home: ‘People Are Much Hungrier for Substance Than the Conventional Wisdom Says’",
+      "title": "Vittorio Angelone and Hannah McClean Lead Care Work Comedy Series ‘Rewarding’ From BBC, Wonder Project (EXCLUSIVE)",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/freakonomics-stephen-dubner-talk-show-better-in-person-1236802441/"
+      "url": "https://variety.com/2026/tv/global/bbc-rewarding-comedy-vittorio-angelone-1236804194/"
     },
     {
       "cat": "Film/TV",
-      "title": "Paweł Pawlikowski’s ‘Fatherland’ to Open the 32nd Sarajevo Film Festival",
+      "title": "David Beckham and U2 Team With Street Child United Charity for Short Film to Air During Final World Cup Games (EXCLUSIVE)",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/pawel-pawlikowski-fatherland-sarajevo-film-festival-1236804122/"
+      "url": "https://variety.com/2026/film/global/david-beckham-u2-short-film-street-of-dreams-world-cup-1236803394/"
     },
     {
       "cat": "Film/TV",
-      "title": "Malaysia-U.K. Rom-Com ‘Finding Mojo’ Unveils Release Dates, Min Lim Details Double Vision’s Global Ambitions: ‘This Is Southeast Asia’s Moment’ (EXCLUSIVE)",
+      "title": "‘The Sopranos’ Creator David Chase Wants to Make a Project About Italian Americans Moving to Italy ‘Because Things in Our Country Are Questionable’",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/finding-mojo-malaysia-uk-rom-com-double-vision-1236804161/"
+      "url": "https://variety.com/2026/film/news/the-sopranos-david-chase-italian-americans-italy-1236804239/"
     },
     {
       "cat": "Trek/Wars",
