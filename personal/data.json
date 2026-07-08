@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-08",
-    "fetched": "2026-07-08T21:15:37+00:00",
+    "fetched": "2026-07-08T23:14:54+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 2,
+      "temp": 3,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 2
+      "wind": 3
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 0
       },
       {
         "day": "Sat",
@@ -37,7 +37,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 85
+        "rain": 96
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89373.0,
-        "pct": -2.46
+        "price": 89852.0,
+        "pct": -2.11
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2498.34,
-        "pct": -2.62
+        "price": 2511.72,
+        "pct": -2.08
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Hacks’ Spinoff Will Never Happen, Paul W. Downs Says: ‘We Feel So Happy With How It Ended’",
+      "title": "Matt Cherniss on Apple TV’s Impressive Emmys Batting Average, and When ‘Widow’s Bay,’ ‘Pluribus’ and ‘Severance’ Might Return",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hacks-spinoff-will-never-happen-1236804951/"
+      "url": "https://variety.com/2026/tv/news/apple-tv-emmys-widows-bay-pluribus-severance-return-1236804984/"
     },
     {
       "cat": "Film/TV",
-      "title": "DoorDash Is Offering the Chance to Win Tickets to the World Cup Final Through Its Summer of Dashpass Campaign",
+      "title": "LISTEN: Netflix, Disney+ and Amazon Fight in France Over Streaming Quotas and Theatrical Windowing Rules",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/doordash-summer-of-dashpass-deal-world-cup-1236804973/"
+      "url": "https://variety.com/2026/tv/news/netflix-france-battle-streaming-quotas-daily-variety-1236805079/"
     },
     {
       "cat": "Film/TV",
-      "title": "Emmy Nominee Reactions: Shailene Woodley Was Getting a Lash Lift, Sepideh Moafi Cries and Jonathan Pryce Jokes About Joining ‘Love Island’",
+      "title": "Oregon A.G. Seeks Delay of Paramount-Warner Bros. Merger, Suggests DOJ Approval Was ‘Corrupt’",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/lists/emmy-nominees-2026-reactions-shailene-woodley-sepideh-moafi/"
+      "url": "https://variety.com/2026/film/news/oregon-paramount-warner-bros-merger-1236805015/"
     },
     {
       "cat": "Film/TV",
-      "title": "Casey Bloys on HBO’s Huge Emmy Noms Haul, ‘The Pitt’ Dominance, Whether He Has ‘Heated Rivalry’ Regrets and His Own Future Post-Merger",
+      "title": "Anonymous Content’s Darren Walker on Company’s 10 Emmy Nominations and Nominee Sally Field’s ‘Motherly’ Dating Advice",
       "when": "8 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hbo-emmy-nomination-casey-bloys-future-the-pitt-1236804809/"
+      "url": "https://variety.com/2026/biz/columns/anonymous-contents-darren-walker-10-emmy-nominations-sally-field-1236804893/"
     },
     {
       "cat": "Trek/Wars",
