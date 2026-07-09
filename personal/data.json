@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-09",
-    "fetched": "2026-07-09T03:58:40+00:00",
+    "fetched": "2026-07-09T07:44:11+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 2
+      "temp": 8,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 5
     },
     "days": [
       {
@@ -25,7 +25,7 @@
       },
       {
         "day": "Fri",
-        "min": 3,
+        "min": 2,
         "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
@@ -33,10 +33,10 @@
       },
       {
         "day": "Sat",
-        "min": 5,
+        "min": 6,
         "max": 13,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
         "rain": 95
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89291.0,
-        "pct": -1.17
+        "price": 90563.0,
+        "pct": 0.17
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2493.07,
-        "pct": -1.11
+        "price": 2525.72,
+        "pct": 0.02
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Justin Baldoni Speaks Out on Blake Lively Legal Battle: ‘There Have Been so Many Painful Things That Have Been Spoken Into Existence’",
+      "title": "Netflix’s ‘Little House on the Prairie’ Is a Charming Reimagining of Laura Ingalls Wilder’s Beloved Adventure: TV Review",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/justin-baldoni-speaks-out-blake-lively-it-ends-with-us-1236805355/"
+      "url": "https://variety.com/2026/tv/reviews/little-house-on-the-prairie-review-netflix-1236798666/"
     },
     {
       "cat": "Film/TV",
-      "title": "Best Horror of July 2026: ‘Evil Dead Burn,’ Nicolas Winding Refn Returns, a Bloodthirsty Pinocchio and More",
+      "title": "Kay Kay Menon’s ‘Adarsh Baal Vidyalaya’ Sets July Prime Video Premiere (EXCLUSIVE)",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/lists/horror-movies-to-watch-july-2026/"
+      "url": "https://variety.com/2026/tv/news/kay-kay-menon-adarsh-baal-vidyalaya-prime-video-1236805411/"
     },
     {
       "cat": "Film/TV",
-      "title": "Patrick Dempsey Gave ‘Real Thought’ to Running For Senate in Maine After Graham Platner Scandal: ‘I’m Concerned About the Direction Our Country Is Heading’",
+      "title": "Disney Entertainment TV Chairman Debra OConnell on Emmy Noms, Recognition for ‘Dancing With the Stars’ and the New FX/Hulu Setup",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/patrick-dempsey-running-for-senate-maine-graham-platner-1236805311/"
+      "url": "https://variety.com/2026/tv/news/disney-debra-oconnell-emmy-dancing-with-the-stars-fx-hulu-1236805393/"
     },
     {
       "cat": "Film/TV",
-      "title": "Auteurs and Showrunners Dominate Emmy Nominations in Writing and Directing Categories",
+      "title": "Scott Foley Reacts After Prime Video Canceled ‘It’s Not Like That’ After One Season: ‘I Think I’m Just Disappointed’",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/emmy-writing-directing-nom-quinta-tim-robinson-hargitay-1236805204/"
+      "url": "https://variety.com/2026/tv/news/scott-foley-reacts-prime-video-canceled-its-not-like-that-1236805383/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
