@@ -3,30 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-09",
-    "fetched": "2026-07-09T11:11:54+00:00",
+    "fetched": "2026-07-09T15:24:37+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
+      "temp": 4,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 6
+      "wind": 4
     },
     "days": [
       {
         "day": "Today",
         "min": 2,
-        "max": 13,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Fri",
-        "min": 2,
-        "max": 13,
+        "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -37,7 +29,15 @@
         "max": 13,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 95
+        "rain": 98
+      },
+      {
+        "day": "Sun",
+        "min": 4,
+        "max": 12,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 82
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90495.0,
-        "pct": 0.88
+        "price": 90888.0,
+        "pct": 2.12
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2517.71,
-        "pct": 0.33
+        "price": 2512.63,
+        "pct": 1.2
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "U.K.’s National Film and Television School Partners With Angels Costumes on New Sandy Powell-Backed Costume Design Course (EXCLUSIVE)",
+      "title": "New York Times and Other News Outlets Accuse OpenAI of Lying in Discovery, Demand Legal Sanctions Against AI Giant",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/nfts-angels-costumes-course-sandy-powell-1236805481/"
+      "url": "https://variety.com/2026/digital/news/new-york-times-news-outlets-accuse-openai-of-lying-lawsuit-1236805648/"
     },
     {
       "cat": "Film/TV",
-      "title": "Screen Australia Data Reveals Marketplace Financing Covers Only a Fraction of Production Budgets",
+      "title": "‘The Gentlemen’ Sets Season 2 Release Date at Netflix",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/screen-australia-marketplace-financing-analysis-1236805549/"
+      "url": "https://variety.com/2026/tv/news/the-gentlemen-season-2-release-date-netflix-1236805700/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Dune 3’: Timothée Chalamet, Zendaya and Denis Villeneuve Return to Abu Dhabi Desert That Doubles as Planet Arrakis in Behind-the-Scenes Images",
+      "title": "This Wes Anderson Criterion Collector’s Set Is 50% Off Right Now",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/dune-3-timothee-chalamet-abu-dhabi-desert-bts-images-1236805435/"
+      "url": "https://variety.com/2026/shopping/news/criterion-collection-the-wes-anderson-archive-4k-buy-online-1236416850/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘3 Weeks After’ Review: A Bruising, Fiercely Controlled Study of High Schoolers in Moral and Psychological Freefall",
+      "title": "‘American Horror Story’ Season 13 Sets Fall Premiere Date",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/3-weeks-after-review-1236803851/"
+      "url": "https://variety.com/2026/tv/news/american-horror-story-season-13-release-date-1236805670/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars Visions: The Ninth Jedi’ Series Trailer Breakdown",
+      "when": "9 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-the-ninth-jedi-series-trailer-breakdown.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review: ‘Shadow of Maul’ #5 – Final Issue Has Most Maul Action Yet as Conspiracy Unveiled",
+      "when": "9 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/review-shadow-of-maul-5-final-issue-has-most-maul-action-yet-as-conspiracy-unveiled.html"
     },
     {
       "cat": "Trek/Wars",
@@ -132,20 +146,6 @@
       "when": "7 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/07/star-trek-online-undiscovered-revives-miral-paris-story-arc-now-with-the-doctor-and-a-kvort-class-starship/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: The Experience’ Museum Will Begin Touring in February 2027",
-      "when": "7 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-the-experience-museum-will-begin-touring-in-february-2027.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Leia And Rey Head To Tython In New ‘Star Wars: Legacy’ Excerpt",
-      "when": "6 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/leia-and-rey-head-to-tython-in-new-star-wars-legacy-excerpt.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
