@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-09",
-    "fetched": "2026-07-09T15:24:37+00:00",
+    "fetched": "2026-07-09T18:03:05+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
+      "temp": 2,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 4
+      "wind": 5
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90888.0,
-        "pct": 2.12
+        "price": 90907.0,
+        "pct": 1.55
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2512.63,
-        "pct": 1.2
+        "price": 2517.4,
+        "pct": 0.5
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "New York Times and Other News Outlets Accuse OpenAI of Lying in Discovery, Demand Legal Sanctions Against AI Giant",
+      "title": "How Netflix’s ‘Little House on the Prairie’ Creator Is Bringing Back Beloved Classic Amid ‘Woke’ Allegations, Rise in Tradwife Culture",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/new-york-times-news-outlets-accuse-openai-of-lying-lawsuit-1236805648/"
+      "url": "https://variety.com/2026/tv/news/netflix-little-house-on-the-prairie-woke-comments-tradwife-1236804646/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Gentlemen’ Sets Season 2 Release Date at Netflix",
+      "title": "‘Free Willy’ Reboot in the Works at Warner Bros.",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/the-gentlemen-season-2-release-date-netflix-1236805700/"
+      "url": "https://variety.com/2026/film/news/free-willy-reboot-warner-bros-1236805831/"
     },
     {
       "cat": "Film/TV",
-      "title": "This Wes Anderson Criterion Collector’s Set Is 50% Off Right Now",
+      "title": "‘Spy School’ TV Series in the Works at Disney+, Ryan Reynolds’ Maximum Effort to Produce",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/criterion-collection-the-wes-anderson-archive-4k-buy-online-1236416850/"
+      "url": "https://variety.com/2026/tv/news/spy-school-tv-series-disney-ryan-reynolds-1236805667/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘American Horror Story’ Season 13 Sets Fall Premiere Date",
+      "title": "LA28 Olympics Moves International Broadcast Center to Warner Bros. Ranch in Burbank",
       "when": "9 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/american-horror-story-season-13-release-date-1236805670/"
+      "url": "https://variety.com/2026/tv/news/la28-olympics-warner-bros-ranch-broadcast-center-1236805192/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
