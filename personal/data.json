@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-09",
-    "fetched": "2026-07-09T21:27:37+00:00",
+    "fetched": "2026-07-09T23:18:31+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 2,
+      "temp": 4,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 5
+      "wind": 8
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 13,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 98
+        "rain": 100
       },
       {
         "day": "Sun",
@@ -37,7 +37,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 82
+        "rain": 93
       }
     ]
   },
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91129.0,
-        "pct": 1.78
+        "price": 90902.0,
+        "pct": 1.24
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2516.58,
-        "pct": 0.61
+        "price": 2512.39,
+        "pct": 0.11
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Naruto’ Movie Launches Global Casting Search to Find Actors to Play Live-Action Naruto, Sasuke and Sakura",
+      "when": "9 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/naruto-movie-casting-search-live-action-actors-1236806103/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "How to Watch ‘Big Brother 28’ Online",
+      "when": "9 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-big-brother-28-online-streaming-1236806005/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "The Coven Is Back! ‘American Horror Story’ Season 13 Set Photos Reveal Sarah Paulson, Emma Roberts and More as Witches",
+      "when": "9 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/lists/american-horror-story-13-set-photos-coven/"
+    },
     {
       "cat": "Film/TV",
       "title": "Alisa Bowen Exits as Disney+ President to Become CEO of Disney-Controlled Fubo TV Streamer",
@@ -92,32 +113,11 @@
       "url": "https://variety.com/2026/tv/news/alisa-bowen-ceo-fubo-disney-plus-1236806015/"
     },
     {
-      "cat": "Film/TV",
-      "title": "Emmy Rossum Says Years-Long ‘Shameless’ Pay Battle Only Ended in Season 8 After Salary Dispute Leaked to the Public: ‘It Was Resolved Within a Day’",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/emmy-rossum-shameless-pay-why-salary-dispute-ended-1236805590/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Exclusive ‘Star Wars: Legacy’ Book Jacket Coming to San Diego Comic-Con",
       "when": "9 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/exclusive-star-wars-legacy-book-jacket-coming-to-san-diego-comic-con.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Israeli Culture Minister Miki Zohar Mocks Film Industry in Campaign Spot, Vows to Defund Anti-Israel Movies",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/israeli-culture-minister-miki-zohar-mocks-film-industry-1236805822/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "All 5 ‘Hunger Games’ Movies Return to Theaters With ‘Sunrise on the Reaping’ Sneak Peek",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hunger-games-films-return-theaters-sunrise-on-reaping-1236805982/"
     },
     {
       "cat": "Trek/Wars",
