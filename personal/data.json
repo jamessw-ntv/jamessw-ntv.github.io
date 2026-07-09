@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-09",
-    "fetched": "2026-07-09T19:57:10+00:00",
+    "fetched": "2026-07-09T21:27:37+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 3,
+      "temp": 2,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 7
+      "wind": 5
     },
     "days": [
       {
@@ -72,18 +72,53 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91119.0,
-        "pct": 1.65
+        "price": 91129.0,
+        "pct": 1.78
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2518.61,
-        "pct": 0.52
+        "price": 2516.58,
+        "pct": 0.61
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Alisa Bowen Exits as Disney+ President to Become CEO of Disney-Controlled Fubo TV Streamer",
+      "when": "9 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/alisa-bowen-ceo-fubo-disney-plus-1236806015/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Emmy Rossum Says Years-Long ‘Shameless’ Pay Battle Only Ended in Season 8 After Salary Dispute Leaked to the Public: ‘It Was Resolved Within a Day’",
+      "when": "9 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/emmy-rossum-shameless-pay-why-salary-dispute-ended-1236805590/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Exclusive ‘Star Wars: Legacy’ Book Jacket Coming to San Diego Comic-Con",
+      "when": "9 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/exclusive-star-wars-legacy-book-jacket-coming-to-san-diego-comic-con.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Israeli Culture Minister Miki Zohar Mocks Film Industry in Campaign Spot, Vows to Defund Anti-Israel Movies",
+      "when": "9 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/israeli-culture-minister-miki-zohar-mocks-film-industry-1236805822/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "All 5 ‘Hunger Games’ Movies Return to Theaters With ‘Sunrise on the Reaping’ Sneak Peek",
+      "when": "9 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/hunger-games-films-return-theaters-sunrise-on-reaping-1236805982/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars Visions: The Ninth Jedi’ Series Trailer Breakdown",
@@ -92,46 +127,11 @@
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-the-ninth-jedi-series-trailer-breakdown.html"
     },
     {
-      "cat": "Film/TV",
-      "title": "Union Video Game Workers ‘Extremely Disappointed’ With Xbox Leadership Following Layoffs (Gaming News Roundup)",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-6-1236803788/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Toy Story 5’ Surpasses $800 Million Globally",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/toy-story-5-box-office-milestone-800-million-globally-1236805956/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Music Industry Moves: T.I. Strikes Publishing Deal With Reservoir, Primary Wave Partners With Foreigner’s Mick Jones",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/t-i-strikes-publishing-deal-with-reservoir-1236805912/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Review: ‘Shadow of Maul’ #5 – Final Issue Has Most Maul Action Yet as Conspiracy Unveiled",
       "when": "9 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/review-shadow-of-maul-5-final-issue-has-most-maul-action-yet-as-conspiracy-unveiled.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Visions’ and ‘Maul: Shadow Lord’ Among List of Nominees for the 2026 Emmys",
-      "when": "9 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-and-maul-shadow-lord-among-list-of-nominees-for-the-2026-emmys.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "These Celebrity-Adored, Very Large Sunglasses Are the Hottest Summer Accessory",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/best-oversized-sunglasses-jennifer-lawrence-rihanna-1236805832/"
     },
     {
       "cat": "Trek/Wars",
