@@ -3,29 +3,29 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-09",
-    "fetched": "2026-07-09T18:03:05+00:00",
+    "fetched": "2026-07-09T19:57:10+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 2,
+      "temp": 3,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 5
+      "wind": 7
     },
     "days": [
       {
         "day": "Today",
         "min": 2,
-        "max": 14,
+        "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
         "day": "Sat",
-        "min": 6,
+        "min": 5,
         "max": 13,
         "icon": "⛈️",
         "desc": "Thunderstorm",
@@ -34,9 +34,9 @@
       {
         "day": "Sun",
         "min": 4,
-        "max": 12,
+        "max": 11,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 82
       }
     ]
@@ -72,52 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90907.0,
-        "pct": 1.55
+        "price": 91119.0,
+        "pct": 1.65
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2517.4,
-        "pct": 0.5
+        "price": 2518.61,
+        "pct": 0.52
       }
     ]
   },
   "releases": [
-    {
-      "cat": "Film/TV",
-      "title": "How Netflix’s ‘Little House on the Prairie’ Creator Is Bringing Back Beloved Classic Amid ‘Woke’ Allegations, Rise in Tradwife Culture",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-little-house-on-the-prairie-woke-comments-tradwife-1236804646/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Free Willy’ Reboot in the Works at Warner Bros.",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/free-willy-reboot-warner-bros-1236805831/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Spy School’ TV Series in the Works at Disney+, Ryan Reynolds’ Maximum Effort to Produce",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/spy-school-tv-series-disney-ryan-reynolds-1236805667/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "LA28 Olympics Moves International Broadcast Center to Warner Bros. Ranch in Burbank",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/la28-olympics-warner-bros-ranch-broadcast-center-1236805192/"
-    },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars Visions: The Ninth Jedi’ Series Trailer Breakdown",
       "when": "9 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-the-ninth-jedi-series-trailer-breakdown.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Union Video Game Workers ‘Extremely Disappointed’ With Xbox Leadership Following Layoffs (Gaming News Roundup)",
+      "when": "9 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-6-1236803788/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Toy Story 5’ Surpasses $800 Million Globally",
+      "when": "9 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/toy-story-5-box-office-milestone-800-million-globally-1236805956/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Music Industry Moves: T.I. Strikes Publishing Deal With Reservoir, Primary Wave Partners With Foreigner’s Mick Jones",
+      "when": "9 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/t-i-strikes-publishing-deal-with-reservoir-1236805912/"
     },
     {
       "cat": "Trek/Wars",
@@ -129,9 +122,16 @@
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars: Visions’ and ‘Maul: Shadow Lord’ Among List of Nominees for the 2026 Emmys",
-      "when": "8 Jul",
+      "when": "9 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-and-maul-shadow-lord-among-list-of-nominees-for-the-2026-emmys.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "These Celebrity-Adored, Very Large Sunglasses Are the Hottest Summer Accessory",
+      "when": "9 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/best-oversized-sunglasses-jennifer-lawrence-rihanna-1236805832/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
