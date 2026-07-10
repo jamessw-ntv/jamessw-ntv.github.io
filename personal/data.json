@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-10",
-    "fetched": "2026-07-10T14:42:15+00:00",
+    "fetched": "2026-07-10T17:03:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 6,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 10
+      "wind": 12
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92244.0,
-        "pct": 1.78
+        "price": 92100.0,
+        "pct": 1.98
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2570.6,
-        "pct": 2.48
+        "price": 2581.28,
+        "pct": 3.04
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Giona A. Nazzaro on Scoring Caleb Landry Jones’s Passion Project and Why Locarno’s Lineup Reflects the Festival’s New ‘Curated Diversity’ Mantra",
+      "title": "‘House of David’ Renewed for Season 3 at Amazon",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/giona-nazzaro-caleb-landry-jones-locarno-lineup-diversity-1236806344/"
+      "url": "https://variety.com/2026/tv/news/house-of-david-renewed-season-3-amazon-1236806587/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Obsession’ Sets Peacock Streaming Release Date",
+      "title": "Filmmakers Chike Ozah and Coodie Simmons Announce ‘Who Is Ernie Barnes?’ Documentary and Immersive Experience (EXCLUSIVE)",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/obsession-peacock-release-date-streaming-how-to-watch-1236798622/"
+      "url": "https://variety.com/2026/film/news/chike-ozah-coodie-simmons-who-is-ernie-barnes-documentary-1236806434/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jeffrey Wright Says Being Black Is a ‘Political Term,’ Talks Racist Abuse Against Kylian Mbappé: ‘They Think They Can Diminish How Powerful He Is With Their Stupidity’",
+      "title": "Dengue Fever, Rains Be Damned:  ‘We Can’t Wait to Go Back,’ Say ‘The Whistler’ Producers on Shooting in Colombia",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/jeffrey-wright-mbappe-batman-basquiat-1236806369/"
+      "url": "https://variety.com/2026/film/global/the-whistler-shooting-colombia-hideout-pictures-64a-films-1236806268/"
     },
     {
       "cat": "Film/TV",
-      "title": "LISTEN: Politics Puts a Spotlight on the Production Exodus From California and Other U.S. Filming Hubs",
+      "title": "‘Top Boy’ Star Micheal Ward Found Not Guilty of Rape and Sexual Assault",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hollywood-exodus-production-luminate-report-strictly-1236806284/"
+      "url": "https://variety.com/2026/tv/global/top-boy-star-micheal-ward-found-not-guilty-rape-1236806616/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Lom Pyke – ‘Star Wars’ Character Spotlight",
+      "when": "10 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/lom-pyke-star-wars-character-spotlight.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "9 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-the-ninth-jedi-series-trailer-breakdown.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review: ‘Shadow of Maul’ #5 – Final Issue Has Most Maul Action Yet as Conspiracy Unveiled",
-      "when": "9 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/review-shadow-of-maul-5-final-issue-has-most-maul-action-yet-as-conspiracy-unveiled.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
