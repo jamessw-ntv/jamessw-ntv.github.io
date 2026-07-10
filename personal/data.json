@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-10",
-    "fetched": "2026-07-10T03:54:49+00:00",
+    "fetched": "2026-07-10T07:43:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
+      "temp": 9,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 9
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
         "min": 2,
-        "max": 13,
+        "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -27,16 +27,16 @@
         "day": "Sat",
         "min": 5,
         "max": 13,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
         "rain": 100
       },
       {
         "day": "Sun",
         "min": 4,
         "max": 11,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "icon": "🌨️",
+        "desc": "Snow showers",
         "rain": 77
       }
     ]
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91790.0,
-        "pct": 2.83
+        "price": 91934.0,
+        "pct": 1.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2549.81,
-        "pct": 2.32
+        "price": 2548.96,
+        "pct": 0.84
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Malaysian Sci-Fi ‘Mimpi Kita: Castle in the Air’ Lands Distributor and Sales Agent Abnormal Studios (EXCLUSIVE)",
+      "when": "10 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/malaysian-sci-fi-mimpi-kita-castle-in-the-air-abnormal-studios-1236806294/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Anthony Hopkins Signed by Decca Classics; First Album of Music Composed by Oscar-Winning Actor Set for August Release",
+      "when": "10 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/anthony-hopkins-decca-classics-life-is-a-dream-album-1236806236/"
+    },
     {
       "cat": "Film/TV",
       "title": "LISTEN: James Corden Reunites ‘Late Late Show’ Team for Fox’s ‘After Hours’ World Cup Show",
@@ -97,41 +111,6 @@
       "when": "10 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/mara-brock-akil-writers-colony-2026-summer-fall-cohorts-1236805232/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Fidji Simo, OpenAI’s No. 2 Executive, to Step Down to Focus on Recovery From Chronic Illness",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/fidji-simo-openai-step-down-recovery-illness-1236806169/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sarah McLachlan and Allison Russell on Touring Together and Summer Nights Devoted to ‘Forgetting Madness and Being Part of Something Beautiful’",
-      "when": "9 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/sarah-mclachlan-tour-allison-russell-joint-interview-1236806144/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Exclusive ‘Star Wars: Legacy’ Book Jacket Coming to San Diego Comic-Con",
-      "when": "9 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/exclusive-star-wars-legacy-book-jacket-coming-to-san-diego-comic-con.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars Visions: The Ninth Jedi’ Series Trailer Breakdown",
-      "when": "9 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-the-ninth-jedi-series-trailer-breakdown.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review: ‘Shadow of Maul’ #5 – Final Issue Has Most Maul Action Yet as Conspiracy Unveiled",
-      "when": "9 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/review-shadow-of-maul-5-final-issue-has-most-maul-action-yet-as-conspiracy-unveiled.html"
     },
     {
       "cat": "Trek/Wars",
@@ -167,13 +146,20 @@
       "when": "11 Jun",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/686382380150161913"
+    },
+    {
+      "cat": "Games",
+      "title": "Satisfactory 1.2 Update out now!",
+      "when": "2 Jun",
+      "source": "Satisfactory",
+      "url": "https://store.steampowered.com/news/app/526870/view/695387676933621084"
     }
   ],
   "dev": [
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
