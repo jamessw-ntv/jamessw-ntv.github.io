@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-10",
-    "fetched": "2026-07-10T20:37:29+00:00",
+    "fetched": "2026-07-10T22:11:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 15
+      "temp": 7,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 17
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91819.0,
-        "pct": 0.74
+        "price": 91972.0,
+        "pct": 0.99
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2577.96,
-        "pct": 2.35
+        "price": 2578.9,
+        "pct": 2.48
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Moana’: Lin-Manuel Miranda on Writing the Song ‘Along The Way’ in a Week and Being in the Oscar Race With Taylor Swift",
+      "title": "Union Video Game Workers ‘Extremely Disappointed’ With Xbox Leadership Following Layoffs (Gaming News Roundup)",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/moana-lin-manuel-miranda-oscar-race-taylor-swift-1236802380/"
+      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-6-1236803788/"
     },
     {
       "cat": "Film/TV",
-      "title": "Christopher Nolan Says ‘Odyssey’ Backlash Over Casting and More Is ‘Irrelevant’ and He’s Learned Not to Worry: ‘Remember, I Spent 10 Years Dealing With Batman’",
+      "title": "Morgan Spector in Talks to Play Robert Langdon in Netflix Series From Carlton Cuse, Dan Brown",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/christopher-nolan-odyssey-backlash-elon-musk-irrelevant-1236806375/"
+      "url": "https://variety.com/2026/tv/news/morgan-spector-robert-langdon-netflix-series-dan-brown-1236806909/"
     },
     {
       "cat": "Film/TV",
-      "title": "France Televisions Unveils Slate Led by ‘La Haine’ Stage Adaptation, #MeToo Film ‘Triple Peine,’ Robust Presidential Election Coverage: ‘Public Service Belongs to No Camp’",
+      "title": "Dakota and Elle Fanning Starrer ‘The Nightingale’ Moves to March, Facing Off Against ‘Sonic 4’",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/france-televisions-haine-stage-metoo-presidential-election-1236806796/"
+      "url": "https://variety.com/2026/film/box-office/dakota-elle-fanning-nightingale-march-sonic-4-1236806835/"
     },
     {
       "cat": "Film/TV",
-      "title": "Wes Anderson to Screen ‘Bottle Rocket’ in Houston to Help Save Historic Theater- Film News in Brief",
+      "title": "Broadcast Emmy Woes, Lots of Martin Short, Bad Bunny and Other Trivia From 2026’s Nominations",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/film-news-in-brief-july-6-2026-1236802346/"
+      "url": "https://variety.com/2026/tv/awards/bad-bunny-martin-short-emmy-nominations-trivia-oddities-2026-1236806775/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
