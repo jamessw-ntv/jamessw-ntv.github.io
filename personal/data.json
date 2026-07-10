@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-10",
-    "fetched": "2026-07-10T11:11:51+00:00",
+    "fetched": "2026-07-10T14:42:15+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
+      "temp": 6,
+      "icon": "☀️",
+      "desc": "Clear",
       "wind": 10
     },
     "days": [
       {
         "day": "Today",
-        "min": 2,
-        "max": 14,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Sat",
         "min": 5,
         "max": 13,
         "icon": "⛈️",
@@ -33,11 +25,19 @@
       },
       {
         "day": "Sun",
-        "min": 4,
-        "max": 11,
-        "icon": "🌨️",
-        "desc": "Snow showers",
-        "rain": 77
+        "min": 6,
+        "max": 10,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 97
+      },
+      {
+        "day": "Mon",
+        "min": 9,
+        "max": 14,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 76
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92644.0,
-        "pct": 2.33
+        "price": 92244.0,
+        "pct": 1.78
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2586.0,
-        "pct": 2.62
+        "price": 2570.6,
+        "pct": 2.48
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Gen Z Leans Hard into Nostalgia to Spur Music and Content Discovery: Study",
+      "title": "Giona A. Nazzaro on Scoring Caleb Landry Jones’s Passion Project and Why Locarno’s Lineup Reflects the Festival’s New ‘Curated Diversity’ Mantra",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/gen-z-nostalgia-borrowed-gen-z-millennials-1236806310/"
+      "url": "https://variety.com/2026/film/festivals/giona-nazzaro-caleb-landry-jones-locarno-lineup-diversity-1236806344/"
     },
     {
       "cat": "Film/TV",
-      "title": "Nike Releases New Limited-Edition Air Jordan 7 Retro ‘Miró’ Sneakers: Here’s Where To Buy a Pair Online",
+      "title": "‘Obsession’ Sets Peacock Streaming Release Date",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/where-to-buy-nike-air-jordan-7-retro-miro-sneakers-online-1236805621/"
+      "url": "https://variety.com/2026/film/news/obsession-peacock-release-date-streaming-how-to-watch-1236798622/"
     },
     {
       "cat": "Film/TV",
-      "title": "From ‘Kneecap’ to a Karlovy Vary Hit to Mia Hansen-Løve’s Next Film: Ireland’s Wildcard Makes Instant Splash as Producer",
+      "title": "Jeffrey Wright Says Being Black Is a ‘Political Term,’ Talks Racist Abuse Against Kylian Mbappé: ‘They Think They Can Diminish How Powerful He Is With Their Stupidity’",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/how-irelands-wildcard-made-instant-splash-as-producer-1236805814/"
+      "url": "https://variety.com/2026/film/global/jeffrey-wright-mbappe-batman-basquiat-1236806369/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘God Particle’ Physicist Fabiola Gianotti to Get Feature Biopic by ‘The Invisible Witness’ Director Stefano Mordini (EXCLUSIVE)",
+      "title": "LISTEN: Politics Puts a Spotlight on the Production Exodus From California and Other U.S. Filming Hubs",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/mysterious-particle-fabiola-gianotti-god-particle-1236806300/"
+      "url": "https://variety.com/2026/tv/news/hollywood-exodus-production-luminate-report-strictly-1236806284/"
     },
     {
       "cat": "Trek/Wars",
