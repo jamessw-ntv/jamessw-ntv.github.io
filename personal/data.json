@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-11",
-    "fetched": "2026-07-11T19:13:27+00:00",
+    "fetched": "2026-07-11T20:58:21+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 6,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
+      "icon": "☁️",
+      "desc": "Overcast",
       "wind": 15
     },
     "days": [
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92426.0,
-        "pct": 0.68
+        "price": 92525.0,
+        "pct": 0.83
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2623.23,
-        "pct": 2.12
+        "price": 2624.45,
+        "pct": 1.97
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Indonesian Virtual-Production Horror Feature ‘Whispers of Fatimah’ Sets September Release, Unveils First-Look Video (EXCLUSIVE)",
+      "title": "Byron Allen Donates $100,000 to Nolan Wells Family’s GoFundMe as Tyler Perry Covers Funeral Costs",
       "when": "11 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/whispers-of-fatimah-release-date-first-look-video-1236806380/"
+      "url": "https://variety.com/2026/tv/news/byron-allen-donates-nolan-wells-tyler-perry-funeral-costs-1236807312/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘I Will Find You’: Logan Browning on Sam Worthington Teaching Her How to Reload a Gun and the Show’s Wild Action Scenes: ‘I Can Hop Buildings, Didn’t You Know That?’",
+      "title": "‘Lover, Not a Fighter’ Review: Freewheeling Slovak Charmer Charts a Sober (but Not Solemn) GenZ Romance",
       "when": "11 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/streaming/columns/i-will-find-you-logan-browning-sam-worthington-guns-1236807256/"
+      "url": "https://variety.com/2026/film/reviews/lover-not-a-fighter-review-1236807148/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Moana’ Creatives on Working Closely to Honor Polynesian Culture and Traditions, and Why Representation Matters in the Live-Action Film",
+      "title": "TIS Studios Expands Bogotá Production Hub With New 18,300-Square-Foot Soundstage (EXCLUSIVE)",
       "when": "11 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/moana-creatives-polynesian-culture-traditions-1236807177/"
+      "url": "https://variety.com/2026/film/markets-festivals/tis-studios-stage-7-bogota-soundstage-expansion-1236807306/"
     },
     {
       "cat": "Film/TV",
-      "title": "Myanmar-Set ‘Fruit Gathering’ Wins at Karlovy Vary: ‘Harrowing Drama of Obsession and Queer Desire’",
+      "title": "Greek Filmmaker Christos Nikou, the Director of ‘Apples’ and ‘Fingernails,’ on Creating ‘Tender Cinema’",
       "when": "11 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/awards/awards/fruit-gathering-karlovy-vary-crystal-globe-juliette-binoche-1236807179/"
+      "url": "https://variety.com/2026/film/global/christos-nikou-apples-fingernails-tender-cinema-1236807307/"
     },
     {
       "cat": "Trek/Wars",
