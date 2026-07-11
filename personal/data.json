@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-07-10",
-    "fetched": "2026-07-10T22:11:18+00:00",
+    "updated": "2026-07-11",
+    "fetched": "2026-07-11T00:04:11+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 10,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 17
+      "wind": 20
     },
     "days": [
       {
@@ -28,8 +28,8 @@
         "min": 5,
         "max": 10,
         "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 97
+        "desc": "Showers",
+        "rain": 100
       },
       {
         "day": "Mon",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 76
+        "rain": 91
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91972.0,
-        "pct": 0.99
+        "price": 92127.0,
+        "pct": 1.28
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2578.9,
-        "pct": 2.48
+        "price": 2580.1,
+        "pct": 2.79
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Union Video Game Workers ‘Extremely Disappointed’ With Xbox Leadership Following Layoffs (Gaming News Roundup)",
+      "title": "‘Moana’ Cast Guide: Every Live-Action Character vs. the Original Animation",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-6-1236803788/"
+      "url": "https://variety.com/lists/moana-cast-characters-live-action-animated/"
     },
     {
       "cat": "Film/TV",
-      "title": "Morgan Spector in Talks to Play Robert Langdon in Netflix Series From Carlton Cuse, Dan Brown",
+      "title": "Randolph Mantooth, Who Played Johnny Gage on ‘Emergency!,’ Dies at 80",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/morgan-spector-robert-langdon-netflix-series-dan-brown-1236806909/"
+      "url": "https://variety.com/2026/tv/news/randolph-mantooth-dead-emergency-1236806971/"
     },
     {
       "cat": "Film/TV",
-      "title": "Dakota and Elle Fanning Starrer ‘The Nightingale’ Moves to March, Facing Off Against ‘Sonic 4’",
+      "title": "‘Pokémon Go’ Exec Promises 1,000-Person Times Square Mewtwo Event Is Just the Start of 10th Anniversary: ‘My Personal Goal Is to Create Core Memories’ for All Players",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/dakota-elle-fanning-nightingale-march-sonic-4-1236806835/"
+      "url": "https://variety.com/2026/gaming/news/pokemon-go-fest-10-year-anniversary-mewtwo-times-square-1236806876/"
     },
     {
       "cat": "Film/TV",
-      "title": "Broadcast Emmy Woes, Lots of Martin Short, Bad Bunny and Other Trivia From 2026’s Nominations",
+      "title": "‘Love Island USA’ Season 8 Contestant Caleb McDaniel on His Relationship With Jaiden, Not Exploring Melanie and His Newfound Fame: ‘I’m Just Now Starting to Realize It’s As Big As It Is’",
       "when": "10 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/awards/bad-bunny-martin-short-emmy-nominations-trivia-oddities-2026-1236806775/"
+      "url": "https://variety.com/2026/tv/news/love-island-usa-caleb-mcdaniel-jaiden-melanie-fame-1236806903/"
     },
     {
       "cat": "Trek/Wars",
