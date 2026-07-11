@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-11",
-    "fetched": "2026-07-11T18:00:31+00:00",
+    "fetched": "2026-07-11T19:13:27+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 6,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 16
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 15
     },
     "days": [
       {
@@ -25,7 +25,7 @@
       },
       {
         "day": "Mon",
-        "min": 9,
+        "min": 8,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -34,9 +34,9 @@
       {
         "day": "Tue",
         "min": 7,
-        "max": 14,
+        "max": 13,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 92
       }
     ]
@@ -73,44 +73,44 @@
         "code": "BTC",
         "name": "Bitcoin",
         "price": 92426.0,
-        "pct": 0.6
+        "pct": 0.68
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2621.75,
-        "pct": 1.88
+        "price": 2623.23,
+        "pct": 2.12
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "UFC 329 Livestream: Here’s Where to Watch the McGregor vs. Holloway Rematch Online",
+      "title": "Indonesian Virtual-Production Horror Feature ‘Whispers of Fatimah’ Sets September Release, Unveils First-Look Video (EXCLUSIVE)",
       "when": "11 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/watch-ufc-329-conor-mcgregor-vs-holloway-2-live-online-free-1236804599/"
+      "url": "https://variety.com/2026/film/news/whispers-of-fatimah-release-date-first-look-video-1236806380/"
     },
     {
       "cat": "Film/TV",
-      "title": "World Cup Viewership Propels Telemundo and Peacock, Smashing TV Ratings Records",
+      "title": "‘I Will Find You’: Logan Browning on Sam Worthington Teaching Her How to Reload a Gun and the Show’s Wild Action Scenes: ‘I Can Hop Buildings, Didn’t You Know That?’",
       "when": "11 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/world-cup-telemundo-peacock-record-ratings-universo-1236807254/"
+      "url": "https://variety.com/2026/streaming/columns/i-will-find-you-logan-browning-sam-worthington-guns-1236807256/"
     },
     {
       "cat": "Film/TV",
-      "title": "Barbara Ling, Production Designer of ‘Once Upon a Time in Hollywood,’ ‘Michael,’ Dies at 73",
+      "title": "‘Moana’ Creatives on Working Closely to Honor Polynesian Culture and Traditions, and Why Representation Matters in the Live-Action Film",
       "when": "11 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/barbara-ling-dead-once-upon-a-time-hollywood-michael-1236807239/"
+      "url": "https://variety.com/2026/film/features/moana-creatives-polynesian-culture-traditions-1236807177/"
     },
     {
       "cat": "Film/TV",
-      "title": "Peter Van Norden, Actor in ‘Police Academy 2’ and ‘The Stand,’ Dies at 75",
+      "title": "Myanmar-Set ‘Fruit Gathering’ Wins at Karlovy Vary: ‘Harrowing Drama of Obsession and Queer Desire’",
       "when": "11 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/peter-van-norden-dead-police-academy-1236807230/"
+      "url": "https://variety.com/2026/awards/awards/fruit-gathering-karlovy-vary-crystal-globe-juliette-binoche-1236807179/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "55m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
