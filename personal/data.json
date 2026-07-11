@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-11",
-    "fetched": "2026-07-11T08:52:22+00:00",
+    "fetched": "2026-07-11T10:19:48+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 25
+      "temp": 9,
+      "icon": "⛈️",
+      "desc": "Thunderstorm",
+      "wind": 21
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92267.0,
-        "pct": -0.1
+        "price": 92142.0,
+        "pct": -0.38
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2587.15,
-        "pct": 0.78
+        "price": 2579.44,
+        "pct": 0.11
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "‘Only Beautiful Things to Look At’ Review: A Handsome but Muffled Portrait of State-Sanctioned Cruelty",
+      "when": "11 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/only-beautiful-things-to-look-at-review-1236804494/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Night Nurse’ Review: Two Perverts Join Forces in a Gloriously Deviant Oddity About a Caretaker Drawn Into Her Patient’s Grifting Games",
+      "when": "11 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/night-nurse-review-1236807149/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘A Happy Family’ Review: Anna Schinz’s Powerful Lead Performance Elevates a Confused Custody Drama",
+      "when": "11 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/a-happy-family-review-1236804109/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Colombia Adds Massive Soundstage as Bogotá Audiovisual Market Attendance Soars and ‘Narcos’ Star-Led ‘Rookies’ Cleans Up in Project Prizes",
       "when": "11 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/colombia-bogota-audiovisual-market-prizes-uptick-attendance-1236807107/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jay-Z Brings Out Beyoncé, Blue Ivy Carter, Nas, Alicia Keys and More for ‘Reasonable Doubt’ 30th Anniversary Show at Yankee Stadium",
-      "when": "11 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/jay-z-brings-out-beyonce-blue-ivy-carter-yankee-stadium-1236807113/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Oregon D.A. Drops Motion to Delay Paramount-Warner Bros. Merger",
-      "when": "11 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/oregon-paramount-warner-bros-merger-drops-delay-1236807068/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Donald Iwerks, Disney Camera Technician and Co-Founder of Iwerks Entertainment, Dies at 96",
-      "when": "11 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/donald-iwerks-dead-disney-camera-technician-iwerks-entertainment-1236807071/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
