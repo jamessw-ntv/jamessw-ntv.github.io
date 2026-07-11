@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-11",
-    "fetched": "2026-07-11T16:00:39+00:00",
+    "fetched": "2026-07-11T17:04:30+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 15
+      "temp": 6,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 14
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92205.0,
-        "pct": 0.36
+        "price": 92235.0,
+        "pct": 0.18
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2607.66,
-        "pct": 1.51
+        "price": 2618.97,
+        "pct": 1.46
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Peter Van Norden, Actor in ‘Police Academy 2’ and ‘The Stand,’ Dies at 75",
+      "when": "11 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/peter-van-norden-dead-police-academy-1236807230/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Box Office: ‘Moana’ Makes $18 Million on Opening Day",
+      "when": "11 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/box-office-moana-evil-dead-burn-the-invite-toy-story-5-1236805237/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Fruit Gathering’ Review: Two Working Women Chase Impossible Dreams and Desires in a Delicate Debut from Myanmar",
@@ -104,20 +118,6 @@
       "when": "11 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/reviews/only-beautiful-things-to-look-at-review-1236804494/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Night Nurse’ Review: Two Perverts Join Forces in a Gloriously Deviant Oddity About a Caretaker Drawn Into Her Patient’s Grifting Games",
-      "when": "11 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/night-nurse-review-1236807149/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘A Happy Family’ Review: Anna Schinz’s Powerful Lead Performance Elevates a Confused Custody Drama",
-      "when": "11 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/a-happy-family-review-1236804109/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "59m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
