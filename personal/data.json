@@ -3,24 +3,24 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-11",
-    "fetched": "2026-07-11T11:57:30+00:00",
+    "fetched": "2026-07-11T13:40:54+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 14
+      "temp": 6,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
         "max": 13,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
+        "icon": "🌦️",
+        "desc": "Heavy showers",
         "rain": 100
       },
       {
@@ -28,7 +28,7 @@
         "min": 5,
         "max": 10,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 100
       },
       {
@@ -36,7 +36,7 @@
         "min": 9,
         "max": 14,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 89
       }
     ]
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92177.0,
-        "pct": -0.49
+        "price": 92283.0,
+        "pct": -0.27
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2584.53,
-        "pct": -0.17
+        "price": 2590.81,
+        "pct": 0.07
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "Star Trek Heading To Comic-Con 2026 With Hall H Panel For ‘Strange New Worlds’ & 60th Anniversary",
+      "when": "11 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/11/star-trek-heading-to-comic-con-2026-with-hall-h-panel-for-strange-new-worlds-60th-anniversary/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Only Beautiful Things to Look At’ Review: A Handsome but Muffled Portrait of State-Sanctioned Cruelty",
@@ -107,7 +114,7 @@
     },
     {
       "cat": "Film/TV",
-      "title": "Colombia Adds Massive Soundstage as Bogotá Audiovisual Market Attendance Soars and ‘Narcos’ Star-Led ‘Rookies’ Cleans Up in Project Prizes",
+      "title": "Colombia’s Bogotá Audiovisual Market Attendance Soars as ‘Narcos’ Star-Led ‘Rookies’ Cleans Up in Project Prizes",
       "when": "11 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/colombia-bogota-audiovisual-market-prizes-uptick-attendance-1236807107/"
@@ -146,13 +153,6 @@
       "when": "7 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/07/star-trek-online-undiscovered-revives-miral-paris-story-arc-now-with-the-doctor-and-a-kvort-class-starship/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek: Strange New Worlds’ Cast Talks Season 4, Improvising On Set, and Checking All The Boxes",
-      "when": "6 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/06/star-trek-strange-new-worlds-cast-talks-season-4-improvising-on-set-and-checking-all-the-boxes/"
     },
     {
       "cat": "Games",

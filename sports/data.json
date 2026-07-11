@@ -3,7 +3,7 @@
     "title": "Multi-Sport Dashboard",
     "updated": "2026-07-11",
     "note": "Static snapshot. AFL through the played Round 17 games (two Sunday 5 July games still to come) with for/against and percentage restored. NRL ladder reflects Round 17 (Round 18, an Origin-week round, in progress); win/loss derived from points and byes, differentials mostly unavailable. State of Origin level 1-1 with the decider on 8 July.",
-    "fetched": "2026-07-11T10:19:22+00:00"
+    "fetched": "2026-07-11T13:40:25+00:00"
   },
   "nextup": {
     "mine": [
@@ -75,17 +75,29 @@
       [
         3,
         "Hawthorn",
-        16,
-        10,
+        17,
+        11,
         5,
         1,
-        1547,
-        1406,
-        110.0,
-        42
+        1650,
+        1445,
+        114.2,
+        46
       ],
       [
         4,
+        "Adelaide Crows",
+        17,
+        11,
+        6,
+        0,
+        1555,
+        1330,
+        116.9,
+        44
+      ],
+      [
+        5,
         "Brisbane Lions",
         16,
         10,
@@ -94,18 +106,6 @@
         1674,
         1498,
         111.7,
-        40
-      ],
-      [
-        5,
-        "Adelaide Crows",
-        16,
-        10,
-        6,
-        0,
-        1427,
-        1281,
-        111.4,
         40
       ],
       [
@@ -183,13 +183,13 @@
       [
         12,
         "Carlton",
-        16,
+        17,
         8,
-        8,
+        9,
         0,
-        1328,
-        1384,
-        96.0,
+        1367,
+        1487,
+        91.9,
         32
       ],
       [
@@ -207,13 +207,13 @@
       [
         14,
         "Gold Coast SUNS",
-        16,
+        17,
         7,
-        9,
+        10,
         0,
-        1457,
-        1447,
-        100.7,
+        1506,
+        1575,
+        95.6,
         28
       ],
       [
@@ -268,8 +268,8 @@
     "focus": {
       "team": "Carlton",
       "pos": 12,
-      "record": "8–8",
-      "pct": 96.0,
+      "record": "8–9",
+      "pct": 91.9,
       "pts": 32,
       "note": "Seven straight. Josh Fraser's interim reign (Voss was sacked at 1-8 after Round 9) has hauled a dead season back to 8-8 and 10th, four points off the eight, capped by a two-point escape over Richmond at the MCG in Round 17.",
       "form": [
