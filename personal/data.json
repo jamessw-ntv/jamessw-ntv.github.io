@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-12",
-    "fetched": "2026-07-12T16:04:39+00:00",
+    "fetched": "2026-07-12T17:11:28+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 9,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 17
+      "wind": 16
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92037.0,
-        "pct": -0.16
+        "price": 92048.0,
+        "pct": -0.26
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2611.91,
-        "pct": 0.2
+        "price": 2612.7,
+        "pct": -0.18
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Avengers: Doomsday’ Concept Art Reveals First Look at Robert Downey Jr.’s Doctor Doom, Returning X-Men Characters",
+      "when": "12 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/avengers-doomsday-art-doctor-doom-mask-x-men-1236809075/"
+    },
     {
       "cat": "Film/TV",
       "title": "J.K. Simmons Crime Drama ‘The Westies’ Is a Flat Take on New York’s Irish Mob: TV Review",
@@ -104,13 +111,6 @@
       "when": "12 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/box-office/moana-box-office-opening-weekend-weakest-disney-live-action-remake-1236808979/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Five Years, Four Months’ Review: Moving Portrait of a Grieving Colombian Mother Demonstrates an Impressive Control of Tension",
-      "when": "12 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/five-years-four-months-review-1236807446/"
     },
     {
       "cat": "Trek/Wars",
