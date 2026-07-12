@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-12",
-    "fetched": "2026-07-12T00:02:18+00:00",
+    "fetched": "2026-07-12T03:33:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 10,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 20
+      "wind": 22
     },
     "days": [
       {
@@ -28,16 +28,16 @@
         "min": 8,
         "max": 14,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 82
       },
       {
         "day": "Tue",
-        "min": 7,
-        "max": 13,
+        "min": 8,
+        "max": 14,
         "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 89
+        "desc": "Showers",
+        "rain": 84
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91765.0,
-        "pct": -0.36
+        "price": 92176.0,
+        "pct": 0.06
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2571.62,
-        "pct": -0.29
+        "price": 2597.39,
+        "pct": 0.73
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Love Island USA’ Contestant Corbin on His ‘Humiliating’ Elimination, the Nickname ‘CorbinGPT’ and His Friendship With Sincere: ‘I Forgive But I Don’t Forget’",
+      "when": "12 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/features/love-island-usa-corbin-elimination-corbingpt-sincere-melanie-movie-night-1236806166/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Tech Investor Vinod Khosla to Acquire the NFL’s Seattle Seahawks for $9.6 Billion",
+      "when": "12 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/vinod-khosla-buy-nfl-seattle-seahawks-paul-allen-49ers-1236807365/"
+    },
     {
       "cat": "Film/TV",
       "title": "Emmy Nominations Roundtable: ‘The Pitt’ and ‘Hacks’ Dominate, But ‘Widow’s Bay’ and ‘Pluribus’ Are Waiting in the Wings",
@@ -97,20 +111,6 @@
       "when": "11 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/music/album-reviews/jack-white-frozen-charlotte-album-revew-1236807326/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Elle’ Bosses on Lexi Minetree’s Elle Woods Transformation and How the Late James Van Der Beek Rewrote His Character’s Ending",
-      "when": "11 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/features/elle-legally-blonde-james-van-der-beek-season-2-1236801616/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Byron Allen Donates $100,000 to Nolan Wells Family’s GoFundMe as Tyler Perry Covers Funeral Costs",
-      "when": "11 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/byron-allen-donates-nolan-wells-tyler-perry-funeral-costs-1236807312/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
