@@ -3,30 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-13",
-    "fetched": "2026-07-13T11:20:46+00:00",
+    "fetched": "2026-07-13T14:49:12+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 10,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 17
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 16
     },
     "days": [
       {
         "day": "Today",
-        "min": 9,
-        "max": 13,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 96
-      },
-      {
-        "day": "Tue",
         "min": 8,
-        "max": 14,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 86
@@ -35,9 +27,17 @@
         "day": "Wed",
         "min": 4,
         "max": 13,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 7
+      },
+      {
+        "day": "Thu",
+        "min": 8,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 7
+        "rain": 2
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90681.0,
-        "pct": -1.25
+        "price": 90268.0,
+        "pct": -1.94
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2562.0,
-        "pct": -0.99
+        "price": 2560.87,
+        "pct": -1.64
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Sam Neill’s Career in Photos: ‘Jurassic Park,’ ‘The Piano,’ ‘Peaky Blinders’ and More",
+      "title": "Laura Dern Honors ‘Jurassic Park’ Co-Star Sam Neill as a ‘True and Noble Gentleman’ and ‘My Dream Leading Man’: ‘I Will Love You Forever, Dr. Alan Grant’",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/gallery/sam-neill-career-in-photos-jurassic-park-peaky-blinders/"
+      "url": "https://variety.com/2026/film/global/laura-dern-remembers-jurassic-park-sam-neill-tribute-1236809665/"
     },
     {
       "cat": "Film/TV",
-      "title": "Valérie Donzelli, Carolina Cavalli to Chair Venice’s Horizons, Luigi De Laurentiis Juries",
+      "title": "Andy Serkis on U.S. ‘Outrage’ Over His ‘Animal Farm’ Movie, AI Use in ‘Hunt for Gollum’ and Wanting Oscars to Recognize Motion Capture: ‘It’s Been a Long Time Coming’",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/valerie-donzelli-carolina-cavalli-venices-horizons-luigi-de-laurentiis-juries-1236809486/"
+      "url": "https://variety.com/2026/film/global/andy-serkis-animal-farm-ai-hunt-for-gollum-motion-capture-1236809573/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ammy Virk, Neeru Bajwa, Harrdy Sandhu Punjabi Films Acquired by India’s Panorama Studios for Worldwide Release (EXCLUSIVE)",
+      "title": "Would David Ellison Really Pull Paramount Out of California if the State Tries to Block Warner Bros. Merger?",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ammy-virk-neeru-bajwa-harrdy-sandhu-punjabi-films-panorama-studios-1236805558/"
+      "url": "https://variety.com/2026/biz/news/paramount-move-out-california-warner-bros-merger-1236809604/"
     },
     {
       "cat": "Film/TV",
-      "title": "Fantastic Lab Winner ‘We Won’t Let the Goat Die’ Bolstered by New Partners, Santiago Durán (EXCLUSIVE)",
+      "title": "Steven Spielberg Praises ‘Jurassic Park’ Star Sam Neill as ‘Exceptionally Collaborative’ in Tribute to Late Actor: He ‘Will Never Be Forgotten’",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/we-wont-let-the-goat-die-expansiva-cine-infinito-santiago-duran-1236809426/"
+      "url": "https://variety.com/2026/film/news/steven-spielberg-mourns-sam-neill-jurassic-park-1236809406/"
     },
     {
       "cat": "Trek/Wars",
