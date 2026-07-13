@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-13",
-    "fetched": "2026-07-13T19:38:04+00:00",
+    "fetched": "2026-07-13T21:03:32+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 9,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 11
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 12
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89730.0,
-        "pct": -2.74
+        "price": 89846.0,
+        "pct": -2.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2557.98,
-        "pct": -2.24
+        "price": 2551.38,
+        "pct": -2.7
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Netflix Orders ‘Monopoly’ Competition Series With $2 Million Dollar Prize",
+      "title": "David Zaslav Files to Sell $59 Million More in Warner Bros. Discovery Stock",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-monopoly-competition-series-casting-1236809961/"
+      "url": "https://variety.com/2026/film/news/david-zaslav-sells-59-million-warner-bros-discovery-stock-1236810050/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Dance Moms’ Parody Musical Adds ‘Titaníque’ Director and Co-Creator Tye Blue to Creative Team (EXCLUSIVE)",
+      "title": "‘Growing Pains’ Star Ashley Johnson Was Nearly Abducted on Set When a Kidnapper Grabbed Her After Episode Taping: ‘I Was Clueless’ and ‘Very Upset’",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/columns/dance-moms-parody-musical-titanique-tye-blue-1236809314/"
+      "url": "https://variety.com/2026/tv/news/ashley-johnson-kidnapped-growing-pains-epispde-filming-1236809871/"
     },
     {
       "cat": "Film/TV",
-      "title": "Al Pacino to Serve as Lead Juror for Lee Strasberg Film Festival- Film News in Brief",
+      "title": "Humanitas Prizes Reveal Nominations; ‘My So-Called Life’ Creator Winnie Holzman to Be Honored and Ashley Nicole Black Will Host (EXCLUSIVE)",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/film-news-in-brief-july-13-2026-1236809687/"
+      "url": "https://variety.com/2026/tv/news/humanitas-prize-nomination-winnie-holzman-ashley-nicole-black-1236809307/"
     },
     {
       "cat": "Film/TV",
-      "title": "Why I’m Suing to Block the Paramount-Warner Bros. Merger (Guest Column)",
+      "title": "New ‘KPop Demon Hunters’ Merch Drop Includes Collectible Huntr/x Singing Dolls",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/rob-bonta-paramount-warner-bros-merger-guest-column-1236809787/"
+      "url": "https://variety.com/2026/shopping/news/best-kpop-demon-hunters-merch-buy-online-1236642118/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
