@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-13",
-    "fetched": "2026-07-13T14:49:12+00:00",
+    "fetched": "2026-07-13T17:19:22+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 10,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 16
+      "wind": 14
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 86
+        "rain": 87
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 2
+        "rain": 4
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90268.0,
-        "pct": -1.94
+        "price": 89843.0,
+        "pct": -2.41
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2560.87,
-        "pct": -1.64
+        "price": 2559.45,
+        "pct": -2.02
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Laura Dern Honors ‘Jurassic Park’ Co-Star Sam Neill as a ‘True and Noble Gentleman’ and ‘My Dream Leading Man’: ‘I Will Love You Forever, Dr. Alan Grant’",
+      "title": "Rhett & Link’s Mythical Promotes Jacob Moncrief to President, Who Takes Over for Brian Flanagan",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/laura-dern-remembers-jurassic-park-sam-neill-tribute-1236809665/"
+      "url": "https://variety.com/2026/digital/news/rhett-link-mythical-jacob-moncrief-president-1236800017/"
     },
     {
       "cat": "Film/TV",
-      "title": "Andy Serkis on U.S. ‘Outrage’ Over His ‘Animal Farm’ Movie, AI Use in ‘Hunt for Gollum’ and Wanting Oscars to Recognize Motion Capture: ‘It’s Been a Long Time Coming’",
+      "title": "Allison Russell on Finding Joy ‘In the Hour of Chaos,’  a Duets-Filled Third Album That’s a Jubilee Unto Itself",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/andy-serkis-animal-farm-ai-hunt-for-gollum-motion-capture-1236809573/"
+      "url": "https://variety.com/2026/music/news/allison-russell-discusses-new-album-in-the-hour-of-chaos-1236809386/"
     },
     {
       "cat": "Film/TV",
-      "title": "Would David Ellison Really Pull Paramount Out of California if the State Tries to Block Warner Bros. Merger?",
+      "title": "‘Nightmare on Elm Street’ Getting Rebooted by Paramount in Deal With Wes Craven Estate",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/paramount-move-out-california-warner-bros-merger-1236809604/"
+      "url": "https://variety.com/2026/film/news/nightmare-on-elm-street-reboot-paramount-wes-craven-estate-1236809749/"
     },
     {
       "cat": "Film/TV",
-      "title": "Steven Spielberg Praises ‘Jurassic Park’ Star Sam Neill as ‘Exceptionally Collaborative’ in Tribute to Late Actor: He ‘Will Never Be Forgotten’",
+      "title": "Puerto Rico Film Festival Welcomes Costa Rica as Official Country in Focus (EXCLUSIVE)",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/steven-spielberg-mourns-sam-neill-jurassic-park-1236809406/"
+      "url": "https://variety.com/2026/film/global/puerto-rico-film-festival-costa-rica-country-in-focus-1236809377/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
