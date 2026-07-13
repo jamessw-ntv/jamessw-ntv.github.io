@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-13",
-    "fetched": "2026-07-13T22:02:56+00:00",
+    "fetched": "2026-07-13T23:02:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 10
+      "temp": 9,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 11
     },
     "days": [
       {
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89709.0,
-        "pct": -2.47
+        "price": 89392.0,
+        "pct": -2.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2546.97,
-        "pct": -2.33
+        "price": 2537.94,
+        "pct": -2.28
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Daytime Emmys Announce 2026 Nominations (UPDATING)",
+      "when": "13 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/awards/daytime-emmys-2026-nominations-list-1236810049/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Cats: The Jellicle Ball’ Ending Broadway Run in August",
+      "when": "13 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/legit/news/cats-the-jellicle-ball-ending-broadway-run-early-1236810127/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Hudson Williams Confronts Autograph Hounds Who Followed Him Home in Viral Video: ‘Please F—ing Leave’",
+      "when": "13 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/hudson-williams-confronts-fans-followed-him-home-autograph-1236810084/"
+    },
     {
       "cat": "Film/TV",
       "title": "LISTEN: Why ‘Moana’ Marks a Disney Misstep; ‘Young Washington’ Director Jon Erwin on Making Indie Films Work at the Multiplexes",
@@ -92,32 +113,11 @@
       "url": "https://variety.com/2026/film/box-office/moana-disney-misstep-young-washington-director-jon-erwin-1236810079/"
     },
     {
-      "cat": "Film/TV",
-      "title": "‘Top Chef’ Winner Rhoda Magbitang Signs With Buchwald and LTPR+ Talent Management (EXCLUSIVE)",
-      "when": "13 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/top-chef-winner-rhoda-magbitang-buchwald-ltpr-representation-1236810042/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Hotel Transylvania 5’ Sets October 2027 Release Date",
-      "when": "13 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hotel-transylvania-5-release-date-1236810065/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "New ‘LEGO Star Wars’ Animated Special To Screen At D23",
       "when": "13 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/new-lego-star-wars-animated-special-to-screen-at-d23.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "David Zaslav Files to Sell $59 Million More in Warner Bros. Discovery Stock",
-      "when": "13 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/david-zaslav-sells-59-million-warner-bros-discovery-stock-1236810050/"
     },
     {
       "cat": "Trek/Wars",
