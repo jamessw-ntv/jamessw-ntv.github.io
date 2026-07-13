@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-13",
-    "fetched": "2026-07-13T17:19:22+00:00",
+    "fetched": "2026-07-13T19:38:04+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 9,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 14
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
         "min": 8,
-        "max": 13,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 87
@@ -27,13 +27,13 @@
         "day": "Wed",
         "min": 4,
         "max": 13,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 7
       },
       {
         "day": "Thu",
-        "min": 8,
+        "min": 7,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89843.0,
-        "pct": -2.41
+        "price": 89730.0,
+        "pct": -2.74
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2559.45,
-        "pct": -2.02
+        "price": 2557.98,
+        "pct": -2.24
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Rhett & Link’s Mythical Promotes Jacob Moncrief to President, Who Takes Over for Brian Flanagan",
+      "title": "Netflix Orders ‘Monopoly’ Competition Series With $2 Million Dollar Prize",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/rhett-link-mythical-jacob-moncrief-president-1236800017/"
+      "url": "https://variety.com/2026/tv/news/netflix-monopoly-competition-series-casting-1236809961/"
     },
     {
       "cat": "Film/TV",
-      "title": "Allison Russell on Finding Joy ‘In the Hour of Chaos,’  a Duets-Filled Third Album That’s a Jubilee Unto Itself",
+      "title": "‘Dance Moms’ Parody Musical Adds ‘Titaníque’ Director and Co-Creator Tye Blue to Creative Team (EXCLUSIVE)",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/allison-russell-discusses-new-album-in-the-hour-of-chaos-1236809386/"
+      "url": "https://variety.com/2026/tv/columns/dance-moms-parody-musical-titanique-tye-blue-1236809314/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Nightmare on Elm Street’ Getting Rebooted by Paramount in Deal With Wes Craven Estate",
+      "title": "Al Pacino to Serve as Lead Juror for Lee Strasberg Film Festival- Film News in Brief",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/nightmare-on-elm-street-reboot-paramount-wes-craven-estate-1236809749/"
+      "url": "https://variety.com/2026/film/news/film-news-in-brief-july-13-2026-1236809687/"
     },
     {
       "cat": "Film/TV",
-      "title": "Puerto Rico Film Festival Welcomes Costa Rica as Official Country in Focus (EXCLUSIVE)",
+      "title": "Why I’m Suing to Block the Paramount-Warner Bros. Merger (Guest Column)",
       "when": "13 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/puerto-rico-film-festival-costa-rica-country-in-focus-1236809377/"
+      "url": "https://variety.com/2026/film/news/rob-bonta-paramount-warner-bros-merger-guest-column-1236809787/"
     },
     {
       "cat": "Trek/Wars",
