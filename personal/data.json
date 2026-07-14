@@ -3,21 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-14",
-    "fetched": "2026-07-14T10:52:11+00:00",
+    "fetched": "2026-07-14T12:19:32+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 12
+      "temp": 8,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
+        "min": 7,
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -27,8 +27,8 @@
         "day": "Wed",
         "min": 4,
         "max": 13,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 15
       },
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90474.0,
-        "pct": -0.1
+        "price": 90481.0,
+        "pct": -0.01
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2587.22,
-        "pct": 1.03
+        "price": 2586.44,
+        "pct": 0.85
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Ellen Burstyn to Receive Venice’s Golden Lion for Lifetime Achievement",
+      "title": "Nicolas Winding Refn’s ‘Her Private Hell’ Ignites Fantasia’s 30th Edition as Hot Global Genre Titles Get Set to Stoke or Take Over the Mainstream",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/ellen-burstyn-venice-golden-lion-1236810359/"
+      "url": "https://variety.com/2026/film/global/wending-refn-noomi-rapace-jane-schoenbrun-fantasia-1236810161/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Adolescence’ Co-Creator Jack Thorne, ‘Bridgerton’ Star India Amarteifio, Judi Dench Join National Youth Theatre’s 70th Anniversary Show (EXCLUSIVE)",
+      "title": "Rosemary Who? Get Ready for Emma’s Baby as ‘Birth’ Seduces Tallifornia Film Fund With ‘Grotesque and Terrifying’ Take on Pregnancy (EXCLUSIVE)",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/theater/news/jack-thorne-india-amarteifio-judi-dench-national-youth-theatre-1236810339/"
+      "url": "https://variety.com/2026/film/global/birth-oskar-lehemaa-stellar-film-frontieres-tallifornia-1236809710/"
     },
     {
       "cat": "Film/TV",
-      "title": "Webtoon Productions, Espotlight Forge First-Look Pact for Spanish-Language Wattpad Adaptations (EXCLUSIVE)",
+      "title": "Isaac Ezban Sets Next Movie ‘Delivery,’ His ‘Most Personal Project Yet,’ Partnering With Sin Sentido Films (EXCLUSIVE)",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/global/markets-festivals/webtoon-espotlight-spanish-wattpad-adaptation-deal-1236809389/"
+      "url": "https://variety.com/2026/film/global/isaac-ezban-sin-sentido-films-delivery-frontieres-fantasia-1236810367/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Stranger Things’ Star Linnea Berthelsen to Make U.K. Stage Debut in ‘Darkling’ (EXCLUSIVE)",
+      "title": "BBC Warns of ‘Real Jeopardy’ as License Fee Base Erodes Despite Record-Breaking Content Year",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/theater/global/stranger-things-eight-linnea-berthelsen-uk-stage-darkling-1236810349/"
+      "url": "https://variety.com/2026/tv/news/bbc-real-jeopardy-license-fee-record-content-year-1236810365/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
