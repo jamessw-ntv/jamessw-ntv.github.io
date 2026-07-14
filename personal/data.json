@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-14",
-    "fetched": "2026-07-14T08:19:35+00:00",
+    "fetched": "2026-07-14T10:52:11+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 18
+      "temp": 9,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 12
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90113.0,
-        "pct": -0.62
+        "price": 90474.0,
+        "pct": -0.1
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2566.79,
-        "pct": -0.11
+        "price": 2587.22,
+        "pct": 1.03
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Fandango Sales Picks Up Explosive Locarno Premiere ‘The Chilean’ Where ‘Everything Is on the Verge of Detonation’ (EXCLUSIVE)",
+      "title": "Ellen Burstyn to Receive Venice’s Golden Lion for Lifetime Achievement",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/fandango-sales-locarno-the-chilean-sergio-castro-san-martin-1236809739/"
+      "url": "https://variety.com/2026/film/global/ellen-burstyn-venice-golden-lion-1236810359/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hong Sangsoo’s ‘Nowhere to Lay My Eyes’ Lands at Cinema Guild Ahead of Locarno Premiere",
+      "title": "‘Adolescence’ Co-Creator Jack Thorne, ‘Bridgerton’ Star India Amarteifio, Judi Dench Join National Youth Theatre’s 70th Anniversary Show (EXCLUSIVE)",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hong-sangsoo-nowhere-to-lay-my-eyes-cinema-guild-locarno-1236810318/"
+      "url": "https://variety.com/2026/theater/news/jack-thorne-india-amarteifio-judi-dench-national-youth-theatre-1236810339/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Hunt for Gollum’ Star Anya Taylor-Joy Has Not Read the ‘Lord of the Rings’ Books Yet, but Is ‘About to’ Soon",
+      "title": "Webtoon Productions, Espotlight Forge First-Look Pact for Spanish-Language Wattpad Adaptations (EXCLUSIVE)",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/anya-taylor-joy-lord-of-the-rings-books-hunt-for-gollum-1236810271/"
+      "url": "https://variety.com/2026/global/markets-festivals/webtoon-espotlight-spanish-wattpad-adaptation-deal-1236809389/"
     },
     {
       "cat": "Film/TV",
-      "title": "States Seek Injunction to Prevent Paramount-Warner Bros. Deal From Closing",
+      "title": "‘Stranger Things’ Star Linnea Berthelsen to Make U.K. Stage Debut in ‘Darkling’ (EXCLUSIVE)",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/states-restraining-order-paramount-warner-bros-1236810261/"
+      "url": "https://variety.com/2026/theater/global/stranger-things-eight-linnea-berthelsen-uk-stage-darkling-1236810349/"
     },
     {
       "cat": "Trek/Wars",
