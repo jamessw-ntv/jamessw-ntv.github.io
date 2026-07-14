@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-14",
-    "fetched": "2026-07-14T20:18:05+00:00",
+    "fetched": "2026-07-14T22:04:19+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 3
+      "temp": 5,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 4
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92422.0,
-        "pct": 3.0
+        "price": 92600.0,
+        "pct": 3.17
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2688.49,
-        "pct": 5.23
+        "price": 2687.36,
+        "pct": 5.5
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Not a Done Deal: How and Why 12 Blue States are Fighting the Paramount-Warner Bros. Merger",
+      "title": "George Lucas Says AI Makes Filmmaking ‘Easier’ and ‘There’s Nothing You Can Do About It,’ Criticizes Hollywood for Giving Fans Too Much Power",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-warner-bros-rob-bonta-state-ags-sue-blockbusters-1236810931/"
+      "url": "https://variety.com/2026/film/news/george-lucas-test-screenings-embraces-ai-hollywood-1236810656/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Lord of the Rings: The Hunt for Gollum’ Starts Filming With First Set Footage of Andy Serkis Reviving Iconic Character",
+      "title": "MLB All-Star Game 2026 Livestream: Here’s How to Watch the National League vs. American League Online",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/lord-of-the-rings-hunt-for-gollum-filming-set-footage-1236810966/"
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-mlb-all-star-game-2026-live-online-free-1236810159/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Far Cry’ FX Series Casts Steve Buscemi",
+      "title": "Lily Allen Drops Most Arena Dates on U.S. Tour in Favor of Theater and Amphitheater Shows",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/far-cry-fx-series-cast-steve-buscemi-1236810902/"
+      "url": "https://variety.com/2026/music/news/lily-allen-drops-arena-dates-tour-theaters-1236810991/"
     },
     {
       "cat": "Film/TV",
-      "title": "WGA Sues to Block Paramount-Warner Bros. Merger, Alleging Writers Will Be Paid Less and Have Fewer Opportunities if Deal Goes Through",
+      "title": "Blue Beetle Returns: Xolo Maridueña to Reprise Superhero in ‘Superman’ Sequel ‘Man of Tomorrow’",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/wga-sues-to-block-paramount-warner-bros-discovery-merger-1236810972/"
+      "url": "https://variety.com/2026/film/news/blue-beetle-superman-2-man-of-tomorrow-1236811013/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
