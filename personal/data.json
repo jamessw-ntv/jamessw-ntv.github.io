@@ -3,24 +3,24 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-14",
-    "fetched": "2026-07-14T18:09:23+00:00",
+    "fetched": "2026-07-14T20:18:05+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 5
+      "temp": 4,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 3
     },
     "days": [
       {
         "day": "Today",
         "min": 4,
         "max": 13,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 11
       },
       {
@@ -33,7 +33,7 @@
       },
       {
         "day": "Fri",
-        "min": 5,
+        "min": 4,
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92473.0,
-        "pct": 3.3
+        "price": 92422.0,
+        "pct": 3.0
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2679.26,
-        "pct": 5.49
+        "price": 2688.49,
+        "pct": 5.23
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Frontières 2026: Lineup and Highlights from a Zombie Wedding to Thai Folk Horror Noir and a Half-Body Filipino Vampire",
+      "title": "Not a Done Deal: How and Why 12 Blue States are Fighting the Paramount-Warner Bros. Merger",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/frontieres-fantasia-isaac-ezban-chinenye-ezeudu-1236810535/"
+      "url": "https://variety.com/2026/film/news/paramount-warner-bros-rob-bonta-state-ags-sue-blockbusters-1236810931/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Plague’ Exec Producer James Presson Boards Frontières Biopic Parody ‘Humpty: American Dream’ (EXCLUSIVE)",
+      "title": "‘The Lord of the Rings: The Hunt for Gollum’ Starts Filming With First Set Footage of Andy Serkis Reviving Iconic Character",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/james-presson-generic-animal-humpty-american-dream-fantasia-1236810578/"
+      "url": "https://variety.com/2026/film/news/lord-of-the-rings-hunt-for-gollum-filming-set-footage-1236810966/"
     },
     {
       "cat": "Film/TV",
-      "title": "From ‘Happy Gilmore’ to ‘Top Gun,’ Golf Apparel Brand Pins & Aces Taps Into Pop Culture Favorites for Bestselling Golf Gear",
+      "title": "‘Far Cry’ FX Series Casts Steve Buscemi",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/pins-aces-gifts-for-golfers-headcovers-buy-online-1236788658/"
+      "url": "https://variety.com/2026/tv/news/far-cry-fx-series-cast-steve-buscemi-1236810902/"
     },
     {
       "cat": "Film/TV",
-      "title": "Christopher Nolan Fans Will Stop at Nothing to See ‘The Odyssey’ in Imax 70mm, From Cross-Country Trips to Delaying Pregnancy",
+      "title": "WGA Sues to Block Paramount-Warner Bros. Merger, Alleging Writers Will Be Paid Less and Have Fewer Opportunities if Deal Goes Through",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-odyssey-fans-frenzy-imax-70mm-tickets-1236809522/"
+      "url": "https://variety.com/2026/film/news/wga-sues-to-block-paramount-warner-bros-discovery-merger-1236810972/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘LEGO Star Wars: The Mandalorian’ Special Officially Announced, Releasing September 2",
+      "when": "14 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/lego-star-wars-the-mandalorian-special-officially-announced-releasing-september-2.html"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "14 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/14/see-kirk-seize-command-in-star-trek-the-last-starship-9-preview/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Update: New ‘LEGO Star Wars: The Mandalorian’ Animated Special To Screen At D23",
-      "when": "13 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/new-lego-star-wars-animated-special-to-screen-at-d23.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
