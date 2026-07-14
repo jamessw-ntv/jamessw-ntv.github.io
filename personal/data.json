@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-14",
-    "fetched": "2026-07-14T16:20:22+00:00",
+    "fetched": "2026-07-14T18:09:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 6,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 6
+      "wind": 5
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 15
+        "rain": 11
       },
       {
         "day": "Thu",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 14
+        "rain": 20
       },
       {
         "day": "Fri",
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92733.0,
-        "pct": 3.13
+        "price": 92473.0,
+        "pct": 3.3
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2682.74,
-        "pct": 4.88
+        "price": 2679.26,
+        "pct": 5.49
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Moana’ Could Lose at Least $100 Million in Theaters. Does Disney Need to Rethink Its Live-Action Remakes?",
+      "title": "Frontières 2026: Lineup and Highlights from a Zombie Wedding to Thai Folk Horror Noir and a Half-Body Filipino Vampire",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/moana-box-office-bomb-disney-live-action-remakes-1236810179/"
+      "url": "https://variety.com/2026/film/global/frontieres-fantasia-isaac-ezban-chinenye-ezeudu-1236810535/"
     },
     {
       "cat": "Film/TV",
-      "title": "Carey Mulligan Joins Billie Eilish in ‘The Bell Jar’ (EXCLUSIVE)",
+      "title": "‘The Plague’ Exec Producer James Presson Boards Frontières Biopic Parody ‘Humpty: American Dream’ (EXCLUSIVE)",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/carey-mulligan-billie-eilish-the-bell-jar-1236810529/"
+      "url": "https://variety.com/2026/film/markets-festivals/james-presson-generic-animal-humpty-american-dream-fantasia-1236810578/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tubi Taps Shannon Olivas to Lead Communications and Publicity",
+      "title": "From ‘Happy Gilmore’ to ‘Top Gun,’ Golf Apparel Brand Pins & Aces Taps Into Pop Culture Favorites for Bestselling Golf Gear",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/shannon-olivas-tubi-head-communications-publicity-fox-1236810252/"
+      "url": "https://variety.com/2026/shopping/news/pins-aces-gifts-for-golfers-headcovers-buy-online-1236788658/"
     },
     {
       "cat": "Film/TV",
-      "title": "Steve Johnson Created Movie Icons Like Slimer in ’Ghostbusters’ Before Flaming Out on Drugs. A New Doc Traces His Art and Recovery",
+      "title": "Christopher Nolan Fans Will Stop at Nothing to See ‘The Odyssey’ in Imax 70mm, From Cross-Country Trips to Delaying Pregnancy",
       "when": "14 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/rubberhead-steve-johnson-documentary-slimer-creator-1236806258/"
+      "url": "https://variety.com/2026/film/news/the-odyssey-fans-frenzy-imax-70mm-tickets-1236809522/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘Star Wars: Legacy’ Charts a New Jedi Path in One of Rey and Leia’s Most Personal Stories Yet",
+      "when": "14 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/review-star-wars-legacy-charts-a-new-jedi-path-in-one-of-rey-and-leias-most-personal-stories-yet.html"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "13 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/new-lego-star-wars-animated-special-to-screen-at-d23.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: ‘The Ninth Jedi’ Gets August Release Date, the Road to ‘Star Wars’ 50th, and More",
-      "when": "12 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/this-week-in-a-galaxy-far-far-away-the-ninth-jedi-gets-august-release-date-the-road-to-star-wars-50th-and-more.html"
     },
     {
       "cat": "Trek/Wars",
