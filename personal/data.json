@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-14",
-    "fetched": "2026-07-14T14:59:10+00:00",
+    "fetched": "2026-07-14T16:20:22+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 7
+      "temp": 6,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 6
     },
     "days": [
       {
@@ -72,52 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91598.0,
-        "pct": 1.26
+        "price": 92733.0,
+        "pct": 3.13
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2683.14,
-        "pct": 4.62
+        "price": 2682.74,
+        "pct": 4.88
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Moana’ Could Lose at Least $100 Million in Theaters. Does Disney Need to Rethink Its Live-Action Remakes?",
+      "when": "14 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/moana-box-office-bomb-disney-live-action-remakes-1236810179/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Carey Mulligan Joins Billie Eilish in ‘The Bell Jar’ (EXCLUSIVE)",
+      "when": "14 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/carey-mulligan-billie-eilish-the-bell-jar-1236810529/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Tubi Taps Shannon Olivas to Lead Communications and Publicity",
+      "when": "14 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/shannon-olivas-tubi-head-communications-publicity-fox-1236810252/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Steve Johnson Created Movie Icons Like Slimer in ’Ghostbusters’ Before Flaming Out on Drugs. A New Doc Traces His Art and Recovery",
+      "when": "14 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/features/rubberhead-steve-johnson-documentary-slimer-creator-1236806258/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘The Mandalorian and Grogu’ Available to Buy on Digital Next Week, on 4K Ultra HD and Blu-ray in August",
+      "when": "14 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/the-mandalorian-and-grogu-available-to-buy-on-digital-next-week-on-4k-ultra-hd-and-blu-ray-in-august.html"
+    },
     {
       "cat": "Trek/Wars",
       "title": "See Kirk Seize Command In ‘Star Trek: The Last Starship’ #9 Preview",
       "when": "14 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/14/see-kirk-seize-command-in-star-trek-the-last-starship-9-preview/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Akira’ Gets Its First New 35mm Print in Decades, Set to Tour U.K. and Ireland Cinemas",
-      "when": "14 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/akira-new-35mm-print-uk-tour-1236810500/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "TV’s Upfront Market Has Nearly Wrapped, Even if Big TV Won’t Say So (EXCLUSIVE)",
-      "when": "14 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/tv-upfront-market-closing-advertising-commericals-fox-nbcu-1236810151/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Content Partners Expands Into Creator Economy, Launching Wonderloom Media With Ed Simpson, Acquiring Dr. Insanity True Crime Franchise",
-      "when": "14 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/dr-insanity-true-crime-youtube-wonderloom-content-partners-1236810322/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Shards’ Trailer: Drugs, Sex and a Serial Killer Haunt L.A. Teens in FX Drama Series",
-      "when": "14 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/the-shards-trailer-fx-show-1236810036/"
     },
     {
       "cat": "Trek/Wars",
@@ -139,13 +146,6 @@
       "when": "11 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/11/star-trek-heading-to-comic-con-2026-with-hall-h-panel-for-strange-new-worlds-60th-anniversary/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Lom Pyke – ‘Star Wars’ Character Spotlight",
-      "when": "10 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/lom-pyke-star-wars-character-spotlight.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
