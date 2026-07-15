@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-15",
-    "fetched": "2026-07-15T05:38:04+00:00",
+    "fetched": "2026-07-15T08:24:46+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
+      "temp": 11,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 14
+      "wind": 3
     },
     "days": [
       {
@@ -26,7 +26,7 @@
       {
         "day": "Thu",
         "min": 9,
-        "max": 14,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 57
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92562.0,
-        "pct": 2.42
+        "price": 92387.0,
+        "pct": 2.56
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2682.07,
-        "pct": 4.16
+        "price": 2679.45,
+        "pct": 4.38
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Paramount Skydance Agrees to Link Merger Antitrust Case to Pre-Existing Paramount+ Subscriber Suit",
+      "title": "Locarno Competition Title ‘Hearing’ Lands at Heretic for World Sales, Unveils Clip (EXCLUSIVE)",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-states-antitrust-case-subscriber-suit-1236810616/"
+      "url": "https://variety.com/2026/film/festivals/locarno-competition-title-hearing-heretic-world-sales-1236810516/"
     },
     {
       "cat": "Film/TV",
-      "title": "Mayu Matsuoka, Riisa Naka’s Netflix Cosmetic Surgery Drama ‘Plastic Beauty’ Sets September Premiere, Adds 23 Cast Members",
+      "title": "MPA, APSA Reopen Film Fund for Asia Pacific Screenwriters – Global Bulletin",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/mayu-matsuoka-riisa-naka-plastic-beauty-netflix-premiere-1236810894/"
+      "url": "https://variety.com/2026/film/news/mpa-apsa-film-fund-1236811401/"
     },
     {
       "cat": "Film/TV",
-      "title": "Anya Taylor-Joy Is a Con Artist on the Run in Apple TV’s High-Voltage Thriller ‘Lucky’: TV Review",
+      "title": "Rhayuela’s Next Gen Takes Over",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/lucky-review-apple-tv-anya-taylor-joy-1236806733/"
+      "url": "https://variety.com/2026/film/global/rhayuela-next-gen-takes-over-alias-maria-el-paramo-1236809115/"
     },
     {
       "cat": "Film/TV",
-      "title": "Whether in ‘Jurassic Park’ or ‘The Piano,’ Sam Neill Put the Movies First",
-      "when": "14 Jul",
+      "title": "Slasher Terror, Cartel Nightmares and a British Folk Monster Join Black Mandala’s New Horror Slate (EXCLUSIVE)",
+      "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/obituaries-people-news/sam-neill-put-the-movies-first-jurassic-park-the-piano-1236810175/"
+      "url": "https://variety.com/2026/film/news/slasher-terror-british-folk-monster-black-mandala-horror-slate-1236811397/"
     },
     {
       "cat": "Trek/Wars",
