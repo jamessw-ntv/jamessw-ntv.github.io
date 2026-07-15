@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-15",
-    "fetched": "2026-07-15T18:13:12+00:00",
+    "fetched": "2026-07-15T20:15:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,12 +12,12 @@
       "temp": 10,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 6
+      "wind": 3
     },
     "days": [
       {
         "day": "Today",
-        "min": 9,
+        "min": 8,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -25,7 +25,7 @@
       },
       {
         "day": "Fri",
-        "min": 5,
+        "min": 4,
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
@@ -34,7 +34,7 @@
       {
         "day": "Sat",
         "min": 4,
-        "max": 16,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92681.0,
-        "pct": 0.29
+        "price": 92646.0,
+        "pct": 0.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2752.81,
-        "pct": 2.7
+        "price": 2742.67,
+        "pct": 1.98
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Suno Hack Shows How YouTube Music, Deezer and Genius Data Trained AI Music Generator’s Models",
+      "title": "Chris Meledandri, George Lucas, Jodie Foster and Sigourney Weaver Receive France’s Prestigious Legion of Honor",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/suno-hack-youtube-music-deezer-genius-data-trained-ai-music-1236811772/"
+      "url": "https://variety.com/2026/film/global/meledandri-lucas-foster-sigourney-weaver-france-legion-honor-1236811954/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Star Trek Auction From ‘Picard,’ ‘Strange New Worlds’ And More Ends Thursday",
+      "when": "15 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/15/star-trek-auction-from-picard-strange-new-worlds-and-more-ends-thursday/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jalen Brunson to Join Variety’s Inaugural Sports & Entertainment Studio in New York",
+      "title": "‘Wizards Beyond Waverly Place’ Four-Part Finale Trailer Released (TV News Roundup)",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/jalen-brunson-new-york-sports-entertainment-studio-1236811852/"
+      "url": "https://variety.com/2026/tv/news/tv-news-roundup-week-of-july-13-1236810975/"
     },
     {
       "cat": "Film/TV",
-      "title": "Neon Bringing Na Hong-Jin’s ‘Hope’ to Comic-Con (EXCLUSIVE)",
+      "title": "‘Call of Duty’ Reveals ‘Modern Warfare 4’s’ New ‘Kill Block’ Feature (Gaming News Roundup)",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/neon-na-hong-jin-hope-comic-con-panel-1236811805/"
+      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-13-1236811918/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Lion at My Back’ Review: An Asylum Seeker and a Former Drug Addict Face the World in Different Ways in a Promising but Pat Redemption Tale",
+      "title": "R. Kelly Formally Asks Trump to Commute 30-Year Sentence",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-lion-at-my-back-review-1236811827/"
+      "url": "https://variety.com/2026/music/news/r-kelly-formally-asks-trump-commute-30-year-sentence-1236811935/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/07/11/star-trek-heading-to-comic-con-2026-with-hall-h-panel-for-strange-new-worlds-60th-anniversary/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Karim Diané On The Physicality Of Being Klingon, Getting Advice From Michael Dorn, And Asking For More",
-      "when": "8 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/08/karim-diane-on-the-physicality-of-being-klingon-getting-advice-from-michael-dorn-and-asking-for-more/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
