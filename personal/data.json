@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-15",
-    "fetched": "2026-07-15T16:38:29+00:00",
+    "fetched": "2026-07-15T18:13:12+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 10,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 3
+      "wind": 6
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92680.0,
-        "pct": -0.25
+        "price": 92681.0,
+        "pct": 0.29
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2728.84,
-        "pct": 1.59
+        "price": 2752.81,
+        "pct": 2.7
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Odyssey’ Review: In Christopher Nolan’s Vast, Thrilling, Slightly Aloof Epic, Homer Is Where the Heart Is Not",
+      "title": "Suno Hack Shows How YouTube Music, Deezer and Genius Data Trained AI Music Generator’s Models",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-odyssey-review-christopher-nolan-1236811509/"
+      "url": "https://variety.com/2026/music/news/suno-hack-youtube-music-deezer-genius-data-trained-ai-music-1236811772/"
     },
     {
       "cat": "Film/TV",
-      "title": "Banijay and Mediawan Eye Lionsgate Studios Takeover",
+      "title": "Jalen Brunson to Join Variety’s Inaugural Sports & Entertainment Studio in New York",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/lionsgate-studios-takeover-banijay-mediawan-1236811632/"
+      "url": "https://variety.com/2026/biz/news/jalen-brunson-new-york-sports-entertainment-studio-1236811852/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Don’t Move’: How ‘Impractical Jokers’ Star James Murray Got His Giant Spider Horror Movie Made, Plus See Trailer Debut",
+      "title": "Neon Bringing Na Hong-Jin’s ‘Hope’ to Comic-Con (EXCLUSIVE)",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/dont-move-trailer-impractical-jokers-james-murray-1236811020/"
+      "url": "https://variety.com/2026/film/news/neon-na-hong-jin-hope-comic-con-panel-1236811805/"
     },
     {
       "cat": "Film/TV",
-      "title": "James Dreyfus, Adrian Lukis Join Tracy-Ann Oberman in Gender-Swapped Version of Noël Coward Play ‘Present Laughter’",
+      "title": "‘The Lion at My Back’ Review: An Asylum Seeker and a Former Drug Addict Face the World in Different Ways in a Promising but Pat Redemption Tale",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/theater/global/james-dreyfus-adrian-lukis-tracy-ann-oberman-present-laughter-1236811695/"
+      "url": "https://variety.com/2026/film/reviews/the-lion-at-my-back-review-1236811827/"
     },
     {
       "cat": "Trek/Wars",
