@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-15",
-    "fetched": "2026-07-15T14:57:41+00:00",
+    "fetched": "2026-07-15T16:38:29+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93394.0,
-        "pct": 1.89
+        "price": 92680.0,
+        "pct": -0.25
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2756.16,
-        "pct": 2.69
+        "price": 2728.84,
+        "pct": 1.59
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "FCC Moves to End Cap on National Broadcast Ownership",
+      "title": "‘The Odyssey’ Review: In Christopher Nolan’s Vast, Thrilling, Slightly Aloof Epic, Homer Is Where the Heart Is Not",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/fcc-end-cap-national-broadcast-ownership-1236811655/"
+      "url": "https://variety.com/2026/film/reviews/the-odyssey-review-christopher-nolan-1236811509/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Batman 2’ Delayed Again to February 2028; Matt Reeves Drops First Camera Test Footage of Robert Pattinson’s Return",
+      "title": "Banijay and Mediawan Eye Lionsgate Studios Takeover",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-batman-2-release-date-2028-first-footage-pattinson-1236811623/"
+      "url": "https://variety.com/2026/film/news/lionsgate-studios-takeover-banijay-mediawan-1236811632/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Legend of Korra’ Concert Experience to Tour in 2027 for ‘Last Airbender’ Sequel’s 15th Anniversary",
+      "title": "‘Don’t Move’: How ‘Impractical Jokers’ Star James Murray Got His Giant Spider Horror Movie Made, Plus See Trailer Debut",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/legend-of-korra-concert-experience-tour-2027-1236811292/"
+      "url": "https://variety.com/2026/film/features/dont-move-trailer-impractical-jokers-james-murray-1236811020/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kevin Hart’s Ice-Bath Interview Show ‘Cold as Balls’ to Debut New Episodes on Netflix (EXCLUSIVE)",
+      "title": "James Dreyfus, Adrian Lukis Join Tracy-Ann Oberman in Gender-Swapped Version of Noël Coward Play ‘Present Laughter’",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/kevin-hart-cold-as-balls-new-episodes-netflix-1236811300/"
+      "url": "https://variety.com/2026/theater/global/james-dreyfus-adrian-lukis-tracy-ann-oberman-present-laughter-1236811695/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
