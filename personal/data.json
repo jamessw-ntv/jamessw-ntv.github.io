@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-15",
-    "fetched": "2026-07-15T10:56:28+00:00",
+    "fetched": "2026-07-15T12:20:04+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,28 +12,28 @@
       "temp": 10,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 4
+      "wind": 2
     },
     "days": [
       {
         "day": "Today",
         "min": 3,
         "max": 13,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 11
       },
       {
         "day": "Thu",
         "min": 9,
-        "max": 13,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 53
       },
       {
         "day": "Fri",
-        "min": 4,
+        "min": 5,
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92521.0,
-        "pct": 2.36
+        "price": 92599.0,
+        "pct": 2.3
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2687.08,
-        "pct": 3.72
+        "price": 2695.44,
+        "pct": 4.14
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Paddy Considine, America Ferrera, Alex Hassell and Kit Harington to Lead Ronan Bennett’s Thriller Series ‘Army of Shadows’ (EXCLUSIVE)",
+      "title": "‘Cowboy’ Director Nathan Grubbs on Betting the Farm to Make His Louisiana Western",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/kit-harington-paddy-considine-ronan-bennett-army-of-shadows-1236810822/"
+      "url": "https://variety.com/2026/film/global/cowboy-nathan-grubbs-louisiana-western-raindance-1236810382/"
     },
     {
       "cat": "Film/TV",
-      "title": "U.K. Government Proposes Social Media Curfew for Older Teens Alongside Under-16 Ban",
+      "title": "Vijay’s ‘Jana Nayagan’ Finally Gets a Release Date",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/global/uk-government-social-media-curfew-older-teens-1236811460/"
+      "url": "https://variety.com/2026/film/news/vijay-jana-nayagan-release-date-2-1236811540/"
     },
     {
       "cat": "Film/TV",
-      "title": "Locarno Winner Nelson Yeo’s ‘The House on the Moon’ Boards Parallax Films for Worldwide Sales (EXCLUSIVE)",
+      "title": "AI-Native ‘Lost Canon’ Brings Raindance, CapCut and Moonmax Together for 10-Film Series",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/nelson-yeo-the-house-on-the-moon-parallax-films-worldwide-sales-1236810527/"
+      "url": "https://variety.com/2026/film/festivals/ai-native-lost-canon-raindance-capcut-moonmax-1236810487/"
     },
     {
       "cat": "Film/TV",
-      "title": "Fabrice Du Welz to Head Locarno International Competition Jury",
+      "title": "Margot Robbie, Mark Ruffalo, Daisy Ridley, Omar Sy Projects Lead Venice Immersive Lineup",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/fabrice-du-welz-locarno-competition-jury-1236810958/"
+      "url": "https://variety.com/2026/film/global/venice-immersive-margot-robbie-mark-ruffalo-1236811522/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
