@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-15",
-    "fetched": "2026-07-15T20:15:39+00:00",
+    "fetched": "2026-07-15T22:07:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 9,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 3
+      "wind": 1
     },
     "days": [
       {
@@ -72,24 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92646.0,
-        "pct": 0.23
+        "price": 92469.0,
+        "pct": -0.11
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2742.67,
-        "pct": 1.98
+        "price": 2742.43,
+        "pct": 2.11
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Chris Meledandri, George Lucas, Jodie Foster and Sigourney Weaver Receive France’s Prestigious Legion of Honor",
+      "title": "Vincent D’Onofrio, Kate Mara, Clancy Brown Among Five Cast in Netflix Las Vegas Drama ‘The Roman’",
       "when": "15 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/meledandri-lucas-foster-sigourney-weaver-france-legion-honor-1236811954/"
+      "url": "https://variety.com/2026/tv/news/vincent-donofrio-kate-mara-clancy-brown-netflix-vegas-roman-1236812086/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "ESPY Awards 2026 Livestream: Here’s How to Watch the Sports Awards Ceremony Online",
+      "when": "15 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-espy-awards-2026-live-online-free-1236809721/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Spain’s World Cup Victory Over France Averages 11.5 Million Viewers on Fox, Most-Watched Semifinals Game Ever on English-Language U.S. TV",
+      "when": "15 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/spain-france-world-cup-ratings-breaks-record-1236812067/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "David and Larry Ellison Sued by Paramount Investor Alleging ‘Illegal’ Side Deal With Donald Trump to Secure U.S. Approval for Warner Bros. Takeover",
+      "when": "15 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/david-larry-ellison-sued-paramount-side-deal-trump-warner-bros-1236812034/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +118,6 @@
       "when": "15 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/15/star-trek-auction-from-picard-strange-new-worlds-and-more-ends-thursday/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Wizards Beyond Waverly Place’ Four-Part Finale Trailer Released (TV News Roundup)",
-      "when": "15 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/tv-news-roundup-week-of-july-13-1236810975/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Call of Duty’ Reveals ‘Modern Warfare 4’s’ New ‘Kill Block’ Feature (Gaming News Roundup)",
-      "when": "15 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-13-1236811918/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "R. Kelly Formally Asks Trump to Commute 30-Year Sentence",
-      "when": "15 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/r-kelly-formally-asks-trump-commute-30-year-sentence-1236811935/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
