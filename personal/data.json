@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-16",
-    "fetched": "2026-07-16T20:05:59+00:00",
+    "fetched": "2026-07-16T21:12:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 4,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 5
+      "wind": 6
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91755.0,
-        "pct": -0.98
+        "price": 91641.0,
+        "pct": -1.03
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2677.04,
-        "pct": -2.4
+        "price": 2678.22,
+        "pct": -2.43
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Paramount Slams States’ Lawsuit Over Warner Bros. Merger as ‘One of the Weakest’ in Modern History",
+      "title": "Argentina’s World Cup Victory Over England Scores 15.1 Million Viewers on Fox, Largest Semifinals Telecast in English-Language U.S. History",
       "when": "16 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-slams-states-lawsuit-warner-bros-merger-1236812612/"
+      "url": "https://variety.com/2026/tv/news/argentina-england-world-cup-ratings-15-million-fox-1236813261/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kris Jenner’s Mom MJ Dies at 91: ‘I Will Forever See Pieces of You in All of Us’",
+      "title": "LISTEN: What’s Fueling the Box Office Rebound and How Can Hollywood Keep it Going?",
       "when": "16 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/kris-jenners-mom-dead-mj-shannon-1236812693/"
+      "url": "https://variety.com/2026/film/news/box-office-rebound-brent-lang-daily-variety-podcast-1236813285/"
     },
     {
       "cat": "Film/TV",
-      "title": "UFC’s McGregor-Holloway Fight Averages 6.5 Million Viewers Across U.S. and Latin America",
+      "title": "Why Aren’t There More Imax 70mm Screens for ‘The Odyssey’? ‘It’s Not Practical,’ Company Says",
       "when": "16 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/mcgregor-holloway-fight-ratings-ufc-1236812638/"
+      "url": "https://variety.com/2026/film/news/why-no-more-imax-70mm-screens-the-odyssey-christopher-nolan-1236813019/"
     },
     {
       "cat": "Film/TV",
-      "title": "Chloe Fineman Leaves ‘SNL’ After 7 Seasons: ‘I’m Going to Miss It a Lot’",
+      "title": "Watching Shia LaBeouf Unravel:  ‘He Was Exploding on Set’ and in ‘Deep Pain’",
       "when": "16 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/chloe-fineman-leaves-snl-1236812654/"
+      "url": "https://variety.com/2026/film/news/shia-labeouf-angry-set-behavior-rooster-prince-1236812006/"
     },
     {
       "cat": "Trek/Wars",
