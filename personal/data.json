@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-16",
-    "fetched": "2026-07-16T21:12:35+00:00",
+    "fetched": "2026-07-16T23:02:55+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
+      "temp": 5,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 6
+      "wind": 4
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91641.0,
-        "pct": -1.03
+        "price": 91360.0,
+        "pct": -1.28
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2678.22,
-        "pct": -2.43
+        "price": 2669.53,
+        "pct": -2.69
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "FX, Color Force to Develop Series Based on New Yorker Article About National Park Volunteer Rescue Squad (EXCLUSIVE)",
+      "when": "16 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/fx-series-new-yorker-national-park-volunteer-rescue-squad-1236813417/"
+    },
     {
       "cat": "Film/TV",
       "title": "Argentina’s World Cup Victory Over England Scores 15.1 Million Viewers on Fox, Largest Semifinals Telecast in English-Language U.S. History",
@@ -104,13 +111,6 @@
       "when": "16 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/why-no-more-imax-70mm-screens-the-odyssey-christopher-nolan-1236813019/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Watching Shia LaBeouf Unravel:  ‘He Was Exploding on Set’ and in ‘Deep Pain’",
-      "when": "16 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/shia-labeouf-angry-set-behavior-rooster-prince-1236812006/"
     },
     {
       "cat": "Trek/Wars",
