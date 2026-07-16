@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-16",
-    "fetched": "2026-07-16T16:22:17+00:00",
+    "fetched": "2026-07-16T18:11:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 9
+      "temp": 6,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 8
     },
     "days": [
       {
@@ -72,24 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92038.0,
+        "price": 91691.0,
         "pct": -1.11
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2680.63,
-        "pct": -2.23
+        "price": 2676.87,
+        "pct": -2.86
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Power: Origins’ Drops First Look at Young Ghost and Tommy",
+      "title": "Spain’s SETT Invests $7.3 Million in New Canary Islands Animation Company Amuse Labs",
       "when": "16 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/power-origins-first-look-young-ghost-tommy-teaser-1236812130/"
+      "url": "https://variety.com/2026/digital/markets-festivals/sett-invests-amuse-labs-canary-islands-animation-1236812550/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Surprise Characters And Provocative Episode Titles Revealed For ‘Star Trek Strange New Worlds’ Season 4",
+      "when": "16 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/16/surprise-characters-and-provocative-episode-titles-revealed-for-star-trek-strange-new-worlds-season-4/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "X Games Partners with Electronic Arts and Full Circle for San Vansterdam Takeover Experience (Gaming News Roundup)",
+      "when": "16 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-13-1236811918/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Vox Media Studios Inks First-Look Deal With 20th Television (EXCLUSIVE)",
+      "when": "16 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/vox-media-studios-first-look-deal-20th-television-1236812408/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Green Lantern Is Cool Again: DC Writer Tom King on Making HBO’s ‘Lanterns’ After Fighting Terrorists as a CIA Officer",
+      "when": "16 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/lanterns-hbo-tom-king-cia-green-lantern-1236810243/"
     },
     {
       "cat": "Trek/Wars",
@@ -99,39 +127,11 @@
       "url": "https://trekmovie.com/2026/07/16/paramount-warner-bros-discovery-merger-faces-new-lawsuits-threatening-megadeal-for-star-treks-parent/"
     },
     {
-      "cat": "Film/TV",
-      "title": "From ‘Michael’ to ‘The Bride’: The Good, the Bad and the Meh of the 2026 Box Office (So Far)",
-      "when": "16 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/box-office-hits-flops-michael-supergirl-1236809979/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Amelia Dimoldenberg’s F1 Series ‘Passenger Princess’ Returning for Season 2 This Month",
-      "when": "16 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/digital/global/amelia-dimoldenberg-passenger-princess-season-2-release-date-1236812446/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Hungary, Location for ‘F1: The Movie,’ ‘Dune,’ ‘The Brutalist,’ Removes Break on New Registrations for Production Incentive",
-      "when": "16 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/hungary-new-registrations-production-incentive-1236812488/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Interview: Melissa Navia On Star Trek’s “Beautiful” Message And Ortegas’ Future In ‘Strange New Worlds’",
       "when": "16 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/15/interview-melissa-navia-on-star-treks-beautiful-message-and-ortegas-future-in-strange-new-worlds/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Star Trek Auction From ‘Picard,’ ‘Strange New Worlds,’ And More Ends Thursday",
-      "when": "15 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/15/star-trek-auction-from-picard-strange-new-worlds-and-more-ends-thursday/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
