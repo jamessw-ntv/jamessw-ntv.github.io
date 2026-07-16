@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-16",
-    "fetched": "2026-07-16T06:25:07+00:00",
+    "fetched": "2026-07-16T09:20:25+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 7
+      "temp": 9,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 5
     },
     "days": [
       {
         "day": "Today",
         "min": 8,
-        "max": 13,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 53
@@ -34,7 +34,7 @@
       {
         "day": "Sat",
         "min": 4,
-        "max": 14,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92618.0,
-        "pct": -0.35
+        "price": 91515.0,
+        "pct": -1.34
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2748.2,
-        "pct": 1.86
+        "price": 2691.34,
+        "pct": -0.11
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Hal Williams, ‘227’ Star and ‘Sanford and Son’ Regular, Dies at 91",
+      "title": "Cricket Rules India’s Streaming Viewership in New Ormax StreamView Report",
       "when": "16 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hal-williams-dead-227-sanford-and-son-1236812244/"
+      "url": "https://variety.com/2026/tv/news/cricket-india-streaming-ormax-streamview-report-1236812292/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Motor City’ Review: Potsy Ponciroli’s Audacious Thriller — a Scorsese Opera without Dialogue — Announces the Arrival of a Startling Voice",
+      "title": "Sam Neill’s Cause of Death Revealed",
       "when": "16 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/motor-city-review-shailene-woodley-ben-foster-1236810506/"
+      "url": "https://variety.com/2026/film/global/sam-neill-cause-of-death-revealed-1236812285/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Arundhati Roy on Beatles, AI and Indie Filmmaking at London Indian Film Festival",
+      "when": "16 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/arundhati-roy-beatles-ai-indie-filmmaking-london-indian-film-festival-1236812276/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Will Ferrell’s Lackluster Golf Comedy ‘The Hawk’ Is No ‘Talladega Nights’: TV Review",
+      "when": "16 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/reviews/the-hawk-review-will-ferrell-golf-netflix-1236812110/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +118,6 @@
       "when": "16 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/15/interview-melissa-navia-on-star-treks-beautiful-message-and-ortegas-future-in-strange-new-worlds/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Quentin Tarantino Plans to Retire After His Next Movie. Christopher Nolan Hopes He ‘Won’t Stay True’ to His Word",
-      "when": "16 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/christopher-nolan-criticizes-tarantino-retiring-after-10-movies-1236810994/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Who Will Take Home the Claret Jug? Here’s How to Watch The Open Championship 2026",
-      "when": "15 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-2026-open-championship-pga-golf-online-free-1236811750/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
