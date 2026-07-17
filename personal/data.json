@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-17",
-    "fetched": "2026-07-17T09:13:57+00:00",
+    "fetched": "2026-07-17T11:25:25+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 7,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 5
+      "wind": 4
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90169.0,
-        "pct": -1.53
+        "price": 90483.0,
+        "pct": -1.24
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2623.4,
-        "pct": -2.62
+        "price": 2632.08,
+        "pct": -2.24
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Donald Trump Drops Part of $10 Billion BBC Lawsuit",
+      "title": "Andy Burnham Set to Become U.K. Prime Minister as Former Manchester Mayor Named Labour Party Leader",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/global/donald-trump-drops-part-bbc-lawsuit-1236814496/"
+      "url": "https://variety.com/2026/politics/global/andy-burnham-uk-prime-minister-labour-leader-1236806331/"
     },
     {
       "cat": "Film/TV",
-      "title": "Giovanni Veronesi’s ‘Dio Ride’ to Close Venice Film Festival",
+      "title": "Iranian Filmmaker Asghar Farhadi to Be Honored at Sarajevo Film Festival",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/giovanni-veronesi-dio-ride-venice-film-festival-1236814484/"
+      "url": "https://variety.com/2026/film/global/asghar-farhadi-sarajevo-film-festival-1236814518/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Rivals’ Star Annabel Scholey Joins Netflix Thriller Series ‘The Lord’s Day’ Alongside Damson Idris and Harry Lawtey (EXCLUSIVE)",
+      "title": "Girls’ Generation Star Tiffany Young Sets Debut Album ‘Edge of Calm,’ Asia Tour",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/annabel-scholey-jnetflix-thriller-series-the-lords-day-1236814480/"
+      "url": "https://variety.com/2026/music/news/girls-generation-tiffany-young-debut-album-edge-of-calm-asia-tour-1236812361/"
     },
     {
       "cat": "Film/TV",
-      "title": "Aamir Khan Denies ‘3 Idiots’ Character Was Based on Activist Sonam Wangchuk",
+      "title": "Locarno’s First Look Section Reveals Six Uruguayan Titles, From Family Stories to Drama About Desire That ‘Persists Across Oceans’",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/aamir-khan-denies-3-idiots-character-based-on-sonam-wangchuk-1236814459/"
+      "url": "https://variety.com/2026/film/global/locarno-first-look-titles-2026-uruguay-1236814469/"
     },
     {
       "cat": "Trek/Wars",
