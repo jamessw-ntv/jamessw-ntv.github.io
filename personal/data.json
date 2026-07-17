@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-17",
-    "fetched": "2026-07-17T11:25:25+00:00",
+    "fetched": "2026-07-17T13:51:52+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "☀️",
-      "desc": "Clear",
+      "temp": 6,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
       "wind": 4
     },
     "days": [
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90483.0,
-        "pct": -1.24
+        "price": 89911.0,
+        "pct": -2.07
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2632.08,
-        "pct": -2.24
+        "price": 2597.27,
+        "pct": -3.3
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Andy Burnham Set to Become U.K. Prime Minister as Former Manchester Mayor Named Labour Party Leader",
+      "title": "Indigenous Missionary Biopic ‘Mussau: The First Song’ to Shoot in Papua New Guinea With Indian National Film Award Winner Bijukumar Damodaran Directing (EXCLUSIVE)",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/global/andy-burnham-uk-prime-minister-labour-leader-1236806331/"
+      "url": "https://variety.com/2026/film/news/indigenous-missionary-biopic-mussau-the-first-song-papua-new-guinea-1236814609/"
     },
     {
       "cat": "Film/TV",
-      "title": "Iranian Filmmaker Asghar Farhadi to Be Honored at Sarajevo Film Festival",
+      "title": "Brenda Fricker, ‘My Left Foot’ Oscar Winner, Dies at 81",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/asghar-farhadi-sarajevo-film-festival-1236814518/"
+      "url": "https://variety.com/2026/film/news/brenda-fricker-dead-my-left-foot-home-alone-2-1236814615/"
     },
     {
       "cat": "Film/TV",
-      "title": "Girls’ Generation Star Tiffany Young Sets Debut Album ‘Edge of Calm,’ Asia Tour",
+      "title": "‘Boys of Tommen’ Finds Its Patrick Feely in Jamie Schneider, With James Craven Joining as Pierce O’Neill (EXCLUSIVE)",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/girls-generation-tiffany-young-debut-album-edge-of-calm-asia-tour-1236812361/"
+      "url": "https://variety.com/2026/tv/global/boys-of-tommen-patrick-feely-jamie-schneider-pierce-oneill-1236814552/"
     },
     {
       "cat": "Film/TV",
-      "title": "Locarno’s First Look Section Reveals Six Uruguayan Titles, From Family Stories to Drama About Desire That ‘Persists Across Oceans’",
+      "title": "Cannes’ Critics’ Week Reveals Lineup of Armenian Filmmakers Taking Part in Next Step Studio Program (EXCLUSIVE)",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/locarno-first-look-titles-2026-uruguay-1236814469/"
+      "url": "https://variety.com/2026/film/global/cannes-critics-week-armenian-filmmakers-next-step-studio-1236814545/"
     },
     {
       "cat": "Trek/Wars",
