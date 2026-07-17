@@ -3,21 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-17",
-    "fetched": "2026-07-17T17:18:06+00:00",
+    "fetched": "2026-07-17T19:19:29+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
+      "temp": 4,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 6
+      "wind": 4
     },
     "days": [
       {
         "day": "Today",
-        "min": 4,
+        "min": 3,
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
@@ -26,14 +26,14 @@
       {
         "day": "Sun",
         "min": 3,
-        "max": 16,
+        "max": 17,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
         "day": "Mon",
-        "min": 5,
+        "min": 6,
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,38 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91541.0,
-        "pct": -0.19
+        "price": 91704.0,
+        "pct": -0.04
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2643.14,
-        "pct": -1.1
+        "price": 2632.84,
+        "pct": -1.66
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Mortal Kombat 2’ Sets HBO Max Release Date",
+      "title": "Court Hears Argument on States’ Move to Pause Paramount-Warner Bros. Merger",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/mortal-kombat-2-hbo-max-release-date-streaming-1236757527/"
+      "url": "https://variety.com/2026/film/news/paramount-warner-bros-merger-restraning-order-hearing-1236814831/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscar, Emmy-Winning Director Daniel Junge Boards Documentary by Panama’s Abner Benaim (EXCLUSIVE)",
+      "title": "Apple Music Hikes Subscription Prices, Citing Rising Licensing Fees",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/oscar-emmy-winning-daniel-junge-boards-abner-benaim-docu-1236814421/"
+      "url": "https://variety.com/2026/music/news/apple-music-raises-prices-licensing-fees-1236814878/"
     },
     {
       "cat": "Film/TV",
-      "title": "Christopher Nolan’s Oscar ‘Odyssey’: Can Matt Damon, Monsters and Mythology Deliver Another Best Picture Statue?",
+      "title": "Lena Headey Rips Hollywood for Protecting ‘Predatory Men,’ Says ‘Game of Thrones’ Toxic Fans Got Mad She Didn’t Go Nude: ‘I Was Shocked by the Anger’",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/odyssey-oscars-chances-christopher-nolan-best-picture-1236814404/"
+      "url": "https://variety.com/2026/film/news/lena-headey-game-of-thrones-fans-angry-nudity-1236812337/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Sitges Film Festival’s Monica Garcia at the Costa Rica Media Market: ‘We’re Waiting for the Next Issa Lopez’",
+      "when": "17 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/sitges-festival-monica-garcia-costa-rica-media-market-1236812257/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "17 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/saber-interactive-exec-mentions-2028-as-possible-release-year-for-kotor-remake.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Iko Uwais and Albert Hughes Unite for Multi-Generational Crime Series ‘Jakarta’ at ‘Blade Runner 2049’ Outfit Alcon Entertainment (EXCLUSIVE)",
-      "when": "17 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/iko-uwais-albert-hughes-jakarta-series-alcon-entertainment-1236814756/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
