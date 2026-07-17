@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-17",
-    "fetched": "2026-07-17T22:54:54+00:00",
+    "fetched": "2026-07-17T23:57:30+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
+      "temp": 6,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 6
+      "wind": 8
     },
     "days": [
       {
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91580.0,
-        "pct": 0.21
+        "price": 91547.0,
+        "pct": 0.43
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2633.24,
-        "pct": -1.42
+        "price": 2637.17,
+        "pct": -0.95
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Anne Hathaway’s 13 Best Performances: From ‘The Devil Wears Prada’ to ‘The Odyssey’",
+      "when": "17 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/lists/best-anne-hathaway-movies-performances-ranked/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Trek: Strange New Worlds’ Showrunners Defend Continuity, Reveal Season 4 Episode Themes",
+      "when": "17 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/17/star-trek-strange-new-worlds-showrunners-defend-continuity-reveal-season-4-episode-themes/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Olivia Dean’s First U.S. Arena Tour Is Off to a Smashing Start, With L.A. Shows Proving She’s No One-Grammy Wonder: Concert Review",
+      "when": "17 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/concert-reviews/olivia-dean-concert-review-crypto-arena-tour-1236815197/"
+    },
     {
       "cat": "Film/TV",
       "title": "Matt Damon’s 13 Best Performances: From Math Genius to Greek King",
@@ -97,20 +118,6 @@
       "when": "17 Jul",
       "source": "Variety",
       "url": "https://variety.com/shop/best-4k-tvs-1234717549/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Netflix Paid $587 Million for Ben Affleck’s AI Startup InterPositive",
-      "when": "17 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/netflix-paid-587-million-ben-affleck-ai-interpositive-1236815111/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Netflix Buys Danny Boyle’s Rupert Murdoch Movie and Venice Opener ‘Ink’",
-      "when": "17 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/danny-boyle-rupert-murdoch-movie-ink-bought-us-netflix-1236812563/"
     },
     {
       "cat": "Trek/Wars",
@@ -142,13 +149,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Surprise Characters And Provocative Episode Titles Revealed For ‘Star Trek Strange New Worlds’ Season 4",
-      "when": "16 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/16/surprise-characters-and-provocative-episode-titles-revealed-for-star-trek-strange-new-worlds-season-4/"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Review: ‘The Bad Batch: Rogue Agents’ #4 – A Basic Finale Still Remains Charming to the Last",
       "when": "15 Jul",
       "source": "SW News Net",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "55m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
