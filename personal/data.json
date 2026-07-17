@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-17",
-    "fetched": "2026-07-17T21:02:29+00:00",
+    "fetched": "2026-07-17T21:59:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 3,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 4
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 5
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91787.0,
-        "pct": 0.24
+        "price": 91750.0,
+        "pct": 0.11
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2638.0,
-        "pct": -1.4
+        "price": 2636.86,
+        "pct": -1.73
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Odyssey’: All the Ways Christopher Nolan’s Movie Is Different From the Book",
+      "title": "The Best 4K TVs to Turn Your Home into a Mini Movie Theater in 2026",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-odyssey-changes-christopher-nolan-adapts-homer-1236814443/"
+      "url": "https://variety.com/shop/best-4k-tvs-1234717549/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tessa Blake’s ‘If I Tell You’ Starring Carol Kane Acquired by Suncatcher Productions for Distribution (EXCLUSIVE)",
+      "title": "Netflix Paid $587 Million for Ben Affleck’s AI Startup InterPositive",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/suncatcher-productions-distribution-rights-if-i-tell-you-1236814835/"
+      "url": "https://variety.com/2026/film/news/netflix-paid-587-million-ben-affleck-ai-interpositive-1236815111/"
     },
     {
       "cat": "Film/TV",
-      "title": "Emmys to Move Five Categories Out of NBC Telecast In a Bid to Revamp the Ceremony (EXCLUSIVE)",
+      "title": "Netflix Buys Danny Boyle’s Rupert Murdoch Movie and Venice Opener ‘Ink’",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/emmys-removes-categories-telecast-supporting-limited-acting-1236814429/"
+      "url": "https://variety.com/2026/film/global/danny-boyle-rupert-murdoch-movie-ink-bought-us-netflix-1236812563/"
     },
     {
       "cat": "Film/TV",
-      "title": "Court Hears Argument on States’ Move to Pause Paramount-Warner Bros. Merger",
+      "title": "Shane Gillis Breaks Guinness World Record for Most Tickets Sold for a Solo Comedy Show (EXCLUSIVE)",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-warner-bros-merger-restraning-order-hearing-1236814831/"
+      "url": "https://variety.com/2026/tv/news/shane-gillis-breaks-guinness-world-record-tickets-sold-1236815073/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "56m ago",
       "lang": "HTML",
       "commit": ""
     }
