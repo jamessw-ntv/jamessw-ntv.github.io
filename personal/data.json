@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-17",
-    "fetched": "2026-07-17T13:51:52+00:00",
+    "fetched": "2026-07-17T15:18:36+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
+      "temp": 5,
+      "icon": "☁️",
+      "desc": "Overcast",
       "wind": 4
     },
     "days": [
@@ -24,17 +24,17 @@
         "rain": 0
       },
       {
-        "day": "Sat",
-        "min": 4,
-        "max": 15,
+        "day": "Sun",
+        "min": 3,
+        "max": 16,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
-        "day": "Sun",
-        "min": 3,
-        "max": 16,
+        "day": "Mon",
+        "min": 5,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89911.0,
-        "pct": -2.07
+        "price": 90127.0,
+        "pct": -2.05
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2597.27,
-        "pct": -3.3
+        "price": 2596.76,
+        "pct": -3.08
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Indigenous Missionary Biopic ‘Mussau: The First Song’ to Shoot in Papua New Guinea With Indian National Film Award Winner Bijukumar Damodaran Directing (EXCLUSIVE)",
+      "title": "Music Industry Moves: BMG Fully Acquires John Lee Hooker, Hal David, ARC Music Publishing Catalogs",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/indigenous-missionary-biopic-mussau-the-first-song-papua-new-guinea-1236814609/"
+      "url": "https://variety.com/2026/music/news/bmg-fully-acquires-john-lee-hooker-publishing-catalog-1236814765/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Weazel – ‘Star Wars’ Character Spotlight",
+      "when": "17 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/weazel-star-wars-character-spotlight.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Exclusive: Titan Releasing “Spiritual Successor” To ‘Lost Scenes’ Book Called ‘Star Trek: Lost History’",
+      "when": "17 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/17/exclusive-titan-releasing-spiritual-successor-to-lost-scenes-book-called-star-trek-lost-history/"
     },
     {
       "cat": "Film/TV",
-      "title": "Brenda Fricker, ‘My Left Foot’ Oscar Winner, Dies at 81",
+      "title": "Hollywood Can’t Survive Without Animation. So Why Won’t the Industry Respect It?",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/brenda-fricker-dead-my-left-foot-home-alone-2-1236814615/"
+      "url": "https://variety.com/2026/film/awards/hollywood-animation-respect-problem-toy-story-5-wildwood-1236783579/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Boys of Tommen’ Finds Its Patrick Feely in Jamie Schneider, With James Craven Joining as Pierce O’Neill (EXCLUSIVE)",
+      "title": "Daniel Radcliffe to Narrate Comedian Kyle Gordon’s Third Album (EXCLUSIVE)",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/boys-of-tommen-patrick-feely-jamie-schneider-pierce-oneill-1236814552/"
+      "url": "https://variety.com/2026/music/news/daniel-radcliffe-narrate-kyle-gordon-album-1236812133/"
     },
     {
       "cat": "Film/TV",
-      "title": "Cannes’ Critics’ Week Reveals Lineup of Armenian Filmmakers Taking Part in Next Step Studio Program (EXCLUSIVE)",
+      "title": "As Hollywood Moves Across the Atlantic, Why Are U.K. and Irish Acting Schools Opening in the U.S.?",
       "when": "17 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/cannes-critics-week-armenian-filmmakers-next-step-studio-1236814545/"
+      "url": "https://variety.com/2026/film/global/why-are-uk-and-irish-acting-schools-opening-in-the-us-1236814617/"
     },
     {
       "cat": "Trek/Wars",
@@ -128,13 +142,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Paramount/Warner Bros. Discovery Merger Faces New Lawsuits, Threatening Megadeal For Star Trek’s Parent",
-      "when": "16 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/16/paramount-warner-bros-discovery-merger-faces-new-lawsuits-threatening-megadeal-for-star-treks-parent/"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Review: ‘The Bad Batch: Rogue Agents’ #4 – A Basic Finale Still Remains Charming to the Last",
       "when": "15 Jul",
       "source": "SW News Net",
@@ -146,13 +153,6 @@
       "when": "14 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/lego-star-wars-the-mandalorian-special-officially-announced-releasing-september-2.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘Star Wars: Legacy’ Charts a New Jedi Path in One of Rey and Leia’s Most Personal Stories Yet",
-      "when": "14 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/review-star-wars-legacy-charts-a-new-jedi-path-in-one-of-rey-and-leias-most-personal-stories-yet.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
