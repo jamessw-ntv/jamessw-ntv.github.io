@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-18",
-    "fetched": "2026-07-18T22:56:42+00:00",
+    "fetched": "2026-07-18T23:59:14+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
+      "temp": 8,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 8
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92761.0,
-        "pct": 1.3
+        "price": 92820.0,
+        "pct": 1.43
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2667.87,
-        "pct": 1.31
+        "price": 2666.05,
+        "pct": 1.12
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Andrew Tate and Brother Tristan Arrested in Miami",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/digital/news/andrew-tate-tristan-tate-arrested-miami-1236815654/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Mexodus’ Review: The Underground Railroad Runs South to Mexico in a Pasadena Playhouse Musical That Feels as Spirited as a Two-Man ‘Hamilton’",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/legit/reviews/mexodus-pasadena-playhouse-musical-theater-review-1236815638/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Christopher Nolan Says It Will Be ‘At Least’ Three Years Until He Makes Another Movie After ‘The Odyssey’ Pushed the ‘Limits of My Own Stamina’",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/christopher-nolan-three-years-another-movie-the-odyssey-1236815625/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "‘Manhunter: The Final Cut’ Shows Why Director’s Cuts Are Almost Never an Improvement. But It’s Still the Greatest Thriller of Our Time",
       "when": "18 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/columns/manhunter-the-final-cut-the-greatest-thriller-of-our-time-1236815424/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "The Cure’s Robert Smith Slams FIFA’s World Cup Final Halftime Show: ‘Just F— Off’",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/robert-smith-fifa-world-cup-halftime-show-1236815510/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Freddy Cannon, Rocker Whose Late ’50s and Early ’60s Hits Included ‘Palisades Park’ and ‘Tallahassee Lassie,’ Dies at 89",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/obituaries-people-news/freddy-cannon-dead-palisades-park-rocker-1236815495/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Samantha Morton on Her Electrifying Performance as Circe in Christopher Nolan’s ‘The Odyssey’: ‘It Felt Like a Rebirth’",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/samantha-morton-circe-christopher-nolan-the-odyssey-1236815471/"
     },
     {
       "cat": "Trek/Wars",
