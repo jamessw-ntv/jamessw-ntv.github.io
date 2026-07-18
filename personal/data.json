@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-18",
-    "fetched": "2026-07-18T16:01:52+00:00",
+    "fetched": "2026-07-18T17:03:12+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 5,
-      "icon": "☁️",
-      "desc": "Overcast",
+      "icon": "⛅",
+      "desc": "Partly cloudy",
       "wind": 3
     },
     "days": [
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91797.0,
-        "pct": 1.18
+        "price": 92037.0,
+        "pct": 1.06
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2640.24,
-        "pct": 0.87
+        "price": 2642.3,
+        "pct": 0.37
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘The Odyssey’: What Academics Are Saying About Christopher Nolan’s Epic",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/christopher-nolan-the-odyssey-adaptation-scholars-react-1236815190/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Joe Caldwell, ‘Dark Shadows’ Writer, Dies at 97",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/joe-caldwell-dead-dark-shadows-1236815444/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "My 2 a.m. ‘Odyssey’: Inside the Sold-Out, All-Night Screening of Christopher Nolan’s Epic",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/the-odyssey-2am-screenings-imax-70mm-1236815410/"
+    },
     {
       "cat": "Film/TV",
       "title": "W Hotels Expands Italian Footprint With New Sardinia Resort — and a Three-Stop ‘Italian Tour’",
@@ -92,32 +113,11 @@
       "url": "https://variety.com/2026/shopping/news/w-hotels-italian-tour-sardinia-rome-florence-book-online-1236814904/"
     },
     {
-      "cat": "Film/TV",
-      "title": "Box Office: ‘The Odyssey’ Has Epic Opening Day With $51 Million",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/box-office-the-odyssey-opening-day-christopher-nolan-1236815411/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Teyana Taylor Celebrates World Cup in NYC, Nicole Kidman Takes in Wimbledon and More Celeb Red Carpet Photos: July 2026",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/gallery/celebrity-pics-red-carpet-photos-july-2026/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "‘Star Wars Icons: Vader’ Nonfiction Book Coming Out In October, Preview Revealed",
       "when": "18 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-icons-vader-nonfiction-book-coming-out-in-october-preview-revealed.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Kartik Aaryan, Mammootty, Yami Gautam Take Top Acting Honors as ‘Article 370’ Wins Best Feature at India’s National Film Awards",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/kartik-aaryan-mammootty-yami-gautam-article-370-india-national-film-awards-1236815377/"
     },
     {
       "cat": "Trek/Wars",
