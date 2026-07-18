@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-18",
-    "fetched": "2026-07-18T17:03:12+00:00",
+    "fetched": "2026-07-18T18:00:50+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 3
+      "temp": 4,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 8
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92037.0,
-        "pct": 1.06
+        "price": 92318.0,
+        "pct": 0.68
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2642.3,
-        "pct": 0.37
+        "price": 2652.61,
+        "pct": 0.51
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "Magic The Gathering Star Trek Sets Revealed – Preorders Open Now",
+      "when": "18 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/18/magic-the-gathering-star-trek-sets-revealed-preorders-open-now/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jim Parsons was ‘Miserable’ During Peak ‘Big Bang Theory’ Popularity: ‘I Wouldn’t Do That Again and For Any Amount of Money’",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/jim-parsons-miserable-during-the-big-bang-theory-fame-1236815461/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘The Odyssey’: What Academics Are Saying About Christopher Nolan’s Epic",
@@ -104,13 +118,6 @@
       "when": "18 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/the-odyssey-2am-screenings-imax-70mm-1236815410/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "W Hotels Expands Italian Footprint With New Sardinia Resort — and a Three-Stop ‘Italian Tour’",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/w-hotels-italian-tour-sardinia-rome-florence-book-online-1236814904/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/07/17/exclusive-titan-releasing-spiritual-successor-to-lost-scenes-book-called-star-trek-lost-history/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek Voyager: Across The Universe’ Launches First Story Expansion, With More DLCs To Come",
-      "when": "17 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/16/star-trek-voyager-across-the-universe-launches-first-story-expansion-with-more-to-dlc-come/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "57m ago",
       "lang": "HTML",
       "commit": ""
     }
