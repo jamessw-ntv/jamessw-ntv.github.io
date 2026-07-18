@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-18",
-    "fetched": "2026-07-18T18:00:50+00:00",
+    "fetched": "2026-07-18T19:13:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 4,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 8
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 7
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92318.0,
-        "pct": 0.68
+        "price": 92378.0,
+        "pct": 0.73
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2652.61,
-        "pct": 0.51
+        "price": 2659.92,
+        "pct": 0.97
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Taylor Sheridan’s ‘Call of Duty’ Movie Will Be Set in ‘Modern Warfare’ Universe",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/call-of-duty-movie-modern-warfare-games-1236815430/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Twin Crossroads’ Book and ‘Jedi: Fallen Order’ Manga Vol. 3 To Be Announced At SDCC",
+      "when": "18 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-twin-crossroads-and-jedi-fallen-order-manga-vol-3-to-be-announced-at-sdcc.html"
+    },
     {
       "cat": "Trek/Wars",
       "title": "Magic The Gathering Star Trek Sets Revealed – Preorders Open Now",
@@ -113,13 +127,6 @@
       "url": "https://variety.com/2026/tv/news/joe-caldwell-dead-dark-shadows-1236815444/"
     },
     {
-      "cat": "Film/TV",
-      "title": "My 2 a.m. ‘Odyssey’: Inside the Sold-Out, All-Night Screening of Christopher Nolan’s Epic",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-odyssey-2am-screenings-imax-70mm-1236815410/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "‘Star Wars Icons: Vader’ Nonfiction Book Coming Out In October, Preview Revealed",
       "when": "18 Jul",
@@ -139,13 +146,6 @@
       "when": "17 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/saber-interactive-exec-mentions-2028-as-possible-release-year-for-kotor-remake.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Weazel – ‘Star Wars’ Character Spotlight",
-      "when": "17 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/weazel-star-wars-character-spotlight.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "57m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
