@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-18",
-    "fetched": "2026-07-18T15:00:35+00:00",
+    "fetched": "2026-07-18T16:01:52+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 5,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 5
+      "wind": 3
     },
     "days": [
       {
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91800.0,
-        "pct": 1.47
+        "price": 91797.0,
+        "pct": 1.18
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2642.24,
-        "pct": 1.41
+        "price": 2640.24,
+        "pct": 0.87
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "W Hotels Expands Italian Footprint With New Sardinia Resort — and a Three-Stop ‘Italian Tour’",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/w-hotels-italian-tour-sardinia-rome-florence-book-online-1236814904/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Box Office: ‘The Odyssey’ Has Epic Opening Day With $51 Million",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/box-office-the-odyssey-opening-day-christopher-nolan-1236815411/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Teyana Taylor Celebrates World Cup in NYC, Nicole Kidman Takes in Wimbledon and More Celeb Red Carpet Photos: July 2026",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/gallery/celebrity-pics-red-carpet-photos-july-2026/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars Icons: Vader’ Nonfiction Book Coming Out In October, Preview Revealed",
@@ -97,27 +118,6 @@
       "when": "18 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/kartik-aaryan-mammootty-yami-gautam-article-370-india-national-film-awards-1236815377/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Why ‘Call of Duty’ Is Making Its Fanatics Fest Debut With ‘Modern Warfare 4’ — And Bringing ‘Obsession’ Star Inde Navarrette Along for the Mission",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/modern-warfare-4-call-of-duty-fanatics-fest-1236812530/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Utopia Distribution Exec on Shifting Releases Towards Eventification to Cater to ‘Fandom’ and Younger Audiences: ‘Everything Is Being Destroyed to Be Rebuilt’",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/utopia-distribution-eventification-young-cinephiles-fandom-1236814419/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "S.S. Rajamouli Marks Priyanka Chopra Jonas’ Birthday With New ‘Varanasi’ Images",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/priyanka-chopra-jonas-varanasi-images-birthday-1236815343/"
     },
     {
       "cat": "Trek/Wars",
