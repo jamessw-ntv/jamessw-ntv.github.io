@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-18",
-    "fetched": "2026-07-18T21:56:33+00:00",
+    "fetched": "2026-07-18T22:56:42+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 7
+      "temp": 6,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 8
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92749.0,
-        "pct": 1.1
+        "price": 92761.0,
+        "pct": 1.3
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2666.19,
-        "pct": 1.11
+        "price": 2667.87,
+        "pct": 1.31
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Manhunter: The Final Cut’ Shows Why Director’s Cuts Are Almost Never an Improvement. But It’s Still the Greatest Thriller of Our Time",
+      "when": "18 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/columns/manhunter-the-final-cut-the-greatest-thriller-of-our-time-1236815424/"
+    },
     {
       "cat": "Film/TV",
       "title": "The Cure’s Robert Smith Slams FIFA’s World Cup Final Halftime Show: ‘Just F— Off’",
@@ -104,13 +111,6 @@
       "when": "18 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/samantha-morton-circe-christopher-nolan-the-odyssey-1236815471/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Taylor Sheridan’s ‘Call of Duty’ Movie Will Be Set in ‘Modern Warfare’ Universe",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/call-of-duty-movie-modern-warfare-games-1236815430/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "58m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
