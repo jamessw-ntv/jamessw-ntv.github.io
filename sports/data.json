@@ -3,7 +3,7 @@
     "title": "Multi-Sport Dashboard",
     "updated": "2026-07-18",
     "note": "Static snapshot. AFL through the played Round 17 games (two Sunday 5 July games still to come) with for/against and percentage restored. NRL ladder reflects Round 17 (Round 18, an Origin-week round, in progress); win/loss derived from points and byes, differentials mostly unavailable. State of Origin level 1-1 with the decider on 8 July.",
-    "fetched": "2026-07-18T09:38:59+00:00"
+    "fetched": "2026-07-18T13:34:59+00:00"
   },
   "nextup": {
     "mine": [
@@ -74,6 +74,18 @@
       ],
       [
         3,
+        "Brisbane Lions",
+        18,
+        12,
+        6,
+        0,
+        1916,
+        1626,
+        117.8,
+        48
+      ],
+      [
+        4,
         "Adelaide Crows",
         18,
         12,
@@ -85,7 +97,7 @@
         48
       ],
       [
-        4,
+        5,
         "Melbourne",
         18,
         12,
@@ -97,7 +109,7 @@
         48
       ],
       [
-        5,
+        6,
         "Hawthorn",
         17,
         11,
@@ -109,19 +121,19 @@
         46
       ],
       [
-        6,
-        "Brisbane Lions",
-        17,
-        11,
-        6,
-        0,
-        1823,
-        1557,
-        117.1,
-        44
+        7,
+        "Collingwood",
+        18,
+        10,
+        7,
+        1,
+        1536,
+        1453,
+        105.7,
+        42
       ],
       [
-        7,
+        8,
         "Geelong Cats",
         18,
         10,
@@ -133,7 +145,7 @@
         40
       ],
       [
-        8,
+        9,
         "Western Bulldogs",
         17,
         10,
@@ -143,18 +155,6 @@
         1529,
         92.3,
         40
-      ],
-      [
-        9,
-        "Collingwood",
-        17,
-        9,
-        7,
-        1,
-        1446,
-        1384,
-        104.5,
-        38
       ],
       [
         10,
@@ -183,13 +183,13 @@
       [
         12,
         "Carlton",
-        17,
+        18,
         8,
-        9,
+        10,
         0,
-        1367,
-        1487,
-        91.9,
+        1436,
+        1577,
+        91.1,
         32
       ],
       [
@@ -231,13 +231,13 @@
       [
         16,
         "West Coast Eagles",
-        17,
+        18,
         4,
-        13,
+        14,
         0,
-        1231,
-        1709,
-        72.0,
+        1300,
+        1802,
+        72.1,
         16
       ],
       [
@@ -268,8 +268,8 @@
     "focus": {
       "team": "Carlton",
       "pos": 12,
-      "record": "8–9",
-      "pct": 91.9,
+      "record": "8–10",
+      "pct": 91.1,
       "pts": 32,
       "note": "Seven straight. Josh Fraser's interim reign (Voss was sacked at 1-8 after Round 9) has hauled a dead season back to 8-8 and 10th, four points off the eight, capped by a two-point escape over Richmond at the MCG in Round 17.",
       "form": [
