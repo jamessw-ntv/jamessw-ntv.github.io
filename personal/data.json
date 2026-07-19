@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-19",
-    "fetched": "2026-07-19T20:58:41+00:00",
+    "fetched": "2026-07-19T21:59:08+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 6,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
+      "icon": "☀️",
+      "desc": "Clear",
       "wind": 8
     },
     "days": [
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92509.0,
-        "pct": -0.13
+        "price": 92349.0,
+        "pct": -0.39
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2675.69,
-        "pct": 0.61
+        "price": 2669.43,
+        "pct": 0.14
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Ben Shapiro Calls ‘The Odyssey’ a ‘Masterpiece’ Despite Conservative Outrage: Christopher Nolan Is the ‘Best Working Director Today’",
+      "when": "19 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/ben-shapiro-the-odyssey-masterpiece-christopher-nolan-1236816164/"
+    },
     {
       "cat": "Film/TV",
       "title": "Madonna, BTS, Justin Bieber and Shakira Join Forces for Blink-and-You’ll-Miss-‘Em Moments in a Cluster-FIFA of a Halftime Show",
@@ -104,13 +111,6 @@
       "when": "19 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/shopping/news/how-to-watch-la-dodgers-vs-ny-yankees-baseball-live-online-free-1236815204/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Anne Hathaway Says ‘Princess Diaries 3’ Had a ‘Story Breakthrough’ After Having to ‘Start Over’ With the Script: ‘We are Moving in the Right Direction’",
-      "when": "19 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/anne-hathaway-princess-diaries-3-breakthrough-script-1236816029/"
     },
     {
       "cat": "Trek/Wars",
