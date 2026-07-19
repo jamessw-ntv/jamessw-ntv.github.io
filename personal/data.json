@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-19",
-    "fetched": "2026-07-19T13:37:58+00:00",
+    "fetched": "2026-07-19T15:02:43+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -17,14 +17,6 @@
     "days": [
       {
         "day": "Today",
-        "min": 4,
-        "max": 17,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Mon",
         "min": 5,
         "max": 15,
         "icon": "☁️",
@@ -37,7 +29,15 @@
         "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 0
+      },
+      {
+        "day": "Wed",
+        "min": 8,
+        "max": 14,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 83
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92251.0,
-        "pct": 0.6
+        "price": 92491.0,
+        "pct": 0.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2678.53,
-        "pct": 1.59
+        "price": 2684.6,
+        "pct": 1.58
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "20 Best Sword-and-Sandal Films, From ‘The Odyssey’ to ‘Gladiator’",
+      "when": "19 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/lists/20-best-sword-and-sandal-films-the-odyssey-gladiator-the-ten-commandments/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Starfighter’ Writer Jonathan Tropper Wants the Movie to Feel Like a Stepping Into a New World",
+      "when": "19 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-starfighter-writer-jonathan-tropper-wants-the-movie-to-feel-like-a-stepping-into-a-new-world.html"
+    },
     {
       "cat": "Film/TV",
       "title": "Brazil’s Gramado Fest Set to Honor ‘I’m Still Here’ Star Selton Mello and ‘The Secret Agent’ Standout Maria Fernanda Cândido",
@@ -111,13 +125,6 @@
       "when": "19 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/18/una-sings-in-new-star-trek-strange-new-worlds-season-4-clip-showrunners-talk-doctor-who-and-talosians/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Andrew Tate and Brother Tristan Arrested in Miami",
-      "when": "18 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/andrew-tate-tristan-tate-arrested-miami-1236815654/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/07/17/star-trek-strange-new-worlds-showrunners-defend-continuity-reveal-season-4-episode-themes/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Saber Interactive Exec Mentions 2028 as Possible Release Year for KOTOR Remake",
-      "when": "17 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/saber-interactive-exec-mentions-2028-as-possible-release-year-for-kotor-remake.html"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
