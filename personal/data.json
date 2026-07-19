@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-19",
-    "fetched": "2026-07-19T15:02:43+00:00",
+    "fetched": "2026-07-19T16:02:04+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 7,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 9
+      "wind": 10
     },
     "days": [
       {
@@ -72,24 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92491.0,
-        "pct": 0.75
+        "price": 92441.0,
+        "pct": 0.72
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2684.6,
-        "pct": 1.58
+        "price": 2678.49,
+        "pct": 1.54
       }
     ]
   },
   "releases": [
     {
+      "cat": "Trek/Wars",
+      "title": "George Lucas Claims That Future Filmmakers Will Inevitably Use AI Tools",
+      "when": "19 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/george-lucas-claims-that-future-filmmakers-will-inevitably-use-ai-tools.html"
+    },
+    {
       "cat": "Film/TV",
-      "title": "20 Best Sword-and-Sandal Films, From ‘The Odyssey’ to ‘Gladiator’",
+      "title": "Box Office: ‘The Odyssey’ Stuns With $124 Million Opening Weekend, Third-Biggest Debut of the Year",
       "when": "19 Jul",
       "source": "Variety",
-      "url": "https://variety.com/lists/20-best-sword-and-sandal-films-the-odyssey-gladiator-the-ten-commandments/"
+      "url": "https://variety.com/2026/film/box-office/the-odyssey-box-office-christopher-nolan-opening-weekend-shatters-expectations-1236815861/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "FIFA World Cup Final 2026 Livestream: Here’s Where to Watch the Spain vs. Argentina Online",
+      "when": "19 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-spain-vs-argentina-world-cup-final-2026-live-online-free-1236814389/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The End of Oak Street’ Preview: Anne Hathaway and Ewan McGregor Try Not to Get Eaten Alive by Dinosaurs in 14 Minutes of 4DX Footage",
+      "when": "19 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/the-end-of-oak-street-new-footage-anne-hathaway-ewan-mcgregor-dinosaurs-4dx-1236815202/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jennifer Finch, L7 Bassist and Tireless Indie-Rock Champion, Dies After Battle With Brain Cancer",
+      "when": "19 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/jennifer-finch-dead-l7-bassist-brain-cancer-1236815960/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +125,6 @@
       "when": "19 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-starfighter-writer-jonathan-tropper-wants-the-movie-to-feel-like-a-stepping-into-a-new-world.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Brazil’s Gramado Fest Set to Honor ‘I’m Still Here’ Star Selton Mello and ‘The Secret Agent’ Standout Maria Fernanda Cândido",
-      "when": "19 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/gramado-festival-selton-mello-maria-fernanda-candido-globo-1236815847/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How to Watch the World Cup Final Halftime Show Live Online",
-      "when": "19 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-world-cup-halftime-show-live-online-streaming-1236814990/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "MIFFest Opens Ninth Edition in Kuala Lumpur, Earns ASEAN Records Recognition",
-      "when": "19 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/miffest-ninth-edition-asean-records-recognition-1236815732/"
     },
     {
       "cat": "Trek/Wars",
@@ -139,13 +146,6 @@
       "when": "18 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/18/magic-the-gathering-star-trek-sets-revealed-preorders-open-now/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars Icons: Vader’ Nonfiction Book Coming Out In October, Preview Revealed",
-      "when": "18 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-icons-vader-nonfiction-book-coming-out-in-october-preview-revealed.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "59m ago",
       "lang": "HTML",
       "commit": ""
     }
