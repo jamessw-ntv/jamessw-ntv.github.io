@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-19",
-    "fetched": "2026-07-19T19:17:24+00:00",
+    "fetched": "2026-07-19T20:58:41+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 6,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 9
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 8
     },
     "days": [
       {
@@ -72,24 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92407.0,
-        "pct": -0.03
+        "price": 92509.0,
+        "pct": -0.13
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2666.72,
-        "pct": 0.18
+        "price": 2675.69,
+        "pct": 0.61
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Shark Tank’ Star Kevin O’Leary Sued For Claiming Utah Data Center Opposition Has Ties to China",
+      "title": "Madonna, BTS, Justin Bieber and Shakira Join Forces for Blink-and-You’ll-Miss-‘Em Moments in a Cluster-FIFA of a Halftime Show",
       "when": "19 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/shark-tank-kevin-oleary-sued-utah-data-center-china-1236816032/"
+      "url": "https://variety.com/2026/music/news/fifa-halftime-madonna-bts-justin-bieber-shakira-1236816110/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Tom Cruise and Half of Hollywood Light Up the 2026 World Cup Final",
+      "when": "19 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/sports/news/tom-cruise-2026-world-cup-final-hollywood-jason-sudeikis-justin-bieber-1236816132/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Los Angeles Dodgers vs. New York Yankees: Here’s How to Watch the MLB Game Live Online",
+      "when": "19 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-la-dodgers-vs-ny-yankees-baseball-live-online-free-1236815204/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Anne Hathaway Says ‘Princess Diaries 3’ Had a ‘Story Breakthrough’ After Having to ‘Start Over’ With the Script: ‘We are Moving in the Right Direction’",
+      "when": "19 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/anne-hathaway-princess-diaries-3-breakthrough-script-1236816029/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +118,6 @@
       "when": "19 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/19/hero-within-returning-to-star-trek-relaunching-apparel-line-at-sdcc-2026/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Odyssey’ Becomes Christopher Nolan’s Biggest Global Debut of All Time With $264 Million",
-      "when": "19 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/the-odyssey-christopher-nolan-biggest-global-debut-1236815981/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "HBO’s ‘Harry Potter’ Cinematographer Says It’s ‘Brutal’ Working Around the Young Stars’ Strict Shooting Schedules: ‘Have to Pre-Shoot All the Scenes While They’re in Class’",
-      "when": "19 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hbo-harry-potter-brutal-working-stars-strict-schedules-1236816011/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "James Gunn Gave ‘Big Brother 28’ Star Rick Devens a Cameo in ‘Man of Tomorrow’ but He ‘Had to Cancel’",
-      "when": "19 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/james-gunn-big-brother-rick-devens-man-of-tomorrow-cameo-1236815991/"
     },
     {
       "cat": "Trek/Wars",
