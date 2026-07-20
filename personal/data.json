@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-07-19",
-    "fetched": "2026-07-19T22:58:27+00:00",
+    "updated": "2026-07-20",
+    "fetched": "2026-07-20T02:11:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 13,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 10
+      "wind": 8
     },
     "days": [
       {
@@ -26,17 +26,17 @@
       {
         "day": "Tue",
         "min": 6,
-        "max": 14,
+        "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
         "day": "Wed",
-        "min": 7,
+        "min": 6,
         "max": 14,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 82
       }
     ]
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92686.0,
-        "pct": -0.12
+        "price": 92773.0,
+        "pct": -0.16
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2679.92,
-        "pct": 0.42
+        "price": 2686.23,
+        "pct": 0.33
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘House of the Dragon’ Star Fabien Frankel on Criston Cole’s Suicide Mission and His ‘Nihilism’: ‘He’s Losing the Will to Motivate’",
+      "when": "20 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/house-of-the-dragon-fabien-frankel-criston-cole-suicide-mission-butchers-ball-1236815984/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: ‘The Mandalorian and Grogu’ Home Release Announced, ‘Star Wars: Legacy’ Review",
+      "when": "19 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/this-week-in-a-galaxy-far-far-away-the-mandalorian-home-release-announced-star-wars-legacy-review.html"
+    },
     {
       "cat": "Film/TV",
       "title": "Future Debuts at No. 1 With ‘The Real Me,’ as Rolling Stones and ‘Heated Rivalry’ Soundtrack Also Bow in Top 10",
@@ -106,13 +120,6 @@
       "url": "https://variety.com/2026/music/news/fifa-halftime-madonna-bts-justin-bieber-shakira-1236816110/"
     },
     {
-      "cat": "Film/TV",
-      "title": "Tom Cruise and Half of Hollywood Light Up the 2026 World Cup Final",
-      "when": "19 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/sports/news/tom-cruise-2026-world-cup-final-hollywood-jason-sudeikis-justin-bieber-1236816132/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Hero Within Returning To Star Trek, Relaunching Apparel Line At SDCC 2026",
       "when": "19 Jul",
@@ -132,13 +139,6 @@
       "when": "19 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-starfighter-writer-jonathan-tropper-wants-the-movie-to-feel-like-a-stepping-into-a-new-world.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Twin Crossroads’ Book and ‘Jedi: Fallen Order’ Manga Vol. 3 To Be Announced At SDCC",
-      "when": "19 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-twin-crossroads-and-jedi-fallen-order-manga-vol-3-to-be-announced-at-sdcc.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "59m ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
