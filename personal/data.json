@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-20",
-    "fetched": "2026-07-20T20:26:10+00:00",
+    "fetched": "2026-07-20T22:05:49+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 6,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 10
+      "wind": 11
     },
     "days": [
       {
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93246.0,
-        "pct": 0.79
+        "price": 93120.0,
+        "pct": 0.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2715.39,
-        "pct": 1.56
+        "price": 2714.78,
+        "pct": 1.69
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Trek: Strange New Worlds’ Actors Tease Noir Episode And More Physical Season 4",
+      "when": "20 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/20/star-trek-strange-new-worlds-actors-tease-noir-episode-and-more-physical-season-4/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Adam Driver Turns Down So Many Marvel Movie Offers That It’s ‘Become a Tradition’ at the Studio to ‘Zoom With Him and Then He Passes’",
+      "when": "20 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/adam-driver-turns-down-marvel-movies-1236816747/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Nicole Kidman, Elle Fanning Paramount+ Series ‘Discretion’ Casts Josh Lucas",
+      "when": "20 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/nicole-kidman-elle-fanning-paramount-discretion-josh-lucas-1236816877/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "Paramount/Warner Bros. Merger Put On Pause By Federal Judge",
@@ -104,20 +125,6 @@
       "when": "20 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/john-kirby-dead-celebrity-acting-coach-1236816764/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jay-Z’s Yankee Stadium Shows: How the Music Came Together, From Meticulous Arrangements to Last-Minute Tweaks",
-      "when": "20 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/jay-z-yankee-stadium-music-adam-blackstone-young-guru-1236816803/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Variety Interview Studio Presented by Google TV Returns to San Diego",
-      "when": "20 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/variety-interview-studio-san-diego-1236816778/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-starfighter-writer-jonathan-tropper-wants-the-movie-to-feel-like-a-stepping-into-a-new-world.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Preview ‘Star Trek: Strange New Worlds’ Season 4 Premiere With 13 New Images & Clip For “Valles Marineris”",
-      "when": "20 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/20/preview-star-trek-strange-new-worlds-season-4-premiere-with-13-new-images-clip-for-valles-marineris/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
