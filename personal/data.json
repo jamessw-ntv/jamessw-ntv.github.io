@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-20",
-    "fetched": "2026-07-20T03:42:48+00:00",
+    "fetched": "2026-07-20T06:54:12+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
+      "temp": 12,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 11
+      "wind": 10
     },
     "days": [
       {
@@ -36,7 +36,7 @@
         "min": 6,
         "max": 14,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 90
       }
     ]
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92621.0,
-        "pct": 0.04
+        "price": 91322.0,
+        "pct": -1.43
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2682.23,
-        "pct": 0.4
+        "price": 2643.65,
+        "pct": -1.21
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Korea Box Office: Na Hong Jin’s ‘Hope’ Rules With 66% Market Share",
+      "when": "20 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/korea-box-office-na-hong-jin-hope-1236816346/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Shark Tank India’ Sets Season 6 With Parrot Campaign on SonyLIV (EXCLUSIVE)",
+      "when": "20 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/shark-tank-india-season-6-sonyliv-1236815830/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "China Box Office: ‘Kung Fu Soccer’ Maintains Dominance as Animated ‘All Wishes Come True’ Debuts in Second",
+      "when": "20 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/china-box-office-kung-fu-soccer-all-wishes-come-true-1236816338/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘House of the Dragon’ Star Fabien Frankel on Criston Cole’s Suicide Mission and His ‘Nihilism’: ‘He’s Losing the Will to Motivate’",
@@ -97,27 +118,6 @@
       "when": "19 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/this-week-in-a-galaxy-far-far-away-the-mandalorian-home-release-announced-star-wars-legacy-review.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Future Debuts at No. 1 With ‘The Real Me,’ as Rolling Stones and ‘Heated Rivalry’ Soundtrack Also Bow in Top 10",
-      "when": "19 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/future-album-billbord-chart-number-one-rolling-stones-1236816201/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ben Shapiro Calls ‘The Odyssey’ a ‘Masterpiece’ Despite Conservative Outrage: Christopher Nolan Is the ‘Best Working Director Today’",
-      "when": "19 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ben-shapiro-the-odyssey-masterpiece-christopher-nolan-1236816164/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Madonna, BTS, Justin Bieber and Shakira Join Forces for Blink-and-You’ll-Miss-‘Em Moments in a Cluster-FIFA of a Halftime Show",
-      "when": "19 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/fifa-halftime-madonna-bts-justin-bieber-shakira-1236816110/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
