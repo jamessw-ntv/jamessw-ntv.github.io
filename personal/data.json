@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-20",
-    "fetched": "2026-07-20T06:54:12+00:00",
+    "fetched": "2026-07-20T10:17:52+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 9,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 10
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
-        "max": 14,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -26,7 +26,7 @@
       {
         "day": "Tue",
         "min": 6,
-        "max": 13,
+        "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91322.0,
-        "pct": -1.43
+        "price": 91703.0,
+        "pct": -0.83
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2643.65,
-        "pct": -1.21
+        "price": 2661.77,
+        "pct": -0.4
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Korea Box Office: Na Hong Jin’s ‘Hope’ Rules With 66% Market Share",
+      "title": "Venice Critics’ Week Lineup: Shalini Adnani’s Family Drama ‘Our Share of Sand,’ AI-Assisted Colombian Doc ‘The End of Times’ and More",
       "when": "20 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/korea-box-office-na-hong-jin-hope-1236816346/"
+      "url": "https://variety.com/2026/film/festivals/venice-critics-week-lineup-shalini-adnani-our-share-of-sand-1236815353/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Shark Tank India’ Sets Season 6 With Parrot Campaign on SonyLIV (EXCLUSIVE)",
+      "title": "James Gray to Be Honored With Locarno Film Festival Career Award",
       "when": "20 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/shark-tank-india-season-6-sonyliv-1236815830/"
+      "url": "https://variety.com/2026/film/festivals/james-gray-honored-locarno-film-festival-career-award-1236816325/"
     },
     {
       "cat": "Film/TV",
-      "title": "China Box Office: ‘Kung Fu Soccer’ Maintains Dominance as Animated ‘All Wishes Come True’ Debuts in Second",
+      "title": "‘Shrimad Bhagavatam’ Anchors Sagar Pictures Entertainment’s Global Push, Indian Studio Confirms (EXCLUSIVE)",
       "when": "20 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/china-box-office-kung-fu-soccer-all-wishes-come-true-1236816338/"
+      "url": "https://variety.com/2026/film/news/shrimad-bhagavatam-sagar-pictures-entertainment-global-studio-1236816382/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘House of the Dragon’ Star Fabien Frankel on Criston Cole’s Suicide Mission and His ‘Nihilism’: ‘He’s Losing the Will to Motivate’",
+      "title": "‘New-Gen’ Universe Launches First Consumer Products Line With Comic-Con Trading Cards (EXCLUSIVE)",
       "when": "20 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/house-of-the-dragon-fabien-frankel-criston-cole-suicide-mission-butchers-ball-1236815984/"
+      "url": "https://variety.com/2026/tv/news/new-gen-universe-comic-con-trading-cards-cryptozoic-1236816359/"
     },
     {
       "cat": "Trek/Wars",
