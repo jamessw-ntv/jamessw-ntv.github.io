@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-21",
-    "fetched": "2026-07-21T20:21:46+00:00",
+    "fetched": "2026-07-21T22:08:00+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 14
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 17
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 94814.0,
-        "pct": 1.66
+        "price": 94735.0,
+        "pct": 1.72
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2745.28,
-        "pct": 1.08
+        "price": 2744.57,
+        "pct": 1.11
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Clipping Comes to the Movies: How Micro-Influencer Agency SGG Media Helps the Ground Game for Hollywood Marketing",
+      "title": "Dixon Dern, Influential Entertainment Lawyer, Dies at 97",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/sgg-media-hollywood-marketing-sports-influencers-1236817485/"
+      "url": "https://variety.com/2026/tv/news/dixon-dern-dead-desilu-lawyer-1236817646/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Avengers: Doomsday’ Racks Up $16.5 Million in Advance Ticket Sales After First Day (EXCLUSIVE)",
+      "title": "‘Avengers: Doomsday’ Trailer Hits 503 Million Views in One Day, Second Biggest Launch in History After ‘Spider-Man: Brand New Day’ (EXCLUSIVE)",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/avengers-doomsday-ticket-sales-marvel-1236817475/"
+      "url": "https://variety.com/2026/film/news/avengers-doomsday-trailer-views-disney-record-1236817568/"
     },
     {
       "cat": "Film/TV",
-      "title": "Carole Radziwill Confronted About Jeffrey Epstein Connection in ‘RHONY’ Season 16 Trailer: ‘You Think I’m Part of an International Sex-Trafficking Ring?’",
+      "title": "Black Bear Hires Bianca Parkes and Heather Phillips to Lead Marketing, Publicity",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/carole-radziwill-jeffrey-epstein-rhony-season-16-trailer-1236817476/"
+      "url": "https://variety.com/2026/film/news/black-bear-marking-publicity-bianca-parkes-heather-phillips-1236817378/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Camp Rock 3’ Trailer: The Jonas Brothers Search for the Next Big Star (TV News Roundup)",
+      "title": "Snoop Dogg Biopic Sets Summer 2027 Release Date",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/tv-news-roundup-week-of-july-20-1236816679/"
+      "url": "https://variety.com/2026/film/news/snoop-dogg-movie-biopic-release-date-1236817610/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
