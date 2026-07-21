@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-21",
-    "fetched": "2026-07-21T14:07:46+00:00",
+    "fetched": "2026-07-21T16:26:55+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 8,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 12
+      "wind": 14
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 94
+        "rain": 91
       },
       {
         "day": "Thu",
@@ -29,7 +29,7 @@
         "max": 10,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 85
+        "rain": 96
       },
       {
         "day": "Fri",
@@ -37,7 +37,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 67
+        "rain": 61
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 95369.0,
-        "pct": 3.89
+        "price": 94994.0,
+        "pct": 1.84
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2769.05,
-        "pct": 4.25
+        "price": 2750.3,
+        "pct": 1.53
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "The Pulitzer Prize-Winning Journalist Who Has the Entire NBA Spooked",
+      "title": "‘Spider-Man: Brand New Day’ Final Trailer Unveils Action-Packed New Footage of Mark Rufflo’s Hulk Battling the Web-Slinger",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/sports/news/pablo-torre-finds-out-podcast-nba-kawhi-leonard-jalen-brunson-jeffrey-epstein-1236817018/"
+      "url": "https://variety.com/2026/film/news/spider-man-brand-new-day-final-trailer-hulk-battle-footage-1236817155/"
     },
     {
       "cat": "Film/TV",
-      "title": "FIFA World Cup and Olympic Ceremonies Producer Balich Wonder Studio Expands Footprint to North America and Mexico",
+      "title": "‘Evil Dead Burn’ Haunted House Experience Is Headed to Universal Studios’ Halloween Horror Nights",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/sports/global/world-cup-producer-balich-wonder-studio-north-america-mexico-1236817054/"
+      "url": "https://variety.com/2026/film/news/evil-dead-burn-universal-studios-halloween-horror-nights-1236817166/"
     },
     {
       "cat": "Film/TV",
-      "title": "Zoom, With New Story, Bets on Indie Journalist to Tell It",
+      "title": "‘Robocop’ Reboot Series Set at Prime Video",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/zoom-nayeema-raza-partnership-creators-1236816997/"
+      "url": "https://variety.com/2026/tv/news/robocop-reboot-series-amazon-prime-video-1236817195/"
     },
     {
       "cat": "Film/TV",
-      "title": "Psychological Horror Feature ‘Ancestral Beasts’ Debuts Trailer Ahead of Fantasia World Premiere (EXCLUSIVE)",
+      "title": "Pixar Bears Brunt of Disney Studio Layoffs as Company Axes Several Hundred Staffers",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/fantasia-horror-indigenous-ancestral-beasts-trailer-riedel-1236817056/"
+      "url": "https://variety.com/2026/film/news/pixar-layoffs-disney-studios-several-hundred-employees-1236817241/"
     },
     {
       "cat": "Trek/Wars",
