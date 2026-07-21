@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-21",
-    "fetched": "2026-07-21T18:19:09+00:00",
+    "fetched": "2026-07-21T20:21:46+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 13
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 14
     },
     "days": [
       {
@@ -34,7 +34,7 @@
       {
         "day": "Fri",
         "min": 5,
-        "max": 11,
+        "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 61
@@ -72,24 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 94556.0,
-        "pct": 0.92
+        "price": 94814.0,
+        "pct": 1.66
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2740.5,
-        "pct": 0.4
+        "price": 2745.28,
+        "pct": 1.08
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Christopher Nolan’s ‘The Odyssey’ Movie Is Making Gen Z Listen to the Book (EXCLUSIVE)",
+      "title": "Clipping Comes to the Movies: How Micro-Influencer Agency SGG Media Helps the Ground Game for Hollywood Marketing",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-odyssey-christopher-nolan-movie-book-spotify-streams-gen-z-homer-1236817374/"
+      "url": "https://variety.com/2026/film/news/sgg-media-hollywood-marketing-sports-influencers-1236817485/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Avengers: Doomsday’ Racks Up $16.5 Million in Advance Ticket Sales After First Day (EXCLUSIVE)",
+      "when": "21 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/avengers-doomsday-ticket-sales-marvel-1236817475/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Carole Radziwill Confronted About Jeffrey Epstein Connection in ‘RHONY’ Season 16 Trailer: ‘You Think I’m Part of an International Sex-Trafficking Ring?’",
+      "when": "21 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/carole-radziwill-jeffrey-epstein-rhony-season-16-trailer-1236817476/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Camp Rock 3’ Trailer: The Jonas Brothers Search for the Next Big Star (TV News Roundup)",
+      "when": "21 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/tv-news-roundup-week-of-july-20-1236816679/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘Star Wars’ Romance Novel ‘Eyes Like Stars’ Fits Perfectly Into Franchise’s Narrative",
+      "when": "21 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/review-star-wars-romance-novel-eyes-like-stars-fits-perfectly-into-franchises-narrative.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Watch: Captain Pike Rides Again In Clip From ‘Star Trek: Strange New Worlds’ Season 4 Premiere",
+      "when": "21 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/21/watch-captain-pike-rides-again-in-clip-from-star-trek-strange-new-worlds-season-4-premiere/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Space Baby, Dragon Bomb, And More Season 4 Clues Dropped By ‘Star Trek: Strange New Worlds’ Cast",
+      "when": "21 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/21/space-baby-dragon-bomb-and-more-season-4-clues-dropped-by-star-trek-strange-new-worlds-cast/"
     },
     {
       "cat": "Trek/Wars",
@@ -99,20 +141,6 @@
       "url": "https://trekmovie.com/2026/07/21/see-sam-and-darem-go-rogue-to-save-their-friends-in-star-trek-starfleet-academy-lost-contact-4-preview/"
     },
     {
-      "cat": "Film/TV",
-      "title": "‘La La Land’ Poster Fixes Ryan Gosling’s Flat Hand After 10 Years of the Actor Being Haunted by It",
-      "when": "21 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/la-la-land-poster-fixes-ryan-gosling-hand-1236817281/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jacob Elordi Spent Two Days ‘Locked in a Coffin’ With a Real Snake for ‘Euphoria’ Death: Sam Levinson ‘Brought Me Back to Torture Me’",
-      "when": "21 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jacob-elordi-euphoria-death-locked-in-coffin-snake-1236817094/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "‘Galaxy’s Edge: Echoes of the Empire’ #4 Review – Han and Chewie Face Down a New Threat",
       "when": "21 Jul",
@@ -120,39 +148,11 @@
       "url": "https://www.starwarsnewsnet.com/2026/07/galaxys-edge-echoes-of-the-empire-4-review-han-and-chewie-face-down-a-new-threat.html"
     },
     {
-      "cat": "Film/TV",
-      "title": "LISTEN: ‘Scary Movie’ Gets a Second Wind in PVOD With Extended Director’s Cut",
-      "when": "21 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/scary-movie-directors-cut-michael-tiddes-pvod-daily-variety-1236817286/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "The Horror Is Back In Gruesome Preview Of ‘Star Trek: Red Shirts – Ghost Of The 21st Century’ #1",
-      "when": "21 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/21/the-horror-is-back-in-gruesome-preview-of-star-trek-red-shirts-ghost-of-the-21st-century-1/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek: Strange New Worlds’ Actors Tease Noir Episode And More Physical Season 4",
-      "when": "20 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/20/star-trek-strange-new-worlds-actors-tease-noir-episode-and-more-physical-season-4/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "This Week, In a Galaxy Far, Far Away: ‘The Mandalorian and Grogu’ Home Release Announced, ‘Star Wars: Legacy’ Review",
       "when": "20 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/this-week-in-a-galaxy-far-far-away-the-mandalorian-home-release-announced-star-wars-legacy-review.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "George Lucas Claims That Future Filmmakers Will Inevitably Use AI Tools",
-      "when": "20 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/george-lucas-claims-that-future-filmmakers-will-inevitably-use-ai-tools.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
