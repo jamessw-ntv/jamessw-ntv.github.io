@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-21",
-    "fetched": "2026-07-21T11:51:42+00:00",
+    "fetched": "2026-07-21T14:07:46+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -17,14 +17,6 @@
     "days": [
       {
         "day": "Today",
-        "min": 6,
-        "max": 14,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Wed",
         "min": 7,
         "max": 14,
         "icon": "🌦️",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 85
+      },
+      {
+        "day": "Fri",
+        "min": 5,
+        "max": 11,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 67
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 94463.0,
-        "pct": 2.05
+        "price": 95369.0,
+        "pct": 3.89
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2757.04,
-        "pct": 2.38
+        "price": 2769.05,
+        "pct": 4.25
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Ryan Reynolds Says There Will ‘Eventually’ Be Another ‘Deadpool’ Movie: ‘There’s a Few Really Deep Cuts That I Think Are Missing’",
+      "title": "The Pulitzer Prize-Winning Journalist Who Has the Entire NBA Spooked",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ryan-reynolds-new-deadpool-movie-eventually-1236817083/"
+      "url": "https://variety.com/2026/sports/news/pablo-torre-finds-out-podcast-nba-kawhi-leonard-jalen-brunson-jeffrey-epstein-1236817018/"
     },
     {
       "cat": "Film/TV",
-      "title": "Lisa Nandy Stays in Post as U.K. Culture Secretary, Kanishka Narayan Appointed First AI Minister",
+      "title": "FIFA World Cup and Olympic Ceremonies Producer Balich Wonder Studio Expands Footprint to North America and Mexico",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/global/uk-culture-secretary-lisa-nandy-minister-ai-1236806337/"
+      "url": "https://variety.com/2026/sports/global/world-cup-producer-balich-wonder-studio-north-america-mexico-1236817054/"
     },
     {
       "cat": "Film/TV",
-      "title": "Anurag Kashyap, MIFFest Jury President, Searches for ‘a New Cinematic Language’",
+      "title": "Zoom, With New Story, Bets on Indie Journalist to Tell It",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/anurag-kashyap-new-cinematic-language-miffest-1236817072/"
+      "url": "https://variety.com/2026/tv/news/zoom-nayeema-raza-partnership-creators-1236816997/"
     },
     {
       "cat": "Film/TV",
-      "title": "FAST Provider Wedotv Launches in India With Samsung TV Plus (EXCLUSIVE)",
+      "title": "Psychological Horror Feature ‘Ancestral Beasts’ Debuts Trailer Ahead of Fantasia World Premiere (EXCLUSIVE)",
       "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/wedotv-samsung-tv-plus-india-fast-channels-1236817044/"
+      "url": "https://variety.com/2026/film/markets-festivals/fantasia-horror-indigenous-ancestral-beasts-trailer-riedel-1236817056/"
     },
     {
       "cat": "Trek/Wars",
