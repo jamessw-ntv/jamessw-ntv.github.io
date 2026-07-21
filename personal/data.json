@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-21",
-    "fetched": "2026-07-21T03:22:43+00:00",
+    "fetched": "2026-07-21T06:35:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
+      "temp": 12,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 12
+      "wind": 11
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93388.0,
-        "pct": 0.98
+        "price": 93877.0,
+        "pct": 2.52
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2745.57,
-        "pct": 2.52
+        "price": 2758.09,
+        "pct": 4.12
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Peter Lassally, Legendary Late Night Producer for Johnny Carson, David Letterman and Craig Ferguson, Dies at 93",
-      "when": "20 Jul",
+      "title": "A.R. Rahman Launches ARR Immersive App for Apple Vision Pro (EXCLUSIVE)",
+      "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/peter-lassally-late-night-producer-carson-letterman-dies-dead-1236816945/"
+      "url": "https://variety.com/2026/music/news/ar-rahman-arr-immersive-app-apple-vision-pro-1236816469/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sharon Stone on Quitting Weed and Stopping a Stroke Medication Despite Doctors’ Orders: ‘It Was Like Going Off of F—ing Heroin’",
-      "when": "20 Jul",
+      "title": "Chloe Fineman Says ‘SNL’ Boss Lorne Michaels Was at World Cup Match When She Called to Say She Was Leaving the Show",
+      "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/sharon-stone-quitting-weed-stopping-stroke-medication-like-going-off-of-heroin-1236816916/"
+      "url": "https://variety.com/2026/tv/columns/chloe-fineman-saturday-night-live-lorne-michaels-world-cup-1236816726/"
     },
     {
       "cat": "Film/TV",
-      "title": "LISTEN: Christopher Nolan Gets Moviegoers Out in Force for the Trojan Horse",
-      "when": "20 Jul",
+      "title": "Jon Stewart Says the World Cup Final Was the ‘Reverse Super Bowl’: ‘The Players Spoke Spanish and the Halftime Show Was in English’",
+      "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/box-office-odyssey-christopher-nolan-daily-variety-podcast-1236816924/"
+      "url": "https://variety.com/2026/tv/news/jon-stewart-world-cup-final-halftime-show-trump-1236817023/"
     },
     {
       "cat": "Film/TV",
-      "title": "The Emmys ‘F—ed This Up’: Streamers and Networks Are Outraged as Five Categories Get Cut From the Telecast",
-      "when": "20 Jul",
+      "title": "‘Sherlock’ Creator Steven Moffat Set as International Guest of Serielizados – Barcelona Series Festival (EXCLUSIVE)",
+      "when": "21 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/columns/emmys-cut-five-categories-telecast-backlash-1236816847/"
+      "url": "https://variety.com/2026/tv/global/steven-moffat-sue-vertue-serielizados-in-vitro-episodic-1236816865/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
