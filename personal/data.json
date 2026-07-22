@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-22",
-    "fetched": "2026-07-22T20:15:32+00:00",
+    "fetched": "2026-07-22T22:10:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 5,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 8
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 11
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 94094.0,
-        "pct": -0.75
+        "price": 94357.0,
+        "pct": -0.37
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2753.69,
-        "pct": 0.31
+        "price": 2767.58,
+        "pct": 0.83
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Pompeii: Out of Time with Tom Hiddleston’: A Rare Doc That Could Actually Attract a Young Audience",
+      "title": "‘Star Trek: Strange New Worlds’ Cast, Co-Showrunner Talk Playing With Genres in Season 4, ‘Joyful Curiosity,’ and That Puppet Episode",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/pompeii-out-of-time-tom-hiddleston-disney-plus-1236818449/"
+      "url": "https://variety.com/2026/tv/news/star-trek-strange-new-worlds-season-4-92ny-1236818484/"
     },
     {
       "cat": "Film/TV",
-      "title": "YouTube Ad Sales Keep Growing at Healthy Clip, Rising 13% to $11 Billion in Q2",
+      "title": "Hello Sunshine’s Head of TV and Film on 10 Years of Reese Witherspoon’s Production Company, ‘Big Little Lies’ Season 3, Apple’s ‘Lucky’ and More ‘Elle’",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/youtube-q2-2026-ad-sales-alphabet-google-earnings-results-1236818132/"
+      "url": "https://variety.com/2026/tv/news/big-little-lies-season-3-lucky-elle-hello-sunshine-1236818329/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘EA Sports FC’ Sets World Cup Recordbreaker Kylian Mbappé as New Cover Athlete (Gaming News Roundup)",
+      "title": "Darren Aronofsky’s AI Studio Primordial Soup Raising $15 Million",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-20-1236817576/"
+      "url": "https://variety.com/2026/film/news/darren-aronofsky-ai-primordial-soup-raising-15-million-1236818544/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Disney Worldbuilders’ Documentary by Leslie Iwerks, Featuring James Cameron, Kevin Feige and Jon Favreau, Set to Premiere on Disney+",
+      "title": "‘The Odyssey’ Screenplay Is Now Available to Buy Online",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/disney-worldbuilders-disney-plus-august-1236818262/"
+      "url": "https://variety.com/2026/film/news/the-odyssey-screenplay-christopher-nolan-buy-online-1236818532/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Interview: Anson Mount’s Pike Asks “New Questions” & Rebecca Romijn’s Una Is “Much Freer” In ‘Strange New Worlds’ Season 4",
+      "when": "22 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/22/interview-anson-mounts-pike-asks-new-questions-rebecca-romijns-una-is-much-freer-in-strange-new-worlds-season-4/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/07/22/star-trek-strange-new-worlds-eps-talk-season-4s-last-stride-and-season-5s-meditation-on-goodbye/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek: Strange New Worlds’ Season 4 (Mostly Spoiler-Free) Early Review: Big Swings Still Abound",
-      "when": "22 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/22/star-trek-strange-new-worlds-season-4-mostly-spoiler-free-early-review-big-swings-still-abound/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
