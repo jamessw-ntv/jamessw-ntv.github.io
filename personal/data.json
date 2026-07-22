@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-22",
-    "fetched": "2026-07-22T06:35:22+00:00",
+    "fetched": "2026-07-22T09:31:36+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 12
+      "temp": 9,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 8
     },
     "days": [
       {
@@ -20,7 +20,7 @@
         "min": 6,
         "max": 14,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 88
       },
       {
@@ -35,8 +35,8 @@
         "day": "Fri",
         "min": 5,
         "max": 11,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 43
       }
     ]
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 94233.0,
-        "pct": 0.34
+        "price": 94284.0,
+        "pct": 0.04
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2740.03,
-        "pct": -0.69
+        "price": 2748.9,
+        "pct": -0.36
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Elon Musk Says Grok Will Make an AI ‘Odyssey’ Film That Is ‘Historically Accurate’ by the End of the Year",
+      "when": "22 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/elon-musk-grok-ai-odyssey-film-historically-accurate-1236817856/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Han Chae Young Scores a Hit With FlareFlow Korean Remake of Global Microdrama ‘Raising His Mistress’s Child’",
+      "when": "22 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/han-chae-young-raising-his-mistresss-child-korean-remake-flareflow-1236817114/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Rebel Wilson Wins Defamation Case Against Charlotte MacInnes Over ‘The Deb’ Bath Dispute",
+      "when": "22 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/rebel-wilson-wins-defamation-case-charlotte-macinnes-1236817821/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Trek: Strange New Worlds’ Season 4 (Mostly Spoiler-Free) Early Review: Big Swings Still Abound",
+      "when": "22 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/22/star-trek-strange-new-worlds-season-4-mostly-spoiler-free-early-review-big-swings-still-abound/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Jennifer Garner Rails Against Paparazzi Who ‘Knocked Over’ Kids and More Just to Get Photos of Her and Ben Affleck: ‘So Hungry to Get at Me’",
       "when": "22 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/jennifer-garner-paparazzi-knocked-over-kids-ben-affleck-1236817776/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Games for Change 2026 Award Winners Revealed",
-      "when": "22 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/games-for-change-2026-award-winners-ceremony-1236816702/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sony Music Files Another Lawsuit Against Udio, Alleges AI Music Generator Copied 30,000 Songs to Train Models",
-      "when": "22 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/sony-music-new-lawsuit-udio-ai-music-generator-1236817746/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jennifer Garner and Judy Greer to Appear in Netflix’s ’13 Going on 30′ Reboot",
-      "when": "22 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jennifer-garner-judy-greer-netflix-13-going-on-30-reboot-cameo-1236817722/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "21 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/21/watch-captain-pike-rides-again-in-clip-from-star-trek-strange-new-worlds-season-4-premiere/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Space Baby, Dragon Bomb, And More Season 4 Clues Dropped By ‘Star Trek: Strange New Worlds’ Cast",
-      "when": "21 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/21/space-baby-dragon-bomb-and-more-season-4-clues-dropped-by-star-trek-strange-new-worlds-cast/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
