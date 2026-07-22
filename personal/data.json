@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-22",
-    "fetched": "2026-07-22T09:31:36+00:00",
+    "fetched": "2026-07-22T11:52:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
+      "temp": 7,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
       "wind": 8
     },
     "days": [
@@ -21,7 +21,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 88
+        "rain": 100
       },
       {
         "day": "Thu",
@@ -29,7 +29,7 @@
         "max": 10,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 91
+        "rain": 97
       },
       {
         "day": "Fri",
@@ -37,7 +37,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 43
+        "rain": 57
       }
     ]
   },
@@ -72,38 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 94284.0,
-        "pct": 0.04
+        "price": 94361.0,
+        "pct": -0.1
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2748.9,
-        "pct": -0.36
+        "price": 2753.49,
+        "pct": -0.13
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Elon Musk Says Grok Will Make an AI ‘Odyssey’ Film That Is ‘Historically Accurate’ by the End of the Year",
+      "title": "Vanessa Marano to Produce and Star in Frontières Horror Comedy ‘Ring Leader’: ‘It’s ‘Bridesmaids’ Meets ‘Self Help’’ (EXCLUSIVE)",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/elon-musk-grok-ai-odyssey-film-historically-accurate-1236817856/"
+      "url": "https://variety.com/2026/film/global/vanessa-marano-horror-comedy-ring-leader-frontieres-1236817810/"
     },
     {
       "cat": "Film/TV",
-      "title": "Han Chae Young Scores a Hit With FlareFlow Korean Remake of Global Microdrama ‘Raising His Mistress’s Child’",
+      "title": "BAFTA Tweaks Film Awards Rules, Expands Outstanding British Film Longlist and Updates AI Guidance",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/han-chae-young-raising-his-mistresss-child-korean-remake-flareflow-1236817114/"
+      "url": "https://variety.com/2026/film/awards/bafta-tweaks-film-awards-rules-updates-ai-guidance-1236817925/"
     },
     {
       "cat": "Film/TV",
-      "title": "Rebel Wilson Wins Defamation Case Against Charlotte MacInnes Over ‘The Deb’ Bath Dispute",
+      "title": "Tak Sakaguchi Joins Iko Uwais in ‘Pendekar: Warrior’ as Nemesis (EXCLUSIVE)",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/rebel-wilson-wins-defamation-case-charlotte-macinnes-1236817821/"
+      "url": "https://variety.com/2026/film/news/tak-sakaguchi-iko-uwais-pendekar-warrior-1236817923/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Catherine Zeta-Jones Revenge Thriller ‘Kill Jackie’ Acquired by AMC in the U.S.",
+      "when": "22 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/catherine-zeta-jones-kill-jackie-acquired-amc-us-1236817910/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "22 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/22/star-trek-strange-new-worlds-season-4-mostly-spoiler-free-early-review-big-swings-still-abound/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jennifer Garner Rails Against Paparazzi Who ‘Knocked Over’ Kids and More Just to Get Photos of Her and Ben Affleck: ‘So Hungry to Get at Me’",
-      "when": "22 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jennifer-garner-paparazzi-knocked-over-kids-ben-affleck-1236817776/"
     },
     {
       "cat": "Trek/Wars",
