@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-22",
-    "fetched": "2026-07-22T11:52:53+00:00",
+    "fetched": "2026-07-22T14:10:36+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 8
+      "temp": 6,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 7
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
-        "max": 14,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 100
-      },
-      {
-        "day": "Thu",
         "min": 4,
         "max": 10,
         "icon": "🌦️",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 57
+      },
+      {
+        "day": "Sat",
+        "min": 8,
+        "max": 13,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 81
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 94361.0,
-        "pct": -0.1
+        "price": 94233.0,
+        "pct": -1.11
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2753.49,
-        "pct": -0.13
+        "price": 2777.86,
+        "pct": 0.55
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Vanessa Marano to Produce and Star in Frontières Horror Comedy ‘Ring Leader’: ‘It’s ‘Bridesmaids’ Meets ‘Self Help’’ (EXCLUSIVE)",
+      "title": "‘EA Sports FC’ Sets World Cup Recordbreaker Kylian Mbappé as New Cover Athlete (Gaming News Roundup)",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/vanessa-marano-horror-comedy-ring-leader-frontieres-1236817810/"
+      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-20-1236817576/"
     },
     {
       "cat": "Film/TV",
-      "title": "BAFTA Tweaks Film Awards Rules, Expands Outstanding British Film Longlist and Updates AI Guidance",
+      "title": "Martin Scorsese and Steven Spielberg Attend ‘Cape Fear’ Screening in NYC, Zendaya and Tom Holland Promote ‘Spider-Man: Brand New Day’ and More Celeb Red Carpet Photos: July 2026",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/bafta-tweaks-film-awards-rules-updates-ai-guidance-1236817925/"
+      "url": "https://variety.com/gallery/celebrity-pics-red-carpet-photos-july-2026/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tak Sakaguchi Joins Iko Uwais in ‘Pendekar: Warrior’ as Nemesis (EXCLUSIVE)",
+      "title": "Lily Allen Documentary Set at Prime Video",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/tak-sakaguchi-iko-uwais-pendekar-warrior-1236817923/"
+      "url": "https://variety.com/2026/music/global/lily-allen-documentary-prime-video-1236817975/"
     },
     {
       "cat": "Film/TV",
-      "title": "Catherine Zeta-Jones Revenge Thriller ‘Kill Jackie’ Acquired by AMC in the U.S.",
+      "title": "‘Seinfeld’ Star Jason Alexander Apologizes to Courtney Stodden for Filming ‘Inappropriate’ Sketch When She Was a Minor: ‘I Truly Regret It’",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/catherine-zeta-jones-kill-jackie-acquired-amc-us-1236817910/"
+      "url": "https://variety.com/2026/tv/news/jason-alexander-courtney-stodden-inappropriate-behavior-minor-1236817958/"
     },
     {
       "cat": "Trek/Wars",
