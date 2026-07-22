@@ -3,21 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-22",
-    "fetched": "2026-07-22T18:13:32+00:00",
+    "fetched": "2026-07-22T20:15:32+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 5,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
+      "icon": "🌦️",
+      "desc": "Drizzle",
       "wind": 8
     },
     "days": [
       {
         "day": "Today",
-        "min": 4,
+        "min": 5,
         "max": 10,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -25,7 +25,7 @@
       },
       {
         "day": "Fri",
-        "min": 5,
+        "min": 6,
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,24 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 94342.0,
-        "pct": -0.27
+        "price": 94094.0,
+        "pct": -0.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2766.47,
-        "pct": 0.92
+        "price": 2753.69,
+        "pct": 0.31
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Family Guy’ Spinoff ‘Stewie’ Adds Six to Cast, Including Kenan Thompson and Vanessa Bayer",
+      "title": "‘Pompeii: Out of Time with Tom Hiddleston’: A Rare Doc That Could Actually Attract a Young Audience",
       "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/family-guy-spinoff-stewie-cast-kenan-thompson-vanessa-bayer-1236818364/"
+      "url": "https://variety.com/2026/tv/news/pompeii-out-of-time-tom-hiddleston-disney-plus-1236818449/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "YouTube Ad Sales Keep Growing at Healthy Clip, Rising 13% to $11 Billion in Q2",
+      "when": "22 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/digital/news/youtube-q2-2026-ad-sales-alphabet-google-earnings-results-1236818132/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘EA Sports FC’ Sets World Cup Recordbreaker Kylian Mbappé as New Cover Athlete (Gaming News Roundup)",
+      "when": "22 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-20-1236817576/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Disney Worldbuilders’ Documentary by Leslie Iwerks, Featuring James Cameron, Kevin Feige and Jon Favreau, Set to Premiere on Disney+",
+      "when": "22 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/artisans/news/disney-worldbuilders-disney-plus-august-1236818262/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘Star Wars’ Romance Novel ‘Eyes Like Stars’ Fits Perfectly Into Franchise’s Narrative",
+      "when": "22 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/review-star-wars-romance-novel-eyes-like-stars-fits-perfectly-into-franchises-narrative.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Galaxy’s Edge: Echoes of the Empire’ #4 Review – Han and Chewie Face Down a New Threat",
+      "when": "22 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/galaxys-edge-echoes-of-the-empire-4-review-han-and-chewie-face-down-a-new-threat.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: ‘The Mandalorian and Grogu’ Home Release Announced, ‘Star Wars: Legacy’ Review",
+      "when": "22 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/this-week-in-a-galaxy-far-far-away-the-mandalorian-home-release-announced-star-wars-legacy-review.html"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +139,6 @@
       "when": "22 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/22/watch-captain-pike-warns-an-alien-ship-in-clip-from-star-trek-strange-new-worlds-season-4-premiere/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How Long Can ‘The Odyssey’ Stay on Imax 70mm Screens? Nolan Fans Scramble as New Showtimes Sell Out 7 Weeks in Advance",
-      "when": "22 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-odyssey-imax-70mm-showtimes-will-there-be-more-tickets-1236816709/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sacha Baron Cohen’s ‘Ali G: Who Iz I?’ Sets October Release From Amazon MGM",
-      "when": "22 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/sacha-baron-cohen-ali-g-movie-release-date-1236818332/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Benicio Del Toro Joins Ben Stiller in Apple TV Comedy ‘Protective Custody’",
-      "when": "22 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/benicio-del-toro-ben-stiller-apple-protective-custody-1236818184/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,27 +153,6 @@
       "when": "22 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/22/star-trek-strange-new-worlds-season-4-mostly-spoiler-free-early-review-big-swings-still-abound/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘Star Wars’ Romance Novel ‘Eyes Like Stars’ Fits Perfectly Into Franchise’s Narrative",
-      "when": "21 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/review-star-wars-romance-novel-eyes-like-stars-fits-perfectly-into-franchises-narrative.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Galaxy’s Edge: Echoes of the Empire’ #4 Review – Han and Chewie Face Down a New Threat",
-      "when": "21 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/galaxys-edge-echoes-of-the-empire-4-review-han-and-chewie-face-down-a-new-threat.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: ‘The Mandalorian and Grogu’ Home Release Announced, ‘Star Wars: Legacy’ Review",
-      "when": "20 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/this-week-in-a-galaxy-far-far-away-the-mandalorian-home-release-announced-star-wars-legacy-review.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
