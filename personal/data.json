@@ -2,26 +2,26 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-07-21",
-    "fetched": "2026-07-21T23:59:22+00:00",
+    "updated": "2026-07-22",
+    "fetched": "2026-07-22T03:21:04+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 14,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 14
+      "wind": 20
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
+        "min": 6,
         "max": 14,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 97
+        "rain": 88
       },
       {
         "day": "Thu",
@@ -29,15 +29,15 @@
         "max": 10,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 88
+        "rain": 91
       },
       {
         "day": "Fri",
         "min": 5,
-        "max": 12,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 61
+        "max": 11,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 43
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 95031.0,
-        "pct": 2.03
+        "price": 94523.0,
+        "pct": 1.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2754.83,
-        "pct": 1.35
+        "price": 2752.34,
+        "pct": 0.32
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Mike Preston, ‘Mad Max 2: The Road Warrior’ and ‘Hot Pursuit’ Actor, Dies at 93",
-      "when": "21 Jul",
+      "title": "Jennifer Garner Rails Against Paparazzi Who ‘Knocked Over’ Kids and More Just to Get Photos of Her and Ben Affleck: ‘So Hungry to Get at Me’",
+      "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/mike-preston-dead-mad-max-2-the-road-warrior-1236817624/"
+      "url": "https://variety.com/2026/film/news/jennifer-garner-paparazzi-knocked-over-kids-ben-affleck-1236817776/"
     },
     {
       "cat": "Film/TV",
-      "title": "Indie LGBTQ Dramedy ‘Actual Nobodies’ Acquired by Scatena & Rosner Films, Sets Early 2027 Release (EXCLUSIVE)",
-      "when": "21 Jul",
+      "title": "Games for Change 2026 Award Winners Revealed",
+      "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/lgbtq-dramedy-actual-nobodies-scatena-rosner-films-sets-release-1236817706/"
+      "url": "https://variety.com/2026/gaming/news/games-for-change-2026-award-winners-ceremony-1236816702/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Odyssey’ Anoints Christopher Nolan as Hollywood’s Most Powerful Director — Here’s How Universal Thwarted Warner Bros. to Land Him",
-      "when": "21 Jul",
+      "title": "Sony Music Files Another Lawsuit Against Udio, Alleges AI Music Generator Copied 30,000 Songs to Train Models",
+      "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/christopher-nolan-odyssey-success-donna-langley-universal-1236817681/"
+      "url": "https://variety.com/2026/music/news/sony-music-new-lawsuit-udio-ai-music-generator-1236817746/"
     },
     {
       "cat": "Film/TV",
-      "title": "Spain’s World Cup Win Breaks Ratings Records, Scores as Most-Watched Soccer Telecast in U.S. TV History",
-      "when": "21 Jul",
+      "title": "Jennifer Garner and Judy Greer to Appear in Netflix’s ’13 Going on 30′ Reboot",
+      "when": "22 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/world-cup-final-ratings-most-watched-soccer-game-history-1236817692/"
+      "url": "https://variety.com/2026/film/news/jennifer-garner-judy-greer-netflix-13-going-on-30-reboot-cameo-1236817722/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
