@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-23",
-    "fetched": "2026-07-23T09:28:48+00:00",
+    "fetched": "2026-07-23T11:55:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 15
+      "temp": 6,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 13
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 10,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 99
+        "rain": 100
       },
       {
         "day": "Fri",
@@ -29,7 +29,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 75
+        "rain": 65
       },
       {
         "day": "Sat",
@@ -37,7 +37,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 92
+        "rain": 97
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93803.0,
-        "pct": -0.56
+        "price": 93761.0,
+        "pct": -0.64
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2753.08,
-        "pct": 0.1
+        "price": 2754.03,
+        "pct": -0.01
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Venice Film Festival Reveals 2026 Lineup (Updating Live)",
+      "title": "Imax Second Quarter Earnings Rise as CEO Calls Christopher Nolan’s ‘The Odyssey’ a ‘Transformational Event’",
       "when": "23 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/venice-film-festival-2026-lineup-1236818922/"
+      "url": "https://variety.com/2026/biz/news/imax-second-quarter-earnings-christopher-nolan-the-odyssey-1236819101/"
     },
     {
       "cat": "Film/TV",
-      "title": "Daniel Wu on ‘Cold War 1994,’ ‘Twilight of the Warriors’ and Coming Home to Hong Kong: ‘The Craft Still Challenges Me’",
+      "title": "Venice Film Festival Sees Sharp Drop in Female Directors in Competition, With May El-Toukhy Standing Solo",
       "when": "23 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/daniel-wu-cold-war-1994-twilight-warriors-nyaff-1236818912/"
+      "url": "https://variety.com/2026/film/festivals/venice-film-festival-drop-female-directors-may-el-toukhy-1236818979/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sarajevo Film Festival Unveils Competition Programs With 21 World Premieres, Six International Premieres",
+      "title": "Venice Lesbian Drama ‘Big Little Things’ Boards Moebius Entertainment for Worldwide Sales",
       "when": "23 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/sarajevo-competition-programs-1236818473/"
+      "url": "https://variety.com/2026/film/festivals/venice-lesbian-drama-big-little-things-moebius-sales-1236819099/"
     },
     {
       "cat": "Film/TV",
-      "title": "Luiz Carlos Barreto, Its Legendary Film Producer, Dies at 98",
+      "title": "Venice-Bound Serbian Protest Drama ‘Until the Day Ends’ Boarded by Heretic (EXCLUSIVE)",
       "when": "23 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/obituaries-people-news/luiz-carlos-barreto-dies-at-98-lucy-barreto-glauber-rocha-1236818928/"
+      "url": "https://variety.com/2026/film/global/venice-serbian-protest-drama-until-the-day-ends-heretic-1236818949/"
     },
     {
       "cat": "Trek/Wars",
