@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-23",
-    "fetched": "2026-07-23T16:40:25+00:00",
+    "fetched": "2026-07-23T18:17:14+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 6,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 10
+      "wind": 11
     },
     "days": [
       {
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92768.0,
-        "pct": -2.19
+        "price": 92838.0,
+        "pct": -1.56
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2704.02,
-        "pct": -3.21
+        "price": 2695.41,
+        "pct": -2.59
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Colman Domingo Rips Elon Musk’s Plan for AI ‘The Odyssey’ Movie: ‘It’ll Be ‘Whiter Than Christmas at Cracker Barrel’",
+      "title": "‘The Strange Architect,’ New Series by ‘Annihilation’ Author Jeff VanderMeer, Sells to Farrar, Straus and Giroux in Seven-Figure Deal (EXCLUSIVE)",
       "when": "23 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/colman-domingo-elon-musk-ai-odyssey-movie-1236819447/"
+      "url": "https://variety.com/2026/biz/news/strange-architect-book-series-annihilation-author-jeff-vandermeer-1236818347/"
     },
     {
       "cat": "Film/TV",
-      "title": "Athletes and Execs Join Forces at Variety’s Inaugural Sports and Entertainment Studio, Featuring Russell Wilson, Jimmie Johnson and Jay Williams",
+      "title": "‘Breaking Bad’ Star Giancarlo Esposito Signs With UTA for Representation (EXCLUSIVE)",
       "when": "23 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/sports/news/sports-entertainment-russell-wilson-jimmie-johnson-1236813582/"
+      "url": "https://variety.com/2026/tv/news/breaking-bad-giancarlo-esposito-uta-representation-caa-1236818870/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscar Voters Rave Over Christopher Nolan’s ‘The Odyssey’ at First Academy Screenings: ‘The Definitive Filmmaker of Our Time’",
+      "title": "‘Myron Bolitar’ Series Adds 10 To Cast, Including Melissa Benoist, Bebe Neuwirth, Jamie Hector, Quincy Isaiah",
       "when": "23 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/oscars-voters-the-odyssey-reaction-screenings-1236818611/"
+      "url": "https://variety.com/2026/tv/news/myron-bolitar-series-cast-melissa-benoist-bebe-neuwirth-1236819436/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Anson Mount Talks Being A “Hot Puppet” And More ‘Star Trek: Strange New Worlds’ S4 In Global TV PR Blitz",
+      "when": "23 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/23/anson-mount-talks-being-a-hot-puppet-and-more-star-trek-strange-new-worlds-s4-in-global-tv-pr-blitz/"
     },
     {
       "cat": "Film/TV",
-      "title": "Xbox Is Asking Customers to Volunteer to Test Ad-Supported Game Streaming",
+      "title": "Venice Chief Alberto Barbera on Landing Robert Pattinson Film ‘Primetime’ at the Last Minute and Lack of U.S. Studios at the Festival: They Are ‘Experiencing an Identity Crisis’",
       "when": "23 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/xbox-tests-ad-supported-game-streaming-1236819193/"
+      "url": "https://variety.com/2026/film/festivals/venice-alberto-barbera-robert-pattinson-lack-studio-movies-1236819420/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Marvel’s October ‘Star Wars’ Titles To Be Revealed at San Diego Comic-Con, New ‘The Fall of Kylo Ren’ Threat Teased",
+      "when": "23 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/marvels-october-star-wars-titles-to-be-revealed-at-san-diego-comic-con-new-the-fall-of-kylo-ren-threat-teased.html"
     },
     {
       "cat": "Trek/Wars",
@@ -141,20 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/07/review-star-wars-romance-novel-eyes-like-stars-fits-perfectly-into-franchises-narrative.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Galaxy’s Edge: Echoes of the Empire’ #4 Review – Han and Chewie Face Down a New Threat",
-      "when": "22 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/galaxys-edge-echoes-of-the-empire-4-review-han-and-chewie-face-down-a-new-threat.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Watch: Captain Pike Warns An Alien Ship In Clip From ‘Star Trek: Strange New Worlds’ Season 4 Premiere",
-      "when": "22 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/22/watch-captain-pike-warns-an-alien-ship-in-clip-from-star-trek-strange-new-worlds-season-4-premiere/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
