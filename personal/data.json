@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-23",
-    "fetched": "2026-07-23T20:17:54+00:00",
+    "fetched": "2026-07-23T22:09:29+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 6,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 8
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 9
     },
     "days": [
       {
@@ -72,31 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93307.0,
-        "pct": -0.86
+        "price": 93520.0,
+        "pct": -0.88
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2701.81,
-        "pct": -1.89
+        "price": 2701.41,
+        "pct": -2.37
       }
     ]
   },
   "releases": [
     {
-      "cat": "Film/TV",
-      "title": "The Paramount-Warner Bros. Clock Is Ticking: What’s Next for the Megamerger Amid Antitrust Battle With States?",
+      "cat": "Trek/Wars",
+      "title": "New Preview Images Offer Clues For What’s Coming In ‘Strange New Worlds’ Season 4",
       "when": "23 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/paramount-warner-bros-whats-next-state-antitrust-lawsuit-1236819518/"
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/23/new-preview-images-offer-clues-for-whats-coming-in-strange-new-worlds-season-4/"
     },
     {
       "cat": "Film/TV",
-      "title": "Karina Longworth’s ‘You Must Remember This’ Podcast Sets New Season ‘The Bisexuals’ for September",
+      "title": "Johnny Depp Makes Surprise Comic-Con Appearance as Ebenezer Scrooge",
       "when": "23 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/karina-longworth-you-must-remember-this-bisexuals-1236819568/"
+      "url": "https://variety.com/2026/film/news/johnny-depp-comic-con-surprise-ebenezer-scrooge-1236819764/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Odysseus Has Been Funko Pop-ed",
+      "when": "23 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/odyssey-funko-pops-odysseus-shop-online-1236819495/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Judge Extends Order Blocking Paramount-Warner Bros. Merger for Another 14 Days",
+      "when": "23 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/judge-paramount-warner-bros-merger-14-days-1236819740/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Indian Epic ‘Ramayana’ Lands at Sony Pictures for International Distribution",
+      "when": "23 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/ramayana-sony-pictures-international-distribution-1236819652/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Watch: ‘Star Trek: Strange New Worlds’ Cast Names Favorite Puppet Characters At 92Y Panel",
+      "when": "23 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/23/watch-star-trek-strange-new-worlds-cast-names-their-favorite-puppet-character/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +132,6 @@
       "when": "23 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/review-the-mandalorian-and-grogu-danger-in-the-dark-is-a-fun-adventure-set-between-the-series-and-the-movie.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Patreon Lays Off 20% of Employees as Part of ‘Painful’ Restructuring",
-      "when": "23 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/patreon-cuts-20-percent-of-employees-painful-restructuring-1236819665/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "LISTEN: How Travis Scott is Ascending to Culture Moguldom Through Music, Movies, Retail, Business and More",
-      "when": "23 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/travis-scott-variety-the-odyssey-cactus-jack-utopia-1236819668/"
     },
     {
       "cat": "Trek/Wars",
@@ -141,20 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/07/marvels-october-star-wars-titles-to-be-revealed-at-san-diego-comic-con-new-the-fall-of-kylo-ren-threat-teased.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Embraces Its Fate In “Valles Marineris”",
-      "when": "23 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/23/recap-review-star-trek-strange-new-worlds-embraces-its-fate-in-valles-marineris/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Interview: Anson Mount’s Pike Asks “New Questions” & Rebecca Romijn’s Una Is “Much Freer” In ‘Strange New Worlds’ Season 4",
-      "when": "22 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/22/interview-anson-mounts-pike-asks-new-questions-rebecca-romijns-una-is-much-freer-in-strange-new-worlds-season-4/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
