@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-23",
-    "fetched": "2026-07-23T03:38:06+00:00",
+    "fetched": "2026-07-23T06:35:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 19
+      "temp": 9,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 16
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93546.0,
-        "pct": -1.06
+        "price": 93683.0,
+        "pct": -0.59
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2740.28,
-        "pct": -0.52
+        "price": 2742.63,
+        "pct": 0.1
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Courtney Stodden Is Fighting for Something Bigger Than Jason Alexander’s Apology",
+      "when": "23 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/courtney-stodden-jason-alexander-apology-seinfeld-child-marriage-1236818847/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Wild Robot’ VFX Studio STIM Sets Canary Islands Operation, Planning to Create More Than 100 Jobs",
+      "when": "23 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/stim-canary-islands-animation-studio-tenerife-zec-1236817891/"
+    },
     {
       "cat": "Film/TV",
       "title": "Where to Find a Commonwealth Games 2026 Livestream in the U.S. to Watch the Event for Free",
@@ -97,20 +111,6 @@
       "when": "22 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/yeon-sang-ho-parasyte-tamiya-shioli-kutsuna-netflix-1236817846/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Shaken, Soaked and Seasick: What It’s Like to Survive ‘The Odyssey’ in 4DX",
-      "when": "22 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/features/the-odyssey-4dx-moving-seats-water-spraying-1236818539/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Doctor Strange’ Director Says Elon Musk ‘Doesn’t Know S— About Cinema’ After Musk Vows to Make AI ‘Odyssey’: ‘His Opinions on Art Are Worthless’",
-      "when": "22 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/doctor-strange-director-slams-elon-musk-ai-odyssey-1236818552/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
