@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-23",
-    "fetched": "2026-07-23T14:19:46+00:00",
+    "fetched": "2026-07-23T16:40:25+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 6,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 12
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 10
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 65
+        "rain": 78
       },
       {
         "day": "Sat",
@@ -29,7 +29,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 97
+        "rain": 98
       },
       {
         "day": "Sun",
@@ -37,7 +37,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 46
+        "rain": 71
       }
     ]
   },
@@ -72,24 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93200.0,
-        "pct": -0.82
+        "price": 92768.0,
+        "pct": -2.19
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2724.89,
-        "pct": -1.46
+        "price": 2704.02,
+        "pct": -3.21
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Dario Albertini’s ‘Armony,’ Set for World Premiere in Locarno’s Piazza Grande, Secures Swiss Distribution With Xenix (EXCLUSIVE)",
+      "title": "Colman Domingo Rips Elon Musk’s Plan for AI ‘The Odyssey’ Movie: ‘It’ll Be ‘Whiter Than Christmas at Cracker Barrel’",
       "when": "23 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/dario-albertini-locarno-armony-asia-argento-true-colours-1236811527/"
+      "url": "https://variety.com/2026/film/news/colman-domingo-elon-musk-ai-odyssey-movie-1236819447/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Athletes and Execs Join Forces at Variety’s Inaugural Sports and Entertainment Studio, Featuring Russell Wilson, Jimmie Johnson and Jay Williams",
+      "when": "23 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/sports/news/sports-entertainment-russell-wilson-jimmie-johnson-1236813582/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Oscar Voters Rave Over Christopher Nolan’s ‘The Odyssey’ at First Academy Screenings: ‘The Definitive Filmmaker of Our Time’",
+      "when": "23 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/oscars-voters-the-odyssey-reaction-screenings-1236818611/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Xbox Is Asking Customers to Volunteer to Test Ad-Supported Game Streaming",
+      "when": "23 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/gaming/news/xbox-tests-ad-supported-game-streaming-1236819193/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Embraces Its Fate In “Valles Marineris”",
+      "when": "23 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/23/recap-review-star-trek-strange-new-worlds-embraces-its-fate-in-valles-marineris/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +125,6 @@
       "when": "23 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/review-star-wars-visions-tsukumo-offers-a-classic-samurai-western-story-with-lots-of-droids-and-lightsabers.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Burlesque the Musical’ London Opening Postponed to 2027, U.K. Tour Pushed Back (EXCLUSIVE)",
-      "when": "23 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/theater/global/burlesque-the-musical-london-uk-tour-postponed-1236819250/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Spell Off Live!’ Competition Game Show Sets Premiere Date on YouTube",
-      "when": "23 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/the-spell-off-live-premiere-date-youtube-1236818574/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Disney, ESPN Lend ‘Toy Story’ Boost to Athletes Unlimited Softball League",
-      "when": "23 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/disney-espn-toy-story-boost-athletes-unlimited-softball-1236818681/"
     },
     {
       "cat": "Trek/Wars",
@@ -146,13 +153,6 @@
       "when": "22 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/22/watch-captain-pike-warns-an-alien-ship-in-clip-from-star-trek-strange-new-worlds-season-4-premiere/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek: Strange New Worlds’ EPs Talk Season 4’s “Last Stride” And Season 5’s “Meditation On Goodbye”",
-      "when": "22 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/22/star-trek-strange-new-worlds-eps-talk-season-4s-last-stride-and-season-5s-meditation-on-goodbye/"
     },
     {
       "cat": "Games",
