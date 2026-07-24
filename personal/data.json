@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-24",
-    "fetched": "2026-07-24T19:39:00+00:00",
+    "fetched": "2026-07-24T21:11:33+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 10,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 13
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 10
     },
     "days": [
       {
@@ -72,24 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91909.0,
-        "pct": -1.25
+        "price": 91893.0,
+        "pct": -1.56
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2665.54,
-        "pct": -1.21
+        "price": 2664.23,
+        "pct": -1.39
       }
     ]
   },
   "releases": [
     {
+      "cat": "Trek/Wars",
+      "title": "Interview: ‘Star Trek: Strange New Worlds’ Cast On Kirk & Spock, ‘Year One,’ Horror, And More Genre-Tripping",
+      "when": "24 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/24/interview-star-trek-strange-new-worlds-cast-on-kirk-spock-year-one-horror-and-more-genre-tripping/"
+    },
+    {
       "cat": "Film/TV",
-      "title": "Chuck Russell, Director of ‘The Mask,’ Dies at 74",
+      "title": "‘Lanterns’ Trailer: Hal Jordan Visits Sinestro in Prison, Guy Gardner Has a Cameo and a Shape-Shifting Manhunter Is on the Loose",
       "when": "24 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/chuck-russell-dead-the-mask-the-blob-1236820565/"
+      "url": "https://variety.com/2026/tv/news/lanterns-trailer-sinestro-guy-gardner-manhunter-1236818889/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Noah Wyle on ‘The Pitt’ Fan Discourse, Saving Hollywood and What’s Coming In Season 3",
+      "when": "24 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/awards/noah-wyle-the-pitt-fans-hollywood-season-3-1236818461/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘My Little Pony: Forever Friendship’ YouTube Series to Launch in 2027",
+      "when": "24 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/my-little-pony-forever-friendship-youtube-2027-1236820643/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Emmy Predictions: Inside the First Episode Submissions, Where Two ‘Widow’s Bay’ Nominees Chose the Same One",
+      "when": "24 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/lists/2026-emmys-predictions/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +125,6 @@
       "when": "24 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-twin-crossroads-by-beth-revis-revealed-at-san-diego-comic-con.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Netflix Executives Considered Pulling ‘Michael Jackson: The Verdict’ Docuseries a Week Before Its Release (EXCLUSIVE)",
-      "when": "24 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/michael-jackson-docuseries-netflix-considered-pulling-1236817368/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Rings of Power’ Debuts Season 3 Trailer; Simon Pegg Joins Cast as the Balrog",
-      "when": "24 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/lord-of-the-rings-rings-of-power-season-3-trailer-1236625486/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Inside Costa Rica’s Alcatraz and Another 5 Top Locations",
-      "when": "24 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/costa-rica-alcatraz-another-5-top-locations-1236820110/"
     },
     {
       "cat": "Trek/Wars",
@@ -146,13 +153,6 @@
       "when": "24 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/23/sdcc-new-star-trek-movie-directors-give-setting-and-progress-update-people-will-be-surprised/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "New Preview Images Offer Clues For What’s Coming In ‘Strange New Worlds’ Season 4",
-      "when": "23 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/23/new-preview-images-offer-clues-for-whats-coming-in-strange-new-worlds-season-4/"
     },
     {
       "cat": "Games",
