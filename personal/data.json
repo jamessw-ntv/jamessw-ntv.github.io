@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-24",
-    "fetched": "2026-07-24T15:35:02+00:00",
+    "fetched": "2026-07-24T17:43:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,24 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91651.0,
-        "pct": -1.55
+        "price": 91754.0,
+        "pct": -1.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2665.17,
-        "pct": -1.75
+        "price": 2665.16,
+        "pct": -1.53
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Hungarian Grand Prix 2026: Here’s Where to Watch F1 Online for Free",
+      "title": "Why David Cronenberg’s Feature on Charli xcx’s ‘Music, Fashion, Film’ Gets to the Heart of What the Album Is Really About",
       "when": "24 Jul",
       "source": "Variety",
-      "url": "https://variety.com/shop/how-to-watch-f1-2026-season-livestream-online-free-1235212614/"
+      "url": "https://variety.com/2026/music/columns/david-cronenberg-charli-xcx-feature-album-meaning-1236820139/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Eli Roth-Executive Produced ‘Burger Night: Luli, Magda & Lore’ Gets All-Female Cast (EXCLUSIVE)",
+      "when": "24 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/eli-roth-pablo-guisa-burger-night-luli-magda-lore-1236818730/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Genesis House and Gotham Shorts Fellowship Unveils Inaugural Winners, Featuring ‘Dìdi’ and ‘All Dirt Roads Taste of Salt’ Directors as Mentors (EXCLUSIVE)",
+      "when": "24 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/genesis-house-gotham-shorts-fellowship-winners-1236820432/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Tom Holland Pukes on ‘Hot Ones’: ‘I’m Vomiting! Help!’",
+      "when": "24 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/tom-holland-vomits-hot-ones-youtube-1236820437/"
     },
     {
       "cat": "Trek/Wars",
@@ -99,32 +120,11 @@
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-detours-to-receive-curated-exhibit-at-the-lucas-museum-featuring-completed-episodes.html"
     },
     {
-      "cat": "Film/TV",
-      "title": "The Elevated Fanboy Cult of Christopher Nolan",
-      "when": "24 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/christopher-nolan-the-odyssey-oppenheimer-the-dark-knight-1236809648/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Cara Dune – ‘Star Wars’ Character Spotlight",
       "when": "24 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/cara-dune-star-wars-character-spotlight.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How ‘Cape Fear,’ Apple TV’s Timely Adaptation, Became Summer’s Grisliest Hit",
-      "when": "24 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/features/cape-fear-apple-tv-javier-bardem-1236817101/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jake Johnson Was Screwed Over by Hollywood. And He’s Never Been Hotter",
-      "when": "24 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/features/jake-johnson-the-dink-new-girl-tom-cruise-1236820098/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
