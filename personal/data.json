@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-24",
-    "fetched": "2026-07-24T11:46:32+00:00",
+    "fetched": "2026-07-24T13:57:46+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 9,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 11
+      "wind": 9
     },
     "days": [
       {
@@ -25,15 +25,15 @@
       },
       {
         "day": "Sat",
-        "min": 8,
-        "max": 12,
+        "min": 9,
+        "max": 13,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 98
       },
       {
         "day": "Sun",
-        "min": 8,
+        "min": 7,
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92907.0,
-        "pct": -0.95
+        "price": 91615.0,
+        "pct": -1.49
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2688.1,
-        "pct": -2.45
+        "price": 2650.42,
+        "pct": -2.65
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Kino Rebelde Boards Locarno Title ‘September Afternoon’ for International Sales (EXCLUSIVE)",
+      "title": "Fired ‘60 Minutes’ Correspondent Says She Was Pushed to Report on Events ‘That Never Happened’ Under Bari Weiss’ Leadership at CBS News",
       "when": "24 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/kino-rebelde-september-afternoon-locarno-1236820183/"
+      "url": "https://variety.com/2026/tv/news/fired-60-minutes-bari-weiss-events-that-never-happened-1236820264/"
     },
     {
       "cat": "Film/TV",
-      "title": "Edinburgh Industry Program Features Ewan McGregor, Kenneth Branagh and Bruce Dern and an Inaugural U.K. Film Conference",
+      "title": "‘Tomorrow, and Tomorrow, and Tomorrow’ Adds ‘Last Days’ Actor Sky Yang, ‘Summer I Turned Pretty’ Star Sean Kaufman (EXCLUSIVE)",
       "when": "24 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/events/edinburgh-industry-program-ewan-mcgregor-kenneth-branagh-1236820141/"
+      "url": "https://variety.com/2026/film/news/tomorrow-and-tomorrow-and-tomorrow-movie-sky-yang-sean-kaufman-1236819131/"
     },
     {
       "cat": "Film/TV",
-      "title": "Fred Tsui Named Executive Director of Hong Kong International Film Festival Society",
+      "title": "Music’s Legal Elite 2026: Meet the Attorneys Who Help the Stars Shine",
       "when": "24 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/fred-tsui-executive-director-hong-kong-international-film-festival-society-1236820176/"
+      "url": "https://variety.com/lists/music-legal-elite-2026-top-attorneys/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Podcast: All Access Jumps Back Aboard The Enterprise For ‘Star Trek: Strange New Worlds’ Season 4 Premiere",
+      "when": "24 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/24/podcast-all-access-jumps-back-aboard-the-enterprise-for-star-trek-strange-new-worlds-season-4-premiere/"
     },
     {
       "cat": "Film/TV",
-      "title": "BBC Buys War Drama ‘Kabul,’ Featuring Eric Dane in One of His Last Roles",
+      "title": "‘Avatar’ Sequel Film ‘Aang: The Last Airbender’ Revives the Animated Franchise With Breathtaking Visuals: TV Review",
       "when": "24 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/bbc-war-drama-kabul-eric-dane-1236820165/"
+      "url": "https://variety.com/2026/tv/reviews/avatar-aang-the-last-airbender-review-sequel-film-1236818576/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars Zero Company’ Developers Answer Fan Questions, Explain How Game Stands Out",
+      "when": "24 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-zero-company-developers-answer-fan-questions-explain-how-game-stands-out.html"
     },
     {
       "cat": "Trek/Wars",
@@ -135,24 +149,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Watch: ‘Star Trek: Strange New Worlds’ Cast Names Favorite Puppet Characters At 92Y Panel",
-      "when": "23 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/23/watch-star-trek-strange-new-worlds-cast-names-their-favorite-puppet-character/"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Review – ‘The Mandalorian and Grogu: Danger In The Dark’ Is A Fun Adventure Set Between The Series And The Movie",
       "when": "23 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/review-the-mandalorian-and-grogu-danger-in-the-dark-is-a-fun-adventure-set-between-the-series-and-the-movie.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars Zero Company’ Voice Cast Includes Returning ‘The Clone Wars’ Voice Actors and More",
-      "when": "23 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-zero-company-voice-cast-includes-returning-the-clone-wars-voice-actors-and-more.html"
     },
     {
       "cat": "Games",
