@@ -3,21 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-24",
-    "fetched": "2026-07-24T17:43:17+00:00",
+    "fetched": "2026-07-24T19:39:00+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 10,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 9
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
-        "min": 9,
+        "min": 8,
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -25,7 +25,7 @@
       },
       {
         "day": "Sun",
-        "min": 7,
+        "min": 8,
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -33,10 +33,10 @@
       },
       {
         "day": "Mon",
-        "min": 7,
+        "min": 6,
         "max": 12,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 11
       }
     ]
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91754.0,
-        "pct": -1.23
+        "price": 91909.0,
+        "pct": -1.25
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2665.16,
-        "pct": -1.53
+        "price": 2665.54,
+        "pct": -1.21
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Why David Cronenberg’s Feature on Charli xcx’s ‘Music, Fashion, Film’ Gets to the Heart of What the Album Is Really About",
+      "title": "Chuck Russell, Director of ‘The Mask,’ Dies at 74",
       "when": "24 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/columns/david-cronenberg-charli-xcx-feature-album-meaning-1236820139/"
+      "url": "https://variety.com/2026/film/news/chuck-russell-dead-the-mask-the-blob-1236820565/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Twin Crossroads’ by Beth Revis Revealed at San Diego Comic-Con",
+      "when": "24 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-twin-crossroads-by-beth-revis-revealed-at-san-diego-comic-con.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Eli Roth-Executive Produced ‘Burger Night: Luli, Magda & Lore’ Gets All-Female Cast (EXCLUSIVE)",
+      "title": "Netflix Executives Considered Pulling ‘Michael Jackson: The Verdict’ Docuseries a Week Before Its Release (EXCLUSIVE)",
       "when": "24 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/eli-roth-pablo-guisa-burger-night-luli-magda-lore-1236818730/"
+      "url": "https://variety.com/2026/tv/global/michael-jackson-docuseries-netflix-considered-pulling-1236817368/"
     },
     {
       "cat": "Film/TV",
-      "title": "Genesis House and Gotham Shorts Fellowship Unveils Inaugural Winners, Featuring ‘Dìdi’ and ‘All Dirt Roads Taste of Salt’ Directors as Mentors (EXCLUSIVE)",
+      "title": "‘Rings of Power’ Debuts Season 3 Trailer; Simon Pegg Joins Cast as the Balrog",
       "when": "24 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/genesis-house-gotham-shorts-fellowship-winners-1236820432/"
+      "url": "https://variety.com/2026/tv/news/lord-of-the-rings-rings-of-power-season-3-trailer-1236625486/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tom Holland Pukes on ‘Hot Ones’: ‘I’m Vomiting! Help!’",
+      "title": "Inside Costa Rica’s Alcatraz and Another 5 Top Locations",
       "when": "24 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/tom-holland-vomits-hot-ones-youtube-1236820437/"
+      "url": "https://variety.com/2026/film/global/costa-rica-alcatraz-another-5-top-locations-1236820110/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "24 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/24/podcast-all-access-jumps-back-aboard-the-enterprise-for-star-trek-strange-new-worlds-season-4-premiere/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars Zero Company’ Developers Answer Fan Questions, Explain How Game Stands Out",
-      "when": "24 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-zero-company-developers-answer-fan-questions-explain-how-game-stands-out.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
