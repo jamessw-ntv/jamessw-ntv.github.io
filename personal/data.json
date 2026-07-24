@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-24",
-    "fetched": "2026-07-24T06:32:03+00:00",
+    "fetched": "2026-07-24T09:25:34+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 10
+      "temp": 9,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 12
     },
     "days": [
       {
@@ -26,7 +26,7 @@
       {
         "day": "Sat",
         "min": 8,
-        "max": 13,
+        "max": 12,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 98
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93655.0,
-        "pct": -0.02
+        "price": 92927.0,
+        "pct": -0.94
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2696.83,
-        "pct": -1.68
+        "price": 2691.48,
+        "pct": -2.25
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Jon Bon Jovi Ends Madison Square Garden Show Early Due to Sinus Infection: ‘We’ll Figure Out How to Reschedule’",
+      "when": "24 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/jon-bon-jovi-ends-madison-square-garden-show-early-illness-1236820127/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Jumbo’ Sequel, ‘Queen of Malacca’ Franchise Plans on the Cards as Indonesia’s Visinema Eyes Expansion (EXCLUSIVE)",
+      "when": "24 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/jumbo-sequel-queen-of-malacca-franchise-indonesia-visinema-1236820084/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "SDCC: New Star Trek Movie Directors Give Setting and Progress Update: “People Will Be Surprised”",
@@ -111,20 +125,6 @@
       "when": "24 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-original-trilogy-novelizations-receiving-new-audiobook-treatments-ahead-of-franchises-50th-anniversary.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Creepy Twins, Religious Fanaticism and a Loaded Gun Collide in Tense Chamber Drama ‘Godhead’ — Fantasia",
-      "when": "24 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/features/godhead-fantasia-festival-thriller-evil-twins-religious-1236819934/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Stuart Fails to Save the Universe’ Co-Creator Bill Prady Explains the Science Behind the Show’s Multiverse",
-      "when": "24 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/stuart-fails-to-save-the-universe-science-explained-1236818737/"
     },
     {
       "cat": "Trek/Wars",
