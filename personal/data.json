@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-25",
-    "fetched": "2026-07-25T18:04:06+00:00",
+    "fetched": "2026-07-25T19:21:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -17,7 +17,7 @@
     "days": [
       {
         "day": "Today",
-        "min": 7,
+        "min": 8,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -25,7 +25,7 @@
       },
       {
         "day": "Mon",
-        "min": 7,
+        "min": 8,
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
@@ -33,7 +33,7 @@
       },
       {
         "day": "Tue",
-        "min": 6,
+        "min": 7,
         "max": 13,
         "icon": "🌦️",
         "desc": "Showers",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92131.0,
-        "pct": 0.39
+        "price": 92196.0,
+        "pct": 0.35
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2683.8,
-        "pct": 0.65
+        "price": 2685.19,
+        "pct": 0.84
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "‘Hadestown: The Musical’ Review: Captures the Crowd-Pleasing Vibrance of the Mythological New Orleans-Meets-Rock Opera Stage Show",
+      "when": "25 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/hadestown-the-musical-review-1236820760/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Love Island USA’ Contestant Kenzie Slams Rumors That She’s a Trump Supporter ‘Just Because I’m Blonde and White’: ‘F— the F— Off!’",
+      "when": "25 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/love-island-usa-kenzie-denies-trump-supporter-rumors-1236821061/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Futurama’ to Release Three New Supersized Specials, Including a Christmas Episode, Starting Next Year on Hulu",
+      "when": "25 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/futurama-three-new-supersized-specials-hulu-comic-con-1236821009/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "‘Bob’s Burgers’ to Unveil New Holiday Short ‘On the Fort Day of Christmas’ This Year on Hulu",
       "when": "25 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/bobs-burgers-short-on-the-fort-day-of-christmas-hulu-1236820701/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Brunello: The Gracious Visionary’ Review: Giuseppe Tornatore’s Seductive Hagiography of a Fashion Legend",
-      "when": "25 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/brunello-the-gracious-visionary-review-1236821018/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Roxette Cancels 40th Anniversary Tour of North American Amphitheaters, Citing ‘Hugely Increased Touring Costs’",
-      "when": "25 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/roxette-cancels-tour-in-north-america-touring-costs-1236820989/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Avatar Aang: The Last Airbender’ Creators, Director Talk New Art Style, Huge Action Sequences, Ideas That Didn’t Make Final Cut",
-      "when": "25 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/avatar-aang-the-last-airbender-creators-director-interview-1236820505/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "57m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
