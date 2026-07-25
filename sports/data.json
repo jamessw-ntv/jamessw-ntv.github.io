@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "Multi-Sport Dashboard",
-    "updated": "2026-07-24",
+    "updated": "2026-07-25",
     "note": "Static snapshot. AFL through the played Round 17 games (two Sunday 5 July games still to come) with for/against and percentage restored. NRL ladder reflects Round 17 (Round 18, an Origin-week round, in progress); win/loss derived from points and byes, differentials mostly unavailable. State of Origin level 1-1 with the decider on 8 July.",
-    "fetched": "2026-07-24T13:57:17+00:00"
+    "fetched": "2026-07-25T06:23:36+00:00"
   },
   "nextup": {
     "mine": [
@@ -158,6 +158,18 @@
       ],
       [
         10,
+        "Carlton",
+        19,
+        9,
+        10,
+        0,
+        1546,
+        1674,
+        92.4,
+        36
+      ],
+      [
+        11,
         "St Kilda",
         18,
         8,
@@ -169,7 +181,7 @@
         32
       ],
       [
-        11,
+        12,
         "GWS GIANTS",
         18,
         8,
@@ -178,18 +190,6 @@
         1621,
         1600,
         101.3,
-        32
-      ],
-      [
-        12,
-        "Carlton",
-        18,
-        8,
-        10,
-        0,
-        1436,
-        1577,
-        91.1,
         32
       ],
       [
@@ -207,13 +207,13 @@
       [
         14,
         "Gold Coast SUNS",
-        18,
+        19,
         7,
-        11,
+        12,
         0,
-        1574,
-        1652,
-        95.3,
+        1671,
+        1762,
+        94.8,
         28
       ],
       [
@@ -267,10 +267,10 @@
     ],
     "focus": {
       "team": "Carlton",
-      "pos": 12,
-      "record": "8–10",
-      "pct": 91.1,
-      "pts": 32,
+      "pos": 10,
+      "record": "9–10",
+      "pct": 92.4,
+      "pts": 36,
       "note": "Seven straight. Josh Fraser's interim reign (Voss was sacked at 1-8 after Round 9) has hauled a dead season back to 8-8 and 10th, four points off the eight, capped by a two-point escape over Richmond at the MCG in Round 17.",
       "form": [
         "W",
