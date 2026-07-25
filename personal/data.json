@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-25",
-    "fetched": "2026-07-25T17:06:40+00:00",
+    "fetched": "2026-07-25T18:04:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 8,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 6
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91946.0,
-        "pct": 0.51
+        "price": 92131.0,
+        "pct": 0.39
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2675.09,
-        "pct": 0.69
+        "price": 2683.8,
+        "pct": 0.65
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Bob’s Burgers’ to Unveil New Holiday Short ‘On the Fort Day of Christmas’ This Year on Hulu",
+      "when": "25 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/bobs-burgers-short-on-the-fort-day-of-christmas-hulu-1236820701/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Brunello: The Gracious Visionary’ Review: Giuseppe Tornatore’s Seductive Hagiography of a Fashion Legend",
+      "when": "25 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/brunello-the-gracious-visionary-review-1236821018/"
+    },
     {
       "cat": "Film/TV",
       "title": "Roxette Cancels 40th Anniversary Tour of North American Amphitheaters, Citing ‘Hugely Increased Touring Costs’",
@@ -97,20 +111,6 @@
       "when": "25 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/avatar-aang-the-last-airbender-creators-director-interview-1236820505/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Andy Roddick Makes Acting Debut in ‘The Dink’: ‘He’s Always Funny, but He’s on Another Level in This Movie,’ Says Star Jake Johnson",
-      "when": "25 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/andy-roddick-acting-debut-in-the-dink-1236820547/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sam Worthington, David Duchovny and Ke-Xi Wu’s ‘The Exiles’ Draws on Joseph Conrad’s ‘Heart of Darkness,’ Director Midi Z Reveals (EXCLUSIVE)",
-      "when": "25 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/midi-z-the-exiles-heart-of-darkness-sam-worthington-1236821005/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "57m ago",
       "lang": "HTML",
       "commit": ""
     }
