@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-25",
-    "fetched": "2026-07-25T21:00:04+00:00",
+    "fetched": "2026-07-25T22:00:46+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 8,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 8
+      "wind": 9
     },
     "days": [
       {
@@ -72,24 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92107.0,
-        "pct": 0.3
+        "price": 92120.0,
+        "pct": 0.32
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2681.48,
-        "pct": 0.7
+        "price": 2682.46,
+        "pct": 0.87
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Star Trek: Starfleet Academy’ Season 2 Casts Newcomer Ruaridh Aldington",
+      "title": "Errol Spence, Jr. vs. Tim Tszyu Livestream: Here’s Where to Watch the Middleweight Pay-Per-View Match Online",
       "when": "25 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/star-trek-starfleet-academy-season-2-casts-ruaridh-aldington-1236821134/"
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-errol-spence-jr-vs-tim-tszyu-boxing-live-online-1236818190/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Dungeons & Dragons’ Sequel Was Written but May Never Be Filmed Due to ‘Financial Reasons’",
+      "when": "25 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/dungeons-and-dragons-sequel-written-never-filmed-financial-1236821132/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Sour Minnows’ Is the Surreal Body Snatching Comedy That Mystified and Delighted Its Premiere Audience — Fantasia",
+      "when": "25 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/features/sour-minnows-surreal-body-snatching-comedy-fantasia-fest-1236821014/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Matchbox’ Trailer: John Cena Stars in Toy Car Action Movie From Apple TV",
+      "when": "25 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/matchbox-trailer-john-cena-toy-cars-apple-1236645191/"
     },
     {
       "cat": "Trek/Wars",
@@ -106,32 +127,11 @@
       "url": "https://trekmovie.com/2026/07/25/sdcc-new-teaser-reveals-whats-coming-in-star-trek-strange-new-worlds-season-4/"
     },
     {
-      "cat": "Film/TV",
-      "title": "Hudson Williams Debuts ‘Scary Hot’ Blue Eyes in First ‘Yaga’ Clip at San Diego Comic-Con",
-      "when": "25 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hudson-williams-yaga-clip-trailer-san-diego-comic-con-1236821131/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "SDCC: ‘Star Trek: Scouts’ To Return For Second Season This Year",
       "when": "25 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/25/sdcc-star-trek-scouts-to-return-for-second-season-this-year/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘EverQuest Legends’ Unveils Cat Race Kerran as Playable Characters for Video Game Franchise’s Reboot (EXCLUSIVE)",
-      "when": "25 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/everquest-legends-kerran-playable-characters-1236820731/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Hadestown: The Musical’ Review: Captures the Crowd-Pleasing Vibrance of the Mythological New Orleans-Meets-Rock Opera Stage Show",
-      "when": "25 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/hadestown-the-musical-review-1236820760/"
     },
     {
       "cat": "Trek/Wars",
