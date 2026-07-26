@@ -37,7 +37,7 @@ phase,category,id,item,quantity,unit,notes
 5,Module,QUANTUM,Quantum/Dark Matter/Ficsite sub-factories,1,build,Diamonds->Time Crystal/Dark Matter; SAM->Ficsite; EPM
 5,Module,M10,Build Module M10 - Biochemical Sculptor,1,build,1 ADS + 80 Ficsite Trigon + 20 Water -> 4 (Blender)
 5,Module,M11,Build Module M11 - AI Expansion Server,1,build,MFG + Neural-Quantum Processor + Superposition Oscillator + EPM (Quantum Encoder)
-5,Module,M12,Build Module M12 - Ballistic Warp Drive,1,build,TPR + 5 Singularity Cell + 2 Superposition Oscillator + 40 Dark Matter Crystal (Quantum Encoder)
+5,Module,M12,Build Module M12 - Ballistic Warp Drive,1,build,TPR + 5 Singularity Cell + 2 Superposition Oscillator + 40 Dark Matter Crystal (Manufacturer)
 5,Deliverable,P5-D1,Nuclear Pasta,1000,parts,From M9 (keep running from Phase 4)
 5,Deliverable,P5-D2,Biochemical Sculptor,1000,parts,From M10
 5,Deliverable,P5-D3,AI Expansion Server,256,parts,From M11

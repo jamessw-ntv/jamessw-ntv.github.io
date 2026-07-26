@@ -380,14 +380,39 @@ const T = {
  'T-TIMECRYSTAL':{name:'Time Crystal cell', b:'Converter', r:'Time Crystal', in:[['Diamonds',12]], out:['Time Crystal',6], fp:'3×3', ph:5},
  'T-DMRESIDUE':{name:'Dark Matter Residue cell', b:'Converter', r:'Dark Matter Residue', in:[['Reanimated SAM',50]], out:['Dark Matter Residue',100], fp:'3×3', ph:5},
  'T-DMCRYSTAL':{name:'Dark Matter Crystal cell', b:'Particle Accelerator', r:'Dark Matter Crystal', in:[['Diamonds',30],['Dark Matter Residue',150]], out:['Dark Matter Crystal',30], fp:'4×5', ph:5},
- 'T-EPM':   {name:'Excited Photonic Matter cell', b:'Converter', r:'Excited Photonic Matter', in:[], out:['Excited Photonic Matter',200], fp:'3×3', ph:5, approx:true},
- 'T-NQP':   {name:'Neural-Quantum Processor cell', b:'Quantum Encoder', r:'Neural-Quantum Processor', in:[['Time Crystal',15],['Supercomputer',3],['Ficsite Trigon',45],['Excited Photonic Matter',75]], out:['Neural-Quantum Processor',3], fp:'4×4', ph:5},
- 'T-SUPEROSC':{name:'Superposition Oscillator cell', b:'Quantum Encoder', r:'Superposition Oscillator', in:[['Dark Matter Crystal',30],['Crystal Oscillator',5],['Alclad Aluminum Sheet',45],['Excited Photonic Matter',125]], out:['Superposition Oscillator',5], fp:'4×4', ph:5},
+ /* 10 m³ per 3 s cycle = exactly 200/min — verified, no longer approximate */
+ 'T-EPM':   {name:'Excited Photonic Matter cell', b:'Converter', r:'Excited Photonic Matter', in:[], out:['Excited Photonic Matter',200], fp:'3×3', ph:5},
+ /* every Quantum Encoder recipe returns Dark Matter Residue 1:1 by volume with the
+    Excited Photonic Matter it consumes — that residue is a real line you must route */
+ 'T-NQP':   {name:'Neural-Quantum Processor cell', b:'Quantum Encoder', r:'Neural-Quantum Processor', in:[['Time Crystal',15],['Supercomputer',3],['Ficsite Trigon',45],['Excited Photonic Matter',75]], out:['Neural-Quantum Processor',3], by:['Dark Matter Residue',75], fp:'4×4', ph:5},
+ 'T-SUPEROSC':{name:'Superposition Oscillator cell', b:'Quantum Encoder', r:'Superposition Oscillator', in:[['Dark Matter Crystal',30],['Crystal Oscillator',5],['Alclad Aluminum Sheet',45],['Excited Photonic Matter',125]], out:['Superposition Oscillator',5], by:['Dark Matter Residue',125], fp:'4×4', ph:5},
  'T-SINGCELL':{name:'Singularity Cell cell', b:'Manufacturer', r:'Singularity Cell', in:[['Nuclear Pasta',1],['Dark Matter Crystal',20],['Iron Plate',100],['Concrete',200]], out:['Singularity Cell',10], fp:'3×4', ph:5},
  'T-SCULPTOR':{name:'Biochemical Sculptor cell', b:'Blender', r:'Biochemical Sculptor', in:[['Assembly Director System',0.5],['Ficsite Trigon',40],['Water',10]], out:['Biochemical Sculptor',2], fp:'3×4', ph:5},
- 'T-AISERVER':{name:'AI Expansion Server cell', b:'Quantum Encoder', r:'AI Expansion Server', in:[['Magnetic Field Generator',4],['Neural-Quantum Processor',4],['Superposition Oscillator',4],['Excited Photonic Matter',100]], out:['AI Expansion Server',4], fp:'4×4', ph:5},
- 'T-WARP':  {name:'Ballistic Warp Drive cell', b:'Quantum Encoder', r:'Ballistic Warp Drive', in:[['Thermal Propulsion Rocket',1],['Singularity Cell',5],['Superposition Oscillator',2],['Dark Matter Crystal',40],['Excited Photonic Matter',25]], out:['Ballistic Warp Drive',1], fp:'4×4', ph:5},
+ 'T-AISERVER':{name:'AI Expansion Server cell', b:'Quantum Encoder', r:'AI Expansion Server', in:[['Magnetic Field Generator',4],['Neural-Quantum Processor',4],['Superposition Oscillator',4],['Excited Photonic Matter',100]], out:['AI Expansion Server',4], by:['Dark Matter Residue',100], fp:'4×4', ph:5},
+ /* Ballistic Warp Drive is a MANUFACTURER recipe (60 s, 4 solid inputs, no EPM) — an
+    earlier pass wrongly moved it to the Quantum Encoder and bolted on a 5th input, which
+    fits no building in the game. See VERIFICATION.md. */
+ 'T-WARP':  {name:'Ballistic Warp Drive cell', b:'Manufacturer', r:'Ballistic Warp Drive', in:[['Thermal Propulsion Rocket',1],['Singularity Cell',5],['Superposition Oscillator',2],['Dark Matter Crystal',40]], out:['Ballistic Warp Drive',1], fp:'3×4', ph:5},
 };
+
+/* ---------------------------------------------------------------------
+   DATA INVARIANT: a recipe can never need more inputs than its building has
+   ports. This is what caught Ballistic Warp Drive being modelled on the wrong
+   machine with a phantom 5th input, so it stays as a permanent guard — silent
+   when the data is clean, loud in the console the moment a recipe goes bad.
+   ports = [solid, fluid] per building (1.0).
+   --------------------------------------------------------------------- */
+const PORTS={Smelter:[1,0],Foundry:[2,0],Constructor:[1,0],Assembler:[2,0],Manufacturer:[4,0],
+  Refinery:[1,1],Blender:[2,2],'Particle Accelerator':[2,1],Converter:[2,0],'Quantum Encoder':[3,1]};
+/* runs from INIT, once FLUID is defined */
+function auditT(){ const bad=[];
+  Object.entries(T).forEach(([id,t])=>{ const p=PORTS[t.b]; if(!p) return;
+    const fl=t.in.filter(x=>isFluidItem(x[0])).length, so=t.in.length-fl;
+    if(so>p[0]) bad.push(id+': '+so+' solid inputs > '+t.b+"'s "+p[0]);
+    if(fl>p[1]) bad.push(id+': '+fl+' fluid inputs > '+t.b+"'s "+p[1]); });
+  if(bad.length) console.warn('⚠ recipe data violates building port counts:\n'+bad.join('\n'));
+  return bad;
+}
 
 /* =====================================================================
    MODULES — compositions. cell = [templateId, count, clock]
@@ -457,7 +482,7 @@ const MODULES = [
   cells:[['T-AISERVER',1,'100%'],['T-NQP',2,'~67%'],['T-SUPEROSC',1,'~80%'],['T-EPM',2,'100%']]},
 
  {id:'M12', name:'Ballistic Warp Drive', phase:5, type:'module', out:'Ballistic Warp Drive', target:'~2 / min', approx:true,
-  desc:'Phase 5 (200). 1 Thermal Propulsion Rocket + 5 Singularity Cell + 2 Superposition Oscillator + 40 Dark Matter Crystal + 25 EPM → 1 Ballistic Warp Drive (Quantum Encoder).',
+  desc:'Phase 5 (200). 1 Thermal Propulsion Rocket + 5 Singularity Cell + 2 Superposition Oscillator + 40 Dark Matter Crystal → 1 Ballistic Warp Drive (Manufacturer).',
   note:'Huge Dark Matter demand. TPR tapped from M8. Built on the quantum/dark-matter base.',
   cells:[['T-WARP',2,'100%'],['T-SINGCELL',2,'100%'],['T-SUPEROSC',2,'100%'],['T-DMCRYSTAL',3,'100%'],['T-EPM',1,'100%']]},
 ];
@@ -475,7 +500,8 @@ const FLUID=['Crude Oil','Water','Alumina Solution','Nitrogen Gas','Dark Matter 
 const BY_ADVICE={
  'Heavy Oil Residue':'route it to Residual Fuel refineries (→ free power) or the AWESOME Sink, or the refineries clog',
  'Water':'loop it back into the Alumina Solution refineries through a valve (byproduct water gets priority over fresh) — backed-up scrap water deadlocks the whole aluminium chain',
- 'Silica':'belt it back into the Aluminum Ingot silica feed (it covers part of that demand) or sink the excess'};
+ 'Silica':'belt it back into the Aluminum Ingot silica feed (it covers part of that demand) or sink the excess',
+ 'Dark Matter Residue':'pipe it into the Dark-Matter-Crystal Particle Accelerators (each wants 150 m³/min) — it <b>cannot be sunk or packaged</b>, so any surplus backs the Quantum Encoders up and stops every Phase-5 final'};
 
 const INVENTORY = [
  {phase:0,category:'milestone',id:'P0-M1',item:'Complete all Tier 0 HUB upgrades (in order)',qty:'',note:'Unlocks Smelter/Constructor/Miner/Space Elevator'},
@@ -516,7 +542,7 @@ const INVENTORY = [
  {phase:5,category:'module',id:'QUANTUM',item:'Quantum / Dark Matter / Ficsite sub-factories',qty:'',note:'Diamonds→Time Crystal/Dark Matter; SAM→Ficsite; EPM'},
  {phase:5,category:'module',id:'M10',item:'Build Module M10 — Biochemical Sculptor',qty:'',note:'ADS + Ficsite Trigon + Water (Blender)'},
  {phase:5,category:'module',id:'M11',item:'Build Module M11 — AI Expansion Server',qty:'',note:'MFG + NQP + Superposition Oscillator + EPM (Quantum Encoder)'},
- {phase:5,category:'module',id:'M12',item:'Build Module M12 — Ballistic Warp Drive',qty:'',note:'TPR + Singularity Cell + 40 Dark Matter Crystal (Quantum Encoder)'},
+ {phase:5,category:'module',id:'M12',item:'Build Module M12 — Ballistic Warp Drive',qty:'',note:'TPR + Singularity Cell + 40 Dark Matter Crystal (Manufacturer)'},
  {phase:5,category:'deliverable',id:'P5-D1',item:'Nuclear Pasta',qty:1000,note:'From M9 (keep running)'},
  {phase:5,category:'deliverable',id:'P5-D2',item:'Biochemical Sculptor',qty:1000,note:'From M10'},
  {phase:5,category:'deliverable',id:'P5-D3',item:'AI Expansion Server',qty:256,note:'From M11'},
@@ -1685,6 +1711,10 @@ function districtUtils(d,banks){
     util.push(`🛢 <b>Heavy Oil Residue ~${Math.round(hor)}/min:</b> route to <b>~${refs}× Residual Fuel refinery</b> (60 HOR→40 Fuel) → ~<b>${fuel} Fuel/min</b> ≈ <b>${gens} fuel generators</b> (free power). Or AWESOME-Sink it. If it backs up, Plastic/Rubber stops.`); }
   if(byWater) util.push(`♻️ <b>Scrap byproduct water ~${Math.round(byWater)}/min:</b> loop it back into the Alumina refineries through a <b>valve</b> (byproduct line gets priority; top up with fresh). If it backs up, the entire aluminium chain deadlocks — the most common late-game stall.`);
   if(byTot['Silica']) util.push(`🪨 <b>Byproduct Silica ~${Math.round(byTot['Silica'])}/min:</b> merge it into the Aluminum Ingot silica feed (covers part of that demand) and sink any excess.`);
+  // any other byproduct this district makes gets its item-correct routing advice, so a new
+  // by: field on a template can never go unmentioned in the district's support lines
+  Object.keys(byTot).forEach(it=>{ if(['Heavy Oil Residue','Water','Silica'].indexOf(it)>=0) return;
+    util.push(`♻ <b>${it} ~${Math.round(byTot[it])}/min:</b> ${BY_ADVICE[it]||'route it out — if it backs up the machines making it stop'}.`); });
   if(d.id==='F') util.push(`☢️ <b>Nuclear Waste:</b> running nuclear power makes Uranium Waste — it <b>cannot be sunk</b>: store it in Industrial Storage Containers or process it (plutonium chain, or Ficsonium at Tier 9). Backed-up waste stalls the plant. Fuel rods need <b>uranium + sulfur</b> — see power.md.`);
   return util;
 }
@@ -1935,6 +1965,7 @@ new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{ if(n.nodeType!=
 document.addEventListener('keydown',e=>{ if(e.key!=='Enter'&&e.key!==' ') return; const el=document.activeElement;
   if(el&&el.matches&&el.matches('.u,.tlink,.bpsect,.bmmod,.bptoggle,.foDist')){ e.preventDefault(); el.dispatchEvent(new MouseEvent('click',{bubbles:true})); } });
 /* ============================ INIT ============================ */
+auditT();
 buildBuildMap();
 renderCards(); renderTemplates(); renderShopping(); renderInventory();
 renderBlueprints(); renderFlowOverview();

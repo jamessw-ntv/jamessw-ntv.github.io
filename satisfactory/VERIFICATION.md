@@ -22,9 +22,40 @@ SCIM + satisfactorytools search snippets (wikis still 403 in this environment).
 | **Biochemical Sculptor (ref table below)** | row normalized to /min: 0.5 ADS + 40 Trigon + 10 Water → **2** | table row held per-craft amounts (1/80/20 → 4) |
 | **Delivery ETAs** | one rate system: `delivInfo` now uses `FINAL_RATES × scale` (same as `phaseDeliverMin`) | two disagreeing estimators (legacy MODULES clocks vs solver) |
 
-Still flagged / unverified: exact Quantum-Encoder craft times and EPM output
-(as before); Foundry Somersloop slot count (app assumes 1 — may be 2); drone
-unlock tier (docs say 7, may be 8 — doesn't change the Phase-4 plan).
+### Second pass, same day — deep data verification
+
+Four parallel checks (plus a reconciler that re-derived every per-minute figure
+from craft times) went at the suspect entries against **four independently
+maintained extractions of the game's own `Docs.json`** — a far better source than
+the search snippets available here. Results:
+
+| What | Corrected to | Was |
+|------|--------------|-----|
+| **Ballistic Warp Drive** | **Manufacturer**, 4 inputs, **no EPM** (60 s → 1/min) | Quantum Encoder with a phantom 5th input — impossible on any building (see the struck bullet below). Its footprint also changes `4×4`→`3×4` to match every other Manufacturer bank |
+| **Neural-Quantum Processor** | + byproduct **75 Dark Matter Residue/min** | byproduct unmodelled |
+| **Superposition Oscillator** | + byproduct **125 Dark Matter Residue/min** | byproduct unmodelled |
+| **AI Expansion Server** | + byproduct **100 Dark Matter Residue/min** | byproduct unmodelled |
+| **Excited Photonic Matter** | 200/min is **exact** (10 m³ per 3 s), `approx` flag dropped | flagged approximate/unverified |
+| **Foundry Somersloop slots** | **2** | 1 (under-counted the sloop budget) |
+
+Dark Matter Residue **cannot be sunk or packaged**, so those three byproduct
+streams must be piped into the Dark-Matter-Crystal accelerators (150 m³/min each)
+or Ficsonium — otherwise the Quantum Encoders back up and every Phase-5 final
+stops. The app now says so per district.
+
+A **port-count invariant** now runs over all templates at load
+(`PORTS` + `auditT()`): no recipe may need more solid or fluid inputs than its
+building has ports. That check is what exposed the Warp Drive error, and a sweep
+of all 67 templates found it to be the *only* structural violation.
+
+Explicitly re-checked and left alone: the whole rest of the Phase-5 chain
+(Reanimated SAM, Ficsite Ingot, Diamonds, Time Crystal, Dark Matter
+Residue/Crystal, Singularity Cell), the EPM input amounts on the three Quantum
+Encoder recipes, and machine power draws (the dumps disagree on Quantum Encoder
+power; nothing was changed on thin evidence).
+
+Still flagged / unverified: drone unlock tier (docs say 7, may be 8 — doesn't
+change the Phase-4 plan); Quantum Encoder power draw.
 
 ## Corrections (QA passes, 2026-06-17)
 
@@ -191,10 +222,10 @@ Smelter/Constructor = Tier 0 · Assembler = Tier 2 · Foundry = Tier 3 · Refine
 | Item | Building | Inputs/min | Out/min |
 |------|----------|-----------|---------|
 | **Biochemical Sculptor** | **Blender** | 0.5 Assembly Director System + 40 Ficsite Trigon + 10 Water | 2 |
-| **AI Expansion Server** | **Quantum Encoder** | 4 Magnetic Field Generator + 4 Neural-Quantum Processor + 4 Superposition Oscillator + 100 Excited Photonic Matter | 4 |
-| **Ballistic Warp Drive** | **Quantum Encoder** | 1 Thermal Propulsion Rocket + 5 Singularity Cell + 2 Superposition Oscillator + 40 Dark Matter Crystal + 25 Excited Photonic Matter | 1 |
-| Neural-Quantum Processor | Quantum Encoder | 15 Time Crystal + 3 Supercomputer + 45 Ficsite Trigon + 75 Excited Photonic Matter | 3 |
-| Superposition Oscillator | Quantum Encoder | 30 Dark Matter Crystal + 5 Crystal Oscillator + 45 Alclad Aluminum Sheet + 125 Excited Photonic Matter | 5 |
+| **AI Expansion Server** | **Quantum Encoder** | 4 Magnetic Field Generator + 4 Neural-Quantum Processor + 4 Superposition Oscillator + 100 Excited Photonic Matter | 4 (+100 Dark Matter Residue) |
+| **Ballistic Warp Drive** | **Manufacturer** | 1 Thermal Propulsion Rocket + 5 Singularity Cell + 2 Superposition Oscillator + 40 Dark Matter Crystal | 1 |
+| Neural-Quantum Processor | Quantum Encoder | 15 Time Crystal + 3 Supercomputer + 45 Ficsite Trigon + 75 Excited Photonic Matter | 3 (+75 Dark Matter Residue) |
+| Superposition Oscillator | Quantum Encoder | 30 Dark Matter Crystal + 5 Crystal Oscillator + 45 Alclad Aluminum Sheet + 125 Excited Photonic Matter | 5 (+125 Dark Matter Residue) |
 | Singularity Cell | Manufacturer | 1 Nuclear Pasta + 20 Dark Matter Crystal + 100 Iron Plate + 200 Concrete | 10 |
 | Excited Photonic Matter | Converter | *(no item inputs)* | ~200 m³ *(flag)* |
 | Dark Matter Crystal | Particle Accelerator | 30 Diamonds + 150 Dark Matter Residue | 30 |
@@ -206,12 +237,19 @@ Smelter/Constructor = Tier 0 · Assembler = Tier 2 · Foundry = Tier 3 · Refine
 
 **Building corrections caught during verification (vs. common older guides):**
 - Assembly Director System & Magnetic Field Generator → **Assembler** in 1.0 (MFG no longer uses Batteries).
-- Ballistic Warp Drive → **Quantum Encoder** (not Manufacturer).
+- Ballistic Warp Drive → **Manufacturer**. *(A 2026-06 pass wrongly "corrected" this to
+  Quantum Encoder and bolted on a phantom 25 EPM input to satisfy the over-broad rule
+  below. It is not one of the six Quantum Encoder recipes, and its 4 solid inputs with no
+  fluid fit only a Manufacturer — 5 inputs fit no building in the game. Re-verified
+  2026-07-26 against four independent Docs.json extractions.)*
 - Thermal Propulsion Rocket uses **Fused Modular Frame** (not plain Modular Frame).
 - Computer recipe has **no Screws** in 1.0 (Circuit Board + Cable + Plastic).
-- Every Quantum Encoder recipe consumes **25 m³ Excited Photonic Matter per craft**
-  and emits Dark Matter Residue; "Quantum Energy" is the internal name of Excited
-  Photonic Matter (not a separate item).
+- Every Quantum Encoder recipe consumes Excited Photonic Matter and emits **Dark Matter
+  Residue 1:1 by volume** with it. The per-craft amount is **not** always 25: it is 25 m³
+  for Neural-Quantum Processor, Superposition Oscillator and AI Expansion Server, 24 for
+  Alien Power Matrix, 20 for Ficsonium Fuel Rod and 12 for Synthetic Power Shard. (The old
+  "25 for every recipe" wording is what manufactured the bad Ballistic Warp Drive entry.)
+  "Quantum Energy" is the internal name of Excited Photonic Matter (not a separate item).
 
 ---
 
