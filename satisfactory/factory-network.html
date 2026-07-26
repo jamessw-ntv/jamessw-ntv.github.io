@@ -843,9 +843,16 @@ function chapterOf(s){ if(!s) return 0; const v=chapterIndexMap().get(s.key); re
 function bmDerivedStep(){ const nx=masterSteps().find(s=>!state[s.key]); return nx?chapterOf(nx):BM_SEQ.length-1; }
 function fmtMin(m){ m=Math.round(m); return m<90?m+' min':(m/60).toFixed(1)+' h'; }
 function phaseDeliverMin(p){ const ds=DELIVERIES[p]||[]; let mx=0; ds.forEach(([item,qty])=>{ const r=FINAL_RATES[item]*(bpScale||1); if(r) mx=Math.max(mx,qty/r); }); return mx; }
-/* ticks store a timestamp (truthy, so every existing state[key] check still works)
-   — powers the welcome-back / last-ticked context. */
-function tickKey(key){ state[key]=Date.now(); saveState(state); }
+/* A step can be settled three ways, and all three are TRUTHY so every existing
+   state[key] check keeps working and the guided card advances past all of them:
+     number  = built to plan (a timestamp — powers the welcome-back context)
+     'eq'    = my existing factory already covers this (adopting a running save)
+     'skip'  = deliberately not doing this
+   Only `number` counts as "built to plan" where that distinction matters. */
+function markStep(key,mode){ if(mode==='clear') delete state[key]; else state[key]=(mode==='done'?Date.now():mode); saveState(state); }
+function stepMode(key){ const v=state[key]; return v===undefined?null:(typeof v==='number'?'done':v); }
+const MODE_LABEL={done:'✓ built',eq:'≈ already had it',skip:'⏭ skipped'};
+function tickKey(key){ markStep(key,'done'); }
 function renderInventory(){
   const wrap=document.getElementById('invlist'); wrap.innerHTML=''; let tA=0,dA=0;
   // ----- guided "DO THIS NOW" at section granularity -----
@@ -891,10 +898,16 @@ function renderInventory(){
         <div style="font-size:16px;font-weight:700;color:var(--orange)">Step ${nextNo} — ${next.label}</div>
         <div class="nt" style="margin:5px 0 9px">${next.detail||''}</div>
         ${arrive?`<div style="font-size:12px;color:var(--teal);margin-bottom:10px">▲ ${dist===0?'This is the delivery':`${dist} step${dist>1?'s':''} until`}: <b>${arrive.label}</b></div>`:''}
-        <button class="pbtn" id="doNext" style="background:var(--orange);color:#1a1205;border-color:var(--orange);font-weight:700">✓ Done — next</button>${links}</div>`;
+        <button class="pbtn" id="doNext" style="background:var(--orange);color:#1a1205;border-color:var(--orange);font-weight:700">✓ Done — next</button>`+
+        ` <button class="pbtn" id="doEq" title="My existing factory already covers this — count it and move on, but don't claim it was built to this plan">≈ Already have it</button>`+
+        ` <button class="pbtn" id="doSkip" title="Deliberately not building this — move past it">⏭ Skip</button>${links}</div>`;
   } else nb.innerHTML=`<h3 style="background:#13261a">🎉 Every step done — pull the lever and launch! 🚀</h3>`;
   wrap.appendChild(nb);
-  const dn0=document.getElementById('doNext'); if(dn0&&next) dn0.onclick=()=>{ tickKey(next.key); _refocus='doNext'; renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); };
+  if(next){ const advance=mode=>{ markStep(next.key,mode); _refocus='doNext'; renderInventory();
+      if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); };
+    const dn0=document.getElementById('doNext'); if(dn0) dn0.onclick=()=>advance('done');
+    const dq=document.getElementById('doEq'); if(dq) dq.onclick=()=>advance('eq');
+    const ds=document.getElementById('doSkip'); if(ds) ds.onclick=()=>advance('skip'); }
   // ----- districts online now -----
   const online=DISTRICTS.filter(d=>{ const banks=districtBanks(d); return state['bp:'+d.id+':pad']&&banks.length&&banks.every(b=>state['bp:'+d.id+':'+b.tid]); });
   if(online.length){ const rb=document.createElement('div'); rb.className='invphase';
@@ -902,16 +915,19 @@ function renderInventory(){
       online.map(d=>`<span class="raw"><b>${d.id==='PA'?'★':d.id}</b> ${d.name}</span>`).join(' ')+`</div>`;
     wrap.appendChild(rb); }
   // ----- live power readout (sum power of every machine you've ticked) -----
-  let mwOn=0; ms.forEach(s=>{ if(state[s.key]&&s.ai!=null&&s.district){ const dd=DMAP[s.district]; if(dd){ const bk=districtBanks(dd)[s.ai]; if(bk) mwOn+=machinePower(bk.b)*bk.n; } } });
+  // a 'skip'ped bank does not exist, so it draws nothing; an 'eq' one does exist in your save
+  let mwOn=0; ms.forEach(s=>{ if(stepMode(s.key)==='skip') return;
+    if(state[s.key]&&s.ai!=null&&s.district){ const dd=DMAP[s.district]; if(dd){ const bk=districtBanks(dd)[s.ai]; if(bk) mwOn+=machinePower(bk.b)*bk.n; } } });
   if(mwOn>0){ const g=GEN[next?next.phase:5]||GEN[5]; const need=Math.ceil(mwOn*1.4/g.mw); const pb=document.createElement('div'); pb.className='invphase';
     pb.innerHTML=`<h3 style="background:#2a1c08">⚡ Power online so far: ~${Math.round(mwOn)} MW</h3><div style="padding:9px 16px;color:var(--muted);font-size:13px">Keep generators ≥ this with ~40% headroom — you're on <b>${g.n}</b>: ~<b>${need}× ${g.mw}MW</b> generators. Full plan in <span class="u" onclick="document.querySelector('nav button[data-tab=&quot;shopping&quot;]').click()">📋 Items We Need</span>.</div>`;
     wrap.appendChild(pb); }
   // ----- FULL numbered encyclopaedia: every step, in order, grouped by phase -----
   for(let p=0;p<=5;p++){ const steps=ms.filter(s=>s.phase===p); if(!steps.length) continue;
     const done=steps.filter(s=>state[s.key]).length; tA+=steps.length; dA+=done;
+    const nEq=steps.filter(s=>stepMode(s.key)==='eq').length, nSkip=steps.filter(s=>stepMode(s.key)==='skip').length;
     const pct=Math.round(done/steps.length*100);
     const sec=document.createElement('div'); sec.className='invphase';
-    sec.innerHTML=`<h3><span class="chip p${p}">Phase ${p}</span> ${PHASE_NAMES[p]}<div class="prog"><i style="width:${pct}%"></i></div><span class="pct">${done}/${steps.length} · ${pct}%</span><button class="pbtn phdone" data-p="${p}" style="margin-left:8px;padding:3px 9px">${done===steps.length?'↺ undo':'✓ all'}</button></h3>`;
+    sec.innerHTML=`<h3><span class="chip p${p}">Phase ${p}</span> ${PHASE_NAMES[p]}<div class="prog"><i style="width:${pct}%"></i></div><span class="pct">${done}/${steps.length} · ${pct}%${nEq?` <span style="color:#ffce8a">≈${nEq}</span>`:''}${nSkip?` <span style="color:var(--muted)">⏭${nSkip}</span>`:''}</span><button class="pbtn phdone" data-p="${p}" style="margin-left:8px;padding:3px 9px">${done===steps.length?'↺ undo':'✓ all'}</button></h3>`;
     { const pm=phaseDeliverMin(p);
       if(pm){ // name the long pole: that is the line to stand up first and let it bank
         let slow=null,slowMin=0; (DELIVERIES[p]||[]).forEach(([item,qty])=>{ const r=(FINAL_RATES[item]||0)*(bpScale||1); if(r&&qty/r>slowMin){ slowMin=qty/r; slow=item; } });
@@ -925,14 +941,23 @@ function renderInventory(){
         dv.style.cssText='padding:9px 16px 5px;color:#9fb0c0;font-size:12.5px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)';
         dv.innerHTML=`📖 <b style="color:var(--txt)">${BM_SEQ[chI].t}</b> <span style="color:var(--muted)">· ${cDone}/${cSteps.length} tasks</span>`;
         sec.appendChild(dv); }
-      const isNext=next&&next.key===s.key;
+      const isNext=next&&next.key===s.key, mode=stepMode(s.key);
       const row=document.createElement('div'); row.className='invrow'+(ch?' done':'');
       if(isNext){ row.style.borderLeft='3px solid var(--orange)'; row.style.background='rgba(255,158,61,0.06)'; }
+      else if(mode==='eq'){ row.style.borderLeft='3px solid #ffce8a'; }
       const tag=s.district?`<span class="tag module">${s.district==='PA'?'★ PA':s.district}</span> `:(s.cat?`<span class="tag ${s.cat}">${s.cat}</span> `:'');
       const _sai=s.ai;
       const links=s.district?` <span class="u" onclick="event.stopPropagation();gotoBlueprint('${s.district}'${_sai!=null?','+_sai:''})">📐</span> <span class="u" onclick="event.stopPropagation();gotoMapStep('${s.district}')">🗺️</span>`:(s.deliv?` <span class="u" onclick="event.stopPropagation();gotoMapStep('PA')">🗺️</span>`:'');
-      row.innerHTML=`<input type="checkbox" data-key="${s.key}" aria-label="Step ${no} — ${stripTags(s.label)}" ${ch?'checked':''}><div class="it"><div class="nm">${isNext?'▶ ':''}<b style="color:#8b97a3">Step ${no}</b> — ${tag}${s.label}${links}</div><div class="nt">${s.detail||''}</div></div>`;
-      row.querySelector('input').onchange=e=>{ if(e.target.checked) state[s.key]=Date.now(); else delete state[s.key]; saveState(state); _refocus=s.key; renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); };
+      // adopters can mark a step "≈ already have it" — it counts as settled but is NOT
+      // claimed as built to plan, and says so where its rate matters
+      const modeChip=mode==='eq'?` <span class="tag qty" style="background:#3a2a12;color:#ffce8a">≈ existing line — verify it actually makes ${s.ai!=null?'the rate below':'this'}</span>`
+        :(mode==='skip'?` <span class="tag milestone">⏭ skipped</span>`:'');
+      const cyc=` <span class="u" data-cyc="${s.key}" title="Cycle: built → ≈ already have it → ⏭ skipped → not done">⟳</span>`;
+      row.innerHTML=`<input type="checkbox" data-key="${s.key}" aria-label="Step ${no} — ${stripTags(s.label)}" ${ch?'checked':''}><div class="it"><div class="nm">${isNext?'▶ ':''}<b style="color:#8b97a3">Step ${no}</b> — ${tag}${s.label}${links}${cyc}${modeChip}</div><div class="nt">${s.detail||''}</div></div>`;
+      row.querySelector('input').onchange=e=>{ markStep(s.key,e.target.checked?'done':'clear'); _refocus=s.key; renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); };
+      const cycEl=row.querySelector('[data-cyc]');
+      if(cycEl) cycEl.onclick=ev=>{ ev.stopPropagation(); const nx={null:'done',done:'eq',eq:'skip',skip:'clear'}[String(mode)];
+        markStep(s.key,nx); _refocus=s.key; renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); };
       sec.appendChild(row);
     });
     wrap.appendChild(sec);
@@ -954,8 +979,8 @@ document.getElementById('resetinv').onclick=()=>{ if(confirm('Reset all progress
   if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); } };
 document.getElementById('collapseDone').onclick=e=>{ hideDone=!hideDone; e.target.textContent=hideDone?'👁️ Show completed':'👁️ Hide completed'; renderInventory(); };
 function dlCsv(csv,name){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download=name; a.click(); }
-document.getElementById('exportall').onclick=()=>{ const e=s=>`"${String(s).replace(/"/g,'""')}"`; let csv='phase,step,detail,done\n';
-  masterSteps().forEach(s=>{ csv+=[s.phase,e(s.label),e(String(s.detail||'').replace(/<[^>]+>/g,'')),state[s.key]?'yes':'no'].join(',')+'\n'; });
+document.getElementById('exportall').onclick=()=>{ const e=s=>`"${String(s).replace(/"/g,'""')}"`; let csv='phase,step,detail,status\n';
+  masterSteps().forEach(s=>{ const m=stepMode(s.key); csv+=[s.phase,e(s.label),e(String(s.detail||'').replace(/<[^>]+>/g,'')),m?(m==='done'?'built':m==='eq'?'existing':'skipped'):'todo'].join(',')+'\n'; });
   dlCsv(csv,'satisfactory-all-steps.csv'); };
 document.getElementById('printinv').onclick=()=>window.print();
 /* item search: filter template cards live by item / building / recipe / district */
@@ -1308,7 +1333,7 @@ function bmApply(){
     const banks=bankCache[did]||(bankCache[did]=districtBanks(DMAP[did]));
     const bk=banks&&banks[i]; if(!bk) return;
     const r=g.querySelector('rect'), t=g.querySelector('.bmcnt');
-    const tot=bk.n, done=!!state['bp:'+did+':'+bk.tid];
+    const tot=bk.n, md=stepMode('bp:'+did+':'+bk.tid), done=!!md;
     // Use the SAME semantics as the checklist (bankNowCount): a bank is a ghost only while
     // its build phase is still in the future, and its count is never 0 at a chapter whose
     // own steps say "build 1× now" — the two views must agree.
@@ -1318,9 +1343,12 @@ function bmApply(){
       // a dasharray paints nothing without a stroke — give the ghost a visible outline
       if(ghost){ r.setAttribute('stroke',BCOL[bk.b]||'#8b97a3'); r.setAttribute('stroke-width',1.2); r.setAttribute('stroke-dasharray','4 3'); }
       else { r.removeAttribute('stroke-dasharray');
-        if(done){ r.setAttribute('stroke','#5dd47a'); r.setAttribute('stroke-width',2); } else { r.removeAttribute('stroke'); r.removeAttribute('stroke-width'); } } }
+        // built-to-plan reads green, an adopted existing line amber, a skipped one grey
+        if(done){ r.setAttribute('stroke', md==='eq'?'#ffce8a':(md==='skip'?'#8b97a3':'#5dd47a')); r.setAttribute('stroke-width',2); }
+        else { r.removeAttribute('stroke'); r.removeAttribute('stroke-width'); } } }
     g.querySelectorAll('text,line').forEach(tx=>tx.setAttribute('opacity',ghost?0.4:1));
-    if(t) t.textContent=(done?'✓ ':'')+'§'+(i+1)+' '+(ABBR[bk.b]||'?')+'×'+(ghost?('0→'+tot):(cNow<tot?cNow+'→'+tot:tot));
+    const mk=md==='eq'?'≈ ':(md==='skip'?'⏭ ':(done?'✓ ':''));
+    if(t) t.textContent=mk+'§'+(i+1)+' '+(ABBR[bk.b]||'?')+'×'+(ghost?('0→'+tot):(cNow<tot?cNow+'→'+tot:tot));
   });
   const sl=document.getElementById('bmSlider'); if(sl){ sl.max=BM_SEQ.length-1; sl.value=bmStep; }
   const lbl=document.getElementById('bmStepLbl'); if(lbl) lbl.textContent='Chapter '+bmStep+' / '+(BM_SEQ.length-1)+(atNow?' · 📍 you are here':' · preview');
