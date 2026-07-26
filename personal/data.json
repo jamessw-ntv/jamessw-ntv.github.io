@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-26",
-    "fetched": "2026-07-26T17:09:02+00:00",
+    "fetched": "2026-07-26T19:20:31+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 9
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 8
     },
     "days": [
       {
@@ -33,10 +33,10 @@
       },
       {
         "day": "Wed",
-        "min": 6,
-        "max": 10,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "min": 5,
+        "max": 9,
+        "icon": "🌨️",
+        "desc": "Snow showers",
         "rain": 94
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92666.0,
-        "pct": 0.79
+        "price": 92489.0,
+        "pct": 0.31
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2742.0,
-        "pct": 2.5
+        "price": 2734.91,
+        "pct": 1.88
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Pinocchio: Unstrung’ Review: Killer Puppetry Is the Best Thing About This Killer Puppet Slasher",
+      "title": "Tom Holland: Some of My Movies Are ‘S–t’ and You ‘Shouldn’t’ Watch Them",
       "when": "26 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/pinocchio-unstrung-review-1236821368/"
+      "url": "https://variety.com/2026/film/news/tom-holland-some-movies-shit-shouldnt-watch-1236821438/"
     },
     {
       "cat": "Film/TV",
-      "title": "Box Office: ‘The Odyssey’ Soars to $639 Million Globally After Two Weekends, Including $140 Million in Imax",
+      "title": "‘Attack on Paradise’ Review: Under Siege From Both Criminals and Cops, a Hero Battles Upward in a Zesty High-Rise Actioner",
       "when": "26 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/the-odyssey-global-box-office-600-million-imax-1236821428/"
+      "url": "https://variety.com/2026/film/reviews/attack-on-paradise-review-1236821505/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Am I Supposed to be a Comedian?’: Donald Trump’s Bizarre White House Correspondent’s Dinner Speech Had Few Laughing",
+      "title": "Gay Romance Podcast ‘Drive Thru Magic’ Casts Daniel J. Kim and Danielle Kennedy, Sets September Release Date (EXCLUSIVE)",
       "when": "26 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/columns/donald-trump-whcd-2026-speech-1236821466/"
+      "url": "https://variety.com/2026/digital/columns/gay-romance-podcast-drive-thru-magic-daniel-j-kim-1236821490/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Odyssey’ Leaked on X: High-Quality Bootleg Seen by Millions in Hours Before Takedown",
+      "title": "‘No Rest for the Wicked’ Review: A Supernatural Gay Love Story in a 19th-Century Backwater",
       "when": "26 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-odyssey-leaked-high-quality-bootleg-x-1236821418/"
+      "url": "https://variety.com/2026/film/reviews/no-rest-for-the-wicked-review-1236821491/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
