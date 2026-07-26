@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-26",
-    "fetched": "2026-07-26T13:42:10+00:00",
+    "fetched": "2026-07-26T15:10:43+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 7,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 6
+      "wind": 8
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 13,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 81
-      },
-      {
-        "day": "Mon",
         "min": 7,
         "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 1
+        "rain": 0
       },
       {
         "day": "Tue",
@@ -37,7 +29,15 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 97
+        "rain": 98
+      },
+      {
+        "day": "Wed",
+        "min": 6,
+        "max": 10,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 94
       }
     ]
   },
@@ -72,38 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92324.0,
-        "pct": 0.52
+        "price": 92609.0,
+        "pct": 0.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2699.45,
-        "pct": 1.09
+        "price": 2718.9,
+        "pct": 1.69
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "PBS SoCal, KMEX Lead L.A. Local Emmy Wins; KVEA, KABC Land Top Newscast Prizes",
+      "title": "‘Rick and Morty’ Spinoff ‘President Curtis’ Plays It Safe, but Keeps the Sci-Fi Franchise Cruising: TV Review",
       "when": "26 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/la-local-emmy-winners-pbs-socal-leads-kvea-kabc-1236821371/"
+      "url": "https://variety.com/2026/tv/reviews/president-curtis-review-rick-and-morty-spinoff-1236817266/"
     },
     {
       "cat": "Film/TV",
-      "title": "Marvel’s Comic-Con Panel Excites Fans for ‘Doomsday’ but Leaves Them Cautiously Optimistic About What’s Beyond",
+      "title": "Inside ‘Colony’: ‘Train to Busan’ Director Yeon Sang-ho and Gianna Jun Discuss Their Thrilling New Take on the Zombie Movie",
       "when": "26 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/marvel-comic-con-doomsday-ghost-rider-black-panther-1236821335/"
+      "url": "https://variety.com/2026/film/news/colony-south-korea-yeon-sang-ho-gianna-jun-ji-hyun-zombie-movie-train-to-busan-1236821333/"
     },
     {
       "cat": "Film/TV",
-      "title": "Winston Duke Trusts David Jonsson to Take On ‘Black Panther’: ‘I Think It’s Going to Be Great’",
+      "title": "Box Office: ‘Toy Story 5’ Crosses $1 Billion, Becomes Highest-Grossing Movie of the Year",
       "when": "26 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/winston-duke-david-jonsson-black-panther-3-1236821351/"
+      "url": "https://variety.com/2026/film/box-office/toy-story-5-billion-dollar-box-office-1236818437/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Box Office: ‘The Odyssey’ Sails to $87 Million in Massive Second Weekend",
+      "when": "26 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/the-odyssey-box-office-massive-second-weekend-1236821417/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "26 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/25/sdcc-watch-60th-anniversary-tribute-video-shown-at-hall-h-star-trek-panel/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Black Panther 3’: David Jonsson to Play T’Challa’s Son as December 2028 Release Date Set",
-      "when": "26 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/black-panther-3-december-2028-release-david-jonsson-1236083370/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "30m ago",
       "lang": "HTML",
       "commit": ""
     }
