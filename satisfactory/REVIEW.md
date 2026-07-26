@@ -452,14 +452,15 @@ copper / 7,412 coal / 5,546 crude / 1,223 SAM per minute.)
 
 ### Roadmap (waves, in implementation order)
 
-> **Status (2026-07-26): Waves 0–4 are implemented** (see the commit series on
-> this branch). Wave 5 remains future work. Notes on what shipped vs. the text
-> below: recipe fixes were re-verified against SCIM/satisfactorytools before
-> changing (MFG 1/min, Trigon 30/min, DMR 50→100 confirmed); the sloop
-> *allocator* and per-phase clock schedule stayed in Wave 5 — Wave 0 ships the
-> supply-reality warning + terminal-machine priority list instead; the
-> Blueprints-tab phase selector and per-bank "effective phase" from Expand
-> ticks also remain in Wave 5 (the Build Map is fully phase-aware).
+> **Status (2026-07-26): Waves 0–4 implemented, then hardened by a second
+> adversarial review (Part 4 below), and Wave 5 is under way.** Notes on what
+> shipped vs. the text below: recipe fixes were re-verified against
+> SCIM/satisfactorytools before changing (MFG 1/min, Trigon 30/min, DMR 50→100);
+> Wave 0 shipped the sloop supply-reality warning, and Wave 5 has since added the
+> real **allocator**. Still open from Wave 5: the Blueprints-tab phase selector,
+> per-bank "effective phase" from Expand ticks, alt-recipe solver toggles,
+> audit-vs-save mode with tri-state ticks, and the two owner-decision items
+> (FINAL_RATES rebalance; node-coordinate table).
 
 **Wave 0 — data honesty & small correctness (low risk, high trust):**
 sloop power ×2→×4 + updated prose; sloop/shard reality warning + terminal-
@@ -508,3 +509,65 @@ alt-recipe toggles in the solver; audit-vs-save mode; tri-state ticks
 owner decision since it changes the plan's intent, but it is the single knob
 that brings the whole build inside the map's actual resources.**
 
+
+---
+
+## Part 4 — Adversarial review *of the implementation* (round 2)
+
+Waves 0–4 were then reviewed again, as code rather than as a plan: five
+independent dimensions (new logic · persisted state & migration · map/SVG
+rendering · game-data accuracy · whether the ergonomics/a11y claims are real),
+every reviewer able to drive the app in a real browser, followed by a skeptical
+pass that tried to **refute** each finding before it was acted on.
+
+**15 defects found, 7 adversarially verified, 0 refuted.** All 15 are fixed.
+The pattern worth remembering: *the features worked; their interactions with
+existing state and with each other did not.*
+
+### The three that mattered most
+
+1. **A returning player was thrown back to Phase 1.** Tech-unlock and utility
+   steps are new, so any pre-existing save had them unticked; since the guided
+   card is "first unticked step", a save that had finished Phase 3 opened on
+   *"Unlock: finish HUB Tiers 0–2"* while the panel directly below said four
+   districts were online. Now any phase whose deliveries are all ticked
+   back-fills its new prerequisite steps.
+2. **Old progress codes restored as blank progress.** The key migration ran only
+   at boot, but Load-code replaces state wholesale — so a code exported by an
+   older build (or an older device) arrived in the old scheme and read as
+   "nothing built". Migration now runs on every state replacement.
+3. **Chapter numbers ran backwards.** "Expand …" steps have no chapter of their
+   own and fell back to their phase's *first* chapter, so the guided card and
+   the map pin regressed four times, a fully-built district was redrawn as
+   dashed reserved land, and phase sections grew duplicate dividers. Chapters
+   are now a running max over the step list — immune to future step kinds.
+
+### Also confirmed and fixed
+
+- **Pinch-zoom silently wrecked the saved map layout**: district panels
+  `stopPropagation()` on pointerdown, hiding the second finger, so a pinch
+  became a panel drag that persisted. Fingers are now registered in the capture
+  phase; a panel yields to a second finger; an aborted drag restores position.
+- **Ghost blocks lied twice**: they showed "×0" at the very chapter whose
+  checklist says "build 1× now" (two functions disagreed on what "now" means),
+  and the "dashed = not built" outline never painted at all (a dash pattern on a
+  stroke-less rect draws nothing).
+- **Byproducts are advisory only** — the solver still ignores them, so the
+  raw-node table and machine counts don't yet credit the recycled water/silica
+  the new advice tells you to route. Now stated honestly rather than implied.
+- **`SLOOP_SLOTS` gave the Foundry 1 amplification slot; it has 2** — the
+  Somersloop budget was under-counting.
+- **The coarse-pointer CSS block silently reversed the phone layout** (it sat
+  after the phone block at equal specificity), pushing "✓ Done — next" below the
+  fold on the exact device the couch workflow targets.
+- Three Blueprints checkboxes (pad / rail / utilities) had no accessible name;
+  ★ PA's utilities step existed in one tab but not the other.
+
+### Method note
+
+Both review rounds were run as multi-agent workflows with an adversarial verify
+stage, and every finding above was reproduced in a headless browser before being
+fixed — including two claims that turned out to be *test* artifacts rather than
+product defects (a selector that also matched the guided card's own chapter line,
+and a hand-seeded "old save" that omitted expansion ticks a real old save would
+have). Checking those two saved two unnecessary code changes.
