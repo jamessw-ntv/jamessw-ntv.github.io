@@ -675,11 +675,19 @@ function sloopRows(){
     const tree=treeMachines(b.outItem,b.outRate);
     // full amplification halves this bank and everything upstream of it
     const saved=tree/2;
-    rows.push({did:d.id,dname:d.name,item:b.outItem,build:b.b,slots,n100,cost,tree,saved,eff:saved/Math.max(1,cost)});
+    rows.push({did:d.id,dname:d.name,tid:b.tid,item:b.outItem,build:b.b,slots,n100,cost,tree,saved,eff:saved/Math.max(1,cost)});
   }));
   rows.sort((a,b)=>b.eff-a.eff||b.saved-a.saved);
   _sloopCache={sig,rows}; return rows;
 }
+/* which banks the sloops you OWN actually reach — lets each build step state the clock
+   it should really run at, instead of every step claiming 250%+Somersloop. */
+let _fundedCache={sig:null,set:null};
+function sloopsOwned(){ const v=state._cfg&&+state._cfg.sloops; return (v||v===0)?v:106; }
+function sloopFundedSet(){ const sig=sloopsOwned()+'|'+bpScale+'|'+(bpMax?1:0);
+  if(_fundedCache.sig===sig&&_fundedCache.set) return _fundedCache.set;
+  const s=new Set(); sloopPlan(sloopsOwned()).plan.forEach(r=>s.add(r.did+':'+r.tid));
+  _fundedCache={sig,set:s}; return s; }
 function sloopPlan(owned){
   const rows=sloopRows(); let left=Math.max(0,owned|0), spent=0, saved=0; const plan=[];
   rows.forEach(r=>{ if(left<=0) return; const give=Math.min(left,r.cost); if(give<r.slots) return; // a sloop only helps in whole-machine units
@@ -932,6 +940,11 @@ function renderInventory(){
       if(pm){ // name the long pole: that is the line to stand up first and let it bank
         let slow=null,slowMin=0; (DELIVERIES[p]||[]).forEach(([item,qty])=>{ const r=(FINAL_RATES[item]||0)*(bpScale||1); if(r&&qty/r>slowMin){ slowMin=qty/r; slow=item; } });
         sec.innerHTML+=`<div style="padding:1px 16px 6px;color:var(--muted);font-size:12px">⏱ once built, ~<b>${fmtMin(pm)}</b> of running to hit this phase's deliveries (lines run in parallel${bpScale!==1?', at ×'+bpScale+' rate':''}).${slow?` <b style="color:#ffce8a">Long pole: ${slow}</b> (${fmtMin(slowMin)}) — build that line <b>first</b> and let it bank into containers while you do the rest.`:''}</div>`; } }
+    // the overclock ramp, priced: shards are the other finite resource (~730 from wild slugs
+    // until Synthetic Power Shards arrive at Tier 9), so show the running bill per phase
+    if(p>=1&&bpMax){ let shards=0;
+      DISTRICTS.forEach(dd=>districtBanks(dd).forEach(bk=>{ if(bankBuiltPhase(dd,bk)<=p) shards+=Math.max(1,Math.min(bk.n,bankCountAt(bk.tid,p)))*3; }));
+      sec.innerHTML+=`<div style="padding:1px 16px 7px;color:var(--muted);font-size:12px">⚡ <b>Clock ramp:</b> everything standing by the end of this phase, at 250%, needs ~<b>${shards} Power Shards</b>${shards>730?` <b style="color:#e0a050">— more than the ~730 from wild slugs, so leave the lowest-value banks at 100% until Tier 9 Synthetic Shards</b>`:` <span style="color:var(--muted)">(of ~730 from wild slugs)</span>`}. Sloops only go where the <span class="u" onclick="document.querySelector('nav button[data-tab=&quot;shopping&quot;]').click()">🎯 allocator</span> puts them.</div>`; }
     let lastCh=-1;
     steps.forEach(s=>{ const ch=!!state[s.key]; if(hideDone&&ch) return; const no=STEPNO.get(s);
       const chI=chapterOf(s);
@@ -1756,7 +1769,16 @@ function bankStepHTML(d,banks,bk,i){
         : `run a <b>${c.label}</b> belt of <b>${x[0]} ${nr}/min</b> (${srcLabel(x[0],d.id)}) into a splitter, manifold down the row`; }).join('; ')
     : `no material input — this <b>${bk.b}</b> runs on power alone`;
   const oc=carrierOf(bk.outItem,bk.outRate), path=beltUpgradePath(bk.outItem,bp);
-  const ocb = bpMax ? ` <span class="tag qty">⚡ 250% + Somersloop on each (≈⅕ of the ${bk.baseN}× at 100%)</span>`:'';
+  /* PER-BANK CLOCK, resolved against the sloops you actually own. The plan used to tell
+     every bank "250% + Somersloop", which silently assumed ~853 sloops; ⅕ machines run at
+     100% would make ⅕ the design rate and blow every delivery estimate. So: banks the
+     allocator funds are told to amplify, and banks it does not are told the honest
+     alternative — shards only, and the machine count that implies. */
+  let ocb='';
+  if(bpMax){ const slots=SLOOP_SLOTS[bk.b]||1, funded=sloopFundedSet().has(d.id+':'+bk.tid);
+    ocb = funded
+      ? ` <span class="tag qty">⚡ 250% + Somersloop (${bk.n*3} shards + ${bk.n*slots} sloops here — this bank <b>is</b> in your sloop plan)</span>`
+      : ` <span class="tag qty" style="background:#3a2a12;color:#ffce8a">⚠ not in your sloop plan (${sloopsOwned()} sloops) — shards only: run these at <b>250%</b> (${bk.n*3} shards) and build <b>~${Math.max(bk.n,Math.ceil(bk.baseN/2.5))}×</b> instead of ${bk.n}×, or leave them at 100% and build <b>${bk.baseN}×</b></span>`; }
   const collect = oc.carrier==='pipe' ? `pipe the outputs together` : `merge the outputs along the row`;
   const upg = ` <span class="tag qty">${oc.carrier} upgrade: ${path}</span>`;
   const tb=T[bk.tid].by; let by='';

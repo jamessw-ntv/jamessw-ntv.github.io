@@ -465,6 +465,15 @@ copper / 7,412 coal / 5,546 crude / 1,223 SAM per minute.)
 > Encoder residue byproducts, and added a port-count invariant (see
 > VERIFICATION.md).
 >
+> Also done: the **per-phase clock schedule**, which resolves the plan's central
+> contradiction (every count assumed 250%+Somersloop from Phase 1, while the power
+> plan said run near 100% early — build ⅕ the machines and run them at 100% and
+> you make ⅕ the design rate). Each bank now states the clock it should *actually*
+> run at, resolved against the sloops you own: banks the allocator funds are told
+> to amplify; banks it doesn't are told "shards only" with the machine count that
+> implies. Each phase also prices its overclock bill in Power Shards and flags
+> when it exceeds the ~730 obtainable from wild slugs (Phase 5 wants ~1,758).
+>
 > Wave 5 **still open**: Blueprints-tab phase selector; per-bank "effective
 > phase" from Expand ticks; alt-recipe solver toggles; a guided audit-vs-save
 > walkthrough (the tri-state marks exist, the wizard doesn't); crediting
