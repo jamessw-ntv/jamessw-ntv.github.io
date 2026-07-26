@@ -620,6 +620,48 @@ const TECH={
  5:['Tier 9 Matter Conversion (Converter)','Tier 9 Belt Mk.6','Quantum Encoder + Quantum Energy','Spatial/Temporal tech for finals']
 };
 function allDistrictBanks(){ const out=[]; DISTRICTS.forEach(d=>districtBanks(d).forEach(b=>out.push({d,b}))); return out; }
+/* ---- SOMERSLOOP ALLOCATOR ----------------------------------------------------
+   A Somersloop doubles a machine's output WITHOUT increasing its inputs, so
+   amplifying a bank halves the machines AND the whole upstream tree feeding it.
+   That is why the right targets are the TERMINAL machines of long chains, and
+   why "sloop everything" is both impossible (106 exist in the world) and wasteful.
+   treeMachines() reuses the same fixed-point walk as the demand solver to price
+   each bank's full upstream cost, so banks can be ranked by machines-saved-per-sloop. */
+function treeMachines(item,rate){
+  const producible=new Set(), prod={};
+  DISTRICTS.forEach(d=>d.t.forEach(tid=>{ const it=T[tid].out[0]; producible.add(it); prod[it]=tid; }));
+  if(!producible.has(item)||!(rate>0)) return 0;
+  let demand={};
+  for(let iter=0;iter<80;iter++){ const nd={}; nd[item]=rate;
+    producible.forEach(it=>{ const D=demand[it]||0; if(D<=0) return; const t=T[prod[it]], mf=D/t.out[1];
+      t.in.forEach(([inp,r])=>{ if(producible.has(inp)) nd[inp]=(nd[inp]||0)+mf*r; }); });
+    demand=nd; }
+  let total=0; Object.keys(demand).forEach(it=>{ const t=T[prod[it]]; if(t&&demand[it]>0) total+=Math.ceil(demand[it]/t.out[1]); });
+  return total;
+}
+let _sloopCache={sig:null,rows:null};
+function sloopRows(){
+  const sig=String(bpScale);
+  if(_sloopCache.sig===sig&&_sloopCache.rows) return _sloopCache.rows;
+  const rows=[];
+  DISTRICTS.forEach(d=>districtBanks(d,bpScale).forEach(b=>{
+    const slots=SLOOP_SLOTS[b.b]||1, n100=b.baseN, cost=n100*slots;
+    const tree=treeMachines(b.outItem,b.outRate);
+    // full amplification halves this bank and everything upstream of it
+    const saved=tree/2;
+    rows.push({did:d.id,dname:d.name,item:b.outItem,build:b.b,slots,n100,cost,tree,saved,eff:saved/Math.max(1,cost)});
+  }));
+  rows.sort((a,b)=>b.eff-a.eff||b.saved-a.saved);
+  _sloopCache={sig,rows}; return rows;
+}
+function sloopPlan(owned){
+  const rows=sloopRows(); let left=Math.max(0,owned|0), spent=0, saved=0; const plan=[];
+  rows.forEach(r=>{ if(left<=0) return; const give=Math.min(left,r.cost); if(give<r.slots) return; // a sloop only helps in whole-machine units
+    const machines=Math.floor(give/r.slots), use=machines*r.slots, frac=use/r.cost;
+    left-=use; spent+=use; saved+=r.saved*frac;
+    plan.push(Object.assign({},r,{use,machines,frac})); });
+  return {plan,left,spent,saved:Math.round(saved)};
+}
 function phasePower(){ const mach={1:0,2:0,3:0,4:0,5:0}, mw={1:0,2:0,3:0,4:0,5:0};
   DISTRICTS.forEach(d=>{ if(d.id==='PA') return; districtBanks(d).forEach(b=>{ mach[d.phase]+=b.n; mw[d.phase]+=machinePower(b.b)*b.n; }); });
   districtBanks(DMAP['PA']).forEach(b=>{ const ph=(T[b.tid]&&T[b.tid].ph)||1; if(mw[ph]!==undefined){ mach[ph]+=b.n; mw[ph]+=machinePower(b.b)*b.n; } });
@@ -654,8 +696,27 @@ function renderShopping(){
       `<table><thead><tr><th>Item</th><th>Needed</th><th>Where</th></tr></thead><tbody>`+
       `<tr><td><b>Power Shards</b> (3 per machine → 250%)</td><td class="n">${shards}</td><td>Power Slugs (green/yellow/purple) → MAM; ${totMach} machines × 3</td></tr>`+
       `<tr><td><b>Somersloops</b> (fill every slot → 2×)</td><td class="n">${sloops}</td><td>found in the world; 1–4 per machine by type</td></tr>`+
-      `</tbody></table><div style="padding:6px 16px 12px;color:var(--muted);font-size:12px"><b style="color:#e0a050">⚠ Reality check:</b> the whole world contains only <b>~106 Somersloops</b> and wild slugs for <b>~730 Power Shards</b> (unlimited <i>Synthetic</i> Power Shards arrive at Tier 9). If the totals above exceed that, full-MAX is a <b>late-game end state, not a build order</b>: run new banks at 100% and spend your real Somersloops on the <b>terminal machines</b> first — the Nuclear-Pasta Particle Accelerators (halves the entire copper-powder chain — best return in the game), then Quantum Encoders, the Dark-Matter-Crystal accelerator, Converters, and the final Assemblers/Blenders. Never sloop smelters or cheap constructor parts. Turn ⚡ MAX off in Blueprints to plan a 100% build.</div>`;
+      `</tbody></table><div style="padding:6px 16px 12px;color:var(--muted);font-size:12px"><b style="color:#e0a050">⚠ Reality check:</b> the whole world contains only <b>~106 Somersloops</b> and wild slugs for <b>~730 Power Shards</b> (unlimited <i>Synthetic</i> Power Shards arrive at Tier 9), and MAM Alien Technology research plus any Alien Power Augmenters (10 sloops each) eat into that. If the totals above exceed what you own, full-MAX is a <b>late-game end state, not a build order</b> — use the allocator below to spend the sloops you actually have. Turn ⚡ MAX off in Blueprints to plan a 100% build.</div>`;
     rWrap.appendChild(ps);
+  }
+  // ---- 3b) SOMERSLOOP ALLOCATOR — where the sloops you REALLY own should go ----
+  {
+    const owned=(state._cfg&&+state._cfg.sloops)||106;
+    const {plan,left,spent,saved}=sloopPlan(owned);
+    const al=document.createElement('div'); al.className='shopphase';
+    const rows=plan.slice(0,14).map(r=>`<tr><td><b>${r.item}</b> <span style="color:var(--muted)">${r.did}·${ABBR[r.build]||r.build}</span></td>`+
+      `<td class="n">${r.use}</td><td class="n">${r.machines}</td><td>${r.frac>=0.999?'<span style="color:#8fe6a8">all</span>':Math.round(r.frac*100)+'% of the bank'}</td>`+
+      `<td class="n">${Math.round(r.saved*r.frac)}</td></tr>`).join('');
+    al.innerHTML=`<h3>🎯 Somersloop allocator — where to put the ones you own</h3>`+
+      `<div style="padding:9px 16px 4px;font-size:13px">I own <input id="sloopOwn" type="number" min="0" max="500" value="${owned}" style="width:76px;padding:4px 7px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--txt);font-size:13px"> Somersloops <button class="pbtn" id="sloopApply">recalculate</button> <span style="color:var(--muted)">· ranked by machines saved per sloop</span></div>`+
+      `<div style="padding:2px 16px 8px;color:var(--muted);font-size:12px">A Somersloop doubles output <b>without</b> extra input, so amplifying a bank halves that bank <b>and its whole upstream tree</b> — which is why the best targets are the <b>ends</b> of long chains, never smelters or cheap constructor parts.</div>`+
+      '<table><thead><tr><th>Amplify this bank</th><th>Sloops</th><th>Machines</th><th>Coverage</th><th>≈ machines saved</th></tr></thead><tbody>'+rows+'</tbody></table>'+
+      `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">Spends <b>${spent}</b> of ${owned} sloops${left>0?` (<b>${left}</b> spare — bank them for Alien Power Augmenters, +500 MW each)`:''} and takes roughly <b>${saved}</b> machines out of the build. Everything <i>not</i> in this list should run <b>un-slooped</b>; overclock those with Power Shards instead, which costs power but no sloops. Savings are estimates from the demand solver — the exact counts still come from the ⚡ MAX / 100% toggle.</div>`;
+    rWrap.appendChild(al);
+    const applyBtn=al.querySelector('#sloopApply'), inp=al.querySelector('#sloopOwn');
+    const commit=()=>{ const v=Math.max(0,Math.min(500,+inp.value||0)); state._cfg=Object.assign({},state._cfg,{sloops:v}); saveState(state); renderShopping(); };
+    if(applyBtn) applyBtn.onclick=commit;
+    if(inp) inp.onkeydown=e=>{ if(e.key==='Enter') commit(); };
   }
   // ---- 4) POWER PLAN (per phase, cumulative, generators needed) ----
   const pp=phasePower(); let cum=0;
@@ -825,7 +886,10 @@ function renderInventory(){
     const pct=Math.round(done/steps.length*100);
     const sec=document.createElement('div'); sec.className='invphase';
     sec.innerHTML=`<h3><span class="chip p${p}">Phase ${p}</span> ${PHASE_NAMES[p]}<div class="prog"><i style="width:${pct}%"></i></div><span class="pct">${done}/${steps.length} · ${pct}%</span><button class="pbtn phdone" data-p="${p}" style="margin-left:8px;padding:3px 9px">${done===steps.length?'↺ undo':'✓ all'}</button></h3>`;
-    { const pm=phaseDeliverMin(p); if(pm) sec.innerHTML+=`<div style="padding:1px 16px 6px;color:var(--muted);font-size:12px">⏱ once built, ~<b>${fmtMin(pm)}</b> of running to hit this phase's deliveries (lines run in parallel${bpScale!==1?', at ×'+bpScale+' rate':''}).</div>`; }
+    { const pm=phaseDeliverMin(p);
+      if(pm){ // name the long pole: that is the line to stand up first and let it bank
+        let slow=null,slowMin=0; (DELIVERIES[p]||[]).forEach(([item,qty])=>{ const r=(FINAL_RATES[item]||0)*(bpScale||1); if(r&&qty/r>slowMin){ slowMin=qty/r; slow=item; } });
+        sec.innerHTML+=`<div style="padding:1px 16px 6px;color:var(--muted);font-size:12px">⏱ once built, ~<b>${fmtMin(pm)}</b> of running to hit this phase's deliveries (lines run in parallel${bpScale!==1?', at ×'+bpScale+' rate':''}).${slow?` <b style="color:#ffce8a">Long pole: ${slow}</b> (${fmtMin(slowMin)}) — build that line <b>first</b> and let it bank into containers while you do the rest.`:''}</div>`; } }
     let lastCh=-1;
     steps.forEach(s=>{ const ch=!!state[s.key]; if(hideDone&&ch) return; const no=STEPNO.get(s);
       const chI=chapterOf(s);
@@ -1667,7 +1731,18 @@ const BELTCAP=1200; // Mk.6 /min — split a trunk into lanes above this
 function beltWebCaptionHTML(d,bk){ const t=T[bk.tid], np=bankBuiltPhase(d,bk);
   const total=bk.n, now=Math.max(1,Math.min(total,bankCountAt(bk.tid,np))), pl=machinesPerLane(t), rows=Math.ceil(total/pl), path=beltUpgradePath(bk.outItem,np);
   const rec=(t.in.length?t.in.map(x=>x[0]+' '+x[1]).join(' + '):'no input — runs on power')+' → '+t.out[0]+' '+t.out[1]+(t.by?' + '+t.by[0]+' '+t.by[1]+' byproduct':'');
-  return `<div class="nt" style="margin:2px 0 7px;line-height:1.55">This is <b>one manifold row</b> — the repeating unit. <b>One belt enters</b>, a splitter (▫) taps off to each machine; their outputs <b>merge back onto one belt</b>. One row holds about <b>${pl} machine${pl>1?'s':''}</b> (what fills a Mk.6 belt).<br>Build <b style="color:#8fe6a8">${now}× now</b> (Phase ${np})${total>now?` → grows to <b>${total}×</b> by P5 (dashed = add later)`:''}: fill this row, then <b>stack ${rows} identical row${rows>1?'s':''}</b> for all ${total} and merge their output belts.<br>Belt grows <b>${path}</b> · each machine @100%: ${rec}/min${bpMax?' <span class="tag qty">×5 at MAX</span>':''}.</div>`; }
+  // Blueprint Designer sizing: 1 foundation = 8 m, so Mk.1 (32 m) is 4×4 foundations,
+  // Mk.2 (40 m) 5×5, Mk.3 (48 m) 6×6. A drawn row of 8 machines fits in none of them —
+  // say how many DO fit so the repeating unit is something you can actually stamp.
+  const fpd=fpDims(t.fp);
+  // machines per row along one axis, × rows that fit once ONE foundation strip is left
+  // free for the manifold belt/pipe run — packing every cell leaves nowhere for the belts
+  const fit=k=>Math.floor(k/fpd.w)*Math.floor((k-1)/fpd.h);
+  const f1=fit(4), f2=fit(5), f3=fit(6), best=Math.max(f1,f2,f3);
+  const bp=best>0
+    ? `<br>🧩 <b>Blueprint it:</b> leaving a foundation strip for the manifold, a <b>Designer Mk.1</b> (4×4) fits about <b>${f1||'—'}</b> of these ${bk.b}s${f2>f1?`, <b>Mk.2</b> (5×5) <b>${f2}</b>`:''}${f3>f2?`, <b>Mk.3</b> (6×6) <b>${f3}</b>`:''}. Save that as a stamp and drop it <b>~${Math.ceil(total/best)}×</b> rather than placing ${total} machines by hand.`
+    : `<br>🧩 <b>Too big to blueprint:</b> one ${bk.b} is ${t.fp} foundations, so a row of them will not fit even a Designer Mk.3 — place these by hand and blueprint the <i>belt/pipe runs</i> around them instead.`;
+  return `<div class="nt" style="margin:2px 0 7px;line-height:1.55">This is <b>one manifold row</b> — the repeating unit. <b>One belt enters</b>, a splitter (▫) taps off to each machine; their outputs <b>merge back onto one belt</b>. One row holds about <b>${pl} machine${pl>1?'s':''}</b> (what fills a Mk.6 belt).<br>Build <b style="color:#8fe6a8">${now}× now</b> (Phase ${np})${total>now?` → grows to <b>${total}×</b> by P5 (dashed = add later)`:''}: fill this row, then <b>stack ${rows} identical row${rows>1?'s':''}</b> for all ${total} and merge their output belts.<br>Belt grows <b>${path}</b> · each machine @100%: ${rec}/min${bpMax?' <span class="tag qty">×5 at MAX</span>':''}.${bp}</div>`; }
 function focusBankSvg(d,bk){
   const t=T[bk.tid], np=bankBuiltPhase(d,bk), eff=bpMax?MAXFACTOR:1;
   const total=bk.n, now=Math.max(1,Math.min(total,bankCountAt(bk.tid,np)));
@@ -1771,7 +1846,18 @@ function renderBpSteps(){
     const exps=banks.filter(bk=>BM_FINALS.has(bk.outItem)||DISTRICTS.some(o=>o.id!==d.id&&o.t.some(tid=>T[tid]&&T[tid].in.some(z=>z[0]===bk.outItem))));
     const expRate=Math.round(exps.reduce((s,bk)=>s+bk.outRate,0)), platforms=Math.max(1,exps.reduce((s,bk)=>s+Math.ceil(bk.outRate/780),0)), cars=Math.max(1,Math.ceil(expRate/1560));
     const drone=expRate>0&&expRate<=90;
-    h+=`<div class="invrow${rd?' done':''}" data-rail="1" style="border:1px solid var(--line);border-radius:7px;margin-bottom:6px"><input type="checkbox" data-k="rail" aria-label="${d.id} rail link and station — mark built" ${rd?'checked':''}><div class="it"><div class="nm"><span class="tag milestone">🚆 rail</span> This district is <b>far</b> — ship its <b>refined output</b> in (never raw ore). Exports ~<b>${expRate}/min</b> across <b>${exps.length}</b> item${exps.length===1?'':'s'}.</div><div class="nt">Build a <b>train station</b> here with ~<b>${platforms} freight platform${platforms>1?'s':''}</b> (≈ one per output belt), a <b>locomotive + ~${cars} freight car${cars>1?'s':''}</b>, and a matching <b>receiving station beside your core / ★</b> that unloads onto belts. Power both stations.${drone?` <span class="tag qty">low rate — a <b>drone port</b> each end + a battery line is simpler than a train here</span>`:` <span class="tag qty">add <b>drones</b> for any small, high-value dribble (port each end + batteries)</span>`} <span class="tag qty">full plan: train-network.md</span></div></div></div>`;
+    // INBOUND is the half everyone forgets — and for the nuclear district the copper feed
+    // is the heaviest line in the whole network. Derive it from the banks' own inputs.
+    const impMap={}; banks.forEach(bk=>bk.inputs.forEach(([it,r])=>{ const sd=ITEM2DIST[it]; if(sd&&sd!==d.id) impMap[it]=(impMap[it]||0)+r; }));
+    const imps=Object.keys(impMap).sort((a,b)=>impMap[b]-impMap[a]);
+    const impRate=Math.round(imps.reduce((s,it)=>s+impMap[it],0));
+    const impFluid=imps.filter(isFluidItem), impSolid=imps.filter(it=>!isFluidItem(it));
+    const impPlat=Math.max(imps.length?1:0,imps.reduce((s,it)=>s+Math.ceil(impMap[it]/(isFluidItem(it)?1600:780)),0));
+    const impCars=Math.max(imps.length?1:0,Math.ceil(impRate/1560));
+    const impHTML=imps.length
+      ? `<br><b style="color:#ffce8a">⬅ Inbound (the half that gets forgotten):</b> ship in ~<b>${impRate}/min</b> — ${imps.map(it=>`<b>${it}</b> ${Math.round(impMap[it])}/min <span style="color:var(--muted)">(${ITEM2DIST[it]})</span>`).join(', ')}. That needs <b>${impPlat} ${impFluid.length?'platform'+(impPlat>1?'s':'')+' (fluid platforms for '+impFluid.join(', ')+')':'freight platform'+(impPlat>1?'s':'')}</b> at the <b>sending</b> end plus the same here, and ~<b>${impCars} car${impCars>1?'s':''}</b>${impSolid.length&&impRate>780?` — this is a fat line, so run a <b>dedicated train</b> for it rather than sharing the outbound consist`:''}.`
+      : '';
+    h+=`<div class="invrow${rd?' done':''}" data-rail="1" style="border:1px solid var(--line);border-radius:7px;margin-bottom:6px"><input type="checkbox" data-k="rail" aria-label="${d.id} rail link and station — mark built" ${rd?'checked':''}><div class="it"><div class="nm"><span class="tag milestone">🚆 rail</span> This district is <b>far</b> — ship its <b>refined output</b> in (never raw ore). Exports ~<b>${expRate}/min</b> across <b>${exps.length}</b> item${exps.length===1?'':'s'}.</div><div class="nt">Build a <b>train station</b> here with ~<b>${platforms} freight platform${platforms>1?'s':''}</b> (≈ one per output belt), a <b>locomotive + ~${cars} freight car${cars>1?'s':''}</b>, and a matching <b>receiving station beside your core / ★</b> that unloads onto belts. Power both stations.${impHTML}${drone?` <span class="tag qty">low rate — a <b>drone port</b> each end + a battery line is simpler than a train here</span>`:` <span class="tag qty">add <b>drones</b> for any small, high-value dribble (port each end + batteries)</span>`} <span class="tag qty">full plan: train-network.md</span></div></div></div>`;
   }
   // ⚠ utilities & byproducts (shared list — same step exists in ✅ Do Next)
   if(util.length){ const ud=!!state['bp:'+d.id+':util'];
