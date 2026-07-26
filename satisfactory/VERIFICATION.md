@@ -1,5 +1,31 @@
 # Verification log & recipe reference (Satisfactory 1.0)
 
+## Corrections (persona-review reality-check pass, 2026-07-26)
+
+A six-persona review (see `REVIEW.md`) triggered a re-verification pass. Sources:
+SCIM + satisfactorytools search snippets (wikis still 403 in this environment).
+
+| What | Corrected to | Was |
+|------|--------------|-----|
+| **Magnetic Field Generator** | 2.5 VF + 1 EM Rod → **1/min** (5+2→2 per 120 s craft) | 12.5+5 → 2.5/min (2.5× too fast; the old "spot-check its craft rate" flag was warranted) |
+| **Ficsite Trigon** | 10 Ficsite Ingot → **30/min** (1→3 per 6 s) | 30 → 90/min (3× too fast) |
+| **Dark Matter Residue** | **50 Reanimated SAM → 100/min** (5→10 per 6 s; ratio 1:2) | 5 → 50/min (ratio was 1:10 — SAM demand was badly understated) |
+| **Alumina Solution byproduct** | **+50 Silica/min** now modeled in the app (`by:` field) | listed here as "+5" (per-craft slip) and absent from the app |
+| **Aluminum Scrap byproduct** | **+120 Water/min** now modeled in the app — the scrap-water recycle loop is a mandatory utility step | known here, absent from the app (silent deadlock trap) |
+| **Somersloop power** | amplification multiplies power by the **square** of the output multiplier → fully-slooped machine = **×4** power; MAX ≈ ×13.4 MW/machine | app used ×2 (~6.7×) — all MAX generator counts were ~half reality |
+| **Somersloop / shard budgets** | world supply noted in-app: **~106 sloops, ~730 wild-slug shards** (Synthetic Shards at Tier 9); sloop-priority advice added (terminal machines first) | budget printed sloops-for-every-slot with no supply reality check |
+| **Nuclear Power Plant water** | **240 m³/min** per plant | power.md said 300 |
+| **Nuclear fuel chain** | added to power.md sized for 6 plants (sulfur → acid → encased cells → rods + waste options) | absent from every document |
+| **Belt Mk.6 unlock (Guide text)** | **Tier 9 / Phase 5** (matches this file & `beltCapAtPhase`) | Guide tab said "Tier 8 / Phase 4–5" |
+| **Pipes Mk.1 unlock (TECH list)** | **Tier 3** (with Coal Power); Pipe Mk.2 Tier 6 | TECH list implied Tier 5; Guide implied "Phase 3 oil" |
+| **Miner Mk.2 (TECH list)** | Tier 4 → moved to the Phase-2 unlock list | was listed as pre-Phase-1 prep |
+| **Biochemical Sculptor (ref table below)** | row normalized to /min: 0.5 ADS + 40 Trigon + 10 Water → **2** | table row held per-craft amounts (1/80/20 → 4) |
+| **Delivery ETAs** | one rate system: `delivInfo` now uses `FINAL_RATES × scale` (same as `phaseDeliverMin`) | two disagreeing estimators (legacy MODULES clocks vs solver) |
+
+Still flagged / unverified: exact Quantum-Encoder craft times and EPM output
+(as before); Foundry Somersloop slot count (app assumes 1 — may be 2); drone
+unlock tier (docs say 7, may be 8 — doesn't change the Phase-4 plan).
+
 ## Corrections (QA passes, 2026-06-17)
 
 Multiple QA + data-verification passes re-checked every recipe against the
@@ -28,7 +54,8 @@ Unit, Assembly Director System, Electromagnetic Control Rod, Heat Sink, AI
 Limiter, Encased Industrial Beam, Circuit Board, Superposition Oscillator, the
 full aluminium chain, the Ficsite/Reanimated-SAM/Time-Crystal chain, and Excited
 Photonic Matter (no input, Converter). Magnetic Field Generator ratios correct
-(5 VF + 2 EM Rod per unit); spot-check its exact craft rate in-game.
+(5 VF + 2 EM Rod per unit); ~~spot-check its exact craft rate in-game~~ —
+*done 2026-07-26: it's 1/min, fixed (see the newer corrections table above).*
 
 > Machine counts in the app are now **demand-solved**: the 12 final parts have
 > design rates and every upstream bank is sized to total demand, so feeds never
@@ -140,7 +167,7 @@ Smelter/Constructor = Tier 0 · Assembler = Tier 2 · Foundry = Tier 3 · Refine
 | Item | Building | Inputs/min | Out/min |
 |------|----------|-----------|---------|
 | **Assembly Director System** | **Assembler** | 1.5 Adaptive Control Unit + 0.75 Supercomputer | 0.75 |
-| **Magnetic Field Generator** | **Assembler** | 12.5 Versatile Framework + 5 Electromagnetic Control Rod | 2.5 |
+| **Magnetic Field Generator** | **Assembler** | 2.5 Versatile Framework + 1 Electromagnetic Control Rod | 1 |
 | **Thermal Propulsion Rocket** | Manufacturer | 2.5 Modular Engine + 1 Turbo Motor + 3 Cooling System + 1 **Fused Modular Frame** | 1 |
 | **Nuclear Pasta** | Particle Accelerator | 100 Copper Powder + 0.5 Pressure Conversion Cube | 0.5 |
 | Turbo Motor | Manufacturer | 7.5 Cooling System + 3.75 Radio Control Unit + 7.5 Motor + 45 Rubber | 1.875 |
@@ -151,10 +178,10 @@ Smelter/Constructor = Tier 0 · Assembler = Tier 2 · Foundry = Tier 3 · Refine
 | Fused Modular Frame | Blender | 1.5 Heavy Modular Frame + 75 Aluminum Casing + 37.5 Nitrogen Gas | 1.5 |
 | Radio Control Unit | Manufacturer | 40 Aluminum Casing + 1.25 Crystal Oscillator + 2.5 Computer | 2.5 |
 
-### Aluminium chain (standard; *approx — spot-check ratios*)
+### Aluminium chain (standard; ratios verified, byproducts modeled in the app)
 | Item | Building | Inputs/min | Out/min |
 |------|----------|-----------|---------|
-| Alumina Solution | Refinery | 120 Bauxite + 180 Water | 120 (+5 Silica) |
+| Alumina Solution | Refinery | 120 Bauxite + 180 Water | 120 (+50 Silica) |
 | Aluminum Scrap | Refinery | 240 Alumina Solution + 120 Coal | 360 (+120 Water) |
 | Aluminum Ingot | Foundry | 90 Aluminum Scrap + 75 Silica | 60 |
 | Aluminum Casing | Constructor | 90 Aluminum Ingot | 60 |
@@ -163,7 +190,7 @@ Smelter/Constructor = Tier 0 · Assembler = Tier 2 · Foundry = Tier 3 · Refine
 ### Phase-5 finals + sub-chains
 | Item | Building | Inputs/min | Out/min |
 |------|----------|-----------|---------|
-| **Biochemical Sculptor** | **Blender** | 1 Assembly Director System + 80 Ficsite Trigon + 20 Water | 4 |
+| **Biochemical Sculptor** | **Blender** | 0.5 Assembly Director System + 40 Ficsite Trigon + 10 Water | 2 |
 | **AI Expansion Server** | **Quantum Encoder** | 4 Magnetic Field Generator + 4 Neural-Quantum Processor + 4 Superposition Oscillator + 100 Excited Photonic Matter | 4 |
 | **Ballistic Warp Drive** | **Quantum Encoder** | 1 Thermal Propulsion Rocket + 5 Singularity Cell + 2 Superposition Oscillator + 40 Dark Matter Crystal + 25 Excited Photonic Matter | 1 |
 | Neural-Quantum Processor | Quantum Encoder | 15 Time Crystal + 3 Supercomputer + 45 Ficsite Trigon + 75 Excited Photonic Matter | 3 |
@@ -173,7 +200,7 @@ Smelter/Constructor = Tier 0 · Assembler = Tier 2 · Foundry = Tier 3 · Refine
 | Dark Matter Crystal | Particle Accelerator | 30 Diamonds + 150 Dark Matter Residue | 30 |
 | Time Crystal | Converter | 12 Diamonds | 6 |
 | Diamonds | Particle Accelerator | 600 Coal | 30 |
-| Ficsite Trigon | Constructor | 30 Ficsite Ingot | 90 |
+| Ficsite Trigon | Constructor | 10 Ficsite Ingot | 30 |
 | Ficsite Ingot | Converter | 40 Reanimated SAM + 240 Iron Ingot | 10 |
 | Reanimated SAM | Constructor | 120 SAM Ore | 30 |
 

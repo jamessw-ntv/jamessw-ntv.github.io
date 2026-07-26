@@ -14,7 +14,7 @@ just tick tasks off.
 
 ## The model: material *districts*, not a mega-base or 1000 huts
 
-The factory is **6 production districts + 1 Project Assembly**, each a tidy
+The factory is **7 production districts + 1 Project Assembly**, each a tidy
 mini-base grouped around one material family:
 
 | | District | Near | Makes (shared) |
