@@ -452,15 +452,25 @@ copper / 7,412 coal / 5,546 crude / 1,223 SAM per minute.)
 
 ### Roadmap (waves, in implementation order)
 
-> **Status (2026-07-26): Waves 0–4 implemented, then hardened by a second
-> adversarial review (Part 4 below), and Wave 5 is under way.** Notes on what
-> shipped vs. the text below: recipe fixes were re-verified against
-> SCIM/satisfactorytools before changing (MFG 1/min, Trigon 30/min, DMR 50→100);
-> Wave 0 shipped the sloop supply-reality warning, and Wave 5 has since added the
-> real **allocator**. Still open from Wave 5: the Blueprints-tab phase selector,
-> per-bank "effective phase" from Expand ticks, alt-recipe solver toggles,
-> audit-vs-save mode with tri-state ticks, and the two owner-decision items
-> (FINAL_RATES rebalance; node-coordinate table).
+> **Status (2026-07-26): Waves 0–4 implemented, hardened by a second adversarial
+> review (Part 4), and most of Wave 5 shipped too.**
+>
+> Wave 5 **done**: the Somersloop **allocator** (enter what you own → it ranks
+> banks by machines-saved-per-sloop, because amplifying a bank halves its whole
+> upstream tree; 106 real sloops remove ~1,800 machines), **inbound** train
+> sizing (district F's ~3,900 copper ingot/min was never counted), per-phase
+> **long-pole** scheduling, **Blueprint-Designer** stamp sizing, and **tri-state
+> progress** (built / ≈ already have it / ⏭ skipped) for mid-save adopters.
+> A separate deep data pass also corrected Ballistic Warp Drive and the Quantum
+> Encoder residue byproducts, and added a port-count invariant (see
+> VERIFICATION.md).
+>
+> Wave 5 **still open**: Blueprints-tab phase selector; per-bank "effective
+> phase" from Expand ticks; alt-recipe solver toggles; a guided audit-vs-save
+> walkthrough (the tri-state marks exist, the wizard doesn't); crediting
+> byproducts *inside* the solver (they remain advisory); and the two owner
+> decisions — **FINAL_RATES rebalance** and the **node-coordinate table**
+> (deliberately not invented: real map coordinates could not be verified here).
 
 **Wave 0 — data honesty & small correctness (low risk, high trust):**
 sloop power ×2→×4 + updated prose; sloop/shard reality warning + terminal-
