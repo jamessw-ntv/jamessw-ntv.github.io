@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-26",
-    "fetched": "2026-07-26T06:42:06+00:00",
+    "fetched": "2026-07-26T09:19:21+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 4
+      "temp": 11,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 3
     },
     "days": [
       {
@@ -26,7 +26,7 @@
       {
         "day": "Mon",
         "min": 6,
-        "max": 12,
+        "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 2
@@ -34,7 +34,7 @@
       {
         "day": "Tue",
         "min": 7,
-        "max": 12,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 99
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92146.0,
-        "pct": 0.56
+        "price": 92337.0,
+        "pct": 0.93
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2696.26,
-        "pct": 1.47
+        "price": 2695.4,
+        "pct": 1.49
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "PBS SoCal, KMEX Lead L.A. Local Emmy Wins; KVEA, KABC Land Top Newscast Prizes",
+      "when": "26 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/la-local-emmy-winners-pbs-socal-leads-kvea-kabc-1236821371/"
+    },
     {
       "cat": "Film/TV",
       "title": "Marvel’s Comic-Con Panel Excites Fans for ‘Doomsday’ but Leaves Them Cautiously Optimistic About What’s Beyond",
@@ -111,13 +118,6 @@
       "when": "26 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/black-panther-3-december-2028-release-david-jonsson-1236083370/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Avengers: Doomsday’ Trailer Rocks Comic-Con: Doctor Doom Raises Army of Sentinels to Take Down Avengers, Fantastic Four and X-Men",
-      "when": "26 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/avengers-doomsday-new-trailer-comic-con-1236817677/"
     },
     {
       "cat": "Trek/Wars",
