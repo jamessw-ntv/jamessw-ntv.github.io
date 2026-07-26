@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-26",
-    "fetched": "2026-07-26T15:10:43+00:00",
+    "fetched": "2026-07-26T17:09:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 8
+      "temp": 8,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 9
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92609.0,
-        "pct": 0.75
+        "price": 92666.0,
+        "pct": 0.79
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2718.9,
-        "pct": 1.69
+        "price": 2742.0,
+        "pct": 2.5
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Rick and Morty’ Spinoff ‘President Curtis’ Plays It Safe, but Keeps the Sci-Fi Franchise Cruising: TV Review",
+      "title": "‘Pinocchio: Unstrung’ Review: Killer Puppetry Is the Best Thing About This Killer Puppet Slasher",
       "when": "26 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/president-curtis-review-rick-and-morty-spinoff-1236817266/"
+      "url": "https://variety.com/2026/film/news/pinocchio-unstrung-review-1236821368/"
     },
     {
       "cat": "Film/TV",
-      "title": "Inside ‘Colony’: ‘Train to Busan’ Director Yeon Sang-ho and Gianna Jun Discuss Their Thrilling New Take on the Zombie Movie",
+      "title": "Box Office: ‘The Odyssey’ Soars to $639 Million Globally After Two Weekends, Including $140 Million in Imax",
       "when": "26 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/colony-south-korea-yeon-sang-ho-gianna-jun-ji-hyun-zombie-movie-train-to-busan-1236821333/"
+      "url": "https://variety.com/2026/film/box-office/the-odyssey-global-box-office-600-million-imax-1236821428/"
     },
     {
       "cat": "Film/TV",
-      "title": "Box Office: ‘Toy Story 5’ Crosses $1 Billion, Becomes Highest-Grossing Movie of the Year",
+      "title": "‘Am I Supposed to be a Comedian?’: Donald Trump’s Bizarre White House Correspondent’s Dinner Speech Had Few Laughing",
       "when": "26 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/toy-story-5-billion-dollar-box-office-1236818437/"
+      "url": "https://variety.com/2026/politics/columns/donald-trump-whcd-2026-speech-1236821466/"
     },
     {
       "cat": "Film/TV",
-      "title": "Box Office: ‘The Odyssey’ Sails to $87 Million in Massive Second Weekend",
+      "title": "‘The Odyssey’ Leaked on X: High-Quality Bootleg Seen by Millions in Hours Before Takedown",
       "when": "26 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/the-odyssey-box-office-massive-second-weekend-1236821417/"
+      "url": "https://variety.com/2026/film/news/the-odyssey-leaked-high-quality-bootleg-x-1236821418/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "30m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
