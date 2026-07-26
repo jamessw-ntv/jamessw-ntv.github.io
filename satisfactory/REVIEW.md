@@ -294,6 +294,60 @@ fuel chain + power districts as first-class solved banks, (5) import-side
 train computation, (6) buffer/banking calculator with "start banking pasta at
 step N", (7) Blueprint-Designer stamps, (8) alt recipes wired into the solver.
 
-### 2.5 The reality-checker · 2.6 The accessibility reviewer
+### 2.5 The accessibility + print/mobile reviewer
 
-*(Findings pending — filled in as each reviewer reports.)*
+**Verdict: the intended core loop (read card → tick → read next) is the single
+worst keyboard experience in the app, the printed manual half-works, and the
+phone Build Map is effectively broken — while several claimed a11y features
+(labels, reduced motion, contrast tokens) audit better than expected.**
+
+- **Focus is destroyed on every tick.** `renderInventory()` rebuilds the whole
+  list on each interaction; focus drops to `<body>`, so a keyboard user
+  re-Tabs ~15 stops per tick, ~130 times per playthrough. One-line fix per
+  rebuild: refocus `#doNext` / the same `data-key` row. (Also stops visible
+  scroll-jumps.)
+- **Anonymous checkboxes:** all ~130 progress checkboxes have no accessible
+  name — "checkbox, not checked" ×130. Wrap in `<label>` or set
+  `aria-label = "Step N — label"` (also enlarges tap targets).
+- **Wrong SR labels from first-`<title>` heuristic:** district panels announce
+  as "Build in Phase 1" (the chip's title), floor-plan rows as their first
+  input feed. Buttons nested inside buttons (`.bpsect` inside `.bmmod`) are
+  invalid ARIA. No `aria-live` anywhere (captions, DO THIS NOW, warnbar); no
+  `aria-selected` on tabs (active tab is colour-only, labels lead with emoji).
+- **Two keyboard dead ends:** Districts-tab card headers and Blueprints
+  step-row highlighting are mouse-only (not covered by `_a11yMark`).
+- **Map input handling:** plain wheel over the map scroll-jacks the page on
+  desktop (Ctrl+wheel should be required); no `touch-action` CSS so touch pan
+  fires `pointercancel`; **no pinch handler despite the hint promising one**;
+  the +/− buttons zoom toward a hardcoded (600,380) instead of the viewBox
+  centre (1220,780) — a desktop bug too.
+- **Contrast (measured):** `--muted #9aa7b4` is *fine* (7.7:1). The failures
+  are `#6b7785` (3.8–4.3:1) on 9.5px SVG hints, `#5b6b78` at 8px, `#46525f`
+  compass letters (2.4:1). Build Map text renders ~0.49× viewBox units —
+  block labels are ~5px until zoomed. Teal-belt vs purple-output is the one
+  colour-only encoding pair.
+- **Phone:** `.pbtn`/`#doNext` ≈27px tall, checkboxes 23px (below WCAG 2.2's
+  24px); the Blueprints fallback pattern doesn't cover the "▦ All districts"
+  appendix (full-width SVGs leak to phones) nor the Build Map, which renders
+  at ×0.15 with no working zoom. The Do Next tab itself is a good couch
+  experience. Save-code copy uses deprecated `execCommand('copy')` (flaky on
+  iOS).
+- **Print:** the ~10–14 page tickable Do Next manual genuinely works, but
+  `.tag`/`.chip` print as empty pills (backgrounds stripped, pale text on
+  white), `.tlink` isn't in the print colour overrides, `break-inside:avoid`
+  on multi-page phases forces awkward blanks, and any diagram tab prints
+  light-on-white garbage at current pan/zoom. Wants: dark-ink tag/chip
+  overrides, page-break per phase, hide diagrams in print, per-district KIT +
+  "done when" text included.
+- **Reduced motion:** the CSS `!important` rule correctly kills even inline
+  transitions; the gap is JS `scrollIntoView({behavior:'smooth'})` which
+  ignores it. ▶ Play's 1700ms cadence is too fast for its captions and
+  invisible to SR.
+- **Explicitly not worth chasing** for a personal tool: full tablist
+  semantics, roving tabindex in the map SVG, per-machine narration — mark
+  decorative SVG text `aria-hidden` and lean on the existing text build-steps
+  as the SR surface.
+
+### 2.6 The Satisfactory 1.0 reality-checker
+
+*(Findings pending — filled in when the reviewer reports.)*
