@@ -117,11 +117,17 @@
     /* the dark SVG diagrams print as light-on-white noise — the text steps ARE the manual */
     .bpdiagram,#bmap,#bmInside,#flowOverview,.legend,#bmCaption{display:none!important}
   }
-  /* couch/thumb ergonomics: the daily-driver controls get real hit targets on touch */
-  @media (pointer:coarse){
+  /* couch/thumb ergonomics. Tablets get roomier chrome; PHONES keep the tightened
+     layout above (this used to sit after the max-width:640px block at equal specificity
+     and silently undid it, pushing "✓ Done — next" below the fold). On a phone only the
+     two controls you actually poke all evening grow. */
+  @media (pointer:coarse) and (min-width:641px){
     .pbtn,.toolbar button{padding:11px 16px;font-size:14px}
-    .invrow input{width:28px;height:28px}
     nav button{padding:12px 10px}
+  }
+  @media (pointer:coarse){
+    .invrow input{width:28px;height:28px}
+    #doNext{padding:12px 18px;font-size:15px}
   }
   #bmap{touch-action:none} /* let the map's own pointer pan/pinch win over page scroll */
 </style>
@@ -598,7 +604,8 @@ function renderTemplates(){
 }
 
 /* ============================ SHOPPING ============================ */
-const SLOOP_SLOTS={Smelter:1,Foundry:1,Constructor:1,Assembler:2,Manufacturer:4,Refinery:2,Blender:4,'Particle Accelerator':4,Converter:2,'Quantum Encoder':4};
+/* Somersloop amplification slots per building (1.0) — filling every slot doubles output. */
+const SLOOP_SLOTS={Smelter:1,Foundry:2,Constructor:1,Assembler:2,Manufacturer:4,Refinery:2,Blender:4,'Particle Accelerator':4,Converter:2,'Quantum Encoder':4};
 /* base MW per machine @100% (1.0). At MAX: ×2.5^1.321928 (overclock) ×4 (Somersloop —
    amplification power scales with the SQUARE of the 2× output multiplier). Particle
    Accelerator / Converter power fluctuates per recipe; these are averages. */
@@ -695,7 +702,11 @@ function pushDistrict(out,d,p){ const banks=districtBanks(d);
   if(util.length) out.push({key:'bp:'+d.id+':util',phase:p,district:d.id,label:'⚠ '+d.id+': utilities & byproducts (support lines)',detail:stripTags(util.join(' '))});
   banks.forEach((bk,i)=>{ const now=bankNowCount(d,bk); out.push({key:'bp:'+d.id+':'+bk.tid,ai:i,phase:p,district:d.id,label:'['+d.id+'] §'+(i+1)+' '+bk.r+' — '+now+'× '+bk.b+(bk.n>now?' (→'+bk.n+')':''),detail:stripTags(bankStepHTML(d,banks,bk,i))}); }); }
 function pushPAphase(out,p){ const d=DMAP['PA'], banks=districtBanks(d);
-  if(p===1) out.push({key:'bp:PA:pad',phase:1,district:'PA',label:'★ Project Assembly — set up the pad by the Space Elevator',detail:'The Hub / Space Elevator area (built in Phase 0) is your ★ platform. Keep a flat space beside it for the final-part assemblers + a buffer of each part — this is the only zone that changes every phase.'});
+  if(p===1){ out.push({key:'bp:PA:pad',phase:1,district:'PA',label:'★ Project Assembly — set up the pad by the Space Elevator',detail:'The Hub / Space Elevator area (built in Phase 0) is your ★ platform. Keep a flat space beside it for the final-part assemblers + a buffer of each part — this is the only zone that changes every phase.'});
+    // ★ has support lines too (the Sculptor Blender needs water) — the Blueprints tab
+    // renders this row for PA, so the spine must carry it or the two tabs disagree.
+    const putil=districtUtils(d,banks);
+    if(putil.length) out.push({key:'bp:PA:util',phase:1,district:'PA',label:'⚠ ★ PA: utilities & byproducts (support lines)',detail:stripTags(putil.join(' '))}); }
   banks.forEach((bk,i)=>{ if(T[bk.tid]&&T[bk.tid].ph===p){ const now=bankNowCount(d,bk); out.push({key:'bp:PA:'+bk.tid,ai:i,phase:p,district:'PA',label:'[★ PA] §'+(i+1)+' '+bk.r+' — '+now+'× '+bk.b+(bk.n>now?' (→'+bk.n+')':''),detail:stripTags(bankStepHTML(d,banks,bk,i))}); } }); }
 function bankBuiltPhase(d,bk){ return d.id==='PA' ? ((T[bk.tid]&&T[bk.tid].ph)||1) : d.phase; }
 function bankNowCount(d,bk){ return Math.max(1,Math.min(bk.n,bankCountAt(bk.tid,bankBuiltPhase(d,bk)))); }
@@ -708,7 +719,7 @@ const POWERROW={2:'COAL',3:'PWR3',4:'PWR4'};
 function masterSteps(){ const out=[];
   INVENTORY.filter(r=>r.phase===0).forEach(r=>out.push(invStep(r)));
   for(let p=1;p<=5;p++){
-    (TECH[p]||[]).forEach((t,ti)=>out.push({key:'tech:'+p+':'+ti,phase:p,label:'🔓 Unlock: '+t,detail:'Research / complete this before the phase\'s builds — it gates what follows.',cat:'milestone'}));
+    (TECH[p]||[]).forEach(t=>out.push({key:techKey(p,t),phase:p,label:'🔓 Unlock: '+t,detail:'Research / complete this before the phase\'s builds — it gates what follows.',cat:'milestone'}));
     if(POWERROW[p]){ const r=INVENTORY.find(x=>x.id===POWERROW[p]); if(r) out.push(invStep(r)); }
     DISTRICTS.filter(d=>d.id!=='PA'&&d.phase===p).forEach(d=>pushDistrict(out,d,p));
     pushPAphase(out,p);
@@ -720,13 +731,27 @@ function masterSteps(){ const out=[];
 /* which BM_SEQ chapter (the goal-level "what's next" narrative) a step belongs to.
    District steps land on their district's chapter; deliverables on that phase's
    ★ PA chapter; everything else on the first chapter of its phase. */
-function chapterOf(s){
+function chapterRaw(s){
   if(!s||s.phase===0) return 0;
   if(s.key==='FINISH') return BM_SEQ.length-1;
   if(s.district){ const i=BM_SEQ.findIndex(c=>c.node===s.district&&(s.district!=='PA'||c.phase===s.phase)); if(i>=0&&BM_SEQ[i].phase===s.phase) return i; }
   if(s.deliv){ const i=BM_SEQ.findIndex(c=>c.node==='PA'&&c.phase===s.phase); if(i>=0) return i; }
   const j=BM_SEQ.findIndex(c=>c.phase===s.phase); return j<0?0:j;
 }
+/* …but the chapter must never run BACKWARDS as you advance, or the guided card and the
+   map's 📍 pin jump to an earlier district. Some steps (Expand …, and any future step
+   kind) are emitted after their phase's ★ chapter yet have no chapter of their own, so
+   we walk masterSteps() once in order and take a RUNNING MAX. Keyed cache, invalidated
+   when the plan settings change the step list. */
+let _chCache={sig:null,map:null};
+function chapterIndexMap(){
+  const sig=(bpMax?'1':'0')+'|'+bpScale;
+  if(_chCache.sig===sig&&_chCache.map) return _chCache.map;
+  const m=new Map(); let run=0;
+  masterSteps().forEach(s=>{ run=Math.max(run,chapterRaw(s)); m.set(s.key,run); });
+  _chCache={sig,map:m}; return m;
+}
+function chapterOf(s){ if(!s) return 0; const v=chapterIndexMap().get(s.key); return v===undefined?chapterRaw(s):v; }
 /* the chapter your ticks say you're actually on — drives the Build Map's 📍 */
 function bmDerivedStep(){ const nx=masterSteps().find(s=>!state[s.key]); return nx?chapterOf(nx):BM_SEQ.length-1; }
 function fmtMin(m){ m=Math.round(m); return m<90?m+' min':(m/60).toFixed(1)+' h'; }
@@ -806,7 +831,7 @@ function renderInventory(){
       const chI=chapterOf(s);
       if(chI!==lastCh&&p>0){ lastCh=chI;
         const cSteps=ms.filter(x=>chapterOf(x)===chI), cDone=cSteps.filter(x=>state[x.key]).length;
-        const dv=document.createElement('div');
+        const dv=document.createElement('div'); dv.className='chdiv';
         dv.style.cssText='padding:9px 16px 5px;color:#9fb0c0;font-size:12.5px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)';
         dv.innerHTML=`📖 <b style="color:var(--txt)">${BM_SEQ[chI].t}</b> <span style="color:var(--muted)">· ${cDone}/${cSteps.length} tasks</span>`;
         sec.appendChild(dv); }
@@ -832,8 +857,10 @@ function renderInventory(){
 }
 document.getElementById('resetinv').onclick=()=>{ if(confirm('Reset all progress? (A one-shot backup is kept — 📥 Load code with "undo" to restore.)')){
   try{ lsSet(LS+'_undo', JSON.stringify(state)); }catch(e){}
-  state={}; saveState(state); renderInventory();
+  state={_cfg:state._cfg};   // clearing ticks is not a request to change the plan itself
+  saveState(state); applyCfg(); renderInventory();
   if(typeof renderBlueprints==='function') renderBlueprints();
+  if(typeof buildBuildMap==='function') buildBuildMap();
   if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); } };
 document.getElementById('collapseDone').onclick=e=>{ hideDone=!hideDone; e.target.textContent=hideDone?'👁️ Show completed':'👁️ Hide completed'; renderInventory(); };
 function dlCsv(csv,name){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download=name; a.click(); }
@@ -858,10 +885,14 @@ document.getElementById('loadcode').onclick=()=>{ const code=prompt('Paste a pro
     if(code.trim().toLowerCase()==='undo'){ obj=JSON.parse(localStorage.getItem(LS+'_undo')||'null'); if(!obj) throw new Error('no backup stored yet'); }
     else { obj=JSON.parse(decodeURIComponent(escape(atob(code.trim())))); }
     if(typeof obj!=='object'||!obj) throw new Error('not valid');
-    const nIn=Object.keys(obj).length, nCur=Object.keys(state).length;
-    if(nCur>0 && !confirm('Incoming code: '+nIn+' entries. You currently have '+nCur+'. Replace? (Current ticks are backed up — type "undo" in Load code to get them back.)')) return;
+    // a code from an older build arrives in the OLD key scheme — normalise it now,
+    // otherwise every bank reads as unbuilt and the plan restarts at Phase 1
+    migrateState(obj);
+    const cnt=o=>Object.keys(o).filter(k=>k[0]!=='_').length;
+    const nIn=cnt(obj), nCur=cnt(state);
+    if(nCur>0 && !confirm('Incoming code: '+nIn+' ticked step'+(nIn===1?'':'s')+'. You currently have '+nCur+'. Replace? (Current ticks are backed up — type "undo" in Load code to get them back.)')) return;
     try{ lsSet(LS+'_undo', JSON.stringify(state)); }catch(e){}
-    state=obj; saveState(state); renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof buildBuildMap==='function') buildBuildMap(); alert('✅ Progress restored.'); }
+    state=obj; saveState(state); applyCfg(); renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof buildBuildMap==='function') buildBuildMap(); alert('✅ Progress restored.'); }
   catch(e){ alert('That code wasn\'t valid: '+e.message); } };
 
 /* ============================ 2D BUILD MAP — material districts ============================ */
@@ -878,13 +909,41 @@ const DISTRICTS=[
  {id:'PA',name:'Project Assembly',near:'by the Space Elevator',ang:null,phase:1,col:'#ff9e3d',role:'By the elevator — assembles the 12 final parts from everything the districts ship in, and launches them.',t:['T-SMARTPLATE','T-VERSFRAME','T-AUTOWIRE','T-MODENGINE','T-ACU','T-ADS','T-MFG','T-TPR','T-SCULPTOR','T-AISERVER','T-WARP']},
 ];
 const DMAP={}; DISTRICTS.forEach(d=>DMAP[d.id]=d);
-/* one-time migration: bank tick keys were positional (bp:A:3) — fragile if a
-   district's template list is ever reordered. Convert to template ids (bp:A:T-SCREW). */
-(function(){ let changed=false;
+/* stable key for a tech-unlock step: slugged from what it unlocks, so reordering the
+   TECH lists can never shift a tick onto a different unlock. */
+function techSlug(t){ return String(t).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,28); }
+function techKey(p,t){ return 'tech:'+p+':'+techSlug(t); }
+/* Bring a saved-progress object up to the CURRENT key scheme. Must run on every
+   wholesale state replacement — not just at boot — because a progress code exported by
+   an older build (or an older device) arrives in the old scheme and would otherwise
+   read as "nothing built". Only touches plain data (DISTRICTS[].t, TECH, INVENTORY) so
+   it is safe to call this early, before the render-time settings exist. */
+function migrateState(s){
+  if(!s||typeof s!=='object') return s;
+  // 1) bank keys were positional (bp:A:3) — fragile if a template list is reordered.
   DISTRICTS.forEach(d=>d.t.forEach((tid,i)=>{ const o='bp:'+d.id+':'+i, n='bp:'+d.id+':'+tid;
-    if(state[o]!==undefined){ if(state[n]===undefined) state[n]=state[o]; delete state[o]; changed=true; } }));
-  if(changed) saveState(state);
-})();
+    if(s[o]!==undefined){ if(s[n]===undefined) s[n]=s[o]; delete s[o]; } }));
+  // 2) tech-unlock keys were positional too (tech:2:1) — re-key them by slug.
+  for(let p=1;p<=5;p++) (TECH[p]||[]).forEach((t,ti)=>{ const o='tech:'+p+':'+ti, n=techKey(p,t);
+    if(s[o]!==undefined){ if(s[n]===undefined) s[n]=s[o]; delete s[o]; } });
+  // 3) Tech-unlock and utility steps did not exist in older builds, so a save from one
+  //    has them all unticked — which would throw a player who has finished Phase 3 back
+  //    to "Unlock: finish HUB Tiers 0-2". For any phase whose DELIVERIES are all ticked,
+  //    its prerequisites demonstrably happened: mark those (and only those) steps done.
+  const keys=Object.keys(s);
+  const preTech=!keys.some(k=>k.indexOf('tech:')===0), hasProgress=keys.some(k=>k.indexOf('bp:')===0);
+  if(preTech&&hasProgress){
+    for(let p=1;p<=5;p++){
+      const dels=INVENTORY.filter(r=>r.phase===p&&r.category==='deliverable');
+      if(!dels.length||!dels.every(r=>s[r.id])) continue;
+      (TECH[p]||[]).forEach(t=>{ const k=techKey(p,t); if(s[k]===undefined) s[k]=1; });
+      // harmless if a district has no utility line — the key is only read when a step exists
+      DISTRICTS.forEach(d=>{ if(d.phase<=p){ const k='bp:'+d.id+':util'; if(s[k]===undefined) s[k]=1; } });
+    }
+  }
+  return s;
+}
+migrateState(state); saveState(state);
 const PHCOL={0:'#bcd0e0',1:'#ffce8a',2:'#8fe6ff',3:'#b7f0a0',4:'#d3b6ff',5:'#ffadc4'}; // phase chip colours (match .chip.pN)
 function phaseChipSvg(x,y,ph){ const c=PHCOL[ph]||'#bcd0e0'; return `<rect x="${x}" y="${y}" width="26" height="15" rx="4" fill="${c}"/><text x="${x+13}" y="${y+11}" fill="#10161d" font-size="10" font-weight="700" text-anchor="middle">P${ph}</text>`; }
 const WORKS2DIST={M1:'PA',M2:'PA',M3:'PA',M4:'PA',M5:'PA',M6:'PA',M7:'PA',M8:'PA',M9:'F',M10:'PA',M11:'PA',M12:'PA',F1:'D',F2:'D'};
@@ -909,6 +968,9 @@ let bmStep=0, bmTimer=null, bmBuilt=false, bmDragging=false;
 const BM_POS_LS='satis_bm_layout_v1';
 function bmLoadPos(){ try{ return JSON.parse(localStorage.getItem(BM_POS_LS))||{}; }catch(e){ return {}; } }
 function bmSavePos(){ const o={}; DISTRICTS.forEach(d=>{ if(d.moved) o[d.id]={x:d.px,y:d.py}; }); lsSet(BM_POS_LS,JSON.stringify(o)); }
+/* shared pointer bookkeeping: the pinch gesture and the panel-drag gesture must agree
+   about how many fingers are down, so this lives above both of them. */
+let bmTouches=new Map(), bmPinch=null, bmPanId=null;
 function bmResetLayout(){ localStorage.removeItem(BM_POS_LS); DISTRICTS.forEach(d=>{ delete d.moved; }); buildBuildMap(); bmApply(); }
 function svgEl(tag,attrs){ const e=document.createElementNS(SVGNS,tag); for(const k in attrs) e.setAttribute(k,attrs[k]); return e; }
 function bmClamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
@@ -1019,8 +1081,14 @@ function buildBuildMap(){
     // --- drag to rearrange this panel (saved); clicking the body still opens the district summary ---
     g.dataset.bx=d.px; g.dataset.by=d.py;
     let dragStart=null, movedFar=false;
+    const abortDrag=e=>{ // a second finger means the user is pinching, not dragging: undo
+      d.px=dragStart.px; d.py=dragStart.py; d.x=d.px; d.y=d.py;
+      g.setAttribute('transform','translate('+(d.px-(+g.dataset.bx))+','+(d.py-(+g.dataset.by))+')');
+      bmUpdateEdges(); dragStart=null; movedFar=false; bmDragging=false;
+      if(e) try{ g.releasePointerCapture(e.pointerId); }catch(_){} };
     g.addEventListener('pointerdown',e=>{
       if(e.target.closest && e.target.closest('.bpsect')) return;   // an area block → belt web, not a drag
+      if(bmTouches.size>1||bmPinch) return;                         // second finger down → let it pinch
       e.stopPropagation();                                          // keep the SVG pan handler from grabbing it
       bmDragging=true; movedFar=false;
       const r=svg.getBoundingClientRect();
@@ -1028,6 +1096,7 @@ function buildBuildMap(){
       try{ g.setPointerCapture(e.pointerId); }catch(_){}
     });
     g.addEventListener('pointermove',e=>{ if(!dragStart) return;
+      if(bmPinch){ abortDrag(e); return; }
       const dx=(e.clientX-dragStart.cx)/dragStart.rw*BMW/bmZoom.k, dy=(e.clientY-dragStart.cy)/dragStart.rh*BMH/bmZoom.k;
       if(Math.abs(e.clientX-dragStart.cx)+Math.abs(e.clientY-dragStart.cy)>4) movedFar=true;
       d.px=Math.round(dragStart.px+dx); d.py=Math.round(dragStart.py+dy); d.x=d.px; d.y=d.py;
@@ -1035,7 +1104,7 @@ function buildBuildMap(){
       bmUpdateEdges();
     });
     const endDrag=e=>{ if(!dragStart) return; dragStart=null; bmDragging=false; try{ g.releasePointerCapture(e.pointerId); }catch(_){}
-      if(movedFar){ d.moved=true; bmSavePos(); } };
+      if(movedFar&&!bmPinch){ d.moved=true; bmSavePos(); } };
     g.addEventListener('pointerup',endDrag);
     g.addEventListener('pointercancel',endDrag);
     g.addEventListener('click',e=>{ if(movedFar){ e.stopPropagation(); movedFar=false; return; } showDistrict(d.id); });
@@ -1068,7 +1137,13 @@ function bmUpdateEdges(){ if(!bmView) return;
 }
 function showDistrict(id){ const d=DMAP[id]; if(!d) return; const makes=d.t.map(tid=>T[tid]?T[tid].out[0]:tid);
   const cap=document.getElementById('bmCaption'); if(cap) cap.innerHTML='<b style="color:var(--txt)">'+(id==='PA'?'★ Project Assembly':d.id+' · '+d.name)+'</b> — 📍 '+d.near+'  <button class="pbtn" onclick="enterDistrictMap(\''+id+'\')">🔍 Zoom in: placement &amp; conveyors →</button>'+(d.role?'<br><span style="color:#9fb0c0">🧭 '+d.role+'</span>':'')+'<br><b>Makes:</b> '+makes.join(', ')+(id==='PA'?'  <span style="color:#9aa7b4">(the 12 final elevator parts)</span>':'');
-  document.querySelectorAll('#bmap .bmmod').forEach(n=>{ const r=n.querySelector('rect'); if(r){ const on=n.dataset.mod===id; r.setAttribute('stroke',on?'#fff':'#0a0d12'); r.setAttribute('stroke-width',on?4:2); } }); }
+  // keep the not-selected panels showing whatever bmApply decided (dashed reserved land
+  // for future districts) instead of blanket-clearing every outline
+  document.querySelectorAll('#bmap .bmmod').forEach(n=>{ const r=n.querySelector('rect'); if(!r) return;
+    const on=n.dataset.mod===id, future=(+n.dataset.seq)>bmStep;
+    r.setAttribute('stroke', on?'#fff':(future?(DMAP[n.dataset.mod]||{}).col||'#0a0d12':'#0a0d12'));
+    r.setAttribute('stroke-width', on?4:2);
+    if(!on&&future) r.setAttribute('stroke-dasharray','14 9'); else r.removeAttribute('stroke-dasharray'); }); }
 /* unified drill-down: zoom the Build Map INTO a district's internal placement */
 function enterDistrictMap(id){ const d=DMAP[id]; if(!d) return; const banks=districtBanks(d);
   const svg=(bpLayout==='grid'?districtGridSvg:districtFlowSvg)(d,banks,-1);
@@ -1092,21 +1167,28 @@ function bmSetupZoom(svg){
   svg.addEventListener('wheel',e=>{ if(!e.ctrlKey && !finePointer()) return; // touch/coarse pointer: pinch handles zoom instead
     e.preventDefault(); const p=pt(e), f=e.deltaY<0?1.15:1/1.15, nk=Math.max(0.5,Math.min(6,bmZoom.k*f));
     const wx=(p.x-bmZoom.tx)/bmZoom.k, wy=(p.y-bmZoom.ty)/bmZoom.k; bmZoom.k=nk; bmZoom.tx=p.x-wx*nk; bmZoom.ty=p.y-wy*nk; bmApplyView(); },{passive:false});
-  // one finger drags to pan; two fingers PINCH to zoom (real touch support — the hint promises it)
-  const touches=new Map(); let pinch=null, drag=false,lx=0,ly=0;
-  svg.addEventListener('pointerdown',e=>{ touches.set(e.pointerId,{x:e.clientX,y:e.clientY});
-    if(touches.size===2){ const [a,b]=[...touches.values()]; drag=false;
-      pinch={d:Math.hypot(a.x-b.x,a.y-b.y), k:bmZoom.k, cx:(a.x+b.x)/2, cy:(a.y+b.y)/2}; return; }
-    drag=true; lx=e.clientX; ly=e.clientY; svg.style.cursor='grabbing'; });
+  // one finger drags to pan; two fingers PINCH to zoom (real touch support — the hint promises it).
+  // Every finger is registered in the CAPTURE phase: the district panels stopPropagation()
+  // on pointerdown, which would otherwise hide the second finger of a pinch and leave the
+  // gesture as a panel drag that silently persists a wrecked layout.
+  let lx=0,ly=0;
+  svg.addEventListener('pointerdown',e=>{ bmTouches.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(bmTouches.size===2){ const [a,b]=[...bmTouches.values()]; bmPanId=null;
+      bmPinch={d:Math.hypot(a.x-b.x,a.y-b.y), k:bmZoom.k, cx:(a.x+b.x)/2, cy:(a.y+b.y)/2}; }
+  },{capture:true});
+  svg.addEventListener('pointerdown',e=>{ if(bmPinch||bmTouches.size>1) return;
+    bmPanId=e.pointerId; lx=e.clientX; ly=e.clientY; svg.style.cursor='grabbing'; });
   window.addEventListener('pointermove',e=>{
-    if(touches.has(e.pointerId)) touches.set(e.pointerId,{x:e.clientX,y:e.clientY});
-    if(pinch&&touches.size===2){ const [a,b]=[...touches.values()]; const nd=Math.hypot(a.x-b.x,a.y-b.y);
-      const nk=Math.max(0.5,Math.min(6,pinch.k*nd/Math.max(20,pinch.d)));
-      const r=svg.getBoundingClientRect(), px=(pinch.cx-r.left)/r.width*BMW, py=(pinch.cy-r.top)/r.height*BMH;
+    if(bmTouches.has(e.pointerId)) bmTouches.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(bmPinch&&bmTouches.size>=2){ const [a,b]=[...bmTouches.values()]; const nd=Math.hypot(a.x-b.x,a.y-b.y);
+      const nk=Math.max(0.5,Math.min(6,bmPinch.k*nd/Math.max(20,bmPinch.d)));
+      const r=svg.getBoundingClientRect(), px=(bmPinch.cx-r.left)/r.width*BMW, py=(bmPinch.cy-r.top)/r.height*BMH;
       const wx=(px-bmZoom.tx)/bmZoom.k, wy=(py-bmZoom.ty)/bmZoom.k;
       bmZoom.k=nk; bmZoom.tx=px-wx*nk; bmZoom.ty=py-wy*nk; bmApplyView(); return; }
-    if(!drag) return; const r=svg.getBoundingClientRect(); bmZoom.tx+=(e.clientX-lx)/r.width*BMW; bmZoom.ty+=(e.clientY-ly)/r.height*BMH; lx=e.clientX; ly=e.clientY; bmApplyView(); });
-  const endPt=e=>{ touches.delete(e.pointerId); if(touches.size<2) pinch=null; if(!touches.size){ drag=false; svg.style.cursor='grab'; } };
+    if(bmPanId!==e.pointerId) return;   // only the finger that started the pan may pan
+    const r=svg.getBoundingClientRect(); bmZoom.tx+=(e.clientX-lx)/r.width*BMW; bmZoom.ty+=(e.clientY-ly)/r.height*BMH; lx=e.clientX; ly=e.clientY; bmApplyView(); });
+  const endPt=e=>{ bmTouches.delete(e.pointerId); if(bmTouches.size<2) bmPinch=null;
+    if(bmPanId===e.pointerId){ bmPanId=null; svg.style.cursor='grab'; } };
   window.addEventListener('pointerup',endPt);
   window.addEventListener('pointercancel',endPt);
   svg.addEventListener('dblclick',()=>{ bmZoom={...bmFitZoom}; bmApplyView(); });
@@ -1136,12 +1218,19 @@ function bmApply(){
     const banks=bankCache[did]||(bankCache[did]=districtBanks(DMAP[did]));
     const bk=banks&&banks[i]; if(!bk) return;
     const r=g.querySelector('rect'), t=g.querySelector('.bmcnt');
-    const cAt=bankCountAt(bk.tid,ph), tot=bk.n, done=!!state['bp:'+did+':'+bk.tid];
-    const ghost=cAt===0&&!done;
+    const tot=bk.n, done=!!state['bp:'+did+':'+bk.tid];
+    // Use the SAME semantics as the checklist (bankNowCount): a bank is a ghost only while
+    // its build phase is still in the future, and its count is never 0 at a chapter whose
+    // own steps say "build 1× now" — the two views must agree.
+    const bPh=bankBuiltPhase(DMAP[did],bk), ghost=ph<bPh&&!done;
+    const cNow=ghost?0:Math.max(1,Math.min(tot,bankCountAt(bk.tid,ph)));
     if(r){ r.setAttribute('fill-opacity',ghost?0.14:0.96);
-      if(ghost) r.setAttribute('stroke-dasharray','4 3'); else r.removeAttribute('stroke-dasharray'); }
-    g.querySelectorAll('text').forEach(tx=>tx.setAttribute('opacity',ghost?0.4:1));
-    if(t) t.textContent=(done?'✓ ':'')+'§'+(i+1)+' '+(ABBR[bk.b]||'?')+'×'+(ghost?('0→'+tot):(cAt<tot?cAt+'→'+tot:tot));
+      // a dasharray paints nothing without a stroke — give the ghost a visible outline
+      if(ghost){ r.setAttribute('stroke',BCOL[bk.b]||'#8b97a3'); r.setAttribute('stroke-width',1.2); r.setAttribute('stroke-dasharray','4 3'); }
+      else { r.removeAttribute('stroke-dasharray');
+        if(done){ r.setAttribute('stroke','#5dd47a'); r.setAttribute('stroke-width',2); } else { r.removeAttribute('stroke'); r.removeAttribute('stroke-width'); } } }
+    g.querySelectorAll('text,line').forEach(tx=>tx.setAttribute('opacity',ghost?0.4:1));
+    if(t) t.textContent=(done?'✓ ':'')+'§'+(i+1)+' '+(ABBR[bk.b]||'?')+'×'+(ghost?('0→'+tot):(cNow<tot?cNow+'→'+tot:tot));
   });
   const sl=document.getElementById('bmSlider'); if(sl){ sl.max=BM_SEQ.length-1; sl.value=bmStep; }
   const lbl=document.getElementById('bmStepLbl'); if(lbl) lbl.textContent='Chapter '+bmStep+' / '+(BM_SEQ.length-1)+(atNow?' · 📍 you are here':' · preview');
@@ -1217,7 +1306,12 @@ let bpMod='A', bpHi=-1,
     bpScale=(state._cfg&&state._cfg.scale)||1,
     bpMax=(state._cfg&&typeof state._cfg.max==='boolean')?state._cfg.max:true,
     bpZoom=1;
-function saveCfg(){ state._cfg=Object.assign({},state._cfg,{max:bpMax,scale:bpScale}); saveState(state); }
+function saveCfg(){ state._cfg=Object.assign({},state._cfg,{max:bpMax,scale:bpScale}); saveState(state); _chCache.sig=null; }
+/* re-read the plan settings OUT of state — needed after any wholesale state replacement
+   (Load code, undo, Reset), otherwise the live plan silently disagrees with the saved one. */
+function applyCfg(){ bpScale=(state._cfg&&state._cfg.scale)||1;
+  bpMax=(state._cfg&&typeof state._cfg.max==='boolean')?state._cfg.max:true;
+  _chCache.sig=null; _demandCache={}; _demP={}; }
 /* MAX mode: every production machine runs at 250% (3 Power Shards) AND holds a
    Somersloop (2× output) → 5× throughput each, so you build ~1/5 the machines.
    The user is collecting enough slugs/sloops to do this everywhere. */
@@ -1481,10 +1575,9 @@ function buildingLegendHTML(builds){ const list=(builds&&builds.length)?builds:O
 function placementLegendHTML(banks){ const builds=banks?[...new Set(banks.map(b=>b.b))]:null;
   return `<div class="meta" style="background:#11161d;border:1px solid var(--line);border-radius:8px;padding:7px 11px;margin:6px 0;font-size:11.5px;line-height:1.7">🔑 <b style="color:var(--txt)">Key.</b> ${SYMBOL_LEGEND}<details style="margin-top:2px"><summary style="cursor:pointer;color:var(--teal);font-size:11px;list-style:none">▾ buildings${builds?' in this district':''}</summary><div style="margin-top:4px">${buildingLegendHTML(builds)}</div></details></div>`; }
 /* keep the Build Map's area blocks greyed/lit in sync with built status without a full rebuild (no zoom reset) */
-function syncBuiltOnMap(){ document.querySelectorAll('#bmap .bpsect').forEach(g=>{ const r=g.querySelector('rect'), t=g.querySelector('.bmcnt'), done=!!state['bp:'+g.dataset.works+':'+(g.dataset.tid||g.dataset.i)];
-    if(r){ if(done){ r.setAttribute('stroke','#5dd47a'); r.setAttribute('stroke-width',2); } else { r.removeAttribute('stroke'); r.removeAttribute('stroke-width'); } }
-    if(t) t.textContent=(done?'✓ ':'')+t.textContent.replace(/^✓ /,''); });
-  if(typeof bmApply==='function'&&bmBuilt) bmApply(); }
+/* bmApply() is the single authority on how an area block looks (built / ghost / count),
+   so re-running it IS the sync — doing it twice in two places is how they drifted apart. */
+function syncBuiltOnMap(){ if(bmBuilt&&typeof bmApply==='function') bmApply(); }
 function bpToggleBuilt(works,i){ const bk=districtBanks(DMAP[works])[i]; const k='bp:'+works+':'+(bk?bk.tid:i); if(state[k]) delete state[k]; else state[k]=Date.now(); saveState(state);
   renderBlueprints(); if(typeof renderInventory==='function') renderInventory(); syncBuiltOnMap(); }
 function wireToggles(root){ root.querySelectorAll('.bptoggle').forEach(g=>g.onclick=e=>{ e.stopPropagation(); bpToggleBuilt(g.dataset.works,+g.dataset.i); }); }
@@ -1673,16 +1766,16 @@ function renderBpSteps(){
   const shards=bpMax?banks.reduce((s,b)=>s+b.n*3,0):0, sloops=bpMax?banks.reduce((s,b)=>s+b.n*(SLOOP_SLOTS[b.b]||1),0):0;
   h+=`<div class="invrow" style="border:1px solid var(--orange);border-radius:7px;margin-bottom:6px;background:rgba(255,158,61,.05)"><div class="it"><div class="nm"><span class="tag qty">🎒 KIT</span> Bring before you fly out:</div><div class="nt">${Object.entries(kit).map(([k,v])=>`<b>${v}×</b> ${k}`).join(' · ')} · ~<b>${f.side*f.side}</b> foundations · ~<b>${trunks}</b> trunk belts/pipes + ~<b>${taps}</b> splitters/mergers · power poles${bpMax?` · <b>${shards}</b> Power Shards + <b>${sloops}</b> Somersloops`:''}.</div></div></div>`;
   const across=Math.ceil(Math.sqrt(banks.length)), deep=Math.ceil(banks.length/across);
-  h+=`<div class="invrow${padDone?' done':''}" style="border:1px solid var(--line);border-radius:7px;margin-bottom:6px"><input type="checkbox" data-k="pad" ${padDone?'checked':''}><div class="it"><div class="nm"><span class="tag milestone">pad</span> Lay a flat raised <b>~${f.side}×${f.side}</b> platform near ${d.near} (above ground).</div><div class="nt"><b>Build it area-by-area as you go — not all at once.</b> Do the §steps below in order (each area only when its inputs are flowing). Efficient shape: arrange the ${banks.length} areas roughly <b>${across} across × ${deep} deep</b>, flowing left→right, with belt/pipe lanes between rows and room on one side to expand in later phases.</div></div></div>`;
+  h+=`<div class="invrow${padDone?' done':''}" style="border:1px solid var(--line);border-radius:7px;margin-bottom:6px"><input type="checkbox" data-k="pad" aria-label="Lay the ~${f.side}×${f.side} platform for ${d.id} · ${bpEsc(d.name)} — mark built" ${padDone?'checked':''}><div class="it"><div class="nm"><span class="tag milestone">pad</span> Lay a flat raised <b>~${f.side}×${f.side}</b> platform near ${d.near} (above ground).</div><div class="nt"><b>Build it area-by-area as you go — not all at once.</b> Do the §steps below in order (each area only when its inputs are flowing). Efficient shape: arrange the ${banks.length} areas roughly <b>${across} across × ${deep} deep</b>, flowing left→right, with belt/pipe lanes between rows and room on one side to expand in later phases.</div></div></div>`;
   if(isRail){ const rd=!!state['bp:'+d.id+':rail'];
     const exps=banks.filter(bk=>BM_FINALS.has(bk.outItem)||DISTRICTS.some(o=>o.id!==d.id&&o.t.some(tid=>T[tid]&&T[tid].in.some(z=>z[0]===bk.outItem))));
     const expRate=Math.round(exps.reduce((s,bk)=>s+bk.outRate,0)), platforms=Math.max(1,exps.reduce((s,bk)=>s+Math.ceil(bk.outRate/780),0)), cars=Math.max(1,Math.ceil(expRate/1560));
     const drone=expRate>0&&expRate<=90;
-    h+=`<div class="invrow${rd?' done':''}" data-rail="1" style="border:1px solid var(--line);border-radius:7px;margin-bottom:6px"><input type="checkbox" data-k="rail" ${rd?'checked':''}><div class="it"><div class="nm"><span class="tag milestone">🚆 rail</span> This district is <b>far</b> — ship its <b>refined output</b> in (never raw ore). Exports ~<b>${expRate}/min</b> across <b>${exps.length}</b> item${exps.length===1?'':'s'}.</div><div class="nt">Build a <b>train station</b> here with ~<b>${platforms} freight platform${platforms>1?'s':''}</b> (≈ one per output belt), a <b>locomotive + ~${cars} freight car${cars>1?'s':''}</b>, and a matching <b>receiving station beside your core / ★</b> that unloads onto belts. Power both stations.${drone?` <span class="tag qty">low rate — a <b>drone port</b> each end + a battery line is simpler than a train here</span>`:` <span class="tag qty">add <b>drones</b> for any small, high-value dribble (port each end + batteries)</span>`} <span class="tag qty">full plan: train-network.md</span></div></div></div>`;
+    h+=`<div class="invrow${rd?' done':''}" data-rail="1" style="border:1px solid var(--line);border-radius:7px;margin-bottom:6px"><input type="checkbox" data-k="rail" aria-label="${d.id} rail link and station — mark built" ${rd?'checked':''}><div class="it"><div class="nm"><span class="tag milestone">🚆 rail</span> This district is <b>far</b> — ship its <b>refined output</b> in (never raw ore). Exports ~<b>${expRate}/min</b> across <b>${exps.length}</b> item${exps.length===1?'':'s'}.</div><div class="nt">Build a <b>train station</b> here with ~<b>${platforms} freight platform${platforms>1?'s':''}</b> (≈ one per output belt), a <b>locomotive + ~${cars} freight car${cars>1?'s':''}</b>, and a matching <b>receiving station beside your core / ★</b> that unloads onto belts. Power both stations.${drone?` <span class="tag qty">low rate — a <b>drone port</b> each end + a battery line is simpler than a train here</span>`:` <span class="tag qty">add <b>drones</b> for any small, high-value dribble (port each end + batteries)</span>`} <span class="tag qty">full plan: train-network.md</span></div></div></div>`;
   }
   // ⚠ utilities & byproducts (shared list — same step exists in ✅ Do Next)
   if(util.length){ const ud=!!state['bp:'+d.id+':util'];
-    h+=`<div class="invrow${ud?' done':''}" style="border:1px solid #b6792e;border-radius:7px;margin-bottom:6px;background:rgba(255,158,61,.05)"><input type="checkbox" data-k="util" ${ud?'checked':''}><div class="it"><div class="nm"><span class="tag qty">⚠ utilities</span> Don't forget the support lines:</div><div class="nt">${util.join('<br>')}</div></div></div>`;
+    h+=`<div class="invrow${ud?' done':''}" style="border:1px solid #b6792e;border-radius:7px;margin-bottom:6px;background:rgba(255,158,61,.05)"><input type="checkbox" data-k="util" aria-label="${d.id} utilities and byproduct lines — mark built" ${ud?'checked':''}><div class="it"><div class="nm"><span class="tag qty">⚠ utilities</span> Don't forget the support lines:</div><div class="nt">${util.join('<br>')}</div></div></div>`;
   }
   banks.forEach((bk,i)=>{ const dn=!!state['bp:'+d.id+':'+bk.tid];
     h+=`<div class="invrow${dn?' done':''}" data-i="${i}" style="border:1px solid ${i===bpHi?'var(--orange)':'var(--line)'};border-radius:7px;margin-bottom:6px">
