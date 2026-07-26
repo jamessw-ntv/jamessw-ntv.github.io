@@ -137,10 +137,11 @@
   <!-- 2D BUILD MAP (spatial, no-overlap, step-through) -->
   <section id="tab-buildmap" class="tab">
     <div class="controls">
-      <span class="lbl">Build sequence:</span>
+      <span class="lbl">Chapters:</span>
       <button class="pbtn" id="bmPrev">◀ Prev</button>
       <button class="pbtn" id="bmPlay">▶ Play</button>
       <button class="pbtn" id="bmNext">Next ▶</button>
+      <button class="pbtn" id="bmNow" title="Jump the map back to your real progress (from your ticked steps)">📍 Now</button>
       <input id="bmSlider" type="range" min="0" max="12" value="0" step="1" style="flex:1;min-width:140px;accent-color:var(--orange)">
       <span class="lbl" id="bmStepLbl">Step 0 / 12</span>
       <span class="lbl" style="margin-left:6px">🔍</span>
@@ -162,7 +163,7 @@
       </svg>
       <div style="font-size:13px;color:var(--txt);line-height:1.5"><b style="color:var(--orange)">📍 Where to build:</b> the <b>top-right Dune Desert plateau</b> — flat &amp; open; build <b>above ground</b>. Your core ores (iron, copper, coal, limestone, quartz) are close by; <b>rail in</b> bauxite, uranium, nitrogen &amp; SAM from the far map. The map below places each district by compass relative to <b>★ Project Assembly</b> at the centre.</div>
     </div>
-    <div id="bmCaption" class="hint" style="min-height:40px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 13px;color:var(--txt)"></div>
+    <div id="bmCaption" class="hint" aria-live="polite" style="min-height:40px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 13px;color:var(--txt)"></div>
     <svg id="bmap" viewBox="0 0 1200 760" style="width:100%;height:auto;background:#0a0d12;border:1px solid var(--line);border-radius:10px;margin-top:8px"></svg>
     <div id="bmInside" style="display:none;margin-top:8px"></div>
     <div class="legend">
@@ -173,7 +174,7 @@
       <span class="k"><span class="ln" style="border-color:var(--purple)"></span>Finished part → ★</span>
       <span class="k">♻ <b style="color:#8fe6a8">Build-once — districts only grow.</b></span>
     </div>
-    <p class="hint">🔭 <b>Zoomed out = the whole base at a glance</b> (big district cards); <b>zoom in</b> and each panel reveals its <b>area blocks</b> (§N · building ×count) — <b>click an area</b> to drill into its exact placement. 🔍 <b>Scroll/pinch to zoom, drag empty space to pan, double-click to reset.</b> ✋ <b>Drag any district panel to rearrange the map</b> — your layout is saved; <b>⤢ Reset layout</b> restores the auto compass placement. Lines are the real cross-district feeds: <b style="color:#2dd4bf">teal belts</b> between core districts, <b style="color:#ff9e3d">dashed orange 🚆 trains</b> to/from the far districts (Aluminium / Nuclear / Quantum), <b style="color:#b692ff">purple</b> = finished parts to ★. ▶ <b>Play</b> / the slider builds it out and darkens what's not built yet. Click a district header for its summary + a focused placement view.</p>
+    <p class="hint">🔭 <b>Zoomed out = the whole base at a glance</b> (big district cards); <b>zoom in</b> and each panel reveals its <b>area blocks</b> (§N · building ×count) — <b>click an area</b> to drill into its exact placement. 🔍 <b>Scroll/pinch to zoom, drag empty space to pan, double-click to reset.</b> ✋ <b>Drag any district panel to rearrange the map</b> — your layout is saved; <b>⤢ Reset layout</b> restores the auto compass placement. Lines are the real cross-district feeds: <b style="color:#2dd4bf">teal belts</b> between core districts, <b style="color:#ff9e3d">dashed orange 🚆 trains</b> to/from the far districts (Aluminium / Nuclear / Quantum), <b style="color:#b692ff">purple</b> = finished parts to ★. The map <b>opens at 📍 your real progress</b> (from your ticked steps) and <b>grows with you</b>: each chapter fills in the area blocks that phase needs (dashed = not built yet), and future districts show as <b>dashed reserved land</b> — that's the room you're leaving. ▶ <b>Play</b> / the slider <b>previews</b> any point in the story; <b>📍 Now</b> snaps back. Click a district header for its summary + a focused placement view.</p>
   </section>
 
   <!-- BLUEPRINTS — fixed grid floor-plans, zoom over→module, per-step check-off -->
@@ -690,6 +691,7 @@ const POWERROW={2:'COAL',3:'PWR3',4:'PWR4'};
 function masterSteps(){ const out=[];
   INVENTORY.filter(r=>r.phase===0).forEach(r=>out.push(invStep(r)));
   for(let p=1;p<=5;p++){
+    (TECH[p]||[]).forEach((t,ti)=>out.push({key:'tech:'+p+':'+ti,phase:p,label:'🔓 Unlock: '+t,detail:'Research / complete this before the phase\'s builds — it gates what follows.',cat:'milestone'}));
     if(POWERROW[p]){ const r=INVENTORY.find(x=>x.id===POWERROW[p]); if(r) out.push(invStep(r)); }
     DISTRICTS.filter(d=>d.id!=='PA'&&d.phase===p).forEach(d=>pushDistrict(out,d,p));
     pushPAphase(out,p);
@@ -698,6 +700,18 @@ function masterSteps(){ const out=[];
   }
   const fin=INVENTORY.find(r=>r.id==='FINISH'); if(fin) out.push(invStep(fin));
   return out; }
+/* which BM_SEQ chapter (the goal-level "what's next" narrative) a step belongs to.
+   District steps land on their district's chapter; deliverables on that phase's
+   ★ PA chapter; everything else on the first chapter of its phase. */
+function chapterOf(s){
+  if(!s||s.phase===0) return 0;
+  if(s.key==='FINISH') return BM_SEQ.length-1;
+  if(s.district){ const i=BM_SEQ.findIndex(c=>c.node===s.district&&(s.district!=='PA'||c.phase===s.phase)); if(i>=0&&BM_SEQ[i].phase===s.phase) return i; }
+  if(s.deliv){ const i=BM_SEQ.findIndex(c=>c.node==='PA'&&c.phase===s.phase); if(i>=0) return i; }
+  const j=BM_SEQ.findIndex(c=>c.phase===s.phase); return j<0?0:j;
+}
+/* the chapter your ticks say you're actually on — drives the Build Map's 📍 */
+function bmDerivedStep(){ const nx=masterSteps().find(s=>!state[s.key]); return nx?chapterOf(nx):BM_SEQ.length-1; }
 function fmtMin(m){ m=Math.round(m); return m<90?m+' min':(m/60).toFixed(1)+' h'; }
 function phaseDeliverMin(p){ const ds=DELIVERIES[p]||[]; let mx=0; ds.forEach(([item,qty])=>{ const r=FINAL_RATES[item]*(bpScale||1); if(r) mx=Math.max(mx,qty/r); }); return mx; }
 /* ticks store a timestamp (truthy, so every existing state[key] check still works)
@@ -709,13 +723,22 @@ function renderInventory(){
   const ms=masterSteps(); const STEPNO=new Map(); ms.forEach((s,i)=>STEPNO.set(s,i+1));
   const done0=ms.filter(s=>state[s.key]).length;
   const next=ms.find(s=>!state[s.key]); const nextNo=next?STEPNO.get(next):ms.length;
-  const nb=document.createElement('div'); nb.className='invphase'; nb.style.borderColor='var(--orange)';
+  const nb=document.createElement('div'); nb.className='invphase'; nb.style.borderColor='var(--orange)'; nb.setAttribute('aria-live','polite');
   if(next){ let links='';
     if(next.district){ const nai=(String(next.key).match(/^bp:[^:]+:(\d+)$/)||[])[1];
       links=` <button class="pbtn" onclick="gotoBlueprint('${next.district}'${nai!=null?','+nai:''})">📐 Blueprint</button> <button class="pbtn" onclick="gotoMapStep('${next.district}')">🗺️ On map</button>`; }
+    // goal-level context: which chapter of the story this task belongs to, and why
+    const chIdx=chapterOf(next), chp=BM_SEQ[chIdx];
+    const chSteps=ms.filter(s=>chapterOf(s)===chIdx), chPos=chSteps.indexOf(next)+1;
+    const ni=ms.indexOf(next); let arrive=null,dist=0;
+    for(let i2=ni;i2<ms.length;i2++){ if(ms[i2].deliv||ms[i2].key==='FINISH'){ arrive=ms[i2]; dist=i2-ni; break; } }
     nb.innerHTML=`<h3 style="background:#2a1c08"><span class="chip p${next.phase}">Phase ${next.phase}</span> ▶ DO THIS NOW <span class="pct" style="margin-left:auto">Step ${nextNo} of ${ms.length}</span></h3>
-      <div style="padding:12px 16px"><div style="font-size:16px;font-weight:700;color:var(--orange)">Step ${nextNo} — ${next.label}</div>
-        <div class="nt" style="margin:5px 0 11px">${next.detail||''}</div>
+      <div style="padding:12px 16px">
+        <div style="font-size:12.5px;color:var(--muted);margin-bottom:2px"><b style="color:var(--txt)">📖 Chapter ${chIdx+1}/${BM_SEQ.length} — ${chp.t}</b> · task ${chPos} of ${chSteps.length}</div>
+        <div style="font-size:12px;color:#9fb0c0;margin-bottom:9px">${chp.d}</div>
+        <div style="font-size:16px;font-weight:700;color:var(--orange)">Step ${nextNo} — ${next.label}</div>
+        <div class="nt" style="margin:5px 0 9px">${next.detail||''}</div>
+        ${arrive?`<div style="font-size:12px;color:var(--teal);margin-bottom:10px">▲ ${dist===0?'This is the delivery':`${dist} step${dist>1?'s':''} until`}: <b>${arrive.label}</b></div>`:''}
         <button class="pbtn" id="doNext" style="background:var(--orange);color:#1a1205;border-color:var(--orange);font-weight:700">✓ Done — next</button>${links}</div>`;
   } else nb.innerHTML=`<h3 style="background:#13261a">🎉 Every step done — pull the lever and launch! 🚀</h3>`;
   wrap.appendChild(nb);
@@ -737,9 +760,16 @@ function renderInventory(){
     const pct=Math.round(done/steps.length*100);
     const sec=document.createElement('div'); sec.className='invphase';
     sec.innerHTML=`<h3><span class="chip p${p}">Phase ${p}</span> ${PHASE_NAMES[p]}<div class="prog"><i style="width:${pct}%"></i></div><span class="pct">${done}/${steps.length} · ${pct}%</span><button class="pbtn phdone" data-p="${p}" style="margin-left:8px;padding:3px 9px">${done===steps.length?'↺ undo':'✓ all'}</button></h3>`;
-    if(TECH[p]) sec.innerHTML+=`<div style="padding:7px 16px 2px;color:var(--muted);font-size:12px">🔓 <b>Unlock first:</b> ${TECH[p].join(' · ')}</div>`;
     { const pm=phaseDeliverMin(p); if(pm) sec.innerHTML+=`<div style="padding:1px 16px 6px;color:var(--muted);font-size:12px">⏱ once built, ~<b>${fmtMin(pm)}</b> of running to hit this phase's deliveries (lines run in parallel${bpScale!==1?', at ×'+bpScale+' rate':''}).</div>`; }
+    let lastCh=-1;
     steps.forEach(s=>{ const ch=!!state[s.key]; if(hideDone&&ch) return; const no=STEPNO.get(s);
+      const chI=chapterOf(s);
+      if(chI!==lastCh&&p>0){ lastCh=chI;
+        const cSteps=ms.filter(x=>chapterOf(x)===chI), cDone=cSteps.filter(x=>state[x.key]).length;
+        const dv=document.createElement('div');
+        dv.style.cssText='padding:9px 16px 5px;color:#9fb0c0;font-size:12.5px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)';
+        dv.innerHTML=`📖 <b style="color:var(--txt)">${BM_SEQ[chI].t}</b> <span style="color:var(--muted)">· ${cDone}/${cSteps.length} tasks</span>`;
+        sec.appendChild(dv); }
       const isNext=next&&next.key===s.key;
       const row=document.createElement('div'); row.className='invrow'+(ch?' done':'');
       if(isNext){ row.style.borderLeft='3px solid var(--orange)'; row.style.background='rgba(255,158,61,0.06)'; }
@@ -917,11 +947,14 @@ function buildBuildMap(){
       beltLabels.push({lx,ly,lw,lab,bc,item}); }));
     p.cols.forEach((c,ci)=>c.forEach((bi,ri)=>{ const bk=p.banks[bi], ax=x0+p.padX+ci*(p.aw+p.gx), ay=y0+p.padTop+ri*(p.ah+p.gy);
       const col=BCOL[bk.b]||'#8b97a3', ab=ABBR[bk.b]||'?', done=!!state['bp:'+d.id+':'+bi];
-      const ag=svgEl('g',{class:'bpsect'}); ag.dataset.works=d.id; ag.dataset.i=bi; ag.style.cursor='pointer';
-      ag.appendChild(svgEl('rect',{x:ax,y:ay,width:p.aw,height:p.ah,rx:4,fill:col,opacity:done?.5:.96}));
+      const ag=svgEl('g',{class:'bpsect'}); ag.dataset.works=d.id; ag.dataset.i=bi; ag.dataset.tid=bk.tid; ag.style.cursor='pointer';
+      const rct=svgEl('rect',{x:ax,y:ay,width:p.aw,height:p.ah,rx:4,fill:col,opacity:.96});
+      if(done){ rct.setAttribute('stroke','#5dd47a'); rct.setAttribute('stroke-width',2); }
+      ag.appendChild(rct);
       for(let gx2=ax+9;gx2<ax+p.aw-1;gx2+=9) ag.appendChild(svgEl('line',{x1:gx2,y1:ay,x2:gx2,y2:ay+p.ah,stroke:'rgba(0,0,0,.16)','stroke-width':.5}));
       for(let gy2=ay+9;gy2<ay+p.ah-1;gy2+=9) ag.appendChild(svgEl('line',{x1:ax,y1:gy2,x2:ax+p.aw,y2:gy2,stroke:'rgba(0,0,0,.16)','stroke-width':.5}));
-      ag.appendChild(svgEl('text',{x:ax+4,y:ay+13,fill:'#0a0d12','font-size':9.5,'font-weight':'700'})).textContent='§'+(bi+1)+' '+ab+'×'+(function(){const nn=bankNowCount(d,bk);return bk.n>nn?nn+'→'+bk.n:bk.n;})();
+      const cnt=svgEl('text',{x:ax+4,y:ay+13,fill:'#0a0d12','font-size':9.5,'font-weight':'700'}); cnt.classList.add('bmcnt'); ag.appendChild(cnt);
+      cnt.textContent=(done?'✓ ':'')+'§'+(bi+1)+' '+ab+'×'+(function(){const nn=bankNowCount(d,bk);return bk.n>nn?nn+'→'+bk.n:bk.n;})();
       ag.appendChild(svgEl('text',{x:ax+4,y:ay+26,fill:'#0c1620','font-size':8})).textContent=(bk.r.length>14?bk.r.slice(0,13)+'…':bk.r);
       ag.appendChild(svgEl('text',{x:ax+4,y:ay+38,fill:'#10202a','font-size':7.5})).textContent=bk.outRate+'/min';
       ag.appendChild(svgEl('title',{})).textContent=bk.r+': '+bk.n+'× '+bk.b+' → '+bk.outRate+'/min (click for belt web)';
@@ -972,7 +1005,9 @@ function buildBuildMap(){
     svg.appendChild(svgEl('text',{x:x,y:y,fill:'#46525f','font-size':40,'font-weight':'700','text-anchor':a})).textContent=t; });
   // default view: zoom to fit the laid-out panels so district names are legible at a glance (not tiny blobs)
   const cW=Math.max(1,maxx-minx), cH=Math.max(1,maxy-miny), fit=Math.max(0.6,Math.min(BMW/(cW+140),BMH/(cH+140),2.6));
-  bmFitZoom={k:fit,tx:BMW/2*(1-fit),ty:BMH/2*(1-fit)}; bmZoom={...bmFitZoom}; bmApplyView(); bmSetupZoom(svg); bmApply();
+  bmFitZoom={k:fit,tx:BMW/2*(1-fit),ty:BMH/2*(1-fit)}; bmZoom={...bmFitZoom}; bmApplyView(); bmSetupZoom(svg);
+  bmStep=bmDerivedStep();   // the map opens at YOUR progress, not at step 0
+  bmApply();
 }
 /* reposition the cross-district edges (and their labels) to follow dragged panels */
 function bmUpdateEdges(){ if(!bmView) return;
@@ -1019,21 +1054,41 @@ function bpResolve(id){ if(DMAP[id]) return id; if(typeof WORKS2DIST!=='undefine
 function gotoBlueprint(id, ai){ bpMod=bpResolve(id); bpHi=(ai!=null&&+ai>=0)?+ai:-1; const b=document.querySelector('nav button[data-tab="blueprints"]'); if(b) b.click(); renderBlueprints();
   if(bpHi>=0) setTimeout(()=>{ const ss=document.querySelectorAll('#bpStage svg'); const el=ss[ss.length-1]; if(el&&el.scrollIntoView) el.scrollIntoView({behavior:'smooth',block:'center'}); },70); }
 function bmApply(){
-  const hi=BM_SEQ[bmStep].node;
+  const hi=BM_SEQ[bmStep].node, derived=bmDerivedStep(), atNow=bmStep===derived;
   document.querySelectorAll('#bmap .bmnode').forEach(n=>{ const s=+n.dataset.seq; n.style.transition='opacity .4s';
-    n.style.opacity = s<=bmStep ? 1 : 0.11;
+    // future districts render as RESERVED LAND: readable dashed ghost, not near-invisible
+    n.style.opacity = s<=bmStep ? 1 : 0.28;
     if(n.classList.contains('bmmod')){ const r=n.querySelector('rect'); const on=(n.dataset.mod===hi);
-      if(r){ r.setAttribute('stroke', on?'#ffffff':'#0a0d12'); r.setAttribute('stroke-width', on?4:2); } }
+      if(r){ r.setAttribute('stroke', on?'#ffffff':(s<=bmStep?'#0a0d12':DMAP[n.dataset.mod].col)); r.setAttribute('stroke-width', on?4:2);
+        if(s>bmStep) r.setAttribute('stroke-dasharray','14 9'); else r.removeAttribute('stroke-dasharray'); } }
   });
-  document.querySelectorAll('#bmap .bmedge').forEach(e=>{ const s=+e.dataset.seq, res=e.dataset.res==='1'; e.style.transition='opacity .4s'; e.style.opacity = s<=bmStep?(res?0.2:0.55):0.04; });
+  document.querySelectorAll('#bmap .bmedge').forEach(e=>{ const s=+e.dataset.seq, res=e.dataset.res==='1'; e.style.transition='opacity .4s'; e.style.opacity = s<=bmStep?(res?0.2:0.55):0.06; });
+  // phase-aware area blocks: at this chapter's phase, each bank shows the machine
+  // count it needs BY THEN (bankCountAt); banks that don't exist yet are dashed
+  // ghosts — the map literally grows as the story (or your ticks) advance.
+  const ph=Math.max(1,BM_SEQ[bmStep].phase), bankCache={};
+  document.querySelectorAll('#bmap .bpsect').forEach(g=>{
+    const did=g.dataset.works, i=+g.dataset.i;
+    const banks=bankCache[did]||(bankCache[did]=districtBanks(DMAP[did]));
+    const bk=banks&&banks[i]; if(!bk) return;
+    const r=g.querySelector('rect'), t=g.querySelector('.bmcnt');
+    const cAt=bankCountAt(bk.tid,ph), tot=bk.n, done=!!state['bp:'+did+':'+i];
+    const ghost=cAt===0&&!done;
+    if(r){ r.setAttribute('fill-opacity',ghost?0.14:0.96);
+      if(ghost) r.setAttribute('stroke-dasharray','4 3'); else r.removeAttribute('stroke-dasharray'); }
+    g.querySelectorAll('text').forEach(tx=>tx.setAttribute('opacity',ghost?0.4:1));
+    if(t) t.textContent=(done?'✓ ':'')+'§'+(i+1)+' '+(ABBR[bk.b]||'?')+'×'+(ghost?('0→'+tot):(cAt<tot?cAt+'→'+tot:tot));
+  });
   const sl=document.getElementById('bmSlider'); if(sl){ sl.max=BM_SEQ.length-1; sl.value=bmStep; }
-  const lbl=document.getElementById('bmStepLbl'); if(lbl) lbl.textContent='Step '+bmStep+' / '+(BM_SEQ.length-1);
-  const cap=document.getElementById('bmCaption'); if(cap) cap.innerHTML='<b style="color:var(--txt)">'+BM_SEQ[bmStep].t+'</b><br>'+BM_SEQ[bmStep].d;
+  const lbl=document.getElementById('bmStepLbl'); if(lbl) lbl.textContent='Chapter '+bmStep+' / '+(BM_SEQ.length-1)+(atNow?' · 📍 you are here':' · preview');
+  const nowB=document.getElementById('bmNow'); if(nowB){ nowB.style.borderColor=atNow?'var(--line)':'var(--orange)'; nowB.style.color=atNow?'var(--muted)':'var(--orange)'; }
+  const cap=document.getElementById('bmCaption'); if(cap) cap.innerHTML='<b style="color:var(--txt)">'+BM_SEQ[bmStep].t+'</b>'+(atNow?' <span style="color:#8fe6a8;font-size:12px">📍 your progress</span>':' <span style="color:var(--muted);font-size:12px">(preview — 📍 Now returns to your progress)</span>')+'<br>'+BM_SEQ[bmStep].d;
 }
 function bmSet(v){ bmStep=bmClamp(v,0,BM_SEQ.length-1); bmApply(); }
 function bmStop(){ if(bmTimer){ clearInterval(bmTimer); bmTimer=null; const b=document.getElementById('bmPlay'); if(b) b.textContent='▶ Play'; } }
 document.getElementById('bmPrev').onclick=()=>{ bmStop(); bmSet(bmStep-1); };
 document.getElementById('bmNext').onclick=()=>{ bmStop(); bmSet(bmStep+1); };
+document.getElementById('bmNow').onclick=()=>{ bmStop(); bmSet(bmDerivedStep()); };
 function bmZoomBy(f){ const cx=BMW/2,cy=BMH/2; const wx=(cx-bmZoom.tx)/bmZoom.k, wy=(cy-bmZoom.ty)/bmZoom.k;
   bmZoom.k=Math.max(0.5,Math.min(6,bmZoom.k*f)); bmZoom.tx=cx-wx*bmZoom.k; bmZoom.ty=cy-wy*bmZoom.k; bmApplyView(); }
 document.getElementById('bmZoomIn').onclick=()=>bmZoomBy(1.3);
@@ -1356,7 +1411,10 @@ function buildingLegendHTML(builds){ const list=(builds&&builds.length)?builds:O
 function placementLegendHTML(banks){ const builds=banks?[...new Set(banks.map(b=>b.b))]:null;
   return `<div class="meta" style="background:#11161d;border:1px solid var(--line);border-radius:8px;padding:7px 11px;margin:6px 0;font-size:11.5px;line-height:1.7">🔑 <b style="color:var(--txt)">Key.</b> ${SYMBOL_LEGEND}<details style="margin-top:2px"><summary style="cursor:pointer;color:var(--teal);font-size:11px;list-style:none">▾ buildings${builds?' in this district':''}</summary><div style="margin-top:4px">${buildingLegendHTML(builds)}</div></details></div>`; }
 /* keep the Build Map's area blocks greyed/lit in sync with built status without a full rebuild (no zoom reset) */
-function syncBuiltOnMap(){ document.querySelectorAll('#bmap .bpsect').forEach(g=>{ const r=g.querySelector('rect'); if(r) r.setAttribute('opacity', state['bp:'+g.dataset.works+':'+g.dataset.i]?0.5:0.96); }); }
+function syncBuiltOnMap(){ document.querySelectorAll('#bmap .bpsect').forEach(g=>{ const r=g.querySelector('rect'), t=g.querySelector('.bmcnt'), done=!!state['bp:'+g.dataset.works+':'+g.dataset.i];
+    if(r){ if(done){ r.setAttribute('stroke','#5dd47a'); r.setAttribute('stroke-width',2); } else { r.removeAttribute('stroke'); r.removeAttribute('stroke-width'); } }
+    if(t) t.textContent=(done?'✓ ':'')+t.textContent.replace(/^✓ /,''); });
+  if(typeof bmApply==='function'&&bmBuilt) bmApply(); }
 function bpToggleBuilt(works,i){ const k='bp:'+works+':'+i; if(state[k]) delete state[k]; else state[k]=Date.now(); saveState(state);
   renderBlueprints(); if(typeof renderInventory==='function') renderInventory(); syncBuiltOnMap(); }
 function wireToggles(root){ root.querySelectorAll('.bptoggle').forEach(g=>g.onclick=e=>{ e.stopPropagation(); bpToggleBuilt(g.dataset.works,+g.dataset.i); }); }
