@@ -452,6 +452,15 @@ copper / 7,412 coal / 5,546 crude / 1,223 SAM per minute.)
 
 ### Roadmap (waves, in implementation order)
 
+> **Status (2026-07-26): Waves 0–4 are implemented** (see the commit series on
+> this branch). Wave 5 remains future work. Notes on what shipped vs. the text
+> below: recipe fixes were re-verified against SCIM/satisfactorytools before
+> changing (MFG 1/min, Trigon 30/min, DMR 50→100 confirmed); the sloop
+> *allocator* and per-phase clock schedule stayed in Wave 5 — Wave 0 ships the
+> supply-reality warning + terminal-machine priority list instead; the
+> Blueprints-tab phase selector and per-bank "effective phase" from Expand
+> ticks also remain in Wave 5 (the Build Map is fully phase-aware).
+
 **Wave 0 — data honesty & small correctness (low risk, high trust):**
 sloop power ×2→×4 + updated prose; sloop/shard reality warning + terminal-
 machine priority list in the budget; unify the two ETA systems; model the
