@@ -350,4 +350,152 @@ phone Build Map is effectively broken — while several claimed a11y features
 
 ### 2.6 The Satisfactory 1.0 reality-checker
 
-*(Findings pending — filled in when the reviewer reports.)*
+**Verdict: the recipe data and district/phase skeleton are unusually good, and
+pacing at the stated rates is sane (~11 h of runtime) — but MAX-everything,
+the power model, the missing nuclear/sulfur chain, and the Dune Desert
+resource claims do not survive contact with a real save.** (This reviewer ran
+the app's own solver headless: at MAX it plans 600 machines / 2,855 at 100%,
+1,800 Power Shards, 853 Somersloops, and raw draws of 12,416 iron / 10,006
+copper / 7,412 coal / 5,546 crude / 1,223 SAM per minute.)
+
+- **CRITICAL — MAX is mathematically impossible.** 853 sloops needed vs ~106
+  in the entire world (sloops also compete with MAM Alien Tech research —
+  which needs SAM ore the plan defers to Phase 5, so MAX doesn't even unlock
+  early — and Alien Power Augmenters at 10 sloops each). Shards: 1,800 needed
+  vs ~730 wild; Synthetic Power Shards are Tier 9, so MAX is at best a
+  *Phase-5 end state*, not the build-as-you-go default. Correct sloop play:
+  amplify **terminal machines only** — the 2 Nuclear Pasta accelerators first
+  (halves the ~3,900 copper-ingot/min powder chain, best ROI in the game),
+  then Quantum Encoders, DMC accelerator, Converters, Sculptor Blenders,
+  ADS/MFG assemblers — ~50–70 sloops captures most of the benefit.
+- **CRITICAL — power model understates MAX ~2× and the totals are fantasy.**
+  Somersloop power is ×(multiplier²) = **×4**, not the app's ×2 → real MAX
+  ≈ ×13.43/machine. Corrected cumulative: P3 ≈ 72.9 GW, P5 ≈ **175 GW** (≈99
+  nuclear plants with headroom) — more than the map can generate; this also
+  kills "ramp to MAX later without re-planning". Particle Accelerator power
+  is per-recipe and *fluctuates* (pasta/DMC avg ~1,000, peak 1,500 MW —
+  ~20 GW peak for one fully-MAX pasta PA), Converter fluctuates 100–400;
+  miners/extractors/pumps/stations are absent from the power plan entirely.
+  Power Storage needs to be a sized, mandatory bank per accelerator hall.
+- **CRITICAL — nuclear chain confirmed absent, and it drags sulfur with it.**
+  Sized for a sane 6-plant / 15 GW backbone: 3 Manufacturers of Uranium Fuel
+  Rods, ~2.5 Blenders of Encased Cells, ~2 Refineries of Sulfuric Acid
+  (**~100 sulfur/min — sulfur appears in no document**), ~120 uranium ore/min,
+  and a waste plan (waste can't be sunk: plutonium chain — which needs the
+  also-absent Nitric Acid — or 1.0 Ficsonium). All generator fuel (coal,
+  crude-for-fuel-gens, water, uranium) is missing from "Raw nodes to claim".
+- **HIGH — Dune Desert hand-waves oil, coal, water, and copper scale.** No
+  crude exists in the desert; the solver demands ~5,546 crude/min ≈ half the
+  map's total oil capacity — district D "a short belt-run away" is fiction
+  (Gold Coast rail/pipe in reality). Desert is nearly coal-less (plan needs
+  7,412/min + coal power); water is the desert's famous weakness (coal power
+  "next to a lake" has no lake); 10k copper/12.4k iron per min exceed the
+  basin (~3,900 copper ingot/min is just the pasta powder). Several desert
+  quartz nodes are in **caves** (fly mod doesn't help). Bauxite/SAM/nitrogen
+  via rail are fine as planned.
+- **MEDIUM — FINAL_RATES are 2–6× overbuilt** (ADS 5/min needs 9
+  Supercomputers/min; Sculptor 8/min is luxury). Halving most of them halves
+  the 600-machine / 175-GW problem and pulls raw demand back inside the
+  region — the single knob that makes the plan buildable. Wait times at the
+  stated rates are otherwise sane (P5 gated by pasta, ~6.7 h). Two ETA systems
+  disagree (`delivInfo` via MODULES vs `phaseDeliverMin` via FINAL_RATES).
+- **MEDIUM — tier-label errors:** Belt Mk.6 is Tier 9 (Guide says Tier 8; the
+  app contradicts itself), Pipelines Mk.1 is Tier 3 not Tier 5 (coal gens need
+  water), Miner Mk.2 is Tier 4 (listed as pre-Phase-1 prep), drones likely
+  Tier 8 not 7 (verify). Core phase→tier mapping and `beltCapAtPhase` are
+  functionally correct.
+- **MEDIUM — recipe spot-checks (~30 entries): mostly excellent** — including
+  the approx-flagged aluminium ratios and EPM 200/min, which are *right*.
+  Suspects to verify: **MFG 2.5/min should be ~1/min** (bank undersized),
+  Ficsite Trigon 90 vs 30/min, Dark Matter Residue 1:10 vs 1:2. **Real trap:
+  Aluminum Scrap's 120 m³/min water byproduct is unmodeled** (no `by:` field)
+  — unrecycled scrap-water deadlocks the alumina loop, the most common
+  late-game stall in real saves, and the ⚠ utilities generator will never
+  warn about it. Alumina's silica byproduct also dropped (+50/min, not the
+  "+5" in VERIFICATION — a per-craft/per-min slip).
+- **LOW — practical friction:** Blueprint Designer Mk.1 is 4×4 foundations —
+  the drawn 20–60-machine manifold rows don't fit; cells should be sliced to
+  designer-sized stamps. Dimensional Depot never mentioned (biggest QoL system
+  in 1.0 for a 600-machine hand-build). Drone battery line needs the absent
+  sulfuric acid (1.0 drones can also burn packaged fuel as a bootstrap).
+  Standard-recipes-only is genuinely smart — no hard-drive RNG on the
+  critical path.
+
+---
+
+## Part 3 — Synthesis & prioritized roadmap
+
+### What all seven reviews converge on
+
+1. **The engine is trusted; the narration isn't wired to it.** Every reviewer
+   independently found that the ideal experience already exists in the file,
+   unwired: `BM_SEQ` (the chapter story), `bankStepHTML`'s "✅ Done when" (the
+   verification/audit script), `phaseDeliverMin` (the ETA), `solveDemandPhase`
+   / `bankCountAt` (the growth model), one shared tick keyspace (the single
+   source of truth). **Most of the top fixes are wiring jobs, not redesigns.**
+2. **MAX-everything is a false premise, stated three independent ways:** the
+   newcomer can't follow it (child), the budget exceeds the world's supply ~8×
+   (veteran, reality-checker), and the power model hiding another 2× makes the
+   end state physically impossible (reality-checker). The honest model is:
+   **100% counts as the baseline, sloops allocated to terminal machines, MAX
+   as a late-game ramp** — with the toggle persisted and surfaced.
+3. **Phases 4–5 are where trust collapses** — exactly where the tool is most
+   needed: nuclear/sulfur absent, approx flags cluster, import trains
+   uncomputed, oil/copper/coal geography hand-waved, scrap-water trap
+   invisible.
+4. **The app is amnesiac.** No timestamps, no welcome-back, unpersisted
+   MAX/scale, binary ticks, one-mis-click state destruction, positional keys.
+5. **The map is a diagram wearing a map costume.** Fine — but it must (a) grow
+   with phases/ticks instead of showing the finished base dimmed, and (b) for
+   "exactly where", what's missing is a node-assignment table with real
+   coordinates, not a prettier picture.
+
+### Roadmap (waves, in implementation order)
+
+**Wave 0 — data honesty & small correctness (low risk, high trust):**
+sloop power ×2→×4 + updated prose; sloop/shard reality warning + terminal-
+machine priority list in the budget; unify the two ETA systems; model the
+scrap-water + silica byproducts; verify & fix MFG / Trigon / DMR rates (log in
+VERIFICATION.md); tier-label fixes (Belt Mk.6 → T9, Pipes Mk.1 → T3, Miner
+Mk.2); 6-vs-7 district doc sweep; add generator fuel to the raw-nodes table
+(or an explicit "+ power" note); document the nuclear+sulfur block in power.md
+and the F-district steps; dead code (`tickKey` MODULES branch, `exportall
+s.works`), `resetinv` re-render, `bp:util` into `masterSteps`; map zoom-centre
+bug (600,380 → viewBox centre).
+
+**Wave 1 — orientation (the "what's next" ask):** chapter spine — `BM_SEQ`
+becomes the tier-1 narrative wired to ticks; DO THIS NOW card gains phase ▸
+chapter k/13 ▸ task m/n, a *why* line, and a proximity meter ("N steps until
+▲ Coal Power"); tickable TECH milestones; one step-language (map slider
+relabelled as preview).
+
+**Wave 2 — the living map (the "expandable maps" ask):** derive map build-out
+from ticks on load with a "📍 Now" snap-back; built blocks read *built* (green
+tick styling, not faded); phase-aware contents — final silhouette as ghost
+outline, banks/belts fill in per `bankCountAt(tid, p)` with phase-correct belt
+Mk labels; same phase view in Blueprints; "Expand" ticks move the shown
+counts (effective-phase concept → Final plan · Phase p · My progress).
+
+**Wave 3 — memory & state safety:** timestamped ticks (`Date.now()`, stays
+truthy) + welcome-back strip with last-tick context and "verify these first";
+persist `bpMax`/`bpScale` in state + surface a pill on Do Next + first-run
+question; migrate keys `bp:A:3` → `bp:A:T-SCREW` (one-time index remap);
+backup ring on save + backup/undo on Reset & Load-code + export nudge.
+
+**Wave 4 — ergonomics quick wins:** focus preservation across re-renders;
+`aria-label` on all checkboxes; print fixes (tag/chip ink, `.tlink`, page
+break per phase, hide diagrams); ≥40px targets on coarse pointers; map input
+(Ctrl+wheel on desktop, `touch-action:none`, honest hint text); `aria-live`
+on caption/card/warnbar; district-card keyboard access.
+
+**Wave 5 — bigger bets (separate efforts, some owner decisions):**
+node-assignment table with real coordinates + interactive-map links (the
+"exactly where" promise kept); nuclear + power districts as first-class solved
+banks; import-side train computation; sloop *allocator* (input owned count →
+per-bank clocks); per-phase clock schedule resolving the build-MAX/run-100%
+contradiction; buffer/banking calculator; Blueprint-Designer-sized stamps;
+alt-recipe toggles in the solver; audit-vs-save mode; tri-state ticks
+(equivalent ≈ / skip); **FINAL_RATES rebalance (~halving) — flagged as an
+owner decision since it changes the plan's intent, but it is the single knob
+that brings the whole build inside the map's actual resources.**
+
