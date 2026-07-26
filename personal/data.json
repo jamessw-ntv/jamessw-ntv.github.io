@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-26",
-    "fetched": "2026-07-26T22:06:51+00:00",
+    "fetched": "2026-07-26T23:07:57+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 9,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 9
+      "wind": 8
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 0
+        "rain": 2
       },
       {
         "day": "Tue",
@@ -37,7 +37,7 @@
         "max": 9,
         "icon": "🌨️",
         "desc": "Snow showers",
-        "rain": 94
+        "rain": 93
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92995.0,
-        "pct": 0.9
+        "price": 93560.0,
+        "pct": 1.46
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2763.86,
-        "pct": 3.02
+        "price": 2790.62,
+        "pct": 3.89
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars: Starfighter’ Team Reunites for Marvel, New Luke and Leia Novel, and More",
+      "when": "26 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/this-week-in-a-galaxy-far-far-away-star-wars-starfighter-team-reunites-for-marvel-new-luke-and-leia-novel-and-more.html"
+    },
     {
       "cat": "Film/TV",
       "title": "Kevin Feige Says Ryan Coogler Met With David Jonsson Six Months Ago in a ‘Secret Meeting’ to Discuss ‘Black Panther 3’ Role: ‘I Got Chills’",
@@ -146,13 +153,6 @@
       "when": "25 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-the-experience-museum-to-travel-around-north-america-for-five-years.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "San Diego Comic-Con: Lucasfilm Publishing Panel Recap",
-      "when": "25 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/san-diego-comic-con-lucasfilm-publishing-panel-recap.html"
     },
     {
       "cat": "Games",
