@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-27",
-    "fetched": "2026-07-27T11:31:36+00:00",
+    "fetched": "2026-07-27T14:50:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 8,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 17
+      "wind": 20
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 13,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 2
-      },
-      {
-        "day": "Tue",
         "min": 7,
         "max": 14,
         "icon": "🌦️",
@@ -37,7 +29,15 @@
         "max": 10,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 98
+        "rain": 100
+      },
+      {
+        "day": "Thu",
+        "min": 5,
+        "max": 11,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 96
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93020.0,
-        "pct": 0.73
+        "price": 92388.0,
+        "pct": -0.29
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2800.46,
-        "pct": 3.68
+        "price": 2756.49,
+        "pct": 1.54
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Locarno’s StepIn Focuses on ‘Power, People, Data and the Future of Film’: ‘The Counter-Algorithm Is a Human Being Who Gives a Damn’ (EXCLUSIVE)",
+      "title": "‘I Want Your Sex’ Director Gregg Araki on Using an Intimacy Coordinator for the First Time, Opening Outfest and Gen Z Turning Away From Sex: ‘That’s F—ing Life!’",
       "when": "27 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/locarno-stepin-power-people-data-future-of-film-1236821623/"
+      "url": "https://variety.com/2026/film/news/i-want-your-sex-gregg-araki-intimacy-coordinator-outfest-gen-z-sex-1236820941/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Preview “The Griffin Incident” With 13 New Photos From ‘Star Trek: Strange New Worlds’ Ep. 402",
+      "when": "27 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/27/preview-the-griffin-incident-with-13-new-photos-from-star-trek-strange-new-worlds-ep-402/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sasikumar’s ‘Vadhandhi’ Season 2 Sets August Premiere on Prime Video (EXCLUSIVE)",
+      "title": "Laufey Signs With UTA in All Areas",
       "when": "27 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/sasikumar-vadhandhi-season-2-august-premiere-prime-video-1236821391/"
+      "url": "https://variety.com/2026/music/news/laufey-signs-with-uta-all-areas-1236821590/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Legend of Kitchen Soldier,’ ‘Yumi’s Cells’ Lead Prime Video India’s Slate of 100-Plus New CJ ENM Titles",
+      "title": "Imax China Prepares Full ‘Odyssey’ Rollout Across Nearly 800 Screens as CEO Cites the ‘Christopher Nolan Effect’ (EXCLUSIVE)",
       "when": "27 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/prime-video-india-cj-enm-korean-titles-deal-1236821665/"
+      "url": "https://variety.com/2026/film/news/the-odyssey-china-imax-rollout-800-screens-1236821684/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bill Oddie, Wildlife Presenter and Comedian, Dies at 85",
+      "title": "Carly Simon Reveals Parkinson’s Disease Diagnosis: ‘I Have Not Stopped Living and I Have Not Stopped Working’",
       "when": "27 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/bill-oddie-dead-wildlife-presenter-comedian-1236821660/"
+      "url": "https://variety.com/2026/music/news/carly-simon-parkinsons-disease-diagnosis-1236821716/"
     },
     {
       "cat": "Trek/Wars",
@@ -139,13 +146,6 @@
       "when": "25 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/25/sdcc-star-trek-starfleet-academy-adds-new-mysterious-alien-cadet-for-season-2/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "SDCC: New Teaser Reveals What’s Coming In ‘Star Trek: Strange New Worlds’ Season 4",
-      "when": "25 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/25/sdcc-new-teaser-reveals-whats-coming-in-star-trek-strange-new-worlds-season-4/"
     },
     {
       "cat": "Trek/Wars",
