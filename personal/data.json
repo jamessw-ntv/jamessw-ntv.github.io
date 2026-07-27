@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-27",
-    "fetched": "2026-07-27T17:03:23+00:00",
+    "fetched": "2026-07-27T18:40:57+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 19
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 22
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92704.0,
-        "pct": 0.1
+        "price": 92668.0,
+        "pct": 0.04
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2770.78,
-        "pct": 1.14
+        "price": 2764.25,
+        "pct": 0.93
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Bluey’ Fans Can Now Bring the Heeler Family Home With Tonies’ New Collection – Here’s Where to Shop",
+      "title": "Savannah Guthrie Posts New Video Urging Mother’s Kidnappers to ‘Do the Right Thing’: ‘Tell Us Where to Look for Her’",
       "when": "27 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/bluey-toniebox-release-buy-online-1236784412/"
+      "url": "https://variety.com/2026/tv/news/savannah-guthrie-video-mothers-kidnappers-nancy-1236671368/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Odyssey’ Translator Emily Wilson Slams Christoper Nolan’s ‘Abysmal’ Screenplay: ‘I Would Be Ashamed to Have Written Any Part of This Script’",
+      "title": "Gold House Launches Gold House Studios, Unveiling A Slate Led By ‘The Boys’ Star Karen Fukuhara (EXCLUSIVE)",
       "when": "27 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/odyssey-translator-emily-wilson-slams-christopher-nolan-bad-writing-1236821915/"
+      "url": "https://variety.com/2026/biz/news/gold-house-launches-gold-house-studios-1236821953/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Rose Hill’ Amazon Series Casts Jake Weary, Sean O’Pry, Hannah Galway, Sadie Dickerson",
+      "title": "Whoopi Goldberg, Jenifer Lewis, Vanessa Williams and Vivica A. Fox to Star in Netflix Comedy ‘Women Like Us’",
       "when": "27 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/rose-hill-series-jake-weary-opry-hannah-galway-dickerson-1236821899/"
+      "url": "https://variety.com/2026/film/news/whoopi-goldberg-jenifer-lewis-vanessa-williams-vivica-a-fox-netflix-movie-1236821975/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jay-Z Announces Additional London and Los Angeles Dates for ‘Jay-Z 30’ Concert Series",
+      "title": "Ryan Reynolds Snuck Into Comic-Con as Deadpool With ‘No Handlers’ and ‘No Security’: ‘I Felt So Lucky’",
       "when": "27 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/jay-z-additional-london-los-angeles-dates-jay-z-30-series-1236821893/"
+      "url": "https://variety.com/2026/film/news/ryan-reynolds-comic-con-deadpool-no-security-1236821970/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
