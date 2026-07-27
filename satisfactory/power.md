@@ -13,7 +13,7 @@ All figures are standard, 1.0, per generator at 100 % clock.
 | **Biomass Burner** | 30 MW | Biomass / leaves / wood (hand- or belt-fed) | At the very start — bootstrapping only | 0 |
 | **Coal Generator** | 75 MW | 15 Coal/min **+ 45 m³ Water/min** | The moment you finish Phase 1 (Tier 3) | 3 |
 | **Fuel Generator** | 250 MW | 20 Fuel/min (no water) | Once oil is flowing (Phase 3) | 6 |
-| **Nuclear Power Plant** | 2500 MW | 0.2 Uranium Fuel Rod/min **+ 300 m³ Water/min** (makes **Nuclear Waste**) | Phase 4, when Particle Accelerators arrive | 8 |
+| **Nuclear Power Plant** | 2500 MW | 0.2 Uranium Fuel Rod/min **+ 240 m³ Water/min** (makes **Nuclear Waste**) | Phase 4, when Particle Accelerators arrive | 8 |
 | *Geothermal Generator* | ~150 MW avg (fluctuates) | nothing — sits on a geyser | Free supplement whenever you pass a geyser | 3 |
 
 ---
@@ -38,6 +38,37 @@ All figures are standard, 1.0, per generator at 100 % clock.
 
 > You don't have to *replace* the old generators — leave coal/fuel running as a
 > base load and **stack the new type on top**. Build-once applies to power too.
+
+---
+
+## The nuclear fuel chain (the part every plan forgets — sized here for 6 plants)
+
+Six plants = **15 GW** of backbone, a sane 100% target. The rod chain below is
+**not in the app's demand solver** (fuel isn't demanded by any elevator part),
+so build it from this table; scale linearly for more plants.
+
+| Step | Building | Per-minute recipe | For 6 plants (1.2 rods/min) |
+|------|----------|-------------------|------------------------------|
+| **Sulfuric Acid** | Refinery | 50 Sulfur + 50 Water → 50 Acid | **~2 Refineries** (~100 Sulfur/min — **claim a sulfur node!**) |
+| **Encased Uranium Cell** | Blender | 50 Uranium + 15 Concrete + 40 Acid → 25 Cells (+10 Acid back) | **~2.5 Blenders** (~120 Uranium ore/min ≈ one normal node) |
+| **Uranium Fuel Rod** | Manufacturer | 20 Cells + 1.2 Encased Beam + 2 EM Control Rod → 0.4 Rods | **3 Manufacturers** |
+| **Feed the plants** | — | 0.2 Rod + 240 Water per plant | 1.2 rods + 1,440 water/min |
+
+**Waste (the part that bites):** each plant emits **10 Uranium Waste/min** — 60/min
+for six — and waste **cannot be sunk**. Pick one before you switch the plants on:
+
+1. **Store it** — a growing wall of Industrial Storage Containers (fine for a
+   one-launch save; ~1 container fills every ~40 min at 6 plants).
+2. **Plutonium chain** — Non-fissile Uranium → Plutonium Pellet → Encased
+   Plutonium Cell → Plutonium Fuel Rod, then *sink the plutonium rods* (or burn
+   them, which makes worse waste). Needs **Nitric Acid** (nitrogen + sulfur).
+3. **Ficsonium** (Tier 9) — Particle Accelerator + Quantum Encoder + EPM turns
+   waste into clean Ficsonium fuel: the true zero-waste endgame.
+
+*Also missing from the app's raw table by design: generator fuel. Coal power
+eats 15 coal + 45 water per generator, fuel power 20 fuel/min per generator
+(refine crude → fuel), nuclear the numbers above — claim those nodes on top of
+the production totals.*
 
 ---
 

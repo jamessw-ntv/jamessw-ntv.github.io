@@ -33,7 +33,7 @@ ore. Arrows show the few parts that cross between districts (the "back and forth
 | **G** | **Quantum & SAM** | SAM + quartz *(train/endgame)* | Reanimated SAM, Ficsite, Time Crystal, **Dark Matter** (residue→crystal), Excited Photonic Matter, Neural-Quantum Processor, Superposition Oscillator, Singularity Cell | Diamonds ← F, Aluminium ← E |
 | **★** | **PROJECT ASSEMBLY** | **at the Space Elevator** | The **12 final elevator parts only** (Smart Plating, Versatile Framework, Automated Wiring, Modular Engine, ACU, ADS, MFG, TPR, Nuclear Pasta delivery, Biochemical Sculptor, AI Expansion Server, Ballistic Warp Drive) | everything, on belts/trains |
 
-So **6 production districts + 1 assembly zone** — mini-bases, not a monolith, not
+So **7 production districts + 1 assembly zone** — mini-bases, not a monolith, not
 hundreds of huts.
 
 ---
