@@ -2,23 +2,23 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-07-26",
-    "fetched": "2026-07-26T23:07:57+00:00",
+    "updated": "2026-07-27",
+    "fetched": "2026-07-27T03:42:21+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 8
+      "temp": 14,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 19
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 13,
+        "min": 8,
+        "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 2
@@ -29,15 +29,15 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 98
+        "rain": 99
       },
       {
         "day": "Wed",
-        "min": 5,
-        "max": 9,
-        "icon": "🌨️",
-        "desc": "Snow showers",
-        "rain": 93
+        "min": 6,
+        "max": 10,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 98
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93560.0,
-        "pct": 1.46
+        "price": 93247.0,
+        "pct": 0.92
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2790.62,
-        "pct": 3.89
+        "price": 2778.42,
+        "pct": 3.12
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘House of the Dragon’ Actor Benjamin Evan Ainsworth on ‘Absurdity’ of Assassination Attempt, Daeron’s Growing Power and if Ormund Is Dyeing the Kid’s Hair",
+      "when": "27 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/features/house-of-the-dragon-daeron-assassination-attempt-ormund-1236820311/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars: Starfighter’ Team Reunites for Marvel, New Luke and Leia Novel, and More",
@@ -111,13 +118,6 @@
       "when": "26 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/tom-holland-some-movies-shit-shouldnt-watch-1236821438/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Attack on Paradise’ Review: Under Siege From Both Criminals and Cops, a Hero Battles Upward in a Zesty High-Rise Actioner",
-      "when": "26 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/attack-on-paradise-review-1236821505/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
