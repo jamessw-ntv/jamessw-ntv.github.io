@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-27",
-    "fetched": "2026-07-27T20:26:34+00:00",
+    "fetched": "2026-07-27T22:12:26+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 24
+      "temp": 9,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 25
     },
     "days": [
       {
@@ -72,24 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92820.0,
-        "pct": 0.58
+        "price": 92533.0,
+        "pct": -0.57
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2779.22,
-        "pct": 1.81
+        "price": 2769.69,
+        "pct": 0.18
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Some Warner Bros. Execs Are Hoping States’ Antitrust Lawsuit Derails Paramount Deal",
+      "title": "D4vd Ordered to Stand Trial for Murder of 14-Year-Old Girl",
       "when": "27 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/paramount-warner-bros-execs-merger-antitrust-lawsuit-derail-1236821885/"
+      "url": "https://variety.com/2026/music/news/d4vd-to-stand-trial-in-murder-of-14-year-old-girl-1236817323/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "How to Stream Shark Week Live Online Without Cable",
+      "when": "27 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-stream-shark-week-online-without-cable-1236822181/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Sean Astin Says ‘I Had to Sell My House’ During ‘Lord of the Rings’ Era Because $250,000 Payday Was So Low: ‘I Negotiated Such a Small Amount on the Trilogy’",
+      "when": "27 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/sean-astin-lord-of-the-rings-pay-low-sell-house-1236822084/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Bold Voice of Contemporary Horror’ Comic-Con Panelists Predict the Four Biggest Upcoming Trends in Genre Filmmaking",
+      "when": "27 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/features/horror-movies-four-trends-comic-con-1236821740/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "SDCC: Star Trek Legends Talk Franchise Legacy – Watch Full Panel Video",
+      "when": "27 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/27/sdcc-star-trek-legends-talk-franchise-legacy-watch-full-panel-video/"
     },
     {
       "cat": "Trek/Wars",
@@ -106,27 +134,6 @@
       "url": "https://trekmovie.com/2026/07/27/axanar-returns-after-12-years-with-the-gathering-storm-star-trek-fan-film/"
     },
     {
-      "cat": "Film/TV",
-      "title": "‘The Odyssey’ by the Numbers: 6 Ways Christopher Nolan’s Epic Is Shattering Box Office Expectations",
-      "when": "27 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/the-odyssey-box-office-nolan-shattering-expectations-1236821760/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Massive Tribeca Fest Data Leak Exposes Jennifer Lawrence, Robert De Niro and More Celebs’ Contact Info; Meet the Man Who Discovered the Files",
-      "when": "27 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/tribeca-festival-data-leak-jennifer-lawrence-robert-de-niro-1236822023/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Savannah Guthrie Posts New Video Urging Mother’s Kidnappers to ‘Do the Right Thing’: ‘Tell Us Where to Look for Her’",
-      "when": "27 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/savannah-guthrie-video-mothers-kidnappers-nancy-1236671368/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Preview “The Griffin Incident” With 13 New Photos From ‘Star Trek: Strange New Worlds’ Ep. 402",
       "when": "27 Jul",
@@ -139,13 +146,6 @@
       "when": "26 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/this-week-in-a-galaxy-far-far-away-star-wars-starfighter-team-reunites-for-marvel-new-luke-and-leia-novel-and-more.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "SDCC: Watch 60th Anniversary Tribute Video Shown At Hall H Star Trek Panel",
-      "when": "26 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/25/sdcc-watch-60th-anniversary-tribute-video-shown-at-hall-h-star-trek-panel/"
     },
     {
       "cat": "Trek/Wars",
