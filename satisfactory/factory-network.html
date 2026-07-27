@@ -457,75 +457,6 @@ function auditT(){ const bad=[];
 /* =====================================================================
    MODULES — compositions. cell = [templateId, count, clock]
    ===================================================================== */
-const MODULES = [
- {id:'HUB', name:'Central Hub', phase:0, type:'hub', out:'(all parts converge)', target:'—',
-  desc:'HUB · Space Elevator · AWESOME Sink + Shop · personal storage "mall" · (late) train receiving yard. The only place parts converge.', cells:[]},
-
- {id:'M1', name:'Smart Plating', phase:1, type:'module', out:'Smart Plating', target:'10 / min',
-  desc:'Phase 1 delivery (50); also covers Phase 2 (500) and feeds Modular Engines in Phase 3. Build once.',
-  cells:[['T-IRON',8,'~97%'],['T-PLATE',3,'100%'],['T-ROD',10,'~95%'],['T-SCREW',10,'~93%'],['T-RIP',2,'100%'],['T-ROTOR',3,'~83%'],['T-SMARTPLATE',5,'100%']]},
-
- {id:'M2', name:'Versatile Framework', phase:2, type:'module', out:'Versatile Framework', target:'20 / min',
-  desc:'Phase 2 (500) + Phase 3 (2,500). Biggest steel sink (~480 steel ingot/min). Point your best iron + coal here. While on Mk.3 belts, split the steel trunk across two belts until Mk.4.',
-  cells:[['T-IRON',8,'100%'],['T-STEEL',11,'~97%'],['T-PLATE',5,'~90%'],['T-ROD',7,'100%'],['T-SCREW',5,'~90%'],['T-BEAM',8,'100%'],['T-RIP',3,'100%'],['T-FRAME',5,'100%'],['T-VERSFRAME',4,'100%']]},
-
- {id:'M3', name:'Automated Wiring', phase:2, type:'module', out:'Automated Wiring', target:'5 / min',
-  desc:'Phase 2 (100). Small module, ~20 min of runtime.',
-  cells:[['T-COPPER',4,'100%'],['T-STEEL',1,'50%'],['T-WIRE',8,'100%'],['T-CABLE',4,'~83%'],['T-PIPE',1,'75%'],['T-STATOR',1,'100%'],['T-AUTOWIRE',2,'100%']]},
-
- {id:'F1', name:'Feeder: Oil → Plastic & Rubber', phase:3, type:'feeder', out:'Plastic + Rubber', target:'as needed',
-  desc:'Refineries on/near oil. Pipe fluids; belt the solid Plastic & Rubber. Feeds engines (rubber) and computers (plastic). Sink/consume the Heavy Oil Residue byproduct.',
-  cells:[['T-PLASTIC',4,'100%'],['T-RUBBER',4,'100%']]},
-
- {id:'F2', name:'Feeder: Computers', phase:3, type:'feeder', out:'Computer', target:'~5 / min',
-  desc:'Low rate (ACUs need 2 computers each). Feeds M5 and later Supercomputers.',
-  cells:[['T-COPSHEET',3,'100%'],['T-CIRCUIT',3,'100%'],['T-COMPUTER',2,'100%']]},
-
- {id:'M4', name:'Modular Engine', phase:3, type:'module', out:'Modular Engine', target:'5 / min', approx:true,
-  desc:'Phase 3 (500). 2 Motor + 15 Rubber + 2 Smart Plating → 1 Modular Engine (Manufacturer).',
-  note:'Rubber piped from F1. Slight rounding on the rotor/stator sub-lines — confirm in the planner.',
-  cells:[['T-MODENGINE',5,'100%'],['T-MOTOR',2,'100%'],['T-ROTOR',3,'~83%'],['T-STATOR',2,'100%'],['T-SMARTPLATE',5,'100%']]},
-
- {id:'M5', name:'Adaptive Control Unit', phase:3, type:'module', out:'Adaptive Control Unit', target:'2 / min', approx:true,
-  desc:'Phase 3 (100). 5 Automated Wiring + 5 Circuit Board + 1 Heavy Modular Frame + 2 Computer → 1 ACU (Manufacturer).',
-  note:'Computers from F2; Heavy Modular Frame sub-line internal. Confirm exact sub-counts in planner.',
-  cells:[['T-ACU',2,'100%'],['T-AUTOWIRE',4,'100%'],['T-CIRCUIT',2,'~67%'],['T-HMFRAME',1,'100%']]},
-
- {id:'M6', name:'Assembly Director System', phase:4, type:'module', out:'Assembly Director System', target:'~5 / min', approx:true,
-  desc:'Phase 4 (500). 2 Adaptive Control Unit + 1 Supercomputer → 1 ADS (Assembler, 0.75/machine).',
-  note:'ADS is slow per machine (0.75/min) — needs ~7 assemblers for 5/min. ACUs come from a scaled M5; Supercomputer sub-line internal.',
-  cells:[['T-ADS',7,'100%'],['T-SUPERCOMP',3,'100%'],['T-AILIMITER',2,'100%'],['T-HSCONN',3,'100%']]},
-
- {id:'M7', name:'Magnetic Field Generator', phase:4, type:'module', out:'Magnetic Field Generator', target:'~5 / min', approx:true,
-  desc:'Phase 4 (500). 5 Versatile Framework + 2 Electromagnetic Control Rod → 2 MFG per 120 s (Assembler, 1/machine).',
-  note:'Versatile Framework tapped from M2 buffer; EM Control Rod sub-line internal.',
-  cells:[['T-MFG',2,'100%'],['T-EMROD',3,'~83%'],['T-AILIMITER',3,'100%']]},
-
- {id:'M8', name:'Thermal Propulsion Rocket', phase:4, type:'module', out:'Thermal Propulsion Rocket', target:'~2.5 / min', approx:true,
-  desc:'Phase 4 (250). 5 Modular Engine + 2 Turbo Motor + 6 Cooling System + 2 Fused Modular Frame → 2 TPR (Manufacturer).',
-  note:'Needs ALUMINIUM + NITROGEN (Cooling Systems, Fused Frames). Train-fed module — see train-network.md.',
-  cells:[['T-TPR',3,'~83%'],['T-TURBOMOTOR',2,'100%'],['T-COOLING',8,'100%'],['T-HEATSINK',5,'100%'],['T-FUSEDFRAME',2,'100%']]},
-
- {id:'M9', name:'Nuclear Pasta', phase:4, type:'module', out:'Nuclear Pasta', target:'~2.5 / min', approx:true,
-  desc:'Phase 4 (100) + Phase 5 (1,000) = 1,100. 200 Copper Powder + 1 Pressure Conversion Cube → 1 Nuclear Pasta (Particle Accelerator).',
-  note:'The copper-powder MONSTER: ~1,200 Copper Ingot per Nuclear Pasta/min. Put SOMERSLOOPS in the Particle Accelerators (doubles output → halves the copper), rail copper in, and bank through both phases.',
-  cells:[['T-PASTA',5,'100%'],['T-COPPERPOWDER',10,'100%'],['T-PCC',3,'100%'],['T-FUSEDFRAME',3,'100%']]},
-
- {id:'M10', name:'Biochemical Sculptor', phase:5, type:'module', out:'Biochemical Sculptor', target:'~8 / min', approx:true,
-  desc:'Phase 5 (1,000). 1 Assembly Director System + 80 Ficsite Trigon + 20 Water → 4 Biochemical Sculptor (Blender).',
-  note:'ADS from a scaled M6; Ficsite chain (SAM → Reanimated SAM → Ficsite Ingot → Ficsite Trigon) internal. Planner for exact counts.',
-  cells:[['T-SCULPTOR',2,'100%'],['T-FICTRIGON',2,'100%'],['T-FICINGOT',6,'100%'],['T-REANSAM',2,'100%']]},
-
- {id:'M11', name:'AI Expansion Server', phase:5, type:'module', out:'AI Expansion Server', target:'~4 / min', approx:true,
-  desc:'Phase 5 (256). 1 MFG + 1 Neural-Quantum Processor + 1 Superposition Oscillator + 25 Excited Photonic Matter → 1 AI Expansion Server (Quantum Encoder).',
-  note:'Deepest chain: needs Time Crystals, Dark Matter, Diamonds, Ficsite, EPM. Lean on the planner.',
-  cells:[['T-AISERVER',1,'100%'],['T-NQP',2,'~67%'],['T-SUPEROSC',1,'~80%'],['T-EPM',2,'100%']]},
-
- {id:'M12', name:'Ballistic Warp Drive', phase:5, type:'module', out:'Ballistic Warp Drive', target:'~2 / min', approx:true,
-  desc:'Phase 5 (200). 1 Thermal Propulsion Rocket + 5 Singularity Cell + 2 Superposition Oscillator + 40 Dark Matter Crystal → 1 Ballistic Warp Drive (Manufacturer).',
-  note:'Huge Dark Matter demand. TPR tapped from M8. Built on the quantum/dark-matter base.',
-  cells:[['T-WARP',2,'100%'],['T-SINGCELL',2,'100%'],['T-SUPEROSC',2,'100%'],['T-DMCRYSTAL',3,'100%'],['T-EPM',1,'100%']]},
-];
 
 const DELIVERIES = {
   1:[['Smart Plating',50,'M1']],
@@ -591,14 +522,6 @@ const INVENTORY = [
 ];
 
 /* ============================ HELPERS ============================ */
-function clockF(c){ if(!c) return 1; const m=String(c).match(/[\d.]+/); return m?(+m[0]/100):1; }
-function moduleMachines(m){
-  return m.cells.map(([tid,n,clock])=>{
-    const t=T[tid]; const f=clockF(clock);
-    return {tid,n,b:t.b,r:t.r,clock,outItem:t.out[0],outRate:+(t.out[1]*n*f).toFixed(1),
-      inputs:t.in.map(([it,rt])=>[it,+(rt*n*f).toFixed(1)])};
-  });
-}
 /* ============================ TABS ============================ */
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('nav button').forEach(x=>{ x.classList.remove('active'); x.removeAttribute('aria-current'); });
@@ -1481,7 +1404,6 @@ document.getElementById('bmPlay').onclick=()=>{
 };
 
 /* ============================ BLUEPRINTS (fixed 2D grid, single level) ============================ */
-const WORKS={M1:'Smart Plating Works',M2:'Versatile Framework Works',M3:'Wiring Works',F1:'Oil Refinery',F2:'Computer Works',M4:'Engine Works',M5:'Control-Unit Works',M6:'Director-System Works',M7:'Field-Generator Works',M8:'Rocket Works',M9:'Nuclear-Pasta Works',M10:'Sculptor Works',M11:'AI-Server Works',M12:'Warp-Drive Works'};
 const SECT={'Iron Ingot':'Ironworks · smelting','Copper Ingot':'Copperworks · smelting','Caterium Ingot':'Caterium smelting','Steel Ingot':'Steelworks · foundry','Aluminum Ingot':'Aluminium works','Aluminum Scrap':'Aluminium scrap','Alumina Solution':'Alumina refinery','Aluminum Casing':'Casing shop','Alclad Aluminum Sheet':'Alclad sheet shop','Concrete':'Concrete works','Screw':'Screw farm','Iron Rod':'Rod shop','Iron Plate':'Plate shop','Wire':'Wire shop','Cable':'Cable shop','Copper Sheet':'Sheet shop','Steel Beam':'Beam shop','Steel Pipe':'Pipe shop','Quickwire':'Quickwire shop','Copper Powder':'Powder mill','Silica':'Silica shop','Quartz Crystal':'Quartz shop'};
 const ABBR={Smelter:'Sm',Foundry:'Fo',Constructor:'Co',Assembler:'As',Manufacturer:'Mf',Refinery:'Rf',Blender:'Bl','Particle Accelerator':'PA',Converter:'Cv','Quantum Encoder':'QE'};
 const BCOL={Smelter:'#5ab0e6',Foundry:'#e6915a',Constructor:'#6fcf97',Assembler:'#b692ff',Manufacturer:'#ffce8a',Refinery:'#5aa9ff',Blender:'#2dd4bf','Particle Accelerator':'#ff6b9d',Converter:'#9aa7b4','Quantum Encoder':'#ffadc4'};

@@ -57,6 +57,31 @@ power; nothing was changed on thin evidence).
 Still flagged / unverified: drone unlock tier (docs say 7, may be 8 — doesn't
 change the Phase-4 plan); Quantum Encoder power draw.
 
+### Alternate recipes — author-sourced, NOT held to this standard
+
+The `ALTS` const (Cast Screw, Coated Iron Plate, Recycled Plastic, Sloppy Alumina)
+is wired into the solver so ticking one re-plans the build. Those four rates came
+from the original plan's own alt table and could **not** be cross-checked here
+against two independent sources, so unlike everything above they are:
+
+- **off by default** — the shipped plan stays exact without them;
+- labelled **"alt · spot-check in-game"** everywhere they appear;
+- still bound by the port-count invariant, which they pass.
+
+Spot-check an alt against the in-game recipe before you build a district around it,
+and log the result here. Recycled Plastic in particular assumes Rubber stays on the
+standard recipe, because that is what produces the Heavy Oil Residue it consumes —
+switching both would leave the loop with no residue source at all.
+
+### Design rates (not a game-data value)
+
+`FINAL_RATES` is a planning choice, not a recipe. It was retuned 2026-07-27 so each
+phase's deliveries finish together on that phase's own long pole (P2 ~50 min, P3/P4
+~125 min, P5 ~250 min), which removed a 6.7 h wait on Nuclear Pasta and cut ~23% of
+the machines and ~26-48% of the raw draw. Byproducts (scrap water, alumina silica,
+Quantum Encoder residue) are now credited as supply inside the solver, so machine
+counts and the raw-node claim finally agree with the routing advice the steps give.
+
 ## Corrections (QA passes, 2026-06-17)
 
 Multiple QA + data-verification passes re-checked every recipe against the
