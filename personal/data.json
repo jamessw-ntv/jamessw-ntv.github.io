@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-27",
-    "fetched": "2026-07-27T14:50:06+00:00",
+    "fetched": "2026-07-27T17:03:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 20
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 19
     },
     "days": [
       {
@@ -72,24 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92388.0,
-        "pct": -0.29
+        "price": 92704.0,
+        "pct": 0.1
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2756.49,
-        "pct": 1.54
+        "price": 2770.78,
+        "pct": 1.14
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘I Want Your Sex’ Director Gregg Araki on Using an Intimacy Coordinator for the First Time, Opening Outfest and Gen Z Turning Away From Sex: ‘That’s F—ing Life!’",
+      "title": "‘Bluey’ Fans Can Now Bring the Heeler Family Home With Tonies’ New Collection – Here’s Where to Shop",
       "when": "27 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/i-want-your-sex-gregg-araki-intimacy-coordinator-outfest-gen-z-sex-1236820941/"
+      "url": "https://variety.com/2026/shopping/news/bluey-toniebox-release-buy-online-1236784412/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Odyssey’ Translator Emily Wilson Slams Christoper Nolan’s ‘Abysmal’ Screenplay: ‘I Would Be Ashamed to Have Written Any Part of This Script’",
+      "when": "27 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/odyssey-translator-emily-wilson-slams-christopher-nolan-bad-writing-1236821915/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Rose Hill’ Amazon Series Casts Jake Weary, Sean O’Pry, Hannah Galway, Sadie Dickerson",
+      "when": "27 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/rose-hill-series-jake-weary-opry-hannah-galway-dickerson-1236821899/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jay-Z Announces Additional London and Los Angeles Dates for ‘Jay-Z 30’ Concert Series",
+      "when": "27 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/jay-z-additional-london-los-angeles-dates-jay-z-30-series-1236821893/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +118,6 @@
       "when": "27 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/27/preview-the-griffin-incident-with-13-new-photos-from-star-trek-strange-new-worlds-ep-402/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Laufey Signs With UTA in All Areas",
-      "when": "27 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/laufey-signs-with-uta-all-areas-1236821590/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Imax China Prepares Full ‘Odyssey’ Rollout Across Nearly 800 Screens as CEO Cites the ‘Christopher Nolan Effect’ (EXCLUSIVE)",
-      "when": "27 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-odyssey-china-imax-rollout-800-screens-1236821684/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Carly Simon Reveals Parkinson’s Disease Diagnosis: ‘I Have Not Stopped Living and I Have Not Stopped Working’",
-      "when": "27 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/carly-simon-parkinsons-disease-diagnosis-1236821716/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
