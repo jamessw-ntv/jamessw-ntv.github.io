@@ -229,6 +229,7 @@
     <p class="hint" style="margin-top:0">Your guided to-do: the <b>▶ Do This Now</b> card always shows the single next thing to build (with where, machines, belt-mark, output) — tick <b>Done</b> and it advances. Or work any phase/section directly. <b>Tick anything you've already built</b> to mark it — it greys/colours green on the Build Map &amp; Blueprints too. Districts start small and <b>Expand …</b> steps grow them each phase (each pad leaves room for it).</p>
     <div class="toolbar">
       <button id="cfgpill" title="The plan setting every number depends on — click to toggle"></button>
+      <button id="auditbtn" title="Walk your factory district by district and record what is actually standing">🔁 Audit my save</button>
       <button id="printinv">🖨️ Print manual</button>
       <button id="exportall">⬇️ Steps CSV</button>
       <button id="savecode">🔑 Save code</button>
@@ -293,8 +294,10 @@
     <p>Tier 0 → Assembler → <b>Ironworks</b> + <b>★ Smart Plating</b> → Phase 1 → <b>Steelworks</b> + <b>Copperworks</b> + <b>★ Versatile Framework/Automated Wiring</b> → Phase 2 → <b>Oil & Electronics</b> + <b>★ Modular Engine/ACU</b> → Phase 3 → <b>trains</b> + <b>Aluminium</b>/<b>Nuclear</b> + <b>★ ADS/MFG/TPR/Nuclear Pasta</b> → Phase 4 → <b>Quantum & SAM</b> + <b>★ Sculptor/AI Server/Warp Drive</b> → Phase 5 → <b>launch 🚀</b>.</p>
     <h3>Tune the late game</h3>
     <p><a href="https://www.satisfactorytools.com/" target="_blank">satisfactorytools.com</a> · <a href="https://satisfactory-calculator.com/en/planners/production" target="_blank">production planner</a> · <a href="https://satisfactory-calculator.com/en/interactive-map" target="_blank">resource map</a>.</p>
-    <h3>♻ Useful alternate recipes (optional — shrink the build)</h3>
-    <p class="hint" style="margin-top:0">The plan uses <b>standard recipes</b> so the numbers are exact and unlock-safe. If you have these alts (from Hard Drives), they cut machines or close loops — recompute exact counts in the <a href="https://www.satisfactorytools.com/" target="_blank">planner</a>:</p>
+    <h3>♻ Alternate recipes — switch them on and the whole plan re-solves</h3>
+    <p class="hint" style="margin-top:0">The plan defaults to <b>standard recipes</b> so the numbers are exact and unlock-safe. Tick an alt you've unlocked from a Hard Drive and <b>everything recomputes</b> — machine counts, raw nodes, belt marks and every build step. <b style="color:#e0a050">⚠ These alt rates are author-sourced, not cross-verified like the standard recipes</b> (see VERIFICATION.md), so spot-check one in-game before you build a district around it.</p>
+    <div id="altToggles"></div>
+    <p class="hint">The table below is the wider list of alts worth hunting; only the ones above are wired into the solver so far.</p>
     <table>
       <thead><tr><th>Alt recipe</th><th>Building</th><th>Why it helps</th></tr></thead>
       <tbody>
@@ -395,6 +398,43 @@ const T = {
  'T-WARP':  {name:'Ballistic Warp Drive cell', b:'Manufacturer', r:'Ballistic Warp Drive', in:[['Thermal Propulsion Rocket',1],['Singularity Cell',5],['Superposition Oscillator',2],['Dark Matter Crystal',40]], out:['Ballistic Warp Drive',1], fp:'3×4', ph:5},
 };
 
+/* =====================================================================
+   ALTERNATE RECIPES (opt-in). Each entry REPLACES one standard template and
+   produces the same item, so enabling it re-solves the whole plan: machine
+   counts, raw nodes, belt marks and build steps all follow automatically.
+   ⚠ These rates are NOT from the same verified source as the standard recipes
+   (see VERIFICATION.md — the game-data sites are unreachable from the build
+   environment), so each is flagged in the UI as "spot-check in-game". They are
+   off by default and the plan stays exact without them.
+   ===================================================================== */
+const ALTS={
+ 'A-CASTSCREW':{replaces:'T-SCREW',label:'Cast Screw',name:'Cast Screw cell',b:'Constructor',r:'Cast Screw',
+   in:[['Iron Ingot',12.5]],out:['Screw',50],fp:'1×2',
+   why:'Screws straight from ingots — deletes the Iron Rod stage feeding them, the single biggest machine saving in Ironworks.'},
+ 'A-COATEDPLATE':{replaces:'T-PLATE',label:'Coated Iron Plate',name:'Coated Iron Plate cell',b:'Assembler',r:'Coated Iron Plate',
+   in:[['Iron Ingot',50],['Plastic',10]],out:['Iron Plate',75],fp:'2×3',
+   why:'Far more plate per ingot. Note it makes Ironworks depend on Plastic, so only switch after the oil district is running.'},
+ 'A-RECPLASTIC':{replaces:'T-PLASTIC',label:'Recycled Plastic',name:'Recycled Plastic line',b:'Refinery',r:'Recycled Plastic',
+   in:[['Rubber',30],['Heavy Oil Residue',30]],out:['Plastic',60],fp:'2×4',
+   why:'Turns the Heavy Oil Residue you already have into plastic and roughly halves crude draw. Keep Rubber on the standard recipe — it is what produces the residue this consumes.'},
+ 'A-SLOPPYALUMINA':{replaces:'T-ALUMINA',label:'Sloppy Alumina',name:'Sloppy Alumina line',b:'Refinery',r:'Sloppy Alumina',
+   in:[['Bauxite',200],['Water',200]],out:['Alumina Solution',240],fp:'2×4',
+   why:'More alumina per refinery. Costs more bauxite per unit but cuts the machine count and the water loop in the aluminium chain.'},
+};
+/* the standard table, kept pristine so toggling an alt off restores it exactly */
+const T_STD={}; Object.keys(T).forEach(k=>T_STD[k]=T[k]);
+function altsOn(){ return (state&&state._cfg&&Array.isArray(state._cfg.alts))?state._cfg.alts:[]; }
+function applyAlts(){
+  Object.keys(T_STD).forEach(k=>{ T[k]=T_STD[k]; });
+  altsOn().forEach(id=>{ const a=ALTS[id]; if(!a||!T_STD[a.replaces]) return;
+    const std=T_STD[a.replaces];
+    const swapped={name:a.name,b:a.b,r:a.r,in:a.in,out:a.out,fp:a.fp,ph:std.ph,alt:id};
+    if(a.by) swapped.by=a.by;                       // alts without a byproduct must not inherit one
+    T[a.replaces]=swapped; });
+  if(typeof _demandCache!=='undefined'){ _demandCache={}; _demP={};
+    _sloopCache={sig:null,rows:null}; _chCache={sig:null,map:null}; _fundedCache={sig:null,set:null}; }
+}
+
 /* ---------------------------------------------------------------------
    DATA INVARIANT: a recipe can never need more inputs than its building has
    ports. This is what caught Ballistic Warp Drive being modelled on the wrong
@@ -417,75 +457,6 @@ function auditT(){ const bad=[];
 /* =====================================================================
    MODULES — compositions. cell = [templateId, count, clock]
    ===================================================================== */
-const MODULES = [
- {id:'HUB', name:'Central Hub', phase:0, type:'hub', out:'(all parts converge)', target:'—',
-  desc:'HUB · Space Elevator · AWESOME Sink + Shop · personal storage "mall" · (late) train receiving yard. The only place parts converge.', cells:[]},
-
- {id:'M1', name:'Smart Plating', phase:1, type:'module', out:'Smart Plating', target:'10 / min',
-  desc:'Phase 1 delivery (50); also covers Phase 2 (500) and feeds Modular Engines in Phase 3. Build once.',
-  cells:[['T-IRON',8,'~97%'],['T-PLATE',3,'100%'],['T-ROD',10,'~95%'],['T-SCREW',10,'~93%'],['T-RIP',2,'100%'],['T-ROTOR',3,'~83%'],['T-SMARTPLATE',5,'100%']]},
-
- {id:'M2', name:'Versatile Framework', phase:2, type:'module', out:'Versatile Framework', target:'20 / min',
-  desc:'Phase 2 (500) + Phase 3 (2,500). Biggest steel sink (~480 steel ingot/min). Point your best iron + coal here. While on Mk.3 belts, split the steel trunk across two belts until Mk.4.',
-  cells:[['T-IRON',8,'100%'],['T-STEEL',11,'~97%'],['T-PLATE',5,'~90%'],['T-ROD',7,'100%'],['T-SCREW',5,'~90%'],['T-BEAM',8,'100%'],['T-RIP',3,'100%'],['T-FRAME',5,'100%'],['T-VERSFRAME',4,'100%']]},
-
- {id:'M3', name:'Automated Wiring', phase:2, type:'module', out:'Automated Wiring', target:'5 / min',
-  desc:'Phase 2 (100). Small module, ~20 min of runtime.',
-  cells:[['T-COPPER',4,'100%'],['T-STEEL',1,'50%'],['T-WIRE',8,'100%'],['T-CABLE',4,'~83%'],['T-PIPE',1,'75%'],['T-STATOR',1,'100%'],['T-AUTOWIRE',2,'100%']]},
-
- {id:'F1', name:'Feeder: Oil → Plastic & Rubber', phase:3, type:'feeder', out:'Plastic + Rubber', target:'as needed',
-  desc:'Refineries on/near oil. Pipe fluids; belt the solid Plastic & Rubber. Feeds engines (rubber) and computers (plastic). Sink/consume the Heavy Oil Residue byproduct.',
-  cells:[['T-PLASTIC',4,'100%'],['T-RUBBER',4,'100%']]},
-
- {id:'F2', name:'Feeder: Computers', phase:3, type:'feeder', out:'Computer', target:'~5 / min',
-  desc:'Low rate (ACUs need 2 computers each). Feeds M5 and later Supercomputers.',
-  cells:[['T-COPSHEET',3,'100%'],['T-CIRCUIT',3,'100%'],['T-COMPUTER',2,'100%']]},
-
- {id:'M4', name:'Modular Engine', phase:3, type:'module', out:'Modular Engine', target:'5 / min', approx:true,
-  desc:'Phase 3 (500). 2 Motor + 15 Rubber + 2 Smart Plating → 1 Modular Engine (Manufacturer).',
-  note:'Rubber piped from F1. Slight rounding on the rotor/stator sub-lines — confirm in the planner.',
-  cells:[['T-MODENGINE',5,'100%'],['T-MOTOR',2,'100%'],['T-ROTOR',3,'~83%'],['T-STATOR',2,'100%'],['T-SMARTPLATE',5,'100%']]},
-
- {id:'M5', name:'Adaptive Control Unit', phase:3, type:'module', out:'Adaptive Control Unit', target:'2 / min', approx:true,
-  desc:'Phase 3 (100). 5 Automated Wiring + 5 Circuit Board + 1 Heavy Modular Frame + 2 Computer → 1 ACU (Manufacturer).',
-  note:'Computers from F2; Heavy Modular Frame sub-line internal. Confirm exact sub-counts in planner.',
-  cells:[['T-ACU',2,'100%'],['T-AUTOWIRE',4,'100%'],['T-CIRCUIT',2,'~67%'],['T-HMFRAME',1,'100%']]},
-
- {id:'M6', name:'Assembly Director System', phase:4, type:'module', out:'Assembly Director System', target:'~5 / min', approx:true,
-  desc:'Phase 4 (500). 2 Adaptive Control Unit + 1 Supercomputer → 1 ADS (Assembler, 0.75/machine).',
-  note:'ADS is slow per machine (0.75/min) — needs ~7 assemblers for 5/min. ACUs come from a scaled M5; Supercomputer sub-line internal.',
-  cells:[['T-ADS',7,'100%'],['T-SUPERCOMP',3,'100%'],['T-AILIMITER',2,'100%'],['T-HSCONN',3,'100%']]},
-
- {id:'M7', name:'Magnetic Field Generator', phase:4, type:'module', out:'Magnetic Field Generator', target:'~5 / min', approx:true,
-  desc:'Phase 4 (500). 5 Versatile Framework + 2 Electromagnetic Control Rod → 2 MFG per 120 s (Assembler, 1/machine).',
-  note:'Versatile Framework tapped from M2 buffer; EM Control Rod sub-line internal.',
-  cells:[['T-MFG',2,'100%'],['T-EMROD',3,'~83%'],['T-AILIMITER',3,'100%']]},
-
- {id:'M8', name:'Thermal Propulsion Rocket', phase:4, type:'module', out:'Thermal Propulsion Rocket', target:'~2.5 / min', approx:true,
-  desc:'Phase 4 (250). 5 Modular Engine + 2 Turbo Motor + 6 Cooling System + 2 Fused Modular Frame → 2 TPR (Manufacturer).',
-  note:'Needs ALUMINIUM + NITROGEN (Cooling Systems, Fused Frames). Train-fed module — see train-network.md.',
-  cells:[['T-TPR',3,'~83%'],['T-TURBOMOTOR',2,'100%'],['T-COOLING',8,'100%'],['T-HEATSINK',5,'100%'],['T-FUSEDFRAME',2,'100%']]},
-
- {id:'M9', name:'Nuclear Pasta', phase:4, type:'module', out:'Nuclear Pasta', target:'~2.5 / min', approx:true,
-  desc:'Phase 4 (100) + Phase 5 (1,000) = 1,100. 200 Copper Powder + 1 Pressure Conversion Cube → 1 Nuclear Pasta (Particle Accelerator).',
-  note:'The copper-powder MONSTER: ~1,200 Copper Ingot per Nuclear Pasta/min. Put SOMERSLOOPS in the Particle Accelerators (doubles output → halves the copper), rail copper in, and bank through both phases.',
-  cells:[['T-PASTA',5,'100%'],['T-COPPERPOWDER',10,'100%'],['T-PCC',3,'100%'],['T-FUSEDFRAME',3,'100%']]},
-
- {id:'M10', name:'Biochemical Sculptor', phase:5, type:'module', out:'Biochemical Sculptor', target:'~8 / min', approx:true,
-  desc:'Phase 5 (1,000). 1 Assembly Director System + 80 Ficsite Trigon + 20 Water → 4 Biochemical Sculptor (Blender).',
-  note:'ADS from a scaled M6; Ficsite chain (SAM → Reanimated SAM → Ficsite Ingot → Ficsite Trigon) internal. Planner for exact counts.',
-  cells:[['T-SCULPTOR',2,'100%'],['T-FICTRIGON',2,'100%'],['T-FICINGOT',6,'100%'],['T-REANSAM',2,'100%']]},
-
- {id:'M11', name:'AI Expansion Server', phase:5, type:'module', out:'AI Expansion Server', target:'~4 / min', approx:true,
-  desc:'Phase 5 (256). 1 MFG + 1 Neural-Quantum Processor + 1 Superposition Oscillator + 25 Excited Photonic Matter → 1 AI Expansion Server (Quantum Encoder).',
-  note:'Deepest chain: needs Time Crystals, Dark Matter, Diamonds, Ficsite, EPM. Lean on the planner.',
-  cells:[['T-AISERVER',1,'100%'],['T-NQP',2,'~67%'],['T-SUPEROSC',1,'~80%'],['T-EPM',2,'100%']]},
-
- {id:'M12', name:'Ballistic Warp Drive', phase:5, type:'module', out:'Ballistic Warp Drive', target:'~2 / min', approx:true,
-  desc:'Phase 5 (200). 1 Thermal Propulsion Rocket + 5 Singularity Cell + 2 Superposition Oscillator + 40 Dark Matter Crystal → 1 Ballistic Warp Drive (Manufacturer).',
-  note:'Huge Dark Matter demand. TPR tapped from M8. Built on the quantum/dark-matter base.',
-  cells:[['T-WARP',2,'100%'],['T-SINGCELL',2,'100%'],['T-SUPEROSC',2,'100%'],['T-DMCRYSTAL',3,'100%'],['T-EPM',1,'100%']]},
-];
 
 const DELIVERIES = {
   1:[['Smart Plating',50,'M1']],
@@ -551,14 +522,6 @@ const INVENTORY = [
 ];
 
 /* ============================ HELPERS ============================ */
-function clockF(c){ if(!c) return 1; const m=String(c).match(/[\d.]+/); return m?(+m[0]/100):1; }
-function moduleMachines(m){
-  return m.cells.map(([tid,n,clock])=>{
-    const t=T[tid]; const f=clockF(clock);
-    return {tid,n,b:t.b,r:t.r,clock,outItem:t.out[0],outRate:+(t.out[1]*n*f).toFixed(1),
-      inputs:t.in.map(([it,rt])=>[it,+(rt*n*f).toFixed(1)])};
-  });
-}
 /* ============================ TABS ============================ */
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('nav button').forEach(x=>{ x.classList.remove('active'); x.removeAttribute('aria-current'); });
@@ -706,11 +669,15 @@ function renderShopping(){
   // ---- 1) RAW NODES (demand-solved totals) ----
   const farSet=['Bauxite','Uranium','Nitrogen Gas','SAM Ore','Crude Oil'], fluidSet=FLUID;
   const raw={}; all.forEach(({b})=>b.inputs.forEach(([it,r])=>{ if(ITEM2DIST[it]===undefined) raw[it]=(raw[it]||0)+r; }));
+  // recycled byproduct streams are not mined or pumped — net them off the claim
+  const byT=byproductTotals(bpScale), recycled={};
+  Object.keys(raw).forEach(k=>{ if(byT[k]>0){ recycled[k]=Math.min(raw[k],byT[k]); raw[k]=Math.max(0,raw[k]-byT[k]); } });
   const rawKeys=Object.keys(raw).sort((a,b)=>raw[b]-raw[a]);
   const nrows=rawKeys.map(k=>{ const v=+raw[k].toFixed(1), fluid=fluidSet.includes(k);
     const per = fluid?'' : `~${Math.ceil(v/(240*(bpMax?2.5:1)))} pure <span style="color:var(--muted)">/ ${Math.ceil(v/(120*(bpMax?2.5:1)))} normal</span>`;
     const via = farSet.includes(k)?'🚆 rail / refine at source':(fluid?'🔵 pump + pipe':'belt');
-    return `<tr><td><b>${k}</b></td><td class="n">${v}</td><td>${fluid?'<span style="color:var(--muted)">extractor/well</span>':per}</td><td>${via}</td></tr>`; }).join('');
+    const rec=recycled[k]?`<br><span style="color:#8fe6a8;font-size:11px">♻ ${Math.round(recycled[k])}/min of the gross need comes back as byproduct — pump only the ${v} shown</span>`:'';
+    return `<tr><td><b>${k}</b>${rec}</td><td class="n">${v}</td><td>${fluid?'<span style="color:var(--muted)">extractor/well</span>':per}</td><td>${via}</td></tr>`; }).join('');
   const ns=document.createElement('div'); ns.className='shopphase';
   ns.innerHTML=`<h3>🪨 Raw nodes to claim — whole build ${bpMax?'(MAX: miners overclocked too)':'(100%)'}</h3>`+
     '<table><thead><tr><th>Resource</th><th>Total/min</th><th>Nodes (≈ Mk.2 miner'+(bpMax?' @250%':'')+')</th><th>Bring via</th></tr></thead><tbody>'+nrows+'</tbody></table>'+
@@ -783,6 +750,7 @@ function lsSet(k,v){ try{ localStorage.setItem(k,v); }catch(e){ if(!_lsWarned){ 
 function saveState(s){ lsSet(LS,JSON.stringify(s)); }
 let state=loadState(), hideDone=false;
 let _refocus=null; // which control to re-focus after a full list rebuild (keyboard users keep their place)
+let auditList=null, auditIdx=0; // guided walk-your-save audit (adopting an existing factory)
 function gotoMapStep(id){ const b=document.querySelector('nav button[data-tab="buildmap"]'); if(b) b.click(); const did=(typeof WORKS2DIST!=='undefined'&&WORKS2DIST[id])||id; if(BM_SEQI[did]!==undefined){ bmStep=BM_SEQI[did]; bmApply(); if(typeof showDistrict==='function') showDistrict(did); } }
 /* delivery ETA from the same design rates the whole plan is solved against
    (FINAL_RATES × scale) — one rate system, matching phaseDeliverMin. */
@@ -805,6 +773,20 @@ function pushPAphase(out,p){ const d=DMAP['PA'], banks=districtBanks(d);
   banks.forEach((bk,i)=>{ if(T[bk.tid]&&T[bk.tid].ph===p){ const now=bankNowCount(d,bk); out.push({key:'bp:PA:'+bk.tid,ai:i,phase:p,district:'PA',label:'[★ PA] §'+(i+1)+' '+bk.r+' — '+now+'× '+bk.b+(bk.n>now?' (→'+bk.n+')':''),detail:stripTags(bankStepHTML(d,banks,bk,i))}); } }); }
 function bankBuiltPhase(d,bk){ return d.id==='PA' ? ((T[bk.tid]&&T[bk.tid].ph)||1) : d.phase; }
 function bankNowCount(d,bk){ return Math.max(1,Math.min(bk.n,bankCountAt(bk.tid,bankBuiltPhase(d,bk)))); }
+/* The phase your TICKS say you're at — so "My progress" can show the factory as it
+   should look right now, which is what makes ticking an "Expand …" step visibly change
+   the counts instead of doing nothing. */
+function effectivePhase(){ const nx=masterSteps().find(s=>!state[s.key]); return nx?Math.max(1,nx.phase):5; }
+/* Blueprints view mode: the final plan, a specific phase, or where you actually are. */
+let bpViewPhase='final';
+function viewPhase(){ return bpViewPhase==='final'?5:(bpViewPhase==='now'?effectivePhase():+bpViewPhase); }
+function bankViewCount(d,bk){
+  if(bpViewPhase==='final') return bk.n;
+  const ph=viewPhase(), bp=bankBuiltPhase(d,bk);
+  if(ph<bp) return 0;                                   // not standing yet at this point
+  return Math.max(1,Math.min(bk.n,bankCountAt(bk.tid,ph)));
+}
+function cntLabel(d,bk){ const k=bankViewCount(d,bk); return bk.n>k?k+'→'+bk.n:''+bk.n; }
 function pushExpansions(out,p){ DISTRICTS.forEach(d=>{ const banks=districtBanks(d), grew=[];
     banks.forEach(bk=>{ if(p<=bankBuiltPhase(d,bk)) return; const nw=bankNowCount(d,bk);
       // running total built = max(what you built "now", demand at that phase) — nets out the floored "+1 now" for zero-at-build banks
@@ -867,6 +849,40 @@ function renderInventory(){
   const ms=masterSteps(); const STEPNO=new Map(); ms.forEach((s,i)=>STEPNO.set(s,i+1));
   const done0=ms.filter(s=>state[s.key]).length;
   const next=ms.find(s=>!state[s.key]); const nextNo=next?STEPNO.get(next):ms.length;
+  // ----- guided audit: walk the plan and record what your save really has -----
+  const ab=document.getElementById('auditbtn');
+  if(ab) ab.onclick=()=>{ auditList=masterSteps().filter(s=>s.district); auditIdx=0; renderInventory(); };
+  if(auditList){
+    const s=auditList[auditIdx];
+    const card=document.createElement('div'); card.className='invphase'; card.style.borderColor='var(--teal)';
+    if(!s){ auditList=null;
+      card.innerHTML=`<h3 style="background:#0f2a26">✅ Audit finished</h3><div style="padding:11px 16px" class="nt">Your ticks now match what you told me is standing. The orange card below is your real next step.</div>`;
+    } else {
+      const done=(String(s.detail||'').split('✅ Done when:')[1]||'').trim();
+      const dm=stepMode(s.key);
+      card.innerHTML=`<h3 style="background:#0f2a26">🔁 Auditing your save <span class="pct" style="margin-left:auto">${auditIdx+1} of ${auditList.length}</span></h3>
+        <div style="padding:11px 16px">
+          <div style="font-size:12.5px;color:var(--muted)">${DMAP[s.district]?(s.district==='PA'?'★ Project Assembly':s.district+' · '+DMAP[s.district].name):s.district} · Phase ${s.phase}${dm?` · currently marked <b>${MODE_LABEL[dm]}</b>`:''}</div>
+          <div style="font-size:15px;font-weight:700;color:var(--txt);margin:3px 0 6px">${s.label}</div>
+          ${done?`<div class="nt" style="margin-bottom:9px"><b style="color:#8fe6a8">Go look:</b> ${done}</div>`:`<div class="nt" style="margin-bottom:9px">${s.detail||''}</div>`}
+          <button class="pbtn" id="aBuilt" style="border-color:#5dd47a;color:#8fe6a8;font-weight:700">✓ Built to plan</button>
+          <button class="pbtn" id="aEq" style="border-color:#ffce8a;color:#ffce8a">≈ Existing line covers it</button>
+          <button class="pbtn" id="aNo">✗ Not built</button>
+          <button class="pbtn" id="aSkip">⏭ Skipping this</button>
+          <button class="pbtn" id="aStop" style="margin-left:8px">✕ Stop audit</button>
+          ${s.ai!=null?` <button class="pbtn" onclick="gotoBlueprint('${s.district}',${s.ai})">📐 Show me where</button>`:''}
+        </div>`;
+    }
+    wrap.appendChild(card);
+    const step=(mode)=>{ const cur=auditList&&auditList[auditIdx]; if(cur) markStep(cur.key,mode); auditIdx++;
+      renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); };
+    const q=id=>card.querySelector('#'+id);
+    if(q('aBuilt')) q('aBuilt').onclick=()=>step('done');
+    if(q('aEq')) q('aEq').onclick=()=>step('eq');
+    if(q('aNo')) q('aNo').onclick=()=>step('clear');
+    if(q('aSkip')) q('aSkip').onclick=()=>step('skip');
+    if(q('aStop')) q('aStop').onclick=()=>{ auditList=null; renderInventory(); };
+  }
   // ----- plan-setting pill (the toggle every number depends on) -----
   const cp=document.getElementById('cfgpill');
   if(cp){ cp.textContent=(bpMax?'⚡ MAX ON':'🐢 100%')+(bpScale!==1?' · ×'+bpScale:'');
@@ -1195,7 +1211,7 @@ function buildBuildMap(){
       for(let gx2=ax+9;gx2<ax+p.aw-1;gx2+=9) ag.appendChild(svgEl('line',{x1:gx2,y1:ay,x2:gx2,y2:ay+p.ah,stroke:'rgba(0,0,0,.16)','stroke-width':.5}));
       for(let gy2=ay+9;gy2<ay+p.ah-1;gy2+=9) ag.appendChild(svgEl('line',{x1:ax,y1:gy2,x2:ax+p.aw,y2:gy2,stroke:'rgba(0,0,0,.16)','stroke-width':.5}));
       const cnt=svgEl('text',{x:ax+4,y:ay+13,fill:'#0a0d12','font-size':9.5,'font-weight':'700'}); cnt.classList.add('bmcnt'); ag.appendChild(cnt);
-      cnt.textContent=(done?'✓ ':'')+'§'+(bi+1)+' '+ab+'×'+(function(){const nn=bankNowCount(d,bk);return bk.n>nn?nn+'→'+bk.n:bk.n;})();
+      cnt.textContent=(done?'✓ ':'')+'§'+(bi+1)+' '+ab+'×'+cntLabel(d,bk);
       ag.appendChild(svgEl('text',{x:ax+4,y:ay+26,fill:'#0c1620','font-size':8})).textContent=(bk.r.length>14?bk.r.slice(0,13)+'…':bk.r);
       ag.appendChild(svgEl('text',{x:ax+4,y:ay+38,fill:'#10202a','font-size':7.5})).textContent=bk.outRate+'/min';
       ag.appendChild(svgEl('title',{})).textContent=bk.r+': '+bk.n+'× '+bk.b+' → '+bk.outRate+'/min (click for belt web)';
@@ -1388,7 +1404,6 @@ document.getElementById('bmPlay').onclick=()=>{
 };
 
 /* ============================ BLUEPRINTS (fixed 2D grid, single level) ============================ */
-const WORKS={M1:'Smart Plating Works',M2:'Versatile Framework Works',M3:'Wiring Works',F1:'Oil Refinery',F2:'Computer Works',M4:'Engine Works',M5:'Control-Unit Works',M6:'Director-System Works',M7:'Field-Generator Works',M8:'Rocket Works',M9:'Nuclear-Pasta Works',M10:'Sculptor Works',M11:'AI-Server Works',M12:'Warp-Drive Works'};
 const SECT={'Iron Ingot':'Ironworks · smelting','Copper Ingot':'Copperworks · smelting','Caterium Ingot':'Caterium smelting','Steel Ingot':'Steelworks · foundry','Aluminum Ingot':'Aluminium works','Aluminum Scrap':'Aluminium scrap','Alumina Solution':'Alumina refinery','Aluminum Casing':'Casing shop','Alclad Aluminum Sheet':'Alclad sheet shop','Concrete':'Concrete works','Screw':'Screw farm','Iron Rod':'Rod shop','Iron Plate':'Plate shop','Wire':'Wire shop','Cable':'Cable shop','Copper Sheet':'Sheet shop','Steel Beam':'Beam shop','Steel Pipe':'Pipe shop','Quickwire':'Quickwire shop','Copper Powder':'Powder mill','Silica':'Silica shop','Quartz Crystal':'Quartz shop'};
 const ABBR={Smelter:'Sm',Foundry:'Fo',Constructor:'Co',Assembler:'As',Manufacturer:'Mf',Refinery:'Rf',Blender:'Bl','Particle Accelerator':'PA',Converter:'Cv','Quantum Encoder':'QE'};
 const BCOL={Smelter:'#5ab0e6',Foundry:'#e6915a',Constructor:'#6fcf97',Assembler:'#b692ff',Manufacturer:'#ffce8a',Refinery:'#5aa9ff',Blender:'#2dd4bf','Particle Accelerator':'#ff6b9d',Converter:'#9aa7b4','Quantum Encoder':'#ffadc4'};
@@ -1450,10 +1465,20 @@ const MAXFACTOR=5;
 /* Design throughput of each of the 12 FINAL parts (parts/min). Everything else
    is sized by propagating these back through the recipe graph, so every bank is
    built to meet its true total demand (no starving feeds, no orphan banks). */
-const FINAL_RATES={'Smart Plating':10,'Versatile Framework':20,'Automated Wiring':5,
- 'Modular Engine':5,'Adaptive Control Unit':2,'Assembly Director System':5,
- 'Magnetic Field Generator':5,'Thermal Propulsion Rocket':2.5,'Nuclear Pasta':2.5,
- 'Biochemical Sculptor':8,'AI Expansion Server':2,'Ballistic Warp Drive':1.5};
+/* Chosen to MINIMISE WAITING rather than to maximise throughput. Each phase's parts
+   are rated so they all finish at about the same time, on that phase's unavoidable
+   long pole, so no single line holds up a delivery:
+     P2 ~50 min  · P3 ~125 min (Versatile Framework's 2,500 sets this floor)
+     P4 ~125 min · P5 ~250 min (Nuclear Pasta's 1,100 sets this floor)
+   Nuclear Pasta is deliberately oversized for Phase 4 (25 min for its 100) so it banks
+   toward Phase 5's 1,000 while you build. Pushing P5 below ~250 min means a copper
+   operation bigger than the map can feed — that is the "over the top" line, so we stop
+   here. Net vs the old rates: ~23% fewer machines, ~18% less total runtime, and lower
+   raw demand across every resource. */
+const FINAL_RATES={'Smart Plating':10,'Versatile Framework':20,'Automated Wiring':2,
+ 'Modular Engine':4,'Adaptive Control Unit':0.8,'Assembly Director System':4,
+ 'Magnetic Field Generator':4,'Thermal Propulsion Rocket':2,'Nuclear Pasta':4,
+ 'Biochemical Sculptor':4,'AI Expansion Server':1,'Ballistic Warp Drive':0.8};
 let _demandCache={};
 function solveDemand(scale){ scale=scale||1; const key=''+scale; if(_demandCache[key]) return _demandCache[key];
   const producible=new Set(), prod={};
@@ -1463,10 +1488,23 @@ function solveDemand(scale){ scale=scale||1; const key=''+scale; if(_demandCache
     for(const k in FINAL_RATES) nd[k]=(nd[k]||0)+FINAL_RATES[k]*scale;
     producible.forEach(item=>{ const D=demand[item]||0; if(D<=0) return; const t=T[prod[item]], mf=D/t.out[1];
       t.in.forEach(([inp,r])=>{ if(producible.has(inp)) nd[inp]=(nd[inp]||0)+mf*r; }); });
+    // A byproduct is SUPPLY: recycled scrap water, alumina's silica and the Quantum
+    // Encoders' dark-matter residue all reduce what you must actually make. Crediting it
+    // here is what makes the machine counts match the routing advice the steps give.
+    const credit=byproductCredit(demand,prod,producible);
+    for(const k in credit) if(nd[k]!==undefined) nd[k]=Math.max(0,nd[k]-credit[k]);
     demand=nd;
   }
   _demandCache[key]={demand,prod,producible}; return _demandCache[key];
 }
+/* per-minute byproduct supply implied by a demand solution (keyed by item) */
+function byproductCredit(demand,prod,producible){ const by={};
+  producible.forEach(item=>{ const D=demand[item]||0; if(D<=0) return; const t=T[prod[item]];
+    if(t&&t.by) by[t.by[0]]=(by[t.by[0]]||0)+(D/t.out[1])*t.by[1]; });
+  return by; }
+/* byproduct supply for the whole build — used to net recycled streams (water) out of
+   the raw-node claim, since those never come from a miner or a pump. */
+function byproductTotals(scale){ const s=solveDemand(scale||bpScale||1); return byproductCredit(s.demand,s.prod,s.producible); }
 function fpDims(fp){ const m=String(fp).match(/(\d+)×(\d+)/); return m?{w:+m[1],h:+m[2]}:{w:2,h:2}; }
 function districtBanks(d,scale){ scale=scale||bpScale||1; const eff=bpMax?MAXFACTOR:1;
   const {demand}=solveDemand(scale);
@@ -1516,7 +1554,7 @@ function floorPlanSvg(d, banks, hiIdx){
     // compact bank box — ONE box, ×count (drill in for the machine-by-machine belt web)
     s+=`<rect x="${boxX}" y="${by}" width="${boxW}" height="${boxH}" rx="5" fill="${col}" opacity="${done?.5:.95}" stroke="${hi?'#fff':'#0a0d12'}" stroke-width="${hi?2:1}"><title>${bk.n}× ${bk.b} · ${bk.r} · footprint ${bk.fp} each</title></rect>`;
     s+=`<text x="${boxX+10}" y="${by+17}" fill="#0a0d12" font-size="12" font-weight="700">§${i+1} · ${bpEsc(bpFit(bk.r,boxW-34,6.6))}${done?' ✓':''}</text>`;
-    s+=`<text x="${boxX+10}" y="${by+34}" fill="#0c1620" font-size="11" font-weight="700">${ab} ${bk.b} <tspan font-size="14">×${(()=>{const nn=bankNowCount(d,bk);return bk.n>nn?nn+'→'+bk.n:bk.n;})()}</tspan></text>`;
+    s+=`<text x="${boxX+10}" y="${by+34}" fill="#0c1620" font-size="11" font-weight="700">${ab} ${bk.b} <tspan font-size="14">×${cntLabel(d,bk)}</tspan></text>`;
     // output belt (right) to its destination
     const oc=carrierOf(bk.outItem,bk.outRate), omk=oc.mk;
     s+=`<line x1="${boxX+boxW}" y1="${cy}" x2="${W-12}" y2="${cy}" stroke="#b692ff" stroke-width="2.5"${oc.carrier==='pipe'?' stroke-dasharray="5 3"':''}/>`;
@@ -1610,7 +1648,7 @@ function districtFlowSvg(d, banks, hiIdx){
   // cards
   banks.forEach((bk,i)=>{ const p=pos[i], done=!!state['bp:'+d.id+':'+bk.tid], hi=(i===hiIdx);
     const col=BCOL[bk.b]||'#8b97a3', ab=ABBR[bk.b]||'?', side=bankSide(bk), oc=carrierOf(bk.outItem,bk.outRate);
-    const cnt=(()=>{const nn=bankNowCount(d,bk);return bk.n>nn?nn+'→'+bk.n:bk.n;})();
+    const cnt=cntLabel(d,bk);
     // external imports, parked above the card (truncated to the card width, full list on hover)
     const ext=bk.inputs.filter(([it])=>idx[it]===undefined);
     if(ext.length){ const full='◀ '+ext.map(e=>e[0]).join(', ');
@@ -1667,8 +1705,8 @@ function districtGridSvg(d, banks, hiIdx){
     s+=`<rect x="${x}" y="${y}" width="${w}" height="${w}" rx="2" fill="${col}" opacity="${done?.5:.92}" stroke="${hi?'#fff':'#0a0d12'}" stroke-width="${hi?2.5:1}"><title>${bk.r}: ${bk.n}× ${bk.b} · ~${p.s}×${p.s} foundations</title></rect>`;
     s+=`<text x="${x+4}" y="${y+13}" fill="#0a0d12" font-size="10" font-weight="700">§${i+1}</text>`;
     if(w>52){ s+=`<text x="${x+4}" y="${y+25}" fill="#0c1620" font-size="9" font-weight="700">${bpEsc(bpFit(bk.r,w-8,5))}</text>`;
-      s+=`<text x="${x+4}" y="${y+37}" fill="#10202a" font-size="8.5">${bpEsc(bpFit(ab+'×'+(()=>{const nn=bankNowCount(d,bk);return bk.n>nn?nn+'→'+bk.n:bk.n;})()+' · '+p.s+'×'+p.s,w-8,4.6))}</text>`; }
-    else { s+=`<text x="${x+4}" y="${y+24}" fill="#0c1620" font-size="8">${ab}×${(()=>{const nn=bankNowCount(d,bk);return bk.n>nn?nn+'→'+bk.n:bk.n;})()}</text>`; }
+      s+=`<text x="${x+4}" y="${y+37}" fill="#10202a" font-size="8.5">${bpEsc(bpFit(ab+'×'+cntLabel(d,bk)+' · '+p.s+'×'+p.s,w-8,4.6))}</text>`; }
+    else { s+=`<text x="${x+4}" y="${y+24}" fill="#0c1620" font-size="8">${ab}×${cntLabel(d,bk)}</text>`; }
     s+=`</g>`;
     if(w>=22) s+=statusToggleSvg(d.id,i,done,x+w-7,y+7,5); });
   return s+'</svg>';
@@ -1691,12 +1729,21 @@ function renderBpPicker(){
   const zout=document.createElement('button'); zout.className='pbtn'; zout.textContent='−'; zout.onclick=()=>{ bpZoom=Math.max(1,+(bpZoom-0.5).toFixed(1)); renderBpStage(); }; tune.appendChild(zout);
   const zin=document.createElement('button'); zin.className='pbtn'; zin.textContent='+'; zin.onclick=()=>{ bpZoom=Math.min(4,+(bpZoom+0.5).toFixed(1)); renderBpStage(); }; tune.appendChild(zin);
   const zrst=document.createElement('button'); zrst.className='pbtn'; zrst.textContent='⟲'; zrst.onclick=()=>{ bpZoom=1; renderBpStage(); }; tune.appendChild(zrst);
+  // view mode: the finished plan, a chosen phase, or the factory as your ticks say it stands
+  const vl=document.createElement('span'); vl.className='lbl'; vl.style.marginLeft='8px'; vl.textContent='show:'; tune.appendChild(vl);
+  [['final','Final plan'],['now','📍 My progress'],[1,'P1'],[2,'P2'],[3,'P3'],[4,'P4'],[5,'P5']].forEach(([v,lab])=>{
+    const b=document.createElement('button'); b.className='pbtn'+(String(bpViewPhase)===String(v)?' active':'');
+    b.textContent=lab; b.title=v==='final'?'Every machine the finished plan needs':(v==='now'?'What should be standing right now, from your ticked steps':'What should be standing by the end of Phase '+v);
+    b.onclick=()=>{ bpViewPhase=v; renderBlueprints(); }; tune.appendChild(b); });
   const lbl=document.createElement('span'); lbl.className='lbl'; lbl.style.marginLeft='8px'; lbl.textContent='×scale:'; tune.appendChild(lbl);
   [0.5,1,1.5,2].forEach(s=>{ const b=document.createElement('button'); b.className='pbtn'+(bpScale===s?' active':''); b.textContent='×'+s; b.onclick=()=>{ bpScale=s; saveCfg(); renderBlueprints(); if(typeof renderInventory==='function') renderInventory(); }; tune.appendChild(b); });
   const note=document.createElement('span'); note.className='hint'; note.style.margin='0 0 0 8px';
-  note.innerHTML=bpMax
-    ? 'Each machine = <b>250% overclock (3 Power Shards) + 1 Somersloop (2×)</b> = 5× output, so counts are ~⅕. Sized to <b>total demand</b>, made once. Tune exact ratios in the <a href="https://www.satisfactorytools.com/" target="_blank">planner</a>.'
-    : 'Counts at 100% clock, sized to <b>total project demand</b> (made once, shared). Turn on ⚡ MAX to overclock + sloop and shrink the build.';
+  const viewNote=bpViewPhase==='final'?'Showing <b>every machine the finished plan needs</b>.'
+    :(bpViewPhase==='now'?`Showing <b>what should be standing right now</b> (Phase ${viewPhase()}, from your ticked steps) — <b>k→n</b> means k now, n eventually, and <b>0→n</b> is land you are only reserving.`
+      :`Showing the factory <b>as of the end of Phase ${bpViewPhase}</b> — <b>k→n</b> means k by then, n eventually.`);
+  note.innerHTML=viewNote+' '+(bpMax
+    ? 'Each machine = <b>250% overclock (3 Power Shards) + 1 Somersloop (2×)</b> = 5× output, so counts are ~⅕. Sized to <b>total demand</b>, made once. Which banks you can really sloop is in the <b>🎯 allocator</b>.'
+    : 'Counts at 100% clock, sized to <b>total project demand</b> (made once, shared). Turn on ⚡ MAX to overclock + sloop and shrink the build.');
   tune.appendChild(note); c.appendChild(tune);
 }
 const BP_LEGEND='<span style="color:#2dd4bf">━ teal</span> = belt in / manifold · <span style="color:#5aa9ff">┅ blue</span> = pipe (fluid) · small squares = splitter/merger · coloured boxes = machines (hover for footprint) · <span style="color:#b692ff">━ purple</span> = output belt out.';
@@ -1800,6 +1847,8 @@ function solveDemandPhase(p,scale){ scale=scale||1; const key=p+'|'+scale; if(_d
   for(let iter=0;iter<80;iter++){ const nd={};
     for(const k in FINAL_RATES){ if((FINAL_PHASE[k]||1)<=p) nd[k]=(nd[k]||0)+FINAL_RATES[k]*scale; }
     producible.forEach(item=>{ const D=demand[item]||0; if(D<=0)return; const t=T[prod[item]],mf=D/t.out[1]; t.in.forEach(([inp,r])=>{ if(producible.has(inp)) nd[inp]=(nd[inp]||0)+mf*r; }); });
+    const credit=byproductCredit(demand,prod,producible);            // same credit, per phase
+    for(const k in credit) if(nd[k]!==undefined) nd[k]=Math.max(0,nd[k]-credit[k]);
     demand=nd; }
   _demP[key]=demand; return demand; }
 function bankCountAt(tid,p){ const t=T[tid],eff=bpMax?MAXFACTOR:1, D=solveDemandPhase(p,bpScale)[t.out[0]]||0; return Math.max(0,Math.ceil(D/t.out[1]/eff)); }
@@ -2004,6 +2053,27 @@ function renderFlowOverview(){
   host.innerHTML=s+'</svg>';
   host.querySelectorAll('.foDist').forEach(g=>g.onclick=()=>gotoMapStep(g.dataset.id));
 }
+/* ============================ ALT-RECIPE TOGGLES ============================ */
+function renderAltToggles(){
+  const host=document.getElementById('altToggles'); if(!host) return;
+  const on=altsOn();
+  host.innerHTML=Object.entries(ALTS).map(([id,a])=>{
+    const std=T_STD[a.replaces], act=on.indexOf(id)>=0;
+    const fmt=t=>(t.in.map(x=>x[0]+' '+x[1]).join(' + ')||'—')+' → '+t.out[0]+' '+t.out[1]+'/min';
+    return `<div class="invrow${act?'':''}" style="border:1px solid ${act?'var(--teal)':'var(--line)'};border-radius:7px;margin-bottom:6px;background:${act?'rgba(45,212,191,.06)':'transparent'}">`+
+      `<input type="checkbox" data-alt="${id}" aria-label="Use the ${a.label} alternate recipe" ${act?'checked':''}>`+
+      `<div class="it"><div class="nm"><b>${a.label}</b> <span class="tag qty">alt · spot-check in-game</span> ${act?'<span class="tag" style="background:#0f2a26;color:#8fe6a8">IN USE</span>':''}</div>`+
+      `<div class="nt">${a.why}<br><span style="color:var(--muted)">standard:</span> ${fmt(std)} &nbsp;·&nbsp; <span style="color:var(--teal)">alt:</span> ${fmt(a)}</div></div></div>`;
+  }).join('');
+  host.querySelectorAll('input[data-alt]').forEach(cb=>cb.onchange=e=>{
+    const id=cb.dataset.alt; let list=altsOn().slice();
+    if(e.target.checked){ if(list.indexOf(id)<0) list.push(id); } else list=list.filter(x=>x!==id);
+    state._cfg=Object.assign({},state._cfg,{alts:list}); saveState(state);
+    applyAlts(); auditT();
+    renderAltToggles(); renderCards(); renderTemplates(); renderShopping(); renderInventory();
+    renderBlueprints(); buildBuildMap(); renderFlowOverview();
+  });
+}
 /* ============================ A11Y: keyboard operability ============================ */
 /* Clickable spans (.u/.tlink) and the clickable SVG area/district groups (.bpsect/.bmmod)
    use onclick handlers — make them focusable + Enter/Space-activatable for keyboard/AT users. */
@@ -2015,10 +2085,11 @@ new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{ if(n.nodeType!=
 document.addEventListener('keydown',e=>{ if(e.key!=='Enter'&&e.key!==' ') return; const el=document.activeElement;
   if(el&&el.matches&&el.matches('.u,.tlink,.bpsect,.bmmod,.bptoggle,.foDist')){ e.preventDefault(); el.dispatchEvent(new MouseEvent('click',{bubbles:true})); } });
 /* ============================ INIT ============================ */
+applyAlts();     // before anything solves, so saved alt choices are in effect
 auditT();
 buildBuildMap();
 renderCards(); renderTemplates(); renderShopping(); renderInventory();
-renderBlueprints(); renderFlowOverview();
+renderBlueprints(); renderFlowOverview(); renderAltToggles();
 document.querySelectorAll('.u,.tlink,.bpsect,.bmmod,.bptoggle,.foDist').forEach(_a11yMark);
 </script>
 </body>

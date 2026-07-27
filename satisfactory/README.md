@@ -34,10 +34,23 @@ by the elevator. Cross-district flows are few and one-directional (belts between
 the core districts; **trains** to/from the far ones; **drones** for small dribbles
 of expensive parts).
 
-You're in the **top-right Dune Desert plateau** (flat &amp; open), building everything **above ground** (fly
-mod), and **overclocking to MAX** (250% + Somersloop ≈ 5× per machine) — so you
-build roughly ⅕ the machines. The app's ⚡ MAX toggle and ×scale let you change
-this.
+You're in the **top-right Dune Desert plateau** (flat &amp; open), building everything
+**above ground** (fly mod). The ⚡ **MAX** toggle plans at 250% + Somersloop (≈5× per
+machine, so ~⅕ the machines); ⚡ **100%** plans the honest full counts. Note the world
+only contains **~106 Somersloops**, nowhere near enough to amplify everything — so the
+app's **🎯 allocator** takes the number you actually own and tells you which banks are
+worth it (the deep terminal chains, whose whole upstream tree halves), and each build
+step then says whether *that* bank should be amplified or just overclocked with shards.
+
+### Why the design rates are what they are
+
+The 12 final parts have design rates chosen to **minimise waiting**, not to maximise
+throughput: within each phase every part is rated to finish at about the same time, on
+that phase's unavoidable long pole — **P2 ~50 min, P3 ~125 min** (Versatile Framework's
+2,500 sets that floor), **P4 ~125 min, P5 ~250 min** (Nuclear Pasta's 1,100 sets that
+one). Nuclear Pasta is deliberately oversized for Phase 4 so it banks toward Phase 5
+while you build. Going faster than that in Phase 5 needs a copper operation bigger than
+the map can feed, so the plan stops there rather than going over the top.
 
 ---
 
@@ -47,14 +60,17 @@ this.
 |-----|--------------|
 | **✅ Do Next** | The numbered **step-by-step encyclopaedia** (HUB → launch). The orange card shows the single next thing; tick it and it advances. Per-phase tech-unlock gating, live power, pre-flight 🎒 kit, ⚠ utilities, and **Expand …** steps that grow each district as you go. Tick anything you've already built. |
 | **🗺️ Build Map** | A zoomable **nested atlas**: districts in place → their area blocks → (zoom in) the machines. Real **belt vs 🚆 train** links, raw feeds, phase slider that darkens unbuilt. Click an area → its belt web. |
-| **📐 Blueprints** | Per-district **Flow** (connections) / **Grid** (exact foundation footprints) layouts; click an area for its **belt web** (double-sided manifold, multi-lane belts, build-now vs grey-later). |
-| **📋 Items We Need** | Whole-build shopping: raw nodes to claim, total buildings bill, **Power-Shard + Somersloop** budget, the **power plan**, and parts to deliver per phase. |
+| **📐 Blueprints** | Per-district **Flow** (connections) / **Grid** (exact foundation footprints) layouts; click an area for its **belt web** (double-sided manifold, multi-lane belts). A **show:** control switches between the *Final plan*, any single phase, and **📍 My progress** — the factory as your ticks say it stands. |
+| **📋 Items We Need** | Whole-build shopping: raw nodes to claim (recycled byproducts already netted off), total buildings bill, the **power plan**, and the **🎯 Somersloop allocator** — enter how many you actually own and it tells you which banks to amplify. |
 | **🏭 Districts** | Each district: what it makes, what it imports, raw feed, machine count. |
 | **🧩 Templates** | Every recipe with a visual; **search** an item to see where it's made/used and jump there. |
-| **📖 Guide** | This overview + optional **alt recipes** to shrink the build. |
+| **📖 Guide** | This overview + **alt-recipe toggles**: tick one you've unlocked and the whole plan re-solves around it. |
 
 Progress saves in your browser; **🔑 Save code / 📥 Load code** moves it between
-devices; **🖨️ Print manual** prints the numbered checklist.
+devices; **🖨️ Print manual** prints the numbered checklist. Each step can be marked
+**built**, **≈ already covered by my existing factory**, or **⏭ skipped**, and
+**🔁 Audit my save** walks the whole plan asking which — that's how you adopt this
+plan onto a save that's already running.
 
 ---
 

@@ -17,10 +17,18 @@ to a finished Project Assembly (Space Elevator Phase 5). Renders at
 ## Intent routing
 
 1. **Change the app** (tweak a recipe, module, blueprint, copy): edit
-   `factory-network.html`. The data lives in the `T` / `DISTRICTS` / `MODULES` /
-   `DELIVERIES` / `INVENTORY` consts in its `<script>` (`DISTRICTS` drives the Build
-   Map & Districts tab; `MODULES` is now only used for the Do-Next delivery
-   estimate); presentation is the surrounding HTML/CSS.
+   `factory-network.html`. The data lives in the `T` (standard recipes), `ALTS`
+   (opt-in alternates), `DISTRICTS`, `FINAL_RATES`, `DELIVERIES` and `INVENTORY`
+   consts in its `<script>`; presentation is the surrounding HTML/CSS.
+   - `FINAL_RATES` is the single knob that sizes the whole build: every bank is
+     demand-solved back from those 12 numbers. They are tuned so each phase's parts
+     finish together (see the comment above them) — change one and re-check the
+     per-phase runtimes, machine count and raw totals, not just the one part.
+   - A **port-count invariant** (`PORTS` + `auditT()`) runs at load and warns in the
+     console if any recipe needs more inputs than its building has. Keep it green;
+     it is what caught Ballistic Warp Drive being modelled on the wrong machine.
+   - The legacy `MODULES` const has been deleted — it was unused and still quoted
+     pre-rebalance rates. Don't reintroduce a second source of rates.
 2. **Change a doc:** edit the relevant `.md` / `.csv` and keep it in sync with
    the app.
 3. **Question:** just answer; don't commit.

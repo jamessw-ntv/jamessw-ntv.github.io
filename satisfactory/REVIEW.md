@@ -474,12 +474,33 @@ copper / 7,412 coal / 5,546 crude / 1,223 SAM per minute.)
 > implies. Each phase also prices its overclock bill in Power Shards and flags
 > when it exceeds the ~730 obtainable from wild slugs (Phase 5 wants ~1,758).
 >
-> Wave 5 **still open**: Blueprints-tab phase selector; per-bank "effective
-> phase" from Expand ticks; alt-recipe solver toggles; a guided audit-vs-save
-> walkthrough (the tri-state marks exist, the wizard doesn't); crediting
-> byproducts *inside* the solver (they remain advisory); and the two owner
-> decisions — **FINAL_RATES rebalance** and the **node-coordinate table**
-> (deliberately not invented: real map coordinates could not be verified here).
+> **Wave 5 is now complete** (2026-07-27), and the owner settled the one open
+> design question. Also shipped since: **alt-recipe toggles** wired into the solver
+> (tick one you've unlocked and the whole plan re-solves — Recycled Plastic alone
+> cuts crude 45%; they ship off by default and flagged, because their rates are
+> author-sourced rather than cross-verified), a **Blueprints phase view**
+> (Final plan / any phase / 📍 My progress, which finally makes an "Expand …" tick
+> visibly change the counts), **byproducts credited inside the solver** (so machine
+> counts and the raw-node claim agree with the recycling advice instead of
+> contradicting it), and a **guided "Audit my save"** walkthrough that asks
+> built / already-covered / not-built / skipped for all 113 district steps.
+>
+> **FINAL_RATES rebalance — done, on the owner's instruction to minimise
+> bottlenecks without going over the top.** Candidates were measured against the
+> solver rather than chosen by feel. Each phase's parts are now rated to finish
+> together on that phase's own long pole (P2 ~50 min, P3/P4 ~125 min, P5 ~250 min);
+> the old rates left Phase 5 waiting **6.7 h** on Nuclear Pasta while its three
+> siblings finished in ~2 h. Pasta is deliberately oversized for Phase 4 so it banks
+> toward Phase 5. Net: **~23% fewer machines, ~18% less runtime, and lower raw draw
+> on every resource** (iron −26%, coal −30%, crude −28%, SAM −48%). Phase 5 is not
+> pushed below ~250 min because that needs more copper than the map can feed — that
+> is where "over the top" begins. The legacy `MODULES` const was deleted in the same
+> pass: it was unused and still quoted the pre-rebalance rates.
+>
+> **Still open — one item, and it needs the owner:** the **node-coordinate table**
+> (the owner will supply coordinates later). Real map coordinates could not be
+> verified from this environment, and inventing them would be worse than leaving
+> the gap visible.
 
 **Wave 0 — data honesty & small correctness (low risk, high trust):**
 sloop power ×2→×4 + updated prose; sloop/shard reality warning + terminal-
