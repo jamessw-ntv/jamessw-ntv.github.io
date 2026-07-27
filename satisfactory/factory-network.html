@@ -706,11 +706,15 @@ function renderShopping(){
   // ---- 1) RAW NODES (demand-solved totals) ----
   const farSet=['Bauxite','Uranium','Nitrogen Gas','SAM Ore','Crude Oil'], fluidSet=FLUID;
   const raw={}; all.forEach(({b})=>b.inputs.forEach(([it,r])=>{ if(ITEM2DIST[it]===undefined) raw[it]=(raw[it]||0)+r; }));
+  // recycled byproduct streams are not mined or pumped — net them off the claim
+  const byT=byproductTotals(bpScale), recycled={};
+  Object.keys(raw).forEach(k=>{ if(byT[k]>0){ recycled[k]=Math.min(raw[k],byT[k]); raw[k]=Math.max(0,raw[k]-byT[k]); } });
   const rawKeys=Object.keys(raw).sort((a,b)=>raw[b]-raw[a]);
   const nrows=rawKeys.map(k=>{ const v=+raw[k].toFixed(1), fluid=fluidSet.includes(k);
     const per = fluid?'' : `~${Math.ceil(v/(240*(bpMax?2.5:1)))} pure <span style="color:var(--muted)">/ ${Math.ceil(v/(120*(bpMax?2.5:1)))} normal</span>`;
     const via = farSet.includes(k)?'🚆 rail / refine at source':(fluid?'🔵 pump + pipe':'belt');
-    return `<tr><td><b>${k}</b></td><td class="n">${v}</td><td>${fluid?'<span style="color:var(--muted)">extractor/well</span>':per}</td><td>${via}</td></tr>`; }).join('');
+    const rec=recycled[k]?`<br><span style="color:#8fe6a8;font-size:11px">♻ ${Math.round(recycled[k])}/min of the gross need comes back as byproduct — pump only the ${v} shown</span>`:'';
+    return `<tr><td><b>${k}</b>${rec}</td><td class="n">${v}</td><td>${fluid?'<span style="color:var(--muted)">extractor/well</span>':per}</td><td>${via}</td></tr>`; }).join('');
   const ns=document.createElement('div'); ns.className='shopphase';
   ns.innerHTML=`<h3>🪨 Raw nodes to claim — whole build ${bpMax?'(MAX: miners overclocked too)':'(100%)'}</h3>`+
     '<table><thead><tr><th>Resource</th><th>Total/min</th><th>Nodes (≈ Mk.2 miner'+(bpMax?' @250%':'')+')</th><th>Bring via</th></tr></thead><tbody>'+nrows+'</tbody></table>'+
@@ -1450,10 +1454,20 @@ const MAXFACTOR=5;
 /* Design throughput of each of the 12 FINAL parts (parts/min). Everything else
    is sized by propagating these back through the recipe graph, so every bank is
    built to meet its true total demand (no starving feeds, no orphan banks). */
-const FINAL_RATES={'Smart Plating':10,'Versatile Framework':20,'Automated Wiring':5,
- 'Modular Engine':5,'Adaptive Control Unit':2,'Assembly Director System':5,
- 'Magnetic Field Generator':5,'Thermal Propulsion Rocket':2.5,'Nuclear Pasta':2.5,
- 'Biochemical Sculptor':8,'AI Expansion Server':2,'Ballistic Warp Drive':1.5};
+/* Chosen to MINIMISE WAITING rather than to maximise throughput. Each phase's parts
+   are rated so they all finish at about the same time, on that phase's unavoidable
+   long pole, so no single line holds up a delivery:
+     P2 ~50 min  · P3 ~125 min (Versatile Framework's 2,500 sets this floor)
+     P4 ~125 min · P5 ~250 min (Nuclear Pasta's 1,100 sets this floor)
+   Nuclear Pasta is deliberately oversized for Phase 4 (25 min for its 100) so it banks
+   toward Phase 5's 1,000 while you build. Pushing P5 below ~250 min means a copper
+   operation bigger than the map can feed — that is the "over the top" line, so we stop
+   here. Net vs the old rates: ~23% fewer machines, ~18% less total runtime, and lower
+   raw demand across every resource. */
+const FINAL_RATES={'Smart Plating':10,'Versatile Framework':20,'Automated Wiring':2,
+ 'Modular Engine':4,'Adaptive Control Unit':0.8,'Assembly Director System':4,
+ 'Magnetic Field Generator':4,'Thermal Propulsion Rocket':2,'Nuclear Pasta':4,
+ 'Biochemical Sculptor':4,'AI Expansion Server':1,'Ballistic Warp Drive':0.8};
 let _demandCache={};
 function solveDemand(scale){ scale=scale||1; const key=''+scale; if(_demandCache[key]) return _demandCache[key];
   const producible=new Set(), prod={};
@@ -1463,10 +1477,23 @@ function solveDemand(scale){ scale=scale||1; const key=''+scale; if(_demandCache
     for(const k in FINAL_RATES) nd[k]=(nd[k]||0)+FINAL_RATES[k]*scale;
     producible.forEach(item=>{ const D=demand[item]||0; if(D<=0) return; const t=T[prod[item]], mf=D/t.out[1];
       t.in.forEach(([inp,r])=>{ if(producible.has(inp)) nd[inp]=(nd[inp]||0)+mf*r; }); });
+    // A byproduct is SUPPLY: recycled scrap water, alumina's silica and the Quantum
+    // Encoders' dark-matter residue all reduce what you must actually make. Crediting it
+    // here is what makes the machine counts match the routing advice the steps give.
+    const credit=byproductCredit(demand,prod,producible);
+    for(const k in credit) if(nd[k]!==undefined) nd[k]=Math.max(0,nd[k]-credit[k]);
     demand=nd;
   }
   _demandCache[key]={demand,prod,producible}; return _demandCache[key];
 }
+/* per-minute byproduct supply implied by a demand solution (keyed by item) */
+function byproductCredit(demand,prod,producible){ const by={};
+  producible.forEach(item=>{ const D=demand[item]||0; if(D<=0) return; const t=T[prod[item]];
+    if(t&&t.by) by[t.by[0]]=(by[t.by[0]]||0)+(D/t.out[1])*t.by[1]; });
+  return by; }
+/* byproduct supply for the whole build — used to net recycled streams (water) out of
+   the raw-node claim, since those never come from a miner or a pump. */
+function byproductTotals(scale){ const s=solveDemand(scale||bpScale||1); return byproductCredit(s.demand,s.prod,s.producible); }
 function fpDims(fp){ const m=String(fp).match(/(\d+)×(\d+)/); return m?{w:+m[1],h:+m[2]}:{w:2,h:2}; }
 function districtBanks(d,scale){ scale=scale||bpScale||1; const eff=bpMax?MAXFACTOR:1;
   const {demand}=solveDemand(scale);
@@ -1800,6 +1827,8 @@ function solveDemandPhase(p,scale){ scale=scale||1; const key=p+'|'+scale; if(_d
   for(let iter=0;iter<80;iter++){ const nd={};
     for(const k in FINAL_RATES){ if((FINAL_PHASE[k]||1)<=p) nd[k]=(nd[k]||0)+FINAL_RATES[k]*scale; }
     producible.forEach(item=>{ const D=demand[item]||0; if(D<=0)return; const t=T[prod[item]],mf=D/t.out[1]; t.in.forEach(([inp,r])=>{ if(producible.has(inp)) nd[inp]=(nd[inp]||0)+mf*r; }); });
+    const credit=byproductCredit(demand,prod,producible);            // same credit, per phase
+    for(const k in credit) if(nd[k]!==undefined) nd[k]=Math.max(0,nd[k]-credit[k]);
     demand=nd; }
   _demP[key]=demand; return demand; }
 function bankCountAt(tid,p){ const t=T[tid],eff=bpMax?MAXFACTOR:1, D=solveDemandPhase(p,bpScale)[t.out[0]]||0; return Math.max(0,Math.ceil(D/t.out[1]/eff)); }
