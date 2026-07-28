@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-28",
-    "fetched": "2026-07-28T03:28:06+00:00",
+    "fetched": "2026-07-28T06:32:21+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 27
+      "temp": 12,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 21
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90490.0,
-        "pct": -2.98
+        "price": 91026.0,
+        "pct": -2.53
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2686.22,
-        "pct": -3.34
+        "price": 2698.26,
+        "pct": -3.76
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Spider-Man: Brand New Day’ First Reactions: Tom Holland Has ‘Never Been Better’ in a Sequel That Ditches ‘Multiverse Tedium’ and Delivers a ‘Grounded Spider-Man Tale’",
+      "when": "28 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/spider-man-brand-new-day-first-reactions-tom-holland-1236821722/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Zendaya Stuns ‘Spider-Man: Brand New Day’ Premiere in ‘Abstract’ Spider-Inspired Look: ‘It’s Like This Metamorphosis’",
+      "when": "28 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/zendaya-spider-man-brand-new-day-premiere-dress-law-roach-1236822294/"
+    },
     {
       "cat": "Film/TV",
       "title": "Ariana Grande Sues Hackers for Leaking Unreleased Music and Footage",
@@ -111,20 +125,6 @@
       "when": "27 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-presents-the-ninth-jedi-creators-discuss-jedi-lightsabers-and-hope.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Obsession’ Star Michael Johnston in Talks to Join ‘The Mummy 4’ With Brendan Fraser and Rachel Weisz",
-      "when": "27 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/mummy-4-michael-johnston-obsession-brendan-fraser-1236822219/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "D4vd Ordered to Stand Trial for Murder of 14-Year-Old Girl",
-      "when": "27 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/d4vd-to-stand-trial-in-murder-of-14-year-old-girl-1236817323/"
     },
     {
       "cat": "Trek/Wars",
