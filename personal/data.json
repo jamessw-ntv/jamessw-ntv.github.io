@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-28",
-    "fetched": "2026-07-28T06:32:21+00:00",
+    "fetched": "2026-07-28T09:40:11+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 9,
       "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 21
+      "desc": "Showers",
+      "wind": 15
     },
     "days": [
       {
@@ -27,8 +27,8 @@
         "day": "Wed",
         "min": 4,
         "max": 10,
-        "icon": "🌨️",
-        "desc": "Snow showers",
+        "icon": "🌦️",
+        "desc": "Showers",
         "rain": 100
       },
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91026.0,
-        "pct": -2.53
+        "price": 91019.0,
+        "pct": -2.35
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2698.26,
-        "pct": -3.76
+        "price": 2697.96,
+        "pct": -3.79
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Spider-Man: Brand New Day’ First Reactions: Tom Holland Has ‘Never Been Better’ in a Sequel That Ditches ‘Multiverse Tedium’ and Delivers a ‘Grounded Spider-Man Tale’",
+      "title": "San Sebastián Lineup: Pablo Larraín, Mike Leigh, Benjamín Naishtat and More",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/spider-man-brand-new-day-first-reactions-tom-holland-1236821722/"
+      "url": "https://variety.com/2026/film/global/san-sebastian-lineup-pablo-larrain-mike-leigh-and-more-1236822383/"
     },
     {
       "cat": "Film/TV",
-      "title": "Zendaya Stuns ‘Spider-Man: Brand New Day’ Premiere in ‘Abstract’ Spider-Inspired Look: ‘It’s Like This Metamorphosis’",
+      "title": "CNN’s Kaitlan Collins Was ‘Not Surprised’ Trump Insulted Her in White House Correspondents’ Dinner Speech: ‘That Happens Pretty Regularly Inside the Oval Office’",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/zendaya-spider-man-brand-new-day-premiere-dress-law-roach-1236822294/"
+      "url": "https://variety.com/2026/politics/news/cnn-kaitlan-collins-not-surprised-trump-insulted-her-whcd-speech-1236822382/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ariana Grande Sues Hackers for Leaking Unreleased Music and Footage",
+      "title": "Lee Chang-dong’s Venice and Toronto-Bound ‘Possible Love’ Sets Theatrical Release Dates Ahead of Netflix Bow",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/ariana-grande-sues-hackers-leaking-unreleased-music-footage-1236822277/"
+      "url": "https://variety.com/2026/film/news/lee-chang-dong-possible-love-theatrical-netflix-date-1236822375/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Dungeon Crawler Carl’s’ Breakout, Ryan Reynolds’ Jeanpool Stunt and More Comic-Con Highlights",
+      "title": "‘Kill Jackie,’ Starring a Glamorous, Lethal Catherine Zeta-Jones, Acquired by Warner Bros. Discovery for HBO Max (EXCLUSIVE)",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/dungeon-crawler-carl-ryan-reynolds-jeanpool-comic-con-1236822244/"
+      "url": "https://variety.com/2026/tv/global/catherine-zeta-jones-warner-bros-discovery-hbo-max-1236822368/"
     },
     {
       "cat": "Trek/Wars",
