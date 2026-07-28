@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-28",
-    "fetched": "2026-07-28T14:24:17+00:00",
+    "fetched": "2026-07-28T16:45:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 6,
-      "icon": "☀️",
-      "desc": "Clear",
+      "icon": "🌦️",
+      "desc": "Drizzle",
       "wind": 14
     },
     "days": [
@@ -29,7 +29,7 @@
         "max": 10,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 98
+        "rain": 100
       },
       {
         "day": "Fri",
@@ -37,7 +37,7 @@
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 27
+        "rain": 35
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90376.0,
-        "pct": -2.81
+        "price": 91424.0,
+        "pct": -1.33
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2682.43,
-        "pct": -3.79
+        "price": 2749.14,
+        "pct": -0.81
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Can Anyone Other Than Christopher Nolan Shoot a Film Entirely on Imax?",
+      "title": "‘Your Friends & Neighbors’ Star Lena Hall Joins Chad Michael Murray in ‘Disconnecting Peter’ (EXCLUSIVE)",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/christopher-nolan-imax-film-cameras-odyssey-ryan-coogler-dune-3-1236820321/"
+      "url": "https://variety.com/2026/film/news/lena-hall-chad-michael-murray-disconnecting-peter-1236822722/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bangkok International Content Market Bows With Strong Debut, Logs Over $65 Million in Deals",
+      "title": "Magic: The Gathering Reveals New ‘The Hobbit’ Card Featuring Iconic J.R.R. Tolkien Character (EXCLUSIVE)",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/bangkok-international-content-market-bicm2026-debut-1236822514/"
+      "url": "https://variety.com/2026/gaming/news/magic-the-gathering-hobbit-spoiler-card-gloin-1236822100/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Ted Lasso’ Season 4 Trailer: Jason Sudeikis’ Beloved Coach Takes On Women’s Soccer",
+      "title": "Why Canceling My Tour Relaunched and Revived My Career As an Independent Artist, by JP Saxe (Guest Column)",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/ted-lasso-season-4-trailer-jason-sudeikis-womens-soccer-1236597835/"
+      "url": "https://variety.com/2026/music/news/jp-saxe-why-canceling-tour-revived-career-guest-column-1236822288/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Children of Blood and Bone’ Trailer: Magical African Fantasy Novel Comes to Life With Damson Idris, Cynthia Erivo, Viola Davis and More",
+      "title": "Josh Hartnett Battles a Sea Monster in First Teaser for Netflix Thriller Series ‘Below’",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/children-of-blood-and-bone-trailer-book-1236812576/"
+      "url": "https://variety.com/2026/tv/news/josh-hartnett-netflix-series-below-teaser-1236822698/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Exclusive: MeTV And H&I Celebrating Star Trek’s 60th With Marathon, Specials, And William Shatner",
+      "when": "28 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/28/exclusive-metv-and-hi-celebrating-star-treks-60th-with-marathon-specials-and-william-shatner/"
     },
     {
       "cat": "Trek/Wars",
@@ -139,13 +146,6 @@
       "when": "27 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/rey-tries-to-repair-luke-skywalker-kyber-crystal-in-new-excerpt-from-star-wars-legacy.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Axanar’ Returns After 12 Years With Release Of ‘The Gathering Storm’ Star Trek Fan Film",
-      "when": "27 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/27/axanar-returns-after-12-years-with-the-gathering-storm-star-trek-fan-film/"
     },
     {
       "cat": "Trek/Wars",
