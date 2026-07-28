@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-28",
-    "fetched": "2026-07-28T09:40:11+00:00",
+    "fetched": "2026-07-28T12:01:40+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 7,
       "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 15
+      "desc": "Drizzle",
+      "wind": 14
     },
     "days": [
       {
@@ -37,7 +37,7 @@
         "max": 10,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 97
+        "rain": 98
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91019.0,
-        "pct": -2.35
+        "price": 91074.0,
+        "pct": -2.06
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2697.96,
-        "pct": -3.79
+        "price": 2693.48,
+        "pct": -3.82
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "San Sebastián Lineup: Pablo Larraín, Mike Leigh, Benjamín Naishtat and More",
+      "title": "ABC News Launches ‘20/20 True Crime+’ Subscriptions on Apple Podcasts, Sets New Series on Luigi Mangione and McStay Family Murders",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/san-sebastian-lineup-pablo-larrain-mike-leigh-and-more-1236822383/"
+      "url": "https://variety.com/2026/digital/news/20-20-true-crime-apple-podcast-subscription-luigi-mangione-1236820334/"
     },
     {
       "cat": "Film/TV",
-      "title": "CNN’s Kaitlan Collins Was ‘Not Surprised’ Trump Insulted Her in White House Correspondents’ Dinner Speech: ‘That Happens Pretty Regularly Inside the Oval Office’",
+      "title": "Carín León, Rauw Alejandro Lead Premios Juventud Nominations List (EXCLUSIVE)",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/news/cnn-kaitlan-collins-not-surprised-trump-insulted-her-whcd-speech-1236822382/"
+      "url": "https://variety.com/2026/music/news/carin-leon-rauw-alejandro-premios-juventud-nominations-list-1236822239/"
     },
     {
       "cat": "Film/TV",
-      "title": "Lee Chang-dong’s Venice and Toronto-Bound ‘Possible Love’ Sets Theatrical Release Dates Ahead of Netflix Bow",
+      "title": "‘The Odyssey’ Holds Top Spot as Vijay’s ‘Jana Nayagan’ Bows at No. 5 at U.K. and Ireland Box Office",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/lee-chang-dong-possible-love-theatrical-netflix-date-1236822375/"
+      "url": "https://variety.com/2026/film/box-office/the-odyssey-vijay-jana-nayagan-uk-ireland-box-office-1236822422/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Kill Jackie,’ Starring a Glamorous, Lethal Catherine Zeta-Jones, Acquired by Warner Bros. Discovery for HBO Max (EXCLUSIVE)",
+      "title": "Immersive Cinematic Art Platform Xinemarte Makes Malaysia Debut at MIFFest With ‘The Room Remembers’",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/catherine-zeta-jones-warner-bros-discovery-hbo-max-1236822368/"
+      "url": "https://variety.com/2026/film/festivals/xinemarte-malaysia-miffest-room-remembers-1236822413/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
