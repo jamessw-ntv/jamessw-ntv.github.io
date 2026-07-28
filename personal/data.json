@@ -3,29 +3,29 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-28",
-    "fetched": "2026-07-28T18:19:36+00:00",
+    "fetched": "2026-07-28T20:20:37+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 5,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 19
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 17
     },
     "days": [
       {
         "day": "Today",
-        "min": 5,
-        "max": 10,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "min": 4,
+        "max": 9,
+        "icon": "🌨️",
+        "desc": "Snow showers",
         "rain": 100
       },
       {
         "day": "Thu",
-        "min": 4,
+        "min": 5,
         "max": 10,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -33,8 +33,8 @@
       },
       {
         "day": "Fri",
-        "min": 4,
-        "max": 12,
+        "min": 2,
+        "max": 11,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 35
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91233.0,
-        "pct": -1.63
+        "price": 91653.0,
+        "pct": -1.24
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2735.68,
-        "pct": -1.27
+        "price": 2753.26,
+        "pct": -0.92
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Mary Beth Barone on Her Debut Netflix Special ‘Galaxy Brain,’ Wanting to ‘Offend the Correct People’ and ‘Overcompensating’ Season 2: It’s ‘Sadder but Also Funnier’",
+      "title": "Ryan Murphy to Receive Third Annual Norman Lear Award at Variety Showrunners Breakfast",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/mary-beth-barone-netflix-special-galaxy-brain-overcompensating-1236821768/"
+      "url": "https://variety.com/2026/biz/news/ryan-murphy-norman-lear-award-showrunners-breakfast-1236822845/"
     },
     {
       "cat": "Film/TV",
-      "title": "Evan Rachel Wood Says ‘It’s Sad’ Not to Be Asked Back for ‘Practical Magic 2’ After Offering to Return: ‘It Seems Like They’re Not Following the Book’",
+      "title": "Ross Douthat, Sebastian Junger, Gianna Toboni, Trevor Phillips to Join CBS’ ’60 Minutes",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/evan-rachel-wood-practical-magic-2-not-asked-to-return-1236822732/"
+      "url": "https://variety.com/2026/tv/news/ross-douthat-sebastian-junger-gianna-toboni-cbs-60-minutes-1236822917/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jennifer Aniston and Peter Dinklage to Star in Olivia Wilde’s Santa Claus Comedy ‘Naughty’",
+      "title": "‘Superhero Fatigue Is Real. Spider-Man Fatigue Is Not’: Tom Holland’s ‘Brand New Day’ Could Score One of the Biggest Opening Weekends Ever",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jennifer-aniston-peter-dinklage-olivia-wilde-santa-claus-naughty-1236822791/"
+      "url": "https://variety.com/2026/film/news/spider-man-brand-new-day-box-office-opening-records-1236822094/"
     },
     {
       "cat": "Film/TV",
-      "title": "Venice Days Competition Title ‘The Indies’ Boarded by MoreThan Films (EXCLUSIVE)",
+      "title": "‘I Will Find You’ Becomes Netflix’s No. 10 Most-Popular English-Language TV Series of All Time",
       "when": "28 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/venice-days-the-indies-morethan-films-lastor-alina-1236822429/"
+      "url": "https://variety.com/2026/tv/news/i-will-find-you-netflix-ratings-record-1236822866/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
