@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-29",
-    "fetched": "2026-07-29T22:05:43+00:00",
+    "fetched": "2026-07-29T23:07:52+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
+      "temp": 6,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 5
+      "wind": 4
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 11,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 11
+        "rain": 8
       },
       {
         "day": "Sat",
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91914.0,
-        "pct": 0.27
+        "price": 91710.0,
+        "pct": 0.51
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2734.78,
-        "pct": -0.88
+        "price": 2732.03,
+        "pct": -0.03
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "What’s Coming to Tubi in August 2026",
+      "title": "AMC Theatres Chief Adam Aron Pushes for Paramount Warner Bros. Merger, Says ‘Thanks, But No Thanks’ to State AG’s Blocking Deal",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/new-tubi-movies-tv-shows-1236046975/"
+      "url": "https://variety.com/2026/biz/news/amc-theatres-adam-aron-paramount-warner-bros-merger-1236823859/"
     },
     {
       "cat": "Film/TV",
-      "title": "St. Vincent Gets Her Phil: Annie Clark on Reimagining Her Catalog for a Full Orchestral Tour, Climaxing at the Hollywood Bowl",
+      "title": "Andrew Garfield on Amazon Dropping ‘Artificial’ and Wanting to Meet Sam Altman (EXCLUSIVE)",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/st-vincent-orchestral-tour-hollywood-bowl-live-album-1236823828/"
+      "url": "https://variety.com/2026/film/columns/andrew-garfield-amazon-artificial-sam-altman-1236823821/"
     },
     {
       "cat": "Film/TV",
-      "title": "John Leguizamo Says ‘Ice Age’ Money ‘Paid for My Kids’ to Go to College and ‘Got Me a Second and Third Home’",
+      "title": "Ian McKellen Discovered Anthony Mackie Is the New Captain America on ‘Avengers: Doomsday’ Set and Told Him: ‘You Deserve That’",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/john-leguizamo-ice-age-money-paid-kids-college-1236823639/"
+      "url": "https://variety.com/2026/film/news/ian-mckellen-anthony-mackie-avengers-doomsday-1236823853/"
     },
     {
       "cat": "Film/TV",
-      "title": "Music Companies Demand More Scrutiny of AI-Generated Tracks Before Chart Debuts",
+      "title": "Synthwave Trio Gunship Releases Corin Hardy-Directed Video for Their Cover of Cyndi Lauper’s ‘Time After Time’ (EXCLUSIVE)",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/music-labels-scrutiny-ai-generated-tracks-billboard-charts-1236823714/"
+      "url": "https://variety.com/2026/film/news/gunship-time-after-time-video-cyndi-lauper-whistle-1236822150/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Strange New Worlds’ EP/Director Previews Thursday’s “Scary” Episode; Teases Mysterious Season 4 Finale [Exclusive]",
+      "when": "29 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/29/strange-new-worlds-ep-director-previews-thursdays-scary-episode-teases-mysterious-season-4-finale-exclusive/"
     },
     {
       "cat": "Trek/Wars",
@@ -146,13 +153,6 @@
       "when": "29 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/28/penguin-celebrating-star-treks-60th-with-visual-history-coloring-book-card-game-and-trivia-deck/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "SDCC: ‘Star Trek: Strange New Worlds’ Cast And EPs Talk Spirk, 2 Uhuras, Dragons, Puppets, And More Season 4",
-      "when": "28 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/28/sdcc-star-trek-strange-new-worlds-cast-and-eps-talk-spirk-2-uhuras-dragons-puppets-and-more-s4/"
     },
     {
       "cat": "Games",
