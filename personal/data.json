@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-29",
-    "fetched": "2026-07-29T12:05:59+00:00",
+    "fetched": "2026-07-29T14:28:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "☁️",
-      "desc": "Overcast",
+      "temp": 6,
+      "icon": "🌦️",
+      "desc": "Drizzle",
       "wind": 8
     },
     "days": [
       {
         "day": "Today",
         "min": 5,
-        "max": 9,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 100
-      },
-      {
-        "day": "Thu",
-        "min": 5,
-        "max": 9,
+        "max": 10,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 100
       },
       {
         "day": "Fri",
-        "min": 3,
+        "min": 2,
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 8
+      },
+      {
+        "day": "Sat",
+        "min": 2,
+        "max": 14,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
       }
     ]
   },
@@ -72,52 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92771.0,
-        "pct": 1.88
+        "price": 92425.0,
+        "pct": 1.98
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2751.35,
-        "pct": 2.22
+        "price": 2728.55,
+        "pct": 1.36
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Penélope Cruz, Isabelle Huppert, Lee Chang-dong Among First TIFF Tribute Awards Honorees",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/tiff-tribute-honorees-2026-penelope-cruz-1236823023/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "ACLU, National Coalition Against Censorship and 20 Other Groups Line Up to Support Disney in Tangle With FCC",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/aclu-disney-support-fcc-tangle-1236823050/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Rapper Lil Tecca Set as Newest Fortnite Festival Icon (Gaming News Roundup)",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-27-1236822833/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Brazilian Erotic Thriller ‘The Riverbank’ Boarded by Premium Films, MPM Premium Ahead of Locarno Competition Premiere (EXCLUSIVE)",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/the-riverbank-locarno-festival-mpm-premium-1236823275/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "VFX Artists From Several ‘Star Wars’ Productions Vote to Unionize",
       "when": "29 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/vfx-artists-from-several-star-wars-productions-vote-to-unionize.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Game of Thrones’ Play ‘The Mad King’ First Preview Gets Standing Ovation After Cancellations",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/theater/global/game-of-thrones-the-mad-king-play-preview-standing-ovation-1236823223/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "World Cup Boycott Proposed as Opposition to Controversial FIFA Private Investment Plan Grows",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/biz/global/world-cup-boycott-opposition-fifa-plan-1236823227/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Fox, iSpot Aim to Deliver Faster Data Tying Ads to Business ‘Outcomes’ (EXCLUSIVE)",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/fox-ispot-measurement-partnership-outcomes-1236823002/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Glen Hansard, Irish Musician and ‘Once’ Star Who Won Oscar for Best Song, Dies at 56",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/global/glen-hansard-dead-once-best-song-oscar-winner-1236823238/"
     },
     {
       "cat": "Trek/Wars",
@@ -128,7 +128,7 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "SDCC: ‘Star Trek: Strange New Worlds’ Cast And EPs Talk Spirk, 2 Uhuras, Dragons, Puppets, And More S4",
+      "title": "SDCC: ‘Star Trek: Strange New Worlds’ Cast And EPs Talk Spirk, 2 Uhuras, Dragons, Puppets, And More Season 4",
       "when": "28 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/28/sdcc-star-trek-strange-new-worlds-cast-and-eps-talk-spirk-2-uhuras-dragons-puppets-and-more-s4/"
