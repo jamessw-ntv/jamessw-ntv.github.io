@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-29",
-    "fetched": "2026-07-29T20:15:33+00:00",
+    "fetched": "2026-07-29T22:05:43+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91370.0,
-        "pct": -0.28
+        "price": 91914.0,
+        "pct": 0.27
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2711.7,
-        "pct": -1.48
+        "price": 2734.78,
+        "pct": -0.88
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Glen Powell’s ‘Chad Powers’ Season 2 Sets Release Date, Drops First Look Photos (TV News Roundup)",
+      "title": "What’s Coming to Tubi in August 2026",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/tv-news-roundup-week-of-july-27-1236822756/"
+      "url": "https://variety.com/2026/film/news/new-tubi-movies-tv-shows-1236046975/"
     },
     {
       "cat": "Film/TV",
-      "title": "Cinema United Chief Michael O’Leary Blasts Paramount Warner Bros. Deal, Endorses Litigation to Delay Merger",
+      "title": "St. Vincent Gets Her Phil: Annie Clark on Reimagining Her Catalog for a Full Orchestral Tour, Climaxing at the Hollywood Bowl",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/cinema-united-chief-michael-oleary-blasts-paramount-warner-bros-deal-1236823659/"
+      "url": "https://variety.com/2026/music/news/st-vincent-orchestral-tour-hollywood-bowl-live-album-1236823828/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jason Cloth, ‘Babylon’ and ‘Joker’ Financier, Indicted in Alleged $100 Million Ponzi Scheme",
+      "title": "John Leguizamo Says ‘Ice Age’ Money ‘Paid for My Kids’ to Go to College and ‘Got Me a Second and Third Home’",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jason-cloth-babylon-joker-financier-indicted-ponzi-scheme-1236823635/"
+      "url": "https://variety.com/2026/film/news/john-leguizamo-ice-age-money-paid-kids-college-1236823639/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘A Star Is Born’ Producer Lynette Howell Taylor Re-Elected Academy President",
+      "title": "Music Companies Demand More Scrutiny of AI-Generated Tracks Before Chart Debuts",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/lynette-howell-taylor-academy-president-reelected-1236823656/"
+      "url": "https://variety.com/2026/music/news/music-labels-scrutiny-ai-generated-tracks-billboard-charts-1236823714/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "New Movie Directors Developing A “Version Of Star Trek That No One’s Ever Seen Before”",
+      "when": "29 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/29/new-movie-directors-developing-a-version-of-star-trek-that-no-ones-ever-seen-before/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/07/28/sdcc-star-trek-strange-new-worlds-cast-and-eps-talk-spirk-2-uhuras-dragons-puppets-and-more-s4/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Exclusive: MeTV And H&I Celebrating Star Trek’s 60th With Marathon, Specials, And William Shatner",
-      "when": "28 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/28/exclusive-metv-and-hi-celebrating-star-treks-60th-with-marathon-specials-and-william-shatner/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
