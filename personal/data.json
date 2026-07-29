@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-29",
-    "fetched": "2026-07-29T09:42:25+00:00",
+    "fetched": "2026-07-29T12:05:59+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -37,7 +37,7 @@
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 3
+        "rain": 8
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93037.0,
-        "pct": 2.22
+        "price": 92771.0,
+        "pct": 1.88
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2767.74,
-        "pct": 2.59
+        "price": 2751.35,
+        "pct": 2.22
       }
     ]
   },
   "releases": [
     {
-      "cat": "Film/TV",
-      "title": "Ryan Murphy Says ‘American Horror Story’ Season 13 Is Not a ‘Coven’ Sequel but ‘All the Seasons’ Combined: ‘Sarah Paulson Is Playing Five or Six Roles … It’s Like the Avengers’",
+      "cat": "Trek/Wars",
+      "title": "VFX Artists From Several ‘Star Wars’ Productions Vote to Unionize",
       "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ryan-murphy-american-horror-story-season-not-coven-sequel-1236823171/"
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/vfx-artists-from-several-star-wars-productions-vote-to-unionize.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Mike Leigh Says It’s ‘Very Likely’ He’ll Retire After Next Film Due to Illness",
+      "title": "‘Game of Thrones’ Play ‘The Mad King’ First Preview Gets Standing Ovation After Cancellations",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/mike-leigh-retire-after-next-film-due-to-illness-1236823161/"
+      "url": "https://variety.com/2026/theater/global/game-of-thrones-the-mad-king-play-preview-standing-ovation-1236823223/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jared Leto Accused of Criminal Sexual Conduct by Four Women in BBC Documentary",
+      "title": "World Cup Boycott Proposed as Opposition to Controversial FIFA Private Investment Plan Grows",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/jared-leto-accused-criminal-sexual-conduct-bbc-documentary-1236823153/"
+      "url": "https://variety.com/2026/biz/global/world-cup-boycott-opposition-fifa-plan-1236823227/"
     },
     {
       "cat": "Film/TV",
-      "title": "BTS Won’t Submit for 2027 Grammy Awards Consideration",
+      "title": "Fox, iSpot Aim to Deliver Faster Data Tying Ads to Business ‘Outcomes’ (EXCLUSIVE)",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/bts-wont-submit-2027-grammy-awards-1236823143/"
+      "url": "https://variety.com/2026/tv/news/fox-ispot-measurement-partnership-outcomes-1236823002/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Glen Hansard, Irish Musician and ‘Once’ Star Who Won Oscar for Best Song, Dies at 56",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/global/glen-hansard-dead-once-best-song-oscar-winner-1236823238/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/07/rey-tries-to-repair-luke-skywalker-kyber-crystal-in-new-excerpt-from-star-wars-legacy.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars: Starfighter’ Team Reunites for Marvel, New Luke and Leia Novel, and More",
-      "when": "26 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/this-week-in-a-galaxy-far-far-away-star-wars-starfighter-team-reunites-for-marvel-new-luke-and-leia-novel-and-more.html"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
