@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-29",
-    "fetched": "2026-07-29T18:11:27+00:00",
+    "fetched": "2026-07-29T20:15:33+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 5,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 8
+      "wind": 5
     },
     "days": [
       {
@@ -26,7 +26,7 @@
       {
         "day": "Fri",
         "min": 2,
-        "max": 12,
+        "max": 11,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 11
@@ -72,24 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92651.0,
-        "pct": 1.49
+        "price": 91370.0,
+        "pct": -0.28
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2762.13,
-        "pct": 0.98
+        "price": 2711.7,
+        "pct": -1.48
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Daily Show’ Sets 30th Anniversary Podcast Hosted by News Team (EXCLUSIVE)",
+      "title": "Glen Powell’s ‘Chad Powers’ Season 2 Sets Release Date, Drops First Look Photos (TV News Roundup)",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/the-daily-show-new-podcast-30th-anniversary-1236822848/"
+      "url": "https://variety.com/2026/tv/news/tv-news-roundup-week-of-july-27-1236822756/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Cinema United Chief Michael O’Leary Blasts Paramount Warner Bros. Deal, Endorses Litigation to Delay Merger",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/cinema-united-chief-michael-oleary-blasts-paramount-warner-bros-deal-1236823659/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jason Cloth, ‘Babylon’ and ‘Joker’ Financier, Indicted in Alleged $100 Million Ponzi Scheme",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/jason-cloth-babylon-joker-financier-indicted-ponzi-scheme-1236823635/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘A Star Is Born’ Producer Lynette Howell Taylor Re-Elected Academy President",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/lynette-howell-taylor-academy-president-reelected-1236823656/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,13 +118,6 @@
       "when": "29 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/vfx-artists-from-several-star-wars-productions-vote-to-unionize.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "T-Mobile’s Home Internet Deals Include $200 Cash-Back Credit and Free Subscriptions to Hulu and Paramount+",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/best-t-mobile-internet-deals-shop-online-1236570662/"
     },
     {
       "cat": "Trek/Wars",
@@ -118,20 +132,6 @@
       "when": "29 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/rey-tries-to-repair-luke-skywalker-kyber-crystal-in-new-excerpt-from-star-wars-legacy.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Odyssey’ Surpasses $700 Million Globally After 12 Days in Theaters",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/the-odyssey-700-million-globally-fourth-biggest-movie-1236823343/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Bruce Campbell to Bring ‘Ernie & Emma’ on Nationwide Alamo Drafthouse Tour This Fall (EXCLUSIVE) – Film News in Brief",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/film-news-in-brief-july-27-2026-1236821755/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
