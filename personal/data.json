@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-29",
-    "fetched": "2026-07-29T14:28:01+00:00",
+    "fetched": "2026-07-29T16:26:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 6,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 8
+      "wind": 9
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 8
+        "rain": 11
       },
       {
         "day": "Sat",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92425.0,
-        "pct": 1.98
+        "price": 92460.0,
+        "pct": 1.28
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2728.55,
-        "pct": 1.36
+        "price": 2736.67,
+        "pct": -0.26
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Penélope Cruz, Isabelle Huppert, Lee Chang-dong Among First TIFF Tribute Awards Honorees",
+      "title": "Sundance Teases New Theaters in Boulder, Expanded Competition Slots as Industry Heads to Colorado for ‘Orientation’",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/tiff-tribute-honorees-2026-penelope-cruz-1236823023/"
+      "url": "https://variety.com/2026/film/news/sundance-boulder-venues-festival-map-orientation-1236823439/"
     },
     {
       "cat": "Film/TV",
-      "title": "ACLU, National Coalition Against Censorship and 20 Other Groups Line Up to Support Disney in Tangle With FCC",
+      "title": "‘Tony’ Review: Dominic Sessa Gives His First Movie-Star Performance in Matt Johnson’s Tasty Biopic About the Young Anthony Bourdain",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/aclu-disney-support-fcc-tangle-1236823050/"
+      "url": "https://variety.com/2026/film/reviews/tony-review-dominic-sessa-antonio-banderas-1236821892/"
     },
     {
       "cat": "Film/TV",
-      "title": "Rapper Lil Tecca Set as Newest Fortnite Festival Icon (Gaming News Roundup)",
+      "title": "Ozzy Osbourne Haunted Experience Is Headed to Universal Studios’ Halloween Horror Nights",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-july-27-1236822833/"
+      "url": "https://variety.com/2026/film/news/ozzy-osbourne-universal-studios-halloween-horror-nights-1236822990/"
     },
     {
       "cat": "Film/TV",
-      "title": "Brazilian Erotic Thriller ‘The Riverbank’ Boarded by Premium Films, MPM Premium Ahead of Locarno Competition Premiere (EXCLUSIVE)",
+      "title": "Ewan McGregor and Alan Cumming to Lead Scottish Stage Adaptation of Harry Macqueen’s Gay Romantic Drama ‘Supernova’",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/the-riverbank-locarno-festival-mpm-premium-1236823275/"
+      "url": "https://variety.com/2026/theater/global/ewan-mcgregor-alan-cumming-stage-adaptation-supernova-1236823318/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
