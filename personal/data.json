@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-29",
-    "fetched": "2026-07-29T16:26:06+00:00",
+    "fetched": "2026-07-29T18:11:27+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
+      "temp": 5,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 9
+      "wind": 8
     },
     "days": [
       {
@@ -72,45 +72,24 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92460.0,
-        "pct": 1.28
+        "price": 92651.0,
+        "pct": 1.49
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2736.67,
-        "pct": -0.26
+        "price": 2762.13,
+        "pct": 0.98
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Sundance Teases New Theaters in Boulder, Expanded Competition Slots as Industry Heads to Colorado for ‘Orientation’",
+      "title": "‘The Daily Show’ Sets 30th Anniversary Podcast Hosted by News Team (EXCLUSIVE)",
       "when": "29 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/sundance-boulder-venues-festival-map-orientation-1236823439/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Tony’ Review: Dominic Sessa Gives His First Movie-Star Performance in Matt Johnson’s Tasty Biopic About the Young Anthony Bourdain",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/tony-review-dominic-sessa-antonio-banderas-1236821892/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ozzy Osbourne Haunted Experience Is Headed to Universal Studios’ Halloween Horror Nights",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ozzy-osbourne-universal-studios-halloween-horror-nights-1236822990/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ewan McGregor and Alan Cumming to Lead Scottish Stage Adaptation of Harry Macqueen’s Gay Romantic Drama ‘Supernova’",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/theater/global/ewan-mcgregor-alan-cumming-stage-adaptation-supernova-1236823318/"
+      "url": "https://variety.com/2026/tv/news/the-daily-show-new-podcast-30th-anniversary-1236822848/"
     },
     {
       "cat": "Trek/Wars",
@@ -118,6 +97,41 @@
       "when": "29 Jul",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/07/vfx-artists-from-several-star-wars-productions-vote-to-unionize.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "T-Mobile’s Home Internet Deals Include $200 Cash-Back Credit and Free Subscriptions to Hulu and Paramount+",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/best-t-mobile-internet-deals-shop-online-1236570662/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Visions Presents – The Ninth Jedi’ Creators Discuss Jedi, Lightsabers, and Hope",
+      "when": "29 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-presents-the-ninth-jedi-creators-discuss-jedi-lightsabers-and-hope.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Rey Tries to Repair Luke Skywalker’s Kyber Crystal in New Excerpt From ‘Star Wars: Legacy’",
+      "when": "29 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/rey-tries-to-repair-luke-skywalker-kyber-crystal-in-new-excerpt-from-star-wars-legacy.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Odyssey’ Surpasses $700 Million Globally After 12 Days in Theaters",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/the-odyssey-700-million-globally-fourth-biggest-movie-1236823343/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Bruce Campbell to Bring ‘Ernie & Emma’ on Nationwide Alamo Drafthouse Tour This Fall (EXCLUSIVE) – Film News in Brief",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/film-news-in-brief-july-27-2026-1236821755/"
     },
     {
       "cat": "Trek/Wars",
@@ -139,20 +153,6 @@
       "when": "28 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/28/exclusive-metv-and-hi-celebrating-star-treks-60th-with-marathon-specials-and-william-shatner/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Visions Presents – The Ninth Jedi’ Creators Discuss Jedi, Lightsabers, and Hope",
-      "when": "27 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-presents-the-ninth-jedi-creators-discuss-jedi-lightsabers-and-hope.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Rey Tries to Repair Luke Skywalker’s Kyber Crystal in New Excerpt From ‘Star Wars: Legacy’",
-      "when": "27 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/rey-tries-to-repair-luke-skywalker-kyber-crystal-in-new-excerpt-from-star-wars-legacy.html"
     },
     {
       "cat": "Games",
