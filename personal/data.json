@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-29",
-    "fetched": "2026-07-29T06:37:25+00:00",
+    "fetched": "2026-07-29T09:42:25+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 19
+      "temp": 7,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 8
     },
     "days": [
       {
@@ -26,14 +26,14 @@
       {
         "day": "Thu",
         "min": 5,
-        "max": 10,
+        "max": 9,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 100
       },
       {
         "day": "Fri",
-        "min": 2,
+        "min": 3,
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,18 +72,46 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92510.0,
-        "pct": 1.59
+        "price": 93037.0,
+        "pct": 2.22
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2756.13,
-        "pct": 2.04
+        "price": 2767.74,
+        "pct": 2.59
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Ryan Murphy Says ‘American Horror Story’ Season 13 Is Not a ‘Coven’ Sequel but ‘All the Seasons’ Combined: ‘Sarah Paulson Is Playing Five or Six Roles … It’s Like the Avengers’",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/ryan-murphy-american-horror-story-season-not-coven-sequel-1236823171/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Mike Leigh Says It’s ‘Very Likely’ He’ll Retire After Next Film Due to Illness",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/mike-leigh-retire-after-next-film-due-to-illness-1236823161/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jared Leto Accused of Criminal Sexual Conduct by Four Women in BBC Documentary",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/jared-leto-accused-criminal-sexual-conduct-bbc-documentary-1236823153/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "BTS Won’t Submit for 2027 Grammy Awards Consideration",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/bts-wont-submit-2027-grammy-awards-1236823143/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "Penguin Celebrating Star Trek’s 60th With Visual History, Coloring Book, Card Game, And Trivia Deck",
@@ -92,39 +120,11 @@
       "url": "https://trekmovie.com/2026/07/28/penguin-celebrating-star-treks-60th-with-visual-history-coloring-book-card-game-and-trivia-deck/"
     },
     {
-      "cat": "Film/TV",
-      "title": "‘Jumanji: Open World’ Trailer: Dwayne Johnson, Kevin Hart and Jack Black Return for Third and Final Movie",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jumanji-3-trailer-dwayne-johnson-kevin-hart-open-world-1236706410/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Noah Kahan Slams White House for Using Song in Social Media Post: ‘Would Never Approve’",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/noah-kahan-slams-white-house-american-cars-instagram-post-1236823051/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Gilded Age’ Star Ben Ahlers and Wesley Taylor Wrap Workplace Satire Short ‘Movin’ On Up’ (EXCLUSIVE)",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-gilded-age-ben-ahlers-wesley-taylor-movin-on-up-1236822854/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "SDCC: ‘Star Trek: Strange New Worlds’ Cast And EPs Talk Spirk, 2 Uhuras, Dragons, Puppets, And More S4",
       "when": "28 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/28/sdcc-star-trek-strange-new-worlds-cast-and-eps-talk-spirk-2-uhuras-dragons-puppets-and-more-s4/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "On-Set Visual Effects Workers on ‘Star Wars’ Productions Join IATSE",
-      "when": "28 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/visual-effects-workers-star-wars-productions-join-iatse-1236823009/"
     },
     {
       "cat": "Trek/Wars",
