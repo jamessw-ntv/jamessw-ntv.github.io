@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-30",
-    "fetched": "2026-07-30T20:18:37+00:00",
+    "fetched": "2026-07-30T22:12:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 3,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 2
+      "wind": 5
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92029.0,
-        "pct": 0.69
+        "price": 92313.0,
+        "pct": 0.35
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2730.1,
-        "pct": 0.67
+        "price": 2738.39,
+        "pct": -0.07
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Netflix Hit With $105 Million Suit After Losing Copy of Nicolas Cage WWII Film",
+      "title": "Disney Expected to Sell 50% Stake in A+E to Hearst for More Than $1 Billion",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/netflix-lawsuit-nicolas-cage-fortitude-1236824506/"
+      "url": "https://variety.com/2026/tv/news/disney-sell-stake-ae-hearst-1236824672/"
     },
     {
       "cat": "Film/TV",
-      "title": "Live Nation Posts Continued Growth in Second Quarter With $7.7 Billion in Revenue",
+      "title": "As Outfest Rebuilds, What Will the Future of L.A.’s Staple LGBTQ+ Film Festival Look Like?",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/live-nation-second-quarter-earnings-7-7-billion-revenue-1236824522/"
+      "url": "https://variety.com/2026/film/news/outfest-rebuilds-future-lgbtq-film-festival-1236824448/"
     },
     {
       "cat": "Film/TV",
-      "title": "Urbanworld CEO Stacy Spikes Warns of Guilds Policing Filmmakers After WGA Pulls Sponsorship Over AI Initiative (EXCLUSIVE)",
+      "title": "‘Spider-Man: Brand New Day’ Early Cut ‘Took Notes From Random People’ at Test Screenings and ‘We Hated It,’ Says Tom Holland: ‘It Totally Didn’t Work’",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/urbanworld-ceo-stacy-spikes-interview-wga-sponsorship-ai-1236824517/"
+      "url": "https://variety.com/2026/film/news/tom-holland-spider-man-brand-new-day-test-screenings-1236824202/"
     },
     {
       "cat": "Film/TV",
-      "title": "Verve Promotes Three to Agent Across Television, Motion Picture Literary and Digital Departments (EXCLUSIVE)",
+      "title": "Apple Sales Rise 16% to Record $109 Billion for June Quarter, Services Revenue Falls Short of Forecasts",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/verve-promotes-three-coordinators-to-agents-exclusive-1236823867/"
+      "url": "https://variety.com/2026/digital/news/apple-q3-2026-earnings-tim-cook-ceo-final-quarter-1236824534/"
     },
     {
       "cat": "Trek/Wars",
