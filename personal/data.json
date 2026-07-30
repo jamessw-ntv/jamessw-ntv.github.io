@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-30",
-    "fetched": "2026-07-30T14:19:20+00:00",
+    "fetched": "2026-07-30T16:40:34+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
+      "temp": 4,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 3
+      "wind": 2
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 33
+        "rain": 11
       },
       {
         "day": "Sat",
@@ -37,7 +37,7 @@
         "max": 15,
         "icon": "⛅",
         "desc": "Partly cloudy",
-        "rain": 2
+        "rain": 4
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92191.0,
-        "pct": -0.36
+        "price": 92221.0,
+        "pct": 0.32
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2732.22,
-        "pct": -0.04
+        "price": 2731.03,
+        "pct": 0.17
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Home Improvement’ Reunion: Jonathan Taylor Thomas Seen in Rare Photo With Co-Stars Patricia Richardson and Taran Noah Smith",
+      "title": "Artemis Pictures Promotes Four to Executive Roles (EXCLUSIVE)",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/home-improvement-reunion-jonathan-taylor-thomas-photo-1236824243/"
+      "url": "https://variety.com/2026/film/news/artemis-pictures-promotes-four-to-executive-1236824421/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Ferine’ Review: Motherhood Begets Beastliness in Andrea Corsini’s Upscale Horror",
+      "title": "Marvel, ‘Star Wars’ and DC’s Biggest Fans Discuss Why Their Favorite Franchises Are Struggling: ‘I’m Still Waiting for “Blade”’",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/ferine-review-1236821535/"
+      "url": "https://variety.com/2026/film/news/marvel-star-wars-dc-fans-franchise-struggling-comic-con-1236823973/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Jumps Into Scares In “Griffin Incident”",
+      "when": "30 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/30/recap-review-star-trek-strange-new-worlds-jumps-into-scares-in-griffin-incident/"
     },
     {
       "cat": "Film/TV",
-      "title": "Billie Eilish Concert Movie ‘Hit Me Hard and Soft’ Sets Paramount+ Streaming Date",
+      "title": "‘Clueless’ Sequel Series With Alicia Silverstone Ordered at Paramount+",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/billie-eilish-hit-me-hard-soft-streaming-paramount-1236823667/"
+      "url": "https://variety.com/2026/tv/news/clueless-sequel-series-alicia-silverstone-paramount-plus-1236824275/"
     },
     {
       "cat": "Film/TV",
-      "title": "John Legend to Play Harry Belafonte in Bill Condon’s Apartheid-Era Drama ‘The Road Home’",
+      "title": "AI Startup Fairground, Founded by Xumo Creator, to Launch First AI-Exclusive FAST Channel (EXCLUSIVE)",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/john-legend-harry-belafonte-the-road-home-1236823716/"
+      "url": "https://variety.com/2026/biz/news/ai-fairground-xumo-creator-fast-channel-1236824290/"
     },
     {
       "cat": "Trek/Wars",
@@ -118,13 +125,6 @@
       "when": "30 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/29/star-trek-united-isnt-currently-on-scott-bakulas-radar-but-hes-open-to-returning-as-archer/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Strange New Worlds’ EP/Director Previews Thursday’s “Scary” Episode; Teases Mysterious Season 4 Finale [Exclusive]",
-      "when": "29 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/29/strange-new-worlds-ep-director-previews-thursdays-scary-episode-teases-mysterious-season-4-finale-exclusive/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
