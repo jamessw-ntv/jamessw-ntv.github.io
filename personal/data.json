@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-07-29",
-    "fetched": "2026-07-29T23:07:52+00:00",
+    "updated": "2026-07-30",
+    "fetched": "2026-07-30T02:50:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 4
+      "temp": 10,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 13
     },
     "days": [
       {
@@ -25,11 +25,11 @@
       },
       {
         "day": "Fri",
-        "min": 2,
-        "max": 11,
+        "min": 1,
+        "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 8
+        "rain": 2
       },
       {
         "day": "Sat",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91710.0,
-        "pct": 0.51
+        "price": 92314.0,
+        "pct": 0.44
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2732.03,
-        "pct": -0.03
+        "price": 2748.41,
+        "pct": 0.12
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Ben Affleck Wins $1 Million Prize on ‘Who Wants to Be a Millionaire,’ One Year After Matt Damon Did the Same",
+      "when": "30 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/ben-affleck-wins-1-million-who-wants-to-be-a-millionaire-1236823747/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Supernatural Reality Competition Korean Series ‘House of Fates’ Greenlit as ‘Battle of Fates’ Spinoff at Disney+",
+      "when": "30 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/supernatural-reality-competition-korean-series-house-of-fates-disney-1236823264/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Grammy Chief ‘Saddened to Hear’ That BTS Won’t Submit for 2027 Awards",
+      "when": "29 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/grammy-chief-saddened-bts-wont-submit-for-2027-awards-1236823891/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "AMC Theatres Chief Adam Aron Pushes for Paramount Warner Bros. Merger, Says ‘Thanks, But No Thanks’ to State AG’s Blocking Deal",
       "when": "29 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/biz/news/amc-theatres-adam-aron-paramount-warner-bros-merger-1236823859/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Andrew Garfield on Amazon Dropping ‘Artificial’ and Wanting to Meet Sam Altman (EXCLUSIVE)",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/andrew-garfield-amazon-artificial-sam-altman-1236823821/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ian McKellen Discovered Anthony Mackie Is the New Captain America on ‘Avengers: Doomsday’ Set and Told Him: ‘You Deserve That’",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ian-mckellen-anthony-mackie-avengers-doomsday-1236823853/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Synthwave Trio Gunship Releases Corin Hardy-Directed Video for Their Cover of Cyndi Lauper’s ‘Time After Time’ (EXCLUSIVE)",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/gunship-time-after-time-video-cyndi-lauper-whistle-1236822150/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
