@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-30",
-    "fetched": "2026-07-30T08:38:18+00:00",
+    "fetched": "2026-07-30T11:13:55+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 5
+      "temp": 7,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 4
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92209.0,
-        "pct": -0.4
+        "price": 92518.0,
+        "pct": -0.34
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2746.61,
-        "pct": -0.34
+        "price": 2747.33,
+        "pct": -0.35
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Matthew Macfadyen and Claire Foy to Lead Adaptation of David Nicholls’ ‘You Are Here’ for BBC and Starz",
+      "title": "‘The Walking Dead’ Franchise to Stream on Both Netflix and AMC+ Beginning in 2027 Under New $500 Million Deal",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/matthew-macfadyen-claire-foy-david-nicholls-you-are-here-1236824027/"
+      "url": "https://variety.com/2026/tv/news/the-walking-dead-stream-netflix-amc-plus-500-million-deal-1236824065/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Balcanica,’ Starring Matilda De Angelis, Picked Up by M-Appeal Ahead of Venice World Premiere (EXCLUSIVE)",
+      "title": "San Sebastián New Directors: Billy Lumby, Marlene Emilie Lyngstad, ‘Money Heist’ Star Jaime Lorente and More",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/m-appeal-balcanica-matilda-de-angelis-venice-1236824007/"
+      "url": "https://variety.com/2026/film/global/san-sebastian-new-directors-billy-lumby-jaime-lorente-1236824057/"
     },
     {
       "cat": "Film/TV",
-      "title": "Mubi to Release ‘La Mesías,’ From ‘La Bola Negra’ Cannes Best Director Winners, in the U.K., Germany, Canada and Beyond (EXCLUSIVE)",
+      "title": "‘Ramayana’ Trailer: Ranbir Kapoor and Yash Face Off in First Part of Nitesh Tiwari’s Epic",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/mubi-to-release-la-mesias-from-la-bola-negra-directors-1236823729/"
+      "url": "https://variety.com/2026/film/news/ramayana-trailer-ranbir-kapoor-yash-1236819671/"
     },
     {
       "cat": "Film/TV",
-      "title": "Busan’s Asian Project Market Unveils 30 Selections for 2026 Edition",
+      "title": "Giorgio Armani Series in the Works From Fremantle-Owned Lux Vide and Iconic Designer’s Fashion House (EXCLUSIVE)",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/busans-asian-project-market-2026-selections-1236824004/"
+      "url": "https://variety.com/2026/tv/global/giorgio-armani-series-fremantle-lux-vide-1236823154/"
     },
     {
       "cat": "Trek/Wars",
