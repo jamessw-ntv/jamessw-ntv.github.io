@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-30",
-    "fetched": "2026-07-30T05:48:35+00:00",
+    "fetched": "2026-07-30T08:38:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 8
+      "temp": 8,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 5
     },
     "days": [
       {
@@ -25,7 +25,7 @@
       },
       {
         "day": "Fri",
-        "min": 1,
+        "min": 3,
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,52 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92107.0,
-        "pct": 0.19
+        "price": 92209.0,
+        "pct": -0.4
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2740.52,
-        "pct": -0.2
+        "price": 2746.61,
+        "pct": -0.34
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Matthew Macfadyen and Claire Foy to Lead Adaptation of David Nicholls’ ‘You Are Here’ for BBC and Starz",
+      "when": "30 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/matthew-macfadyen-claire-foy-david-nicholls-you-are-here-1236824027/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Balcanica,’ Starring Matilda De Angelis, Picked Up by M-Appeal Ahead of Venice World Premiere (EXCLUSIVE)",
+      "when": "30 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/m-appeal-balcanica-matilda-de-angelis-venice-1236824007/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Mubi to Release ‘La Mesías,’ From ‘La Bola Negra’ Cannes Best Director Winners, in the U.K., Germany, Canada and Beyond (EXCLUSIVE)",
+      "when": "30 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/mubi-to-release-la-mesias-from-la-bola-negra-directors-1236823729/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Busan’s Asian Project Market Unveils 30 Selections for 2026 Edition",
+      "when": "30 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/busans-asian-project-market-2026-selections-1236824004/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Trek: United’ Isn’t Currently On Scott Bakula’s Radar, But He’s Open To Returning As President Archer",
       "when": "30 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/29/star-trek-united-isnt-currently-on-scott-bakulas-radar-but-hes-open-to-returning-as-archer/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Joyce Carol Oates Defends ‘The Odyssey’ and Slams Translator for Scathing Review: ‘Speaks in the Crude Language of MAGA Folks’",
-      "when": "30 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/joyce-carol-oates-the-odyssey-slams-translator-review-1236823922/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ben Affleck Wins $1 Million Prize on ‘Who Wants to Be a Millionaire,’ One Year After Matt Damon Did the Same",
-      "when": "30 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ben-affleck-wins-1-million-who-wants-to-be-a-millionaire-1236823747/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Supernatural Reality Competition Korean Series ‘House of Fates’ Greenlit as ‘Battle of Fates’ Spinoff at Disney+",
-      "when": "30 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/supernatural-reality-competition-korean-series-house-of-fates-disney-1236823264/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Grammy Chief ‘Saddened to Hear’ That BTS Won’t Submit for 2027 Awards",
-      "when": "29 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/grammy-chief-saddened-bts-wont-submit-for-2027-awards-1236823891/"
     },
     {
       "cat": "Trek/Wars",
