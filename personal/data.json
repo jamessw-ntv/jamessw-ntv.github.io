@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-30",
-    "fetched": "2026-07-30T16:40:34+00:00",
+    "fetched": "2026-07-30T18:21:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 4,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 2
+      "wind": 3
     },
     "days": [
       {
@@ -72,31 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92221.0,
-        "pct": 0.32
+        "price": 92049.0,
+        "pct": -0.24
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2731.03,
-        "pct": 0.17
+        "price": 2727.05,
+        "pct": -0.63
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Artemis Pictures Promotes Four to Executive Roles (EXCLUSIVE)",
+      "title": "Jared Leto Documentary Director on Exposing Sexual Misconduct Allegations and the ‘Mystery’ of Why He Hasn’t Been Held Accountable",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/artemis-pictures-promotes-four-to-executive-1236824421/"
+      "url": "https://variety.com/2026/tv/global/jared-leto-bbc-documentary-director-allegations-1236824187/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Galactic Racer’ Shows Off 15 Minutes of Gameplay Footage",
+      "when": "30 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-galactic-racer-shows-off-15-minutes-of-gameplay-footage.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Marvel, ‘Star Wars’ and DC’s Biggest Fans Discuss Why Their Favorite Franchises Are Struggling: ‘I’m Still Waiting for “Blade”’",
+      "title": "Locarno Player ‘The Days Off,’ Lucila Mariani’s Dreamlike Argentine Debut, Boarded by Inwave Films (EXCLUSIVE)",
       "when": "30 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/marvel-star-wars-dc-fans-franchise-struggling-comic-con-1236823973/"
+      "url": "https://variety.com/2026/film/news/locarno-the-days-off-lucila-mariani-inwave-maravillacine-1236823137/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Weapons,’ ‘Marty Supreme’ and ‘Hacks’ Among 2026 MacGuffin Awards Nominees",
+      "when": "30 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/artisans/news/macguffin-awards-property-masters-guild-nominees-2026-1236823893/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Knots Landing’ Star Donna Mills Joins OnlyFans at 85 Years Old (EXCLUSIVE)",
+      "when": "30 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/donna-mills-onlyfans-85-years-old-1236824164/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +125,6 @@
       "when": "30 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/30/recap-review-star-trek-strange-new-worlds-jumps-into-scares-in-griffin-incident/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Clueless’ Sequel Series With Alicia Silverstone Ordered at Paramount+",
-      "when": "30 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/clueless-sequel-series-alicia-silverstone-paramount-plus-1236824275/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "AI Startup Fairground, Founded by Xumo Creator, to Launch First AI-Exclusive FAST Channel (EXCLUSIVE)",
-      "when": "30 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/ai-fairground-xumo-creator-fast-channel-1236824290/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-presents-the-ninth-jedi-creators-discuss-jedi-lightsabers-and-hope.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Rey Tries to Repair Luke Skywalker’s Kyber Crystal in New Excerpt From ‘Star Wars: Legacy’",
-      "when": "29 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/rey-tries-to-repair-luke-skywalker-kyber-crystal-in-new-excerpt-from-star-wars-legacy.html"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
