@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-31",
-    "fetched": "2026-07-31T21:13:27+00:00",
+    "fetched": "2026-07-31T23:08:28+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 2,
+      "temp": 4,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 6
+      "wind": 7
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 15,
         "icon": "🌤️",
         "desc": "Mainly clear",
-        "rain": 3
+        "rain": 0
       },
       {
         "day": "Mon",
@@ -37,7 +37,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 76
+        "rain": 81
       }
     ]
   },
@@ -72,18 +72,46 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89682.0,
-        "pct": -2.67
+        "price": 89723.0,
+        "pct": -2.76
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2652.51,
-        "pct": -3.03
+        "price": 2653.88,
+        "pct": -3.14
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars’ Celebration – Giancarlo Esposito, Katee Sackhoff, Emily Swallow and More Join as Guests",
+      "when": "31 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-celebration-giancarlo-esposito-katee-sackhoff-emily-swallow-and-more-join-as-guests.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Cape Fear’ Creator Nick Antosca on That Shocking Final Sequence and Making Big Changes From Scorsese’s Version",
+      "when": "31 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/features/cape-fear-finale-max-cady-1236812603/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Olivia Wilde and Cooper Hoffman Used Pain Scale Ratings to Prep BDSM Scenes in ‘I Want Your Sex’: She ‘Hit Him Really Hard and’ It Was ‘Only a Seven or Eight’",
+      "when": "31 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/artisans/news/i-want-your-sex-olivia-wilde-cooper-hoffman-sex-scenes-prep-1236825024/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "John Oliver Extends His HBO Contract to Continue ‘Last Week Tonight’ Through 2027",
+      "when": "31 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/john-oliver-hbo-contract-last-week-tonight-through-2027-1236825361/"
+    },
     {
       "cat": "Film/TV",
       "title": "Tom Corson Promoted to Chief Operating Officer at Warner Music Group",
@@ -92,32 +120,11 @@
       "url": "https://variety.com/2026/music/news/tom-corson-promoted-coo-warner-music-group-1236825348/"
     },
     {
-      "cat": "Film/TV",
-      "title": "You Can Now Land New York’s Toughest Restaurant Reservations Through DoorDash",
-      "when": "31 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/doordash-reservations-new-york-dashpass-membership-1236825342/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Paramount Seeks Antitrust Trial in November, While States Ask for April 2027",
-      "when": "31 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/states-paramount-warner-bros-antitrust-trial-2027-1236825068/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "‘Star Trek: Discovery’ Creator Reveals Planned Klingon Look For Laurence Fishburne",
       "when": "31 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/31/star-trek-discovery-creator-reveals-planned-klingon-look-for-laurence-fishburne/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Big Brother 28’ Contestant Jason Breaks Down That Explosive Tea Party and Not Letting Kamu ‘Bully’ Him: ‘Isn’t It Interesting How the Six People in Power Were So Threatened by a Drag Queen?’",
-      "when": "31 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/big-brother-28-jason-tea-party-kamu-bully-drag-queen-1236825246/"
     },
     {
       "cat": "Trek/Wars",
@@ -139,13 +146,6 @@
       "when": "31 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/31/podcast-all-access-gets-spooked-by-the-griffin-incident-from-snw-catches-up-on-star-trek-at-sdcc/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "New Details About ‘Star Wars: The Ninth Jedi’ Characters Revealed, Including Sith Villain",
-      "when": "31 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/new-details-about-star-wars-the-ninth-jedi-characters-revealed-including-sith-villain.html"
     },
     {
       "cat": "Trek/Wars",
