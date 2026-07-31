@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-31",
-    "fetched": "2026-07-31T00:08:27+00:00",
+    "fetched": "2026-07-31T04:28:04+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 3
+      "temp": 12,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 2
     },
     "days": [
       {
@@ -37,7 +37,7 @@
         "max": 15,
         "icon": "⛅",
         "desc": "Partly cloudy",
-        "rain": 4
+        "rain": 7
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92264.0,
-        "pct": 0.38
+        "price": 91352.0,
+        "pct": -0.84
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2732.03,
-        "pct": -0.42
+        "price": 2706.79,
+        "pct": -1.24
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Boy George Drops Out of London ‘Jesus Christ Superstar’ Production Following Backlash to Pro-Israel Song",
-      "when": "30 Jul",
+      "title": "Ariana Grande’s ‘Petal’ Introduces an Angry and Angular Ari: Album Review",
+      "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/boy-george-drops-out-jesus-christ-superstar-pro-israel-song-1236824746/"
+      "url": "https://variety.com/2026/music/reviews/ariana-grande-petal-angry-ari-album-review-1236824838/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Dungeons & Dragons’ Reveals Star Wars, ‘World of Warcraft’-Themed Tabletop Roleplaying Game as Part of New ‘Universes Beyond’ Collection",
-      "when": "30 Jul",
+      "title": "Sony Pictures Revenue Drops 13% in June Quarter, Music Segment Sales Jump 21%",
+      "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/dungeons-and-dragons-star-wars-world-of-warcraft-games-1236824675/"
+      "url": "https://variety.com/2026/film/news/sony-pictures-earnings-june-2026-music-playstation-sales-1236824839/"
     },
     {
       "cat": "Film/TV",
-      "title": "Banijay Americas CEO Ben Samek to Oversee Merged Banijay/All3Media Operations in the U.S.",
-      "when": "30 Jul",
+      "title": "‘Spider-Man: Brand New Day’ Credits Scene Explained: Will Tom Holland Return in ‘Avengers: Doomsday’ or ‘Secret Wars’?",
+      "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ben-samek-oversee-merged-banijay-all3media-merged-us-1236824710/"
+      "url": "https://variety.com/2026/film/news/spider-man-brand-new-day-credits-avengers-doomsday-secret-wars-1236821075/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Wonder Man’ Star Yahya Abdul-Mateen II Speaks Out After Marvel Series Canceled: ‘That’s Life… Everything Will Shake Out’",
-      "when": "30 Jul",
+      "title": "‘Stuart Fails to Save the Universe’ Producers on Episode 2’s Surprise Kaley Cuoco Cameo As an Alternate Penny",
+      "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/yahya-abdul-mateen-ii-wonder-man-canceled-marvel-1236824724/"
+      "url": "https://variety.com/2026/tv/news/stuart-fails-to-save-the-universe-kaley-cuoco-cameo-how-1236823001/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "New Details About ‘Star Wars: The Ninth Jedi’ Characters Revealed, Including Sith Villain",
+      "when": "31 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/new-details-about-star-wars-the-ninth-jedi-characters-revealed-including-sith-villain.html"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/07/vfx-artists-from-several-star-wars-productions-vote-to-unionize.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Visions Presents – The Ninth Jedi’ Creators Discuss Jedi, Lightsabers, and Hope",
-      "when": "29 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-visions-presents-the-ninth-jedi-creators-discuss-jedi-lightsabers-and-hope.html"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
