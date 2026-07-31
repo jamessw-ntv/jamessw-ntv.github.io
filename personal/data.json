@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-31",
-    "fetched": "2026-07-31T17:45:58+00:00",
+    "fetched": "2026-07-31T19:43:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,12 +12,12 @@
       "temp": 2,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 2
+      "wind": 3
     },
     "days": [
       {
         "day": "Today",
-        "min": 1,
+        "min": 2,
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
@@ -25,18 +25,18 @@
       },
       {
         "day": "Sun",
-        "min": 8,
+        "min": 7,
         "max": 15,
-        "icon": "☀️",
-        "desc": "Clear",
+        "icon": "🌤️",
+        "desc": "Mainly clear",
         "rain": 3
       },
       {
         "day": "Mon",
         "min": 6,
-        "max": 13,
+        "max": 12,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 76
       }
     ]
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89529.0,
-        "pct": -3.04
+        "price": 89359.0,
+        "pct": -3.01
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2659.85,
-        "pct": -2.73
+        "price": 2648.89,
+        "pct": -3.16
       }
     ]
   },
   "releases": [
     {
-      "cat": "Film/TV",
-      "title": "Colson Whitehead’s ‘Harlem’ Trilogy TV Show in Development at Apple (EXCLUSIVE)",
+      "cat": "Trek/Wars",
+      "title": "‘Star Trek: Discovery’ Creator Reveals Planned Klingon Look For Laurence Fishburne",
       "when": "31 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/colson-whitehead-harlem-trilogy-tv-show-apple-1236824605/"
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/31/star-trek-discovery-creator-reveals-planned-klingon-look-for-laurence-fishburne/"
     },
     {
       "cat": "Film/TV",
-      "title": "Emmanuel Macron to Host Ted Sarandos, Donna Langley, Dana Walden and Pierre-Antoine Capton Among Global Film Leaders at Lumière Summit (EXCLUSIVE)",
+      "title": "‘Big Brother 28’ Contestant Jason Breaks Down That Explosive Tea Party and Not Letting Kamu ‘Bully’ Him: ‘Isn’t It Interesting How the Six People in Power Were So Threatened by a Drag Queen?’",
       "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/emmanuel-macron-ted-sarandos-donna-langley-lumiere-summit-1236825220/"
+      "url": "https://variety.com/2026/tv/news/big-brother-28-jason-tea-party-kamu-bully-drag-queen-1236825246/"
     },
     {
       "cat": "Film/TV",
-      "title": "Benny Safdie’s ‘Lizard Music’ With Dwayne Johnson Adds Newcomer Arya Parvathi (EXCLUSIVE)",
+      "title": "Dermot Mulroney Leaving ‘Chicago Fire’ in Season 15",
       "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/benny-safdie-lizard-music-casts-arya-parvathi-1236825121/"
+      "url": "https://variety.com/2026/tv/news/chicago-fire-dermot-mulroney-leaving-season-15-1236825309/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sam Fender and Olivia Dean’s ‘Rein Me In’ Becomes the U.K.’s Longest-Running No. 1 Single of All Time",
+      "title": "DC and HBO’s ‘Booster Gold’ Show ‘Won’t Be Moving Forward,’ Says Writer David Jenkins",
       "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/global/sam-fender-olivia-dean-rein-me-in-uk-longest-running-no-1-1236825159/"
+      "url": "https://variety.com/2026/tv/news/booster-gold-show-canceled-dc-hbo-1236825280/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "As ‘Civilization’ Turns 35, Creator Sid Meier and Firaxis President Look Ahead to a New Ages for 2K Studio’s Franchises",
+      "when": "31 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/gaming/news/civilization-35-anniversary-sid-meier-firaxis-xcom-games-1236824977/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "The Secrets of ‘Star Wars: Legacy’ and What They Mean For the Future of ‘Star Wars’",
+      "when": "31 Jul",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/the-secrets-of-star-wars-legacy-and-what-they-mean-for-the-future-of-star-wars.html"
     },
     {
       "cat": "Trek/Wars",
@@ -135,24 +149,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "‘Star Wars: Galactic Racer’ Shows Off 15 Minutes of Gameplay Footage",
-      "when": "30 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/star-wars-galactic-racer-shows-off-15-minutes-of-gameplay-footage.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Jumps Into Scares In “The Griffin Incident”",
       "when": "30 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/30/recap-review-star-trek-strange-new-worlds-jumps-into-scares-in-griffin-incident/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek: United’ Isn’t Currently On Scott Bakula’s Radar, But He’s Open To Returning As President Archer",
-      "when": "30 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/29/star-trek-united-isnt-currently-on-scott-bakulas-radar-but-hes-open-to-returning-as-archer/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
