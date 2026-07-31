@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-31",
-    "fetched": "2026-07-31T19:43:47+00:00",
+    "fetched": "2026-07-31T21:13:27+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 2,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 3
+      "wind": 6
     },
     "days": [
       {
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89359.0,
-        "pct": -3.01
+        "price": 89682.0,
+        "pct": -2.67
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2648.89,
-        "pct": -3.16
+        "price": 2652.51,
+        "pct": -3.03
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Tom Corson Promoted to Chief Operating Officer at Warner Music Group",
+      "when": "31 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/tom-corson-promoted-coo-warner-music-group-1236825348/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "You Can Now Land New York’s Toughest Restaurant Reservations Through DoorDash",
+      "when": "31 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/doordash-reservations-new-york-dashpass-membership-1236825342/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Paramount Seeks Antitrust Trial in November, While States Ask for April 2027",
+      "when": "31 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/states-paramount-warner-bros-antitrust-trial-2027-1236825068/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Trek: Discovery’ Creator Reveals Planned Klingon Look For Laurence Fishburne",
@@ -97,27 +118,6 @@
       "when": "31 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/big-brother-28-jason-tea-party-kamu-bully-drag-queen-1236825246/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Dermot Mulroney Leaving ‘Chicago Fire’ in Season 15",
-      "when": "31 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/chicago-fire-dermot-mulroney-leaving-season-15-1236825309/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "DC and HBO’s ‘Booster Gold’ Show ‘Won’t Be Moving Forward,’ Says Writer David Jenkins",
-      "when": "31 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/booster-gold-show-canceled-dc-hbo-1236825280/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "As ‘Civilization’ Turns 35, Creator Sid Meier and Firaxis President Look Ahead to a New Ages for 2K Studio’s Franchises",
-      "when": "31 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/civilization-35-anniversary-sid-meier-firaxis-xcom-games-1236824977/"
     },
     {
       "cat": "Trek/Wars",
