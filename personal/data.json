@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-31",
-    "fetched": "2026-07-31T07:54:53+00:00",
+    "fetched": "2026-07-31T10:45:55+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 6,
       "icon": "☀️",
       "desc": "Clear",
       "wind": 6
@@ -37,7 +37,7 @@
         "max": 15,
         "icon": "🌤️",
         "desc": "Mainly clear",
-        "rain": 7
+        "rain": 5
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90835.0,
-        "pct": -1.19
+        "price": 90778.0,
+        "pct": -1.85
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2683.14,
-        "pct": -1.91
+        "price": 2683.5,
+        "pct": -2.43
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "ITV Sees ‘Solid’ Results in First Half of 2026, Reports $26 Million Loss Due to Fast Food Advertising Regulations",
+      "title": "‘Black Zombie’ Review: An Engaging Doc on How the Flesh-Eating Hordes of Screen Fame Obscured Painful Real-Life History",
       "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/itv-half-year-results-2026-solid-2-percent-1236824882/"
+      "url": "https://variety.com/2026/film/reviews/black-zombie-review-1236823838/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ariana Grande’s ‘Petal’ Introduces an Angry and Angular Ari: Album Review",
+      "title": "‘Los Vampires’ Review: Dueling Draculas Spar in an Alluring if Unevenly Executed Flashback to Early-Talkie Hollywood",
       "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/reviews/ariana-grande-petal-angry-ari-album-review-1236824838/"
+      "url": "https://variety.com/2026/film/reviews/los-vampires-review-1236821582/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sony Pictures Revenue Drops 13% in June Quarter, Music Segment Sales Jump 21%",
+      "title": "World Cup Boycott Backed by All 55 UEFA Countries as Asian, North and Central American, Caribbean Members Oppose FIFA Stake Sale",
       "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/sony-pictures-earnings-june-2026-music-playstation-sales-1236824839/"
+      "url": "https://variety.com/2026/sports/global/world-cup-boycott-opposition-fifa-plan-1236823227/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Spider-Man: Brand New Day’ Credits Scene Explained: Will Tom Holland Return in ‘Avengers: Doomsday’ or ‘Secret Wars’?",
+      "title": "Oscar-Qualifying Bengaluru International Short Film Festival Expands to 10 Arenas, Adds AI and Dance Competitions (EXCLUSIVE)",
       "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/spider-man-brand-new-day-credits-avengers-doomsday-secret-wars-1236821075/"
+      "url": "https://variety.com/2026/film/news/bengaluru-short-film-festival-ai-dance-competitions-2026-1236824897/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
