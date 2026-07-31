@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-31",
-    "fetched": "2026-07-31T13:01:02+00:00",
+    "fetched": "2026-07-31T15:24:04+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
-      "icon": "☀️",
-      "desc": "Clear",
+      "temp": 3,
+      "icon": "☁️",
+      "desc": "Overcast",
       "wind": 5
     },
     "days": [
       {
         "day": "Today",
-        "min": 2,
-        "max": 12,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 3
-      },
-      {
-        "day": "Sat",
         "min": 1,
         "max": 14,
         "icon": "☁️",
@@ -37,7 +29,15 @@
         "max": 15,
         "icon": "☀️",
         "desc": "Clear",
-        "rain": 5
+        "rain": 3
+      },
+      {
+        "day": "Mon",
+        "min": 6,
+        "max": 13,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 76
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90816.0,
-        "pct": -2.33
+        "price": 89088.0,
+        "pct": -3.59
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2681.91,
-        "pct": -2.75
+        "price": 2642.58,
+        "pct": -3.51
       }
     ]
   },
   "releases": [
     {
-      "cat": "Film/TV",
-      "title": "Gary Oldman, ‘Obsession’ Director Curry Barker and ‘Barbie’ Producer Robbie Brenner Among Toronto Market Speakers",
+      "cat": "Trek/Wars",
+      "title": "Second Sister – ‘Star Wars’ Character Spotlight",
       "when": "31 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/gary-oldman-curry-barker-robbie-brenner-toronto-market-1236824949/"
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/07/second-sister-star-wars-character-spotlight.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Inside Netflix and Prime Video’s Fight to Reshape France’s Streaming Rules: ‘It’s an Unsustainable Equation’",
+      "title": "‘Spider-Man: Brand New Day’ Sets Box Office Record With $72 Million in Previews, Beating ‘Avengers: Endgame’",
       "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/netflix-prime-video-fight-reshape-france-streaming-rules-1236824930/"
+      "url": "https://variety.com/2026/film/box-office/spider-man-brand-new-day-box-office-record-previews-1236824394/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Black Zombie’ Review: An Engaging Doc on How the Flesh-Eating Hordes of Screen Fame Obscured Painful Real-Life History",
+      "title": "Starz’s U.K.-Set Boxing Crime Drama ‘Fightland’ Is a Knockout: TV Review",
       "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/black-zombie-review-1236823838/"
+      "url": "https://variety.com/2026/tv/reviews/fightland-review-starz-50-cent-1236819899/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Los Vampires’ Review: Dueling Draculas Spar in an Alluring if Unevenly Executed Flashback to Early-Talkie Hollywood",
+      "title": "‘The Odyssey’ Is Luring Tourists to the Sicilian Island That Stands In for Ithaca — and Could Generate $500 Million in Revenue",
       "when": "31 Jul",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/los-vampires-review-1236821582/"
+      "url": "https://variety.com/2026/film/global/the-odyssey-sicilian-island-favignana-ithaca-tourism-boom-1236824011/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Suno Loses Landmark AI Lawsuit to German Performing Rights Society GEMA",
+      "when": "31 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/digital/news/suno-loses-ai-lawsuit-gema-1236825010/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Podcast: All Access Gets Spooked By “The Griffin Incident” From SNW & Catches Up On Star Trek At SDCC",
+      "when": "31 Jul",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/07/31/podcast-all-access-gets-spooked-by-the-griffin-incident-from-snw-catches-up-on-star-trek-at-sdcc/"
     },
     {
       "cat": "Trek/Wars",
@@ -139,20 +153,6 @@
       "when": "30 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/29/star-trek-united-isnt-currently-on-scott-bakulas-radar-but-hes-open-to-returning-as-archer/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "New Movie Directors Developing A “Version Of Star Trek That No One’s Ever Seen Before”",
-      "when": "29 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/29/new-movie-directors-developing-a-version-of-star-trek-that-no-ones-ever-seen-before/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "VFX Artists From Several ‘Star Wars’ Productions Vote to Unionize",
-      "when": "29 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/07/vfx-artists-from-several-star-wars-productions-vote-to-unionize.html"
     },
     {
       "cat": "Games",
