@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-07-31",
-    "fetched": "2026-07-31T10:45:55+00:00",
+    "fetched": "2026-07-31T13:01:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
+      "temp": 5,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 6
+      "wind": 5
     },
     "days": [
       {
@@ -25,7 +25,7 @@
       },
       {
         "day": "Sat",
-        "min": 2,
+        "min": 1,
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
@@ -33,10 +33,10 @@
       },
       {
         "day": "Sun",
-        "min": 7,
+        "min": 8,
         "max": 15,
-        "icon": "🌤️",
-        "desc": "Mainly clear",
+        "icon": "☀️",
+        "desc": "Clear",
         "rain": 5
       }
     ]
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90778.0,
-        "pct": -1.85
+        "price": 90816.0,
+        "pct": -2.33
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2683.5,
-        "pct": -2.43
+        "price": 2681.91,
+        "pct": -2.75
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Gary Oldman, ‘Obsession’ Director Curry Barker and ‘Barbie’ Producer Robbie Brenner Among Toronto Market Speakers",
+      "when": "31 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/gary-oldman-curry-barker-robbie-brenner-toronto-market-1236824949/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Inside Netflix and Prime Video’s Fight to Reshape France’s Streaming Rules: ‘It’s an Unsustainable Equation’",
+      "when": "31 Jul",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/netflix-prime-video-fight-reshape-france-streaming-rules-1236824930/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Black Zombie’ Review: An Engaging Doc on How the Flesh-Eating Hordes of Screen Fame Obscured Painful Real-Life History",
@@ -97,20 +111,6 @@
       "when": "31 Jul",
       "source": "Variety",
       "url": "https://variety.com/2026/film/reviews/los-vampires-review-1236821582/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "World Cup Boycott Backed by All 55 UEFA Countries as Asian, North and Central American, Caribbean Members Oppose FIFA Stake Sale",
-      "when": "31 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/sports/global/world-cup-boycott-opposition-fifa-plan-1236823227/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Oscar-Qualifying Bengaluru International Short Film Festival Expands to 10 Arenas, Adds AI and Dance Competitions (EXCLUSIVE)",
-      "when": "31 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/bengaluru-short-film-festival-ai-dance-competitions-2026-1236824897/"
     },
     {
       "cat": "Trek/Wars",
