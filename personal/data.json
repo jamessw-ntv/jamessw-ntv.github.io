@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-01",
-    "fetched": "2026-08-01T15:06:00+00:00",
+    "fetched": "2026-08-01T16:09:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 8,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 15
+      "wind": 16
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89905.0,
-        "pct": 0.83
+        "price": 89699.0,
+        "pct": 0.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2669.38,
-        "pct": 0.86
+        "price": 2664.2,
+        "pct": 0.47
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Box Office: ‘Spider-Man: Brand New Day’ Breaks Opening Day Record With $168 Million",
+      "when": "1 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/box-office-spider-man-brand-new-day-opening-day-record-1236825606/"
+    },
     {
       "cat": "Film/TV",
       "title": "Massive Attack Duo Banned From Singapore Over Palestinian Flag Display",
@@ -104,13 +111,6 @@
       "when": "1 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/biz/global/fifa-gianni-infantino-ditches-private-investment-plan-1236825512/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Tiger Shroff to Star in Viccky Jain’s VJ Frames Launch Title, Directed by Remo D’Souza, With Abhishek Banerjee, Elvish Yadav Also Set (EXCLUSIVE)",
-      "when": "1 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/tiger-shroff-viccky-jain-vj-frames-1236825325/"
     },
     {
       "cat": "Trek/Wars",
