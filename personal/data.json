@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-01",
-    "fetched": "2026-08-01T19:21:19+00:00",
+    "fetched": "2026-08-01T21:02:15+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 8,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 17
+      "wind": 18
     },
     "days": [
       {
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89174.0,
-        "pct": -0.36
+        "price": 89270.0,
+        "pct": -0.31
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2620.57,
-        "pct": -1.23
+        "price": 2618.54,
+        "pct": -1.13
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Lamont Roach Jr. vs. William Zepeda Livestream: Here’s Where to Watch the Boxing Title Bout Online for Free",
+      "when": "1 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-roach-jr-vs-zepeda-boxing-live-online-free-1236823309/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Vincent Pastore, Who Played ‘Big Pussy’ on ‘The Sopranos’, Dies at 80",
+      "when": "1 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/vincent-pastore-dead-big-pussy-the-sopranos-hbo-1236825791/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Lollapalooza Shortens Wolf Alice and Cortis Sets, Delays Several More Amid Intense Flooding",
+      "when": "1 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/lollapalooza-delays-flooding-wolf-alice-cortis-1236825734/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Wild Inside’ Review: The Story of the Central Park Owl Becomes a Moving and Haunting Documentary",
@@ -92,32 +113,11 @@
       "url": "https://variety.com/2026/film/reviews/wild-inside-review-the-central-park-owl-1236825626/"
     },
     {
-      "cat": "Film/TV",
-      "title": "WWE SummerSlam 2026 Livestream: Here’s Where to Watch the Two-Night Pro Wrestling Event Live Online for Free",
-      "when": "1 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-wwe-summerslam-2026-live-online-free-1236822004/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Vin Diesel Says ‘Fast Forever’ Has the ‘Best Script I Have Read in Decades’: ‘I Am Still Crying’",
-      "when": "1 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/vin-diesel-fast-forever-best-script-1236825704/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Jerry O’Connell Talks Captain Ransom, Says ‘Star Trek: Lower Decks’ Creator Mike McMahan “Is Not Done” [EXCLUSIVE]",
       "when": "1 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/01/jerry-oconnell-talks-captain-ransom-says-star-trek-lower-decks-creator-mike-mcmahan-is-not-done-exclusive/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Juliette Lewis on Fiery ‘Cape Fear’ Finale, ‘Nostalgic’ Nods to 1991 Film and Why Crystal Will ‘Haunt’ Max Forever",
-      "when": "1 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/juliette-lewis-cape-fear-finale-crystal-death-1991-movie-1236818597/"
     },
     {
       "cat": "Trek/Wars",
