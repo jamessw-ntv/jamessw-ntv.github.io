@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-01",
-    "fetched": "2026-08-01T09:10:49+00:00",
+    "fetched": "2026-08-01T11:22:33+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 8,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 10
+      "wind": 12
     },
     "days": [
       {
@@ -37,7 +37,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 78
+        "rain": 82
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89906.0,
-        "pct": -0.69
+        "price": 89819.0,
+        "pct": -1.18
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2661.31,
-        "pct": -0.75
+        "price": 2659.33,
+        "pct": -0.83
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Massive Attack Duo Banned From Singapore Over Palestinian Flag Display",
+      "when": "1 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/massive-attack-duo-banned-singapore-palestinian-flag-1236825534/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Inbetweeners’ Reunion Movie in the Works at Netflix With Original Lead Cast to Return",
+      "when": "1 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/the-inbetweeners-reunion-movie-netflix-original-lead-cast-1236825532/"
+    },
     {
       "cat": "Film/TV",
       "title": "FIFA Chief Gianni Infantino on the Ropes as He Ditches Controversial $20 Billion Private Investment Plan",
@@ -97,20 +111,6 @@
       "when": "1 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/tiger-shroff-viccky-jain-vj-frames-1236825325/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Javier Bardem Politely Warned ‘Cape Fear’ Co-Star About Grabbing Her Hair During Attack Scene and Apologized in Advance: ‘I’m So Sorry, My Love’",
-      "when": "1 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/javier-bardem-cape-fear-finale-grabs-hair-lily-collias-1236825394/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Spider-Man: Brand New Day’ Leaks Online: Millions Watched Bootleg Before It Was Taken Down",
-      "when": "31 Jul",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/spider-man-brand-new-day-leaked-high-quality-1236825389/"
     },
     {
       "cat": "Trek/Wars",
