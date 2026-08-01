@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-01",
-    "fetched": "2026-08-01T16:09:53+00:00",
+    "fetched": "2026-08-01T18:03:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89699.0,
-        "pct": 0.36
+        "price": 89306.0,
+        "pct": -0.58
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2664.2,
-        "pct": 0.47
+        "price": 2651.23,
+        "pct": -0.44
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Box Office: ‘Spider-Man: Brand New Day’ Breaks Opening Day Record With $168 Million",
+      "title": "Juliette Lewis on Fiery ‘Cape Fear’ Finale, ‘Nostalgic’ Nods to 1991 Film and Why Crystal Will ‘Haunt’ Max Forever",
       "when": "1 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/box-office-spider-man-brand-new-day-opening-day-record-1236825606/"
+      "url": "https://variety.com/2026/tv/news/juliette-lewis-cape-fear-finale-crystal-death-1991-movie-1236818597/"
     },
     {
       "cat": "Film/TV",
-      "title": "Massive Attack Duo Banned From Singapore Over Palestinian Flag Display",
+      "title": "The Rolling Stones ‘Behind the Song’: See Mick Jagger and Producer Andrew Watt’s Deep Dive on the Creation of ‘Mr. Charm’ (EXCLUSIVE)",
       "when": "1 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/massive-attack-duo-banned-singapore-palestinian-flag-1236825534/"
+      "url": "https://variety.com/2026/music/news/rolling-stones-behind-the-song-mick-jagger-andrew-watts-mr-charm-1236825650/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Inbetweeners’ Reunion Movie in the Works at Netflix With Original Lead Cast to Return",
+      "title": "Richard L. O’Connor, Emmy-Winning Producer and ‘The Muppet Movie’ Executive, Dies at 96",
       "when": "1 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/the-inbetweeners-reunion-movie-netflix-original-lead-cast-1236825532/"
+      "url": "https://variety.com/2026/film/news/richard-l-oconnor-dead-the-muppet-movie-on-golden-pond-1236825613/"
     },
     {
       "cat": "Film/TV",
-      "title": "FIFA Chief Gianni Infantino on the Ropes as He Ditches Controversial $20 Billion Private Investment Plan",
+      "title": "Inside Lollapalooza’s Biggest Brand Activations: From Nütrl Vodka Seltzers to a Coca-Cola Roller Rink",
       "when": "1 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/global/fifa-gianni-infantino-ditches-private-investment-plan-1236825512/"
+      "url": "https://variety.com/2026/shopping/news/lollapalooza-sponsors-activations-giveaways-merch-1236825616/"
     },
     {
       "cat": "Trek/Wars",
@@ -142,7 +142,7 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Podcast: All Access Gets Spooked By “The Griffin Incident” From SNW & Catches Up On Star Trek At SDCC",
+      "title": "Podcast: All Access Gets Spooked By “The Griffin Incident” From SNW & Catches Up On Star Trek At SDCC [UPDATED w/ Director Interview]",
       "when": "31 Jul",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/07/31/podcast-all-access-gets-spooked-by-the-griffin-incident-from-snw-catches-up-on-star-trek-at-sdcc/"
