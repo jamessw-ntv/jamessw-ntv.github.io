@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-02",
-    "fetched": "2026-08-02T15:07:35+00:00",
+    "fetched": "2026-08-02T16:10:16+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 14
+      "temp": 8,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 13
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90110.0,
-        "pct": 0.22
+        "price": 90186.0,
+        "pct": 0.54
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2650.5,
-        "pct": -0.7
+        "price": 2654.8,
+        "pct": -0.35
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Spider-Man: Brand New Day’ and ‘The Odyssey’ Power Biggest Collective Weekend in Box Office History With $430 Million",
+      "when": "2 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/the-odyssey-spiderman-biggest-box-office-weekend-history-1236825132/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "21 Best Movies New to Streaming in August: ‘Michael,’ ‘Mother Mary,’ ‘Oppenheimer’ Back on Peacock and More",
+      "when": "2 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/lists/best-movies-streaming-august-2026/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Spider-Man: Brand New Day’ Swings to Mind-Blowing $355 Million Debut, Second-Biggest Opening Weekend in Box Office History",
@@ -104,20 +118,6 @@
       "when": "2 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-zero-company-eleven-playable-worlds-revealed.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Hacks’ Stars Hannah Einbinder and Paul W. Downs on the Legacy of ‘Hacks’ and Which Character Needs a Spinoff First",
-      "when": "2 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/awards/hacks-hannah-einbinder-paul-w-downs-legacy-spinoff-1236825927/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Nicole Kidman and Sandra Bullock Surprise Fans at ‘Practical Magic’ Screening in Hollywood Forever Cemetery for L.A.’s Cinespia",
-      "when": "2 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/nicole-kidman-sandra-bullock-practical-magic-cinespia-screening-1236825330/"
     },
     {
       "cat": "Trek/Wars",
