@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-02",
-    "fetched": "2026-08-02T22:00:39+00:00",
+    "fetched": "2026-08-02T23:00:29+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
+      "temp": 8,
       "icon": "🌤️",
       "desc": "Mainly clear",
       "wind": 14
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90193.0,
-        "pct": 0.79
+        "price": 89930.0,
+        "pct": 0.47
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2680.62,
-        "pct": 1.97
+        "price": 2668.28,
+        "pct": 1.39
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Pima County Sheriff’s Department Made Several Mistakes During Search for Nancy Guthrie, New Report Claims",
+      "when": "2 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/pima-county-sheriff-department-mistakes-nancy-guthrie-1236826065/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "STLV 2026 Preview: William Shatner, Jack Quaid, Kate Mulgrew, Rick Berman, ‘Galaxy Quest’ + More",
+      "when": "2 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/02/stlv-2026-preview-william-shatner-jack-quaid-kate-mulgrew-rick-berman-galaxy-quest-more/"
+    },
     {
       "cat": "Film/TV",
       "title": "Christopher Nolan Says There Is a ‘Fundamental Flaw’ With Amateur Film Criticism: ‘To Identify the Mechanism Does Not Invalidate the Mechanism’",
@@ -104,13 +118,6 @@
       "when": "2 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/music/news/morgan-wallen-returns-no-1-charli-xcx-top-three-chart-1236826032/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Hadestown’ Parts Ways With Hades Actor Geno Segers After Online Controversy",
-      "when": "2 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/theater/news/broadways-hadestown-geno-segers-online-controversy-1236826009/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/07/the-secrets-of-star-wars-legacy-and-what-they-mean-for-the-future-of-star-wars.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Podcast: All Access Gets Spooked By “The Griffin Incident” From SNW & Catches Up On Star Trek At SDCC [UPDATED w/ Director Interview]",
-      "when": "31 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/31/podcast-all-access-gets-spooked-by-the-griffin-incident-from-snw-catches-up-on-star-trek-at-sdcc/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "58m ago",
+      "pushed": "59m ago",
       "lang": "HTML",
       "commit": ""
     }
