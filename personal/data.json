@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-02",
-    "fetched": "2026-08-02T13:41:31+00:00",
+    "fetched": "2026-08-02T15:07:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,24 +12,16 @@
       "temp": 9,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 15
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 16,
-        "icon": "☀️",
-        "desc": "Clear",
-        "rain": 0
-      },
-      {
-        "day": "Mon",
         "min": 5,
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 78
+        "rain": 63
       },
       {
         "day": "Tue",
@@ -37,7 +29,15 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 98
+        "rain": 96
+      },
+      {
+        "day": "Wed",
+        "min": 6,
+        "max": 11,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 76
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90097.0,
-        "pct": 0.26
+        "price": 90110.0,
+        "pct": 0.22
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2649.02,
-        "pct": -0.48
+        "price": 2650.5,
+        "pct": -0.7
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Spider-Man: Brand New Day’ Swings to Mind-Blowing $355 Million Debut, Second-Biggest Opening Weekend in Box Office History",
+      "when": "2 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/spider-man-brand-new-day-box-office-opening-weekend-1236825953/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Stassi Schroeder Takes Us Inside That Explosive ‘House of Stassi’ Finale: ‘I Felt Like Julius Caesar’",
+      "when": "2 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/house-of-stassi-finale-stassi-schroeder-fight-beau-clark-katie-maloney-hulu-1236825637/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars: Zero Company’ – Eleven Playable Worlds Revealed",
@@ -104,20 +118,6 @@
       "when": "2 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/nicole-kidman-sandra-bullock-practical-magic-cinespia-screening-1236825330/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Toymaker Hasbro Reimagines Most Iconic Board Games With Spider-Man-Themed Graphics and Gameplay",
-      "when": "2 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/best-spider-man-board-games-hasbro-monopoly-buy-online-1236825826/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘It: Welcome to Derry’ Creator Says Season 2 Will ‘Not’ Shy Away From the ‘Horrible’ Cultural Themes of the 1930s: It’s the ‘Heart of Our Story’",
-      "when": "1 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/it-welcome-to-derry-season-2-update-cultural-themes-1930s-1236825738/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
