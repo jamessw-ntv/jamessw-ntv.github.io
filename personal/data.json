@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-03",
-    "fetched": "2026-08-03T14:53:53+00:00",
+    "fetched": "2026-08-03T17:13:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 10
+      "temp": 6,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 6
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 100
+        "rain": 98
       },
       {
         "day": "Wed",
@@ -29,7 +29,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 90
+        "rain": 87
       },
       {
         "day": "Thu",
@@ -37,7 +37,7 @@
         "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 52
+        "rain": 53
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91053.0,
-        "pct": 0.97
+        "price": 91121.0,
+        "pct": 0.9
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2665.22,
-        "pct": 0.44
+        "price": 2667.53,
+        "pct": 0.12
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Spider-Man’ Beats ‘Avengers: Endgame’ as ‘Brand New Day’ Climbs to $360 Million, the Biggest Opening Weekend in Box Office History",
+      "title": "Spain’s RTVE Joins Netflix, Universal on Félix Viscarret’s ETA Drama ‘Blanco’",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/spider-man-brand-new-day-box-office-opening-record-avengers-endgame-1236826336/"
+      "url": "https://variety.com/2026/film/markets-festivals/rtve-netflix-universal-felix-viscarret-blanco-1236826445/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘The Ninth Jedi’ Final Trailer Hits Online Two Days Ahead of Disney Plus Premiere",
+      "when": "3 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/the-ninth-jedi-final-trailer-hits-online-two-days-ahead-of-disney-plus-premiere.html"
     },
     {
       "cat": "Film/TV",
-      "title": "‘V/H/S/MIXTAPE’ Set at Shudder; Ninth Chapter of Horror Anthology Features RZA, Ernest Dickerson, Flying Lotus and More (EXCLUSIVE)",
+      "title": "‘Movies Aren’t Dead After All’: Sony Pictures Boss Tom Rothman on Historic ‘Spider-Man’ Box Office and Losing Tarantino’s Cliff Booth Sequel to Netflix",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/v-h-s-mixtape-anthology-rza-flying-lotus-1236826154/"
+      "url": "https://variety.com/2026/film/news/sony-tom-rothman-spider-man-brand-new-day-box-office-record-1236826285/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Preview “Human Best Friend” With 14 New Photos From ‘Star Trek: Strange New Worlds’ Ep. 403",
+      "when": "3 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/03/preview-human-best-friend-with-14-new-photos-from-star-trek-strange-new-worlds-ep-403/"
     },
     {
       "cat": "Film/TV",
-      "title": "Low Light Films Boards Locarno Competition Thriller ‘O Jacaré,’ Basil Da Cunha Celebration of Lisbon’s Vibrant Reboleira District (EXCLUSIVE)",
+      "title": "CBS Bets Tony Dokoupil’s ‘Big Question’ Segment Makes Sizable Difference in Evening-News Battle",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/basil-da-cunha-low-light-films-o-jacare-locarno-1236826337/"
+      "url": "https://variety.com/2026/tv/news/tony-dokoupil-big-question-cbs-evening-news-ratings-1236826124/"
     },
     {
       "cat": "Film/TV",
-      "title": "MS NOW Launches Peter Alexander’s ‘State of Play’ August 10",
+      "title": "‘Sex Lives of College Girls’ Star Gavin Leatherwood Joins Nina Dobrev in Rom-Com ‘It Happened One Summer,’ Adapted From BookTok Hit",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/peter-alexander-ms-now-state-of-play-launch-1236826277/"
+      "url": "https://variety.com/2026/film/global/gavin-leatherwood-nina-dobrev-rom-com-happened-one-summer-1236826343/"
     },
     {
       "cat": "Trek/Wars",
@@ -141,20 +155,6 @@
       "url": "https://trekmovie.com/2026/08/01/jerry-oconnell-talks-captain-ransom-says-star-trek-lower-decks-creator-mike-mcmahan-is-not-done-exclusive/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars’ Celebration – Giancarlo Esposito, Katee Sackhoff, Emily Swallow and More Join as Guests",
-      "when": "31 Jul",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-celebration-giancarlo-esposito-katee-sackhoff-emily-swallow-and-more-join-as-guests.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek: Discovery’ Creator Reveals Planned Klingon Look For Laurence Fishburne",
-      "when": "31 Jul",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/07/31/star-trek-discovery-creator-reveals-planned-klingon-look-for-laurence-fishburne/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
