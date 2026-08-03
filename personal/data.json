@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-03",
-    "fetched": "2026-08-03T19:46:41+00:00",
+    "fetched": "2026-08-03T21:11:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
+      "temp": 4,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 8
+      "wind": 9
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91284.0,
-        "pct": 1.59
+        "price": 90931.0,
+        "pct": 0.92
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2671.59,
-        "pct": 0.33
+        "price": 2663.91,
+        "pct": -0.34
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Jimmy Fallon is Nearly Last Late-Night Host Standing Amid Summer Hiatus",
+      "title": "‘God of War’: Dave Bautista in Talks For Kratos Role in Amazon Series After Ryan Hurst’s Exit",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jimmy-fallon-last-late-night-host-standing-summer-hiatus-1236826644/"
+      "url": "https://variety.com/2026/tv/news/god-of-war-dave-bautista-kratos-amazon-series-ryan-hurst-1236826600/"
     },
     {
       "cat": "Film/TV",
-      "title": "This ‘Spider-Man’ Art Book Explores the Making of ‘Brand New Day,’ From Early Concept Sketches to Final Production Designs",
+      "title": "Why Parents Are Still Afraid of Video Games After 50 Years and How a Gaming Nonprofit’s New Workshops Are Trying to Help",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/spider-man-brand-new-day-art-book-sketches-1236826647/"
+      "url": "https://variety.com/2026/gaming/news/parents-fears-video-games-gaming-workshops-1236822057/"
     },
     {
       "cat": "Film/TV",
-      "title": "Costume Designer Arianne Phillips on How Madonna Inspired ‘I Want Your Sex,’ and Finding Olivia Wilde’s Frustrated Artist Look for ‘The Invite’",
+      "title": "‘Miss Navajo’ Musical in the Works From Director Billy Luther and Singer-Songwriter Raye Zaragoza (EXCLUSIVE)",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/costumes-i-want-your-sex-the-invite-1236824429/"
+      "url": "https://variety.com/2026/film/news/miss-navajo-musical-billy-luther-raye-zaragoza-1236826631/"
     },
     {
       "cat": "Film/TV",
-      "title": "Every ‘Spider-Man’ Movie Ranked From Worst to Best",
+      "title": "TKO Raises Investor Guidance Again as UFC and WWE Flex Muscle With Fans and Marketers",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/lists/spider-man-movies-ranked-best-worst/"
+      "url": "https://variety.com/2026/tv/news/tko-q2-ufc-wwe-raise-guidance-freedom-250-world-cup-1236826719/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
