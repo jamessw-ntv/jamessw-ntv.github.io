@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-03",
-    "fetched": "2026-08-03T07:34:55+00:00",
+    "fetched": "2026-08-03T11:33:52+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 10
+      "temp": 7,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 8
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89118.0,
-        "pct": -1.78
+        "price": 89506.0,
+        "pct": -0.79
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2625.0,
-        "pct": -2.14
+        "price": 2633.02,
+        "pct": -1.15
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Massive Attack Addresses Singapore Concert Aftermath in New Statement",
+      "title": "CBS News Correspondent Trevor Phillips Says Editor-in-Chief Bari Weiss: ‘Will Either Change the World or Crash and Burn’",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/massive-attack-duo-banned-singapore-palestinian-flag-1236825534/"
+      "url": "https://variety.com/2026/tv/global/cbs-news-trevor-phillips-bari-weiss-change-the-world-1236826236/"
     },
     {
       "cat": "Film/TV",
-      "title": "Korea Box Office: ‘Spider-Man: Brand New Day’ Captures 81% Market Share in Colossal Debut",
+      "title": "‘Peaky Blinders’ Helps U.K. Region Land Official Production Hub Status From British Film Commission",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/korea-box-office-spider-man-brand-new-day-81-percent-market-share-1236826175/"
+      "url": "https://variety.com/2026/tv/global/peaky-blinders-uk-west-midlands-official-production-hub-1236826227/"
     },
     {
       "cat": "Film/TV",
-      "title": "China Box Office: ‘Spider-Man: Brand New Day’ Swings to Massive $121 Million Five-Day Opening",
+      "title": "‘Sunday in the Park with George’ Producers Confirm Summer 2027 Show Will Go On ‘As Planned’ After Ariana Grande Exits",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/china-box-office-spider-man-brand-new-day-121-million-1236826171/"
+      "url": "https://variety.com/2026/theater/global/sunday-in-the-park-with-george-summer-2027-launch-1236826224/"
     },
     {
       "cat": "Film/TV",
-      "title": "Imtiaz Ali, Anurag Kashyap Team to Present Coming-of-Age Film ‘Bobby Beauty Parlour’ (EXCLUSIVE)",
+      "title": "Zee Shareholders Approve $330 Million Capital Raise Before Indian Regulator Bars Company From Markets",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/imtiaz-ali-anurag-kashyap-bobby-beauty-parlour-1236825106/"
+      "url": "https://variety.com/2026/tv/news/zee-shareholders-approve-fund-raise-sebi-market-ban-1236826217/"
     },
     {
       "cat": "Trek/Wars",
