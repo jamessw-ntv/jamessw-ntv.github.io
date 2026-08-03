@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-03",
-    "fetched": "2026-08-03T21:11:17+00:00",
+    "fetched": "2026-08-03T23:09:27+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 9
+      "temp": 7,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 14
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90931.0,
-        "pct": 0.92
+        "price": 90731.0,
+        "pct": 0.97
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2663.91,
-        "pct": -0.34
+        "price": 2652.84,
+        "pct": -0.4
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘God of War’: Dave Bautista in Talks For Kratos Role in Amazon Series After Ryan Hurst’s Exit",
+      "title": "CBS Orders Comedy Pilot ‘Hilda! (In Lights!)’ About 70-Year-Old Woman Pursuing Broadway Dreams",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/god-of-war-dave-bautista-kratos-amazon-series-ryan-hurst-1236826600/"
+      "url": "https://variety.com/2026/tv/news/cbs-sets-comedy-pilot-hilda-in-lights-1236826913/"
     },
     {
       "cat": "Film/TV",
-      "title": "Why Parents Are Still Afraid of Video Games After 50 Years and How a Gaming Nonprofit’s New Workshops Are Trying to Help",
+      "title": "Anya Taylor-Joy Says ‘Women Don’t Method Act Because We Have Things to Take Care of and Can’t Lose Our Minds’ or Be ‘Assholes’ on Set",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/parents-fears-video-games-gaming-workshops-1236822057/"
+      "url": "https://variety.com/2026/film/news/anya-taylor-joy-women-method-act-assholes-set-1236826424/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Miss Navajo’ Musical in the Works From Director Billy Luther and Singer-Songwriter Raye Zaragoza (EXCLUSIVE)",
+      "title": "Dick Clark Productions Launches DCP Studios to Expand Content and Creative Capabilities",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/miss-navajo-musical-billy-luther-raye-zaragoza-1236826631/"
+      "url": "https://variety.com/2026/tv/news/dick-clark-productions-dcp-studios-yosef-johnson-1236826766/"
     },
     {
       "cat": "Film/TV",
-      "title": "TKO Raises Investor Guidance Again as UFC and WWE Flex Muscle With Fans and Marketers",
+      "title": "‘The Devil Wears Prada 2’ Hits 15.2 Million Views in Five Days on Streaming, Disney’s Biggest Live-Action Movie Premiere Since ‘Deadpool & Wolverine’",
       "when": "3 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/tko-q2-ufc-wwe-raise-guidance-freedom-250-world-cup-1236826719/"
+      "url": "https://variety.com/2026/film/news/the-devil-wears-prada-2-ratings-views-streaming-1236826857/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Visions Presents – The Ninth Jedi’ Final Trailer Breakdown",
+      "when": "3 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-visions-presents-the-ninth-jedi-final-trailer-breakdown.html"
     },
     {
       "cat": "Trek/Wars",
@@ -146,13 +153,6 @@
       "when": "2 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/02/stlv-2026-preview-william-shatner-jack-quaid-kate-mulgrew-rick-berman-galaxy-quest-more/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Zero Company’ – Eleven Playable Worlds Revealed",
-      "when": "2 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-zero-company-eleven-playable-worlds-revealed.html"
     },
     {
       "cat": "Games",
