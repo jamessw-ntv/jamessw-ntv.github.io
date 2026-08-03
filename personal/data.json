@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-03",
-    "fetched": "2026-08-03T00:03:09+00:00",
+    "fetched": "2026-08-03T03:40:41+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 16
+      "temp": 12,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 17
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
+        "min": 5,
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 63
+        "rain": 80
       },
       {
         "day": "Tue",
         "min": 4,
         "max": 10,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
-        "rain": 96
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 100
       },
       {
         "day": "Wed",
         "min": 6,
-        "max": 12,
+        "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 76
+        "rain": 92
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90126.0,
-        "pct": 0.64
+        "price": 89627.0,
+        "pct": -0.88
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2671.6,
-        "pct": 1.57
+        "price": 2645.07,
+        "pct": -1.14
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘House of the Dragon’: Gayle Rankin on That ‘F — ed Up’ Aemond-Alys-Alicent Scene, ‘Unbearable’ Family Dinner and Dragon Egg Plans",
+      "when": "3 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/house-of-the-dragon-aemond-alys-rivers-alicent-sex-eggs-1236824981/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Jimmy’ Review: Woozily Seductive Mood Piece Wanders Europe in Pursuit of James Baldwin’s Spirit",
+      "when": "3 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/jimmy-review-1236826059/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "This Week, In a Galaxy Far, Far Away: Disney Plus Continues To De-Prioritize Live-Action Shows, ‘The Ninth Jedi’ Approaches, and More",
@@ -111,20 +125,6 @@
       "when": "2 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/02/stlv-2026-preview-william-shatner-jack-quaid-kate-mulgrew-rick-berman-galaxy-quest-more/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Christopher Nolan Says There Is a ‘Fundamental Flaw’ With Amateur Film Criticism: ‘To Identify the Mechanism Does Not Invalidate the Mechanism’",
-      "when": "2 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/christopher-nolan-flaw-film-criticism-the-odyssey-1236826067/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ariana Grande to Take ‘Step Back From Visibility’ After Tour Ends Amid ‘Public Scrutiny,’ Drops Out of ‘Sunday in the Park With George’ Musical",
-      "when": "2 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/ariana-grande-step-back-public-scrutiny-sunday-in-the-park-1236826037/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
