@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-04",
-    "fetched": "2026-08-04T16:57:32+00:00",
+    "fetched": "2026-08-04T18:42:20+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 8,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 12
+      "wind": 14
     },
     "days": [
       {
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90743.0,
-        "pct": -0.32
+        "price": 91223.0,
+        "pct": 0.08
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2651.13,
-        "pct": -0.49
+        "price": 2661.4,
+        "pct": -0.23
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Christina Applegate Returns Home After Months-Long Hospitalization and ‘All Is Well’",
+      "title": "How to Snag Tickets to Bowen Yang’s ‘Oh Mary!’ Broadway Debut",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/christina-applegate-returns-home-hospitalization-months-1236827615/"
+      "url": "https://variety.com/2026/shopping/news/how-to-buy-oh-mary-bowen-yang-broadway-tickets-online-1236827741/"
     },
     {
       "cat": "Film/TV",
-      "title": "Eli Roth Got Sick of Studio Notes and Shrinking Residuals, With ‘Ice Cream Man’ He’s Going Into Business for Himself",
+      "title": "‘New Girl’ Cast Reunion Set for Chrysalis Butterfly Ball (EXCLUSIVE)",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/eli-roth-studio-notes-shrinking-residuals-ice-cream-man-borderlands-1236827569/"
+      "url": "https://variety.com/2026/scene/columns/new-girl-cast-reunion-chrysalis-butterfly-ball-1236827464/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Immersive Horror Play ‘A Ghost in Your Ear’ Sets New York Premiere From Audible Theater",
+      "when": "4 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/legit/news/ghost-in-your-ear-horror-play-minetta-lane-audible-theater-1236827653/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Leonardo DiCaprio, Jeff Bezos and Lauren Sánchez Bezos Set $200 Million Fund to Recover Endangered Species",
+      "when": "4 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/leonardo-dicaprio-jeff-bezos-project-endangered-species-1236827629/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,13 +118,6 @@
       "when": "4 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-visions-presents-the-ninth-jedi-final-trailer-breakdown.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Hollywood’s New Leaders: Class of 2026",
-      "when": "4 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/lists/new-leaders-2026/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "4 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/the-ninth-jedi-final-trailer-hits-online-two-days-ahead-of-disney-plus-premiere.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Brittany Snow Joins Sydney Sweeney in ‘The Housemaid’s Secret’",
-      "when": "4 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/brittany-snow-the-housemaids-secret-sydney-sweeney-1236826813/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
