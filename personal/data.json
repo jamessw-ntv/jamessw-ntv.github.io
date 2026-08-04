@@ -3,21 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-04",
-    "fetched": "2026-08-04T18:42:20+00:00",
+    "fetched": "2026-08-04T20:37:28+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 7,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 14
+      "wind": 15
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
+        "min": 7,
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -26,14 +26,14 @@
       {
         "day": "Thu",
         "min": 4,
-        "max": 13,
+        "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 30
       },
       {
         "day": "Fri",
-        "min": 7,
+        "min": 6,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91223.0,
-        "pct": 0.08
+        "price": 91027.0,
+        "pct": -0.27
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2661.4,
-        "pct": -0.23
+        "price": 2656.48,
+        "pct": -0.62
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "How to Snag Tickets to Bowen Yang’s ‘Oh Mary!’ Broadway Debut",
+      "title": "Hearst Clinches Deal to Buy Out A+E Global Media Stake From Disney",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-buy-oh-mary-bowen-yang-broadway-tickets-online-1236827741/"
+      "url": "https://variety.com/2026/tv/news/hearst-ae-global-media-disney-purchase-complete-1236827794/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘New Girl’ Cast Reunion Set for Chrysalis Butterfly Ball (EXCLUSIVE)",
+      "title": "What Happened to the Boy From ‘Boyhood’? Ellar Coltrane on 12 Years of Linklater’s Classic, Coming to Set High and More",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/scene/columns/new-girl-cast-reunion-chrysalis-butterfly-ball-1236827464/"
+      "url": "https://variety.com/2026/film/features/boyhood-ellar-coltrane-interview-richard-linklater-12-years-1236826983/"
     },
     {
       "cat": "Film/TV",
-      "title": "Immersive Horror Play ‘A Ghost in Your Ear’ Sets New York Premiere From Audible Theater",
+      "title": "Paramount Q2 Profit Dips, With Streaming Boost Offset by TV Declines",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/legit/news/ghost-in-your-ear-horror-play-minetta-lane-audible-theater-1236827653/"
+      "url": "https://variety.com/2026/tv/news/paramount-q2-earnings-profit-declines-tv-revenue-1236827854/"
     },
     {
       "cat": "Film/TV",
-      "title": "Leonardo DiCaprio, Jeff Bezos and Lauren Sánchez Bezos Set $200 Million Fund to Recover Endangered Species",
+      "title": "Bill Hader, James Wan, Devon Pritchard, Nick Kroll and Keith Le Goy Join Variety Entertainment and Technology Summit Programming",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/leonardo-dicaprio-jeff-bezos-project-endangered-species-1236827629/"
+      "url": "https://variety.com/2026/biz/news/bill-hader-james-wan-entertainment-technology-summit-1236827846/"
     },
     {
       "cat": "Trek/Wars",
