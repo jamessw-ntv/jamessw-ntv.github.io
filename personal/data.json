@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-04",
-    "fetched": "2026-08-04T06:33:14+00:00",
+    "fetched": "2026-08-04T09:41:54+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 7,
       "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 10
+      "desc": "Showers",
+      "wind": 9
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90761.0,
-        "pct": 1.72
+        "price": 90353.0,
+        "pct": 1.14
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2651.29,
-        "pct": 0.5
+        "price": 2637.45,
+        "pct": 0.32
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Hyun Bin, Jung Woosung Collide Again as ‘Made in Korea’ Sets September Return on Disney+ and Hulu",
+      "title": "Singapore’s First Wuxia Film ‘The House on the Moon’ Unveils Clip Ahead of Locarno Competition Bow: Director Nelson Yeo ‘Decided to Fully Embrace Genre’ (EXCLUSIVE)",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hyun-bin-jung-woosung-made-in-korea-season-2-1236827347/"
+      "url": "https://variety.com/2026/film/festivals/singapore-first-wuxia-film-locarno-nelson-yeo-1236826242/"
     },
     {
       "cat": "Film/TV",
-      "title": "India’s Yash Raj Films Launches Raah Records With Aman Single ‘Jaadugari’ (EXCLUSIVE)",
+      "title": "Raima Sen, Shrimoyee Chakraborty, Aarti Bajaj Team on Parno Mittra’s Producing Debut ‘The Music Teacher’ (EXCLUSIVE)",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/yash-raj-films-raah-records-launch-aman-jaadugari-1236826261/"
+      "url": "https://variety.com/2026/film/news/parno-mittra-producer-debut-music-teacher-raima-sen-1236827392/"
     },
     {
       "cat": "Film/TV",
-      "title": "Geno Segers Apologizes For Transgender Comments After ‘Hadestown’ Exit: ‘I Recognize the Impact of My Statements’",
+      "title": "Haugesund New Nordic Films Unveils French Focus Including a Case Study on ‘Ibelin,’ From ‘The Imitation Game’ Director Morten Tyldum (EXCLUSIVE)",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/theater/news/geno-segers-apology-transgender-comments-hadestown-1236827212/"
+      "url": "https://variety.com/2026/film/global/morten-tyldum-les-valseurs-french-focus-haugesund-1236826569/"
     },
     {
       "cat": "Film/TV",
-      "title": "Mary Rivera, ‘Spider-Man: No Way Home’ Actress, Dies at 82",
+      "title": "Hwang Bo-reum, Lee Geum-yi Among Authors in Busan Story Market’s 2026 Selections",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/obituaries-people-news/mary-rivera-dead-spider-man-no-way-home-neds-grandma-1236827154/"
+      "url": "https://variety.com/2026/film/markets-festivals/hwang-bo-reum-lee-geum-yi-busan-story-market-1236827371/"
     },
     {
       "cat": "Trek/Wars",
