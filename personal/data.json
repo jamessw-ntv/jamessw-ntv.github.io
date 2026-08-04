@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-04",
-    "fetched": "2026-08-04T20:37:28+00:00",
+    "fetched": "2026-08-04T22:18:00+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 8,
       "icon": "🌦️",
       "desc": "Drizzle",
       "wind": 15
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91027.0,
-        "pct": -0.27
+        "price": 91084.0,
+        "pct": 0.39
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2656.48,
-        "pct": -0.62
+        "price": 2656.58,
+        "pct": -0.04
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Hearst Clinches Deal to Buy Out A+E Global Media Stake From Disney",
+      "title": "Inside Google’s Efforts to Get Creatives Hooked on AI",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hearst-ae-global-media-disney-purchase-complete-1236827794/"
+      "url": "https://variety.com/2026/film/news/inside-googles-efforts-creatives-hooked-on-ai-1236827944/"
     },
     {
       "cat": "Film/TV",
-      "title": "What Happened to the Boy From ‘Boyhood’? Ellar Coltrane on 12 Years of Linklater’s Classic, Coming to Set High and More",
+      "title": "Naomi Watts’ Secret ‘Spider-Man: Brand New Day’ Role Reunited Her With Tom Holland, 12 Years After ‘The Impossible’: ‘From Playing Your Mom to Your AI’",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/boyhood-ellar-coltrane-interview-richard-linklater-12-years-1236826983/"
+      "url": "https://variety.com/2026/film/news/naomi-watts-spider-man-brand-new-day-role-tom-holland-reunion-1236827951/"
     },
     {
       "cat": "Film/TV",
-      "title": "Paramount Q2 Profit Dips, With Streaming Boost Offset by TV Declines",
+      "title": "Audrey Nuna Signs to Republic Records (EXCLUSIVE)",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/paramount-q2-earnings-profit-declines-tv-revenue-1236827854/"
+      "url": "https://variety.com/2026/music/news/audrey-nuna-signs-to-republic-records-superhuman-single-1236827842/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bill Hader, James Wan, Devon Pritchard, Nick Kroll and Keith Le Goy Join Variety Entertainment and Technology Summit Programming",
+      "title": "Cate Blanchett, Nina Hoss on the Friendship Driving ‘Elektra/Persona’ at London’s National Theatre: ‘There’s a Lot of Masking and Unmasking’",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/bill-hader-james-wan-entertainment-technology-summit-1236827846/"
+      "url": "https://variety.com/2026/theater/news/cate-blanchett-nina-hoss-friendship-elektra-persona-national-theatre-1236827936/"
     },
     {
       "cat": "Trek/Wars",
