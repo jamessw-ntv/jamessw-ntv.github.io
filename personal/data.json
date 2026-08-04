@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-04",
-    "fetched": "2026-08-04T12:05:22+00:00",
+    "fetched": "2026-08-04T14:34:55+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 7,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 6
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 8
     },
     "days": [
       {
         "day": "Today",
-        "min": 5,
-        "max": 10,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 100
-      },
-      {
-        "day": "Wed",
         "min": 6,
         "max": 11,
         "icon": "🌦️",
@@ -35,9 +27,17 @@
         "day": "Thu",
         "min": 4,
         "max": 13,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 25
+      },
+      {
+        "day": "Fri",
+        "min": 7,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 25
+        "rain": 15
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90765.0,
-        "pct": 1.74
+        "price": 90665.0,
+        "pct": -0.45
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2658.41,
-        "pct": 1.45
+        "price": 2649.67,
+        "pct": -0.58
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Spider-Man: Brand New Day’ Lands Biggest Opening Weekend in Middle East Box Office History",
+      "title": "Netflix Sets Its Longest Theatrical Window Ever for Oscar Hopeful ‘La Bola Negra,’ Moving Up Release Date",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/spider-man-brand-new-day-middle-east-box-office-1236827415/"
+      "url": "https://variety.com/2026/film/awards/netflix-la-bola-negra-47-day-theatrical-window-record-1236827063/"
     },
     {
       "cat": "Film/TV",
-      "title": "David Ellison Says Opposition to Paramount-Warner Bros. Is Over His Control of CNN, Claims He Will Not ‘Bend Newsrooms to My Views’",
+      "title": "‘White Lotus’ Swaps the Palais for a Castle: Season 4 Cast Laura Dern, AJ Michalka and Marissa Long Drop by Disneyland Paris",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/david-ellison-cnn-paramount-warner-bros-trusted-steward-1236827405/"
+      "url": "https://variety.com/2026/tv/global/the-white-lotus-disneyland-paris-laura-dern-aj-michalka-1236826264/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jesse Eisenberg’s Musical Comedy ‘The Debut,’ Starring Julianne Moore, to Close London Film Festival",
+      "title": "Joe Budden Is Launching a True-Crime Podcast With Wolf Entertainment, Advance Local and Headline Studio",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/jesse-eisenberg-the-debut-london-film-festival-1236827396/"
+      "url": "https://variety.com/2026/digital/news/joe-budden-true-crime-podcast-wolf-entertainment-1236824974/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Spider-Man: Brand New Day’ Dominates U.K. and Ireland Box Office With Massive Launch",
+      "title": "‘The Day of the Jackal’ Producer Carnival Films Acquires Television Rights to Sarah Pinborough’s Murder Mystery ‘They Say a Girl Died Here’ (EXCLUSIVE)",
       "when": "4 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/spider-man-brand-new-day-uk-ireland-box-office-1236827406/"
+      "url": "https://variety.com/2026/tv/global/sarah-pinborough-they-say-a-girl-died-here-carnival-films-1236827382/"
     },
     {
       "cat": "Trek/Wars",
