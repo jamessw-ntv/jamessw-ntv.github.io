@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-05",
-    "fetched": "2026-08-05T15:19:35+00:00",
+    "fetched": "2026-08-05T17:46:52+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 5,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 4
+      "wind": 7
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91378.0,
-        "pct": 0.48
+        "price": 91632.0,
+        "pct": 0.71
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2655.87,
-        "pct": 0.07
+        "price": 2703.32,
+        "pct": 1.53
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Ted Lasso’ Producer Brendan Hunt on What It Took to Revive the Series, Why Some Characters Didn’t Return and Whether There’s Another Three-Season Plan",
+      "title": "Willem Dafoe on Playing a Poet in ‘Late Fame’ and Working With Robert Eggers and Yorgos Lanthimos: ‘If I Give Myself to a Director, I Want It to Burn Hot’",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ted-lasso-brendan-hunt-revival-plan-three-seasons-1236828380/"
+      "url": "https://variety.com/2026/film/features/willem-dafoe-robert-eggers-yorgos-lanthimos-late-fame-1236824363/"
     },
     {
       "cat": "Film/TV",
-      "title": "Princess Grace Foundation Announces 18 Winners and 11 Honoraria Recipients for 2026 Awards",
+      "title": "What Is David Ellison’s Breaking Point?",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/princess-grace-foundation-winners-honoraria-recipients-2026-1236827721/"
+      "url": "https://variety.com/2026/film/news/david-ellison-breaking-point-paramount-wb-merger-trial-1236828418/"
     },
     {
       "cat": "Film/TV",
-      "title": "It’s Sombr Summer: The Pop Phenom on Impressing Taylor Swift, Singing About Body Image and Why People ‘Can Say Whatever the F— They Want About Me’",
+      "title": "‘The Odyssey’ Translator Emily Wilson Doubles Down  Against Nolan’s ‘Emotionally Empty’ Movie: ‘We Need Art That Is Truthful’ About the ‘Necessity of Compassion’",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/features/sombr-body-image-pop-stardom-interview-1236826139/"
+      "url": "https://variety.com/2026/film/news/the-odyssey-translator-emily-wilson-slams-nolan-emotionally-empty-1236828397/"
     },
     {
       "cat": "Film/TV",
-      "title": "New York Film Festival 2026 Lineup Unveiled: Chris Rock’s ‘Misty Green,’ Andrew Haigh’s ‘A Long Winter’ and More",
+      "title": "Ted Sarandos Meets Prime Minister Narendra Modi, Unveils Netflix India Storytelling Initiative",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/new-york-film-festival-2026-lineup-misty-green-long-winter-1236827670/"
+      "url": "https://variety.com/2026/tv/news/ted-sarandos-narendra-modi-netflix-india-storytelling-initiative-1236828464/"
     },
     {
       "cat": "Trek/Wars",
