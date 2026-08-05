@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-05",
-    "fetched": "2026-08-05T19:43:51+00:00",
+    "fetched": "2026-08-05T21:18:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
+      "temp": 6,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 5
+      "wind": 7
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91891.0,
-        "pct": 0.68
+        "price": 91724.0,
+        "pct": 0.63
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2716.86,
-        "pct": 1.95
+        "price": 2709.36,
+        "pct": 1.94
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘I Love LA’ Season 2: Taron Egerton, Jamie Chung Among 6 Cast in Guest Star Roles",
+      "title": "Music Industry Moves: Alicia Keys Signs With CAA in All Areas; SONA’s Emerging Songwriter Award Nominations Now Open",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/i-love-la-season-2-taron-egerton-jamie-chung-1236828565/"
+      "url": "https://variety.com/2026/music/news/alicia-keys-signs-with-caa-1236828699/"
     },
     {
       "cat": "Film/TV",
-      "title": "Why Higgsfield Inked Deals for AI Avatars of Streamer N3on, UFC’s Israel Adesanya and Quinton ‘Rampage’ Jackson, and More for New Film (EXCLUSIVE)",
+      "title": "‘Super Troopers 3’ Review: A Cult Comedy Franchise Seeks No Converts in Instantly Forgettable Third Go-Round",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/higgsfield-ai-n3on-ufc-israel-adesanya-rampage-jackson-1236828414/"
+      "url": "https://variety.com/2026/film/reviews/super-troopers-3-review-1236828587/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sienna Spiro on Writing Candidly as a Young Woman, While Being Frank About Adoring Sinatra and Twiggy: ‘Being 20 Is Just Tricky, Period’",
+      "title": "‘Love Island USA’ Season 8 Hits Nearly 19 Billion Minutes Viewed, Most-Watched Streaming Series of the Summer",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/sienna-spiro-visitor-interview-1236826145/"
+      "url": "https://variety.com/2026/tv/news/love-island-usa-season-8-ratings-record-1236828613/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Gilmore Girls’ Documentary Set at HBO Max With Lauren Graham, Never-Before-Seen Footage and More",
+      "title": "Molly Ringwald Says ‘Secret Life of the American Teenager’ Was Her ‘Worst’ Work Experience: ‘One Person Was Really Difficult’",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/gilmore-girls-documentary-hbo-max-1236828437/"
+      "url": "https://variety.com/2026/tv/news/molly-ringwald-secret-life-awful-bad-co-star-1236828669/"
     },
     {
       "cat": "Trek/Wars",
