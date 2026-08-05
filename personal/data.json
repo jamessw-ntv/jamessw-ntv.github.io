@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-05",
-    "fetched": "2026-08-05T07:44:32+00:00",
+    "fetched": "2026-08-05T10:42:51+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 9,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 9
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 8
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90889.0,
-        "pct": 0.28
+        "price": 91135.0,
+        "pct": 0.9
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2645.75,
-        "pct": -0.05
+        "price": 2660.56,
+        "pct": 0.75
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Ted Lasso’ Season 4 Is Both a Promising Reboot and a Tedious Sequel: TV Review",
+      "title": "Disney Streaming Profit Doubles in June Quarter, Company Shifting Consumer Products to Studios Division",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/ted-lasso-season-4-review-1236827749/"
+      "url": "https://variety.com/2026/tv/news/disney-streaming-earnings-q3-2026-consumer-products-shift-1236827893/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Blacklist Was a Plague’ — Locarno Retrospective Curator Ehsan Khoshbakht Talks About What We Can Learn From the Intolerance of the Past",
+      "title": "‘The Mummy’ Poster Ads Banned From London Underground After Advertising Watchdog Cites ‘Distressing’ Imagery",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/blacklist-locarno-retrospective-ehsan-khoshbakht-red-scare-1236827487/"
+      "url": "https://variety.com/2026/film/news/the-mummy-poster-ads-banned-london-underground-1236828159/"
     },
     {
       "cat": "Film/TV",
-      "title": "Locarno Open Doors 2026: Next Gen African Tales of Miraculous Snowfalls, Lost Dreams, an African Keyboard Prodigy and New Heroes",
+      "title": "Alba Rohrwacher-Starrer ‘A Common Story’ Gets Boarded by True Colours Ahead of its Venice and Toronto Premieres (EXCLUSIVE)",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/locarno-open-doors-ique-langa-suzannah-mirghani-1236827734/"
+      "url": "https://variety.com/2026/film/festivals/true-colours-sales-rohrwacher-a-common-story-venice-toronto-1236828154/"
     },
     {
       "cat": "Film/TV",
-      "title": "How Genesis Is Using Korean Hospitality and the Power of Sports to Build a New Kind of Luxury Brand",
+      "title": "Disney, TikTok Strike Content-Sharing Deal Aimed at Boosting Short-Form Programming on Disney+",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/genesis-automotive-pga-tour-golf-sponsorship-activation-1236724155/"
+      "url": "https://variety.com/2026/tv/news/disney-tiktok-content-sharing-deal-short-form-video-1236828069/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
