@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-05",
-    "fetched": "2026-08-05T12:58:44+00:00",
+    "fetched": "2026-08-05T15:19:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 7,
-      "icon": "🌦️",
-      "desc": "Drizzle",
+      "icon": "☁️",
+      "desc": "Overcast",
       "wind": 4
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
-        "max": 12,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 100
-      },
-      {
-        "day": "Thu",
         "min": 4,
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 42
+        "rain": 82
       },
       {
         "day": "Fri",
@@ -37,7 +29,15 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 39
+        "rain": 54
+      },
+      {
+        "day": "Sat",
+        "min": 8,
+        "max": 14,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 51
       }
     ]
   },
@@ -72,52 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91226.0,
+        "price": 91378.0,
         "pct": 0.48
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2659.56,
-        "pct": -0.15
+        "price": 2655.87,
+        "pct": 0.07
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Ted Lasso’ Producer Brendan Hunt on What It Took to Revive the Series, Why Some Characters Didn’t Return and Whether There’s Another Three-Season Plan",
+      "when": "5 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/ted-lasso-brendan-hunt-revival-plan-three-seasons-1236828380/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Princess Grace Foundation Announces 18 Winners and 11 Honoraria Recipients for 2026 Awards",
+      "when": "5 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/artisans/news/princess-grace-foundation-winners-honoraria-recipients-2026-1236827721/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "It’s Sombr Summer: The Pop Phenom on Impressing Taylor Swift, Singing About Body Image and Why People ‘Can Say Whatever the F— They Want About Me’",
+      "when": "5 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/features/sombr-body-image-pop-stardom-interview-1236826139/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "New York Film Festival 2026 Lineup Unveiled: Chris Rock’s ‘Misty Green,’ Andrew Haigh’s ‘A Long Winter’ and More",
+      "when": "5 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/new-york-film-festival-2026-lineup-misty-green-long-winter-1236827670/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Disney CEO Josh D’Amaro Minimizes ‘The Mandalorian and Grogu’ Box Office Failure, Says Company Is Exploring Free Streaming Services",
+      "when": "5 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/disney-ceo-josh-damaro-minimizes-the-mandalorian-and-grogu-box-office-failure-says-company-is-exploring-free-streaming-services.html"
+    },
     {
       "cat": "Trek/Wars",
       "title": "Welsh Language Dub For ‘Star Wars: A New Hope’, Starring Rhys Ifans And Matthew Rhys, Officially Announced",
       "when": "5 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/welsh-language-dub-for-star-wars-a-new-hope-starring-rhys-ifans-and-matthew-rhys-officially-announced.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Prateek Kuhad to Make Feature Film Acting Debut in Marginal MediaWorks, D36 and Jugaad’s ‘Drowning,’ Directed by Dar Gai (EXCLUSIVE)",
-      "when": "5 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/prateek-kuhad-feature-film-acting-debut-drowning-dar-gai-1236828131/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Disney Streaming Profit Doubles in June Quarter, Company Shifting Consumer Products to Studios Division",
-      "when": "5 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/disney-streaming-earnings-q3-2026-consumer-products-shift-1236827893/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Mummy’ Poster Ads Banned From London Underground After Advertising Watchdog Cites ‘Distressing’ Imagery",
-      "when": "5 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-mummy-poster-ads-banned-london-underground-1236828159/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Alba Rohrwacher-Starrer ‘A Common Story’ Gets Boarded by True Colours Ahead of its Venice and Toronto Premieres (EXCLUSIVE)",
-      "when": "5 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/true-colours-sales-rohrwacher-a-common-story-venice-toronto-1236828154/"
     },
     {
       "cat": "Trek/Wars",
@@ -139,13 +146,6 @@
       "when": "4 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/04/star-trek-strange-new-worlds-director-explains-the-mystery-of-the-griffin-incident-exclusive/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘The Ninth Jedi’ Final Trailer Hits Online Two Days Ahead of Disney Plus Premiere",
-      "when": "4 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/the-ninth-jedi-final-trailer-hits-online-two-days-ahead-of-disney-plus-premiere.html"
     },
     {
       "cat": "Trek/Wars",
