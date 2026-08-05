@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-05",
-    "fetched": "2026-08-05T10:42:51+00:00",
+    "fetched": "2026-08-05T12:58:44+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 8
+      "temp": 7,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 4
     },
     "days": [
       {
@@ -29,15 +29,15 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 60
+        "rain": 42
       },
       {
         "day": "Fri",
         "min": 8,
-        "max": 15,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 24
+        "rain": 39
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91135.0,
-        "pct": 0.9
+        "price": 91226.0,
+        "pct": 0.48
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2660.56,
-        "pct": 0.75
+        "price": 2659.56,
+        "pct": -0.15
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "Welsh Language Dub For ‘Star Wars: A New Hope’, Starring Rhys Ifans And Matthew Rhys, Officially Announced",
+      "when": "5 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/welsh-language-dub-for-star-wars-a-new-hope-starring-rhys-ifans-and-matthew-rhys-officially-announced.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Prateek Kuhad to Make Feature Film Acting Debut in Marginal MediaWorks, D36 and Jugaad’s ‘Drowning,’ Directed by Dar Gai (EXCLUSIVE)",
+      "when": "5 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/prateek-kuhad-feature-film-acting-debut-drowning-dar-gai-1236828131/"
+    },
     {
       "cat": "Film/TV",
       "title": "Disney Streaming Profit Doubles in June Quarter, Company Shifting Consumer Products to Studios Division",
@@ -104,13 +118,6 @@
       "when": "5 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/festivals/true-colours-sales-rohrwacher-a-common-story-venice-toronto-1236828154/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Disney, TikTok Strike Content-Sharing Deal Aimed at Boosting Short-Form Programming on Disney+",
-      "when": "5 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/disney-tiktok-content-sharing-deal-short-form-video-1236828069/"
     },
     {
       "cat": "Trek/Wars",
@@ -139,13 +146,6 @@
       "when": "4 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/the-ninth-jedi-final-trailer-hits-online-two-days-ahead-of-disney-plus-premiere.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: Disney Plus Continues To De-Prioritize Live-Action Shows, ‘The Ninth Jedi’ Approaches, and More",
-      "when": "4 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/disney-plus-continues-to-de-prioritize-live-action-shows-the-ninth-jedi-approaches-and-more.html"
     },
     {
       "cat": "Trek/Wars",
