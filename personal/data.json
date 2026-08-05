@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-05",
-    "fetched": "2026-08-05T00:10:04+00:00",
+    "fetched": "2026-08-05T04:16:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 10,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 15
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 11,
+        "min": 6,
+        "max": 10,
         "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 98
+        "desc": "Showers",
+        "rain": 100
       },
       {
         "day": "Thu",
-        "min": 4,
+        "min": 3,
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 54
+        "rain": 60
       },
       {
         "day": "Fri",
-        "min": 6,
+        "min": 8,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 25
+        "rain": 24
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90818.0,
-        "pct": 0.13
+        "price": 90893.0,
+        "pct": 0.07
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2650.79,
-        "pct": -0.23
+        "price": 2644.87,
+        "pct": -0.27
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "LISTEN: National Comedy Center’s Journey Gunderson on Preserving Humor as History",
-      "when": "4 Aug",
+      "title": "Perez Hilton: Disturbing Livestream Frightens Fans, Rushed to Hospital After Police Investigation",
+      "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/national-comedy-center-journey-gunderson-lucille-ball-fest-1236828038/"
+      "url": "https://variety.com/2026/tv/news/perez-hilton-livestream-police-miami-home-1236828090/"
     },
     {
       "cat": "Film/TV",
-      "title": "Inside Google’s Efforts to Get Creatives Hooked on AI",
-      "when": "4 Aug",
+      "title": "Eli Roth Admits ‘Ice Cream Man’ Features AI-Assisted Shots After Suggesting Otherwise: ‘I Misspoke’",
+      "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/inside-googles-efforts-creatives-hooked-on-ai-1236827944/"
+      "url": "https://variety.com/2026/film/news/eli-roth-ice-cream-man-ai-generated-shots-1236828000/"
     },
     {
       "cat": "Film/TV",
-      "title": "Naomi Watts’ Secret ‘Spider-Man: Brand New Day’ Role Reunited Her With Tom Holland, 12 Years After ‘The Impossible’: ‘From Playing Your Mom to Your AI’",
-      "when": "4 Aug",
+      "title": "ESPN Taps Creators to Help Promote the NFL Season and its First Super Bowl Telecast",
+      "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/naomi-watts-spider-man-brand-new-day-role-tom-holland-reunion-1236827951/"
+      "url": "https://variety.com/2026/tv/news/espn-creators-nfl-diana-flores-chase-murman-simone-scott-1236827688/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Trek: Legends’ Is The Latest Trek Game To Be Pulled From Storefronts",
+      "when": "5 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/04/star-trek-legends-is-the-latest-trek-game-to-be-pulled-from-storefronts/"
     },
     {
       "cat": "Film/TV",
-      "title": "Audrey Nuna Signs to Republic Records (EXCLUSIVE)",
-      "when": "4 Aug",
+      "title": "Lindsey Buckingham, Madison Beer, Kiernan Shipka and Tiffani Thiessen Named As Presenters for Variety’s Power of Young Hollywood",
+      "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/audrey-nuna-signs-to-republic-records-superhuman-single-1236827842/"
+      "url": "https://variety.com/2026/biz/news/madison-beer-kiernan-shipka-power-of-young-hollywood-1236828051/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/08/03/mike-mcmahan-teases-star-trek-lower-decks-movie/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Preview “Human Best Friend” With 14 New Photos And Trailer From ‘Star Trek: Strange New Worlds’ Ep. 403 [UPDATED]",
-      "when": "3 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/03/preview-human-best-friend-with-14-new-photos-from-star-trek-strange-new-worlds-ep-403/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
