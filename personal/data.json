@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-05",
-    "fetched": "2026-08-05T21:18:18+00:00",
+    "fetched": "2026-08-05T23:06:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 7
+      "temp": 7,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 8
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91724.0,
-        "pct": 0.63
+        "price": 91473.0,
+        "pct": 0.38
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2709.36,
-        "pct": 1.94
+        "price": 2698.86,
+        "pct": 1.51
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Music Industry Moves: Alicia Keys Signs With CAA in All Areas; SONA’s Emerging Songwriter Award Nominations Now Open",
+      "title": "Bella Thorne and Zendaya Got Pitted Against Each Other During Disney Fame and Snuck Off Set to ‘Hash It Out’ After Things ‘Got Pretty Bad’",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/alicia-keys-signs-with-caa-1236828699/"
+      "url": "https://variety.com/2026/tv/news/zendaya-bella-thorne-feud-disney-pitted-against-each-other-1236828507/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Super Troopers 3’ Review: A Cult Comedy Franchise Seeks No Converts in Instantly Forgettable Third Go-Round",
+      "title": "Vampire Mockumentary ‘I Love Paris’ Takes Top Honors at 2026 Fantasia Film Festival Audience Awards",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/super-troopers-3-review-1236828587/"
+      "url": "https://variety.com/2026/film/festivals/i-love-paris-2026-fantasia-film-festival-audience-awards-1236828704/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Love Island USA’ Season 8 Hits Nearly 19 Billion Minutes Viewed, Most-Watched Streaming Series of the Summer",
+      "title": "‘Mustache’ Review: A Delightfully Anxious Pakistani American Coming-of-Age Comedy",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/love-island-usa-season-8-ratings-record-1236828613/"
+      "url": "https://variety.com/2026/film/news/mustache-review-1236827903/"
     },
     {
       "cat": "Film/TV",
-      "title": "Molly Ringwald Says ‘Secret Life of the American Teenager’ Was Her ‘Worst’ Work Experience: ‘One Person Was Really Difficult’",
+      "title": "‘Soulm8te’ Review: Fembot Goes Rogue in Polished but Predictable Tech Thriller",
       "when": "5 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/molly-ringwald-secret-life-awful-bad-co-star-1236828669/"
+      "url": "https://variety.com/2026/film/reviews/soulm8te-review-1236828635/"
     },
     {
       "cat": "Trek/Wars",
