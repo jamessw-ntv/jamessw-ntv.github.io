@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-06",
-    "fetched": "2026-08-06T04:18:38+00:00",
+    "fetched": "2026-08-06T07:44:16+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 15
+      "temp": 11,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
         "min": 5,
-        "max": 12,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 65
@@ -26,7 +26,7 @@
       {
         "day": "Fri",
         "min": 8,
-        "max": 14,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 67
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91585.0,
-        "pct": 0.85
+        "price": 92066.0,
+        "pct": 1.32
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2694.39,
-        "pct": 1.96
+        "price": 2711.92,
+        "pct": 2.51
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "ReelShort on Track for $1.05 Billion Revenue, First Profit at Scale in 2026, Media Partners Asia Report Finds",
+      "when": "6 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/reelshort-1-billion-revenue-profit-2026-mpa-1236828885/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Interview: ‘Star Trek’ Comic Writer On Carrying Legacy Of Captain Seven And Paying Off Big ‘Picard’ Thread",
+      "when": "6 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/05/interview-star-trek-comic-writer-on-carrying-legacy-of-captain-seven-and-paying-off-big-picard-thread/"
+    },
     {
       "cat": "Film/TV",
       "title": "Judge Dismisses Lawsuit From Paramount Streaming Subscribers Seeking to Block Warner Bros. Merger",
@@ -104,13 +118,6 @@
       "when": "6 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/regal-cinemas-ceo-supports-paramount-warner-bros-merger-1236828802/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Bella Thorne and Zendaya Got Pitted Against Each Other During Disney Fame and Snuck Off Set to ‘Hash It Out’ After Things ‘Got Pretty Bad’",
-      "when": "5 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/zendaya-bella-thorne-feud-disney-pitted-against-each-other-1236828507/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/08/04/star-trek-strange-new-worlds-director-explains-the-mystery-of-the-griffin-incident-exclusive/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Mike McMahan Teases ‘Star Trek: Lower Decks’ Movie",
-      "when": "3 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/03/mike-mcmahan-teases-star-trek-lower-decks-movie/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
