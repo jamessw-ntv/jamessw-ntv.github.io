@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-06",
-    "fetched": "2026-08-06T00:07:58+00:00",
+    "fetched": "2026-08-06T04:18:38+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 12,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 7
+      "wind": 15
     },
     "days": [
       {
         "day": "Today",
         "min": 5,
-        "max": 13,
+        "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 65
@@ -26,18 +26,18 @@
       {
         "day": "Fri",
         "min": 8,
-        "max": 13,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 65
+        "rain": 67
       },
       {
         "day": "Sat",
         "min": 7,
-        "max": 15,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 55
+        "rain": 53
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91487.0,
-        "pct": 0.74
+        "price": 91585.0,
+        "pct": 0.85
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2701.12,
-        "pct": 1.91
+        "price": 2694.39,
+        "pct": 1.96
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Judge Dismisses Lawsuit From Paramount Streaming Subscribers Seeking to Block Warner Bros. Merger",
+      "when": "6 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/judge-dismisses-lawsuit-paramount-warner-bros-merger-1236828855/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Shards’ Star Igby Rigney on Wooing Ryan Murphy, Never Meeting Bret Easton Ellis and Not Worrying About Sex Scenes: ‘It’s Like Doing a Dance Under a Microscope’",
+      "when": "6 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/the-shards-igby-rigney-bret-easton-ellis-1236828415/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Regal Cinemas CEO Eduardo Acuna Backs Paramount-Warner Bros. Merger, Says Antitrust Trial ‘Creates More Uncertainty and Distraction’",
+      "when": "6 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/regal-cinemas-ceo-supports-paramount-warner-bros-merger-1236828802/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Bella Thorne and Zendaya Got Pitted Against Each Other During Disney Fame and Snuck Off Set to ‘Hash It Out’ After Things ‘Got Pretty Bad’",
       "when": "5 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/zendaya-bella-thorne-feud-disney-pitted-against-each-other-1236828507/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Vampire Mockumentary ‘I Love Paris’ Takes Top Honors at 2026 Fantasia Film Festival Audience Awards",
-      "when": "5 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/i-love-paris-2026-fantasia-film-festival-audience-awards-1236828704/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Mustache’ Review: A Delightfully Anxious Pakistani American Coming-of-Age Comedy",
-      "when": "5 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/mustache-review-1236827903/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Soulm8te’ Review: Fembot Goes Rogue in Polished but Predictable Tech Thriller",
-      "when": "5 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/soulm8te-review-1236828635/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
