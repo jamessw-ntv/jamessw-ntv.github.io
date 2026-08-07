@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-07",
-    "fetched": "2026-08-07T21:45:37+00:00",
+    "fetched": "2026-08-07T22:43:13+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
+      "temp": 9,
+      "icon": "☀️",
+      "desc": "Clear",
       "wind": 11
     },
     "days": [
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92020.0,
-        "pct": 0.39
+        "price": 91760.0,
+        "pct": 0.31
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2714.52,
-        "pct": 0.04
+        "price": 2707.6,
+        "pct": 0.07
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Judy Collins on Doing a Farewell Tour While ‘Having a Lot More Steam in My Engine’: At 87, ‘I’m the Betty White of the Folk Movement’",
+      "when": "7 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/judy-collins-farewell-tour-interview-1236830430/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "The ‘Paddington 2’ Creative Team Was Developing a ‘Star Wars’ Movie Centered On a Droid",
+      "when": "7 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/the-paddington-2-creative-team-was-developing-a-star-wars-movie-centered-on-a-droid.html"
+    },
     {
       "cat": "Film/TV",
       "title": "Olivia Rodrigo Debuts ‘Pretty Sad’ Songs at Sweltering Brooklyn Surprise Show: Concert Review",
@@ -111,13 +125,6 @@
       "when": "7 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/d23-lucasfilm-pavilion-to-display-ahsoka-season-2-props-and-costumes.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Béla Tarr’s Legacy to Be Celebrated at Sarajevo Film Festival",
-      "when": "7 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/bela-tarr-legacy-sarajevo-film-festival-1236830359/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/08/07/podcast-all-access-takes-shore-leave-for-star-trek-strange-new-worlds-human-best-friend/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘The Ninth Jedi’ Soundtrack Now Available To Purchase Or Listen On Streaming",
-      "when": "7 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/the-ninth-jedi-soundtrack-now-available-to-purchase-or-listen-on-streaming.html"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "56m ago",
+      "pushed": "57m ago",
       "lang": "HTML",
       "commit": ""
     }
