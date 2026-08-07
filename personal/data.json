@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-07",
-    "fetched": "2026-08-07T07:25:37+00:00",
+    "fetched": "2026-08-07T09:06:36+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 3
+      "temp": 10,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 8
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91459.0,
-        "pct": -0.72
+        "price": 91813.0,
+        "pct": -0.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2707.23,
-        "pct": -0.27
+        "price": 2714.74,
+        "pct": 0.01
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Vishal Bhardwaj Sets ‘Rashomon’-Style Film on Tarun Tejpal Rape Case After Bombay High Court Conviction (EXCLUSIVE)",
+      "title": "Claes Bang Plays a Masseur of Nazi Leader Heinrich Himmler in ‘I Is Another’ – But John Paul in ‘Bad Sisters’ Is Still One of His ‘Worst Characters’",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/vishal-bhardwaj-tarun-tejpal-film-rashomon-1236829746/"
+      "url": "https://variety.com/2026/film/global/claes-bang-masseur-nazi-heinrich-himmler-i-is-another-1236829157/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ricky Gervais’ Netflix Animated Comedy ‘Alley Cats’ Is Surprisingly Bittersweet: TV Review",
+      "title": "Locarno’s Match Me! Projects Push New Voices, Timely Relevance and Authenticity as a Younger Generation Moves Center Stage",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/alley-cats-review-ricky-gervais-netflix-1236829439/"
+      "url": "https://variety.com/2026/film/global/locarno-match-me-2026-producers-highlights-1236829354/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Last House’ Review: Wagner Moura and Greta Lee Bring Conviction to a Suitably Stifling Stay-at-Home Thriller",
+      "title": "Locarno Open Doors Buzz Title ‘Chapa 100,’ From Ique Langa, Adds Luminalia, Mo Harare, Mostafa El Kasha (EXCLUSIVE)",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-last-house-review-1236828947/"
+      "url": "https://variety.com/2026/film/markets-festivals/chapa-100-ique-langa-locarno-open-doors-luminalia-1236829782/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘La Koreana,’ a Banner New Talent Title From Spain, Brought to Market at Locarno by Producers Lazona Zinema and Estibaliz Urresola’s Sirimiri (EXCLUSIVE)",
+      "title": "Thomas Heise’s Final Documentary ‘Übergang,’ a Potential Locarno Highlight, Reflects on Time and Transience",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/la-koreana-lazona-zinema-estebaliz-urresola-1236829726/"
+      "url": "https://variety.com/2026/film/global/thomas-heise-ubergang-locarno-premiere-1236829124/"
     },
     {
       "cat": "Trek/Wars",
