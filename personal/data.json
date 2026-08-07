@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-07",
-    "fetched": "2026-08-07T19:05:20+00:00",
+    "fetched": "2026-08-07T19:55:54+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 8,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 11
+      "wind": 10
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91619.0,
-        "pct": 0.09
+        "price": 91794.0,
+        "pct": 0.26
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2703.32,
-        "pct": -0.21
+        "price": 2710.35,
+        "pct": -0.1
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Magnus Ferrell on His Viral Hit ‘Asleep Talking’ and Dad Will Ferrell Showing Michelle Obama His Music: ‘I Finally Felt Ready to Have a Spotlight on It’",
+      "title": "Variety Toasts Young Hollywood’s Hottest at Cover Bash With Tate McRae, Sombr and Malachi Barton",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/magnus-ferrell-asleep-talking-will-ferrell-michelle-obama-1236830141/"
+      "url": "https://variety.com/2026/film/news/power-of-young-hollywood-2026-party-inside-tate-mcrae-1236829692/"
     },
     {
       "cat": "Film/TV",
-      "title": "Virginie Efira – a ‘Showgirls’ Fan – Enjoyed the ‘Benedetta’ Controversy: ‘When Verhoeven Said There Would Be Lesbian Sex Scenes, I Just Replied: ‘No Problem’",
+      "title": "The Best Hilton Hotels in Hawaii: From a 22-Acre Waikiki Resort to Charming, Boutique Abodes",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/virginie-efira-showgirls-benedetta-verhoeven-locarno-1236830203/"
+      "url": "https://variety.com/2026/shopping/news/best-hilton-hotels-resorts-hawaii-1236830017/"
     },
     {
       "cat": "Film/TV",
-      "title": "Da’Vine Joy Randolph to Star in Indie Dark Comedy ‘Dedicated to Morris Burke’ From Director Will Ropp (EXCLUSIVE)",
+      "title": "‘Baywatch’ Honors Hero 16-Year-Old Lifeguard Ryder Williams During Set Visit (EXCLUSIVE)",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/davine-joy-randolph-dark-comedy-dedicated-to-morris-burke-director-will-ropp-1236830182/"
+      "url": "https://variety.com/2026/tv/news/baywatch-16-year-old-lifeguard-ryder-williams-set-visit-1236830289/"
     },
     {
       "cat": "Film/TV",
-      "title": "What Rockstar Games’ Netflix Pact for ‘GTA 6’ Reveal Signals About Hollywood’s Growing Relationship With Gaming",
+      "title": "Flo Anthony, Pioneering Page Six Entertainment Journalist, Dies at 74",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/grand-theft-auto-vi-netflix-partnership-1236830098/"
+      "url": "https://variety.com/2026/digital/news/flo-anthony-dead-page-six-journalist-1236830278/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Sixty-Year Mission’ Star Trek Documentary With William Shatner Headed To Theaters",
+      "when": "7 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/07/sixty-year-mission-star-trek-documentary-with-william-shatner-headed-to-theaters/"
     },
     {
       "cat": "Trek/Wars",
@@ -142,13 +149,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "‘The Center Seat’ Star Trek Docuseries Returning For Second Season – Watch Announcement Trailer",
-      "when": "7 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/06/the-center-seat-star-trek-docuseries-returning-for-second-season-watch-announcement-trailer/"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "‘The Ninth Jedi’ Spoiler-Free Review – A Fun Twist on ‘Star Wars’ While Still Relying on Franchise Staples",
       "when": "6 Aug",
       "source": "SW News Net",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "50m ago",
       "lang": "HTML",
       "commit": ""
     }
