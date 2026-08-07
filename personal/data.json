@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-07",
-    "fetched": "2026-08-07T13:16:59+00:00",
+    "fetched": "2026-08-07T14:59:24+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -18,14 +18,6 @@
       {
         "day": "Today",
         "min": 8,
-        "max": 14,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 81
-      },
-      {
-        "day": "Sat",
-        "min": 8,
         "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 96
+      },
+      {
+        "day": "Mon",
+        "min": 6,
+        "max": 11,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 88
       }
     ]
   },
@@ -72,31 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92221.0,
-        "pct": 1.08
+        "price": 92013.0,
+        "pct": 0.12
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2727.27,
-        "pct": 1.3
+        "price": 2710.15,
+        "pct": -0.23
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "William Orbit, Grammy-Winning Producer for Madonna and Blur, Dies at 69",
+      "title": "Don Lemon Wants Criminal Charges Against Him Related to Minnesota ICE Protest Tossed, Citing Donald Trump’s Chronic ‘Animus’ Toward Journalist",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/william-orbit-dead-producer-madonna-blur-1236829434/"
+      "url": "https://variety.com/2026/tv/news/don-lemon-criminal-charges-minnesota-ice-protest-donald-trump-animus-1236829969/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Noah Wylie And Cast Of ‘The Pitt’ To Perform ‘Star Trek’ Table Read For Writers Guild Foundation",
+      "when": "7 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/07/noah-wylie-and-cast-of-the-pitt-to-perform-star-trek-table-read-for-writers-guild-foundation/"
     },
     {
       "cat": "Film/TV",
-      "title": "Lionsgate CEO Wants to See Paramount-Warner Bros. Merger Close Soon: ‘Uncertainty and Delay’ Are ‘Not Good for Anybody’",
+      "title": "Vietnamese Boy Band Uprize Wants to Take Over the World: ‘We Won’t Set Limits for Ourselves’",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/lionsgate-ceo-supports-paramount-warner-bros-merger-1236829897/"
+      "url": "https://variety.com/2026/music/news/vietnamese-boy-band-uprize-debut-album-thang-us-tour-plans-1236829970/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "From ‘Paddington’ and ‘Wonka’ to ‘The Magic Faraway Tree’: Inside the Silly, Surreal — and Rather Successful — World of Simon Farnaby",
+      "when": "7 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/simon-farnaby-paddington-wonka-magic-faraway-tree-labubu-movie-1236828663/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jake T. Austin Opens Up About ‘Wizards of Waverly Place’ Revival Snub: I’m ‘Disappointed’ to Have ‘Not Been Included’",
+      "when": "7 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/jake-t-austin-wizards-beyond-waverly-place-snub-disappointed-1236829955/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Podcast: All Access Takes Shore Leave For ‘Star Trek: Strange New Worlds’ “Human Best Friend”",
+      "when": "7 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/07/podcast-all-access-takes-shore-leave-for-star-trek-strange-new-worlds-human-best-friend/"
     },
     {
       "cat": "Trek/Wars",
@@ -106,32 +134,11 @@
       "url": "https://www.starwarsnewsnet.com/2026/08/the-ninth-jedi-soundtrack-now-available-to-purchase-or-listen-on-streaming.html"
     },
     {
-      "cat": "Film/TV",
-      "title": "‘GTA 6’ Pre-Orders Reach ‘Unprecedented and Astonishing’ Level in June Quarter, Take-Two Interactive CEO Says",
-      "when": "7 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/gta-6-preorder-sales-take-two-earnings-1236829396/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Blue Trail’ Director Gabriel Mascaro and Top Brazilian Producer Paula Cosenza Launch Trema, Set First Slate (EXCLUSIVE)",
-      "when": "7 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/gabriel-mascaro-paula-cosenza-trema-1236829859/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "‘The Center Seat’ Star Trek Docuseries Returning For Second Season – Watch Announcement Trailer",
       "when": "7 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/06/the-center-seat-star-trek-docuseries-returning-for-second-season-watch-announcement-trailer/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Asks ‘Dude, Where’s My Shuttle?’ In “Human Best Friend”",
-      "when": "6 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/06/recap-review-star-trek-strange-new-worlds-asks-dude-wheres-my-shuttle-in-human-best-friend/"
     },
     {
       "cat": "Trek/Wars",
@@ -146,13 +153,6 @@
       "when": "6 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/disney-ceo-josh-damaro-minimizes-the-mandalorian-and-grogu-box-office-failure-says-company-is-exploring-free-streaming-services.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Podcast: Live From STLV – TrekMovie’s ‘Star Trek Status Report 2026’ Panel",
-      "when": "6 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/06/podcast-live-from-stlv-trekmovie-star-trek-status-report-2026-panel/"
     },
     {
       "cat": "Games",
