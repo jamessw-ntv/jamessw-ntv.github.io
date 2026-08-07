@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-07",
-    "fetched": "2026-08-07T03:53:50+00:00",
+    "fetched": "2026-08-07T05:45:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 13,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 8
+      "wind": 7
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 43
+        "rain": 44
       },
       {
         "day": "Sun",
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91530.0,
-        "pct": 0.07
+        "price": 91353.0,
+        "pct": -0.7
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2702.62,
-        "pct": 0.43
+        "price": 2698.27,
+        "pct": -0.5
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "‘The Center Seat’ Star Trek Docuseries Returning For Second Season – Watch Announcement Trailer",
+      "when": "7 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/06/the-center-seat-star-trek-docuseries-returning-for-second-season-watch-announcement-trailer/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘The Big Bang Theory’ Star Melissa Rauch on Her Larger-Than-Life Surprise Role on ‘Stuart Fails to Save the Universe’",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/08/06/podcast-live-from-stlv-trekmovie-star-trek-status-report-2026-panel/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Interview: ‘Star Trek’ Comic Writer On Carrying Legacy Of Captain Seven And Paying Off Big ‘Picard’ Thread",
-      "when": "6 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/05/interview-star-trek-comic-writer-on-carrying-legacy-of-captain-seven-and-paying-off-big-picard-thread/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
