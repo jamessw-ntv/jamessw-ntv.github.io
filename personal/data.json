@@ -3,29 +3,29 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-07",
-    "fetched": "2026-08-07T05:45:18+00:00",
+    "fetched": "2026-08-07T07:25:37+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
+      "temp": 12,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 7
+      "wind": 3
     },
     "days": [
       {
         "day": "Today",
         "min": 8,
-        "max": 13,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 81
       },
       {
         "day": "Sat",
-        "min": 6,
+        "min": 7,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,52 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91353.0,
-        "pct": -0.7
+        "price": 91459.0,
+        "pct": -0.72
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2698.27,
-        "pct": -0.5
+        "price": 2707.23,
+        "pct": -0.27
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Vishal Bhardwaj Sets ‘Rashomon’-Style Film on Tarun Tejpal Rape Case After Bombay High Court Conviction (EXCLUSIVE)",
+      "when": "7 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/vishal-bhardwaj-tarun-tejpal-film-rashomon-1236829746/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Ricky Gervais’ Netflix Animated Comedy ‘Alley Cats’ Is Surprisingly Bittersweet: TV Review",
+      "when": "7 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/reviews/alley-cats-review-ricky-gervais-netflix-1236829439/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Last House’ Review: Wagner Moura and Greta Lee Bring Conviction to a Suitably Stifling Stay-at-Home Thriller",
+      "when": "7 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/the-last-house-review-1236828947/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘La Koreana,’ a Banner New Talent Title From Spain, Brought to Market at Locarno by Producers Lazona Zinema and Estibaliz Urresola’s Sirimiri (EXCLUSIVE)",
+      "when": "7 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/la-koreana-lazona-zinema-estebaliz-urresola-1236829726/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘The Center Seat’ Star Trek Docuseries Returning For Second Season – Watch Announcement Trailer",
       "when": "7 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/06/the-center-seat-star-trek-docuseries-returning-for-second-season-watch-announcement-trailer/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Big Bang Theory’ Star Melissa Rauch on Her Larger-Than-Life Surprise Role on ‘Stuart Fails to Save the Universe’",
-      "when": "7 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/melissa-rauch-stuart-fails-to-save-the-universe-role-1236829612/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "LISTEN: Fear, Loathing and Endless Potential: AI4 Conference Takes Stock of Transformative Technologies",
-      "when": "6 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/ai4-conference-fear-loathing-daily-variety-podcast-1236829536/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Michael 2’ Eyes Filming Start ‘Towards the End of this Year’ or Early 2027 as Lionsgate Teases Release Date",
-      "when": "6 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/michael-2-filming-start-release-date-1236829530/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "After U.K. Approval of Paramount-WBD Deal, European Media Leaders Rally Behind David Ellison: ‘The Industry Will Be Stronger’",
-      "when": "6 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/uk-approval-paramount-wbd-european-leaders-david-ellison-1236829488/"
     },
     {
       "cat": "Trek/Wars",
