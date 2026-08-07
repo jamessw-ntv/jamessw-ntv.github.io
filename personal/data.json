@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-07",
-    "fetched": "2026-08-07T10:08:03+00:00",
+    "fetched": "2026-08-07T11:50:30+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 9,
       "icon": "🌤️",
       "desc": "Mainly clear",
       "wind": 7
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92027.0,
-        "pct": 0.36
+        "price": 92306.0,
+        "pct": 0.63
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2716.34,
-        "pct": 0.54
+        "price": 2719.74,
+        "pct": 0.46
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Werner Herzog to Be Honored at San Sebastián Film Festival",
+      "title": "Take-Two Interactive Reaches $1.4 Billion in Sales During ‘GTA 6’ Preorder Opening Quarter",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/werner-herzog-honored-san-sebastian-film-festival-1236829836/"
+      "url": "https://variety.com/2026/gaming/news/gta-6-preorder-sales-take-two-earnings-1236829396/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bella Thorne Is Also Directing and Writing the ‘Spring Breakers’ Sequel She’s Starring In: ‘From Start to Finish, It’s Lit as F—’",
+      "title": "‘The Blue Trail’ Director Gabriel Mascaro and Top Brazilian Producer Paula Cosenza Launch Trema, Set First Slate (EXCLUSIVE)",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/bella-thorne-directing-writing-spring-breakers-sequel-1236829801/"
+      "url": "https://variety.com/2026/film/global/gabriel-mascaro-paula-cosenza-trema-1236829859/"
     },
     {
       "cat": "Film/TV",
-      "title": "Danny DeVito-Produced Heist Comedy ‘Drag’ Boards Blue Finch Films for International Sales (EXCLUSIVE)",
+      "title": "Starz Revenue Declines 4% in Q2 as Streaming Stabilizes, Company Takes $147 Million Charge Related to Ending Universal Output Deal",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/danny-devito-drag-blue-finch-films-sales-1236829816/"
+      "url": "https://variety.com/2026/tv/news/starz-q2-2026-earnings-streaming-universal-deal-termination-1236829362/"
     },
     {
       "cat": "Film/TV",
-      "title": "Claes Bang Plays a Masseur of Nazi Leader Heinrich Himmler in ‘I Is Another’ — but John Paul in ‘Bad Sisters’ Is Still One of His ‘Worst Characters’",
+      "title": "Luca Guadagnino to Receive Cartier Glory to the Filmmaker Award at Venice Film Festival",
       "when": "7 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/claes-bang-masseur-nazi-heinrich-himmler-i-is-another-1236829157/"
+      "url": "https://variety.com/2026/film/festivals/luca-guadagnino-cartier-award-venice-film-festival-1236829848/"
     },
     {
       "cat": "Trek/Wars",
