@@ -2,34 +2,34 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-06",
-    "fetched": "2026-08-06T15:19:29+00:00",
+    "updated": "2026-08-07",
+    "fetched": "2026-08-07T00:07:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 6
+      "temp": 9,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 4
     },
     "days": [
       {
         "day": "Today",
         "min": 8,
-        "max": 13,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 71
+        "rain": 81
       },
       {
         "day": "Sat",
         "min": 7,
         "max": 15,
         "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 57
+        "desc": "Showers",
+        "rain": 43
       },
       {
         "day": "Sun",
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92084.0,
-        "pct": 0.78
+        "price": 91427.0,
+        "pct": -0.08
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2720.31,
-        "pct": 2.47
+        "price": 2705.44,
+        "pct": 0.1
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Sienna Miller Is Ready for Battle in First Images From Sky/HBO Legal Drama ‘War’: ‘It’s About Rivalries and Partnerships’",
+      "title": "LISTEN: Fear, Loathing and Endless Potential: AI4 Conference Takes Stock of Transformative Technologies",
       "when": "6 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/sienna-miller-war-sky-hbo-october-1236828152/"
+      "url": "https://variety.com/2026/digital/news/ai4-conference-fear-loathing-daily-variety-podcast-1236829536/"
     },
     {
       "cat": "Film/TV",
-      "title": "How an NYC Nightlife Legend Tracked Down the Pablo Escobar of Animal Trafficking",
+      "title": "‘Michael 2’ Eyes Filming Start ‘Towards the End of this Year’ or Early 2027 as Lionsgate Teases Release Date",
       "when": "6 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/monsters-of-god-hbo-eric-goode-tiger-king-reptile-smuggling-joe-exotic-safdie-brothers-1236828803/"
+      "url": "https://variety.com/2026/film/news/michael-2-filming-start-release-date-1236829530/"
     },
     {
       "cat": "Film/TV",
-      "title": "SiriusXM Taps Paramount Pictures and Universal Alum Jenny Tartikoff as Head of Communications",
+      "title": "After U.K. Approval of Paramount-WBD Deal, European Media Leaders Rally Behind David Ellison: ‘The Industry Will Be Stronger’",
       "when": "6 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/siriusxm-jenny-tartikoff-head-of-communications-1236829146/"
+      "url": "https://variety.com/2026/film/global/uk-approval-paramount-wbd-european-leaders-david-ellison-1236829488/"
     },
     {
       "cat": "Film/TV",
-      "title": "Farhan Akhtar and Ritesh Sidhwani’s Excel Entertainment, AA Films Board Toronto Midnight Madness Malayalam Vampire Thriller ‘Half’ (EXCLUSIVE)",
+      "title": "‘Michael’ Boosts Lionsgate Quarterly Results as Studio Narrows Loss to $29 Million",
       "when": "6 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/farhan-akhtar-excel-toronto-malayalam-vampire-thriller-half-1236829098/"
+      "url": "https://variety.com/2026/film/news/lionsgate-q2-2026-michael-narrows-loss-1236829508/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Asks ‘Dude, Where’s My Shuttle?’ In “Human Best Friend”",
+      "when": "6 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/06/recap-review-star-trek-strange-new-worlds-asks-dude-wheres-my-shuttle-in-human-best-friend/"
     },
     {
       "cat": "Trek/Wars",
@@ -118,6 +125,20 @@
       "when": "6 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/the-ninth-jedi-spoiler-free-review-a-fun-twist-on-star-wars-while-still-relying-on-franchise-staples.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Disney CEO Josh D’Amaro Minimizes ‘The Mandalorian and Grogu’ Box Office Failure, Says Company Is Exploring Free Streaming Services",
+      "when": "6 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/disney-ceo-josh-damaro-minimizes-the-mandalorian-and-grogu-box-office-failure-says-company-is-exploring-free-streaming-services.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Welsh Language Dub For ‘Star Wars: A New Hope’, Starring Rhys Ifans And Matthew Rhys, Officially Announced",
+      "when": "6 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/welsh-language-dub-for-star-wars-a-new-hope-starring-rhys-ifans-and-matthew-rhys-officially-announced.html"
     },
     {
       "cat": "Trek/Wars",
@@ -132,27 +153,6 @@
       "when": "6 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/05/interview-star-trek-comic-writer-on-carrying-legacy-of-captain-seven-and-paying-off-big-picard-thread/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Disney CEO Josh D’Amaro Minimizes ‘The Mandalorian and Grogu’ Box Office Failure, Says Company Is Exploring Free Streaming Services",
-      "when": "5 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/disney-ceo-josh-damaro-minimizes-the-mandalorian-and-grogu-box-office-failure-says-company-is-exploring-free-streaming-services.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Welsh Language Dub For ‘Star Wars: A New Hope’, Starring Rhys Ifans And Matthew Rhys, Officially Announced",
-      "when": "5 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/welsh-language-dub-for-star-wars-a-new-hope-starring-rhys-ifans-and-matthew-rhys-officially-announced.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek: Legends’ Is The Latest Trek Game To Be Pulled From Storefronts",
-      "when": "5 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/04/star-trek-legends-is-the-latest-trek-game-to-be-pulled-from-storefronts/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     }
