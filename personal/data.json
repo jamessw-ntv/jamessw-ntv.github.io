@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-08",
-    "fetched": "2026-08-08T16:41:08+00:00",
+    "fetched": "2026-08-08T17:36:28+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "☁️",
-      "desc": "Overcast",
+      "temp": 10,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
       "wind": 18
     },
     "days": [
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91975.0,
-        "pct": 0.12
+        "price": 92092.0,
+        "pct": 0.86
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2717.56,
-        "pct": 0.33
+        "price": 2721.16,
+        "pct": 0.9
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Giovanni Tortorici on Working With Monica Bellucci Who Plays an ‘Eccentric’ Aristocratic Matron in His Luca Guadagnino-Produced Film ‘Ketticè’",
+      "when": "8 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/giovanni-tortorici-monica-bellucci-luca-guadagnino-kettice-1236828928/"
+    },
     {
       "cat": "Film/TV",
       "title": "Olivia Wilde Says She’s Become ‘So Much More Romantic’ Because of ‘The Invite’: ‘It Melted the Cynic Out of Me’",
@@ -93,7 +100,7 @@
     },
     {
       "cat": "Film/TV",
-      "title": "‘Tony’ Star Dominic Sessa on How Being a ‘Liar’ Helped Him Portray Anthony Bourdain and How the Film Foreshadows His Later Struggles",
+      "title": "‘Tony’ Star Dominic Sessa on How Being a ‘Liar’ Helped Him Portray Anthony Bourdain and Why the Film Foreshadows His Later Struggles",
       "when": "8 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/features/tony-dominic-sessa-anthony-bourdain-struggles-matt-johnson-1236829327/"
@@ -104,13 +111,6 @@
       "when": "8 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/liaison-pictures-because-the-night-productions-locarno-1236830322/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Box Office: ‘Spider-Man: Brand New Day’ Swings into Second Weekend With $43 Million on Friday",
-      "when": "8 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/box-office-spider-man-second-weekend-the-odyssey-1236830599/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "55m ago",
       "lang": "HTML",
       "commit": ""
     }
