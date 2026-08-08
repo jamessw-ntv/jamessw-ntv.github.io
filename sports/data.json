@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "Multi-Sport Dashboard",
-    "updated": "2026-08-07",
+    "updated": "2026-08-08",
     "note": "Static snapshot. AFL through the played Round 17 games (two Sunday 5 July games still to come) with for/against and percentage restored. NRL ladder reflects Round 17 (Round 18, an Origin-week round, in progress); win/loss derived from points and byes, differentials mostly unavailable. State of Origin level 1-1 with the decider on 8 July.",
-    "fetched": "2026-08-07T13:16:30+00:00"
+    "fetched": "2026-08-08T07:02:01+00:00"
   },
   "nextup": {
     "mine": [
@@ -51,13 +51,13 @@
       [
         1,
         "Fremantle",
-        20,
+        21,
         18,
-        2,
+        3,
         0,
-        1983,
-        1346,
-        147.3,
+        2092,
+        1459,
+        143.4,
         72
       ],
       [
@@ -98,6 +98,18 @@
       ],
       [
         5,
+        "Melbourne",
+        21,
+        14,
+        7,
+        0,
+        2082,
+        1935,
+        107.6,
+        56
+      ],
+      [
+        6,
         "Adelaide Crows",
         20,
         13,
@@ -106,18 +118,6 @@
         1861,
         1582,
         117.6,
-        52
-      ],
-      [
-        6,
-        "Melbourne",
-        20,
-        13,
-        7,
-        0,
-        1969,
-        1826,
-        107.8,
         52
       ],
       [
