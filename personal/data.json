@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-08",
-    "fetched": "2026-08-08T11:34:18+00:00",
+    "fetched": "2026-08-08T13:00:40+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 10,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 12
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 16
     },
     "days": [
       {
@@ -25,7 +25,7 @@
       },
       {
         "day": "Sun",
-        "min": 9,
+        "min": 8,
         "max": 11,
         "icon": "🌦️",
         "desc": "Showers",
@@ -33,8 +33,8 @@
       },
       {
         "day": "Mon",
-        "min": 8,
-        "max": 12,
+        "min": 7,
+        "max": 11,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 99
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91882.0,
-        "pct": -0.55
+        "price": 91941.0,
+        "pct": -0.31
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2715.07,
-        "pct": -0.2
+        "price": 2714.74,
+        "pct": -0.55
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Ketticè’ Review: An Amusing, Original Portrait of Adolescent Ennui Against a Backdrop of Adult Cluelessness",
+      "when": "8 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/kettice-review-1236830542/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Galactic Racer’ Promo Goes Under The Hood",
+      "when": "8 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-galactic-racer-promo-goes-under-the-hood.html"
+    },
     {
       "cat": "Film/TV",
       "title": "Satyajit Ray’s ‘Goopy Gyne Bagha Byne’ Making to be Chronicled in Srijit Mukherji’s ‘Maharaja Tomare Selam’",
@@ -106,13 +120,6 @@
       "url": "https://variety.com/2026/music/news/taylor-swift-song-august-removed-trump-tiktok-video-1236830512/"
     },
     {
-      "cat": "Film/TV",
-      "title": "Behind the Scenes of Obama’s Acting Cameo in ‘Life, Larry’: Blaming Larry David for His Tan Suit Debacle, Improvising Lines and Ranting About Ketchup",
-      "when": "8 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/obama-larry-david-show-tan-suit-1236829485/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "The ‘Paddington 2’ Creative Team Was Developing a ‘Star Wars’ Movie Centered On a Droid",
       "when": "7 Aug",
@@ -132,13 +139,6 @@
       "when": "7 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/07/sixty-year-mission-star-trek-documentary-with-william-shatner-headed-to-theaters/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Deathstick – ‘Star Wars’ Character Spotlight",
-      "when": "7 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/deathstick-star-wars-character-spotlight.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "54m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
