@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-08",
-    "fetched": "2026-08-08T21:36:25+00:00",
+    "fetched": "2026-08-08T22:35:43+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 9,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 19
+      "wind": 20
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91956.0,
-        "pct": 0.0
+        "price": 91898.0,
+        "pct": 0.14
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2715.78,
-        "pct": 0.27
+        "price": 2714.84,
+        "pct": 0.25
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Abbott Elementary’ Stars Sheryl Lee Ralph and Janelle James on the Paramount-Warner Bros. Merger: ‘We’ve Lost Too Many People’",
+      "when": "8 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/scene/news/abbott-elementary-sheryl-lee-ralph-janelle-james-paramount-1236830682/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Heated Rivalry’ Author Brushes Off Negativity Surrounding Season 2 Casting",
+      "when": "8 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/heated-rivalry-author-negativity-season-2-casting-1236830685/"
+    },
     {
       "cat": "Film/TV",
       "title": "Morrissey Cancels Las Vegas Residency Days Before Showtime Due to ‘Unforeseen Logistical Issues’",
@@ -97,20 +111,6 @@
       "when": "8 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/music/news/l-a-jazz-festival-canceled-john-legend-janelle-monae-1236830665/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Anthony Michael Hall Says John Hughes Wanted a ‘Breakfast Club’ Sequel Where the Original Cast Is ‘In Their 30s’",
-      "when": "8 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/anthony-michael-hall-john-hughes-breakfast-club-sequel-1236830655/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Cookie Queens’ Review: A Doc About Girl Scout Cookies, Produced by Meghan Markle and Prince Harry, Is Too Much of a Reality-Show Ramble",
-      "when": "8 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/cookie-queens-review-prince-harry-meghan-markle-1236830251/"
     },
     {
       "cat": "Trek/Wars",
