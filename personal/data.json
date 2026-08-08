@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-08",
-    "fetched": "2026-08-08T15:35:43+00:00",
+    "fetched": "2026-08-08T16:41:08+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 9,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 17
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 18
     },
     "days": [
       {
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92037.0,
-        "pct": -0.04
+        "price": 91975.0,
+        "pct": 0.12
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2717.68,
-        "pct": 0.13
+        "price": 2717.56,
+        "pct": 0.33
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Yash’s ‘Toxic’ Trailer Unveils Dual-Role Father-Son Conflict at Core of Gangster Epic",
+      "title": "Olivia Wilde Says She’s Become ‘So Much More Romantic’ Because of ‘The Invite’: ‘It Melted the Cynic Out of Me’",
       "when": "8 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/oxic-trailer-yash-dual-role-gangster-epic-1236830597/"
+      "url": "https://variety.com/2026/film/global/olivia-wilde-the-invite-locarno-seth-rogen-1236830606/"
     },
     {
       "cat": "Film/TV",
-      "title": "How ‘Spider-Man: Brand New Day’s’ Climactic Fight Scene Secretly Evokes Jean Grey’s Phoenix",
+      "title": "‘Tony’ Star Dominic Sessa on How Being a ‘Liar’ Helped Him Portray Anthony Bourdain and How the Film Foreshadows His Later Struggles",
       "when": "8 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/spider-man-brand-new-day-fight-scene-jean-grey-phoenix-1236830062/"
+      "url": "https://variety.com/2026/film/features/tony-dominic-sessa-anthony-bourdain-struggles-matt-johnson-1236829327/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Atlanta-Based Liaison Pictures Joins France’s Because the Night Productions on Locarno Match Me! Title ‘Behemoth Ann Holds a Seance’ (EXCLUSIVE)",
+      "when": "8 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/liaison-pictures-because-the-night-productions-locarno-1236830322/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Box Office: ‘Spider-Man: Brand New Day’ Swings into Second Weekend With $43 Million on Friday",
+      "when": "8 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/box-office-spider-man-second-weekend-the-odyssey-1236830599/"
     },
     {
       "cat": "Trek/Wars",
@@ -113,25 +127,11 @@
       "url": "https://trekmovie.com/2026/08/08/are-you-threatening-me-michael-dorn-talks-star-trek-deep-space-nine-recruitment-clash/"
     },
     {
-      "cat": "Film/TV",
-      "title": "‘Ketticè’ Review: An Amusing, Original Portrait of Adolescent Ennui Against a Backdrop of Adult Cluelessness",
-      "when": "8 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/kettice-review-1236830542/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "‘Star Wars: Galactic Racer’ Promo Goes Under The Hood",
       "when": "8 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-galactic-racer-promo-goes-under-the-hood.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Satyajit Ray’s ‘Goopy Gyne Bagha Byne’ Making to be Chronicled in Srijit Mukherji’s ‘Maharaja Tomare Selam’",
-      "when": "8 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/satyajit-ray-goopy-gyne-bagha-byne-maharaja-tomare-selam-1236830536/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "57m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
