@@ -3,7 +3,7 @@
     "title": "Multi-Sport Dashboard",
     "updated": "2026-08-08",
     "note": "Static snapshot. AFL through the played Round 17 games (two Sunday 5 July games still to come) with for/against and percentage restored. NRL ladder reflects Round 17 (Round 18, an Origin-week round, in progress); win/loss derived from points and byes, differentials mostly unavailable. State of Origin level 1-1 with the decider on 8 July.",
-    "fetched": "2026-08-08T07:02:01+00:00"
+    "fetched": "2026-08-08T09:43:23+00:00"
   },
   "nextup": {
     "mine": [
@@ -63,14 +63,14 @@
       [
         2,
         "Sydney Swans",
-        20,
-        15,
+        21,
+        16,
         5,
         0,
-        2141,
-        1653,
-        129.5,
-        60
+        2308,
+        1723,
+        134.0,
+        64
       ],
       [
         3,
@@ -110,6 +110,18 @@
       ],
       [
         6,
+        "Geelong Cats",
+        21,
+        13,
+        8,
+        0,
+        2097,
+        1739,
+        120.6,
+        52
+      ],
+      [
+        7,
         "Adelaide Crows",
         20,
         13,
@@ -119,18 +131,6 @@
         1582,
         117.6,
         52
-      ],
-      [
-        7,
-        "Geelong Cats",
-        20,
-        12,
-        8,
-        0,
-        1980,
-        1689,
-        117.2,
-        48
       ],
       [
         8,
@@ -219,13 +219,13 @@
       [
         15,
         "Port Adelaide",
-        20,
+        21,
         6,
-        14,
+        15,
         0,
-        1573,
-        1654,
-        95.1,
+        1643,
+        1821,
+        90.2,
         24
       ],
       [
@@ -255,13 +255,13 @@
       [
         18,
         "Essendon",
-        20,
+        21,
         2,
-        18,
+        19,
         0,
-        1380,
-        2144,
-        64.4,
+        1430,
+        2261,
+        63.2,
         8
       ]
     ],
