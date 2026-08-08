@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-07",
-    "fetched": "2026-08-07T23:38:49+00:00",
+    "updated": "2026-08-08",
+    "fetched": "2026-08-08T02:01:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 11
+      "temp": 14,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 17
     },
     "days": [
       {
@@ -28,13 +28,13 @@
         "min": 9,
         "max": 11,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 100
       },
       {
         "day": "Mon",
         "min": 7,
-        "max": 11,
+        "max": 12,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 98
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91783.0,
-        "pct": 0.53
+        "price": 91829.0,
+        "pct": 0.28
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2708.57,
-        "pct": 0.26
+        "price": 2708.17,
+        "pct": 0.11
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘One Night Only’ Director Will Gluck Cut Out ‘So Much Nudity’ Because People Dislike Sex on Screen: ‘It Takes You Out of the Movie’",
-      "when": "7 Aug",
+      "title": "Behind the Scenes of Obama’s Acting Cameo in ‘Life, Larry’: Blaming Larry David for His Tan Suit Debacle, Improvising Lines and Ranting About Ketchup",
+      "when": "8 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/one-night-only-director-removed-nudity-1236827870/"
+      "url": "https://variety.com/2026/tv/news/obama-larry-david-show-tan-suit-1236829485/"
     },
     {
       "cat": "Film/TV",
-      "title": "Judy Collins on Doing a Farewell Tour While ‘Having a Lot More Steam in My Engine’: At 87, ‘I’m the Betty White of the Folk Movement’",
-      "when": "7 Aug",
+      "title": "‘Power Book III: Raising Kanan’ Creator Sascha Penn and Stars Patina Miller and Mekai Curtis on the Deadly Series Finale and ‘Power: Origins’",
+      "when": "8 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/judy-collins-farewell-tour-interview-1236830430/"
+      "url": "https://variety.com/2026/tv/features/raising-kanan-series-finale-how-raq-dies-power-origins-spinoff-1236829538/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Stanley Tucci on Why His Emmy-Nominated ‘Tucci In Italy’ Is Moving to the United Kingdom Next Season",
+      "when": "8 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/awards/stanley-tucci-nat-geo-italy-moving-uk-next-season-why-1236830482/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Last House’ Ending Breakdown: Why Is the Family Trapped Inside Their Home?",
+      "when": "8 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/the-last-house-ending-explained-why-family-trapped-inside-1236806415/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +118,6 @@
       "when": "7 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/the-paddington-2-creative-team-was-developing-a-star-wars-movie-centered-on-a-droid.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Olivia Rodrigo Debuts ‘Pretty Sad’ Songs at Sweltering Brooklyn Surprise Show: Concert Review",
-      "when": "7 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/reviews/olivia-rodrigo-debuts-pretty-sad-songs-brooklyn-surprise-concert-review-1236830406/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Dwayne Johnson Defends ‘Moana’ After Bad Reviews: ‘Just the Way It Goes’",
-      "when": "7 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/dwayne-johnson-moana-bad-reviews-1236830353/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "55m ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
