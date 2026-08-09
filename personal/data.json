@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-09",
-    "fetched": "2026-08-09T15:37:30+00:00",
+    "fetched": "2026-08-09T16:42:30+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
+      "temp": 10,
       "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 11
+      "desc": "Drizzle",
+      "wind": 7
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 94
+        "rain": 97
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 75
+        "rain": 88
       }
     ]
   },
@@ -72,18 +72,46 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92396.0,
-        "pct": 0.4
+        "price": 92418.0,
+        "pct": 0.46
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2728.24,
-        "pct": 0.4
+        "price": 2725.16,
+        "pct": 0.27
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Spider-Man: Brand New Day’ Becomes Second-Fastest Movie to Hit $1 Billion Overseas, Powers to $1.67 Billion Globally",
+      "when": "9 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/spider-man-brand-new-day-second-fastest-movie-1-billion-overseas-1236830845/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Galactic Racer’ Promo Goes Under The Hood",
+      "when": "9 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-galactic-racer-promo-goes-under-the-hood.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "The ‘Paddington 2’ Creative Team Was Developing a ‘Star Wars’ Movie Centered On a Droid",
+      "when": "9 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/the-paddington-2-creative-team-was-developing-a-star-wars-movie-centered-on-a-droid.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "D23 Lucasfilm Pavilion To Display ‘Ahsoka’ Season 2 Props And Costumes",
+      "when": "9 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/d23-lucasfilm-pavilion-to-display-ahsoka-season-2-props-and-costumes.html"
+    },
     {
       "cat": "Film/TV",
       "title": "Box Office: ‘Spider-Man: Brand New Day’ Flies to Third-Biggest Second Weekend of All Time With $145 Million",
@@ -106,13 +134,6 @@
       "url": "https://variety.com/2026/film/news/david-ellison-theater-owners-guarantee-30-movies-paramount-warner-bros-merger-1236830791/"
     },
     {
-      "cat": "Film/TV",
-      "title": "Locarno Sufi Trance Doc ‘As Light as Air’ Director Umair Bilal on Surrendering to a Pakistani Shrine Town: ‘I Became Part of Its Rhythm’",
-      "when": "9 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/sufi-trance-as-light-as-air-locarno-1236826269/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Star Trek Movie Rereleases Beaming Into Theaters – With Souvenir Popcorn Bucket",
       "when": "8 Aug",
@@ -125,27 +146,6 @@
       "when": "8 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/08/are-you-threatening-me-michael-dorn-talks-star-trek-deep-space-nine-recruitment-clash/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Galactic Racer’ Promo Goes Under The Hood",
-      "when": "8 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-galactic-racer-promo-goes-under-the-hood.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "The ‘Paddington 2’ Creative Team Was Developing a ‘Star Wars’ Movie Centered On a Droid",
-      "when": "7 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/the-paddington-2-creative-team-was-developing-a-star-wars-movie-centered-on-a-droid.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "D23 Lucasfilm Pavilion To Display ‘Ahsoka’ Season 2 Props And Costumes",
-      "when": "7 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/d23-lucasfilm-pavilion-to-display-ahsoka-season-2-props-and-costumes.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "56m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
