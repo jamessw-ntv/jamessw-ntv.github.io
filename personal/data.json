@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-09",
-    "fetched": "2026-08-09T07:05:12+00:00",
+    "fetched": "2026-08-09T07:57:32+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 11,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 22
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 21
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91704.0,
-        "pct": -0.26
+        "price": 91670.0,
+        "pct": -0.22
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2713.16,
-        "pct": 0.08
+        "price": 2711.83,
+        "pct": 0.13
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Donkey Princess’ Review: A Princess Escapes the Kingdom, but Not the Patriarchy, in an Inventive, Shape-Shifting Fairytale",
+      "when": "9 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/donkey-princess-review-1236830559/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Naseeruddin Shah, Gurvinder Singh Turn a Village’s Real Grief Into Locarno Competition Title ‘Rehmat’: ‘It’s Important That These Films Get Made’",
+      "when": "9 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/naseeruddin-shah-gurvinder-singh-rehmat-locarno-1236830761/"
+    },
     {
       "cat": "Film/TV",
       "title": "Mahesh Babu’s Look in S.S. Rajamouli’s ‘Varanasi’ Unveiled",
@@ -97,20 +111,6 @@
       "when": "9 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/shopping/news/whitney-houston-barbie-buy-online-1236830603/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Gina Prince-Bythewood Discusses the Worldbuilding of ‘Children of Blood and Bone’ and Praises Author Tomi Adeyemi as a ‘Genius’",
-      "when": "9 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/gina-prince-bythewood-children-of-blood-and-bone-tomi-adeyemi-mvaaff-1236830592/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Andrew Lloyd Webber Is ‘Gutted’ on ‘Cats: The Jellicle Ball’ Closing Night: Producing on Broadway Is ‘Unsustainable’",
-      "when": "8 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/legit/news/andrew-lloyd-webber-cats-the-jellicle-ball-closing-night-1236830708/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "52m ago",
       "lang": "HTML",
       "commit": ""
     }
