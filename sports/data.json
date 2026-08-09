@@ -3,7 +3,7 @@
     "title": "Multi-Sport Dashboard",
     "updated": "2026-08-09",
     "note": "Static snapshot. AFL through the played Round 17 games (two Sunday 5 July games still to come) with for/against and percentage restored. NRL ladder reflects Round 17 (Round 18, an Origin-week round, in progress); win/loss derived from points and byes, differentials mostly unavailable. State of Origin level 1-1 with the decider on 8 July.",
-    "fetched": "2026-08-09T09:45:58+00:00"
+    "fetched": "2026-08-09T13:03:00+00:00"
   },
   "nextup": {
     "mine": [
@@ -159,25 +159,25 @@
       [
         10,
         "Carlton",
-        20,
-        10,
+        21,
+        11,
         10,
         0,
-        1700,
-        1752,
-        97.0,
-        40
+        1806,
+        1814,
+        99.6,
+        44
       ],
       [
         11,
         "St Kilda",
-        20,
+        21,
         9,
-        11,
+        12,
         0,
-        1794,
-        1720,
-        104.3,
+        1856,
+        1826,
+        101.6,
         36
       ],
       [
@@ -268,9 +268,9 @@
     "focus": {
       "team": "Carlton",
       "pos": 10,
-      "record": "10–10",
-      "pct": 97.0,
-      "pts": 40,
+      "record": "11–10",
+      "pct": 99.6,
+      "pts": 44,
       "note": "Seven straight. Josh Fraser's interim reign (Voss was sacked at 1-8 after Round 9) has hauled a dead season back to 8-8 and 10th, four points off the eight, capped by a two-point escape over Richmond at the MCG in Round 17.",
       "form": [
         "W",
