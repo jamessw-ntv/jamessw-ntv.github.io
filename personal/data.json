@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-10",
-    "fetched": "2026-08-10T15:05:02+00:00",
+    "fetched": "2026-08-10T16:05:51+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 9,
       "icon": "🌦️",
       "desc": "Drizzle",
       "wind": 13
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91486.0,
-        "pct": -0.99
+        "price": 90919.0,
+        "pct": -1.59
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2676.06,
-        "pct": -1.83
+        "price": 2654.01,
+        "pct": -2.7
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Peacock Launches AI-Generated ‘Public Eye’ Mobile Detective Game From Wolf Games",
+      "title": "Kasie Hunt Takes Lead Role in CNN’s Fight to Keep Viewers From Toggling to Second Screen",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/public-eye-ai-mobile-game-peacock-wolf-games-1236831297/"
+      "url": "https://variety.com/2026/tv/news/kasie-hunt-cnn-fight-second-screen-1236830940/"
     },
     {
       "cat": "Film/TV",
-      "title": "Holiday Comedy ‘Merry Christmas Aubrey Flint’ Acquired by Samuel Goldwyn for North America (EXCLUSIVE)",
+      "title": "Awards Season Shuffles to 2027: From Denzel Washington’s ‘Here Comes the Flood’ to Joel Coen’s ‘Jack of Spades,’ Plus A24’s Mystery Drop (EXCLUSIVE)",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/merry-christmas-aubrey-flint-samuel-goldwyn-1236831300/"
+      "url": "https://variety.com/2026/film/awards/here-comes-the-flood-saturn-return-2027-a24-surprise-drop-1236830961/"
     },
     {
       "cat": "Film/TV",
-      "title": "Barack Obama to Host Podcast Digging Into Six Books That ‘Helped Me Figure Out Who I Am and What I Believe’",
+      "title": "Rohit Sharma, Ajay Devgn, Madhuri Dixit Nene and A.R. Rahman Lead Sony Pictures Networks India Content Slate",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/barack-obama-six-great-books-podcast-audible-1236829246/"
+      "url": "https://variety.com/2026/tv/news/rohit-sharma-ajay-devgn-ar-rahman-sony-india-content-slate-1236831242/"
     },
     {
       "cat": "Film/TV",
-      "title": "Netflix Sets U.S. Release Date for Danny Boyle’s Tabloid Drama ‘Ink,’ Unveils First Look at Guy Pearce as Rupert Murdoch (EXCLUSIVE)",
+      "title": "‘Harry Potter’ Series Star Bel Powley Says ‘I Strongly Disagree With J.K. Rowling’s Views on Gender’: ‘The Trans Community Deserve Safety and Dignity’",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/ink-netflix-release-date-guy-pearce-rupert-murdoch-1236830133/"
+      "url": "https://variety.com/2026/tv/global/harry-potter-bel-powley-jk-rowling-trans-views-strongly-disagree-1236831289/"
     },
     {
       "cat": "Trek/Wars",
