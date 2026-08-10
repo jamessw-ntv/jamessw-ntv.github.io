@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-10",
-    "fetched": "2026-08-10T21:49:12+00:00",
+    "fetched": "2026-08-10T22:44:26+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
+      "temp": 7,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 8
+      "wind": 9
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90685.0,
-        "pct": -1.7
+        "price": 90596.0,
+        "pct": -1.47
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2656.54,
-        "pct": -2.49
+        "price": 2653.88,
+        "pct": -2.21
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Unscripted Producer Rachel Tung Renews ABC & Hulu Development Deal (EXCLUSIVE)",
+      "when": "10 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/rachel-tung-abc-hulu-development-deal-1236831502/"
+    },
     {
       "cat": "Film/TV",
       "title": "Jacob Elordi in Talks to Star in Ari Aster’s ‘Scapegoat’ With Scarlett Johansson",
@@ -111,13 +118,6 @@
       "when": "10 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/damon-wayans-in-living-color-st-denis-medical-1236831408/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How ‘Euphoria’ Makeup Artist Used Red Lips and Black Eyeliner to Reflect Jules’ Power, Maturity and Sexuality",
-      "when": "10 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/euphoria-makeup-jules-rue-cassie-1236831354/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "58m ago",
+      "pushed": "55m ago",
       "lang": "HTML",
       "commit": ""
     }
