@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-10",
-    "fetched": "2026-08-10T08:44:04+00:00",
+    "fetched": "2026-08-10T10:22:58+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 11,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 19
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 17
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92155.0,
-        "pct": 0.52
+        "price": 91974.0,
+        "pct": 0.13
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2719.51,
-        "pct": 0.34
+        "price": 2714.65,
+        "pct": -0.09
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Brave New Love’ Review: Infidelity Isn’t the End in an Unusual, Open-Minded Marital Drama",
+      "title": "Pippa Harris and James Wilson to Headline London Film Festival Industry Forum",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/brave-new-love-review-1236830853/"
+      "url": "https://variety.com/2026/film/global/london-film-festival-pippa-harris-james-wilson-industry-1236831108/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sadhguru, Graphic India Team on Animated Epic ‘Shiva: The Adiyogi’ (EXCLUSIVE)",
+      "title": "A Female Sniper Battles ISIS in First Teaser for Venice Title ‘No Paradise if You Are Killed by a Woman’ (EXCLUSIVE)",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/sadhguru-graphic-india-animated-epic-shiva-the-adiyogi-1236830784/"
+      "url": "https://variety.com/2026/film/global/no-paradise-if-you-are-killed-by-a-woman-isis-film-teaser-1236831131/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Spider-Man: Brand New Day’ Becomes Highest Grossing Hollywood Film in India",
+      "title": "Netflix Sets ‘Ad Vitam’ Sequel With Guillaume Canet",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/spider-man-brand-new-day-india-box-office-record-1236827437/"
+      "url": "https://variety.com/2026/film/global/netflix-ad-vitam-sequel-guillaume-canet-1236831135/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Primo Viaggio,’ Presented Last Year at Locarno’s Alliance 4 Development, Has Wrapped and Heading for Venice Gap-Financing Market (EXCLUSIVE)",
+      "title": "Latin Quarter Distribution Acquires World Rights to José Dell’Acqua Uruguayan Crime Thriller ‘Maltrato Animal’ (EXCLUSIVE)",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/primo-viaggio-nanni-moretti-halley-locarno-wraps-1236830544/"
+      "url": "https://variety.com/2026/film/global/latin-quarter-distribution-locarno-uruguay-maltrato-animal-1236831088/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
