@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-10",
-    "fetched": "2026-08-10T11:52:43+00:00",
+    "fetched": "2026-08-10T13:22:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 10,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 15
+      "wind": 13
     },
     "days": [
       {
@@ -25,19 +25,19 @@
       },
       {
         "day": "Tue",
-        "min": 6,
+        "min": 7,
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 96
+        "rain": 100
       },
       {
         "day": "Wed",
         "min": 7,
-        "max": 12,
+        "max": 11,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 90
+        "rain": 81
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92073.0,
-        "pct": 0.21
+        "price": 91926.0,
+        "pct": -0.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2714.37,
-        "pct": -0.02
+        "price": 2703.05,
+        "pct": -0.8
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Procter & Gamble Aims to Make Bladder-Leak Conversations Part of NFL Chatter",
+      "when": "10 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/procter-gamble-bladder-leak-always-discreet-nfl-1236831210/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Brad Pitt Says AI Could Help More ‘Mid-Budget Films’ Get Made if It’s ‘Used as a Tool’: ‘Gonna Be a Very Interesting Experiment’",
+      "when": "10 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/brad-pitt-ai-could-help-mid-budget-movies-get-made-1236831201/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jeremy Irons, Keke Palmer, Alan Cumming and More Attached to Projects Launching at Toronto Market",
+      "when": "10 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/jeremy-irons-keke-palmer-alan-cumming-toronto-market-1236831198/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Locarno Open Doors: Talemwa Pius’ ‘A Vineyard for a Lobster’ and Mohammed Sheikh’s ‘Accept My Plea for a Burial’ Win Top Prizes at Festival’s Africa Industry Focus",
       "when": "10 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/locarno-open-doors-winners-talemwa-pius-mohammed-sheikh-1236831175/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How Norway’s Øyafestivalen Became One of Europe’s Best Music Fests: Balancing Huge Headliners With Homegrown Artists, Prioritizing Gender Parity and More",
-      "when": "10 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/global/norway-oyafestivalen-europe-best-music-fests-1236830561/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Pippa Harris and James Wilson to Headline London Film Festival Industry Forum",
-      "when": "10 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/london-film-festival-pippa-harris-james-wilson-industry-1236831108/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "A Female Sniper Battles ISIS in First Teaser for Venice Title ‘No Paradise if You Are Killed by a Woman’ (EXCLUSIVE)",
-      "when": "10 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/no-paradise-if-you-are-killed-by-a-woman-isis-film-teaser-1236831131/"
     },
     {
       "cat": "Trek/Wars",
