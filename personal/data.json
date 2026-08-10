@@ -3,29 +3,29 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-10",
-    "fetched": "2026-08-10T06:14:26+00:00",
+    "fetched": "2026-08-10T08:44:04+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 15
+      "temp": 11,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 19
     },
     "days": [
       {
         "day": "Today",
         "min": 8,
-        "max": 12,
+        "max": 11,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 100
       },
       {
         "day": "Tue",
-        "min": 7,
+        "min": 6,
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -34,9 +34,9 @@
       {
         "day": "Wed",
         "min": 7,
-        "max": 11,
+        "max": 12,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 90
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92178.0,
-        "pct": 0.58
+        "price": 92155.0,
+        "pct": 0.52
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2722.21,
-        "pct": 0.55
+        "price": 2719.51,
+        "pct": 0.34
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Germany’s Patra Spanou Film Boards Rodrigo Plá’s ‘The Newcomers’ After World Premiere at Locarno’s Kids Screenings (EXCLUSIVE)",
+      "title": "‘Brave New Love’ Review: Infidelity Isn’t the End in an Unusual, Open-Minded Marital Drama",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/rodrigo-pla-newcomers-patra-spanou-film-premiere-at-locarno-1236831020/"
+      "url": "https://variety.com/2026/film/reviews/brave-new-love-review-1236830853/"
     },
     {
       "cat": "Film/TV",
-      "title": "China Box Office: ‘Spider-Man: Brand New Day’ Retains Crown as ‘Once Upon a Time in the Middle East,’ ‘The Odyssey’ Surge in Previews",
+      "title": "Sadhguru, Graphic India Team on Animated Epic ‘Shiva: The Adiyogi’ (EXCLUSIVE)",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/china-box-office-spider-man-brand-new-day-the-odyssey-1236831057/"
+      "url": "https://variety.com/2026/film/news/sadhguru-graphic-india-animated-epic-shiva-the-adiyogi-1236830784/"
     },
     {
       "cat": "Film/TV",
-      "title": "John Oliver Takes Shots at Own Company’s DC Superhero Movies on ‘Last Week Tonight’",
+      "title": "‘Spider-Man: Brand New Day’ Becomes Highest Grossing Hollywood Film in India",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/john-oliver-takes-shots-dc-superhero-movies-supergirl-last-week-tonight-1236831053/"
+      "url": "https://variety.com/2026/film/box-office/spider-man-brand-new-day-india-box-office-record-1236827437/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kiran Abbavaram’s Mythological Action-Fantasy for India’s Zee Studios Reveals Title as ‘Indraputra’ (EXCLUSIVE)",
+      "title": "‘Primo Viaggio,’ Presented Last Year at Locarno’s Alliance 4 Development, Has Wrapped and Heading for Venice Gap-Financing Market (EXCLUSIVE)",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/kiran-abbavaram-indraputra-zee-studios-1236830533/"
+      "url": "https://variety.com/2026/film/global/primo-viaggio-nanni-moretti-halley-locarno-wraps-1236830544/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
