@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-10",
-    "fetched": "2026-08-10T16:05:51+00:00",
+    "fetched": "2026-08-10T17:03:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 9,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 13
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 12
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90919.0,
-        "pct": -1.59
+        "price": 90446.0,
+        "pct": -2.11
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2654.01,
-        "pct": -2.7
+        "price": 2649.47,
+        "pct": -2.77
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Kasie Hunt Takes Lead Role in CNN’s Fight to Keep Viewers From Toggling to Second Screen",
+      "title": "Apple TV Orders Alfonso Cuarón Cult Horror Thriller ‘Ascension,’ ‘Outlander’ Alum Caitríona Balfe to Star",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/kasie-hunt-cnn-fight-second-screen-1236830940/"
+      "url": "https://variety.com/2026/tv/news/apple-tv-alfonso-cuaron-ascension-caitriona-balfe-1236831363/"
     },
     {
       "cat": "Film/TV",
-      "title": "Awards Season Shuffles to 2027: From Denzel Washington’s ‘Here Comes the Flood’ to Joel Coen’s ‘Jack of Spades,’ Plus A24’s Mystery Drop (EXCLUSIVE)",
+      "title": "William H. Macy, Shawn Hatosy and Troy Kotsur Among Astra TV Awards Honorees; Lisa Ann Walter Set as Host",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/here-comes-the-flood-saturn-return-2027-a24-surprise-drop-1236830961/"
+      "url": "https://variety.com/2026/awards/news/william-h-macy-shawn-hatosy-troy-kotsur-astra-tv-awards-honors-1236831302/"
     },
     {
       "cat": "Film/TV",
-      "title": "Rohit Sharma, Ajay Devgn, Madhuri Dixit Nene and A.R. Rahman Lead Sony Pictures Networks India Content Slate",
+      "title": "Bozoma Saint John Signs With CAA (EXCLUSIVE)",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/rohit-sharma-ajay-devgn-ar-rahman-sony-india-content-slate-1236831242/"
+      "url": "https://variety.com/2026/tv/news/bozoma-saint-john-caa-1236831326/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Harry Potter’ Series Star Bel Powley Says ‘I Strongly Disagree With J.K. Rowling’s Views on Gender’: ‘The Trans Community Deserve Safety and Dignity’",
+      "title": "Streaming Saves TV in Upfront, but Ad-Dollar Declines for Linear Are Significant",
       "when": "10 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/harry-potter-bel-powley-jk-rowling-trans-views-strongly-disagree-1236831289/"
+      "url": "https://variety.com/2026/tv/news/streaming-saves-tv-upfront-ad-dollars-linear-decline-fall-1236831373/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "57m ago",
       "lang": "HTML",
       "commit": ""
     }
