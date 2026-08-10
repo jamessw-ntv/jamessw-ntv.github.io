@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-10",
-    "fetched": "2026-08-10T22:44:26+00:00",
+    "fetched": "2026-08-10T23:40:43+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 9,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 9
+      "wind": 10
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90596.0,
-        "pct": -1.47
+        "price": 90581.0,
+        "pct": -1.3
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2653.88,
-        "pct": -2.21
+        "price": 2651.63,
+        "pct": -1.92
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "What to Know About Tupac’s Murder Trial and Suspect Duane ‘Keffe D’ Davis",
+      "when": "10 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/tupac-murder-trial-context-duane-keffe-d-davis-diddy-netflix-memoir-crips-1236831711/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Watch: ‘Star Trek: Outposts Unknown’ Gameplay Reveals Exploring A ‘Strange New Worlds’ Planet",
+      "when": "10 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/10/star-trek-outposts-unknown-reveals-new-planet-how-players-will-explore/"
+    },
     {
       "cat": "Film/TV",
       "title": "Unscripted Producer Rachel Tung Renews ABC & Hulu Development Deal (EXCLUSIVE)",
@@ -111,13 +125,6 @@
       "when": "10 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/hannah-einbinder-jane-schoenbrun-teenage-sex-death-camp-miasma-1236824641/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Damon Wayans Reunites With ‘In Living Color’ Co-Star David Alan Grier in ‘St. Denis Medical’ Season 3 Premiere",
-      "when": "10 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/damon-wayans-in-living-color-st-denis-medical-1236831408/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/08/the-paddington-2-creative-team-was-developing-a-star-wars-movie-centered-on-a-droid.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Star Trek Movie Rereleases Beaming Into Theaters – With Souvenir Popcorn Bucket",
-      "when": "8 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/08/star-trek-movie-rereleases-beaming-into-theaters-with-souvenir-popcorn-bucket/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "55m ago",
+      "pushed": "56m ago",
       "lang": "HTML",
       "commit": ""
     }
