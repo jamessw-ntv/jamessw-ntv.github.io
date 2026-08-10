@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-10",
-    "fetched": "2026-08-10T04:44:19+00:00",
+    "fetched": "2026-08-10T06:14:26+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 12,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 12
+      "wind": 15
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91966.0,
-        "pct": 0.34
+        "price": 92178.0,
+        "pct": 0.58
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2712.0,
-        "pct": 0.23
+        "price": 2722.21,
+        "pct": 0.55
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Germany’s Patra Spanou Film Boards Rodrigo Plá’s ‘The Newcomers’ After World Premiere at Locarno’s Kids Screenings (EXCLUSIVE)",
+      "when": "10 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/rodrigo-pla-newcomers-patra-spanou-film-premiere-at-locarno-1236831020/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "China Box Office: ‘Spider-Man: Brand New Day’ Retains Crown as ‘Once Upon a Time in the Middle East,’ ‘The Odyssey’ Surge in Previews",
+      "when": "10 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/china-box-office-spider-man-brand-new-day-the-odyssey-1236831057/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "John Oliver Takes Shots at Own Company’s DC Superhero Movies on ‘Last Week Tonight’",
+      "when": "10 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/john-oliver-takes-shots-dc-superhero-movies-supergirl-last-week-tonight-1236831053/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Kiran Abbavaram’s Mythological Action-Fantasy for India’s Zee Studios Reveals Title as ‘Indraputra’ (EXCLUSIVE)",
       "when": "10 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/kiran-abbavaram-indraputra-zee-studios-1236830533/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘House of the Dragon’ Star Phia Saban on Helaena’s Finale ‘Tragedy’ and Changes to Maelor Storyline",
-      "when": "10 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/helaena-death-explained-house-of-the-dragon-finale-death-explained-phia-saban-1236830274/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘House of the Dragon’ Star Emma D’Arcy and Creator Ryan Condal on Rhaenyra-Daenerys Finale Connection and What All That Death Means for Season 4",
-      "when": "10 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/house-of-the-dragon-finale-rhaenyra-season-4-tumbleton-battle-1236830373/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘House of the Dragon’ Star James Norton on the Irony of Ormund’s [SPOILER], His ‘Oddly Intimate’ Dynamic With Roddy the Ruin and Why His Love for Daeron Needed to Feel ‘Real’",
-      "when": "10 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/james-norton-ormund-death-house-of-the-dragon-finale-1236830726/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
