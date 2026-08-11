@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-11",
-    "fetched": "2026-08-11T11:00:38+00:00",
+    "fetched": "2026-08-11T11:49:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 8,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 17
+      "wind": 16
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 91
+        "rain": 87
       },
       {
         "day": "Thu",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 48
+        "rain": 59
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90903.0,
-        "pct": -1.11
+        "price": 91046.0,
+        "pct": -1.09
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2669.11,
-        "pct": -1.56
+        "price": 2678.02,
+        "pct": -1.36
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Monica Bellucci Has ‘Never’ Done Anything Like ‘Ketticè’: ‘I Was on Set in My Pajamas With a Knife in My Hand and Slippers on My Feet’",
+      "when": "11 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/monica-bellucci-kettice-locarno-giovanni-tortorici-1236831849/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Films Boutique Nabs Mani Haghighi’s ‘I Deserve a Lover Whose Every Rise Sets Fiery Dooms Raging Across the Skies’ Ahead of New York Premiere (EXCLUSIVE)",
+      "when": "11 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/films-boutique-mani-haghighi-new-york-film-festival-1236831895/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘The Chosen’ Star Jonathan Roumie to Voice Banijay Live’s ‘Luminiscence’ Experience at St. Patrick’s Cathedral",
@@ -97,20 +111,6 @@
       "when": "11 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/george-mackay-louisa-harland-nathalie-emmanuel-the-animals-1236831878/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "RTL Group Posts 3.9% Revenue Rise as Streaming Side Grows, Though Fremantle Continues to Suffer",
-      "when": "11 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/rtl-group-rise-revenue-streaming-grows-1236831855/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘House of the Dragon’ Star Fabien Frankel Joins Short Film ‘Love Unlimited’ (EXCLUSIVE)",
-      "when": "11 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/fabien-frankel-short-film-love-unlimited-1236831857/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "53m ago",
+      "pushed": "48m ago",
       "lang": "HTML",
       "commit": ""
     }
