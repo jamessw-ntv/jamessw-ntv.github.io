@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-11",
-    "fetched": "2026-08-11T16:06:18+00:00",
+    "fetched": "2026-08-11T17:08:00+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 9,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 15
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 14
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90025.0,
-        "pct": -1.06
+        "price": 89845.0,
+        "pct": -0.62
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2637.96,
-        "pct": -0.68
+        "price": 2637.32,
+        "pct": -0.34
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Isabelle Stever Discusses Challenges of Shooting Locarno Competition Title ‘I Rarely Wake Up Dreaming’ During War",
+      "title": "‘Possession’ Remake, Starring Margaret Qualley and Callum Turner, Sets Summer 2027 Release Date",
       "when": "11 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/isabelle-stever-locarno-i-rarely-wake-up-dreaming-ukraine-1236832021/"
+      "url": "https://variety.com/2026/film/news/possession-remake-release-date-margaret-qualley-1236832166/"
     },
     {
       "cat": "Film/TV",
-      "title": "ACLU Demands FCC Release Records Pertaining to ABC Early License Renewal, Alleging Agency’s Stated Rationale for Review ‘Does Not Seem Credible’",
+      "title": "Vin Diesel Cried Over the ‘Fast Forever’ Script, but the Movie’s Director Still Hasn’t Read It: ‘There Will Be an Ending, and It’s Great’",
       "when": "11 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/aclu-fcc-foia-requestabc-early-license-renewal-1236832083/"
+      "url": "https://variety.com/2026/film/news/fast-forever-script-vin-diesel-director-1236832137/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Monster: The Lizzie Borden Story’ Trailer: Ella Beatty Is an Axe Murderer in the Fourth Chapter of Ryan Murphy’s Bloody Anthology Series",
+      "title": "Goya-Nominated Zoe Bonafonte Leads Spain-Argentina Soccer Pioneer Drama ‘Veleta’ (EXCLUSIVE)",
       "when": "11 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/monster-lizzie-borden-story-trailer-netflix-ryan-murphy-1236827673/"
+      "url": "https://variety.com/2026/film/markets-festivals/zoe-bonafonte-veleta-spain-argentina-soccer-drama-1236831557/"
     },
     {
       "cat": "Film/TV",
-      "title": "Mateo Ybarra’s ‘Small Talk,’ a Locarno Premiere, Takes a Peek Into Switzerland’s Last Remaining Etiquette School for Women",
+      "title": "Tammy Fine to Lead Talent Development at NBC News",
       "when": "11 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/mateo-ybarra-small-talk-locarno-world-premiere-doc-fiction-1236831189/"
+      "url": "https://variety.com/2026/tv/news/tammy-fine-nbc-news-talent-development-1236832140/"
     },
     {
       "cat": "Games",
