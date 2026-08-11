@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-11",
-    "fetched": "2026-08-11T13:18:49+00:00",
+    "fetched": "2026-08-11T15:04:29+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 15
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
-        "max": 12,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 100
-      },
-      {
-        "day": "Wed",
         "min": 7,
         "max": 12,
         "icon": "🌦️",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 59
+      },
+      {
+        "day": "Fri",
+        "min": 8,
+        "max": 13,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 22
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90989.0,
-        "pct": -0.98
+        "price": 90222.0,
+        "pct": -1.38
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2673.87,
-        "pct": -1.07
+        "price": 2650.88,
+        "pct": -0.94
       }
     ]
   },
   "releases": [
     {
-      "cat": "Film/TV",
-      "title": "Marina Signs With UTA in All Areas (EXCLUSIVE)",
+      "cat": "Games",
+      "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/marina-signs-with-uta-1236831777/"
+      "source": "Satisfactory",
+      "url": "https://store.steampowered.com/news/app/526870/view/716786751176181500"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Secret Agent’ Star Maria Fernanda Cândido to Lead ‘Lost Objects’ by Brazilian Director Luiz Fernando Carvalho (EXCLUSIVE)",
+      "title": "Sundance Conversion Therapy Horror Film ‘Leviticus’ Director Adrian Chiarella Signs With Anonymous Content (EXCLUSIVE)",
       "when": "11 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/maria-fernanda-candido-lost-objects-luiz-fernando-carvalho-1236831852/"
+      "url": "https://variety.com/2026/film/news/leviticus-director-adrian-chiarella-anonymous-content-1236831624/"
     },
     {
       "cat": "Film/TV",
-      "title": "Rosario Dawson Says Her ‘Spider-Man: Brand New Day’ Cameo ‘Got Cut Out’ and Her Mom Told Her ‘That Sucks’: ‘I Hope I Get to Be Claire Again’",
+      "title": "New York Film Festival Unveils Spotlight Slate With Tom McCarthy’s ‘A Statement,’ Jonathan Glazer’s ‘Joy of Joys’ and More",
       "when": "11 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/rosario-dawson-spider-man-brand-new-day-cameo-cut-out-1236831939/"
+      "url": "https://variety.com/2026/film/awards/new-york-film-festival-spotlight-lineup-2026-1236831634/"
     },
     {
       "cat": "Film/TV",
-      "title": "David Ellison Threatens to Pull Paramount Out of California Starting Oct. 1 if States Refuse to Negotiate Settlement in Antitrust Suit",
+      "title": "‘Josephine’ Trailer: Channing Tatum and Gemma Chan Star as Struggling Parents in Sundance Award-Winning Psychological Thriller",
       "when": "11 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/david-ellison-move-paramount-out-of-california-states-antitrust-lawsuit-1236831936/"
+      "url": "https://variety.com/2026/film/news/josephine-trailer-channing-tatum-gemma-chan-sundance-award-winner-1236831673/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "WNBA Trailblazer Sheryl Swoopes on How Roku’s ‘Gamechangers: Mother/Athlete’ Documentary Spotlights That Balancing Act",
+      "when": "11 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/sheryl-swoopes-director-christine-turner-motherhood-career-roku-gamechangers-mother-athlete-1236831641/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Zero Company’ Demo Review — A Bright Future for Turn-Based Games and ‘Star Wars’ Gaming",
+      "when": "11 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-zero-company-demo-review-a-bright-future-for-turn-based-games-and-star-wars-gaming.html"
     },
     {
       "cat": "Trek/Wars",
@@ -148,25 +162,11 @@
       "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-galactic-racer-promo-goes-under-the-hood.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "The ‘Paddington 2’ Creative Team Was Developing a ‘Star Wars’ Movie Centered On a Droid",
-      "when": "9 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/the-paddington-2-creative-team-was-developing-a-star-wars-movie-centered-on-a-droid.html"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.3.1",
       "when": "24 Jun",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/712279347386384662"
-    },
-    {
-      "cat": "Games",
-      "title": "1.2 Update Fixes v1.2.3.0",
-      "when": "11 Jun",
-      "source": "Satisfactory",
-      "url": "https://store.steampowered.com/news/app/526870/view/686382380150161913"
     }
   ],
   "dev": [
