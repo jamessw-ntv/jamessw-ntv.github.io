@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-12",
-    "fetched": "2026-08-12T02:26:07+00:00",
+    "fetched": "2026-08-12T04:52:46+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 12,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 12
+      "wind": 18
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 100
+        "rain": 98
       },
       {
         "day": "Thu",
@@ -29,7 +29,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 65
+        "rain": 59
       },
       {
         "day": "Fri",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 25
+        "rain": 27
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90372.0,
-        "pct": -0.38
+        "price": 90336.0,
+        "pct": -0.6
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2669.01,
-        "pct": 0.38
+        "price": 2676.38,
+        "pct": 0.52
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "WGA Slams David Ellison’s Plan to Pull Paramount From California: ‘This Type of Behavior Is Precisely Why the Merger Should Be Blocked’",
+      "when": "12 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/wga-david-ellison-paramount-move-california-warner-bros-1236832685/"
+    },
     {
       "cat": "Film/TV",
       "title": "Jenna Ortega ‘Would Go All Day’ Without Food or Water as a Child Star to Make Sure She Wasn’t ‘In the Way of Anybody’",
@@ -104,13 +111,6 @@
       "when": "11 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/john-hinckley-jr-message-jodie-foster-ronald-reagan-1236832616/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Zoe Saldaña Says It’s ‘Frustrating’ When Political Questions Only Get Asked to Actors of Color and Women: ‘That’s Incredibly Limiting’",
-      "when": "11 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/zoe-saldana-political-questions-women-of-color-white-men-1236832484/"
     },
     {
       "cat": "Trek/Wars",
