@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-12",
-    "fetched": "2026-08-12T15:03:24+00:00",
+    "fetched": "2026-08-12T16:04:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89489.0,
-        "pct": -0.83
+        "price": 89696.0,
+        "pct": -0.33
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2663.92,
-        "pct": 0.48
+        "price": 2674.46,
+        "pct": 1.42
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Coyote vs. Acme’ Review: Wile E. Coyote Stars in a Courtroom Comedy That Blends Cartoons and Live Action. But the Fizz of Anarchy Is Missing",
+      "title": "Big Shot Pictures Appoints Adam Rosenberg as Head of Film",
       "when": "12 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/coyote-vs-acme-review-will-forte-wile-e-coyote-1236832065/"
+      "url": "https://variety.com/2026/film/news/adam-rosenberg-head-of-film-big-shot-pictures-1236832319/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The End of Oak Street’ Review: End-of-the-Summer Trash That’s Like a Loopier (and in Some Ways Better) ‘Jurassic’ Movie",
+      "title": "‘The Amazing Race’ Reveals Season 39 Contestants; New Twists Include a Record 13 Express Passes and First-Ever Trip to Albania",
       "when": "12 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-end-of-oak-street-review-anne-hathaway-ewan-mcgregor-1236831473/"
+      "url": "https://variety.com/2026/tv/news/the-amazing-race-season-39-contestants-new-twists-1236832603/"
     },
     {
       "cat": "Film/TV",
-      "title": "Spies in the Woods: Keri Russell and Matthew Rhys on Their Emmy Nominations, Watching ‘Widow’s Bay’ and That ‘Diplomat’ Cliffhanger",
+      "title": "American Film Market Expands With Launch of AFM House, Site of Its Innovation Hub (EXCLUSIVE)",
       "when": "12 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/awards/features/matthew-rhys-keri-russell-couple-interview-widows-bay-emmys-1236831933/"
+      "url": "https://variety.com/2026/film/global/american-film-market-afm-house-innovation-hub-1236832881/"
     },
     {
       "cat": "Film/TV",
-      "title": "YouTube Announces Two Creator Shows Will Screen on Opening Day of TIFF, Hosting Inaugural Creator Festival with Variety",
+      "title": "Box Office: ‘End of Oak Street’ Targets $25 Million Debut, ‘Spider-Man: Brand New Day’ to Remain No. 1",
       "when": "12 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/youtube-tiff-creator-festival-variety-1236832626/"
+      "url": "https://variety.com/2026/film/box-office/end-of-oak-street-box-office-projections-spiderman-continues-domination-1236832153/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘The Fall of Kylo Ren’ #1 Answers Key Questions About First Order in ‘The Rise of Skywalker’",
+      "when": "12 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/review-the-fall-of-kylo-ren-1-answers-key-questions-about-first-order-in-the-rise-of-skywalker.html"
     },
     {
       "cat": "Trek/Wars",
@@ -139,13 +146,6 @@
       "when": "11 Aug",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/716786751176181500"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Zero Company’ Demo Review — A Bright Future for Turn-Based Games and ‘Star Wars’ Gaming",
-      "when": "11 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-zero-company-demo-review-a-bright-future-for-turn-based-games-and-star-wars-gaming.html"
     },
     {
       "cat": "Trek/Wars",
