@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-12",
-    "fetched": "2026-08-12T16:04:06+00:00",
+    "fetched": "2026-08-12T17:05:15+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 8,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 10
+      "wind": 9
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89696.0,
-        "pct": -0.33
+        "price": 89821.0,
+        "pct": -0.05
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2674.46,
-        "pct": 1.42
+        "price": 2674.52,
+        "pct": 1.38
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Big Shot Pictures Appoints Adam Rosenberg as Head of Film",
+      "title": "Top 61 Showrunners of the 2026",
       "when": "12 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/adam-rosenberg-head-of-film-big-shot-pictures-1236832319/"
+      "url": "https://variety.com/2026/tv/news/top-showrunners-2026-1236832499/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Amazing Race’ Reveals Season 39 Contestants; New Twists Include a Record 13 Express Passes and First-Ever Trip to Albania",
+      "title": "‘Seinfeld’ to Stay on Netflix for Another Five Years",
       "when": "12 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/the-amazing-race-season-39-contestants-new-twists-1236832603/"
+      "url": "https://variety.com/2026/tv/news/seinfeld-netflix-streaming-deal-five-years-1236833084/"
     },
     {
       "cat": "Film/TV",
-      "title": "American Film Market Expands With Launch of AFM House, Site of Its Innovation Hub (EXCLUSIVE)",
+      "title": "How ‘Pluribus’ Star Carlos Manuel Vesga Built Manousos’ Pilgrimage of Faith, Exile and Resistance",
       "when": "12 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/american-film-market-afm-house-innovation-hub-1236832881/"
+      "url": "https://variety.com/2026/tv/focus/pluribus-carlos-manuel-vesga-1236831746/"
     },
     {
       "cat": "Film/TV",
-      "title": "Box Office: ‘End of Oak Street’ Targets $25 Million Debut, ‘Spider-Man: Brand New Day’ to Remain No. 1",
+      "title": "‘Boys for Life’ Cast: Alex Wolff, Will Angus and More Almost Friday Stars to Lead Paramount Primal Comedy (EXCLUSIVE)",
       "when": "12 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/end-of-oak-street-box-office-projections-spiderman-continues-domination-1236832153/"
+      "url": "https://variety.com/2026/film/news/boys-for-life-cast-alex-wolff-will-angus-almost-friday-movie-1236832629/"
     },
     {
       "cat": "Trek/Wars",
