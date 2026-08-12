@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-12",
-    "fetched": "2026-08-12T11:52:22+00:00",
+    "fetched": "2026-08-12T13:22:42+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 11
+      "temp": 8,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 10
     },
     "days": [
       {
@@ -33,7 +33,7 @@
       },
       {
         "day": "Fri",
-        "min": 7,
+        "min": 6,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,49 +72,56 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90766.0,
-        "pct": -0.35
+        "price": 90304.0,
+        "pct": -0.7
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2705.18,
-        "pct": 0.98
+        "price": 2692.78,
+        "pct": 0.78
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Best Mother in the World’ Standout Shirley Cruz to Star in Clara Ferrer and Tainá Bevilacqua’s Trans Coming-of-Age ‘The She-Devil’ (EXCLUSIVE)",
+      "title": "Locarno’s Spanish Previews: A Big Basque Period Thriller, the Debut of ‘The Others’ Editor and Tales of Millennials’ New Emotional Bonds",
       "when": "12 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/shirley-cruz-clara-ferrer-taina-bevilacqua-the-she-devil-1236832820/"
+      "url": "https://variety.com/2026/film/global/locarnos-spanish-previews-blind-ants-nacho-ruiz-capillas-1236832803/"
     },
     {
       "cat": "Film/TV",
-      "title": "Beatrice Gibson Questions Motherhood and Womanhood in Her Debut Feature ‘At Night’",
+      "title": "Teona Mitevska, Célina Sciamma and More to Launch Female-Empowerment Initiative Sister Sister at Sarajevo Film Festival (EXCLUSIVE)",
       "when": "12 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/beatrice-gibson-at-night-locarno-film-festival-1236832813/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Wandering Trees’ Review: Iconoclastic Director Salvatore Mereu Tries a Newly Minted Fairyale, but Only Fitfully Finds Magic",
-      "when": "12 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/wandering-trees-review-1236832835/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Alex Cooper and Matt Kaplan’s Unwell Media Company Valued at $500 Million After Investment From Patrick Whitesell’s WTSL",
-      "when": "12 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/alex-cooper-unwell-valuation-patrick-whitesell-wtsl-investment-1236832366/"
+      "url": "https://variety.com/2026/film/global/teona-mitevska-celina-sciamma-sister-sister-sarajevo-1236832787/"
     },
     {
       "cat": "Trek/Wars",
-      "title": "Pluto TV Relaunching Pop Up Category Of 7 Star Trek Channels, Including All The Movies",
+      "title": "‘Star Wars’ October 2026 Comics Preview: Smugglers and Scoundrels, Kylo Ren’s New Threat, and More",
+      "when": "12 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-october-2026-comics-preview-smugglers-and-scoundrels-kylo-rens-new-threat-and-more.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Audible’s ‘Exoplanet’ Sci-Fi Thriller From ‘Project Hail Mary’ Author Andy Weir Stars Anthony Mackie, Ariana DeBose, John Leguizamo",
+      "when": "12 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/digital/news/audible-exoplanet-andy-weir-anthony-mackie-ariana-debose-john-leguizamo-1236832246/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Peter Chan’s Toronto-Bound ‘The Road Not Taken’ Boards Moebius Entertainment for International Sales",
+      "when": "12 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/peter-chan-toronto-the-road-not-taken-moebius-entertainment-1236832879/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Pluto TV Relaunching Pop-Up Category Of 7 Star Trek Channels, Including All The Movies",
       "when": "11 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/11/pluto-tv-relaunching-pop-up-category-of-7-star-trek-channels-including-all-the-movies/"
@@ -153,13 +160,6 @@
       "when": "10 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/10/last-canadian-star-trek-auction-ends-tuesday-with-strange-new-worlds-and-more-memorabilia/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: ‘The Ninth Jedi’ Triumphs, A D23 Preview, and More",
-      "when": "10 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/this-week-in-a-galaxy-far-far-away-the-ninth-jedi-triumphs-a-d23-preview-and-more.html"
     },
     {
       "cat": "Games",
