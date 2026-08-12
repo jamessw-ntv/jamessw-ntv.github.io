@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-12",
-    "fetched": "2026-08-12T22:49:10+00:00",
+    "fetched": "2026-08-12T23:49:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 11,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 8
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89706.0,
-        "pct": -0.34
+        "price": 89691.0,
+        "pct": -0.37
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2657.06,
-        "pct": -0.08
+        "price": 2657.2,
+        "pct": -0.27
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Reacher’ Season 4 Cast Guide: Who’s Who in the Prime Video Action Series",
+      "when": "12 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/lists/reacher-season-4-cast-characters/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "As ‘The Comeback’ and ‘Hacks’ End, Valerie Cherish and Deborah Vance Are Emmy Competitors for the First and Last Time",
+      "when": "12 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/awards/deborah-vance-valerie-cherish-emmy-battle-hacks-comeback-1236833429/"
+    },
     {
       "cat": "Film/TV",
       "title": "Phylicia Rashad on Her Historic Career and the Current State of TV: ‘If There’s Something on That I Don’t Like, I Simply Don’t Watch It’",
@@ -97,20 +111,6 @@
       "when": "12 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/gaming/news/amazon-game-studios-divests-lost-ark-throne-and-liberty-1236833373/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ewan McGregor Says ‘Come On, Disney!’ While Pressuring Studio to Let Him Play Obi-Wan Kenobi Again: ‘They Just Seem Not to Be Ready’",
-      "when": "12 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ewan-mcgregor-obi-wan-kenobi-return-pressures-disney-1236832862/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Bob Chapek, Who Was Ousted as Disney’s CEO, Pens Memoir in Which He Wonders if He Became ‘the Scapegoat’",
-      "when": "12 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/bob-chapek-ousted-disney-ceo-memoir-behind-the-castle-walls-1236833366/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "56m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
