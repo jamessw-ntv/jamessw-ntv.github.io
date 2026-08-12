@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-12",
-    "fetched": "2026-08-12T04:52:46+00:00",
+    "fetched": "2026-08-12T06:19:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 12,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 18
+      "wind": 12
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90336.0,
-        "pct": -0.6
+        "price": 90195.0,
+        "pct": -0.52
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2676.38,
-        "pct": 0.52
+        "price": 2673.03,
+        "pct": 0.7
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Hansal Mehta, Siddharth Bodke on ‘Scam 2010’ as First Look Unveiled for SonyLIV Series: ‘A Story About Ambition, Influence and Arrogance’ (EXCLUSIVE)",
+      "when": "12 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/hansal-mehta-scam-2010-first-look-sonyliv-1236832223/"
+    },
     {
       "cat": "Film/TV",
       "title": "WGA Slams David Ellison’s Plan to Pull Paramount From California: ‘This Type of Behavior Is Precisely Why the Merger Should Be Blocked’",
@@ -104,13 +111,6 @@
       "when": "12 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/the-brink-of-war-review-1236831938/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "John Hinckley Jr. Shares New Message to Jodie Foster, 45 Years After Trying to Assassinate Ronald Reagan to Impress Her: ‘I Wish Her Well’",
-      "when": "11 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/john-hinckley-jr-message-jodie-foster-ronald-reagan-1236832616/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
