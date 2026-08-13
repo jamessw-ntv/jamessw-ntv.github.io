@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-13",
-    "fetched": "2026-08-13T04:57:04+00:00",
+    "fetched": "2026-08-13T06:21:20+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 14,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 11
+      "wind": 8
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90313.0,
-        "pct": -0.06
+        "price": 90441.0,
+        "pct": 0.29
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2682.02,
-        "pct": 0.23
+        "price": 2684.67,
+        "pct": 0.43
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Far From the Trees’ Director Meritxell Colell on Turning Exile and Endangered Languages Into a ‘Body of Memory’",
+      "when": "13 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/global/global/far-from-the-trees-director-meritxell-colell-1236827380/"
+    },
     {
       "cat": "Film/TV",
       "title": "Ritchie Blackmore Performs With Deep Purple for First Time Since Acrimonious Split in Early ’90s, After Warning Fans: ‘I Have Not Played Rock Music in 25 Years’",
@@ -104,13 +111,6 @@
       "when": "13 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/bhagat-singh-series-collective-studios-historyverse-1236833000/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Hollywood’s Top-Grossing Films of 2025 Show Limited Progress Toward Inclusion, Study Says: ‘The Pace of Change Has Been Slow’",
-      "when": "13 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hollywood-diversity-study-annenberg-inclusion-initiative-1236833079/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
