@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-13",
-    "fetched": "2026-08-13T13:24:38+00:00",
+    "fetched": "2026-08-13T15:03:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 9,
-      "icon": "☁️",
-      "desc": "Overcast",
+      "icon": "☀️",
+      "desc": "Clear",
       "wind": 7
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 14,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 27
-      },
-      {
-        "day": "Fri",
         "min": 6,
         "max": 13,
         "icon": "🌦️",
@@ -38,6 +30,14 @@
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 27
+      },
+      {
+        "day": "Sun",
+        "min": 5,
+        "max": 15,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90064.0,
-        "pct": -0.24
+        "price": 90360.0,
+        "pct": 0.89
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2672.96,
-        "pct": -0.73
+        "price": 2678.92,
+        "pct": 0.41
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Netflix’s ‘My Brilliant Career’ Is a Spunky Reimagining of the Australian Period Drama: TV Review",
+      "title": "From Snooki to Spielberg: How New Jersey Reinvented Itself Into Hollywood’s Hottest Production Hub",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/my-brilliant-career-review-netflix-1236833152/"
+      "url": "https://variety.com/2026/film/features/new-jersey-film-industry-production-hub-1236831994/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘American Horror Story: 13’ Teaser Brings Back Jessica Lange and Rubber Man as FX Sets Release Dates for 13 Half-Hour Episodes",
+      "title": "Watch Out, Spider-Man: ‘Marvel’s Wolverine’ Game Could Be the Best Superhero Story of the Year",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/american-horror-story-13-trailer-jessica-lange-rubber-man-1236833666/"
+      "url": "https://variety.com/2026/gaming/news/wolverine-video-game-marvel-spider-man-1236832093/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Far From the Trees’ Review: A Richly Contemplative Journey of Physical and Mental Meanderings, Beautifully Combining 4K Digital with Super 16",
+      "title": "Jared Freid Sets Netflix Comedy Special ‘The Family Plan’ (EXCLUSIVE)",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/far-from-the-trees-review-1236833672/"
+      "url": "https://variety.com/2026/tv/news/jared-freid-netflix-special-the-family-plan-1236832349/"
     },
     {
       "cat": "Film/TV",
-      "title": "David Letterman to Interview Matt Damon, Julia Roberts and More in ‘My Next Guest’ Season 7",
+      "title": "New York Film Festival Reveals Currents Slate With Tala Hadid’s ‘Bardi,’ Beatrice Gibson’s ‘At Night’ and More",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/david-letterman-interview-matt-damon-my-next-guest-1236833517/"
+      "url": "https://variety.com/2026/film/news/new-york-film-festival-currents-lineup-2026-1236833187/"
     },
     {
       "cat": "Trek/Wars",
