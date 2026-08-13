@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-13",
-    "fetched": "2026-08-13T15:03:09+00:00",
+    "fetched": "2026-08-13T16:03:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 8,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 7
+      "wind": 8
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 35
+        "rain": 29
       },
       {
         "day": "Sat",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 27
+        "rain": 13
       },
       {
         "day": "Sun",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90360.0,
-        "pct": 0.89
+        "price": 89820.0,
+        "pct": 0.19
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2678.92,
-        "pct": 0.41
+        "price": 2663.18,
+        "pct": -0.36
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "From Snooki to Spielberg: How New Jersey Reinvented Itself Into Hollywood’s Hottest Production Hub",
+      "title": "Ken Russell’s Controversial NC-17 Horror Film ‘The Devils’ Sets First Look at Restored Cut – Film News in Brief",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/new-jersey-film-industry-production-hub-1236831994/"
+      "url": "https://variety.com/2026/film/news/film-news-in-brief-aug-10-2026-1236831392/"
     },
     {
       "cat": "Film/TV",
-      "title": "Watch Out, Spider-Man: ‘Marvel’s Wolverine’ Game Could Be the Best Superhero Story of the Year",
+      "title": "‘Heated Rivalry’ Season 2 Casts Emily Hampshire,  Edvin Ryding, Robert Naylor, Sabrina Jalees, Priyanka",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/wolverine-video-game-marvel-spider-man-1236832093/"
+      "url": "https://variety.com/2026/tv/news/heated-rivalry-season-2-cast-emily-hampshire-edvin-ryding-1236833810/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jared Freid Sets Netflix Comedy Special ‘The Family Plan’ (EXCLUSIVE)",
+      "title": "Nicole Kidman Got Warned About Marrying Tom Cruise But Fired Back: ‘I Don’t Care. I’m in Love… Of Course I’ll Throw My Career Away’",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jared-freid-netflix-special-the-family-plan-1236832349/"
+      "url": "https://variety.com/2026/film/news/nicole-kidman-tom-cruise-marriage-ruin-career-1236833719/"
     },
     {
       "cat": "Film/TV",
-      "title": "New York Film Festival Reveals Currents Slate With Tala Hadid’s ‘Bardi,’ Beatrice Gibson’s ‘At Night’ and More",
+      "title": "A Bulldog in Business: How Moving into the Booth Opened Other Doors for Dodger Great Orel Hershiser",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/new-york-film-festival-currents-lineup-2026-1236833187/"
+      "url": "https://variety.com/2026/tv/news/orel-hershiser-bulldog-business-broadcasting-1236833448/"
     },
     {
       "cat": "Trek/Wars",
