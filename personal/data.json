@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-13",
-    "fetched": "2026-08-13T22:50:33+00:00",
+    "fetched": "2026-08-13T23:49:41+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
+      "temp": 12,
+      "icon": "☁️",
+      "desc": "Overcast",
       "wind": 7
     },
     "days": [
@@ -21,7 +21,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 29
+        "rain": 41
       },
       {
         "day": "Sat",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 13
+        "rain": 15
       },
       {
         "day": "Sun",
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89898.0,
-        "pct": 0.22
+        "price": 89765.0,
+        "pct": 0.09
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2674.29,
-        "pct": 0.67
+        "price": 2668.6,
+        "pct": 0.44
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Oscar Predictions: Best Actor — The Most Competitive Category Awaits Leading Men Like Tom Cruise, Matt Damon and More",
+      "when": "13 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/feature/2027-oscars-best-actor-predictions-1236834269/"
+    },
     {
       "cat": "Film/TV",
       "title": "Tyler Duckworth, ‘The Challenge’ Reality Show Winner, Dies at 44",
@@ -111,13 +118,6 @@
       "when": "13 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/13/recap-review-star-trek-strange-new-worlds-obscures-shades-of-gray-in-a-case-of-chiaroscuro/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Tramell Tillman Says ‘I Had to Sign NDAs’ Before Even Meeting for ‘Spider-Man: Brand New Day’ Role: ‘A Little Frustrating Because Everything Was Shrouded in Secrecy’",
-      "when": "13 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/tramell-tillman-signed-ndas-spider-man-brand-new-day-role-meeting-1236834204/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "57m ago",
+      "pushed": "59m ago",
       "lang": "HTML",
       "commit": ""
     }
