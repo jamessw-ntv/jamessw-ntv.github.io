@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-13",
-    "fetched": "2026-08-13T08:25:39+00:00",
+    "fetched": "2026-08-13T10:14:24+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 3
+      "temp": 10,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 5
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90466.0,
-        "pct": 0.14
+        "price": 90095.0,
+        "pct": -0.66
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2683.32,
-        "pct": 0.11
+        "price": 2669.41,
+        "pct": -1.26
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "‘Stranger Things’ Star Noah Schnapp to Make Stage Debut in London (EXCLUSIVE)",
+      "when": "13 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/theater/global/noah-schnapp-stage-debut-in-london-affluenza-1236833391/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Drishyam’ Producer Panorama Studios Invests in Indian Vertical Streaming Platform Rocket Reels (EXCLUSIVE)",
+      "when": "13 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/drishyam-producer-panorama-studios-invests-rocket-reels-1236833577/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "BTS’ V Reveals Hearing Loss Amid World Tour",
+      "when": "13 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/bts-v-hearing-loss-1236833589/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Haugesund New Nordic Films Reveals Standout 36 Nordic Projects and 15 Fresh Pics Set to Woo 300 Industry Attendees",
       "when": "13 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/haugesund-new-nordic-films-program-2-1236833549/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Wrong Girls’ Review: Kristen Stewart and Alia Shawkat Are a Good Time in Dylan Meyer’s Shaggy Stoner Comedy",
-      "when": "13 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-wrong-girls-review-kristen-stewart-1236833555/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Busan’s Asian Contents & Film Market Names Japan 2026 Focus Country for Producer Hub",
-      "when": "13 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/busan-acfm-japan-2026-focus-country-producer-hub-1236833558/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Far From the Trees’ Director Meritxell Colell on Turning Exile and Endangered Languages Into a ‘Body of Memory’",
-      "when": "13 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/global/global/far-from-the-trees-director-meritxell-colell-1236827380/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
