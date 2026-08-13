@@ -3,21 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-13",
-    "fetched": "2026-08-13T19:10:16+00:00",
+    "fetched": "2026-08-13T20:50:50+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 5
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 3
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
+        "min": 7,
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -25,10 +25,10 @@
       },
       {
         "day": "Sat",
-        "min": 6,
+        "min": 7,
         "max": 14,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 13
       },
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89771.0,
-        "pct": 0.05
+        "price": 89726.0,
+        "pct": -0.15
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2673.53,
-        "pct": 0.18
+        "price": 2669.07,
+        "pct": 0.02
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Netflix Shuts Down Studio Behind ‘Unhinged’ Game 6 Weeks After Release",
+      "title": "Tramell Tillman Says ‘I Had to Sign NDAs’ Before Even Meeting for ‘Spider-Man: Brand New Day’ Role: ‘A Little Frustrating Because Everything Was Shrouded in Secrecy’",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/netflix-closes-unhinged-video-game-studio-night-school-1236834103/"
+      "url": "https://variety.com/2026/film/news/tramell-tillman-signed-ndas-spider-man-brand-new-day-role-meeting-1236834204/"
     },
     {
       "cat": "Film/TV",
-      "title": "Inside the Disney Machine: How the Iconic Brand Is Discovering the Next Generation of Stars",
+      "title": "NFL Preseason 2026 Livestream: Here’s Where to Watch Pro Football Games Online",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/disney-next-generation-stars-1236832245/"
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-nfl-preseason-games-online-livestream-free-1236480652/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Ted Lasso’ Season 4 Opens With 296.6 Million Minutes Watched in Two Days, Apple TV’s Biggest Launch Ever",
+      "title": "Warner Bros. Discovery’s Gerhard Zeiler to Recieve Directorate Award at This Year’s International Emmys",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ted-lasso-season-4-ratings-apple-tv-1236834053/"
+      "url": "https://variety.com/2026/tv/news/warner-bros-discovery-gerhard-zeiler-international-emmy-1236834184/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘KPop Demon Hunters’ Singer Ejae ‘Made Mistakes’ During BAFTAs Performance After Seeing Leonardo DiCaprio: ‘He Was Not Smiling’ and ‘That’s What Put Me Off’",
+      "title": "‘House of the Dragon’ Season 3 Finale Hits 21 Million Viewers in Three Days",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/kpop-demon-hunters-ejae-leonardo-dicaprio-1236834101/"
+      "url": "https://variety.com/2026/tv/news/house-of-the-dragon-season-3-finale-ratings-1236834172/"
     },
     {
       "cat": "Trek/Wars",
