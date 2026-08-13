@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-13",
-    "fetched": "2026-08-13T11:52:59+00:00",
+    "fetched": "2026-08-13T13:24:38+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 6
+      "temp": 9,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 7
     },
     "days": [
       {
@@ -25,7 +25,7 @@
       },
       {
         "day": "Fri",
-        "min": 7,
+        "min": 6,
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -33,10 +33,10 @@
       },
       {
         "day": "Sat",
-        "min": 5,
+        "min": 6,
         "max": 14,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 27
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89919.0,
-        "pct": -0.95
+        "price": 90064.0,
+        "pct": -0.24
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2662.73,
-        "pct": -1.59
+        "price": 2672.96,
+        "pct": -0.73
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Heated Rivalry’ Actor Dylan Walsh ‘in Trouble’ After Saying on Cameo That 12 New Episodes Are Being Shot: I’m ‘Stepping Away’ From the Platform",
+      "title": "Netflix’s ‘My Brilliant Career’ Is a Spunky Reimagining of the Australian Period Drama: TV Review",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/heated-rivalry-dylan-walsh-cameo-1236833640/"
+      "url": "https://variety.com/2026/tv/reviews/my-brilliant-career-review-netflix-1236833152/"
     },
     {
       "cat": "Film/TV",
-      "title": "The Cure Plays the Hits — and Robert Smith Tears Up at ‘Just Like Heaven’ — in Nostalgic, Whimsical Øyafestivalen Set: Concert Review",
+      "title": "‘American Horror Story: 13’ Teaser Brings Back Jessica Lange and Rubber Man as FX Sets Release Dates for 13 Half-Hour Episodes",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/global/the-cure-robert-smith-tears-up-oya-fest-review-1236833592/"
+      "url": "https://variety.com/2026/tv/news/american-horror-story-13-trailer-jessica-lange-rubber-man-1236833666/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Warrior Cats’ Animated Series Debuts First Footage, Character Model at Tencent Video Event",
+      "title": "‘Far From the Trees’ Review: A Richly Contemplative Journey of Physical and Mental Meanderings, Beautifully Combining 4K Digital with Super 16",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/warrior-cats-animated-series-first-footage-character-model-tencent-video-1236833612/"
+      "url": "https://variety.com/2026/film/reviews/far-from-the-trees-review-1236833672/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Othello’ Royal Shakespeare Company Adaptation Starring Sharon D. Clarke Postponed as She Undergoes Cancer Treatment",
+      "title": "David Letterman to Interview Matt Damon, Julia Roberts and More in ‘My Next Guest’ Season 7",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/theater/news/sharon-d-clarke-othello-postponed-cancer-treatment-1236833617/"
+      "url": "https://variety.com/2026/tv/news/david-letterman-interview-matt-damon-my-next-guest-1236833517/"
     },
     {
       "cat": "Trek/Wars",
