@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-13",
-    "fetched": "2026-08-13T18:01:28+00:00",
+    "fetched": "2026-08-13T19:10:16+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
+      "temp": 8,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 5
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89410.0,
-        "pct": -0.45
+        "price": 89771.0,
+        "pct": 0.05
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2658.02,
-        "pct": -0.5
+        "price": 2673.53,
+        "pct": 0.18
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "6 Things You Need to Know About the Shocking $12.5 Billion Lakers Sale",
+      "title": "Netflix Shuts Down Studio Behind ‘Unhinged’ Game 6 Weeks After Release",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/sports/news/los-angeles-lakers-sale-1236834013/"
+      "url": "https://variety.com/2026/gaming/news/netflix-closes-unhinged-video-game-studio-night-school-1236834103/"
     },
     {
       "cat": "Film/TV",
-      "title": "Netflix FTX Series ‘The Altruists’ Sets November Release Date, Drops First Look Photos",
+      "title": "Inside the Disney Machine: How the Iconic Brand Is Discovering the Next Generation of Stars",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-the-altruists-release-date-first-look-photos-1236833976/"
+      "url": "https://variety.com/2026/tv/news/disney-next-generation-stars-1236832245/"
     },
     {
       "cat": "Film/TV",
-      "title": "Matthew McConaughey Turned Down Playing Joel in HBO’s ‘Last of Us’ Even Though It Was ‘Really Good’: ‘It Wasn’t for Me at the Time’",
+      "title": "‘Ted Lasso’ Season 4 Opens With 296.6 Million Minutes Watched in Two Days, Apple TV’s Biggest Launch Ever",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/matthew-mcconaughey-last-of-us-hbo-joel-1236833955/"
+      "url": "https://variety.com/2026/tv/news/ted-lasso-season-4-ratings-apple-tv-1236834053/"
     },
     {
       "cat": "Film/TV",
-      "title": "How Filmhub is Investing in the Creator Economy Through New Deal With UnderCurrent (EXCLUSIVE)",
+      "title": "‘KPop Demon Hunters’ Singer Ejae ‘Made Mistakes’ During BAFTAs Performance After Seeing Leonardo DiCaprio: ‘He Was Not Smiling’ and ‘That’s What Put Me Off’",
       "when": "13 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/filmhub-undercurrent-deal-kelsi-davies-jimmy-here-1236833214/"
+      "url": "https://variety.com/2026/film/news/kpop-demon-hunters-ejae-leonardo-dicaprio-1236834101/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "56m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
