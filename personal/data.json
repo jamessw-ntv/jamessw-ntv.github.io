@@ -2,38 +2,38 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-13",
-    "fetched": "2026-08-13T23:49:41+00:00",
+    "updated": "2026-08-14",
+    "fetched": "2026-08-14T02:26:13+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 14,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 7
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 13,
+        "min": 8,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 41
       },
       {
         "day": "Sat",
-        "min": 7,
-        "max": 14,
+        "min": 8,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 15
       },
       {
         "day": "Sun",
-        "min": 5,
+        "min": 6,
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89765.0,
-        "pct": 0.09
+        "price": 89914.0,
+        "pct": 0.07
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2668.6,
-        "pct": 0.44
+        "price": 2671.6,
+        "pct": 0.52
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Oscar Predictions: Supporting Actress — Is This the Year of Penélope Cruz?",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/feature/2027-oscars-best-supporting-actress-predictions-1236834272/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Oscar Predictions: Supporting Actor — How Many Men Can be Nominated From ‘The Odyssey’?",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/feature/2027-oscars-best-supporting-actor-predictions-1236834271/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Oscar Predictions: Best Actress — How Obsessed Will the Academy Become With Inde Navarrette?",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/feature/2027-oscars-best-actress-predictions-1236834270/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Oscar Predictions: Best Actor — The Most Competitive Category Awaits Leading Men Like Tom Cruise, Matt Damon and More",
       "when": "13 Aug",
       "source": "Variety",
       "url": "https://variety.com/feature/2027-oscars-best-actor-predictions-1236834269/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Tyler Duckworth, ‘The Challenge’ Reality Show Winner, Dies at 44",
-      "when": "13 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/tyler-duckworth-dead-the-challenge-1236834280/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Warner Bros. Discovery CEO David Zaslav Beneficiary of $21.7 Million Stock Sale as Paramount Merger Is Stuck on Hold",
-      "when": "13 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/warner-bros-discovery-david-zaslav-sells-21-7-million-stock-1236834226/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Matthew McConaughey Says Acting in ‘The Wedding Planner’ With Jennifer Lopez Saved Him From Being Searched at U.S.-Mexico Border: ‘They Let Me Go’",
-      "when": "13 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/matthew-mcconaughey-wedding-planner-mexico-border-jennifer-lopez-1236833933/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "59m ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
