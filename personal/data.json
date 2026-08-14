@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-14",
-    "fetched": "2026-08-14T08:20:49+00:00",
+    "fetched": "2026-08-14T10:10:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 10,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 9
+      "wind": 8
     },
     "days": [
       {
@@ -72,18 +72,53 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88919.0,
-        "pct": -1.71
+        "price": 88706.0,
+        "pct": -1.55
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2647.73,
-        "pct": -1.32
+        "price": 2647.19,
+        "pct": -0.81
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘The Devil Wears Prada 2’ Is Drawing Tourists to Milan Prompting an 18% Increase in Visitors to the Film’s Locations in Italy’s Fashion Capital",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/the-devil-wears-prada-2-tourists-milan-italy-fashion-1236833591/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Nigel Farage Documentary ‘Where Does the Money Come From?’ Set at U.K. Broadcaster 5 as Parliamentary Standards Watchdog Reopens Finance Probe",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/nigel-farage-documentary-5-standards-probe-1236834471/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘Star Wars: Cloak of Deception’ and ‘Labyrinth of Evil’ Audiobooks Breathe New Life Into Old Favorites",
+      "when": "14 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/review-star-wars-cloak-of-deception-and-labyrinth-of-evil-audiobooks-breathe-new-life-into-old-favorites.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘The Fall of Kylo Ren’ #1 Answers Key Questions About First Order in ‘The Rise of Skywalker’",
+      "when": "14 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/review-the-fall-of-kylo-ren-1-answers-key-questions-about-first-order-in-the-rise-of-skywalker.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars’ October 2026 Comics Preview: Smugglers and Scoundrels, Kylo Ren’s New Threat, and More",
+      "when": "14 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-october-2026-comics-preview-smugglers-and-scoundrels-kylo-rens-new-threat-and-more.html"
+    },
     {
       "cat": "Film/TV",
       "title": "TV Academy Hall of Fame: Sheila Nevins, Absent Due to COVID, Thanks Dr. Fauci for the Vaccine; Bill Hader Pays Tribute to the ‘South Park’ Creators With a ‘Fish Dick’ Story and More",
@@ -99,46 +134,11 @@
       "url": "https://variety.com/2026/film/reviews/you-dont-belong-here-review-1236834459/"
     },
     {
-      "cat": "Film/TV",
-      "title": "Fukada Koji, Jakrawal Nilthamrong, Boo Junfeng Films Win Busan Co-Production Fund",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/fukada-koji-jakrawal-nilthamrong-boo-junfeng-busan-fund-1236834448/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Rani Mukerji Receives La Trobe Honorary Doctorate, Wins IFFM Special Citation",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/rani-mukerji-la-trobe-honorary-doctorate-iffm-citation-1236834439/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Obscures Shades Of Gray In “A Case of Chiaroscuro”",
       "when": "13 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/13/recap-review-star-trek-strange-new-worlds-obscures-shades-of-gray-in-a-case-of-chiaroscuro/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘Star Wars: Cloak of Deception’ and ‘Labyrinth of Evil’ Audiobooks Breathe New Life Into Old Favorites",
-      "when": "12 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/review-star-wars-cloak-of-deception-and-labyrinth-of-evil-audiobooks-breathe-new-life-into-old-favorites.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘The Fall of Kylo Ren’ #1 Answers Key Questions About First Order in ‘The Rise of Skywalker’",
-      "when": "12 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/review-the-fall-of-kylo-ren-1-answers-key-questions-about-first-order-in-the-rise-of-skywalker.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars’ October 2026 Comics Preview: Smugglers and Scoundrels, Kylo Ren’s New Threat, and More",
-      "when": "12 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-october-2026-comics-preview-smugglers-and-scoundrels-kylo-rens-new-threat-and-more.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
