@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-14",
-    "fetched": "2026-08-14T10:10:02+00:00",
+    "fetched": "2026-08-14T11:50:05+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 8
+      "temp": 11,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 6
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88706.0,
-        "pct": -1.55
+        "price": 88678.0,
+        "pct": -1.38
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2647.19,
-        "pct": -0.81
+        "price": 2650.11,
+        "pct": -0.48
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "San Sebastian Adds Jesse Eisenberg, Fred Cavayé, Amanda Kernell Films to Golden Shell Race",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/san-sebastian-jesse-eisenberg-fred-cavaye-amanda-kernell-1236834484/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Golden Lion Winner Milcho Manchevski Talks ‘Giving a Voice’ to Pulse Nightclub Survivors With ‘Good People’: ‘Our Job Was to Stay Out of the Way’",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/golden-lion-winner-milcho-manchevski-good-people-sarajevo-1236831946/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘The Devil Wears Prada 2’ Is Drawing Tourists to Milan Prompting an 18% Increase in Visitors to the Film’s Locations in Italy’s Fashion Capital",
@@ -118,20 +132,6 @@
       "when": "14 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-october-2026-comics-preview-smugglers-and-scoundrels-kylo-rens-new-threat-and-more.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "TV Academy Hall of Fame: Sheila Nevins, Absent Due to COVID, Thanks Dr. Fauci for the Vaccine; Bill Hader Pays Tribute to the ‘South Park’ Creators With a ‘Fish Dick’ Story and More",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/tv-academy-hall-of-fame-south-park-shiela-nevins-dr-fauci-1236834438/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘You Don’t Belong Here’ Review: A Potentially Involving Story Is Weakened by Airless Dialogue and a Misguided Finale",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/you-dont-belong-here-review-1236834459/"
     },
     {
       "cat": "Trek/Wars",
