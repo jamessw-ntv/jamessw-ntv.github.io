@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-14",
-    "fetched": "2026-08-14T02:26:13+00:00",
+    "fetched": "2026-08-14T04:53:27+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 11
+      "temp": 13,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 6
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 41
+        "rain": 24
       },
       {
         "day": "Sat",
@@ -29,7 +29,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 15
+        "rain": 10
       },
       {
         "day": "Sun",
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89914.0,
-        "pct": 0.07
+        "price": 89669.0,
+        "pct": -0.73
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2671.6,
-        "pct": 0.52
+        "price": 2666.15,
+        "pct": -0.6
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Troye Sivan Brings Nicole Kidman to the Club for ‘She’s the Best’ Music Video",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/troye-sivan-nicole-kidman-shes-the-best-music-video-1236834397/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Phoebe Bridgers Leads Delighted Fans Around the Rink at a Rollerskating Listening Party for ‘Lost Weekend’",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/phoebe-bridgers-rollerskating-release-party-qa-lost-weekend-1236834356/"
+    },
     {
       "cat": "Film/TV",
       "title": "Oscar Predictions: Supporting Actress — Is This the Year of Penélope Cruz?",
@@ -97,20 +111,6 @@
       "when": "14 Aug",
       "source": "Variety",
       "url": "https://variety.com/feature/2027-oscars-best-supporting-actor-predictions-1236834271/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Oscar Predictions: Best Actress — How Obsessed Will the Academy Become With Inde Navarrette?",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/feature/2027-oscars-best-actress-predictions-1236834270/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Oscar Predictions: Best Actor — The Most Competitive Category Awaits Leading Men Like Tom Cruise, Matt Damon and More",
-      "when": "13 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/feature/2027-oscars-best-actor-predictions-1236834269/"
     },
     {
       "cat": "Trek/Wars",
