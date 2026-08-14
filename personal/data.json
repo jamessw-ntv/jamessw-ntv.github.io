@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-14",
-    "fetched": "2026-08-14T17:56:17+00:00",
+    "fetched": "2026-08-14T19:01:57+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 4
+      "temp": 8,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 2
     },
     "days": [
       {
@@ -72,52 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88998.0,
-        "pct": -0.51
+        "price": 88763.0,
+        "pct": -0.99
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2653.71,
-        "pct": -0.16
+        "price": 2645.69,
+        "pct": -0.92
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Pretty Babies’ Director Tyler-Marie Evans on Sex Work, Female Friendship and Finding Humanity Beyond Stereotypes",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/pretty-babies-director-tyler-marie-evans-1236833628/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "DIRECTV Drops Price of Sports Genre Pack to Under $50 for First Month Just in Time for Fall Football Season",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/directv-mysports-genre-pack-deal-pricing-channel-details-1236834741/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Kate O’Flynn on Her ‘Widow’s Bay’ Breakout, Mike Leigh’s Final Film and Her Emmy Nomination: ‘I Felt Like an Ostrich’",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/awards/kate-oflynn-widows-bay-emmys-mike-leigh-1236828796/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "California Bill to Subsidize Post-Production Advances as Commercials Bill Dies",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/california-bill-post-production-commercials-1236834698/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘LEGO Star Wars: The Mandalorian’ Trailer Arrives Ahead of September 2 Premiere",
       "when": "14 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/lego-star-wars-the-mandalorian-trailer-arrives-ahead-of-september-2-premiere.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Practical Magic 2’ Inspires Wave of Witchy Merch, Including Gemstone Jewelry, Retro Tees and ‘Midnight Margaritas Club’ Aprons",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/practical-magic-first-merchandise-collection-sequel-1236828020/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jeff Bezos Buying Ownership Stake in English Premiere League’s Liverpool Soccer Team",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/jeff-bezos-acquires-ownership-stake-liverpool-football-club-1236834688/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Venice: M-Appeal Picks Up Chinese Director Jie Dong’s ‘Zoom In, Zoom Out’ Ahead of Premiere (EXCLUSIVE)",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/m-appeal-jie-dongs-zoom-in-zoom-out-venice-1236834666/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Afrobeats Superstar Ayra Starr on the Freedom She Felt Making ‘Starrgirl’: ‘I Kept Telling People, “Let Me Cook!”’",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/ayra-starr-starrgirl-afrobeats-1236834684/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "56m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
