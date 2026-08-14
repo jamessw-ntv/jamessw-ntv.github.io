@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-14",
-    "fetched": "2026-08-14T20:36:32+00:00",
+    "fetched": "2026-08-14T21:30:20+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 6,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 3
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 2
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88763.0,
-        "pct": -1.18
+        "price": 88806.0,
+        "pct": -1.14
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2650.82,
-        "pct": -0.85
+        "price": 2652.99,
+        "pct": -0.75
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Grammys May Reconsider New Asian Pop Award After BTS Withdrawal: ‘Some Artists Feel This Category Isn’t Representing the Music They Create’",
+      "title": "Anne Hathaway Says ‘Movies That Kill Dogs Should Automatically Be Rated R’",
       "when": "14 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/global/news/grammys-may-reconsider-asian-pop-award-bts-withdrawal-1236834891/"
+      "url": "https://variety.com/2026/film/news/anne-hathaway-movies-dog-deaths-rated-r-1236834811/"
     },
     {
       "cat": "Film/TV",
-      "title": "Paramount-Warner Bros. Merger Gets Mexico’s Approval, Leaving States’ Lawsuit as the Only Barrier Left",
+      "title": "‘Top Chef’ Host Kristen Kish on How Her Fellow Judges and People Around Her ‘Helped Me Get to a Place Where I Felt Like My Best Self’",
       "when": "14 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-warner-bros-mexicos-settle-ellison-1236834861/"
+      "url": "https://variety.com/2026/tv/awards/top-chef-host-kristen-kish-podcast-interview-1236834230/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Disney Dreamlight Valley’ Reveals Details on Next Expansion, Including Oogie Boogie, Lilo, Hannah Montana and More",
+      "title": "‘Hacks’ Star Lauren Weedman on Appearing Four Emmy-Nominated Comedies This Year and How Bell’s Palsy Changed Her Career",
       "when": "14 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/disney-dreamlight-valley-oogie-boogie-hannah-montana-1236833796/"
+      "url": "https://variety.com/2026/awards/news/hacks-lauren-weedman-bells-palsy-1236834102/"
     },
     {
       "cat": "Film/TV",
-      "title": "Frankie Valli Denies News Reports He Has Retired, Disavowing Brother’s Statement",
+      "title": "Warner Bros. Discovery CEO David Zaslav Beneficiary of $27.1 Million in Stock Sales as Paramount Merger Is Stuck on Hold",
       "when": "14 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/frankie-valli-denies-retired-brother-claim-statement-1236834736/"
+      "url": "https://variety.com/2026/tv/news/warner-bros-discovery-david-zaslav-sells-27-million-stock-1236834226/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "45m ago",
+      "pushed": "53m ago",
       "lang": "HTML",
       "commit": ""
     }
