@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-14",
-    "fetched": "2026-08-14T15:57:09+00:00",
+    "fetched": "2026-08-14T16:59:44+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 9,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 5
+      "wind": 4
     },
     "days": [
       {
@@ -72,18 +72,46 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88743.0,
-        "pct": -1.47
+        "price": 89040.0,
+        "pct": -0.27
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2651.41,
-        "pct": -0.77
+        "price": 2658.6,
+        "pct": 0.26
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Spider-Man: Beyond the Spider-Verse’ Trailer Leaks Online, Prompting Co-Writer Chris Miller to Speak Out: ‘Not a Fan of Leaks of Unfinished Footage’",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/spider-man-beyond-spider-verse-trailer-leak-1236834648/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Oscar Predictions: Best Director — Could Christopher Nolan Triumph Again With ‘The Odyssey’?",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/feature/2027-oscars-best-director-predictions-1236834268/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Kyle Chandler and Aaron Pierre Are Great ‘Lanterns’, but HBO’s DC Drama Is Overshadowed by Its Influences: TV Review",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/reviews/lanterns-review-kyle-chandler-aaron-pierre-hbo-dc-1236833207/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Neil deGrasse Tyson, Neal Stephenson, Mira Lane, Rod Roddenberry to Judge XPRIZE Sci-Fi Film Competition",
+      "when": "14 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/neil-degrasse-tyson-judges-xprize-scifi-film-competition-1236834144/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘The Mandalorian and Grogu’ Confirmed to Hit Disney Plus on September 2nd",
@@ -92,39 +120,11 @@
       "url": "https://www.starwarsnewsnet.com/2026/08/the-mandalorian-and-grogu-confirmed-to-hit-disney-plus-on-september-2nd.html"
     },
     {
-      "cat": "Film/TV",
-      "title": "J. Smith-Cameron and Jefferson White Cast in Jeff Rutherford’s Sophomore Feature ‘In Our Own Sweet Way’ (EXCLUSIVE)",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/j-smith-cameron-jefferson-white-jeff-rutherford-in-our-own-sweet-way-1236834558/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Box Office: ‘End of Oak Street’ Makes $2.5 Million in Previews",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/box-office-end-of-oak-street-previews-1236833323/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Mandalorian and Grogu’ Sets Disney+ Release Date in September",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-mandalorian-and-grogu-disney-plus-streaming-release-date-1236788894/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Bib Fortuna – ‘Star Wars’ Character Spotlight",
       "when": "14 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/bib-fortuna-star-wars-character-spotlight.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Lioness’ Season 3 Opens With 7.1 Million Viewers in Three Days, Up From Season 2 (EXCLUSIVE)",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/lioness-season-3-ratings-1236834353/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "59m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
