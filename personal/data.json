@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-15",
-    "fetched": "2026-08-15T05:30:39+00:00",
+    "fetched": "2026-08-15T06:48:45+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 10
+      "temp": 12,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 7
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89109.0,
-        "pct": -0.5
+        "price": 89012.0,
+        "pct": -0.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2658.65,
-        "pct": -0.14
+        "price": 2655.59,
+        "pct": 0.06
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Starfighter’ Teaser Shown at D23, Ryan Gosling’s Character Name Revealed",
+      "when": "15 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-starfighter-teaser-shown-at-d23-ryan-goslings-character-name-revealed.html"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Frozen 3’ First Details: Anna and Kristoff Get Married, Olaf Gets a Girlfriend and a New Villain Emerges",
@@ -128,13 +135,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "‘The Mandalorian and Grogu’ Confirmed to Hit Disney Plus on September 2nd",
-      "when": "14 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/the-mandalorian-and-grogu-confirmed-to-hit-disney-plus-on-september-2nd.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Podcast: All Access Star Trek Rounds Up 60th Anniversary Events And Has A Case Of Chiaroscuro",
       "when": "14 Aug",
       "source": "TrekMovie",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "53m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
