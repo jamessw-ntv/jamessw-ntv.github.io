@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-15",
-    "fetched": "2026-08-15T19:25:57+00:00",
+    "fetched": "2026-08-15T20:28:45+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,20 +12,20 @@
       "temp": 4,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 4
+      "wind": 3
     },
     "days": [
       {
         "day": "Today",
         "min": 4,
-        "max": 14,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
         "day": "Mon",
-        "min": 6,
+        "min": 5,
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89073.0,
-        "pct": 0.44
+        "price": 89019.0,
+        "pct": 0.25
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2658.93,
-        "pct": 0.5
+        "price": 2657.3,
+        "pct": 0.22
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘How the F— Would You Get This Movie Made in America?’ Christine Vachon, Film4, BBC Film Put ‘Trainspotting,’ ‘Ratcatcher’ and ‘The Wicker Man’ Through the 2026 Greenlight Test",
+      "when": "15 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/how-would-you-get-this-movie-made-vachon-film4-bbc-1236835455/"
+    },
     {
       "cat": "Film/TV",
       "title": "Selena Gomez Slams ‘Completely Meritless’ Wondermind Lawsuit, Will File to Dismiss ‘Baseless Claims’",
@@ -104,13 +111,6 @@
       "when": "15 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/shopping/news/how-to-watch-ufc-330-makhachev-vs-machado-garry-live-online-free-1236833641/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Dave Marsh, Bruce Springsteen Biographer and Rock Critic, Dies at 76",
-      "when": "15 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/dave-marsh-dead-bruce-springsteen-born-to-run-1236835488/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "48m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
