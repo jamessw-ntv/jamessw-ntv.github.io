@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-15",
-    "fetched": "2026-08-15T04:37:28+00:00",
+    "fetched": "2026-08-15T05:30:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 9
+      "temp": 13,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 10
     },
     "days": [
       {
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89103.0,
-        "pct": -0.64
+        "price": 89109.0,
+        "pct": -0.5
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2659.88,
-        "pct": -0.29
+        "price": 2658.65,
+        "pct": -0.14
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Zootopia 3’ in the Works at Disney",
+      "title": "‘Frozen 3’ First Details: Anna and Kristoff Get Married, Olaf Gets a Girlfriend and a New Villain Emerges",
       "when": "15 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/zootopia-3-disney-1236835053/"
+      "url": "https://variety.com/2026/film/news/frozen-3-first-details-anna-kristoff-married-olaf-love-1236822955/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Ahsoka’ Season 2 Trailer: Ahsoka and Anakin Reunite as Grand Admiral Thrawn Declares War on the Rebels",
+      "title": "Marvel’s ‘X-Men’ Reboot Sets May 2028 Release Date",
       "when": "15 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ahsoka-season-2-release-date-star-wars-1236826698/"
+      "url": "https://variety.com/2026/film/news/x-men-release-date-marvel-reboot-1236816959/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Star Wars: Starfighter’ Footage: Ryan Gosling Races Through the Galaxy With Young Sidekick",
+      "when": "15 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/star-wars-starfighter-trailer-ryan-gosling-1236712809/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Disney’s ‘Hexed’ Adds Walton Goggins and Jodie Foster to Cast",
+      "when": "15 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/hexed-cast-walton-goggins-jodie-foster-1236834882/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +118,6 @@
       "when": "15 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/ahsoka-season-2-teaser-trailer-arrives.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘X-Men’ Movie Casts Inde Navarrette as Rogue, Christopher Abbott as Prof. X, Adam Driver as Mr. Sinister and Maya Boyd as Storm",
-      "when": "15 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/x-men-cast-inde-navarrette-rogue-christopher-abbott-prof-x-adam-driver-mr-sinister-1236817698/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Avengers: Doomsday’ Trailer: Robert Downey Jr. Faces Off Against Mister Fantastic, X-Men and Avengers With Army of Sentinels",
-      "when": "15 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/avengers-doomsday-trailer-d23-1236817670/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "52m ago",
+      "pushed": "53m ago",
       "lang": "HTML",
       "commit": ""
     }
