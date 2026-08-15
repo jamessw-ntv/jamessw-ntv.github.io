@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-15",
-    "fetched": "2026-08-15T02:57:01+00:00",
+    "fetched": "2026-08-15T03:44:57+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89105.0,
-        "pct": -0.95
+        "price": 89015.0,
+        "pct": -0.76
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2659.69,
-        "pct": -0.49
+        "price": 2658.33,
+        "pct": -0.33
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Incredibles 3’ Drops First Look Concept Art Ahead of Summer 2028 Release Date",
+      "title": "‘Percy Jackson’ Season 3 Trailer: ‘The Titan’s Curse’ Comes to Life With Prophecies and a Quest to Save Annabeth",
       "when": "15 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/incredibles-3-first-look-concept-art-1236825985/"
+      "url": "https://variety.com/2026/tv/news/percy-jackson-season-3-trailer-1236824508/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘KPop Demon Hunters’ Reveals New Cover Art for Criterion Blu-ray Release",
+      "title": "‘The Bluey Movie’ First Look: Bluey and Her Family Hit the Big Screen With New 3D Animation Style",
       "when": "15 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/kpop-demon-criterion-blu-ray-buy-online-1236759288/"
+      "url": "https://variety.com/2026/film/news/bluey-movie-first-look-1236830136/"
     },
     {
       "cat": "Film/TV",
-      "title": "Emmy Predictions: ‘The Pitt,’ ‘Hacks’ and ‘Beef’ Head Into Final Voting With History on Their Side (and Against Them)",
+      "title": "Sony Pictures Networks India Sets October Launch for New Tamil Channel Vizha (EXCLUSIVE)",
       "when": "15 Aug",
       "source": "Variety",
-      "url": "https://variety.com/lists/2026-emmys-predictions/"
+      "url": "https://variety.com/2026/tv/news/sony-india-october-launch-tamil-channel-vizha-1236834489/"
     },
     {
       "cat": "Film/TV",
-      "title": "Netflix Pushes Back on Tyra Banks ‘Reality Check’ Defamation Suit",
+      "title": "‘Lilo & Stitch 2’ Drops First Look of Pink Alien Angel in Live-Action Sequel",
       "when": "15 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-dismiss-tyra-banks-reality-check-defamation-suit-1236834978/"
+      "url": "https://variety.com/2026/film/news/lilo-and-stitch-2-angel-pink-alien-1236442313/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "47m ago",
       "lang": "HTML",
       "commit": ""
     }
