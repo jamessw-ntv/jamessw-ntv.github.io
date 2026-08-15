@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-15",
-    "fetched": "2026-08-15T01:37:29+00:00",
+    "fetched": "2026-08-15T02:57:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
+      "temp": 14,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 8
+      "wind": 7
     },
     "days": [
       {
@@ -37,7 +37,7 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 6
+        "rain": 2
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88978.0,
-        "pct": -1.03
+        "price": 89105.0,
+        "pct": -0.95
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2659.34,
-        "pct": -0.45
+        "price": 2659.69,
+        "pct": -0.49
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Incredibles 3’ Drops First Look Concept Art Ahead of Summer 2028 Release Date",
+      "when": "15 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/incredibles-3-first-look-concept-art-1236825985/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘KPop Demon Hunters’ Reveals New Cover Art for Criterion Blu-ray Release",
+      "when": "15 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/kpop-demon-criterion-blu-ray-buy-online-1236759288/"
+    },
     {
       "cat": "Film/TV",
       "title": "Emmy Predictions: ‘The Pitt,’ ‘Hacks’ and ‘Beef’ Head Into Final Voting With History on Their Side (and Against Them)",
@@ -97,20 +111,6 @@
       "when": "15 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/netflix-dismiss-tyra-banks-reality-check-defamation-suit-1236834978/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Disney Is Launching a Romantasy Webcomics Series on Webtoon Inspired by Movies Including ‘Beauty and the Beast’",
-      "when": "15 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/disney-cursed-love-webtoon-romantasy-webcomics-beauty-and-the-beast-1236834088/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Emmys: Supporting Actress (Comedy) — Hannah Einbinder Defends Her Crown Against ‘Widow’s Bay’",
-      "when": "14 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/lists/emmys-2026-supporting-actress-comedy-predictions/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
