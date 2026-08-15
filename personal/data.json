@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-15",
-    "fetched": "2026-08-15T20:28:45+00:00",
+    "fetched": "2026-08-15T21:26:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
+      "temp": 5,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 3
+      "wind": 4
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89019.0,
-        "pct": 0.25
+        "price": 89078.0,
+        "pct": 0.32
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2657.3,
-        "pct": 0.22
+        "price": 2659.61,
+        "pct": 0.26
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Here’s How to Watch Claressa Shields vs. Kaye Scott Boxing Live Online",
+      "when": "15 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-claressa-shields-vs-kaye-scott-boxing-live-online-1236833217/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Director Frieda Luk on Olivia Luccardi’s ‘Sacred Creatures’ Role and the Fine Line Between ‘Crazy’ and ‘Enlightened’",
+      "when": "15 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/director-frieda-luk-olivia-luccardi-sacred-creatures-1236835353/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Lanterns’ Bosses and Stars on How the Show’s Grounded Approach Ushers in an ‘Entirely Different Kind of Superhero’",
+      "when": "15 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/lanterns-creators-grounded-show-future-dcu-1236835494/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "‘How the F— Would You Get This Movie Made in America?’ Christine Vachon, Film4, BBC Film Put ‘Trainspotting,’ ‘Ratcatcher’ and ‘The Wicker Man’ Through the 2026 Greenlight Test",
       "when": "15 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/festivals/how-would-you-get-this-movie-made-vachon-film4-bbc-1236835455/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Selena Gomez Slams ‘Completely Meritless’ Wondermind Lawsuit, Will File to Dismiss ‘Baseless Claims’",
-      "when": "15 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/selena-gomez-slams-wondermind-lawsuit-file-to-dismiss-1236835495/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The State of Us’ Review: A Pair of Spirited Performances Lift a Familiar Yorkshire Tearjerker",
-      "when": "15 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-state-of-us-review-1236835434/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "UFC 330 Livestream: Here’s Where to Watch the Makhachev vs. Machado Garry Online for Free",
-      "when": "15 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-ufc-330-makhachev-vs-machado-garry-live-online-free-1236833641/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "58m ago",
       "lang": "HTML",
       "commit": ""
     }
