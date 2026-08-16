@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-16",
-    "fetched": "2026-08-16T12:50:52+00:00",
+    "fetched": "2026-08-16T13:35:54+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 7,
       "icon": "☀️",
       "desc": "Clear",
       "wind": 4
@@ -37,7 +37,7 @@
         "max": 18,
         "icon": "⛅",
         "desc": "Partly cloudy",
-        "rain": 9
+        "rain": 12
       }
     ]
   },
@@ -72,14 +72,14 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88919.0,
-        "pct": 0.08
+        "price": 89012.0,
+        "pct": 0.05
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2652.82,
-        "pct": 0.07
+        "price": 2655.57,
+        "pct": -0.09
       }
     ]
   },
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "45m ago",
       "lang": "HTML",
       "commit": ""
     }
