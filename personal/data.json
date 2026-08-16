@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-16",
-    "fetched": "2026-08-16T10:28:42+00:00",
+    "fetched": "2026-08-16T11:25:19+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 9,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 8
+      "wind": 7
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88915.0,
-        "pct": -0.03
+        "price": 88911.0,
+        "pct": -0.05
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2653.32,
-        "pct": 0.05
+        "price": 2653.94,
+        "pct": 0.04
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Locarno Winner ‘Forgotten Spaceman’ Adds Khan & Kumar Media, Prism Entertainment as Executive Producers Ahead of Toronto Bow (EXCLUSIVE)",
+      "when": "16 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/forgotten-spaceman-locarno-leopard-tomorrow-khan-kumar-prism-eps-1236835604/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Shame and Money’ Director on Sundance-Winning Drama About a Kosovo Family in Free Fall: ‘It’s a Look Into the Past and a Warning to the Future’",
@@ -104,13 +111,6 @@
       "when": "16 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/awards/news/the-pitt-hacks-beef-astra-tv-awards-winners-1236835570/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Monsters, Inc.’ Themed Land Will Open at Disney World in 2027",
-      "when": "16 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/monsters-inc-themed-land-will-disney-world-2027-1236834775/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "55m ago",
+      "pushed": "56m ago",
       "lang": "HTML",
       "commit": ""
     }
