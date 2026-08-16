@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-16",
-    "fetched": "2026-08-16T14:28:47+00:00",
+    "fetched": "2026-08-16T15:27:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 6,
-      "icon": "☀️",
-      "desc": "Clear",
+      "icon": "🌤️",
+      "desc": "Mainly clear",
       "wind": 3
     },
     "days": [
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89046.0,
-        "pct": 0.1
+        "price": 89275.0,
+        "pct": 0.3
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2658.76,
-        "pct": 0.1
+        "price": 2664.69,
+        "pct": 0.22
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Spider-Man: Brand New Day’ Hits $2 Billion Worldwide in Three Weeks",
+      "when": "16 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/spider-man-brand-new-day-2-billion-worldwide-box-office-second-fastest-milestone-1236834058/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Mission’ Review: An All-In George MacKay Performance Anchors a Fevered Mental Illness Portrait",
@@ -111,13 +118,6 @@
       "when": "16 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/shame-and-money-sundance-social-drama-kosovo-1236834517/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ranveer Singh, Kalyani Priyadarshan’s ‘Pralay,’ Produced by Ananya Birla and Hansal Mehta, Directed by Jai Mehta, Starts Filming",
-      "when": "16 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ranveer-singh-kalyani-priyadarshan-pralay-mumbai-filming-1236835508/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "52m ago",
+      "pushed": "58m ago",
       "lang": "HTML",
       "commit": ""
     }
