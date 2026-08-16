@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-16",
-    "fetched": "2026-08-16T17:24:18+00:00",
+    "fetched": "2026-08-16T18:36:50+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 6,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 6
+      "wind": 4
     },
     "days": [
       {
@@ -37,7 +37,7 @@
         "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 65
+        "rain": 57
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89418.0,
-        "pct": 0.45
+        "price": 89342.0,
+        "pct": 0.4
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2669.0,
-        "pct": 0.38
+        "price": 2667.82,
+        "pct": 0.39
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘The Sopranos’ Star Drea de Matteo Says Starting an OnlyFans Was a ‘Political Statement’: ‘F— You. I Don’t Have to Work’",
+      "when": "16 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/the-sopranos-drea-de-matteo-onlyfans-political-statement-1236835657/"
+    },
     {
       "cat": "Film/TV",
       "title": "Dolly Parton Skips Dollywood Ride Opening Amid Ongoing Health Problems: ‘My Nashville Doctor Has Kinda Clipped My Wings’",
@@ -118,13 +125,6 @@
       "when": "16 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/nick-joseph-who-played-an-extra-in-a-new-hope-passes-away-at-60.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Spider-Man: Brand New Day’ Hits $2 Billion Worldwide in Three Weeks",
-      "when": "16 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/spider-man-brand-new-day-2-billion-worldwide-box-office-second-fastest-milestone-1236834058/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "52m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
