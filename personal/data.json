@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-16",
-    "fetched": "2026-08-16T21:25:55+00:00",
+    "fetched": "2026-08-16T22:27:46+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
+      "temp": 6,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 4
@@ -72,21 +72,35 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88933.0,
-        "pct": -0.17
+        "price": 88669.0,
+        "pct": -0.5
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2653.46,
-        "pct": -0.24
+        "price": 2645.79,
+        "pct": -0.55
       }
     ]
   },
   "releases": [
     {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: ‘Ahsoka’ Season 2 Trailer Impresses, ‘Starfighter’ New Details, and More",
+      "when": "16 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/this-week-in-a-galaxy-far-far-away-ahsoka-season-2-trailer-impresses-starfighter-new-details-and-more.html"
+    },
+    {
       "cat": "Film/TV",
-      "title": "Alex Cooper Poised to Drop UTA After Tough Period of Media Scrutiny",
+      "title": "Ariana Grande Brings Out ‘Wicked’ Co-Star Cynthia Erivo for ‘Happy Days’ and ‘For Good’ at Eternal Sunshine London Show",
+      "when": "16 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/ariana-grande-cynthia-erivo-eternal-sunshine-london-wicked-1236835738/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Alex Cooper Leaves UTA After Tough Period of Media Scrutiny",
       "when": "16 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/alex-cooper-drop-uta-1236835704/"
@@ -106,13 +120,6 @@
       "url": "https://variety.com/2026/tv/news/the-challenge-tribute-tyler-duckworth-johnny-bananas-1236834279/"
     },
     {
-      "cat": "Film/TV",
-      "title": "‘I Don’t Know’: Kenneth Branagh on Directing,  ‘Harry Potter’ and How Christopher Nolan Had Him Speaking Russian Backwards",
-      "when": "16 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/kenneth-branagh-harry-potter-christopher-nolan-1236835634/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "‘Star Wars: Smugglers Gambit’ Crosses Galaxy’s Edge Theme Park Over With ‘Fortnite’; Now Available to Play",
       "when": "16 Aug",
@@ -125,13 +132,6 @@
       "when": "16 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/nick-joseph-who-played-an-extra-in-a-new-hope-passes-away-at-60.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Ahsoka’ Season 2 Teaser Trailer Breakdown",
-      "when": "16 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/ahsoka-season-2-teaser-trailer-breakdown.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "56m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
