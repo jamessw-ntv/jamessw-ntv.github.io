@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T07:57:41+00:00",
+    "fetched": "2026-08-17T08:51:44+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 9
+      "temp": 12,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 8
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89159.0,
-        "pct": 0.17
+        "price": 88904.0,
+        "pct": -0.13
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2668.19,
-        "pct": 0.5
+        "price": 2656.5,
+        "pct": 0.1
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Deluxe Media and Tohokushinsha Film Corporation Set Strategic Asia-Pacific Localization Partnership (EXCLUSIVE)",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/deluxe-tohokushinsha-apac-localization-partnership-1236836079/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Heartstopper’ Star Rhea Norwood, ‘Enola Holmes’ Actor Susan Wokoma, ‘Dear England’ Writer James Graham Join U.K. National Youth Theatre’s 70th Anniversary Show (EXCLUSIVE)",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/theater/news/rhea-norwood-susan-wokoma-james-graham-national-youth-theatre-1236835453/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Snapshot’ Review: A Nifty Calling-Card Debut Refashions the Jack the Ripper Story as Found-Footage Horror",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/snapshot-review-1236835669/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Mexico’s Madrefoca Boards ‘Isabel Hernández’ as Zoe Films Builds Festival Momentum (EXCLUSIVE)",
       "when": "17 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/markets-festivals/madrefoca-isabel-hernandez-zoe-films-san-sebastian-1236833977/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Korea Box Office: Christopher Nolan’s ‘The Odyssey’ Outpaces ‘Spider-Man: Brand New Day’ Again in Strong Second Weekend",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/korea-box-office-the-odyssey-outpaces-spider-man-brand-new-day-1236836058/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Former Costa Rican Film Commissioner Marysela Zamora: ‘I Believe That the Next Great Chapter in Audiovisual Media Will Be Written in Spanish’ (EXCLUSIVE)",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/former-costa-rican-film-commissioner-marysela-zamora-1236835874/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "China Box Office: ‘Once Upon a Time in the Middle East’ Dominates With $70 Million Weekend as Christopher Nolan’s ‘The Odyssey’ Debuts Second",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/china-box-office-once-upon-a-time-in-the-middle-east-the-odyssey-1236836046/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "51m ago",
+      "pushed": "54m ago",
       "lang": "HTML",
       "commit": ""
     }
