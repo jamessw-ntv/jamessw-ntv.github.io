@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T05:39:31+00:00",
+    "fetched": "2026-08-17T07:06:08+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
+      "temp": 15,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 8
+      "wind": 7
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89224.0,
+        "price": 89198.0,
         "pct": 0.22
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2670.22,
-        "pct": 0.58
+        "price": 2671.6,
+        "pct": 0.69
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "John Oliver Brutally Mocks Trump for Sacrificing Staff in Airplane-Swap Incident",
+      "title": "Korea Box Office: Christopher Nolan’s ‘The Odyssey’ Outpaces ‘Spider-Man: Brand New Day’ Again in Strong Second Weekend",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/john-oliver-mocks-trump-sacrificing-staff-airplane-swap-incident-iran-1236836013/"
+      "url": "https://variety.com/2026/film/box-office/korea-box-office-the-odyssey-outpaces-spider-man-brand-new-day-1236836058/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hayden Panettiere, ‘Heroes’ and ‘Scream’ Star, Dies at 36",
+      "title": "Former Costa Rican Film Commissioner Marysela Zamora: ‘I Believe That the Next Great Chapter in Audiovisual Media Will Be Written in Spanish’ (EXCLUSIVE)",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hayden-panettiere-dead-heroes-scream-1236835999/"
+      "url": "https://variety.com/2026/film/global/former-costa-rican-film-commissioner-marysela-zamora-1236835874/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Lanterns’ Premiere Shocker: Stars Kyle Chandler, Aaron Pierre and Show Creators Break Down That Time Jump and Cliffhanger",
+      "title": "China Box Office: ‘Once Upon a Time in the Middle East’ Dominates With $70 Million Weekend as Christopher Nolan’s ‘The Odyssey’ Debuts Second",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/lanterns-premiere-how-does-hal-die-1236835653/"
+      "url": "https://variety.com/2026/film/box-office/china-box-office-once-upon-a-time-in-the-middle-east-the-odyssey-1236836046/"
     },
     {
       "cat": "Film/TV",
-      "title": "Noah Kahan Turns His ‘Miserable’ Material Into Manic Elation at Triumphant Rose Bowl Stadium Show: Concert Review",
+      "title": "Hollywood Failed Hayden Panettiere",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/concert-reviews/noah-kahan-concert-review-tour-rose-bowl-stadium-1236835970/"
+      "url": "https://variety.com/2026/film/news/hayden-panettiere-death-hollywood-sexual-predators-1236836037/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "48m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
