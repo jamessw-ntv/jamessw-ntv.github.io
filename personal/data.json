@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T03:05:22+00:00",
+    "fetched": "2026-08-17T03:57:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
+      "temp": 17,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 5
+      "wind": 7
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89331.0,
-        "pct": 0.27
+        "price": 89367.0,
+        "pct": 0.31
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2681.37,
-        "pct": 0.84
+        "price": 2677.41,
+        "pct": 0.73
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "John Oliver Brutally Mocks Trump for Sacrificing Staff in Airplane-Swap Incident",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/john-oliver-mocks-trump-sacrificing-staff-airplane-swap-incident-iran-1236836013/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Hayden Panettiere, ‘Heroes’ and ‘Scream’ Star, Dies at 36",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/hayden-paniettiere-dead-heroes-scream-1236835999/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Lanterns’ Premiere Shocker: Stars Kyle Chandler, Aaron Pierre and Show Creators Break Down That Time Jump and Cliffhanger",
@@ -97,20 +111,6 @@
       "when": "17 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/music/concert-reviews/noah-kahan-concert-review-tour-rose-bowl-stadium-1236835970/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The End of Tom Six’ Review: The Director of the ‘Human Centipede’ Films Has Multiple Sclerosis and Is Sharing the Horror. This Confessional Doc Is His Witty Self-Defense",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-end-of-tom-six-review-the-human-centipede-1236835608/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Noah Wyle Hopes David Ellison’s Threat to Move Paramount Out of California is ‘Saber Rattling’: ‘You’re Going to Take Hollywood Out of Hollywood’",
-      "when": "16 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/columns/noah-wyle-david-ellison-move-paramount-out-of-california-1236835892/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "51m ago",
       "lang": "HTML",
       "commit": ""
     }
