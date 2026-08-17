@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T22:30:14+00:00",
+    "fetched": "2026-08-17T23:27:55+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 12,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 12
+      "wind": 10
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 20
+        "rain": 10
       },
       {
         "day": "Wed",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 82
+        "rain": 94
       },
       {
         "day": "Thu",
@@ -37,7 +37,7 @@
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 39
+        "rain": 24
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90440.0,
-        "pct": 2.04
+        "price": 90585.0,
+        "pct": 2.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2678.23,
-        "pct": 1.27
+        "price": 2687.96,
+        "pct": 1.72
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Friday the 13th’ Prequel Series ‘Crystal Lake’ Is ‘Gory’ and ‘Gross’ With ‘Blood Everywhere,’ Says Star Linda Cardellini",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/columns/crystal-lake-linda-cardellini-friday-the-13th-prequel-series-gory-gross-blood-1236836771/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Spy Kids’ Actor Alexa PenaVega Shares Heartbreak After Deaths of Fellow Child Stars Hayden Panettiere, Michelle Trachtenberg and Daveigh Chase: ‘Hug Your People Close Today’",
@@ -104,13 +111,6 @@
       "when": "17 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/california-paramount-bonta-do-over-bond-1236836713/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Netflix’s ‘A Different World’ Sequel Series Unveils Trailer, New Images",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-a-different-world-sequel-series-trailer-images-1236836718/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "59m ago",
+      "pushed": "57m ago",
       "lang": "HTML",
       "commit": ""
     }
