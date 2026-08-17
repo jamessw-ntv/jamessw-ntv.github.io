@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T17:32:42+00:00",
+    "fetched": "2026-08-17T18:48:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 7,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 8
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 9
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90260.0,
-        "pct": 0.98
+        "price": 90656.0,
+        "pct": 1.49
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2683.02,
-        "pct": 0.51
+        "price": 2687.29,
+        "pct": 0.77
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Kitchen Confidential’ Returns to Bestseller Lists Following Anthony Bourdain Biopic",
+      "title": "Paramount Requests States and WGA Be Required to Post $1.9 Billion Bond to Cover Financial Losses While Warner Bros. Merger Is Stuck on Hold Pending Trial",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/kitchen-confidential-bestseller-lists-anthony-bourdain-1236836464/"
+      "url": "https://variety.com/2026/film/news/paramount-requests-1-9-billion-bond-state-lawsuit-warner-bros-merger-1236836420/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘A Court of Thorns and Roses’ Books 6 and 7 Titles and Covers Revealed by Fantasy Author Sarah J Maas",
+      "title": "BINI, SB19 and Lea Salonga Lead ‘Forgotten Island’ Soundtrack (EXCLUSIVE)",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/court-of-thorns-and-roses-book-6-7-title-covers-sarah-j-maas-1236836384/"
+      "url": "https://variety.com/2026/artisans/news/bini-sb19-lea-salonga-lead-forgotten-island-full-tracklist-1236836531/"
     },
     {
       "cat": "Film/TV",
-      "title": "Nick Reiner Trust Hearing Postponed to October as Lawyers Push for Speedy Access to Funds",
+      "title": "Taylor Swift Praises Phoebe Bridgers’ New Album ‘Lost Weekend,’ Calls It an ‘Absolute Triumph in Every Way’",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/nick-reiner-trust-hearing-postponed-1236836408/"
+      "url": "https://variety.com/2026/music/news/taylor-swift-praises-phoebe-bridgers-lost-weekend-triumph-1236836547/"
     },
     {
       "cat": "Film/TV",
-      "title": "The U.S Open Is Near: Here’s How to Buy Affordable Tickets to the Tennis Tournament Online",
+      "title": "Øya Festival 2026: The 10 Best Sets We Saw, From the Cure to Geese to Lily Allen",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/us-open-buy-tickets-online-1236097126/"
+      "url": "https://variety.com/lists/oyafestivalen-2026-best-sets-the-cure-geese-lily-allen/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "58m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
