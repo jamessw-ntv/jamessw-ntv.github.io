@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T14:33:59+00:00",
+    "fetched": "2026-08-17T15:30:48+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 8,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 7
+      "wind": 8
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89244.0,
-        "pct": 0.23
+        "price": 89828.0,
+        "pct": 0.62
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2664.56,
-        "pct": 0.3
+        "price": 2680.5,
+        "pct": 0.59
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "American Independent Film Production Is Dying. Jeff Nichols Wants to Save It.",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/features/jeff-nichols-indie-film-margaret-qualley-drew-starkey-rumors-1236835974/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jonas Brothers Announce 45-City ‘Burning Up’ North American Tour Dates",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/jonas-brothers-2026-burning-up-north-american-tour-dates-1236836312/"
+    },
     {
       "cat": "Film/TV",
       "title": "Amy Schumer to Star in and Produce Break-Up Comedy ‘Best Divorce Ever’ (EXCLUSIVE)",
@@ -104,20 +118,6 @@
       "when": "17 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/17/preview-star-trek-strange-new-worlds-puppet-episode-with-13-new-photos-from-level-five-transporter-accident/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Rosie O’Donnell Was ‘Surprised’ by Jimmy Kimmel’s Guest-Hosting Offer and Believes a David Ellison-Run CNN Would Be ‘Tragic’",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/rosie-o-donnell-jimmy-kimmel-host-surprise-david-ellison-bari-weiss-cbs-news-cnn-1236835778/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "PGA Tour Takes Swing at Comedy in New ‘Alter Ego’ Unscripted Series",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/pga-tour-comedy-alter-ego-unscripted-series-1236835914/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "50m ago",
+      "pushed": "56m ago",
       "lang": "HTML",
       "commit": ""
     }
