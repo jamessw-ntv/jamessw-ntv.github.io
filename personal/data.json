@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T20:33:33+00:00",
+    "fetched": "2026-08-17T21:30:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 10
+      "temp": 8,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 11
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90559.0,
-        "pct": 1.84
+        "price": 90467.0,
+        "pct": 1.74
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2683.99,
-        "pct": 0.99
+        "price": 2680.59,
+        "pct": 1.08
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Connie Britton Praises Hayden Panettiere’s ‘Brilliance’ After ‘Nashville’ Co-Star’s Death: ‘I Love You Girl. Sleep Easy Now’",
+      "title": "Donald Trump Attacks CNN’s Kristen Holmes for Asking If He Spoke to North Korean Dictator: ‘You’re a Loud, Boisterous Person. Be Quiet!’",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/connie-britton-hayden-panettiere-death-nashville-1236836675/"
+      "url": "https://variety.com/2026/tv/news/trump-attacks-cnn-kristen-holmes-north-korea-dictator-1236836707/"
     },
     {
       "cat": "Film/TV",
-      "title": "Peacock Launches Test of Membership Rewards Program With Perks Including NBCU and Bravo Merch Discounts, Free Pizzas",
+      "title": "California A.G. Rejects $1.88 Billion Paramount Bond, Says Company Wants a ‘Do-Over’ on Merger Delay",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/peacock-test-membership-rewards-program-discounts-free-pizzas-1236836638/"
+      "url": "https://variety.com/2026/film/news/california-paramount-bonta-do-over-bond-1236836713/"
     },
     {
       "cat": "Film/TV",
-      "title": "CNN Has Prime-Time Anchors Locked In Ahead of Paramount Deal",
+      "title": "Netflix’s ‘A Different World’ Sequel Series Unveils Trailer, New Images",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/cnn-prime-time-anchors-locked-paramount-1236836589/"
+      "url": "https://variety.com/2026/tv/news/netflix-a-different-world-sequel-series-trailer-images-1236836718/"
     },
     {
       "cat": "Film/TV",
-      "title": "Music Industry Moves: iHeartMedia’s Alissa Pollack Named President of Mediabase",
+      "title": "Ariel Levy, a New Yorker Staff Writer, Joins ’60 Minutes’ as Contributor",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/iheartmedias-alissa-pollack-president-mediabase-1236836639/"
+      "url": "https://variety.com/2026/tv/news/ariel-levy-60-minutes-contributor-cbs-new-yorker-1236836716/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "57m ago",
       "lang": "HTML",
       "commit": ""
     }
