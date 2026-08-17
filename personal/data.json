@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T15:30:48+00:00",
+    "fetched": "2026-08-17T16:34:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -21,7 +21,7 @@
         "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 23
+        "rain": 20
       },
       {
         "day": "Wed",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 74
+        "rain": 82
       },
       {
         "day": "Thu",
@@ -37,7 +37,7 @@
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 45
+        "rain": 39
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89828.0,
-        "pct": 0.62
+        "price": 90016.0,
+        "pct": 0.45
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2680.5,
-        "pct": 0.59
+        "price": 2680.21,
+        "pct": 0.26
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "American Independent Film Production Is Dying. Jeff Nichols Wants to Save It.",
+      "title": "Disneyland Paris to Welcome ‘The Lion King’ Animatronics, Re-Themed Space Mountain and New Parade",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/jeff-nichols-indie-film-margaret-qualley-drew-starkey-rumors-1236835974/"
+      "url": "https://variety.com/2026/biz/global/disneyland-paris-lion-king-space-mountain-1236836311/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jonas Brothers Announce 45-City ‘Burning Up’ North American Tour Dates",
+      "title": "Final Emmy Voting Opens: 25 Records That Could Be Broken, From Jean Smart and Allison Janney’s All-Time Tie to Harrison Ford’s First Trophy at 84",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/jonas-brothers-2026-burning-up-north-american-tour-dates-1236836312/"
+      "url": "https://variety.com/lists/emmys-voting-records-zendaya-allison-janney-harrison-ford/"
     },
     {
       "cat": "Film/TV",
-      "title": "Amy Schumer to Star in and Produce Break-Up Comedy ‘Best Divorce Ever’ (EXCLUSIVE)",
+      "title": "‘It: Welcome to Derry’ Renewed for Season 2 at HBO",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/amy-schumer-star-in-produce-comedy-best-divorce-ever-1236836178/"
+      "url": "https://variety.com/2026/tv/news/it-welcome-to-derry-renewed-season-2-hbo-1236836194/"
     },
     {
       "cat": "Film/TV",
-      "title": "Gillian Anderson Says Sony Exited ‘The Salt Path’ Distribution Deal After Authors’ ‘Fabrications’ Exposed: ‘It Felt Like Such a Betrayal’",
+      "title": "Webtoon Entertainment Dives into Vertical Shorts, Setting ‘Love Bites’ and ‘Maybe Meant to Be’ as Microdramas",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/gillian-anderson-sony-the-salt-path-1236836283/"
+      "url": "https://variety.com/2026/tv/news/webtoon-entertainment-microdramas-love-bites-short-dramas-1236836293/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "56m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
