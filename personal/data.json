@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T13:43:29+00:00",
+    "fetched": "2026-08-17T14:33:59+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 8,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 6
+      "wind": 7
     },
     "days": [
       {
         "day": "Today",
-        "min": 4,
-        "max": 17,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Tue",
         "min": 7,
         "max": 18,
         "icon": "🌦️",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 74
+      },
+      {
+        "day": "Thu",
+        "min": 8,
+        "max": 15,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 45
       }
     ]
   },
@@ -72,38 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89534.0,
-        "pct": 0.59
+        "price": 89244.0,
+        "pct": 0.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2677.33,
-        "pct": 0.83
+        "price": 2664.56,
+        "pct": 0.3
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Motion Picture Association Strikes Deal with ByteDance for IP Protections in AI Video, Image Models",
+      "title": "Amy Schumer to Star in and Produce Break-Up Comedy ‘Best Divorce Ever’ (EXCLUSIVE)",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/motion-picture-association-deal-bytedance-ip-ai-seedance-1236836240/"
+      "url": "https://variety.com/2026/film/global/amy-schumer-star-in-produce-comedy-best-divorce-ever-1236836178/"
     },
     {
       "cat": "Film/TV",
-      "title": "Netflix Unveils ‘The Diplomat’ Season 4 First Look, Sets October Release Date",
+      "title": "Gillian Anderson Says Sony Exited ‘The Salt Path’ Distribution Deal After Authors’ ‘Fabrications’ Exposed: ‘It Felt Like Such a Betrayal’",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-the-diplomat-season-4-teaser-trailer-first-look-1236835680/"
+      "url": "https://variety.com/2026/film/global/gillian-anderson-sony-the-salt-path-1236836283/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Preview ‘Star Trek: Strange New Worlds’ Puppet Episode With 13 New Photos From “Level-Five Transporter Accident”",
+      "when": "17 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/17/preview-star-trek-strange-new-worlds-puppet-episode-with-13-new-photos-from-level-five-transporter-accident/"
     },
     {
       "cat": "Film/TV",
-      "title": "Lena Dunham, Carly Rae Jepsen ’10 Things I Hate About You’ Musical Sets 2027 Broadway Debut",
+      "title": "Rosie O’Donnell Was ‘Surprised’ by Jimmy Kimmel’s Guest-Hosting Offer and Believes a David Ellison-Run CNN Would Be ‘Tragic’",
       "when": "17 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/legit/news/10-things-i-hate-about-you-musical-broadway-date-lena-dunham-1236836227/"
+      "url": "https://variety.com/2026/tv/news/rosie-o-donnell-jimmy-kimmel-host-surprise-david-ellison-bari-weiss-cbs-news-cnn-1236835778/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "PGA Tour Takes Swing at Comedy in New ‘Alter Ego’ Unscripted Series",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/pga-tour-comedy-alter-ego-unscripted-series-1236835914/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +125,6 @@
       "when": "17 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-starfighter-is-set-in-a-chaotic-galaxy-with-no-governing-body.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Johnnie To’s English-Language Debut ‘Two Gun Cohen’ Launches Former XYZ Films Exec Todd Brown’s Rawk Moving Pictures Corp (EXCLUSIVE)",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/johnnie-to-english-debut-two-gun-cohen-todd-brown-rawk-1236836089/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/08/13/recap-review-star-trek-strange-new-worlds-obscures-shades-of-gray-in-a-case-of-chiaroscuro/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Pluto TV Relaunching Pop-Up Category Of 7 Star Trek Channels, Including All The Movies",
-      "when": "11 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/11/pluto-tv-relaunching-pop-up-category-of-7-star-trek-channels-including-all-the-movies/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "48m ago",
+      "pushed": "50m ago",
       "lang": "HTML",
       "commit": ""
     }
