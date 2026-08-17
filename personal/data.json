@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T10:37:38+00:00",
+    "fetched": "2026-08-17T11:31:32+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 9,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 6
+      "wind": 8
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89003.0,
-        "pct": 0.08
+        "price": 89238.0,
+        "pct": 0.38
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2664.86,
-        "pct": 0.42
+        "price": 2671.67,
+        "pct": 0.66
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Iranian Director Ali Asgari Unveils First Clip From Venice-Bound ‘A Bit of Light’: ‘This Trump Guy Is Threatening to Bomb Here Every Day’ (EXCLUSIVE)",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/iranian-director-ali-asgari-a-bit-of-light-first-clip-1236836044/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "London Film Festival Competition Lineup: Aimee Lou Wood’s ‘The Idiot(s),’ Mackenzie Davis’ Sci-Fi Romance ‘My Notes on Mars,’ Hirokazu Kore-eda’s ‘Look Back’ and More",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/london-film-festival-2026-competition-lineup-1236836085/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Supporting Role’ Review: Dato Bakhtadze Captivates in a Nocturnal Odyssey Through Tbilisi",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/supporting-role-review-1236836132/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Hayden Panettiere Remembered by Viola Davis, Bethany Joy Lenz, Melissa Barrera and More: ‘I Wish the World Had More Time With You’",
       "when": "17 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/hayden-panettiere-remembered-viola-davis-bethany-joy-lenz-1236836020/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Deluxe Media and Tohokushinsha Film Corporation Set Strategic Asia-Pacific Localization Partnership (EXCLUSIVE)",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/deluxe-tohokushinsha-apac-localization-partnership-1236836079/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Heartstopper’ Star Rhea Norwood, ‘Enola Holmes’ Actor Susan Wokoma, ‘Dear England’ Writer James Graham Join U.K. National Youth Theatre’s 70th Anniversary Show (EXCLUSIVE)",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/theater/news/rhea-norwood-susan-wokoma-james-graham-national-youth-theatre-1236835453/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Snapshot’ Review: A Nifty Calling-Card Debut Refashions the Jack the Ripper Story as Found-Footage Horror",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/snapshot-review-1236835669/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "48m ago",
+      "pushed": "53m ago",
       "lang": "HTML",
       "commit": ""
     }
