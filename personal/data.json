@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T21:30:39+00:00",
+    "fetched": "2026-08-17T22:30:14+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 11
+      "temp": 10,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 12
     },
     "days": [
       {
@@ -72,21 +72,28 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90467.0,
-        "pct": 1.74
+        "price": 90440.0,
+        "pct": 2.04
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2680.59,
-        "pct": 1.08
+        "price": 2678.23,
+        "pct": 1.27
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Donald Trump Attacks CNN’s Kristen Holmes for Asking If He Spoke to North Korean Dictator: ‘You’re a Loud, Boisterous Person. Be Quiet!’",
+      "title": "‘Spy Kids’ Actor Alexa PenaVega Shares Heartbreak After Deaths of Fellow Child Stars Hayden Panettiere, Michelle Trachtenberg and Daveigh Chase: ‘Hug Your People Close Today’",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/alexa-vega-child-actor-deaths-hayden-panettiere-trachtenberg-1236836669/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Donald Trump Attacks CNN’s Kristen Holmes for Asking if He Spoke to North Korean Dictator: ‘You’re a Loud, Boisterous Person. Be Quiet!’",
       "when": "17 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/trump-attacks-cnn-kristen-holmes-north-korea-dictator-1236836707/"
@@ -104,13 +111,6 @@
       "when": "17 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/netflix-a-different-world-sequel-series-trailer-images-1236836718/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ariel Levy, a New Yorker Staff Writer, Joins ’60 Minutes’ as Contributor",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ariel-levy-60-minutes-contributor-cbs-new-yorker-1236836716/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "57m ago",
+      "pushed": "59m ago",
       "lang": "HTML",
       "commit": ""
     }
