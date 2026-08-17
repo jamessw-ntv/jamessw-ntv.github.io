@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-17",
-    "fetched": "2026-08-17T07:06:08+00:00",
+    "fetched": "2026-08-17T07:57:41+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 7
+      "temp": 13,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 9
     },
     "days": [
       {
@@ -27,16 +27,16 @@
         "day": "Tue",
         "min": 7,
         "max": 18,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 23
       },
       {
         "day": "Wed",
-        "min": 12,
+        "min": 11,
         "max": 14,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 74
       }
     ]
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89198.0,
-        "pct": 0.22
+        "price": 89159.0,
+        "pct": 0.17
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2671.6,
-        "pct": 0.69
+        "price": 2668.19,
+        "pct": 0.5
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Mexico’s Madrefoca Boards ‘Isabel Hernández’ as Zoe Films Builds Festival Momentum (EXCLUSIVE)",
+      "when": "17 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/madrefoca-isabel-hernandez-zoe-films-san-sebastian-1236833977/"
+    },
     {
       "cat": "Film/TV",
       "title": "Korea Box Office: Christopher Nolan’s ‘The Odyssey’ Outpaces ‘Spider-Man: Brand New Day’ Again in Strong Second Weekend",
@@ -104,13 +111,6 @@
       "when": "17 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/box-office/china-box-office-once-upon-a-time-in-the-middle-east-the-odyssey-1236836046/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Hollywood Failed Hayden Panettiere",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hayden-panettiere-death-hollywood-sexual-predators-1236836037/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "51m ago",
       "lang": "HTML",
       "commit": ""
     }
