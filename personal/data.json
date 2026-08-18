@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-18",
-    "fetched": "2026-08-18T17:32:36+00:00",
+    "fetched": "2026-08-18T18:46:29+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 13,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 20
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 22
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91390.0,
-        "pct": 1.32
+        "price": 91366.0,
+        "pct": 0.78
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2701.36,
-        "pct": 0.76
+        "price": 2702.86,
+        "pct": 0.58
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Kevin Hart and Henry Cavill’s Netflix Spy Comedy Adds Jason Isaacs, Justine Lupe and Aja Naomi King (EXCLUSIVE)",
+      "title": "Laci Mosley’s ‘Scam Goddess’ Comedy Podcast Launches Video Episodes on YouTube, Joins Will Ferrell’s Big Money Players Network at iHeart",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/kevin-hart-henry-cavill-netflix-movie-jason-isaacs-justine-lupe-1236837383/"
+      "url": "https://variety.com/2026/digital/news/scam-goddess-video-youtube-laci-mosley-will-ferrell-iheartmedia-1236837124/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Paramount Exec Touts “Next Iteration” Of Star Trek TV: “It’s Imperative”",
+      "when": "18 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/18/paramount-exec-touts-next-iteration-of-star-trek-tv-its-imperative/"
     },
     {
       "cat": "Film/TV",
-      "title": "Phyllida Law, Scottish Actress and Mother of Emma and Sophie Thompson, Dies at 94",
+      "title": "Nominated TV Producers Shed Light on Network Notes and Industry Changes at Variety’s Showrunners Breakfast; Ryan Murphy Emotionally Accepts Norman Lear Award",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/phyllida-law-dead-emma-thompson-1236837338/"
+      "url": "https://variety.com/2026/awards/news/variety-showrunners-breakfast-tv-producers-ryan-murphy-1236836869/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Heated Rivalry’ Sets Collector’s Edition Blu-ray Release With Steamy Posters, Collectible Art Cards and Special Features",
+      "title": "Round Hill Music Sues Suno, Anthropic for Copyright Infringement, Seeking Up to $1 Billion in Damages",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/heated-rivalry-blu-ray-collectors-edition-buy-online-1236764955/"
+      "url": "https://variety.com/2026/biz/news/round-hill-music-sues-suno-anthropic-copyright-infringement-1236837467/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Sims 4’ Sets In-Game Crossover With ‘Clueless’ and ‘Mean Girls’ (Gaming News Roundup)",
+      "title": "Cinemark Joins AMC Theatres and Regal in Supporting Paramount-Warner Bros. Discovery Merger",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/sims-mean-girls-clueless-gaming-news-roundup-week-august-17-1236836647/"
+      "url": "https://variety.com/2026/film/news/cinemark-paramount-warner-bros-merger-amc-theatres-regal-1236836310/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/08/14/podcast-all-access-star-trek-rounds-up-60th-anniversary-events-and-has-a-case-of-chiaroscuro/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Obscures Shades Of Gray In “A Case of Chiaroscuro”",
-      "when": "13 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/13/recap-review-star-trek-strange-new-worlds-obscures-shades-of-gray-in-a-case-of-chiaroscuro/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "54m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
