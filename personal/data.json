@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-18",
-    "fetched": "2026-08-18T16:38:14+00:00",
+    "fetched": "2026-08-18T17:32:36+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 13,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 19
+      "wind": 20
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91227.0,
-        "pct": 1.3
+        "price": 91390.0,
+        "pct": 1.32
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2698.12,
-        "pct": 0.62
+        "price": 2701.36,
+        "pct": 0.76
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Bill Rasmussen, ESPN’s Founder, Dies at 93",
+      "title": "Kevin Hart and Henry Cavill’s Netflix Spy Comedy Adds Jason Isaacs, Justine Lupe and Aja Naomi King (EXCLUSIVE)",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/bill-rasmussen-espn-founder-dead-1236837219/"
+      "url": "https://variety.com/2026/film/news/kevin-hart-henry-cavill-netflix-movie-jason-isaacs-justine-lupe-1236837383/"
     },
     {
       "cat": "Film/TV",
-      "title": "Fulvio Lucisano, Italian Producer of ‘Planet of the Vampires’ and ‘What Have You Done to Solange?,’  Dies at 98",
+      "title": "Phyllida Law, Scottish Actress and Mother of Emma and Sophie Thompson, Dies at 94",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/fulvio-lucisano-dead-italian-producer-planet-of-the-vampires-1236837169/"
+      "url": "https://variety.com/2026/film/global/phyllida-law-dead-emma-thompson-1236837338/"
     },
     {
       "cat": "Film/TV",
-      "title": "New Marilyn Monroe Barbie Doll Inspired by ‘Diamonds Are a Girl’s Best Friend’ Ensemble",
+      "title": "‘Heated Rivalry’ Sets Collector’s Edition Blu-ray Release With Steamy Posters, Collectible Art Cards and Special Features",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/marilyn-monroe-barbie-diamonds-are-a-girls-best-friend-buy-1236836651/"
+      "url": "https://variety.com/2026/shopping/news/heated-rivalry-blu-ray-collectors-edition-buy-online-1236764955/"
     },
     {
       "cat": "Film/TV",
-      "title": "American Black Film Festival 2027 Heads to Los Angeles After 24 Years in Miami (EXCLUSIVE)",
+      "title": "‘The Sims 4’ Sets In-Game Crossover With ‘Clueless’ and ‘Mean Girls’ (Gaming News Roundup)",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/american-black-film-festival-2027-los-angeles-1236836839/"
+      "url": "https://variety.com/2026/gaming/news/sims-mean-girls-clueless-gaming-news-roundup-week-august-17-1236836647/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "54m ago",
       "lang": "HTML",
       "commit": ""
     }
