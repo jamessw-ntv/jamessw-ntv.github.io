@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-18",
-    "fetched": "2026-08-18T14:39:03+00:00",
+    "fetched": "2026-08-18T15:37:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 13,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 21
+      "wind": 20
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91117.0,
-        "pct": 2.06
+        "price": 91340.0,
+        "pct": 1.53
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2690.79,
-        "pct": 0.89
+        "price": 2701.39,
+        "pct": 0.78
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Music Industry Moves: Wolf Alice Signs With UTA for North America",
+      "title": "Angélique Kidjo Talks ’Hope,’ Her Mother’s Legacy and Making History With a Star on the Hollywood Walk of Fame",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/iheartmedias-alissa-pollack-president-mediabase-1236836639/"
+      "url": "https://variety.com/2026/music/focus/angelique-kidjo-hollywood-walk-of-fame-1236831766/"
     },
     {
       "cat": "Film/TV",
-      "title": "Karol G Performs in Los Angeles, Aaron Pierre Premieres ‘Lanterns’ and More Red Carpet Photos: August 2026",
+      "title": "Ascend Literary Management Signs ‘Average Joe’ Creator Robb Cullen (EXCLUSIVE)",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/gallery/celebrity-pics-red-carpet-photos-august-2026/"
+      "url": "https://variety.com/2026/tv/news/ascend-literary-management-robb-cullen-1236837126/"
     },
     {
       "cat": "Film/TV",
-      "title": "Nonprofit Production Waterwell Doubles Funding for Unseen Iran Grants to Artists Representing the Diaspora in Film, TV, Theater and More",
+      "title": "Shakira, Global Citizen, Live Nation and CAF Commit $1.25 Million to Rebuild Schools in Colombia Following Earthquake",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/arian-moayed-unseen-iran-grants-waterwell-nimruz-1236836821/"
+      "url": "https://variety.com/2026/music/news/shakira-million-schools-colombia-earthquake-1236837163/"
     },
     {
       "cat": "Film/TV",
-      "title": "Madonna Leads VMAs Nominations With 11, Followed by Taylor Swift, Sabrina Carpenter, Ariana Grande",
+      "title": "Stella Lefty on the Rise of ‘Boston’ and Her Sudden Fame: ‘When I First Started Writing Songs, No One Cared!’",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/madonna-leads-vmas-nominations-taylor-swift-1236837092/"
+      "url": "https://variety.com/2026/music/news/stella-lefty-boston-sudden-fame-1236836537/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "51m ago",
+      "pushed": "58m ago",
       "lang": "HTML",
       "commit": ""
     }
