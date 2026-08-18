@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-18",
-    "fetched": "2026-08-18T03:01:18+00:00",
+    "fetched": "2026-08-18T03:49:51+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 17,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 18
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 17
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90043.0,
-        "pct": 0.77
+        "price": 90233.0,
+        "pct": 1.12
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2659.11,
-        "pct": -0.82
+        "price": 2665.28,
+        "pct": -0.39
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Michelle Rodriguez Remembers Hayden Panettiere After Co-Hosting World Music Awards: ‘Can’t Stand How Many Young People Are Leaving Us Lately’",
+      "when": "18 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/michelle-rodriguez-hayden-panettiere-world-music-awards-1236836885/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jeanie Buss Seeks to Contest Sale of Los Angeles Lakers to Bob Iger and Josh Kushner: Report",
+      "when": "18 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/jeanie-buss-lakers-sale-bob-iger-josh-kushner-1236836879/"
+    },
     {
       "cat": "Film/TV",
       "title": "David F. Sandberg to Direct Horror Movie ‘Mommy’s Home’ For Lionsgate",
@@ -97,20 +111,6 @@
       "when": "18 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/chris-carter-x-files-i-want-to-believe-directors-cut-1236836849/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Furious’ Star Steve Way on the Beauty of ‘Disabled Love’ and the Difficulty of Navigating Hollywood Without a Team: ‘I Want an Agency to Whore Me Out’",
-      "when": "18 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/furious-steve-way-disability-hollywood-serial-killer-romance-1236836217/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Friday the 13th’ Prequel Series ‘Crystal Lake’ Is ‘Gory’ and ‘Gross’ With ‘Blood Everywhere,’ Says Star Linda Cardellini",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/columns/crystal-lake-linda-cardellini-friday-the-13th-prequel-series-gory-gross-blood-1236836771/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "48m ago",
       "lang": "HTML",
       "commit": ""
     }
