@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-17",
-    "fetched": "2026-08-17T23:27:55+00:00",
+    "updated": "2026-08-18",
+    "fetched": "2026-08-18T01:37:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 10
+      "temp": 17,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 18
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90585.0,
-        "pct": 2.23
+        "price": 90416.0,
+        "pct": 1.52
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2687.96,
-        "pct": 1.72
+        "price": 2680.33,
+        "pct": 0.38
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "David F. Sandberg to Direct Horror Movie ‘Mommy’s Home’ For Lionsgate",
+      "when": "18 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/david-f-sandberg-direct-mommys-home-lionsgate-1236836858/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "LISTEN: How Chris Carter Got a Second Shot at ‘The X-Files: I Want to Believe’ Film",
+      "when": "18 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/chris-carter-x-files-i-want-to-believe-directors-cut-1236836849/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Furious’ Star Steve Way on the Beauty of ‘Disabled Love’ and the Difficulty of Navigating Hollywood Without a Team: ‘I Want an Agency to Whore Me Out’",
+      "when": "18 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/furious-steve-way-disability-hollywood-serial-killer-romance-1236836217/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "‘Friday the 13th’ Prequel Series ‘Crystal Lake’ Is ‘Gory’ and ‘Gross’ With ‘Blood Everywhere,’ Says Star Linda Cardellini",
       "when": "17 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/columns/crystal-lake-linda-cardellini-friday-the-13th-prequel-series-gory-gross-blood-1236836771/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Spy Kids’ Actor Alexa PenaVega Shares Heartbreak After Deaths of Fellow Child Stars Hayden Panettiere, Michelle Trachtenberg and Daveigh Chase: ‘Hug Your People Close Today’",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/alexa-vega-child-actor-deaths-hayden-panettiere-trachtenberg-1236836669/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Donald Trump Attacks CNN’s Kristen Holmes for Asking if He Spoke to North Korean Dictator: ‘You’re a Loud, Boisterous Person. Be Quiet!’",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/trump-attacks-cnn-kristen-holmes-north-korea-dictator-1236836707/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "California A.G. Rejects $1.88 Billion Paramount Bond, Says Company Wants a ‘Do-Over’ on Merger Delay",
-      "when": "17 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/california-paramount-bonta-do-over-bond-1236836713/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "57m ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
