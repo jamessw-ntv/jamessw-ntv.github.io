@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-18",
-    "fetched": "2026-08-18T18:46:29+00:00",
+    "fetched": "2026-08-18T19:32:32+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 13,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 22
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 23
     },
     "days": [
       {
         "day": "Today",
         "min": 12,
-        "max": 15,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 90
@@ -34,7 +34,7 @@
       {
         "day": "Fri",
         "min": 6,
-        "max": 13,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 42
@@ -72,24 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91366.0,
-        "pct": 0.78
+        "price": 91355.0,
+        "pct": 0.9
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2702.86,
-        "pct": 0.58
+        "price": 2702.65,
+        "pct": 0.7
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Laci Mosley’s ‘Scam Goddess’ Comedy Podcast Launches Video Episodes on YouTube, Joins Will Ferrell’s Big Money Players Network at iHeart",
+      "title": "Hayden Panettiere’s Estranged Mom Speaks Out After Actor’s Death: She ‘Lost Her Way’ and ‘I Wish She Had Stayed True to Herself’",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/scam-goddess-video-youtube-laci-mosley-will-ferrell-iheartmedia-1236837124/"
+      "url": "https://variety.com/2026/tv/news/hayden-panettieres-mom-speaks-out-death-1236837563/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Frank Beard, Longtime ZZ Top Drummer, Dies at 77",
+      "when": "18 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/frank-beard-dead-zz-top-drummer-1236837567/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "How the ‘Hacks’ Production Team Created a ’70s Sitcom Set and Overcame Las Vegas-Sized Challenges",
+      "when": "18 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/artisans/awards/hacks-70s-sitcom-set-las-vegas-blackout-1236837382/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Emmys: A Breakdown of the Music Nominees From Lady Gaga’s ‘Dead Dance’ to Hans Zimmer’s Race for His First Win",
+      "when": "18 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/artisans/news/emmys-music-nominations-1236834113/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +118,6 @@
       "when": "18 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/18/paramount-exec-touts-next-iteration-of-star-trek-tv-its-imperative/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Nominated TV Producers Shed Light on Network Notes and Industry Changes at Variety’s Showrunners Breakfast; Ryan Murphy Emotionally Accepts Norman Lear Award",
-      "when": "18 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/awards/news/variety-showrunners-breakfast-tv-producers-ryan-murphy-1236836869/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Round Hill Music Sues Suno, Anthropic for Copyright Infringement, Seeking Up to $1 Billion in Damages",
-      "when": "18 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/round-hill-music-sues-suno-anthropic-copyright-infringement-1236837467/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Cinemark Joins AMC Theatres and Regal in Supporting Paramount-Warner Bros. Discovery Merger",
-      "when": "18 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/cinemark-paramount-warner-bros-merger-amc-theatres-regal-1236836310/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "46m ago",
       "lang": "HTML",
       "commit": ""
     }
