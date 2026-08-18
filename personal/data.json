@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-18",
-    "fetched": "2026-08-18T13:47:23+00:00",
+    "fetched": "2026-08-18T14:39:03+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 13,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 20
+      "wind": 21
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 18,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 12
-      },
-      {
-        "day": "Wed",
         "min": 12,
         "max": 15,
         "icon": "🌦️",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 41
+      },
+      {
+        "day": "Fri",
+        "min": 6,
+        "max": 13,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 36
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90118.0,
-        "pct": 0.8
+        "price": 91117.0,
+        "pct": 2.06
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2663.37,
-        "pct": -0.44
+        "price": 2690.79,
+        "pct": 0.89
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "War Child U.K. Kicks Off Secret 7″ Record Auction, Featuring Tracks From John Lennon, the Last Dinner Party, Glass Animals and More",
+      "title": "Music Industry Moves: Wolf Alice Signs With UTA for North America",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/global/war-child-uk-secret-7-record-auction-1236837039/"
+      "url": "https://variety.com/2026/music/news/iheartmedias-alissa-pollack-president-mediabase-1236836639/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oasis Documentary Trailer Takes Fans Behind the Scenes of Band’s Dramatic Reunion: ‘Will It Fall Apart Again?’",
+      "title": "Karol G Performs in Los Angeles, Aaron Pierre Premieres ‘Lanterns’ and More Red Carpet Photos: August 2026",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/oasis-documentary-trailer-dont-look-back-in-anger-1236837083/"
+      "url": "https://variety.com/gallery/celebrity-pics-red-carpet-photos-august-2026/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Toxic’ Season 2, Hosted by Elizabeth Chambers, Sets Investigation Discovery Premiere Date, Unveils First Trailer (EXCLUSIVE)",
+      "title": "Nonprofit Production Waterwell Doubles Funding for Unseen Iran Grants to Artists Representing the Diaspora in Film, TV, Theater and More",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/toxic-season-2-trailer-elizabeth-chambers-id-series-premiere-date-1236834163/"
+      "url": "https://variety.com/2026/biz/news/arian-moayed-unseen-iran-grants-waterwell-nimruz-1236836821/"
     },
     {
       "cat": "Film/TV",
-      "title": "Craig Carton to Launch New Show on Fox’s Outkick",
+      "title": "Madonna Leads VMAs Nominations With 11, Followed by Taylor Swift, Sabrina Carpenter, Ariana Grande",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/craig-carton-launch-show-outkick-fox-1236836871/"
+      "url": "https://variety.com/2026/music/news/madonna-leads-vmas-nominations-taylor-swift-1236837092/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "50m ago",
+      "pushed": "51m ago",
       "lang": "HTML",
       "commit": ""
     }
