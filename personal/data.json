@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-18",
-    "fetched": "2026-08-18T21:29:46+00:00",
+    "fetched": "2026-08-18T22:30:05+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 13,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 26
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91184.0,
-        "pct": 0.79
+        "price": 91102.0,
+        "pct": 0.74
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2699.51,
-        "pct": 0.7
+        "price": 2700.04,
+        "pct": 0.82
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Why a Reunion Between the Two Rival TV Academies Is Long Overdue",
+      "title": "Walmart Touts Free Peacock Access for Walmart+ Members on Heels of Streamer’s Latest Price Hike",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/awards/television-academy-emmys-reunion-national-arts-sciences-1236837695/"
+      "url": "https://variety.com/2026/shopping/news/best-walmart-plus-deals-streaming-offers-1236040212/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscars Budget, ‘Engaging’ With AI and Hot Memorabilia: Inside the Academy’s Annual All-Members Meeting (EXCLUSIVE)",
+      "title": "Clive Barker Announces Kickstarter-Exclusive Anthology Book Series ‘Library of the Dead’ (EXCLUSIVE)",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/oscars-youtube-ai-annual-budgets-member-meeting-1236837376/"
+      "url": "https://variety.com/2026/digital/news/clive-barker-kickstarter-series-library-of-the-dead-1236837367/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kat Dennings, Beth Behrs Set ‘2 Broke Girls’ Reunion on ‘Shifting Gears’ Season 3",
+      "title": "‘Days of Our Lives’ EP on Bringing John Oliver’s Dream Soap Opera Role to Life: ‘He Wanted to Be Slapped’",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/kat-dennings-beth-behrs-2-broke-girls-shifting-gears-1236837618/"
+      "url": "https://variety.com/2026/tv/news/john-oliver-wanted-to-be-slapped-days-of-our-lives-1236837667/"
     },
     {
       "cat": "Film/TV",
-      "title": "Robin Williams’ Kids Revive Instagram Account to Combat AI Slop: ‘As Technology Evolves, We Want This to be a Safe, Trusted Place’",
+      "title": "Hayden Panettiere ‘Stuck Up for Background Actors When They Were Mistreated’ on ‘Heroes’ Set and ‘Knew Every Crew Members Name’",
       "when": "18 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/robin-williams-kids-revive-instagram-account-ai-slop-1236837661/"
+      "url": "https://variety.com/2026/tv/news/hayden-panettiere-defended-mistreated-background-actors-heroes-set-1236837264/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "59m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
