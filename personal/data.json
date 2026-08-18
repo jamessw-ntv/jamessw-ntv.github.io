@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-18",
-    "fetched": "2026-08-18T10:35:15+00:00",
+    "fetched": "2026-08-18T11:30:40+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 13,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 16
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 17
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90228.0,
-        "pct": 1.44
+        "price": 90496.0,
+        "pct": 1.41
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2666.78,
-        "pct": 0.13
+        "price": 2678.12,
+        "pct": 0.24
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "‘Ice Princess’ Director Remembers Stars Hayden Panettiere and Michelle Trachtenberg as an ‘Amazing Pair’: ‘Two Shining Talents, Gone Far Too Soon’",
+      "when": "18 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/ice-princess-director-honors-hayden-panettiere-michelle-trachtenberg-1236837006/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Oscars: Taiwan Selects ‘A Foggy Tale’ for International Feature Race",
+      "when": "18 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/oscars-taiwan-a-foggy-tale-international-feature-1236837005/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Diego Luna on Challenging How Migrants Are Viewed With ‘Ashes’: ‘We’re Not Thinking About What They Left Behind’",
+      "when": "18 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/diego-luna-ashes-sarajevo-1236836130/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Hayden Panettiere’s Ex Wladimir Klitschko Remembers Her ‘Immense Talent While Also Facing the Darker Sides’ of the Industry: ‘She Left This World Far Too Soon’",
       "when": "18 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/hayden-panettiere-ex-wladimir-klitschko-mourns-immense-talent-1236836976/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Croatian Crime Drama ‘Red Water,’ Directed by Cannes Prizewinner Antoneta Alamat Kusijanovic, to Be Co-Produced by ZDF/Arte, Beta Film (EXCLUSIVE)",
-      "when": "18 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/red-water-antoneta-alamat-kusijanovic-zdf-arte-beta-film-1236836971/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sundance Breakout ‘Thelma’ Set for Mandarin Remake by Stars Collective, Titled ‘Grandma, Please’ (EXCLUSIVE)",
-      "when": "18 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/sundance-hit-thelma-mandarin-remake-stars-collective-1236836962/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Spider-Man: Brand New Day,’ ‘The Odyssey’ Continue Tussle Atop U.K., Ireland Box Office",
-      "when": "18 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/spider-man-brand-new-day-the-odyssey-continue-tussle-uk-ireland-box-office-1236836944/"
     },
     {
       "cat": "Trek/Wars",
