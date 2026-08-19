@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-19",
-    "fetched": "2026-08-19T05:35:57+00:00",
+    "fetched": "2026-08-19T06:53:46+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 14,
-      "icon": "☁️",
-      "desc": "Overcast",
+      "icon": "⛅",
+      "desc": "Partly cloudy",
       "wind": 24
     },
     "days": [
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90933.0,
-        "pct": 0.61
+        "price": 90854.0,
+        "pct": 0.37
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2703.21,
-        "pct": 1.36
+        "price": 2705.02,
+        "pct": 1.0
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Kim Jong-kwan’s ‘The Table: Day and Night’ to Open Busan",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/kim-jong-kwan-table-day-and-night-busan-opening-film-1236837993/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Supergirl’ Star David Krumholtz Posts and Deletes Plans to Retire From Acting: ‘And Now, New Life’",
@@ -104,13 +111,6 @@
       "when": "18 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/heroes-tim-kring-tribute-hayden-panettiere-1236837796/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Felicia Day, Wil Wheaton on New Tabletop Gaming Show ‘Conludo,’ How ‘The Guild’ Reunion Movie Will Be Impacted by a Denied California Tax Credit",
-      "when": "18 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/felicia-day-wil-wheaton-the-guild-movie-show-conludo-1236837516/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "53m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
