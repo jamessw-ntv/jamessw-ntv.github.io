@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-19",
-    "fetched": "2026-08-19T13:49:31+00:00",
+    "fetched": "2026-08-19T14:39:49+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 12,
-      "icon": "🌦️",
-      "desc": "Drizzle",
+      "icon": "🌤️",
+      "desc": "Mainly clear",
       "wind": 16
     },
     "days": [
       {
         "day": "Today",
-        "min": 12,
-        "max": 14,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 100
-      },
-      {
-        "day": "Thu",
         "min": 9,
         "max": 15,
         "icon": "🌦️",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 59
+      },
+      {
+        "day": "Sat",
+        "min": 7,
+        "max": 14,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 63
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91326.0,
-        "pct": 1.32
+        "price": 91835.0,
+        "pct": 0.8
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2712.51,
-        "pct": 1.85
+        "price": 2719.18,
+        "pct": 1.07
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Steven Soderbergh Teams With British Arthouse Chain Everyman, Singani 63 on ‘A Man Under the Influence’ London Screening Series (EXCLUSIVE)",
+      "title": "Steve Buscemi, Tramell Tillman, Katy O’Brian, Nicholas Braun Among Cast of ‘Murderbot’ Season 2",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/steven-soderbergh-a-man-under-the-influence-london-1236838097/"
+      "url": "https://variety.com/2026/tv/news/steve-buscemi-tramell-tillman-murderbot-season-2-1236838167/"
     },
     {
       "cat": "Film/TV",
-      "title": "Here’s How to Watch the 2026 Little League World Series Live Online",
+      "title": "Rafael Nadal Docuseries ‘Rafa’: How a Local Setting, Language and Intimate Lensing Set the Primetime Emmy Contender Apart",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-little-league-world-series-online-livestream-free-1236487338/"
+      "url": "https://variety.com/2026/tv/global/rafael-nadal-primetime-emmy-skydance-netflix-non-english-1236838145/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hook, AI-Powered Music Remixing App, Strikes UMG Deal as It Takes Social-Forward Approach to Fan-Created Remixes (EXCLUSIVE)",
+      "title": "Aliens vs. Devil Horror Story ‘Haunting Skies’ Sets Film Adaptation; Author Christian Kang Bachini to Direct, Natasha Halevi and Emily Ashby to Star (EXCLUSIVE)",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/hook-ai-powered-music-remixing-app-strikes-umg-deal-1236838121/"
+      "url": "https://variety.com/2026/film/news/haunting-skies-aliens-devil-horror-novel-film-adaptation-1236837878/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Mutiny’ Review: Jason Statham Dies Hard on a Cargo Ship in a Thriller of Impeccable Bring-the-Pain Timing",
+      "title": "MS NOW to Launch Subscription ‘Membership’ Service in September for $7.99 Per Month",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/mutiny-review-jason-statham-1236837057/"
+      "url": "https://variety.com/2026/tv/news/ms-now-subscription-membership-launch-7-99-per-month-1236838166/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "51m ago",
+      "pushed": "50m ago",
       "lang": "HTML",
       "commit": ""
     }
