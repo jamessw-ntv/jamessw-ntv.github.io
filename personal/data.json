@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-19",
-    "fetched": "2026-08-19T09:39:27+00:00",
+    "fetched": "2026-08-19T10:34:40+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 22
+      "temp": 13,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 20
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90870.0,
-        "pct": 0.75
+        "price": 90881.0,
+        "pct": 0.72
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2710.46,
-        "pct": 1.66
+        "price": 2706.97,
+        "pct": 1.51
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Catherine Zeta-Jones Thriller Series ‘Kill Jackie’ Sets October Release Date on Prime Video",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/catherine-zeta-jones-kill-jackie-release-date-prime-video-1236838064/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Hamaguchi Ryusuke, Pawel Pawlikowski Cannes Winners Among El Gouna’s First 10 Titles for Ninth Edition",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/hamaguchi-pawlikowski-el-gouna-first-10-titles-2026-1236838061/"
+    },
     {
       "cat": "Film/TV",
       "title": "The Beatles Ink Licensing and Merch Deal With Universal Music Ahead of Biopics",
@@ -97,20 +111,6 @@
       "when": "19 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/yami-gautam-dhar-nayyi-navelli-october-release-1236837564/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "San Sebastián Sets Fatih Akin’s ‘Ghost Song’ as Opening Night Film",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/san-sebastian-fatih-akin-ghost-song-opening-film-1236838036/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘House of the Dragon’ Directing Mentorship Alum Marcus Anthony Thomas Sets Cast for British Psychological Thriller ‘Cast Me!’ (EXCLUSIVE)",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/marcus-anthony-thomas-psychological-thriller-cast-me-1236837237/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "54m ago",
+      "pushed": "55m ago",
       "lang": "HTML",
       "commit": ""
     }
