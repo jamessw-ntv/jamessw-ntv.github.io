@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-19",
-    "fetched": "2026-08-19T20:34:51+00:00",
+    "fetched": "2026-08-19T21:30:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 11,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 12
+      "wind": 13
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 96442.0,
-        "pct": 5.76
+        "price": 97743.0,
+        "pct": 7.22
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2980.94,
-        "pct": 10.36
+        "price": 3193.72,
+        "pct": 18.33
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Sons of Anarchy’ Cast Reunites for FX Limited Series ‘Legends’",
+      "title": "Academy Museum Fall Film Events Include ‘Marie Antoinette,’ ‘The Craft,’ ‘Pan’s Labyrinth’ – Film News in Brief",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/sons-of-anarchy-cast-reunion-fx-limited-series-legends-1236838557/"
+      "url": "https://variety.com/2026/film/news/film-news-in-brief-august-17-1236836442/"
     },
     {
       "cat": "Film/TV",
-      "title": "Shirley MacLaine Makes Rare Video Appearance at 92 Years Old and Quips About ‘Sweet Charity’: ‘It Didn’t Do Very Well’",
+      "title": "‘Even Stevens’ Star Christy Carlson Romano Says ‘Early Fame Is Like CTE’ After Hayden Panettiere’s Death: ‘Another Performer I Grew Up With, Gone Too Soon’",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/shirley-maclaine-video-sweet-charity-1236838485/"
+      "url": "https://variety.com/2026/tv/news/christy-carlson-romano-hayden-panettiere-death-child-fame-cte-even-stevens-1236838299/"
     },
     {
       "cat": "Film/TV",
-      "title": "Peacock Just Raised Its Prices — Here’s How to Get It Free With Walmart+",
+      "title": "Paramount-Warner Bros. Merger Will Cost 4,500 L.A. Production Jobs, Report Finds",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-get-peacock-free-walmart-plus-1236838518/"
+      "url": "https://variety.com/2026/film/news/paramount-warner-bros-merger-la-job-loss-production-1236838567/"
     },
     {
       "cat": "Film/TV",
-      "title": "Anne Hathaway Pushed ‘Really Hard’ to Bring Julie Andrews Back for ‘Princess Diaries 3’ but the Icon Passed: ‘Whatever She Wants, We Completely Understand’",
+      "title": "LISTEN: How ‘Dateline’ Became a Content Dynamo for NBC News",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/princess-diaries-3-anne-hathaway-pushed-bring-julie-andrews-back-1236838475/"
+      "url": "https://variety.com/2026/tv/news/dateline-dynamo-nbc-news-liz-cole-paul-ryan-nbc-100-1236837946/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Ewan McGregor Says He Wants To Shoot the Love Story Between Hera Syndulla and Obi-Wan Kenobi",
+      "when": "19 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/ewan-mcgregor-says-he-wants-to-shoot-the-love-story-between-hera-syndulla-and-obi-wan-kenobi.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "19 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-starfighter-is-set-in-a-chaotic-galaxy-with-no-governing-body.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: ‘Ahsoka’ Season 2 Trailer Impresses, ‘Starfighter’ New Details, and More",
-      "when": "19 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/this-week-in-a-galaxy-far-far-away-ahsoka-season-2-trailer-impresses-starfighter-new-details-and-more.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "55m ago",
       "lang": "HTML",
       "commit": ""
     }
