@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-19",
-    "fetched": "2026-08-19T08:45:04+00:00",
+    "fetched": "2026-08-19T09:39:27+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 14,
-      "icon": "🌦️",
-      "desc": "Drizzle",
+      "icon": "☁️",
+      "desc": "Overcast",
       "wind": 22
     },
     "days": [
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90973.0,
-        "pct": 0.6
+        "price": 90870.0,
+        "pct": 0.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2716.14,
-        "pct": 1.62
+        "price": 2710.46,
+        "pct": 1.66
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "The Beatles Ink Licensing and Merch Deal With Universal Music Ahead of Biopics",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/the-beatles-licensing-merch-deal-universal-music-1236838031/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Yami Gautam Dhar’s ‘Nayyi Navelli’ Sets October Release From Amazon MGM Studios, Colour Yellow (EXCLUSIVE)",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/yami-gautam-dhar-nayyi-navelli-october-release-1236837564/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "San Sebastián Sets Fatih Akin’s ‘Ghost Song’ as Opening Night Film",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/san-sebastian-fatih-akin-ghost-song-opening-film-1236838036/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "‘House of the Dragon’ Directing Mentorship Alum Marcus Anthony Thomas Sets Cast for British Psychological Thriller ‘Cast Me!’ (EXCLUSIVE)",
       "when": "19 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/marcus-anthony-thomas-psychological-thriller-cast-me-1236837237/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sci-Fi Horror Comedy ‘Flapjax’ Boards Blue Finch Films for Sales Ahead of Fantastic Fest Bow (EXCLUSIVE)",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/sci-fi-horror-comedy-flapjax-blue-finch-fantastic-fest-1236837017/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Hybrid-AI Mandopop Musical ‘Alishan Escape’ Set at Red Empire, OMG (EXCLUSIVE)",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hybrid-ai-mandopop-musical-alishan-escape-red-empire-omg-1236838002/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Kim Jong-kwan’s ‘The Table: Day and Night’ to Open Busan",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/kim-jong-kwan-table-day-and-night-busan-opening-film-1236837993/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "54m ago",
       "lang": "HTML",
       "commit": ""
     }
