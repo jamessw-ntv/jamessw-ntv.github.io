@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-19",
-    "fetched": "2026-08-19T15:37:35+00:00",
+    "fetched": "2026-08-19T16:37:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 12,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 15
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 13
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 95971.0,
-        "pct": 5.1
+        "price": 96474.0,
+        "pct": 5.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2908.93,
-        "pct": 7.67
+        "price": 2943.33,
+        "pct": 9.07
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The End of Times’ Acquired by Split Screen Ahead of Venice Premiere (EXCLUSIVE)",
+      "title": "‘Good American Family’ Renewed for Season 2 at Hulu, to Focus on Lorena Bobbitt Case",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/the-end-of-times-split-screen-venice-1236838224/"
+      "url": "https://variety.com/2026/tv/news/good-american-family-renewed-season-2-hulu-lorena-bobbitt-1236838345/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Who Wants to Be a Millionaire’ Ends Summer Run With Consecutive Weeks of Ratings Growth",
+      "title": "Corey Hawkins Signs With Range Media Partners (EXCLUSIVE)",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/who-wants-to-be-a-millionaire-summer-ratings-growth-1236837936/"
+      "url": "https://variety.com/2026/film/news/corey-hawkins-signs-range-media-partners-1236837854/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jackbox Games Sets ‘Party Pack 12,’ ‘Trivia Murder Party 3’ Releases as CEO Teases New Streaming Service (EXCLUSIVE)",
+      "title": "Venice Chief Alberto Barbera Defends Selection of Russian Director Ilya Khrzhanovsky’s ‘DAU’ After Backlash: It’s ‘Not Pro-Putin Propaganda’",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/jackbox-party-pack-12-trivia-murder-party-3-release-dates-1236838174/"
+      "url": "https://variety.com/2026/film/festivals/venice-chief-defends-dau-selection-ukraine-backlash-1236838254/"
     },
     {
       "cat": "Film/TV",
-      "title": "Odyssey Entertainment Group Launches Original Content Division to Collaborate With Creators",
+      "title": "‘Insidious: Out of the Further’ Review: Latest Entry in the Franchise Serves Up Genuinely Terrifying Setpieces Despite a Convoluted Final Act",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/odyssey-entertainment-originals-creators-kosinski-kasper-1236838207/"
+      "url": "https://variety.com/2026/film/reviews/insidious-out-of-the-further-review-1236837868/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "57m ago",
+      "pushed": "59m ago",
       "lang": "HTML",
       "commit": ""
     }
