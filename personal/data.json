@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-19",
-    "fetched": "2026-08-19T14:39:49+00:00",
+    "fetched": "2026-08-19T15:37:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 12,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 16
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 15
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 15,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 94
+        "rain": 98
       },
       {
         "day": "Fri",
@@ -29,7 +29,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 59
+        "rain": 63
       },
       {
         "day": "Sat",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 63
+        "rain": 51
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91835.0,
-        "pct": 0.8
+        "price": 95971.0,
+        "pct": 5.1
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2719.18,
-        "pct": 1.07
+        "price": 2908.93,
+        "pct": 7.67
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Steve Buscemi, Tramell Tillman, Katy O’Brian, Nicholas Braun Among Cast of ‘Murderbot’ Season 2",
+      "title": "‘The End of Times’ Acquired by Split Screen Ahead of Venice Premiere (EXCLUSIVE)",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/steve-buscemi-tramell-tillman-murderbot-season-2-1236838167/"
+      "url": "https://variety.com/2026/film/global/the-end-of-times-split-screen-venice-1236838224/"
     },
     {
       "cat": "Film/TV",
-      "title": "Rafael Nadal Docuseries ‘Rafa’: How a Local Setting, Language and Intimate Lensing Set the Primetime Emmy Contender Apart",
+      "title": "‘Who Wants to Be a Millionaire’ Ends Summer Run With Consecutive Weeks of Ratings Growth",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/rafael-nadal-primetime-emmy-skydance-netflix-non-english-1236838145/"
+      "url": "https://variety.com/2026/tv/news/who-wants-to-be-a-millionaire-summer-ratings-growth-1236837936/"
     },
     {
       "cat": "Film/TV",
-      "title": "Aliens vs. Devil Horror Story ‘Haunting Skies’ Sets Film Adaptation; Author Christian Kang Bachini to Direct, Natasha Halevi and Emily Ashby to Star (EXCLUSIVE)",
+      "title": "Jackbox Games Sets ‘Party Pack 12,’ ‘Trivia Murder Party 3’ Releases as CEO Teases New Streaming Service (EXCLUSIVE)",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/haunting-skies-aliens-devil-horror-novel-film-adaptation-1236837878/"
+      "url": "https://variety.com/2026/gaming/news/jackbox-party-pack-12-trivia-murder-party-3-release-dates-1236838174/"
     },
     {
       "cat": "Film/TV",
-      "title": "MS NOW to Launch Subscription ‘Membership’ Service in September for $7.99 Per Month",
+      "title": "Odyssey Entertainment Group Launches Original Content Division to Collaborate With Creators",
       "when": "19 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ms-now-subscription-membership-launch-7-99-per-month-1236838166/"
+      "url": "https://variety.com/2026/digital/news/odyssey-entertainment-originals-creators-kosinski-kasper-1236838207/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "50m ago",
+      "pushed": "57m ago",
       "lang": "HTML",
       "commit": ""
     }
