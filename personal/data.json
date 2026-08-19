@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-19",
-    "fetched": "2026-08-19T10:34:40+00:00",
+    "fetched": "2026-08-19T11:30:50+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 13,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 20
+      "wind": 19
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90881.0,
-        "pct": 0.72
+        "price": 91127.0,
+        "pct": 0.69
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2706.97,
-        "pct": 1.51
+        "price": 2715.57,
+        "pct": 1.39
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Emily Watson Says Growing Up in a Religious Cult Almost Stopped Her From Starring in ‘Breaking the Waves’: ‘I Was Like a Piece of Wire That Had Been Unplugged’",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/emily-watson-religious-cult-breaking-the-waves-sarajevo-1236838021/"
+    },
     {
       "cat": "Film/TV",
       "title": "Catherine Zeta-Jones Thriller Series ‘Kill Jackie’ Sets October Release Date on Prime Video",
@@ -104,13 +111,6 @@
       "when": "19 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/the-beatles-licensing-merch-deal-universal-music-1236838031/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Yami Gautam Dhar’s ‘Nayyi Navelli’ Sets October Release From Amazon MGM Studios, Colour Yellow (EXCLUSIVE)",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/yami-gautam-dhar-nayyi-navelli-october-release-1236837564/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "55m ago",
+      "pushed": "56m ago",
       "lang": "HTML",
       "commit": ""
     }
