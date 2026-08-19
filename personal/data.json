@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-19",
-    "fetched": "2026-08-19T18:42:45+00:00",
+    "fetched": "2026-08-19T19:31:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 12,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 13
+      "wind": 12
     },
     "days": [
       {
@@ -26,7 +26,7 @@
       {
         "day": "Fri",
         "min": 6,
-        "max": 13,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 63
@@ -72,46 +72,18 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 95903.0,
-        "pct": 4.91
+        "price": 95778.0,
+        "pct": 4.84
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2931.24,
-        "pct": 8.4
+        "price": 2939.36,
+        "pct": 8.75
       }
     ]
   },
   "releases": [
-    {
-      "cat": "Film/TV",
-      "title": "David Krumholtz Clarifies He’s Putting Acting Career on Hold but Not ‘Retiring or Quitting’: Disappointments ‘Are Starting to Sting More’",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/david-krumholtz-acting-career-on-hold-not-retiring-1236838449/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Telemundo Executive José Suárez Dies in Helicopter Crash at 55",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/telemundo-jose-suarez-dies-helicopter-crash-1236838453/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Slow Horses’ Actor Jack Lowden Unpacks River Cartwright and Why Pride Gets in His Way",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/awards/news/slow-horses-actor-jack-lowden-river-cartwright-season-5-1236838202/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Widow’s Bay’ and Other Contenders Continue to Complicate Emmy’s Comedy Conundrum",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/awards/widows-bay-emmys-comedy-contenders-conundrum-1236837738/"
-    },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars Zero Company’ Final Trailer Revealed 10 Days Before Release",
@@ -167,13 +139,20 @@
       "when": "24 Jun",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/712279347386384662"
+    },
+    {
+      "cat": "Games",
+      "title": "1.2 Update Fixes v1.2.3.0",
+      "when": "11 Jun",
+      "source": "Satisfactory",
+      "url": "https://store.steampowered.com/news/app/526870/view/686382380150161913"
     }
   ],
   "dev": [
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "48m ago",
       "lang": "HTML",
       "commit": ""
     }
