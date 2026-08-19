@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-19",
-    "fetched": "2026-08-19T19:31:02+00:00",
+    "fetched": "2026-08-19T20:34:51+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 11,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 12
@@ -72,18 +72,46 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 95778.0,
-        "pct": 4.84
+        "price": 96442.0,
+        "pct": 5.76
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2939.36,
-        "pct": 8.75
+        "price": 2980.94,
+        "pct": 10.36
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Sons of Anarchy’ Cast Reunites for FX Limited Series ‘Legends’",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/sons-of-anarchy-cast-reunion-fx-limited-series-legends-1236838557/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Shirley MacLaine Makes Rare Video Appearance at 92 Years Old and Quips About ‘Sweet Charity’: ‘It Didn’t Do Very Well’",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/shirley-maclaine-video-sweet-charity-1236838485/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Peacock Just Raised Its Prices — Here’s How to Get It Free With Walmart+",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-get-peacock-free-walmart-plus-1236838518/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Anne Hathaway Pushed ‘Really Hard’ to Bring Julie Andrews Back for ‘Princess Diaries 3’ but the Icon Passed: ‘Whatever She Wants, We Completely Understand’",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/princess-diaries-3-anne-hathaway-pushed-bring-julie-andrews-back-1236838475/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars Zero Company’ Final Trailer Revealed 10 Days Before Release",
@@ -139,20 +167,13 @@
       "when": "24 Jun",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/712279347386384662"
-    },
-    {
-      "cat": "Games",
-      "title": "1.2 Update Fixes v1.2.3.0",
-      "when": "11 Jun",
-      "source": "Satisfactory",
-      "url": "https://store.steampowered.com/news/app/526870/view/686382380150161913"
     }
   ],
   "dev": [
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "48m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
