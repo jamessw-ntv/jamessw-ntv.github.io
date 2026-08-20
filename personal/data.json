@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-20",
-    "fetched": "2026-08-20T10:36:44+00:00",
+    "fetched": "2026-08-20T11:32:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 10,
       "icon": "🌦️",
       "desc": "Showers",
-      "wind": 8
+      "wind": 2
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 100704.0,
+        "price": 100946.0,
         "pct": 10.78
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3201.72,
-        "pct": 18.24
+        "price": 3221.86,
+        "pct": 18.61
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "After ‘Burlesque the Musical’ Cancels More Performances, ATG Entertainment Says Show Must Go On",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/theater/global/burlesque-the-musical-atg-entertainment-1236837407/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Sundance Prizewinner Luke Lorentzen’s Documentary ‘Boatbuilders’ Boarded by Metfilm Sales Ahead of Venice World Premiere (EXCLUSIVE)",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/luke-lorentzen-boatbuilders-metfilm-sales-venice-1236838855/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Gramado Targets Next-Gen Talent as Permanent Growth Engine (EXCLUSIVE)",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/gramado-residency-young-filmmakers-1236838819/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Podcast Giant Goalhanger Hires Tom Miceli to Lead TV and Film Expansion (EXCLUSIVE)",
       "when": "20 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/digital/global/goalhanger-hires-tom-miceli-tv-and-film-expansion-1236838833/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "China’s Pingyao Film Festival Sets 10th Edition Dates – Global Bulletin",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/pingyao-film-festival-10th-edition-dates-1236838876/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "San Sebastián Sets Michaël R. Roskam’s ‘Le Faux Soir’ as Closing Night Film",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/san-sebastian-michael-roskam-le-faux-soir-closing-film-1236838841/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Game of Thrones’ Play ‘The Mad King’ Reveals Behind-The-Scenes Secrets in Stage Transformation Video (EXCLUSIVE)",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/theater/global/game-of-thrones-the-mad-king-behind-the-scenes-video-1236838551/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "56m ago",
+      "pushed": "55m ago",
       "lang": "HTML",
       "commit": ""
     }
