@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-20",
-    "fetched": "2026-08-20T13:00:16+00:00",
+    "fetched": "2026-08-20T13:51:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 8,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 8
+      "wind": 9
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 100994.0,
-        "pct": 10.64
+        "price": 100338.0,
+        "pct": 9.89
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3215.56,
-        "pct": 17.96
+        "price": 3185.7,
+        "pct": 17.49
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Soccer Drama ‘Forza’ Sets Indonesia Release, Global Rollout (EXCLUSIVE)",
+      "title": "Netflix’s Engaging Crime Drama ‘Blood Sacrifice’ Spotlights Inept Policing: TV Review",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/soccer-drama-forza-indonesia-release-global-rollout-1236838816/"
+      "url": "https://variety.com/2026/tv/reviews/blood-sacrifice-review-netflix-1236838260/"
     },
     {
       "cat": "Film/TV",
-      "title": "The Freyas, a New Awards Ceremony Celebrating Nordic Film and TV Talent, to Launch in Helsinki (EXCLUSIVE)",
+      "title": "Brand Marketing Veteran Justin Breton Joins Gap to Drive Original Content",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/the-freyas-nordic-film-and-tv-awards-helsinki-1236838943/"
+      "url": "https://variety.com/2026/biz/news/justin-breton-gap-brand-marketing-walmart-fashiontainment-1236838762/"
     },
     {
       "cat": "Film/TV",
-      "title": "Felicia Day’s ‘The Guild’ Movie Breaks ‘Veronica Mars’ Kickstarter Record, Raising More Than $5.7 Million",
+      "title": "Most Americans Have Not Seen Stories of People Living With HIV in Media in the Last Year: GLAAD Report",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/felicia-day-the-guild-movie-breaks-fundraising-record-1236838939/"
+      "url": "https://variety.com/2026/film/columns/stories-of-people-living-with-hiv-in-media-glaad-report-1236838733/"
     },
     {
       "cat": "Film/TV",
-      "title": "Charter Closes $34.5 Billion Cox Deal in Cable Megamerger, Company to Adopt Cox Communications Name",
+      "title": "ESPN Will Test ‘Alumni Cast’ for MLB Little League Classic",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/charter-closes-cox-merger-new-company-name-1236838902/"
+      "url": "https://variety.com/2026/tv/news/espn-mlb-little-league-classic-alumni-alt-cast-1236838737/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "50m ago",
       "lang": "HTML",
       "commit": ""
     }
