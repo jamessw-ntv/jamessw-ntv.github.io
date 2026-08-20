@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-20",
-    "fetched": "2026-08-20T16:40:55+00:00",
+    "fetched": "2026-08-20T17:35:36+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 6,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 7
+      "wind": 6
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 101767.0,
-        "pct": 5.58
+        "price": 102303.0,
+        "pct": 7.21
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3273.45,
-        "pct": 11.38
+        "price": 3296.61,
+        "pct": 13.07
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Steven Yeun to Lead Netflix Series ‘Pagans’ From ‘Say Nothing’ Creator Joshua Zetumer",
+      "title": "The Best Tennis Brands to Shop Ahead of the U. S Open",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/steven-yeun-netflix-series-pagans-1236839158/"
+      "url": "https://variety.com/2026/shopping/news/best-tennis-brands-shop-online-1236839139/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Golden Axe’ Trailer: Matthew Rhys and Lisa Gilroy Star in Animated Series Based on Sega’s Classic Video Game",
+      "title": "How This Year’s Drama Nominees, From ‘Paradise’ to ‘The Pitt,’ Tackle Our Troubled Times",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/golden-axe-trailer-matthew-rhys-sega-paramount-1236838764/"
+      "url": "https://variety.com/2026/tv/awards/emmy-drama-nominees-paradise-the-pitt-troubled-times-1236837769/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Practical Magic’ Gets Witchy Jewelry Collection Ahead of Sequel",
+      "title": "Jessica Simpson Doc Set at Netflix From ‘Robbie Williams’ Director Joe Pearlman (EXCLUSIVE)",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/practical-magic-jewelry-collection-awe-inspired-shop-online-1236831506/"
+      "url": "https://variety.com/2026/music/global/jessica-simpson-documentary-netflix-joe-pearlman-1236838927/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Defies Logic In “Level-Five Transporter Accident”",
+      "when": "20 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/20/recap-review-star-trek-strange-new-worlds-defies-logic-in-level-five-transporter-accident/"
     },
     {
       "cat": "Film/TV",
-      "title": "BlizzCon 2026 Sets T-Pain, Simu Liu, deadmau5, YOASOBI and More Celeb Guests",
+      "title": "‘Hot Spot’ Review: Eighties Cyberpunk Kitsch Is the Future in Agnieszka Smoczynka’s Peculiar Post-Apocalyptic Vision",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/blizzcon-celeb-guests-tpain-simu-liu-deadmau5-1236838550/"
+      "url": "https://variety.com/2026/film/news/hot-spot-review-1236838117/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/08/18/see-admiral-sato-set-course-to-stop-kirks-war-in-star-trek-the-last-starship-10-preview/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Paramount Exec Touts “Next Iteration” Of Star Trek TV: “It’s Imperative”",
-      "when": "18 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/18/paramount-exec-touts-next-iteration-of-star-trek-tv-its-imperative/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "54m ago",
       "lang": "HTML",
       "commit": ""
     }
