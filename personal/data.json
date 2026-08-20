@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-20",
-    "fetched": "2026-08-20T11:32:17+00:00",
+    "fetched": "2026-08-20T13:00:16+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 2
+      "temp": 9,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 8
     },
     "days": [
       {
@@ -26,18 +26,18 @@
       {
         "day": "Fri",
         "min": 6,
-        "max": 13,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 44
-      },
-      {
-        "day": "Sat",
-        "min": 7,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 65
+        "rain": 51
+      },
+      {
+        "day": "Sat",
+        "min": 8,
+        "max": 14,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 75
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 100946.0,
-        "pct": 10.78
+        "price": 100994.0,
+        "pct": 10.64
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3221.86,
-        "pct": 18.61
+        "price": 3215.56,
+        "pct": 17.96
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "After ‘Burlesque the Musical’ Cancels More Performances, ATG Entertainment Says Show Must Go On",
+      "title": "Soccer Drama ‘Forza’ Sets Indonesia Release, Global Rollout (EXCLUSIVE)",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/theater/global/burlesque-the-musical-atg-entertainment-1236837407/"
+      "url": "https://variety.com/2026/film/news/soccer-drama-forza-indonesia-release-global-rollout-1236838816/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sundance Prizewinner Luke Lorentzen’s Documentary ‘Boatbuilders’ Boarded by Metfilm Sales Ahead of Venice World Premiere (EXCLUSIVE)",
+      "title": "The Freyas, a New Awards Ceremony Celebrating Nordic Film and TV Talent, to Launch in Helsinki (EXCLUSIVE)",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/luke-lorentzen-boatbuilders-metfilm-sales-venice-1236838855/"
+      "url": "https://variety.com/2026/film/global/the-freyas-nordic-film-and-tv-awards-helsinki-1236838943/"
     },
     {
       "cat": "Film/TV",
-      "title": "Gramado Targets Next-Gen Talent as Permanent Growth Engine (EXCLUSIVE)",
+      "title": "Felicia Day’s ‘The Guild’ Movie Breaks ‘Veronica Mars’ Kickstarter Record, Raising More Than $5.7 Million",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/gramado-residency-young-filmmakers-1236838819/"
+      "url": "https://variety.com/2026/film/news/felicia-day-the-guild-movie-breaks-fundraising-record-1236838939/"
     },
     {
       "cat": "Film/TV",
-      "title": "Podcast Giant Goalhanger Hires Tom Miceli to Lead TV and Film Expansion (EXCLUSIVE)",
+      "title": "Charter Closes $34.5 Billion Cox Deal in Cable Megamerger, Company to Adopt Cox Communications Name",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/global/goalhanger-hires-tom-miceli-tv-and-film-expansion-1236838833/"
+      "url": "https://variety.com/2026/tv/news/charter-closes-cox-merger-new-company-name-1236838902/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "55m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
