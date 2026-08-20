@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-20",
-    "fetched": "2026-08-20T08:47:14+00:00",
+    "fetched": "2026-08-20T09:40:32+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 12
+      "temp": 12,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 13
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 100243.0,
-        "pct": 10.17
+        "price": 100893.0,
+        "pct": 11.04
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3190.12,
-        "pct": 17.43
+        "price": 3210.21,
+        "pct": 18.48
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "San Sebastián Sets Michaël R. Roskam’s ‘Le Faux Soir’ as Closing Night Film",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/san-sebastian-michael-roskam-le-faux-soir-closing-film-1236838841/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Game of Thrones’ Play ‘The Mad King’ Reveals Behind-The-Scenes Secrets in Stage Transformation Video (EXCLUSIVE)",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/theater/global/game-of-thrones-the-mad-king-behind-the-scenes-video-1236838551/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Toei, Shochiku, Kadokawa Among IP Holders Set for TIFFCOM’s Tokyo Adaptation and Remake Market",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/toei-shochiku-kadokawa-ip-holders-tokyo-remake-market-1236838854/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "‘You Don’t Belong Here’ Director Florin Şerban Sets Next Feature After Winning Locarno’s Golden Leopard (EXCLUSIVE)",
       "when": "20 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/you-dont-belong-here-florin-serban-follow-up-locarno-1236838137/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "India’s Epic Studios, Rusk Media Ink 50-Title Vertical Drama Deal (EXCLUSIVE)",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/india-epic-studios-rusk-media-50-title-vertical-drama-deal-1236838805/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Busan Festival Honors Ahn Sung-ki, Market Names Thailand Country of Honor",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/busan-festival-honor-ahn-sung-ki-market-thailand-country-of-honor-1236838811/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Manoj Bajpayee, Sudhir Mishra, Anubhav Sinha’s Gandhi Film Unveils Plot, Adds Saurabh Shukla, Narendra Hirawat (EXCLUSIVE)",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/manoj-bajpayee-gandhi-film-plot-cast-producer-1236838081/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "53m ago",
       "lang": "HTML",
       "commit": ""
     }
