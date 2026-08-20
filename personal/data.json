@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-20",
-    "fetched": "2026-08-20T21:33:42+00:00",
+    "fetched": "2026-08-20T22:33:16+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 10
+      "temp": 8,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 9
     },
     "days": [
       {
@@ -72,38 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 102222.0,
-        "pct": 4.4
+        "price": 102253.0,
+        "pct": 5.47
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3258.43,
-        "pct": 1.82
+        "price": 3251.73,
+        "pct": 2.83
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Netflix Exec Andy Weil Jumping to Amazon as Head of Comedy",
+      "title": "How ‘Star Trek: Strange New Worlds’ Pulled Off That Madcap Puppet Episode",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-exec-andy-weil-amazon-head-of-comedy-1236839544/"
+      "url": "https://variety.com/2026/tv/news/star-trek-strange-new-worlds-puppet-episode-1236833011/"
     },
     {
       "cat": "Film/TV",
-      "title": "Diane Warren Adopts West Hollywood’s Runaway Pig: ‘Welcome Wilbur!’",
+      "title": "Prime Video Unveils Landmark $2 Billion-Plus Investment in Latin American Entertainment",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/diane-warren-adopts-runaway-pig-wilbur-1236839382/"
+      "url": "https://variety.com/2026/film/global/prime-video-2-billion-investment-latin-america-1236839446/"
     },
     {
       "cat": "Film/TV",
-      "title": "TV Vet Chuck Saftler to Depart Disney and FX After Nearly 33 Years",
+      "title": "Dave Bautista Officially Set as Kratos in ‘God of War’ TV Series",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/chuck-saftler-to-depart-disney-and-fx-1236839456/"
+      "url": "https://variety.com/2026/tv/news/dave-bautista-kratos-god-of-war-tv-series-amazon-1236839394/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "The Hollies Officially Call It Quits, as Last Two Members of Classic 1960s Lineup Retire After Being in Band for 63 Years",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/hollies-retire-original-members-tony-hicks-bobby-elliott-1236839526/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "20 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-galactic-racer-goes-gold-star-wars-resistance-character-spotted-and-fuse-games-ceo-discusses-how-a-niche-game-finds-success.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "L.A. Mayor Karen Bass Weighs In on Paramount-Warner Bros. Merger, Urges California AG Rob Bonta to Engage in Talks on Antitrust Case: ‘This Is Not About Taking Sides’",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/la-mayor-karen-bass-paramount-warner-bros-merger-settle-antitrust-case-1236839410/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "58m ago",
+      "pushed": "59m ago",
       "lang": "HTML",
       "commit": ""
     }
