@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-20",
-    "fetched": "2026-08-20T15:39:25+00:00",
+    "fetched": "2026-08-20T16:40:55+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 7,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 9
+      "wind": 7
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 51
+        "rain": 38
       },
       {
         "day": "Sat",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 75
+        "rain": 73
       },
       {
         "day": "Sun",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 101478.0,
-        "pct": 5.64
+        "price": 101767.0,
+        "pct": 5.58
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3230.0,
-        "pct": 10.5
+        "price": 3273.45,
+        "pct": 11.38
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Hunting Wives’ Sets Season 2 Release Date, Drops First-Look Photos",
+      "title": "Steven Yeun to Lead Netflix Series ‘Pagans’ From ‘Say Nothing’ Creator Joshua Zetumer",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hunting-wives-season-2-release-date-first-look-1236839062/"
+      "url": "https://variety.com/2026/tv/news/steven-yeun-netflix-series-pagans-1236839158/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Yellowjackets’ Sets Fourth and Final Season Release Date",
+      "title": "‘Golden Axe’ Trailer: Matthew Rhys and Lisa Gilroy Star in Animated Series Based on Sega’s Classic Video Game",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/yellowjackets-final-season-4-release-date-1236839026/"
+      "url": "https://variety.com/2026/tv/news/golden-axe-trailer-matthew-rhys-sega-paramount-1236838764/"
     },
     {
       "cat": "Film/TV",
-      "title": "Watermelon Pictures Acquires Diego Luna’s Migration Drama ‘Ashes’ (EXCLUSIVE)",
+      "title": "‘Practical Magic’ Gets Witchy Jewelry Collection Ahead of Sequel",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/watermelon-pictures-buys-diego-lunas-migration-drama-ashes-1236838941/"
+      "url": "https://variety.com/2026/shopping/news/practical-magic-jewelry-collection-awe-inspired-shop-online-1236831506/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ava DuVernay’s ’14th’ Documentary Sets Netflix Release Date (EXCLUSIVE)",
+      "title": "BlizzCon 2026 Sets T-Pain, Simu Liu, deadmau5, YOASOBI and More Celeb Guests",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ava-duvernay-14th-documentary-netflix-release-date-1236838623/"
+      "url": "https://variety.com/2026/gaming/news/blizzcon-celeb-guests-tpain-simu-liu-deadmau5-1236838550/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "57m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
