@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-20",
-    "fetched": "2026-08-20T07:47:05+00:00",
+    "fetched": "2026-08-20T08:47:14+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 14
+      "temp": 13,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 12
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 97673.0,
-        "pct": 7.37
+        "price": 100243.0,
+        "pct": 10.17
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3151.17,
-        "pct": 16.14
+        "price": 3190.12,
+        "pct": 17.43
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘You Don’t Belong Here’ Director Florin Şerban Sets Next Feature After Winning Locarno’s Golden Leopard (EXCLUSIVE)",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/you-dont-belong-here-florin-serban-follow-up-locarno-1236838137/"
+    },
     {
       "cat": "Film/TV",
       "title": "India’s Epic Studios, Rusk Media Ink 50-Title Vertical Drama Deal (EXCLUSIVE)",
@@ -104,13 +111,6 @@
       "when": "20 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/manoj-bajpayee-gandhi-film-plot-cast-producer-1236838081/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Josh Radnor Is ‘Not Even a Little Bit’ Close to His ‘How I Met Your Mother’ Co-Stars: ‘You Just Go Out and Live Your Life’",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/josh-radnor-not-close-how-i-met-your-mother-co-stars-1236838802/"
     },
     {
       "cat": "Trek/Wars",
@@ -142,17 +142,17 @@
     },
     {
       "cat": "Trek/Wars",
+      "title": "See Admiral Sato Set Course To Stop Kirk’s War In ‘Star Trek: The Last Starship’ #10 Preview",
+      "when": "19 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/18/see-admiral-sato-set-course-to-stop-kirks-war-in-star-trek-the-last-starship-10-preview/"
+    },
+    {
+      "cat": "Trek/Wars",
       "title": "Paramount Exec Touts “Next Iteration” Of Star Trek TV: “It’s Imperative”",
       "when": "18 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/18/paramount-exec-touts-next-iteration-of-star-trek-tv-its-imperative/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Preview ‘Star Trek: Strange New Worlds’ Puppet Episode With 13 New Photos From “Level-Five Transporter Accident”",
-      "when": "17 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/17/preview-star-trek-strange-new-worlds-puppet-episode-with-13-new-photos-from-level-five-transporter-accident/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "51m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
