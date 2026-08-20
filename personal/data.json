@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-20",
-    "fetched": "2026-08-20T03:51:16+00:00",
+    "fetched": "2026-08-20T04:42:28+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 20
+      "temp": 15,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 19
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 47
+        "rain": 44
       },
       {
         "day": "Sat",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 67
+        "rain": 65
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 97237.0,
+        "price": 97273.0,
         "pct": 6.96
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3165.89,
-        "pct": 17.16
+        "price": 3160.65,
+        "pct": 16.92
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Josh Radnor Is ‘Not Even a Little Bit’ Close to His ‘How I Met Your Mother’ Co-Stars: ‘You Just Go Out and Live Your Life’",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/josh-radnor-not-close-how-i-met-your-mother-co-stars-1236838802/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Naomi Watts to Receive Zurich Film Festival’s Golden Eye Award for ‘The Housewife’",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/naomi-watts-zurich-the-housewife-1236838419/"
+    },
     {
       "cat": "Film/TV",
       "title": "Hayden Panettiere’s Death: DEA Joins Investigation",
@@ -97,20 +111,6 @@
       "when": "19 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/shopping/athletes/kylian-mbappe-nike-mercurial-gold-soccer-cleats-buy-online-1236838580/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Dane Cook’s Brother Stole $12 Million From Comedian, Hid Bricks of Cash in Pasta Sauce",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/dane-cook-brother-stole-12-million-cash-pasta-sauce-1236838675/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Hayden Panettiere’s ‘Heroes’ Dad Calls Out ‘Predatory’ Paparazzi Who ‘Hunted’ Her and the Press Who Asked ‘Misogynistic’ Questions When She Was a Teen",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hayden-panettiere-heroes-dad-slams-paparazzi-media-hunting-her-1236838679/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "48m ago",
+      "pushed": "51m ago",
       "lang": "HTML",
       "commit": ""
     }
