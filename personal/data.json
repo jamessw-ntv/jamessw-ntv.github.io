@@ -2,26 +2,26 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-19",
-    "fetched": "2026-08-19T23:28:06+00:00",
+    "updated": "2026-08-20",
+    "fetched": "2026-08-20T01:38:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 15,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 14
+      "wind": 17
     },
     "days": [
       {
         "day": "Today",
-        "min": 9,
-        "max": 15,
+        "min": 8,
+        "max": 16,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 98
+        "rain": 100
       },
       {
         "day": "Fri",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 63
+        "rain": 47
       },
       {
         "day": "Sat",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 51
+        "rain": 67
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 97201.0,
-        "pct": 6.41
+        "price": 97784.0,
+        "pct": 7.37
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3151.48,
-        "pct": 16.37
+        "price": 3179.4,
+        "pct": 17.54
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Hayden Panettiere’s Death: DEA Joins Investigation",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/hayden-panettiere-death-dea-joins-investigation-1236838724/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "French Soccer Star Kylian Mbappé Debuts Gold Nike Cleats on Heels of World Cup Golden Boot Award Win",
+      "when": "19 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/athletes/kylian-mbappe-nike-mercurial-gold-soccer-cleats-buy-online-1236838580/"
+    },
     {
       "cat": "Film/TV",
       "title": "Dane Cook’s Brother Stole $12 Million From Comedian, Hid Bricks of Cash in Pasta Sauce",
@@ -97,20 +111,6 @@
       "when": "19 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/hayden-panettiere-heroes-dad-slams-paparazzi-media-hunting-her-1236838679/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Lucky’ Creators on Deciding Who Dies in the Finale, Why the Show Really Is Over and Not Knowing About Drew Starkey’s ‘Avid’ Fandom ‘Until We Killed Him’",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/lucky-creators-finale-deaths-killing-drew-starkey-anya-taylor-joy-1236838325/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ariana Grande Granted Permission to Issue Expedited Subpoenas to Reveal Hacker Identities",
-      "when": "19 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/ariana-grande-permitted-subpoena-reveal-hacker-identities-1236838661/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "57m ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
