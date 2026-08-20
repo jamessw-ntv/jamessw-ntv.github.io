@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-20",
-    "fetched": "2026-08-20T20:35:14+00:00",
+    "fetched": "2026-08-20T21:33:42+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 6,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
+      "icon": "⛅",
+      "desc": "Partly cloudy",
       "wind": 10
     },
     "days": [
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 102441.0,
-        "pct": 6.13
+        "price": 102222.0,
+        "pct": 4.4
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3273.59,
-        "pct": 9.7
+        "price": 3258.43,
+        "pct": 1.82
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Neutrogena Comments on Hayden Panettiere’s Death Amid Backlash and Says ‘We Made Her Feel Unsupported’; Actor Said the Company Nearly Fired Her for Talking About Postpartum",
+      "title": "Netflix Exec Andy Weil Jumping to Amazon as Head of Comedy",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/neutrogena-hayden-panettiere-backlash-postpartum-depression-1236839404/"
+      "url": "https://variety.com/2026/tv/news/netflix-exec-andy-weil-amazon-head-of-comedy-1236839544/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Lanterns’ Premiere Pulls in 9.3 Million Viewers in First Three Days on HBO Max",
+      "title": "Diane Warren Adopts West Hollywood’s Runaway Pig: ‘Welcome Wilbur!’",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/lanterns-premiere-viewership-9-3-million-hbo-max-1236839414/"
+      "url": "https://variety.com/2026/music/news/diane-warren-adopts-runaway-pig-wilbur-1236839382/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sonic the Hedgehog to Headline Fortnite’s ‘Override’ Season (Gaming News Roundup)",
+      "title": "TV Vet Chuck Saftler to Depart Disney and FX After Nearly 33 Years",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/sonic-hedhehog-fornite-gaming-news-roundup-week-august-17-1236836647/"
+      "url": "https://variety.com/2026/tv/news/chuck-saftler-to-depart-disney-and-fx-1236839456/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Galactic Racer’ Goes Gold, ‘Star Wars: Resistance’ Character Spotted, and Fuse Games CEO Discusses How a “Niche” Game Finds Success",
+      "when": "20 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-galactic-racer-goes-gold-star-wars-resistance-character-spotted-and-fuse-games-ceo-discusses-how-a-niche-game-finds-success.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Apple Music to Label AI-Made Tracks Later This Year",
+      "title": "L.A. Mayor Karen Bass Weighs In on Paramount-Warner Bros. Merger, Urges California AG Rob Bonta to Engage in Talks on Antitrust Case: ‘This Is Not About Taking Sides’",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/apple-music-to-label-ai-made-tracks-1236839371/"
+      "url": "https://variety.com/2026/film/news/la-mayor-karen-bass-paramount-warner-bros-merger-settle-antitrust-case-1236839410/"
     },
     {
       "cat": "Trek/Wars",
@@ -142,13 +149,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "‘Star Wars: Starfighter’ Is Set In a “Chaotic” Galaxy With No Governing Body",
-      "when": "19 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-starfighter-is-set-in-a-chaotic-galaxy-with-no-governing-body.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "See Admiral Sato Set Course To Stop Kirk’s War In ‘Star Trek: The Last Starship’ #10 Preview",
       "when": "19 Aug",
       "source": "TrekMovie",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "59m ago",
+      "pushed": "58m ago",
       "lang": "HTML",
       "commit": ""
     }
