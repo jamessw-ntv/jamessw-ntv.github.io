@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-20",
-    "fetched": "2026-08-20T18:49:09+00:00",
+    "fetched": "2026-08-20T19:36:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 6,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 8
+      "wind": 10
     },
     "days": [
       {
@@ -72,24 +72,31 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 101925.0,
-        "pct": 6.12
+        "price": 102072.0,
+        "pct": 6.63
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3255.69,
-        "pct": 10.94
+        "price": 3269.8,
+        "pct": 11.24
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "How an Indie Studio Convinced ‘Naruto’ Creator, TV Tokyo to Let Them Make Franchise’s First Licensed Digital Card Game (EXCLUSIVE)",
+      "title": "Netflix, AMC Team for ‘Bannerman’ Series Based on John R. Maxim Spy Novels, Shane Black and Craig Silverstein to Write",
       "when": "20 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/naruto-digital-card-game-sekai-tv-tokyo-1236839122/"
+      "url": "https://variety.com/2026/tv/news/bannerman-series-amc-netflix-john-r-maxim-novels-1236839301/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "How an Indie Studio Convinced ‘Naruto’ Creator, TV Tokyo to Let Them Make Franchise’s First Official Digital Cards App (EXCLUSIVE)",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/gaming/news/naruto-digital-card-app-sekai-tv-tokyo-1236839122/"
     },
     {
       "cat": "Film/TV",
@@ -104,13 +111,6 @@
       "when": "20 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/charles-melton-naruto-movie-kakashi-1236839318/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "CBS Plans Special Morning, Primetime Coverage of 9/11 Anniversary",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/cbs-9-11-anniversary-tv-news-coverage-1236839200/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "46m ago",
       "lang": "HTML",
       "commit": ""
     }
