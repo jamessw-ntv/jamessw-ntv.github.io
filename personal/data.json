@@ -2,30 +2,30 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-20",
-    "fetched": "2026-08-20T23:31:21+00:00",
+    "updated": "2026-08-21",
+    "fetched": "2026-08-21T01:42:58+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 8
+      "temp": 11,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
-        "max": 14,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 47
       },
       {
         "day": "Sat",
-        "min": 7,
+        "min": 8,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -34,7 +34,7 @@
       {
         "day": "Sun",
         "min": 5,
-        "max": 15,
+        "max": 16,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 1
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 102971.0,
-        "pct": 5.81
+        "price": 104583.0,
+        "pct": 6.94
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3276.07,
-        "pct": 3.68
+        "price": 3304.07,
+        "pct": 3.84
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Trek: Strange New Worlds’ Season 4 Debut Fails To Make Streaming Top 10",
+      "when": "21 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/20/star-trek-strange-new-worlds-season-4-debut-fails-to-make-streaming-top-10/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jaafar Jackson: ‘Michael’ Sequel Will Give ‘More Insight’ Into Child Abuse Allegations and ‘Let His Voice Be Heard’",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/jaafar-jackson-michael-sequel-insight-child-abuse-allegations-1236839600/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Ariana Grande Blasts Trump Administration for Using ‘We Can’t Be Friends’ in Social Post: ‘Your Truth Is False’",
+      "when": "20 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/ariana-grande-slams-trump-we-cant-be-friends-tiktok-post-1236839607/"
+    },
     {
       "cat": "Film/TV",
       "title": "How ‘Star Trek: Strange New Worlds’ Pulled Off That Madcap Puppet Episode",
@@ -97,20 +118,6 @@
       "when": "20 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/prime-video-2-billion-investment-latin-america-1236839446/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Dave Bautista Officially Set as Kratos in ‘God of War’ TV Series",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/dave-bautista-kratos-god-of-war-tv-series-amazon-1236839394/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "The Hollies Officially Call It Quits, as Last Two Members of Classic 1960s Lineup Retire After Being in Band for 63 Years",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/hollies-retire-original-members-tony-hicks-bobby-elliott-1236839526/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-zero-company-final-trailer-revealed-10-days-before-release.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "See Admiral Sato Set Course To Stop Kirk’s War In ‘Star Trek: The Last Starship’ #10 Preview",
-      "when": "19 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/18/see-admiral-sato-set-course-to-stop-kirks-war-in-star-trek-the-last-starship-10-preview/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "58m ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
