@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-21",
-    "fetched": "2026-08-21T17:34:52+00:00",
+    "fetched": "2026-08-21T18:45:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
+      "temp": 9,
+      "icon": "☁️",
+      "desc": "Overcast",
       "wind": 10
     },
     "days": [
@@ -25,7 +25,7 @@
       },
       {
         "day": "Sun",
-        "min": 6,
+        "min": 7,
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
@@ -34,9 +34,9 @@
       {
         "day": "Mon",
         "min": 8,
-        "max": 16,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "max": 15,
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 29
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108134.0,
-        "pct": 5.65
+        "price": 107278.0,
+        "pct": 5.24
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3369.46,
-        "pct": 2.15
+        "price": 3359.8,
+        "pct": 3.16
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Hayden Panettiere’s 37th Birthday Honored by Ex Wladimir Klitschko, 5 Days After Her Death: ‘You Are Missed. You Will Never Be Forgotten’",
+      "title": "‘It Ends’: Is Alexander Ullom the Next Great Horror Director?",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hayden-panettiere-birthday-death-ex-wladimir-klitschko-1236840226/"
+      "url": "https://variety.com/2026/film/features/it-ends-alexander-ullom-next-horror-movie-director-1236839167/"
     },
     {
       "cat": "Film/TV",
-      "title": "How Did the Emmys’ Documentary Category Get So Star-Studded?",
+      "title": "Quality Control Co-Founder Pierre ‘P’ Thomas Hospitalized After Suffering Heart Attack",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/awards/emmys-documentary-category-celebrity-nominees-1236837789/"
+      "url": "https://variety.com/2026/music/news/pierre-p-thomas-quality-control-hospitalized-heart-attack-1236840256/"
     },
     {
       "cat": "Film/TV",
-      "title": "EJAE to Be Honored by Korean Non-Profit Gyopo at the 8th Annual Chuseok Benefit (EXCLUSIVE)",
+      "title": "Why ‘American Doctor’ Director Quit Her ABC Executive Job and Drained Her Savings Account to Make a Documentary About Gaza Healthcare Workers",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/ejae-gyopo-chuseok-benefit-honor-1236840109/"
+      "url": "https://variety.com/2026/film/features/american-doctor-director-documentary-gaza-healthcare-workers-1236840080/"
     },
     {
       "cat": "Film/TV",
-      "title": "Meghan Markle in Talks to Join ‘The Gentlemen’ Season 3",
+      "title": "DC’s ‘People v. Gorilla Grodd’ Mockumentary Series Set at HBO Max, Skyler Gisondo and Jimmy Tatro to Star",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/meghan-markle-the-gentlemen-season-3-1236840141/"
+      "url": "https://variety.com/2026/tv/news/people-v-gorilla-grodd-hbo-max-skyler-gisondo-jimmy-tatro-1236840183/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "53m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
