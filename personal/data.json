@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-21",
-    "fetched": "2026-08-21T13:50:34+00:00",
+    "fetched": "2026-08-21T14:41:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,19 +12,11 @@
       "temp": 9,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 11
+      "wind": 12
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
-        "max": 14,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 43
-      },
-      {
-        "day": "Sat",
         "min": 8,
         "max": 14,
         "icon": "🌦️",
@@ -38,6 +30,14 @@
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
+      },
+      {
+        "day": "Mon",
+        "min": 8,
+        "max": 16,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 22
       }
     ]
   },
@@ -72,24 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107824.0,
-        "pct": 7.49
+        "price": 107594.0,
+        "pct": 7.14
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3340.6,
-        "pct": 4.97
+        "price": 3331.07,
+        "pct": 4.08
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Prince Harry, Elton John and More Ordered to Pay Initial $13 Million to Daily Mail Publisher After Losing Privacy Case",
+      "title": "Box Office: ‘Insidious: Out of the Further’ Makes $3 Million in Previews",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/global/news/prince-harry-ordered-to-pay-13-million-daily-mail-1236839928/"
+      "url": "https://variety.com/2026/tv/box-office/insidious-6-out-of-further-box-office-previews-1236839269/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Sandra Bullock Joined Social Media to Fight Scammers ‘Using My Name and Likeness’ to Defraud Fans — Not Just to Promote ‘Practical Magic 2’",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/sandra-bullock-social-media-scammers-defrauding-fans-1236839374/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Every Lightsaber Variant in ‘Star Wars’ Canon",
+      "when": "21 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/every-lightsaber-variant-in-star-wars-canon.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Natalie Portman at the Center of Literary Furor as Rachel Cusk’s ‘Life of M’ Nears Release",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/features/natalie-portman-rachel-cusk-life-of-m-1236839311/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "The Cramps’ ‘Gravest Gravy’ Unearths Long-Lost Sessions From One of Rock’s Most Brilliantly Deranged Bands: Album Review",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/reviews/cramps-gravest-gravy-album-review-1236839743/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +125,6 @@
       "when": "21 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/21/podcast-all-access-star-trek-takes-on-the-strange-new-worlds-puppet-episode-and-talks-to-guest-stars/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "RFK Jr. Blasts CNN’s Erin Burnett as Having ‘Trump Derangement Syndrome’ Over Report Finding His ‘Affordable’ Family Meal Costs 3.6 Times What Health Secretary Claimed",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/rfk-jr-cnn-erin-burnett-trump-derangement-syndrome-affordable-meal-cost-1236839881/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Kenneth Branagh on Doing His Own Stunts as a KGB Operative in ‘Mayday,’ Bonding With Ryan Reynolds Over Soccer: ‘We Can Be Pretty Nerdish’",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/kenneth-branagh-stunts-mayday-ryan-reynolds-soccer-1236839872/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Canada’s H264 Nabs Colombia’s ‘Where the River Begins’ Ahead of Toronto Fest World Premiere",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/canada-h264-where-the-river-begins-toronto-fest-premiere-1236838810/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/08/ewan-mcgregor-says-he-wants-to-shoot-the-love-story-between-hera-syndulla-and-obi-wan-kenobi.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars Zero Company’ Final Trailer Revealed 10 Days Before Release",
-      "when": "19 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-zero-company-final-trailer-revealed-10-days-before-release.html"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "51m ago",
+      "pushed": "50m ago",
       "lang": "HTML",
       "commit": ""
     }
