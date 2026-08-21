@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-21",
-    "fetched": "2026-08-21T05:37:54+00:00",
+    "fetched": "2026-08-21T06:56:26+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,13 +12,13 @@
       "temp": 13,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 11
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
-        "max": 13,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 53
@@ -34,7 +34,7 @@
       {
         "day": "Sun",
         "min": 5,
-        "max": 16,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 1
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 105260.0,
-        "pct": 7.64
+        "price": 105604.0,
+        "pct": 7.72
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3295.94,
-        "pct": 4.15
+        "price": 3317.8,
+        "pct": 4.46
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Amazon MGM Studios Unveils Teaser for Kunal Kemmu’s ‘Vibe’ (EXCLUSIVE)",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/amazon-mgm-studios-kunal-kemmu-vibe-teaser-1236839782/"
+    },
     {
       "cat": "Film/TV",
       "title": "Chris Hansen Says He Refused to Sign His Rights Away in Order to Screen Robert Pattinson’s ‘Primetime’",
@@ -111,13 +118,6 @@
       "when": "20 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/music/news/ariana-grande-slams-trump-we-cant-be-friends-tiktok-post-1236839607/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How ‘Star Trek: Strange New Worlds’ Pulled Off That Madcap Puppet Episode",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/star-trek-strange-new-worlds-puppet-episode-1236833011/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "52m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
