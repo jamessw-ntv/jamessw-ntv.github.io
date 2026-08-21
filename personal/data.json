@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-21",
-    "fetched": "2026-08-21T06:56:26+00:00",
+    "fetched": "2026-08-21T07:48:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
+      "temp": 12,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 9
+      "wind": 8
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 105604.0,
-        "pct": 7.72
+        "price": 107083.0,
+        "pct": 9.7
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3317.8,
-        "pct": 4.46
+        "price": 3329.66,
+        "pct": 5.62
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Good People’ Review: Milcho Manchevski’s Haunting Documentary Revisits the Kočani Nightclub Fire Through Survivors’ Eyes",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/good-people-review-1236839789/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Icelandic Producer Hlín Jóhannsdóttir Sets ‘Just a Kid’ With Alief Ahead of Haugesund and Reunites with ‘Driving Mum’ Team (EXCLUSIVE)",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/driving-mum-iceland-alief-just-a-kid-1236839417/"
+    },
     {
       "cat": "Film/TV",
       "title": "Amazon MGM Studios Unveils Teaser for Kunal Kemmu’s ‘Vibe’ (EXCLUSIVE)",
@@ -104,20 +118,6 @@
       "when": "21 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/20/star-trek-strange-new-worlds-season-4-debut-fails-to-make-streaming-top-10/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jaafar Jackson: ‘Michael’ Sequel Will Give ‘More Insight’ Into Child Abuse Allegations and ‘Let His Voice Be Heard’",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jaafar-jackson-michael-sequel-insight-child-abuse-allegations-1236839600/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ariana Grande Blasts Trump Administration for Using ‘We Can’t Be Friends’ in Social Post: ‘Your Truth Is False’",
-      "when": "20 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/ariana-grande-slams-trump-we-cant-be-friends-tiktok-post-1236839607/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "52m ago",
       "lang": "HTML",
       "commit": ""
     }
