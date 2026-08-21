@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-21",
-    "fetched": "2026-08-21T16:40:50+00:00",
+    "fetched": "2026-08-21T17:34:52+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 11
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 10
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107704.0,
-        "pct": 5.77
+        "price": 108134.0,
+        "pct": 5.65
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3346.22,
-        "pct": 2.18
+        "price": 3369.46,
+        "pct": 2.15
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Bonnaroo to Take Off 2027 to Recover From Extreme Weather",
+      "title": "Hayden Panettiere’s 37th Birthday Honored by Ex Wladimir Klitschko, 5 Days After Her Death: ‘You Are Missed. You Will Never Be Forgotten’",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/bonnaroo-take-off-2027-recover-from-extreme-weather-1236840135/"
+      "url": "https://variety.com/2026/film/news/hayden-panettiere-birthday-death-ex-wladimir-klitschko-1236840226/"
     },
     {
       "cat": "Film/TV",
-      "title": "How Disneyland’s Cast Members Work Behind the Scenes to Create Magic for the Holidays: ‘Storytelling Is a Centerpiece to Everything We Do at the Company’",
+      "title": "How Did the Emmys’ Documentary Category Get So Star-Studded?",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/disneyland-behind-scenes-holidays-1236837553/"
+      "url": "https://variety.com/2026/tv/awards/emmys-documentary-category-celebrity-nominees-1236837789/"
     },
     {
       "cat": "Film/TV",
-      "title": "Disney Partners With Dhar Mann Studios, Which Has Been Given a 20-Episode Series Order",
+      "title": "EJAE to Be Honored by Korean Non-Profit Gyopo at the 8th Annual Chuseok Benefit (EXCLUSIVE)",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/disney-dhar-mann-studios-20-episode-series-order-1236840119/"
+      "url": "https://variety.com/2026/music/news/ejae-gyopo-chuseok-benefit-honor-1236840109/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Saw V’ Director David Hackl Boards Action-Thriller ‘Solar Storm’ as Jack Hudson and Lorena Andrea Cast in Lead Roles (EXCLUSIVE)",
+      "title": "Meghan Markle in Talks to Join ‘The Gentlemen’ Season 3",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/david-hackl-solar-storm-jack-hudson-lorena-andrea-1236840095/"
+      "url": "https://variety.com/2026/tv/global/meghan-markle-the-gentlemen-season-3-1236840141/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "53m ago",
       "lang": "HTML",
       "commit": ""
     }
