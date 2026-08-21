@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-21",
-    "fetched": "2026-08-21T15:39:15+00:00",
+    "fetched": "2026-08-21T16:40:50+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 8,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 12
+      "wind": 11
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108131.0,
-        "pct": 6.6
+        "price": 107704.0,
+        "pct": 5.77
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3342.09,
-        "pct": 3.42
+        "price": 3346.22,
+        "pct": 2.18
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Bonnaroo to Take Off 2027 to Recover From Extreme Weather",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/bonnaroo-take-off-2027-recover-from-extreme-weather-1236840135/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "How Disneyland’s Cast Members Work Behind the Scenes to Create Magic for the Holidays: ‘Storytelling Is a Centerpiece to Everything We Do at the Company’",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/artisans/news/disneyland-behind-scenes-holidays-1236837553/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Disney Partners With Dhar Mann Studios, Which Has Been Given a 20-Episode Series Order",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/disney-dhar-mann-studios-20-episode-series-order-1236840119/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "‘Saw V’ Director David Hackl Boards Action-Thriller ‘Solar Storm’ as Jack Hudson and Lorena Andrea Cast in Lead Roles (EXCLUSIVE)",
       "when": "21 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/david-hackl-solar-storm-jack-hudson-lorena-andrea-1236840095/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Here’s How to Watch English Premier League Online: Livestream the 2026-2027 Season for Free",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-premier-league-soccer-online-free-streaming-1235695678/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Amid ‘Spider-Man’ and ‘The Odyssey’ Leaks, Hollywood’s Battle Against Piracy Enters a Whole New Era",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/features/movie-piracy-spider-man-odyssy-leak-online-1236837027/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Netflix Sets Theatrical and Streaming Dates for Peter Berg’s World War II Drama ‘The Mosquito Bowl’ (EXCLUSIVE)",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/mosquito-bowl-release-date-netflix-peter-berg-1236839647/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "58m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
