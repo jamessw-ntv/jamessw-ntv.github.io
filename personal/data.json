@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-21",
-    "fetched": "2026-08-21T20:31:53+00:00",
+    "fetched": "2026-08-21T21:30:20+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 9,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
+      "icon": "🌤️",
+      "desc": "Mainly clear",
       "wind": 10
     },
     "days": [
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108010.0,
-        "pct": 5.51
+        "price": 108992.0,
+        "pct": 6.7
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3407.21,
-        "pct": 4.13
+        "price": 3465.99,
+        "pct": 6.52
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Chris Aronson Files $4 Million Age Discrimination Suit Over Ouster at Paramount",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/chris-aronson-paramount-lawsuit-1236840408/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Alex Aster on Writing Barbie World’s First-Ever YA Book, Sending Her ‘Lightlark’ Movie Producers ‘Really Smart’ Fan Casts",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/alex-aster-barbie-book-lightlark-movie-update-1236840314/"
+    },
     {
       "cat": "Film/TV",
       "title": "Miss USA, Miss Teen USA Pageants Pulled From The CW Just a Week Before Air",
@@ -97,20 +111,6 @@
       "when": "21 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/awards/harrison-ford-sally-field-emmys-2026-oldest-winner-history-1236831709/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Yogurt Shop Murders’ Crew Thought Their Journey Was Done Until There Was a Big Break in the Case: ‘We Have to Rally Now’",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/focus/yogurt-shop-murders-break-case-1236840276/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Odyssey’ Sets Digital, 4K Blu-ray Release Dates",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/odyssey-digital-4k-blu-ray-release-1236840376/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "58m ago",
       "lang": "HTML",
       "commit": ""
     }
