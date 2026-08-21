@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-21",
-    "fetched": "2026-08-21T11:31:43+00:00",
+    "fetched": "2026-08-21T12:58:50+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
+      "temp": 9,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
       "wind": 10
     },
     "days": [
@@ -33,7 +33,7 @@
       },
       {
         "day": "Sun",
-        "min": 5,
+        "min": 6,
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108049.0,
-        "pct": 7.02
+        "price": 107650.0,
+        "pct": 6.59
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3327.66,
-        "pct": 3.28
+        "price": 3329.25,
+        "pct": 3.54
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "RFK Jr. Blasts CNN’s Erin Burnett as Having ‘Trump Derangement Syndrome’ Over Report Finding His ‘Affordable’ Family Meal Costs 3.6 Times What Health Secretary Claimed",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/rfk-jr-cnn-erin-burnett-trump-derangement-syndrome-affordable-meal-cost-1236839881/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Kenneth Branagh on Doing His Own Stunts as a KGB Operative in ‘Mayday,’ Bonding With Ryan Reynolds Over Soccer: ‘We Can Be Pretty Nerdish’",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/kenneth-branagh-stunts-mayday-ryan-reynolds-soccer-1236839872/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Canada’s H264 Nabs Colombia’s ‘Where the River Begins’ Ahead of Toronto Fest World Premiere",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/canada-h264-where-the-river-begins-toronto-fest-premiere-1236838810/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "‘Supporting Role’ Director Ana Urushadze Preps ‘Fear of Butterflies,’ a Detective Story With ‘Mysticism and a Touch of Body Horror’ (EXCLUSIVE)",
       "when": "21 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/supporting-role-ana-urushadze-fear-of-butterflies-1236839801/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Meghan Markle Eyes Acting Return After Move Back to the U.K.",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/meghan-markle-acting-return-move-back-uk-1236839863/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Voice of Hind Rajab’ Director Calls Israeli Investigation Into Killing of Palestinian Girl a ‘Smokescreen’: ‘What Is Needed Is Justice’",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/voice-hind-rajab-director-israeli-investigation-smokescreen-1236839828/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Woody Harrelson Ready to Direct Another Live Film, Compares Jason Bateman’s ‘The Cackling of the Dodos’ to Martin McDonagh and the Coen Brothers",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/woody-harrelson-jason-bateman-martin-mcdonagh-coen-brothers-1236838548/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "55m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
