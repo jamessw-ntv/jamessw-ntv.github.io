@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-21",
-    "fetched": "2026-08-21T19:29:48+00:00",
+    "fetched": "2026-08-21T20:31:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 9,
-      "icon": "☁️",
-      "desc": "Overcast",
+      "icon": "⛅",
+      "desc": "Partly cloudy",
       "wind": 10
     },
     "days": [
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107698.0,
-        "pct": 5.54
+        "price": 108010.0,
+        "pct": 5.51
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3368.83,
-        "pct": 2.94
+        "price": 3407.21,
+        "pct": 4.13
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Shaquille O’Neal: Marvel Turned Me Down for the ‘Avengers’ (EXCLUSIVE)",
+      "title": "Miss USA, Miss Teen USA Pageants Pulled From The CW Just a Week Before Air",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/shaquille-o-neal-marvel-turned-me-down-avengers-1236840308/"
+      "url": "https://variety.com/2026/tv/news/miss-usa-miss-teen-usa-pageants-pulled-the-cw-1236840360/"
     },
     {
       "cat": "Film/TV",
-      "title": "Mark Ruffalo Goes Scorched-Earth on Paramount-Warner Bros. Merger, Calling Out the Ellison Family’s Complicity in Palestinian ‘Genocide’",
+      "title": "How Hollywood’s Veterans Are Chasing Emmy History: Sally Field, Harrison Ford, Martin Short and More",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/mark-ruffalo-paramount-warner-bros-merger-david-ellison-1236840301/"
+      "url": "https://variety.com/2026/tv/awards/harrison-ford-sally-field-emmys-2026-oldest-winner-history-1236831709/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Novak Djokovic: The Wolf in Winter’ Doc Director Unpacks the Tennis Champ’s Resilience and His Retirement",
+      "title": "‘The Yogurt Shop Murders’ Crew Thought Their Journey Was Done Until There Was a Big Break in the Case: ‘We Have to Rally Now’",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/novak-djokovic-the-wolf-in-winter-documentary-1236840149/"
+      "url": "https://variety.com/2026/tv/focus/yogurt-shop-murders-break-case-1236840276/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘It Ends’: Is Alexander Ullom the Next Great Horror Director?",
+      "title": "‘The Odyssey’ Sets Digital, 4K Blu-ray Release Dates",
       "when": "21 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/it-ends-alexander-ullom-next-horror-movie-director-1236839167/"
+      "url": "https://variety.com/2026/film/news/odyssey-digital-4k-blu-ray-release-1236840376/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "44m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
