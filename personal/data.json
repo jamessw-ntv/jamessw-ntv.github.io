@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-21",
-    "fetched": "2026-08-21T10:36:02+00:00",
+    "fetched": "2026-08-21T11:31:43+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 11,
-      "icon": "☁️",
-      "desc": "Overcast",
+      "icon": "⛅",
+      "desc": "Partly cloudy",
       "wind": 10
     },
     "days": [
@@ -21,7 +21,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 53
+        "rain": 43
       },
       {
         "day": "Sat",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 71
+        "rain": 83
       },
       {
         "day": "Sun",
@@ -37,7 +37,7 @@
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 1
+        "rain": 0
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108544.0,
-        "pct": 7.79
+        "price": 108049.0,
+        "pct": 7.02
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3343.5,
-        "pct": 4.46
+        "price": 3327.66,
+        "pct": 3.28
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Supporting Role’ Director Ana Urushadze Preps ‘Fear of Butterflies,’ a Detective Story With ‘Mysticism and a Touch of Body Horror’ (EXCLUSIVE)",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/supporting-role-ana-urushadze-fear-of-butterflies-1236839801/"
+    },
     {
       "cat": "Film/TV",
       "title": "Meghan Markle Eyes Acting Return After Move Back to the U.K.",
@@ -104,13 +111,6 @@
       "when": "21 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/woody-harrelson-jason-bateman-martin-mcdonagh-coen-brothers-1236838548/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sriram Raghavan Developing New Thriller in the ‘Johnny Gaddaar’ Zone for India’s Matchbox Shots as ‘Operation Safed Sagar’ Soars on Netflix Charts (EXCLUSIVE)",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/sriram-raghavan-johnny-gaddaar-thriller-matchbox-shots-1236839812/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "53m ago",
+      "pushed": "55m ago",
       "lang": "HTML",
       "commit": ""
     }
