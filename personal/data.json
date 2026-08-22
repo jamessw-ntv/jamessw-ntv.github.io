@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-22",
-    "fetched": "2026-08-22T09:32:21+00:00",
+    "fetched": "2026-08-22T10:29:43+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 9,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 7
+      "wind": 6
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107715.0,
-        "pct": -0.72
+        "price": 107101.0,
+        "pct": -1.48
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3382.7,
-        "pct": 1.42
+        "price": 3350.65,
+        "pct": 0.08
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Here’s How to Watch 2026 Indycar Series Freedom 250 Grand Prix of Washington, D.C. Live Online",
+      "when": "22 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-indycar-freedom-250-grand-prix-live-online-free-1236838320/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Everything That’s Wrong With You’ Review: A  Luminous Two-Hander from Slovenia About Online Pals Navigating the Waters of IRL Friendship",
+      "when": "22 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/everything-thats-wrong-with-you-review-1236840724/"
+    },
     {
       "cat": "Film/TV",
       "title": "Olivia Rodrigo Releases ‘Handmaid’s Tale’-Inspired Song, ‘Serena Joy,’ in a Tiny Run of CDs, With Digital Drop to Follow",
@@ -97,20 +111,6 @@
       "when": "22 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/sandra-wollner-everytime-wins-sarajevo-film-festival-1236840695/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Bill Maher Puts Hunter Biden in the Hot Seat: ‘I’ve Seen You With Your Dick Out’",
-      "when": "22 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/bill-maher-hunter-biden-dick-real-time-hbo-joe-biden-trump-sons-1236840676/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Spa Weekend’ Review: Leslie Mann and Isla Fisher in a High-Concept Comedy Without the Comic Highs",
-      "when": "22 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/spa-weekend-review-leslie-mann-anna-faris-1236840170/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "55m ago",
+      "pushed": "57m ago",
       "lang": "HTML",
       "commit": ""
     }
