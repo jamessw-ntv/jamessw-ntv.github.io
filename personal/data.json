@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-22",
-    "fetched": "2026-08-22T10:29:43+00:00",
+    "fetched": "2026-08-22T11:26:20+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 6
+      "temp": 8,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 4
     },
     "days": [
       {
@@ -37,7 +37,7 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 44
+        "rain": 27
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107101.0,
-        "pct": -1.48
+        "price": 107250.0,
+        "pct": -0.77
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3350.65,
-        "pct": 0.08
+        "price": 3364.73,
+        "pct": 1.2
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Emily Watson Says ‘Dune: Prophecy’ Season 2 Will Have ‘Lots of New Elements,’ Led Her on ‘A Quest in a Way Actors Always Get to Do and Actresses Don’t’",
+      "when": "22 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/emily-watson-dune-prophecy-season-2-1236840725/"
+    },
     {
       "cat": "Film/TV",
       "title": "Here’s How to Watch 2026 Indycar Series Freedom 250 Grand Prix of Washington, D.C. Live Online",
@@ -104,13 +111,6 @@
       "when": "22 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/music/news/olivia-rodrigo-serena-joy-cd-single-handmaids-tale-1236840709/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Austrian Director Sandra Wollner’s ‘Everytime’ Wins Best Film at Sarajevo Film Festival",
-      "when": "22 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/sandra-wollner-everytime-wins-sarajevo-film-festival-1236840695/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "57m ago",
+      "pushed": "56m ago",
       "lang": "HTML",
       "commit": ""
     }
