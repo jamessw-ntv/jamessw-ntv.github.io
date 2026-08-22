@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-22",
-    "fetched": "2026-08-22T14:27:47+00:00",
+    "fetched": "2026-08-22T15:27:19+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 6,
       "icon": "☀️",
       "desc": "Clear",
       "wind": 1
@@ -29,7 +29,7 @@
         "max": 17,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 27
+        "rain": 16
       },
       {
         "day": "Tue",
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107456.0,
-        "pct": -0.09
+        "price": 107399.0,
+        "pct": -0.89
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3370.98,
-        "pct": 1.34
+        "price": 3361.24,
+        "pct": 0.38
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Andrew Garfield on His Secret Instagram, Thoughts of Leaving Hollywood and Playing Roy in the ‘Stranger Than Fiction’ Siegfried & Roy Television Series",
+      "when": "22 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/columns/andrew-garfield-secret-instagram-siegfried-roy-television-series-1236840510/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘The High Republic Adventures: Pathfinders’ #4 Reveals the Mastermind Behind the Murder Mystery",
+      "when": "22 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/review-the-high-republic-adventures-pathfinders-4-reveals-the-mastermind-behind-the-murder-mystery.html"
+    },
     {
       "cat": "Film/TV",
       "title": "Actor Michael Wright, Star of ‘The Five Heartbeats’ and ‘V,’ Dies at 70",
@@ -104,13 +118,6 @@
       "when": "22 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/shopping/news/how-to-watch-indycar-freedom-250-grand-prix-live-online-free-1236838320/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Everything That’s Wrong With You’ Review: A  Luminous Two-Hander from Slovenia About Online Pals Navigating the Waters of IRL Friendship",
-      "when": "22 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/everything-thats-wrong-with-you-review-1236840724/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/08/20/star-trek-strange-new-worlds-season-4-debut-fails-to-make-streaming-top-10/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Galactic Racer’ Goes Gold, ‘Star Wars: Resistance’ Character Spotted, and Fuse Games CEO Discusses How a “Niche” Game Finds Success",
-      "when": "20 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-galactic-racer-goes-gold-star-wars-resistance-character-spotted-and-fuse-games-ceo-discusses-how-a-niche-game-finds-success.html"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "51m ago",
+      "pushed": "59m ago",
       "lang": "HTML",
       "commit": ""
     }
