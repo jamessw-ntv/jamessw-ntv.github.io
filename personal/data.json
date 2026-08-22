@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-21",
-    "fetched": "2026-08-21T23:29:38+00:00",
+    "updated": "2026-08-22",
+    "fetched": "2026-08-22T01:36:50+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 10
+      "temp": 12,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 20
     },
     "days": [
       {
@@ -25,8 +25,8 @@
       },
       {
         "day": "Sun",
-        "min": 7,
-        "max": 15,
+        "min": 5,
+        "max": 16,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -34,9 +34,9 @@
       {
         "day": "Mon",
         "min": 8,
-        "max": 15,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "max": 16,
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 14
       }
     ]
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109596.0,
-        "pct": 6.45
+        "price": 109044.0,
+        "pct": 4.03
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3533.38,
-        "pct": 7.86
+        "price": 3521.38,
+        "pct": 6.39
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Paramount and State A.G. to Meet Monday to Discuss Settlement of Antitrust Case",
+      "when": "22 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/paramount-merger-warner-settlement-talks-bonta-california-1236840532/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Paramount Slams Mark Ruffalo Merger Attack as ‘Antisemitic,’ Says Company Does Not ‘Tolerate Prejudice of Any Kind’",
+      "when": "22 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/paramount-responds-mark-ruffalo-merger-attack-israel-1236840552/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Emmy Overachiever Jason Bateman on Whether He Considers Himself an Actor or Director First",
+      "when": "21 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/awards/jason-bateman-emmys-black-rabbit-dtf-st-louis-podcast-1236840514/"
+    },
     {
       "cat": "Film/TV",
       "title": "Secret Hollywood Group’s AI Plan Focuses on Defining How AI Is Used — While Keeping Humans in Control",
@@ -92,32 +113,11 @@
       "url": "https://variety.com/2026/biz/news/secret-hollywood-groups-ai-plan-protecting-copyrighted-work-1236840245/"
     },
     {
-      "cat": "Film/TV",
-      "title": "Vertical Media on Track to Generate $150 Billion in 2026 as the Booming Sector Fights Crowded Content Field and High Subscriber Acquisition Costs",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/vertical-media-150-billion-tiktok-microdramas-owl-co-1236840519/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Star Trek Headed To New York Comic Con For ‘Starfleet Academy’ And 60th Anniversary Panel",
       "when": "21 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/21/star-trek-headed-to-new-york-comic-con-for-starfleet-academy-and-60th-anniversary-panel/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Harry Potter’ Star Jessie Cave Says It Was ‘Embarrassing’ to Join OnlyFans to Pay the Bills but ‘It Has Saved Me’: Lavender Brown ‘Was a Small Part 20 Years Ago’",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/harry-potter-jessie-cave-onlyfans-embarrassing-saved-me-1236840193/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sonic the Hedgehog to Headline Fortnite’s ‘Override’ Season (Gaming News Roundup)",
-      "when": "21 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/sonic-hedhehog-fornite-gaming-news-roundup-week-august-17-1236836647/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "58m ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
