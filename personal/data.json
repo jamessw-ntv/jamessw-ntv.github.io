@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-22",
-    "fetched": "2026-08-22T19:27:11+00:00",
+    "fetched": "2026-08-22T20:29:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 5,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 4
+      "wind": 5
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107811.0,
-        "pct": 0.16
+        "price": 107908.0,
+        "pct": -0.07
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3387.31,
-        "pct": 0.58
+        "price": 3403.75,
+        "pct": -0.03
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Taylor Sheridan Accused of Stealing ‘Yellowstone’ From 2016 Pitch in Copyright Lawsuit",
+      "when": "22 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/taylor-sheridan-accused-stealing-yellowstone-lawsuit-1236840854/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Sentimental Value’ Sweeps Amanda Awards",
+      "when": "22 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/awards/awards/sentimental-value-amanda-awards-one-battle-after-another-1236840778/"
+    },
     {
       "cat": "Film/TV",
       "title": "Mark Ruffalo Fires Back After Paramount Slammed His Merger Attack as ‘Antisemitic’: ‘Appalling and Fundamentally Dishonest’",
@@ -97,20 +111,6 @@
       "when": "22 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/columns/why-do-we-love-spider-man-so-much-tom-holland-1236840784/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘National Treasure 3’ Is ‘Happening,’ Says Franchise Director Jon Turteltaub",
-      "when": "22 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/national-treasure-3-nicolas-cage-jon-turteltaub-1236840826/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How ‘Abbott Elementary’ Pulled Off Its Big Phillies Game Episode",
-      "when": "22 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/artisans/focus/abbott-elementary-phillies-game-episode-1236840283/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "48m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
