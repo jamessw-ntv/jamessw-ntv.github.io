@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-22",
-    "fetched": "2026-08-22T11:26:20+00:00",
+    "fetched": "2026-08-22T12:50:12+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 4
+      "temp": 7,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 2
     },
     "days": [
       {
@@ -26,17 +26,17 @@
       {
         "day": "Sun",
         "min": 5,
-        "max": 15,
+        "max": 16,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
         "day": "Mon",
-        "min": 7,
-        "max": 16,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "min": 8,
+        "max": 17,
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 27
       }
     ]
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107250.0,
-        "pct": -0.77
+        "price": 107903.0,
+        "pct": -0.06
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3364.73,
-        "pct": 1.2
+        "price": 3390.22,
+        "pct": 1.52
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Actor Michael Wright, Star of ‘The Five Heartbeats’ and ‘V,’ Dies at 70",
+      "when": "22 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/michael-wright-dead-five-heartbeats-the-principal-1236840765/"
+    },
     {
       "cat": "Film/TV",
       "title": "Emily Watson Says ‘Dune: Prophecy’ Season 2 Will Have ‘Lots of New Elements,’ Led Her on ‘A Quest in a Way Actors Always Get to Do and Actresses Don’t’",
@@ -104,13 +111,6 @@
       "when": "22 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/reviews/everything-thats-wrong-with-you-review-1236840724/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Olivia Rodrigo Releases ‘Handmaid’s Tale’-Inspired Song, ‘Serena Joy,’ in a Tiny Run of CDs, With Digital Drop to Follow",
-      "when": "22 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/olivia-rodrigo-serena-joy-cd-single-handmaids-tale-1236840709/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "56m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
