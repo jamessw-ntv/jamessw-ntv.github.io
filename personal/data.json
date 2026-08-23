@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-23",
-    "fetched": "2026-08-23T16:32:42+00:00",
+    "fetched": "2026-08-23T17:25:24+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
+      "temp": 8,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
       "wind": 12
     },
     "days": [
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107858.0,
-        "pct": 0.14
+        "price": 107937.0,
+        "pct": 0.1
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3411.88,
-        "pct": 1.02
+        "price": 3417.27,
+        "pct": 0.99
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Grace Passô’s ‘Our Secret’ Nabs the Best Film Kikito at the 54th Gramado Film Festival",
+      "when": "23 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/passo-nosso-segredo-won-gramado-best-film-kikito-1236841004/"
+    },
     {
       "cat": "Film/TV",
       "title": "Martin Short Gets Honest: What It’s Like to Be All Over the Emmy Race, Thanks to Three Very Different Projects",
@@ -104,13 +111,6 @@
       "when": "23 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/box-office/spiderman-brand-new-day-box-office-insidious-6-opens-1236838324/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Seduction,’ Helmed by Zelito Viana and Marcos Palmeira, to Premiere at the Inffinito Fest in Miami (EXCLUSIVE)",
-      "when": "23 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/seduction-zelito-viana-marcos-palmeira-premiere-miami-h2o-1236840944/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "52m ago",
       "lang": "HTML",
       "commit": ""
     }
