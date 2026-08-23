@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-23",
-    "fetched": "2026-08-23T07:38:23+00:00",
+    "fetched": "2026-08-23T08:37:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
+      "temp": 11,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 12
+      "wind": 10
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 106179.0,
-        "pct": -1.69
+        "price": 106427.0,
+        "pct": -1.11
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3334.01,
-        "pct": -1.99
+        "price": 3365.84,
+        "pct": -0.27
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Venice-Bound ‘Meteorite,’ Debut Feature From Colombia’s Sebastián Múnera, Acquired by MoreThan Films (EXCLUSIVE)",
+      "when": "23 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/venice-meteorite-sebastian-munera-morethan-films-1236840956/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Upendra Joins Cast as Teja Sajja, Shanaya Kapoor, Suparn S. Varma’s Sequel Titled ‘Zombie Reddy Nxt Lvl’ (EXCLUSIVE)",
+      "when": "23 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/upendra-teja-sajja-shanaya-kapoor-zombie-reddy-nxt-lvl-1236840852/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘One Battle After Another’ and ‘Marty Supreme’ Take Top Honors at Location Managers Guild International Awards",
@@ -97,20 +111,6 @@
       "when": "22 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/shopping/news/best-hbo-max-deal-offer-1235439129/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Dale Morris, Titan of Nashville Management Who Forged Superstar Careers for Kenny Chesney and Alabama, Dies at 89",
-      "when": "22 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/obituaries-people-news/dale-morris-dead-manager-kenny-chesney-alabama-1236840866/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Rolly Romero vs. Teofimo Lopez Livestream: Where to Watch the Welterweight Pay-Per-View Match Online",
-      "when": "22 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-rolly-romero-vs-teofimo-lopez-ppv-boxing-live-online-1236838232/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "47m ago",
+      "pushed": "58m ago",
       "lang": "HTML",
       "commit": ""
     }
