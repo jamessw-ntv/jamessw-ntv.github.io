@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-24",
-    "fetched": "2026-08-24T13:01:45+00:00",
+    "fetched": "2026-08-24T13:56:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "🌦️",
-      "desc": "Drizzle",
+      "temp": 10,
+      "icon": "🌧️",
+      "desc": "Rain",
       "wind": 5
     },
     "days": [
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110479.0,
-        "pct": 2.57
+        "price": 109028.0,
+        "pct": 0.89
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3506.36,
-        "pct": 3.56
+        "price": 3462.96,
+        "pct": 1.1
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Reggie Watts’ Theme Song Axed From ‘Comedy Bang Bang’ Podcast After Report Alleging ‘Reckless’ Drug Use in Relationships",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/digital/news/reggie-watts-theme-song-axed-comedy-bang-bang-podcast-1236841362/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Small Things’ Review: Zvonimir Jurić’s Island-Set Chamber Drama Unfolds a Quietly Devastating Family Reunion",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/small-things-review-1236841495/"
+    },
     {
       "cat": "Film/TV",
       "title": "Guillermo del Toro, James Gunn, ‘Beyond the Spider-Verse’ Directors Set for Crunchyroll’s Inaugural Anime Future Forum",
@@ -104,20 +118,6 @@
       "when": "24 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/roku-gianluca-pucacco-vp-revenue-operations-1236841290/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘EastEnders’ Puts Out Casting Call for Character Named Meghan After Duchess’ U.K. Return: ‘Confident, Gorgeous and Ready to Cause Chaos’",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/eastenders-casting-call-meghan-duchess-1236841460/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Toronto Midnight Madness Title ‘Vintage Violence,’ Starring Cole Sprouse and Kiko Mizuhara, Boarded by Best Friend Forever (EXCLUSIVE)",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/toronto-midnight-madness-vintage-violence-best-friend-forever-1236841445/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "54m ago",
       "lang": "HTML",
       "commit": ""
     }
