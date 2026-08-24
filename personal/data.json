@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-24",
-    "fetched": "2026-08-24T13:56:06+00:00",
+    "fetched": "2026-08-24T14:49:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,19 +12,11 @@
       "temp": 10,
       "icon": "🌧️",
       "desc": "Rain",
-      "wind": 5
+      "wind": 3
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 17,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 42
-      },
-      {
-        "day": "Tue",
         "min": 10,
         "max": 16,
         "icon": "🌦️",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 61
+      },
+      {
+        "day": "Thu",
+        "min": 4,
+        "max": 14,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
       }
     ]
   },
@@ -72,18 +72,46 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109028.0,
-        "pct": 0.89
+        "price": 111265.0,
+        "pct": 3.44
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3462.96,
-        "pct": 1.1
+        "price": 3521.48,
+        "pct": 3.9
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "Preview ‘Star Trek: Strange New Worlds’ Episode 406 With 9 New Photos From “Off-Hour”",
+      "when": "24 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/24/preview-star-trek-strange-new-worlds-episode-406-with-9-new-photos-from-off-hour/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Orlando Bloom to Be Honored During Venice Film Festival With Filming Italy Award",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/orlando-bloom-honored-venice-film-festival-1236841484/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Gentlemen’ Officially Renewed for Season 3 as First Season 2 Trailer Drops: ‘I’m Looking Forward to Pushing the Boundaries Further,’ Guy Ritchie Says (EXCLUSIVE)",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/the-gentlemen-season-3-greenlight-1236841374/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Black Mirror’ Season 8 Starts Production as Netflix Renews ‘Being Gordon Ramsay’ and ‘Legends’ (EXCLUSIVE)",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/netflix-black-mirror-season-8-legends-gordon-ramsay-1236841382/"
+    },
     {
       "cat": "Film/TV",
       "title": "Reggie Watts’ Theme Song Axed From ‘Comedy Bang Bang’ Podcast After Report Alleging ‘Reckless’ Drug Use in Relationships",
@@ -92,32 +120,11 @@
       "url": "https://variety.com/2026/digital/news/reggie-watts-theme-song-axed-comedy-bang-bang-podcast-1236841362/"
     },
     {
-      "cat": "Film/TV",
-      "title": "‘Small Things’ Review: Zvonimir Jurić’s Island-Set Chamber Drama Unfolds a Quietly Devastating Family Reunion",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/small-things-review-1236841495/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Guillermo del Toro, James Gunn, ‘Beyond the Spider-Verse’ Directors Set for Crunchyroll’s Inaugural Anime Future Forum",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/crunchyroll-anime-future-forum-sony-guillermo-del-toro-gunn-1236841275/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "‘Galaxy’s Edge: Echoes of the Empire’ #5 Review – Batuu Remains the Strongest Character in an Era-Ending Series Finale",
       "when": "24 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/galaxys-edge-echoes-of-the-empire-5-review-batuu-remains-the-strongest-character-in-an-era-ending-series-finale.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Roku Names Gianluca Pucacco VP, Revenue Operations, International Growth",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/roku-gianluca-pucacco-vp-revenue-operations-1236841290/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/08/21/podcast-all-access-star-trek-takes-on-the-strange-new-worlds-puppet-episode-and-talks-to-guest-stars/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek: Strange New Worlds’ Season 4 Debut Fails To Make Streaming Top 10",
-      "when": "21 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/20/star-trek-strange-new-worlds-season-4-debut-fails-to-make-streaming-top-10/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "54m ago",
+      "pushed": "52m ago",
       "lang": "HTML",
       "commit": ""
     }
