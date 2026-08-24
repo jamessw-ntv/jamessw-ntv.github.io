@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-24",
-    "fetched": "2026-08-24T21:35:20+00:00",
+    "fetched": "2026-08-24T22:32:46+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 10,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 4
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 2
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110396.0,
-        "pct": 1.42
+        "price": 110187.0,
+        "pct": 1.7
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3469.51,
-        "pct": 0.16
+        "price": 3466.3,
+        "pct": 0.97
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Taylor Swift Recalls How ‘I Knew You Were Trouble’ Was Written As a ‘Really Sad Ballad’ in Grammy Museum Conversation Video",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/taylor-swift-i-knew-you-were-trouble-grammy-museum-clip-1236841957/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Wendy Williams Documentary Series ‘Clap If You Care,’ From the Host’s Longtime TV Producer, Picked Up at Peacock",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/wendy-williams-documentary-clap-if-you-care-peacock-1236841933/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Azerbaijan’s Lawyer Defends Defamation Suit Against CNN: ‘These Untrue Statements Actually Put Lives at Risk’",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/azerbaijan-lawyer-cnn-defamation-suit-1236841531/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "How to Watch the Dunkman World Championship Final Online for Free",
       "when": "24 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/shopping/athletes/watch-dunkman-world-championship-final-live-online-free-1236838721/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Insidious: Out of the Further’ Director Jacob Chase to Helm Horror Movie ‘Sleepover’ for Blumhouse Atomic Monster and Universal",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jacob-chase-sleepover-blumhouse-atomic-monster-1236841899/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Survivor’ vs. ‘The Traitors’: Will Emmy Voters Finally Give the Original Reality Juggernaut Its Due?",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/awards/survivor-emmys-season-50-the-traitors-reality-competition-1236841801/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Big Brother’ EPs and Host Julie Chen Moonves on Making 1,000 Episodes, Staying Competitive Against ‘The Traitors’ and the Chances of an All-Winners Season",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/features/big-brother-1000-episodes-history-all-winners-season-1236837808/"
     },
     {
       "cat": "Trek/Wars",
