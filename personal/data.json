@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-24",
-    "fetched": "2026-08-24T04:52:26+00:00",
+    "fetched": "2026-08-24T05:43:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 17,
+      "temp": 16,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 14
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107391.0,
-        "pct": 0.38
+        "price": 107550.0,
+        "pct": 1.13
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3402.52,
-        "pct": 2.1
+        "price": 3418.06,
+        "pct": 3.03
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "China Box Office: ‘Once Upon a Time in the Middle East’ Stays on Top as ‘V’ Debuts in Second",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/china-box-office-once-upon-a-time-in-the-middle-east-v-1236841327/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Busan Unveils 23-Film Vision Section Lineup",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/busan-vision-section-lineup-2026-1236841324/"
+    },
     {
       "cat": "Film/TV",
       "title": "John Oliver Embarrasses Trump Transportation Secretary Sean Duffy Over ‘Godawful’ YouTube Reality Show and ‘Real World’ Past",
@@ -104,20 +118,6 @@
       "when": "23 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/this-week-in-a-galaxy-far-far-away-starfighter-galactic-politics-update-star-wars-zero-company-nears-release-and-not-much-more.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Boorman and the Devil’ Review: The Making of John Boorman’s 1977 Disaster ‘Exorcist II: The Heretic’ Becomes a Documentary So Unbelievable It’s Funny",
-      "when": "23 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/boorman-and-the-devil-review-exorcist-ii-the-heretic-1236841140/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Shelley Fabares, ‘Coach’ and ‘The Donna Reed Show’ Star, Dies at 82",
-      "when": "23 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/shelley-fabares-dead-coach-the-donna-reed-show-1236841162/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "50m ago",
       "lang": "HTML",
       "commit": ""
     }
