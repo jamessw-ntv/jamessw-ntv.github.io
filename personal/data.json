@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-24",
-    "fetched": "2026-08-24T19:34:27+00:00",
+    "fetched": "2026-08-24T20:37:21+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 10,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 9
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 7
     },
     "days": [
       {
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110325.0,
-        "pct": 2.29
+        "price": 110166.0,
+        "pct": 1.98
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3455.11,
-        "pct": 1.5
+        "price": 3454.74,
+        "pct": 1.16
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Survivor’ vs. ‘The Traitors’: Will Emmy Voters Finally Give the Original Reality Juggernaut Its Due?",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/awards/survivor-emmys-season-50-the-traitors-reality-competition-1236841801/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Big Brother’ EPs and Host Julie Chen Moonves on Making 1,000 Episodes, Staying Competitive Against ‘The Traitors’ and the Chances of an All-Winners Season",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/features/big-brother-1000-episodes-history-all-winners-season-1236837808/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘How to Lose a Guy in 10 Days’ Sequel Set Up at Paramount; Kate Hudson to Produce (EXCLUSIVE)",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/how-to-lose-a-guy-in-10-days-sequel-kate-hudson-paramount-1236839807/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "Early Review: Seven Of Nine Finally Takes Command In New ‘Star Trek’ Comic Series",
@@ -97,27 +118,6 @@
       "when": "24 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/music/news/warner-chappell-promotes-gabz-landman-to-executive-vp-1236841814/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Emma Chamberlain Brings a Gen Z Twist to J. Crew’s Signature Rollneck Sweater in New Campaign",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/jcrew-tiny-rollneck-sweater-emma-chamberlain-shop-online-1236841782/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "New York’s AMC Kips Bay Movie Theater to Close at End of 2026",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/amc-kips-bay-closing-new-york-movie-theater-1236841776/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘You’ Author Caroline Kepnes Sets Series Directorial Debut With Psychological Thriller ‘The Attentionist’ (EXCLUSIVE)",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/you-caroline-kepnes-director-debut-the-attentionist-1236841684/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "44m ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
