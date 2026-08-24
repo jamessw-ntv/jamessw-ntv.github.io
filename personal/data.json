@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-24",
-    "fetched": "2026-08-24T16:45:37+00:00",
+    "fetched": "2026-08-24T17:35:38+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -11,8 +11,8 @@
     "now": {
       "temp": 10,
       "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 5
+      "desc": "Drizzle",
+      "wind": 4
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 111161.0,
-        "pct": 2.96
+        "price": 109995.0,
+        "pct": 2.08
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3483.58,
-        "pct": 2.07
+        "price": 3440.62,
+        "pct": 1.09
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Kit Harington Joins ‘Harry Potter’ Season 2 as Gilderoy Lockhart, Replacing Nicholas Hoult",
+      "title": "Former Child Star Raquel Lee Sues Disney Over Alleged Rape at 14 by Ex-Employee",
       "when": "24 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/kit-harington-harry-potter-gilderoy-lockhart-nicholas-hoult-exit-1236841629/"
+      "url": "https://variety.com/2026/film/news/child-star-raquel-lee-sues-disney-1236841598/"
     },
     {
       "cat": "Film/TV",
-      "title": "CAA Launches Indie Game Acceleration Fund Frame1Games (EXCLUSIVE)",
+      "title": "Paramount Says It Did Not Leak Discussions With California’s Attorney General to the Press",
       "when": "24 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/caa-indie-game-fund-frame1games-1236841590/"
+      "url": "https://variety.com/2026/film/news/paramount-leak-discussions-california-attorney-general-1236841669/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Maul – Shadow Lord’ Had Excellent Viewership Numbers, According to Third-Party Report; ‘The Mandalorian’ Holds Strong",
+      "when": "24 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/maul-shadow-lord-had-excellent-viewership-numbers-according-to-third-party-report-the-mandalorian-holds-strong.html"
     },
     {
       "cat": "Film/TV",
-      "title": "WildBrain Acquires ‘Kid Safe’ Generative-AI Platform Personality AI in Deal Worth up to $69 Million",
+      "title": "Pixar’s ‘Cars’ Returns to Theaters for 20th Anniversary",
       "when": "24 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/wildbrain-acquires-kid-safe-ai-platform-personality-ai-1236841595/"
+      "url": "https://variety.com/2026/film/news/cars-returns-theaters-20th-anniversary-1236841637/"
     },
     {
       "cat": "Film/TV",
-      "title": "John Leguizamo, Inde Navarrette and James Ortiz Among Latino and Hispanic Stars Set for Honors at Critics Choice Celebración Ceremony",
+      "title": "CNN Blames ‘Technical Issue’ Across Warner Bros. Discovery for Channel Going Dark",
       "when": "24 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/john-leguizamo-inde-navarrette-critics-choice-latino-celebration-1236840299/"
+      "url": "https://variety.com/2026/tv/news/cnn-streaming-technical-issues-channel-loss-1236841649/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "23 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/this-week-in-a-galaxy-far-far-away-starfighter-galactic-politics-update-star-wars-zero-company-nears-release-and-not-much-more.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘The High Republic Adventures: Pathfinders’ #4 Reveals the Mastermind Behind the Murder Mystery",
-      "when": "22 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/review-the-high-republic-adventures-pathfinders-4-reveals-the-mastermind-behind-the-murder-mystery.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "49m ago",
       "lang": "HTML",
       "commit": ""
     }
