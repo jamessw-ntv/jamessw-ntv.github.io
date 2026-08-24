@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-24",
-    "fetched": "2026-08-24T09:54:33+00:00",
+    "fetched": "2026-08-24T10:42:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108161.0,
-        "pct": 1.18
+        "price": 108651.0,
+        "pct": 1.35
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3435.81,
-        "pct": 1.97
+        "price": 3446.57,
+        "pct": 2.23
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Vietnamese Found-Footage Horror Hit ‘Lau Chu Hoa: The Deadliest Mansion’ Heads to North American Theaters (EXCLUSIVE)",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/lau-chu-hoa-deadliest-mansion-north-america-release-1236841428/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Brad Pitt’s ‘Heart of the Beast’ Added to San Sebastián Lineup",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/brad-pitt-heart-of-the-beast-paramount-san-sebastian-1236841422/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Joachim Trier’s ‘Sentimental Value,’ Hlynur Pálmason’s ‘The Love That Remains’ Among the Nominees for the Nordic Council Film Prize",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/awards/awards/sentimental-value-nominees-nordic-council-film-prize-1236841360/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "California Attorney General Cancels Paramount Settlement Talks Over $111 Billion Warner Bros. Discovery Deal, Says He’ll Meet When They ‘Stop Playing Games’",
       "when": "24 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/california-ag-bonta-cancels-paramount-settlement-talks-1236841379/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Venice Adds ‘Naza,’ Documentary From ‘No Other Land’ Directors Yuval Abraham and Rachel Szor, to Competition",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/venice-naza-doc-no-other-land-directors-competition-1236841390/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Alia Bhatt’s Young-Adult Rom-Com ‘Don’t Be Shy’ Sets September Prime Video Premiere (EXCLUSIVE)",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/alia-bhatt-dont-be-shy-prime-video-premiere-date-1236841347/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘An Oak Tree’ Casts Sacha Dhawan, Gemma Whelan for London Run (EXCLUSIVE)",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/theater/news/an-oak-tree-cast-sacha-dhawan-gemma-whelan-other-palace-1236841365/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "59m ago",
+      "pushed": "47m ago",
       "lang": "HTML",
       "commit": ""
     }
