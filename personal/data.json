@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-24",
-    "fetched": "2026-08-24T08:55:18+00:00",
+    "fetched": "2026-08-24T09:54:33+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 13,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 8
+      "wind": 6
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107612.0,
-        "pct": 0.82
+        "price": 108161.0,
+        "pct": 1.18
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3426.55,
-        "pct": 1.68
+        "price": 3435.81,
+        "pct": 1.97
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "California Attorney General Cancels Paramount Settlement Talks Over $111 Billion Warner Bros. Discovery Deal, Says He’ll Meet When They ‘Stop Playing Games’",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/california-ag-bonta-cancels-paramount-settlement-talks-1236841379/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Venice Adds ‘Naza,’ Documentary From ‘No Other Land’ Directors Yuval Abraham and Rachel Szor, to Competition",
+      "when": "24 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/venice-naza-doc-no-other-land-directors-competition-1236841390/"
+    },
     {
       "cat": "Film/TV",
       "title": "Alia Bhatt’s Young-Adult Rom-Com ‘Don’t Be Shy’ Sets September Prime Video Premiere (EXCLUSIVE)",
@@ -97,20 +111,6 @@
       "when": "24 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/theater/news/an-oak-tree-cast-sacha-dhawan-gemma-whelan-other-palace-1236841365/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Emomee,’ Indian Kids Life-Skills Series, Lands on Netflix (EXCLUSIVE)",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/emomee-indian-kids-life-skills-series-netflix-1236841075/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Deauville American Film Festival Reveals Industry Lineup",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/deauville-american-film-festival-industry-section-1236841342/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "59m ago",
       "lang": "HTML",
       "commit": ""
     }
