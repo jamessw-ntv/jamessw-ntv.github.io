@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-25",
-    "fetched": "2026-08-25T12:57:46+00:00",
+    "fetched": "2026-08-25T13:54:51+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 10,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 9
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 11
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110472.0,
-        "pct": -0.06
+        "price": 109443.0,
+        "pct": 0.32
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3460.59,
-        "pct": -1.35
+        "price": 3422.9,
+        "pct": -1.25
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Australia Bans AI-Generated Tracks From Official Music Charts to ‘Promote the Human Nature of Artistry’",
+      "title": "Sanfic Industria and Guadalajara Film Fest Forge Joint Queer Incubator Initiative (EXCLUSIVE)",
       "when": "25 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/australia-bans-ai-generated-tracks-from-aria-charts-1236842321/"
+      "url": "https://variety.com/2026/film/global/sanfic-industria-guadalajara-queer-incubator-initiative-1236841946/"
     },
     {
       "cat": "Film/TV",
-      "title": "Martin Scorsese Appointed Honorary President of Italy’s David di Donatello Academy",
+      "title": "Oscars: Cambodia Selects ‘Becoming Human’ for International Feature Race (EXCLUSIVE)",
       "when": "25 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/martin-scorsese-honorary-president-italy-david-academy-1236842275/"
+      "url": "https://variety.com/2026/film/awards/cambodia-oscar-submission-becoming-human-polen-ly-1236842378/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscars: Belgium Selects Lukas Dhont’s Cannes Prizewinning ‘Coward’ for International Feature Race",
+      "title": "‘Ali G: Who Iz I?’ Trailer: Sacha Baron Cohen Returns as the London Bad Boy in New Amazon MGM Mockumentary",
       "when": "25 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/oscars-belgium-lukas-dhont-cannes-coward-international-race-1236842322/"
+      "url": "https://variety.com/2026/film/global/ali-g-who-iz-i-trailer-sacha-baron-cohen-1236842137/"
     },
     {
       "cat": "Film/TV",
-      "title": "George Clooney, Maggie Gyllenhaal, Alexandre Desplat and More Set for Finch & Partners and CAA’s ‘Future of Creativity’ Forum in Venice",
+      "title": "Thai Pop Star Ten Unveils First Solo U.S. Tour and Says New Album Is Underway: ‘I Enjoy Showing Different Sides of Myself’ (EXCLUSIVE)",
       "when": "25 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/george-clooney-maggie-gyllenhaal-caa-creativity-forum-venice-1236839824/"
+      "url": "https://variety.com/2026/music/news/ten-solo-us-tour-new-album-1236841396/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "57m ago",
       "lang": "HTML",
       "commit": ""
     }
