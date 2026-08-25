@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-25",
-    "fetched": "2026-08-25T14:52:31+00:00",
+    "fetched": "2026-08-25T15:49:46+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 10,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 12
+      "wind": 11
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 44
+        "rain": 73
       },
       {
         "day": "Thu",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 33
+        "rain": 49
       }
     ]
   },
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110636.0,
-        "pct": -0.3
+        "price": 110900.0,
+        "pct": 0.0
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3458.54,
-        "pct": -1.46
+        "price": 3461.13,
+        "pct": -0.83
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Music Industry Moves: Meghan Trainor Signs With UTA; Guitar Center Foundation Names Valeisha Butterfield CEO & Executive Director",
+      "title": "Paramount’s Brit Network 5 Being Sued by Producer Blackbox Multimedia Over Shelved Drama Series",
       "when": "25 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/meghan-trainor-signs-with-uta-1236842423/"
+      "url": "https://variety.com/2026/tv/global/paramounts-5-sued-by-blackbox-multimedia-drama-series-1236842534/"
     },
     {
       "cat": "Film/TV",
-      "title": "’30 Rock’ 20th Anniversary Show Set at Radio City Music Hall",
+      "title": "Issa Rae Sets HBO Pilot About Male Friendship and Pro Boxers in Las Vegas",
       "when": "25 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/30-rock-20th-anniversary-show-radio-city-music-hall-1236842412/"
+      "url": "https://variety.com/2026/tv/news/issa-rae-hbo-pilot-male-friendship-boxing-las-vegas-1236842572/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "OnlyFans Millionaires: Site Says 5,076 Creators Have Earned More Than $1 Million to Date",
+      "when": "25 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/digital/news/onlyfans-millionaires-creators-earned-more-than-1-million-1236842444/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Seth Rogen, Helen Mirren and Cinematographer Adam Pietkiewicz Added to TIFF Tribute Awards Honorees",
+      "when": "25 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/artisans/news/helen-mirren-seth-rogen-adam-pietkiewicz-tiff-honorees-1236842392/"
     },
     {
       "cat": "Trek/Wars",
@@ -106,25 +120,11 @@
       "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-november-2026-comics-preview-the-end-of-kylo-ren-the-return-of-the-mandalorian-and-more.html"
     },
     {
-      "cat": "Film/TV",
-      "title": "Tom Hiddleston and Willem Dafoe’s Mount Everest Drama ‘Tenzing’ to Open Zurich Film Festival",
-      "when": "25 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/tom-hiddleston-willem-dafoes-everest-tenzing-zurich-1236842366/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "‘Maul – Shadow Lord’ Had Excellent Viewership Numbers, According to Third-Party Report; ‘The Mandalorian’ Holds Strong",
       "when": "25 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/maul-shadow-lord-had-excellent-viewership-numbers-according-to-third-party-report-the-mandalorian-holds-strong.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Shark Tank’ Investor Daniel Lubetzky Sets Launch of Interview Podcast ‘Build or Break’ With Guests Including Matthew McConaughey, Mark Cuban, Jason Alexander and More",
-      "when": "25 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/shark-tank-daniel-lubetzky-podcast-interview-matthew-mcconaughey-mark-cuban-jason-alexander-1236841545/"
     },
     {
       "cat": "Trek/Wars",
