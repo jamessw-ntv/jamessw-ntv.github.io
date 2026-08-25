@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-24",
-    "fetched": "2026-08-24T23:26:56+00:00",
+    "updated": "2026-08-25",
+    "fetched": "2026-08-25T01:38:26+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
+      "temp": 17,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 2
+      "wind": 4
     },
     "days": [
       {
@@ -29,11 +29,11 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 49
+        "rain": 57
       },
       {
         "day": "Thu",
-        "min": 5,
+        "min": 4,
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110373.0,
-        "pct": 2.13
+        "price": 111423.0,
+        "pct": 3.37
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3471.5,
-        "pct": 1.58
+        "price": 3489.14,
+        "pct": 2.41
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Taylor Swift Sings Mashup of ‘All Too Well,’ ‘I Knew It, I Knew You’ and ‘August’ in Grammy Museum Video",
+      "when": "25 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/taylor-swift-sings-mashup-all-too-well-grammy-museum-video-1236842092/"
+    },
     {
       "cat": "Film/TV",
       "title": "Taylor Swift Recalls How ‘I Knew You Were Trouble’ Was Written As a ‘Really Sad Ballad’ in Grammy Museum Conversation Video",
@@ -104,13 +111,6 @@
       "when": "24 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/azerbaijan-lawyer-cnn-defamation-suit-1236841531/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How to Watch the Dunkman World Championship Final Online for Free",
-      "when": "24 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/athletes/watch-dunkman-world-championship-final-live-online-free-1236838721/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "54m ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
