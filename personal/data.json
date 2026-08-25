@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-25",
-    "fetched": "2026-08-25T20:35:39+00:00",
+    "fetched": "2026-08-25T21:34:27+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 8
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 10
     },
     "days": [
       {
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109854.0,
-        "pct": -0.28
+        "price": 109497.0,
+        "pct": -0.81
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3424.37,
-        "pct": -0.88
+        "price": 3397.61,
+        "pct": -2.07
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Dolly Parton’s Musical Will Still Open on Broadway ‘As Was Dolly’s Wish’",
+      "when": "25 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/dolly-parton-musical-broadway-1236843021/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Bel-Air’ Spinoff ‘Hilary’ Starring Coco Jones in Development at Peacock",
@@ -104,13 +111,6 @@
       "when": "25 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/shannon-wallace-curtiss-cook-starz-black-rodeo-drama-cast-1236842723/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Dolly Parton’s Dollywood Will Be Open Wednesday After Singer’s Death: ‘The Show Must Go On’",
-      "when": "25 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/dolly-parton-dollywood-will-be-open-after-death-1236842931/"
     },
     {
       "cat": "Trek/Wars",
