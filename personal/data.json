@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-25",
-    "fetched": "2026-08-25T19:36:39+00:00",
+    "fetched": "2026-08-25T20:35:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 8,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 7
+      "wind": 8
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110106.0,
-        "pct": -0.23
+        "price": 109854.0,
+        "pct": -0.28
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3433.26,
-        "pct": -0.65
+        "price": 3424.37,
+        "pct": -0.88
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Haim Saban, Teddy Schwarzman and Lawrence Bender Among Those Condemning ‘Antisemitic’ Tropes in Mark Ruffalo’s Paramount Discourse: It ‘Puts Our Community in Grave Danger’",
+      "title": "‘Bel-Air’ Spinoff ‘Hilary’ Starring Coco Jones in Development at Peacock",
       "when": "25 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/global/paramount-antisemitic-tropes-mark-ruffalo-1236841944/"
+      "url": "https://variety.com/2026/tv/news/bel-air-spinoff-hilary-coco-jones-peacock-1236842971/"
     },
     {
       "cat": "Film/TV",
-      "title": "Meghan Markle’s ‘The Gentlemen’ Rumors May Have Overshadowed Season 2 Launch — but Her Role Isn’t Off the Table",
+      "title": "Veteran Hollywood Publicist Leonard Morpurgo Dies at 93",
       "when": "25 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/meghan-markle-the-gentlemen-role-could-still-happen-1236841527/"
+      "url": "https://variety.com/2026/film/news/leonard-morpurgo-dead-publicist-1236842703/"
     },
     {
       "cat": "Film/TV",
-      "title": "Shonda Rhimes Renews Netflix Overall Deal for Another Five Years",
+      "title": "Shannon Wallace, Curtiss Cook, Lauren E. Banks, Liv Symone, Jason Dirden Join Starz Black Rodeo Drama",
       "when": "25 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/shonda-rhimes-renews-netflix-overall-deal-1236842717/"
+      "url": "https://variety.com/2026/tv/news/shannon-wallace-curtiss-cook-starz-black-rodeo-drama-cast-1236842723/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Outer Banks’ Season 5 Debuts With 9.4 Million Views in Four Days",
+      "title": "Dolly Parton’s Dollywood Will Be Open Wednesday After Singer’s Death: ‘The Show Must Go On’",
       "when": "25 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/outer-banks-season-5-ratings-netflix-views-1236842772/"
+      "url": "https://variety.com/2026/music/news/dolly-parton-dollywood-will-be-open-after-death-1236842931/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "48m ago",
+      "pushed": "58m ago",
       "lang": "HTML",
       "commit": ""
     }
