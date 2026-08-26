@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-26",
-    "fetched": "2026-08-26T19:09:46+00:00",
+    "fetched": "2026-08-26T23:12:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 2
+      "temp": 10,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 1
     },
     "days": [
       {
@@ -72,52 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109333.0,
-        "pct": -1.0
+        "price": 109545.0,
+        "pct": -0.43
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3444.22,
-        "pct": 0.02
+        "price": 3466.23,
+        "pct": 1.25
       }
     ]
   },
   "releases": [
     {
       "cat": "Trek/Wars",
+      "title": "‘Star Trek: Outposts Unknown’ Gets October Release For PC/Mac; Console TBA",
+      "when": "26 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/26/star-trek-outposts-unknown-gets-october-release-for-pc-mac-console-tba/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Leah Remini Joins ‘The Real Housewives of Beverly Hills’ Season 16",
+      "when": "26 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/leah-remini-rhobh-season-16-kyle-richards-erika-jayne-returning-1236829337/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Beyoncé Announces $1 Million Donation for Earthquake Relief Efforts in Colombia",
+      "when": "26 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/beyonce-1-million-donation-earthquake-relief-colombia-1236844484/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Witcher’ Co-Producer Rae Benjamin to Receive Starz #TakeTheLead Award at Humanitas Event, Presented by Russell T Davies",
+      "when": "26 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/humanitas-prize-starz-takethelead-rae-benjamin-1236844507/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "James Gunn Says ‘Superman: Man of Tomorrow’ Has Wrapped Filming: ‘I Have Immense Gratitude’",
+      "when": "26 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/superman-man-of-tomorrow-wrapped-filming-james-gunn-1236844560/"
+    },
+    {
+      "cat": "Trek/Wars",
       "title": "Kevin Smith Chose to Limit ‘Star Wars’ and Marvel Comics Crossover to ‘A New Hope’ Characters",
       "when": "26 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/kevin-smith-chose-to-limit-star-wars-and-marvel-comics-crossover-to-a-new-hope-characters.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Emmy Predictions: State of the Race as Voting Nears Its End",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/lists/2026-emmys-predictions/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Dolly Parton’s 30 Greatest Songs",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/lists/dolly-parton-30-best-greatest-songs/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Not Suitable for Work’: Five Unresolved Cliffhangers From Mindy Kaling’s Canceled Hulu Series",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/lists/not-suitable-for-work-unresolved-cliffhangers-mindy-kaling-canceled/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Survivor 51’: Meet the 21 New Castaways, Including a ‘Grey’s Anatomy’ Actor, the Voice of Strawberry Shortcake, a Pro Wrestler and a Yankees Exec",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/lists/survivor-51-cast-greys-anatomy-strawberry-shortcake/"
     },
     {
       "cat": "Trek/Wars",
@@ -135,10 +142,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Early Review: Seven Of Nine Finally Takes Command In New ‘Star Trek’ Comic Series",
-      "when": "24 Aug",
+      "title": "The Cadets Are Running Out Of Time In Preview Of ‘Star Trek: Starfleet Academy – Lost Contact’ Conclusion",
+      "when": "25 Aug",
       "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/24/early-review-seven-of-nine-finally-takes-command-in-new-star-trek-comic-series/"
+      "url": "https://trekmovie.com/2026/08/25/the-cadets-are-running-out-of-time-in-preview-of-star-trek-starfleet-academy-lost-contact-conclusion/"
     },
     {
       "cat": "Trek/Wars",
@@ -146,13 +153,6 @@
       "when": "24 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/24/preview-star-trek-strange-new-worlds-episode-406-with-9-new-photos-from-off-hour/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Star Trek Headed To New York Comic Con For ‘Starfleet Academy’ And 60th Anniversary Panel",
-      "when": "21 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/21/star-trek-headed-to-new-york-comic-con-for-starfleet-academy-and-60th-anniversary-panel/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
