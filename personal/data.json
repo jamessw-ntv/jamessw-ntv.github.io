@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-26",
-    "fetched": "2026-08-26T13:59:07+00:00",
+    "fetched": "2026-08-26T14:50:16+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 8,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 5
@@ -17,14 +17,6 @@
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 13,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 80
-      },
-      {
-        "day": "Thu",
         "min": 5,
         "max": 14,
         "icon": "☁️",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 41
+      },
+      {
+        "day": "Sat",
+        "min": 7,
+        "max": 12,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 12
       }
     ]
   },
@@ -72,38 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109024.0,
-        "pct": -0.67
+        "price": 108683.0,
+        "pct": -1.78
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3416.56,
-        "pct": -0.4
+        "price": 3407.84,
+        "pct": -1.5
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Meta to Pay up to $18 Billion in Settlement With 29 States Over Social-Media Addiction Claims",
+      "title": "Kate Winslet to Star in Vengeance Drama ‘The Unheard’ at Netflix From ‘Adolescence’ Writer Jack Thorne",
       "when": "26 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/meta-18-billion-settlement-state-ags-lawsuit-social-media-addiction-1236843725/"
+      "url": "https://variety.com/2026/tv/global/kate-winslet-netflix-unheard-jack-thorne-1236843776/"
     },
     {
       "cat": "Film/TV",
-      "title": "Gary Oldman on the ‘Pleasure’ of Playing ‘Slow Horses’ Spy Jackson Lamb: ‘A Man Who Has Single-Handedly Lowered the Public’s Expectation of Personal Hygiene’",
+      "title": "France Faces Thorny Oscar Submission Choice With Andrey Zvyagintsev’s ‘Minotaur’ and Homegrown Contenders",
       "when": "26 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/gary-oldman-slow-horses-edinburgh-tv-festival-1236843642/"
+      "url": "https://variety.com/2026/film/global/france-oscar-submission-choices-andrey-zvyagintsev-minotaur-1236842911/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Finding Emily’ Review: The Working Title Romantic Comedy Gets a Fresh, Funny GenZ Makeover",
+      "title": "‘Top Boy’ Prequel ‘Jonny Boy’ Starring Barry Keoghan Ordered at Netflix",
       "when": "26 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/finding-emily-review-1236842405/"
+      "url": "https://variety.com/2026/tv/news/top-boy-prequel-jonny-boy-barry-keoghan-netflix-1236843787/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Rupert Grint to Reprise Ron Weasley Role in ‘Harry Potter and the Cursed Child’ on Broadway",
+      "when": "26 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/legit/global/rupert-grint-ron-weasley-harry-potter-and-the-cursed-child-1236843779/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "26 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/review-star-wars-zero-company-is-the-best-way-to-play-war-in-a-galaxy-far-far-away.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Women’s Basketball League Unrivaled Raises More Than $100 Million From Carmelo Anthony, Ashton Kutcher, Alex Morgan, University of California Fund and More",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/unrivaled-raises-more-than-100-million-carmelo-anthony-ashton-kutcher-alex-morgan-uc-investments-1236843699/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "55m ago",
+      "pushed": "51m ago",
       "lang": "HTML",
       "commit": ""
     }
