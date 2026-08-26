@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-25",
-    "fetched": "2026-08-25T23:29:44+00:00",
+    "updated": "2026-08-26",
+    "fetched": "2026-08-26T01:43:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 12
+      "temp": 12,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 15
     },
     "days": [
       {
@@ -34,9 +34,9 @@
       {
         "day": "Fri",
         "min": 6,
-        "max": 14,
+        "max": 13,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 37
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109760.0,
-        "pct": -0.53
+        "price": 109997.0,
+        "pct": -1.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3418.95,
-        "pct": -1.54
+        "price": 3427.65,
+        "pct": -1.77
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Beyoncé Pays Tribute to Dolly Parton: ‘You Were the Barometer’",
-      "when": "25 Aug",
+      "title": "Iowa Attorney General Says She’s Taking California to the Supreme Court Over Paramount-Warner Bros. Lawsuit",
+      "when": "26 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/beyonce-pays-tribute-to-dolly-parton-barometer-1236843171/"
+      "url": "https://variety.com/2026/film/news/iowa-attorney-general-sue-california-paramount-warner-bros-1236843385/"
     },
     {
       "cat": "Film/TV",
-      "title": "How Modern Appointment Viewing Shows Are Bringing Back ‘Watercooler’ Television",
-      "when": "25 Aug",
+      "title": "‘Love Island USA’ Host Ariana Madix on Bringing ‘Sexiness’ and ‘Danger’ to Her Hosting Gig: ‘I Initially Scare the Crap Out of’ Islanders",
+      "when": "26 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/modern-appointment-viewing-shows-watercooler-television-1236843230/"
+      "url": "https://variety.com/2026/awards/features/ariana-madix-love-island-usa-host-sexiness-island-1236840928/"
     },
     {
       "cat": "Film/TV",
-      "title": "How the Muppets Were Brought Back to Life for the Disney Special",
-      "when": "25 Aug",
+      "title": "‘Paranormal Activity’ Review: Spooky Franchise Gets a Hair-Raising Stage Experience",
+      "when": "26 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/muppets-brought-back-to-life-for-disney-special-1236843200/"
+      "url": "https://variety.com/2026/legit/reviews/paranormal-activity-review-broadway-stage-experience-1236841925/"
     },
     {
       "cat": "Film/TV",
-      "title": "Universal’s Snoop Dogg Biopic Adds Camron Jones as Tupac Shakur",
-      "when": "25 Aug",
+      "title": "Can Guy Fieri Unite America? Inside His Lifelong Advocacy of Global Cuisine: ‘When You Talk About Food, You Talk About Culture’",
+      "when": "26 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/snoop-dogg-biopic-cast-camron-jones-tupac-shakur-lauren-london-1236843216/"
+      "url": "https://variety.com/2026/awards/features/guy-fieri-diners-drive-ins-and-dives-host-unite-america-1236840922/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "56m ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
