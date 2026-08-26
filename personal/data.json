@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-26",
-    "fetched": "2026-08-26T10:40:39+00:00",
+    "fetched": "2026-08-26T11:35:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109493.0,
-        "pct": -1.19
+        "price": 109420.0,
+        "pct": -1.32
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3424.14,
-        "pct": -1.18
+        "price": 3431.81,
+        "pct": -1.02
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "GameSquare Pivots Livestreaming Measurement Service Stream Hatchet Into Creator Marketing Analytics Platform (EXCLUSIVE)",
+      "when": "26 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/gaming/news/stream-hatchet-rebrand-creator-marketing-gamesquare-1236842946/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "COL Group, CP Group Strike 360-Degree Partnership to Grow Thailand’s Short-Form Drama Industry",
+      "when": "26 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/col-group-cp-group-partnership-thailand-short-form-drama-1236842870/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Alice and Steve’ Renewed for Season 2 at Disney+ and Hulu",
+      "when": "26 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/alice-and-steve-renewed-season-2-disney-hulu-1236843670/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Mandy Patinkin Named First Honorary Team Captain of USA Fencing",
       "when": "26 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/sports/news/mandy-patinkin-usa-fencing-princess-bride-team-captain-1236841653/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Under Salt Marsh’ Renewed for Season 2 With Rafe Spall Returning",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/under-salt-marsh-renewed-season-2-rafe-spall-returning-1236843637/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Italy’s RAI Cinema International Boards Edoardo De Angelis’ ‘The Fire Within You’ Ahead of Venice Launch, Reveals First Clip (EXCLUSIVE)",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/rai-cinema-international-edoardo-de-angelis-fire-within-you-1236842662/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Stephen Colbert Urges Emmy Voters to Back Jimmy Kimmel: ‘Look How Cute He Is!’",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/stephen-colbert-endorses-jimmy-kimmel-emmys-race-1236843615/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "50m ago",
+      "pushed": "54m ago",
       "lang": "HTML",
       "commit": ""
     }
