@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-26",
-    "fetched": "2026-08-26T06:58:23+00:00",
+    "fetched": "2026-08-26T07:51:49+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 12
+      "temp": 10,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 8
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109920.0,
-        "pct": -2.35
+        "price": 110024.0,
+        "pct": -1.43
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3425.97,
-        "pct": -1.99
+        "price": 3433.86,
+        "pct": -1.11
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Oscars: Japan Selects ‘All of a Sudden’ for International Feature Race",
+      "when": "26 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/oscars-japan-all-of-a-sudden-oscars-1236843581/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Google DeepMind, Amazon Web Services, Kling AI Join Busan Market Tech Program InnoAsia",
+      "when": "26 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/google-deepmind-amazon-web-services-busan-market-innoasia-1236843573/"
+    },
     {
       "cat": "Film/TV",
       "title": "Motherhood Horror Film ‘Vagina Dentata,’ ‘From The Eclipse’ Director Nataša Urban, Boarded by Romanian Partner Manifest Film (EXCLUSIVE)",
@@ -97,20 +111,6 @@
       "when": "26 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/vidio-reelshort-indonesia-partnership-short-drama-1236843567/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "LevelK Boards Haugesund-Bound Norwegian Psycho Thriller ‘Anathema,’ About Repression, Denial and Collective Madness (EXCLUSIVE)",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/levelk-sales-norwegian-thriller-anathema-1236843078/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Amanda Kernell Is More Interested in ‘Liberation Than a Curse’ as Her Third Feature ‘Brace Your Heart’ Debuts Trailer (EXCLUSIVE)",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/amanda-kernell-brace-your-heart-1236842342/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "53m ago",
       "lang": "HTML",
       "commit": ""
     }
