@@ -2,22 +2,22 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-26",
-    "fetched": "2026-08-26T23:12:18+00:00",
+    "updated": "2026-08-27",
+    "fetched": "2026-08-27T08:42:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 10,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 1
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 2
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
+        "min": 5,
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
@@ -29,15 +29,15 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 39
+        "rain": 37
       },
       {
         "day": "Sat",
-        "min": 6,
+        "min": 8,
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 13
+        "rain": 12
       }
     ]
   },
@@ -72,52 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109545.0,
-        "pct": -0.43
+        "price": 111053.0,
+        "pct": 1.06
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3466.23,
-        "pct": 1.25
+        "price": 3522.43,
+        "pct": 2.76
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Emmy-Winning Baobab Studios Lands Naver Ventures Investment, Sets ‘Shine’ as Flagship Title (EXCLUSIVE)",
+      "when": "27 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/baobab-studios-naver-ventures-investment-shine-1236844847/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Miyu Distribution Acquires Fernanda Salgado’s ‘Ana, en Passant’ Starring Lauded Brazilian Actress Zezé Motta (EXCLUSIVE)",
+      "when": "27 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/miyu-distribution-fernanda-salgado-ana-en-passant-vancouver-1236842687/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Godzilla Minus Zero’ Behind-the-Scenes Clip Unveiled by Toho and Gkids",
+      "when": "27 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/godzilla-minus-zero-behind-the-scenes-clip-toho-gkids-1236844837/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Venice Horizons Best Director Winner Anuparna Roy’s ‘Lovers in the Blue Night’ Boarded by Parallax (EXCLUSIVE)",
+      "when": "27 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/venice-anuparna-roy-lovers-in-the-blue-night-parallax-1236844820/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Interview: ‘Strange New Worlds’ Showrunner On Rest Of Season 4, ‘Year One,’ And ‘Doctor Who’ Crossover",
+      "when": "27 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/26/interview-strange-new-worlds-showrunner-on-rest-of-season-4-year-one-and-doctor-who-crossover/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Trek: Outposts Unknown’ Gets October Release For PC/Mac; Console TBA",
       "when": "26 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/26/star-trek-outposts-unknown-gets-october-release-for-pc-mac-console-tba/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Leah Remini Joins ‘The Real Housewives of Beverly Hills’ Season 16",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/leah-remini-rhobh-season-16-kyle-richards-erika-jayne-returning-1236829337/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Beyoncé Announces $1 Million Donation for Earthquake Relief Efforts in Colombia",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/beyonce-1-million-donation-earthquake-relief-colombia-1236844484/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Witcher’ Co-Producer Rae Benjamin to Receive Starz #TakeTheLead Award at Humanitas Event, Presented by Russell T Davies",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/humanitas-prize-starz-takethelead-rae-benjamin-1236844507/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "James Gunn Says ‘Superman: Man of Tomorrow’ Has Wrapped Filming: ‘I Have Immense Gratitude’",
-      "when": "26 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/superman-man-of-tomorrow-wrapped-filming-james-gunn-1236844560/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/08/25/the-cadets-are-running-out-of-time-in-preview-of-star-trek-starfleet-academy-lost-contact-conclusion/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Preview ‘Star Trek: Strange New Worlds’ Episode 406 With 9 New Photos From “Off-Hour” [UPDATED w/ Trailer]",
-      "when": "24 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/24/preview-star-trek-strange-new-worlds-episode-406-with-9-new-photos-from-off-hour/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "9h ago",
       "lang": "HTML",
       "commit": ""
     }
