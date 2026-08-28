@@ -2,42 +2,42 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-27",
-    "fetched": "2026-08-27T19:44:31+00:00",
+    "updated": "2026-08-28",
+    "fetched": "2026-08-28T04:08:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 6
+      "temp": 12,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
-        "max": 14,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 26
-      },
-      {
-        "day": "Sat",
-        "min": 7,
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
+        "rain": 49
+      },
+      {
+        "day": "Sat",
+        "min": 6,
+        "max": 12,
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 1
       },
       {
         "day": "Sun",
-        "min": 7,
+        "min": 8,
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 2
+        "rain": 8
       }
     ]
   },
@@ -72,52 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 111180.0,
-        "pct": 1.71
+        "price": 110828.0,
+        "pct": 1.01
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3487.45,
-        "pct": 1.28
+        "price": 3456.89,
+        "pct": -0.36
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Inside ‘Married at First Sight’ Season 20: How Peacock’s Changes Led to 1.8 Billion Minutes Viewed, That Wild Reunion and Why Lindsay Hubbard Said No to the Show",
+      "when": "28 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/married-at-first-sight-season-20-peacock-changes-1236842709/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Big Little Lies’ Sequel Book Teases Storyline for HBO Series’ Season 3: What’s Going on With Madeline, Celeste and Jane in ‘Big Little Truths’",
+      "when": "27 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/big-little-lies-season-3-big-little-truths-sequel-plot-1236844334/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Ellen Pompeo to Play Disgraced ER Nurse in ‘Not a Sound’ Drama in the Works at Hulu",
+      "when": "27 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/ellen-pompeo-hulu-show-not-a-sound-1236845646/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Star Trek 60th To Be Celebrated With TV Specials, Global Events, On The ISS, And More",
+      "when": "27 Aug",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/08/27/star-trek-60th-to-be-celebrated-with-tv-specials-global-events-on-the-iss-and-more/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jemima Kirke on Her Marc Jacobs Campaign, Fashion Week Chaos and Why Jessa’s Style in ‘Girls’ ‘Doesn’t Appeal’ to Her",
+      "when": "27 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/jemima-kirke-marc-jacobs-girls-jessa-style-fashion-week-1236845616/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘Zero Company’ Developers Would Love to Make More ‘Star Wars’ Games; Official Soundtrack List Revealed",
       "when": "27 Aug",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/08/zero-company-developers-would-love-to-make-more-star-wars-games-official-soundtrack-list-revealed.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘GTA 6’ Drops 27 Minutes of New In-Game Footage on Netflix Amid Ongoing Rockstar Games Leaks",
-      "when": "27 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/gta-6-netflix-trailer-extended-look-release-1236845475/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Furious’ Renewed for Season 2 at Hulu",
-      "when": "27 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/furious-season-2-hulu-1236845363/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Dolly Parton Was Willing to Take Experimental Cancer Drugs In Order to Help Others in the Future, Her Sister Says in Online Tribute",
-      "when": "27 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/dolly-parton-experimental-cancer-drugs-no-hope-1236845432/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Final Fantasy VII Revelation’ Gameplay Trailer Shows Weapons Destroying Planet in the Series’ Finale (Gaming News Roundup)",
-      "when": "27 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/final-fantasy-vii-gaming-news-roundup-week-august-25-1236843218/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/08/26/interview-strange-new-worlds-showrunner-on-rest-of-season-4-year-one-and-doctor-who-crossover/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek: Outposts Unknown’ Gets October Release For PC/Mac; Console TBA",
-      "when": "26 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/26/star-trek-outposts-unknown-gets-october-release-for-pc-mac-console-tba/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "11h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     }
