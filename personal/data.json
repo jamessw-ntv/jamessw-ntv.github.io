@@ -2,34 +2,34 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-28",
-    "fetched": "2026-08-28T17:15:48+00:00",
+    "updated": "2026-08-29",
+    "fetched": "2026-08-29T01:38:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 6
+      "temp": 12,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
         "min": 7,
-        "max": 13,
+        "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 2
       },
       {
         "day": "Sun",
-        "min": 8,
-        "max": 13,
+        "min": 7,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 8
+        "rain": 2
       },
       {
         "day": "Mon",
@@ -37,7 +37,7 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 0
+        "rain": 4
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108856.0,
-        "pct": -2.81
+        "price": 108573.0,
+        "pct": -3.64
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3412.78,
-        "pct": -2.9
+        "price": 3409.99,
+        "pct": -2.85
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "SCAD Savannah Film Festival Returns For 29th Year",
-      "when": "28 Aug",
+      "title": "Zak Starkey and the Who Have Kissed and Made Up, as Rehearsal Reunion Is Revealed",
+      "when": "29 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/scad-savannah-film-festival-returns-1236846079/"
+      "url": "https://variety.com/2026/music/news/zak-starkey-the-who-reconcile-rehearsal-1236846409/"
     },
     {
       "cat": "Film/TV",
-      "title": "Payal Kapadia, Neeraj Churi, Subhadra Mahajan Among Talent Behind SASO, IFFSA-Backed South Asian Toronto Market Projects (EXCLUSIVE)",
-      "when": "28 Aug",
+      "title": "California Lawmakers Settle on Partial Film Carveout From Tax Credit Cap",
+      "when": "29 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/payal-kapadia-neeraj-churi-subhadra-mahajan-toronto-market-1236846057/"
+      "url": "https://variety.com/2026/film/news/california-partial-film-carveout-tax-credit-cap-1236845354/"
     },
     {
       "cat": "Film/TV",
-      "title": "Meg Stalter on ‘Oh, Mary’, Advice for Bowen Yang and Preparing Her Emmys Red Carpet Look With Paul Downs: ‘It’s in the Works’",
+      "title": "Nashville Airport Could Be Renamed for Dolly Parton, Tennessee Governor Announces",
       "when": "28 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/meg-stalter-oh-mary-emmys-red-carpet-looks-knorr-chicken-1236845664/"
+      "url": "https://variety.com/2026/music/news/nashville-airport-could-be-renamed-for-dolly-parton-1236846385/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sting-Narrated Documentary About ‘The Godfather,’ ‘La Dolce Vita’ Composer Nino Rota Boarded by Global Constellation (EXCLUSIVE)",
+      "title": "What’s Coming to Disney+ in September 2026",
       "when": "28 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/nino-rota-global-constellation-venice-1236846027/"
+      "url": "https://variety.com/feature/whats-on-disney-plus-new-shows-movies-1203517920/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Tippett Studio Closes After 35 Years Of Animation Innovation; Original ‘Star Wars’ Models To Be Auctioned Off",
+      "when": "28 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/tippett-studio-closes-after-35-years-of-animation-innovation-original-star-wars-models-to-be-auctioned-off.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars’ Celebration 2027 Guest List Adds Voice Cast of ‘Star Wars Rebels’",
+      "when": "28 Aug",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/08/star-wars-celebration-2027-guest-list-adds-voice-cast-of-star-wars-rebels.html"
     },
     {
       "cat": "Trek/Wars",
@@ -128,24 +142,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "‘Galactic Racer’ Shares New Video Spotlighting Speeder Bikes",
-      "when": "28 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/galactic-racer-shares-new-video-spotlighting-speeder-bikes.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Star Trek 60th To Be Celebrated With TV Specials, Global Events, On The ISS, And More",
       "when": "27 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/27/star-trek-60th-to-be-celebrated-with-tv-specials-global-events-on-the-iss-and-more/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Zero Company’ Developers Would Love to Make More ‘Star Wars’ Games; Official Soundtrack List Revealed",
-      "when": "27 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/zero-company-developers-would-love-to-make-more-star-wars-games-official-soundtrack-list-revealed.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "13h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     }
