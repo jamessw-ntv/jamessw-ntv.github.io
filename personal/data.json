@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-29",
-    "fetched": "2026-08-29T14:19:24+00:00",
+    "fetched": "2026-08-29T18:16:28+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 7,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 1
+      "wind": 3
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 0
+        "rain": 2
       },
       {
         "day": "Mon",
@@ -37,7 +37,7 @@
         "max": 19,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 92
+        "rain": 96
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108408.0,
-        "pct": -1.21
+        "price": 108935.0,
+        "pct": 0.29
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3399.62,
-        "pct": -1.68
+        "price": 3415.7,
+        "pct": 0.26
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Here’s How to Watch the 2026-2027 NCAA College Football Season Live Online",
+      "title": "Ray Winstone Told Off a Director Who Was ‘Groping’ His Female Co-Star During Filming: ‘Don’t You Dare Do That’",
       "when": "29 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-college-football-season-online-free-1235703850/"
+      "url": "https://variety.com/2026/tv/news/ray-winstone-told-off-director-groping-female-co-star-1236846594/"
     },
     {
       "cat": "Film/TV",
-      "title": "Chantelle Cameron vs. Mikaela Mayer Livestream: Here’s Where to Watch the Unification Title Bout Online for Free",
+      "title": "‘New Girl’ Reunion Is Not Happening: ‘There Are No Scripts,’ Says Creator Liz Meriwether",
       "when": "29 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-chantelle-cameron-vs-mikaela-mayer-boxing-live-online-free-1236846060/"
+      "url": "https://variety.com/2026/tv/columns/new-girl-reunion-not-happening-no-scripts-liz-meriwether-britney-spears-1236846563/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Song of Scorpions,’ ‘Qissa’ Director Anup Singh Sets Mumbai Film ‘Lasya: The Gentle Dance’ (EXCLUSIVE)",
+      "title": "Anne Hathaway Joins Tom Cruise in ‘Days of Thunder’ Follow-Up; Paramount Sets Release Date (EXCLUSIVE)",
       "when": "29 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/anup-singh-lasya-the-gentle-dance-mumbai-film-1236846494/"
+      "url": "https://variety.com/2026/film/news/anne-hathaway-tom-cruise-days-of-thunder-sequel-1236839347/"
     },
     {
       "cat": "Film/TV",
-      "title": "Shailene Woodley Was Crushed When She Found Out Her Scenes in ‘Amazing Spider-Man 2’ Were Cut: The Role of Mary Jane Was ‘My Dream’",
+      "title": "Box Office: ‘The Dog Stars’ Struggles With Just $3 Million on Friday; ‘Spider-Man: Brand New Day’ to Win Weekend Again",
       "when": "29 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/shailene-woodley-amazing-spider-man-2-mary-jane-cut-a-year-after-filming-1236846453/"
+      "url": "https://variety.com/2026/film/news/box-office-the-dog-stars-spider-man-brand-new-day-1236846559/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
