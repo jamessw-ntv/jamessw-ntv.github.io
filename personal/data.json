@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-29",
-    "fetched": "2026-08-29T08:52:31+00:00",
+    "fetched": "2026-08-29T14:19:24+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 9,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 4
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 1
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 13,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 2
-      },
-      {
-        "day": "Sun",
-        "min": 7,
-        "max": 13,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 2
+        "min": 6,
+        "max": 14,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
       },
       {
         "day": "Mon",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 0
+      },
+      {
+        "day": "Tue",
+        "min": 10,
+        "max": 19,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 92
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108247.0,
-        "pct": -2.11
+        "price": 108408.0,
+        "pct": -1.21
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3393.72,
-        "pct": -1.94
+        "price": 3399.62,
+        "pct": -1.68
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Here’s How to Watch the 2026-2027 NCAA College Football Season Live Online",
+      "when": "29 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-college-football-season-online-free-1235703850/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Chantelle Cameron vs. Mikaela Mayer Livestream: Here’s Where to Watch the Unification Title Bout Online for Free",
+      "when": "29 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-chantelle-cameron-vs-mikaela-mayer-boxing-live-online-free-1236846060/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘The Song of Scorpions,’ ‘Qissa’ Director Anup Singh Sets Mumbai Film ‘Lasya: The Gentle Dance’ (EXCLUSIVE)",
@@ -97,20 +111,6 @@
       "when": "29 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/shailene-woodley-amazing-spider-man-2-mary-jane-cut-a-year-after-filming-1236846453/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Kartik Aaryan’s ‘Captain India’ Sets September London Shoot (EXCLUSIVE)",
-      "when": "29 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/kartik-aaryan-captain-india-september-london-shoot-1236846198/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Naomi Osaka Debuts a Luxury Accessories Brand at Uncharted’s Fame to Fortune Summit in the Hamptons",
-      "when": "29 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/naomi-osaka-luxury-brand-uncharted-fame-to-fortune-summit-1236846357/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
