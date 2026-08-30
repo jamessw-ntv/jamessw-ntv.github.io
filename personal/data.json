@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-30",
-    "fetched": "2026-08-30T15:17:11+00:00",
+    "fetched": "2026-08-30T19:14:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 8,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 3
@@ -17,8 +17,8 @@
     "days": [
       {
         "day": "Today",
-        "min": 9,
-        "max": 17,
+        "min": 8,
+        "max": 16,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -29,7 +29,7 @@
         "max": 19,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 71
+        "rain": 86
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 71
+        "rain": 72
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109583.0,
-        "pct": 0.76
+        "price": 110345.0,
+        "pct": 1.02
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3445.77,
-        "pct": 1.0
+        "price": 3505.64,
+        "pct": 2.3
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Call My Agent! The Movie’ Review: Love-Hate Energy Keeps the Gang Together in a Fast, Funny Feature-Length Return",
+      "title": "At Daisy Chain Fields, Olivia Rodrigo, Chappell Roan and Honored Forebears Convene for a Superb Festival That’s Hot to Go in Every Way: Concert Review",
       "when": "30 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/call-my-agent-the-movie-review-1236846824/"
+      "url": "https://variety.com/2026/music/concert-reviews/daisy-chain-fields-olivia-rodrigo-chappell-roan-concert-review-1236846844/"
     },
     {
       "cat": "Film/TV",
-      "title": "Here’s How to Watch the 2026 Little League World Series Championship Game Live Online",
+      "title": "President Trump Calls For FCC Punishment of NBC News’ Kristen Welker Following Promotional ‘Meet the Press’ Banter",
       "when": "30 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-little-league-world-series-online-livestream-free-1236487338/"
+      "url": "https://variety.com/2026/tv/news/trump-kristen-welker-fcc-punishment-meet-the-press-1236846910/"
     },
     {
       "cat": "Film/TV",
-      "title": "Laura Dern to Give George Clooney Venice Golden Lion for Lifetime Achievement",
+      "title": "Olivia Rodrigo Raises $20 Million With Daisy Chain Fields Festival Thanks to Matching Commitment From Melinda French Gates",
       "when": "30 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/laura-dern-george-clooney-venice-golden-lion-lifetime-1236846829/"
+      "url": "https://variety.com/2026/music/news/olivia-rodrigo-raises-20-million-daisy-chain-melinda-gates-1236846915/"
     },
     {
       "cat": "Film/TV",
-      "title": "’17’ Review: Harrowing Teen Pregnancy Drama from Macedonia Could Be the Feel-Bad Movie of the Year",
+      "title": "Katseye’s Sophia to Sit Out European Leg of ‘Wildworld’ Tour to ‘Focus on Her Well-Being’",
       "when": "30 Aug",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/17-review-1236846790/"
+      "url": "https://variety.com/2026/music/news/katseyes-sophia-sit-european-leg-wildworld-tour-1236846911/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
