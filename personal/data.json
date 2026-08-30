@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-08-30",
-    "fetched": "2026-08-30T04:54:36+00:00",
+    "fetched": "2026-08-30T10:25:16+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 9
+      "temp": 9,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 6
     },
     "days": [
       {
@@ -25,7 +25,7 @@
       },
       {
         "day": "Mon",
-        "min": 9,
+        "min": 8,
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -33,7 +33,7 @@
       },
       {
         "day": "Tue",
-        "min": 10,
+        "min": 9,
         "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108893.0,
-        "pct": 0.53
+        "price": 108907.0,
+        "pct": 0.5
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3423.31,
-        "pct": 0.58
+        "price": 3425.32,
+        "pct": 0.75
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "’17’ Review: Harrowing Teen Pregnancy Drama from Macedonia Could Be the Feel-Bad Movie of the Year",
+      "when": "30 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/17-review-1236846790/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Sea of Glass’ Review: A Widow’s Coastal Healing Retreat Turns Into a Stately, Moody Greek Tragedy",
+      "when": "30 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/sea-of-glass-review-1236846714/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Inside the Global Rise of CJ ENM’s ‘The Legend of Kitchen Soldier’",
+      "when": "30 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/legend-of-kitchen-soldier-cj-enm-global-success-1236846772/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Harry Styles Pokes Fun at Ex Taylor Swift’s Wedding During Madison Square Garden Show",
       "when": "30 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/music/news/harry-styles-shout-out-taylor-swift-wedding-travis-kelce-madison-square-garden-show-1236846748/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Owner of ‘Heated Rivalry’ Cabin Needed to Do Some ‘Soul Searching’ Before Inviting the Show Back for Season 2",
-      "when": "29 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/owner-heated-rivalry-cabin-some-soul-searching-season-2-1236846730/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Borges and Me’ Review: Gentle, Nostalgic Literary Road Movie Is More Perky Than Poetic",
-      "when": "29 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/borges-and-me-review-1236843724/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Final Emmy Predictions in 116 Categories: HBO Max Poised to Dominate With ‘The Pitt’ as ‘Widow’s Bay’ and ‘Hacks’ Chase Opposite All-Time Records",
-      "when": "29 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/lists/2026-emmys-predictions/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
