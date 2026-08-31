@@ -2,14 +2,14 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-08-30",
-    "fetched": "2026-08-30T22:36:25+00:00",
+    "updated": "2026-08-31",
+    "fetched": "2026-08-31T01:17:58+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 13,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 2
@@ -18,7 +18,7 @@
       {
         "day": "Today",
         "min": 8,
-        "max": 16,
+        "max": 17,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -29,15 +29,15 @@
         "max": 19,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 86
+        "rain": 73
       },
       {
         "day": "Wed",
-        "min": 10,
-        "max": 14,
+        "min": 9,
+        "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 72
+        "rain": 77
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109438.0,
-        "pct": 0.36
+        "price": 108350.0,
+        "pct": -0.48
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3441.75,
-        "pct": 0.62
+        "price": 3373.9,
+        "pct": -1.53
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Korea’s Showbox Launches Microdrama Label Showbite, Sets Sights on Global Markets (EXCLUSIVE)",
+      "when": "31 Aug",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/showbox-microdrama-label-showbite-global-markets-1236846765/"
+    },
     {
       "cat": "Film/TV",
       "title": "Enhypen Lands First No. 1, Dolly Parton Reenters Top Five on Albums Chart",
@@ -111,13 +118,6 @@
       "when": "30 Aug",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/sandra-bullock-olivia-rodrigo-stevie-nicks-practical-magic-2-1236846948/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "At Daisy Chain Fields, Olivia Rodrigo, Chappell Roan and Honored Forebears Convene for a Superb Festival That’s Hot to Go in Every Way: Concert Review",
-      "when": "30 Aug",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/concert-reviews/daisy-chain-fields-olivia-rodrigo-chappell-roan-concert-review-1236846844/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
