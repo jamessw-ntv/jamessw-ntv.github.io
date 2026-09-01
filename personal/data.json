@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-01",
-    "fetched": "2026-09-01T20:53:58+00:00",
+    "fetched": "2026-09-01T23:12:40+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "☁️",
-      "desc": "Overcast",
+      "temp": 10,
+      "icon": "🌦️",
+      "desc": "Drizzle",
       "wind": 11
     },
     "days": [
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108244.0,
-        "pct": -1.64
+        "price": 108080.0,
+        "pct": -1.27
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3381.93,
-        "pct": -1.96
+        "price": 3375.58,
+        "pct": -1.86
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Variety and Utopai Studios to Host Future in Focus Conversations at TIFF",
+      "title": "Indian Streamer JioHotstar Launches in U.K., Canada and Singapore With Interactive Features",
       "when": "1 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/variety-utopai-studios-host-future-in-focus-tiff-1236847582/"
+      "url": "https://variety.com/2026/tv/news/jiohotstar-uk-canada-singapore-launch-1236848067/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tony Romo Suggests He’d Like to Return to CBS’ NFL Coverage After No Contest Plea",
+      "title": "‘Wheel of Fortune’ Announcer Jim Thornton Suspended, Position Will Be Recast",
       "when": "1 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/tony-romo-cbs-nfl-return-cbs-no-contest-plea-1236848637/"
+      "url": "https://variety.com/2026/tv/news/wheel-of-fortune-announcer-jim-thornton-suspended-1236848741/"
     },
     {
       "cat": "Film/TV",
-      "title": "Producer Urged Trump to Back U.S. Film Incentive Citing Prospect of Shooting Richard Nixon Biopic Overseas",
+      "title": "DreamWorks Remote Workers Ratify First Union Agreement With the Animation Guild",
       "when": "1 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/trump-us-film-incentive-white-house-meeting-richard-nixon-biopic-overseas-1236848380/"
+      "url": "https://variety.com/2026/artisans/news/dreamworks-remote-workers-agreement-animation-guild-1236848733/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jason Isbell Leads New Suno Lawsuit, Claims AI Music Generator ‘Exploits’ Musicians’ Identities in Models",
+      "title": "Tom Cruise Is Confident Paramount-Warner Bros. Will Release 30 Films a Year After Merger: ‘They’re Going to Deliver’",
       "when": "1 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/jason-isbell-suno-lawsuit-ai-music-exploits-identities-1236848468/"
+      "url": "https://variety.com/2026/film/news/tom-cruise-david-ellison-paramount-warner-bros-merger-1236846704/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Adria Arjona Champions Bix’s “Really Strong” Character Arc in ‘Andor’ Season 2, Appreciating the Acting Challenge",
+      "when": "1 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/adria-arjona-champions-bixs-really-strong-character-arc-in-andor-season-2-appreciating-the-acting-challenge.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "New Star Trek Movie Inspired By ‘Crimson Tide’ And ‘Training Day,’ Say Directors",
+      "when": "1 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/01/new-star-trek-movie-inspired-by-crimson-tide-and-training-day-say-directors/"
     },
     {
       "cat": "Trek/Wars",
@@ -128,13 +142,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: ‘Zero Company’ Story Review, A ‘Star Wars’ Vending Machine Mystery, and More",
-      "when": "31 Aug",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/08/this-week-in-a-galaxy-far-far-away-zero-company-story-review-a-star-wars-vending-machine-mystery-and-more.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Preview ‘Star Trek: Strange New Worlds’ Soap Opera Episode With 6 New Photos And Trailer From “Like Chronitons Through The Hourglass”",
       "when": "31 Aug",
       "source": "TrekMovie",
@@ -146,13 +153,6 @@
       "when": "28 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/28/podcast-all-access-star-trek-goes-off-hour-with-strange-new-worlds/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Star Trek 60th To Be Celebrated With TV Specials, Global Events, On The ISS, And More",
-      "when": "27 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/27/star-trek-60th-to-be-celebrated-with-tv-specials-global-events-on-the-iss-and-more/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
