@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-01",
-    "fetched": "2026-09-01T01:09:59+00:00",
+    "fetched": "2026-09-01T07:37:22+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 17,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 24
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 19
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 19,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 98
+        "rain": 100
       },
       {
         "day": "Wed",
@@ -29,15 +29,15 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 64
+        "rain": 67
       },
       {
         "day": "Thu",
         "min": 7,
-        "max": 14,
+        "max": 15,
         "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 84
+        "desc": "Showers",
+        "rain": 80
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109768.0,
-        "pct": 1.26
+        "price": 110035.0,
+        "pct": 0.79
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3449.51,
-        "pct": 2.27
+        "price": 3457.61,
+        "pct": 1.42
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Duane ‘Keffe D’ Davis Found Guilty of Orchestrating Tupac Shakur’s Murder",
+      "title": "Mexico’s Martfilms Boards ‘Looking for Sam,’ Mariana Rondón’s Follow-Up to ‘Bad Hair’ (EXCLUSIVE)",
       "when": "1 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/duane-keffe-d-davis-found-guilty-tupac-shakur-murder-1236847908/"
+      "url": "https://variety.com/2026/film/global/martfilms-looking-for-sam-mariana-rondon-san-sebastian-1236847820/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Guardians of the Video Game’ Lands Finecut for International Sales Ahead of Toronto Market",
+      "title": "Sandra Bullock Recalls First ‘Practical Magic’ Bombing After Thinking ‘People Are Going to Love It’: ‘And Then It Got Quiet’",
       "when": "1 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/guardians-of-the-video-game-finecut-1236847132/"
+      "url": "https://variety.com/2026/film/columns/sandra-bullock-first-practical-magic-bombing-nicole-kidman-1236847970/"
     },
     {
       "cat": "Film/TV",
-      "title": "The Rise of ‘Love Island USA’: From Death Threats Against Contestants to Agency Battles for the Biggest Stars",
-      "when": "31 Aug",
+      "title": "Xolo Maridueña Was Not Sure Blue Beetle Would Ever Come Back, Until James Gunn Called Him About the ‘Superman’ Sequel: ‘The Most Humbled’",
+      "when": "1 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/rise-of-love-island-usa-1236847622/"
+      "url": "https://variety.com/2026/film/news/xolo-mariduena-blue-beetle-james-gunn-superman-sequel-1236847961/"
     },
     {
       "cat": "Film/TV",
-      "title": "Trump Endorses U.S. Tax Incentive to Keep Hollywood Production: ‘Let’s Get This Done!’",
-      "when": "31 Aug",
+      "title": "Alex Cooper’s ‘Love Overboard’ Canceled by Hulu After One Season",
+      "when": "1 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/trump-endorses-federal-incentive-hollywood-1236847834/"
+      "url": "https://variety.com/2026/tv/news/love-overboard-canceled-hulu-1236847953/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
