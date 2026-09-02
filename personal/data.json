@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-02",
-    "fetched": "2026-09-02T17:48:52+00:00",
+    "fetched": "2026-09-02T20:53:51+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -73,37 +73,44 @@
         "code": "BTC",
         "name": "Bitcoin",
         "price": 107863.0,
-        "pct": -0.42
+        "pct": -0.37
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3335.79,
-        "pct": -1.82
+        "price": 3334.87,
+        "pct": -1.44
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Joel Crawford to Receive the Creative Impact in Animation Award from Variety at SCAD AnimationFest",
+      "title": "Jenna Dewan Defends ‘DWTS’ Casting Amid Backlash: ‘Step Up’ Star and Ex-Janet Jackson Backup Dancer Says ‘I Do Not Know How to Ballroom Dance’",
       "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/joel-crawford-variety-creative-impact-animation-award-1236848857/"
+      "url": "https://variety.com/2026/tv/news/jenna-dewan-defends-dwts-casting-backlash-step-up-janet-jackson-1236849708/"
     },
     {
       "cat": "Film/TV",
-      "title": "Shaquille O’Neal’s ‘Dunkman’ Returns for Season 2",
+      "title": "New ‘Transformers’ Animated Short ‘Optimus Prime: Awakening’ Heads to Theaters – Film News in Brief",
       "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/sports/sports-stars/shaquille-oneals-dunkman-returns-1236849386/"
+      "url": "https://variety.com/2026/film/news/film-news-in-brief-aug-31-2026-1236847380/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘S.W.A.T. Exiles’ Trailer: Shemar Moore Returns in High-Stakes Spinoff",
+      "title": "Jack O’Connell’s Ruthless Tabloid Editor in ‘Ink’ Fires Up Venice as Danny Boyle Drama Earns Warm 4-Minute Ovation",
       "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/swat-exiles-trailer-shemar-moore-spinoff-1236849459/"
+      "url": "https://variety.com/2026/film/festivals/jack-oconnell-danny-boyle-ink-venice-premiere-1236836393/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Tim Curry’s Cause of Death Revealed",
+      "when": "2 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/tim-curry-cause-of-death-1236845645/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "2 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/the-mandalorian-and-grogu-currently-streaming-on-disney-plus-imax-enhanced-version-available.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Common, Patti LaBelle, Public Enemy and More to Be Honored at Black Music Action Coalition Gala",
-      "when": "2 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/common-2026-black-music-action-coalition-gala-1236849487/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
