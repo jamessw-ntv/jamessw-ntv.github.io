@@ -3,25 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-02",
-    "fetched": "2026-09-02T20:53:51+00:00",
+    "fetched": "2026-09-02T23:12:30+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 10
+      "temp": 11,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 14,
+        "min": 7,
+        "max": 15,
         "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 97
+        "desc": "Showers",
+        "rain": 100
       },
       {
         "day": "Fri",
@@ -29,15 +29,15 @@
         "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 87
+        "rain": 78
       },
       {
         "day": "Sat",
         "min": 10,
-        "max": 16,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 98
+        "rain": 100
       }
     ]
   },
@@ -72,13 +72,13 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107863.0,
+        "price": 107676.0,
         "pct": -0.37
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3334.87,
+        "price": 3327.36,
         "pct": -1.44
       }
     ]
@@ -86,31 +86,31 @@
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Jenna Dewan Defends ‘DWTS’ Casting Amid Backlash: ‘Step Up’ Star and Ex-Janet Jackson Backup Dancer Says ‘I Do Not Know How to Ballroom Dance’",
+      "title": "Should Hollywood Embrace Religion? Young Audiences Crave Complex Spiritual Characters and Plotlines That Challenge Faith, New Study Shows",
       "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jenna-dewan-defends-dwts-casting-backlash-step-up-janet-jackson-1236849708/"
+      "url": "https://variety.com/2026/film/features/hollywood-religion-young-people-spiritual-content-1236849362/"
     },
     {
       "cat": "Film/TV",
-      "title": "New ‘Transformers’ Animated Short ‘Optimus Prime: Awakening’ Heads to Theaters – Film News in Brief",
+      "title": "Ryan Reynolds Praises ‘The Odyssey’ After Passing ‘Deadpool & Wolverine’ to Become Biggest R-Rated Movie Ever: ‘Christopher Nolan Literally Breathes The Rarest Air on Earth’",
       "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/film-news-in-brief-aug-31-2026-1236847380/"
+      "url": "https://variety.com/2026/film/news/ryan-reynolds-odyssey-nolan-deadpool-wolverine-mayday-1236849352/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jack O’Connell’s Ruthless Tabloid Editor in ‘Ink’ Fires Up Venice as Danny Boyle Drama Earns Warm 4-Minute Ovation",
+      "title": "Carla Jeffery, Actress in Disney Channel’s ‘Zombies,’ Dies at 33",
       "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/jack-oconnell-danny-boyle-ink-venice-premiere-1236836393/"
+      "url": "https://variety.com/2026/tv/news/carla-jeffery-dead-disney-channel-zombies-1236849763/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tim Curry’s Cause of Death Revealed",
+      "title": "‘Avengers: Doomsday’ Shot Without a Finished Script, but Co-Director Joe Russo Says ‘We Always View’ the Screenplay as a ‘Living Organism’",
       "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/tim-curry-cause-of-death-1236845645/"
+      "url": "https://variety.com/2026/film/news/avengers-doomsday-shot-without-finished-script-russo-bros-defend-1236849564/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
