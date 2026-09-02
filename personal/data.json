@@ -2,22 +2,22 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-01",
-    "fetched": "2026-09-01T23:12:40+00:00",
+    "updated": "2026-09-02",
+    "fetched": "2026-09-02T03:59:40+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 11
+      "temp": 14,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 8
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
+        "min": 9,
         "max": 15,
         "icon": "🌦️",
         "desc": "Showers",
@@ -34,7 +34,7 @@
       {
         "day": "Fri",
         "min": 5,
-        "max": 15,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 78
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108080.0,
-        "pct": -1.27
+        "price": 108545.0,
+        "pct": -1.08
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3375.58,
-        "pct": -1.86
+        "price": 3378.21,
+        "pct": -2.02
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Indian Streamer JioHotstar Launches in U.K., Canada and Singapore With Interactive Features",
-      "when": "1 Sep",
+      "title": "Danny Booko and Nia Sanchez Leave ‘The Valley’: ‘Our Priority Is Protecting Our Peace’",
+      "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jiohotstar-uk-canada-singapore-launch-1236848067/"
+      "url": "https://variety.com/2026/tv/news/danny-booko-nia-sanchez-leave-the-valley-bravo-1236848977/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Wheel of Fortune’ Announcer Jim Thornton Suspended, Position Will Be Recast",
-      "when": "1 Sep",
+      "title": "Victor Miller, ‘Friday the 13th’ Screenwriter, Dies at 86",
+      "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/wheel-of-fortune-announcer-jim-thornton-suspended-1236848741/"
+      "url": "https://variety.com/2026/film/news/victor-miller-dead-friday-the-13th-screenwriter-1236848883/"
     },
     {
       "cat": "Film/TV",
-      "title": "DreamWorks Remote Workers Ratify First Union Agreement With the Animation Guild",
-      "when": "1 Sep",
+      "title": "David Byrne Returns to Oscar Race With Original Song for Elon Musk Documentary ‘Musk’ (EXCLUSIVE)",
+      "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/dreamworks-remote-workers-agreement-animation-guild-1236848733/"
+      "url": "https://variety.com/2026/film/awards/david-byrne-musk-documentary-oscar-song-1236848717/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tom Cruise Is Confident Paramount-Warner Bros. Will Release 30 Films a Year After Merger: ‘They’re Going to Deliver’",
-      "when": "1 Sep",
+      "title": "Ji Chang-wook and Imada Mio’s Korean-Japanese Romcom ‘Merry Berry Love’ Sets October Disney+, Hulu Bow",
+      "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/tom-cruise-david-ellison-paramount-warner-bros-merger-1236846704/"
+      "url": "https://variety.com/2026/tv/news/ji-chang-wook-imada-mio-merry-berry-love-disney-hulu-october-1236848185/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
