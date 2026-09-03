@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-03",
-    "fetched": "2026-09-03T13:28:12+00:00",
+    "fetched": "2026-09-03T17:45:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 8
+      "temp": 6,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 7
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 15,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 100
-      },
-      {
-        "day": "Fri",
         "min": 5,
         "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 89
+        "rain": 98
       },
       {
         "day": "Sat",
@@ -37,7 +29,15 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 100
+        "rain": 98
+      },
+      {
+        "day": "Sun",
+        "min": 10,
+        "max": 15,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 63
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109118.0,
-        "pct": 1.68
+        "price": 112540.0,
+        "pct": 4.45
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3361.9,
-        "pct": 0.79
+        "price": 3473.97,
+        "pct": 4.33
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Microseries Studio and Platform aTwist Officially Launches With First Slate of Originals",
+      "title": "Rosie O’Donnell Meets With Epstein Survivors and Sings ‘I Am Woman’: ‘I’m Sorry That Our Country Is So F—ed Up’",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/microseries-studio-platform-atwist-launches-first-slate-1236848859/"
+      "url": "https://variety.com/2026/digital/news/rosie-odonnell-jeffrey-epstein-survivors-i-am-woman-video-1236850637/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Jet Lag: The Game’ Season 19 Finale Heads to Regal, Picturehouse Movie Theaters as Nebula Expands Cineworld Partnership (EXCLUSIVE)",
+      "title": "Alex Witt Has Wisdom: How MS NOW Anchor Lasted Nearly 30 Years in Cable News",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jet-lag-the-game-finale-theatrical-release-season-19-1236849680/"
+      "url": "https://variety.com/2026/tv/news/alex-witt-wisdom-msnbc-ms-now-anchor-cable-news-30-years-1236850464/"
     },
     {
       "cat": "Film/TV",
-      "title": "Steve Doocy, Brian Kilmeade Will Commemorate 9/11 on Fox News After Covering it 25 Years Ago",
+      "title": "‘Wild Horse Nine’ Review: John Malkovich and Sam Rockwell Are a Perfectly Paired Double Act in Martin McDonagh’s Melancholy Seventies Caper",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/steve-doocy-brian-kilmeade-9-11-fox-news-coverage-1236850198/"
+      "url": "https://variety.com/2026/film/reviews/wild-horse-nine-review-1236849978/"
     },
     {
       "cat": "Film/TV",
-      "title": "AI Giant Nvidia to Buy Hugging Face for $12.9 Billion",
+      "title": "Rooney and Kate Mara as Horny Sisters Lusting for Orlando Bloom Get 6.5-Minute Venice Standing Ovation for ‘Bucking Fastard’",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/nvidia-acquires-hugging-face-12-9-billion-1236850349/"
+      "url": "https://variety.com/2026/film/festivals/rooney-kate-mara-werner-herzog-bucking-fastard-venice-premiere-1236850064/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Gets Melodramatic In “Like Chronitons Through The Hourglass”",
+      "when": "3 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/03/recap-review-star-trek-strange-new-worlds-gets-melodramatic-in-like-chronitons-through-the-hourglass/"
     },
     {
       "cat": "Trek/Wars",
@@ -146,13 +153,6 @@
       "when": "31 Aug",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/08/31/preview-star-trek-strange-new-worlds-soap-opera-episode-with-6-new-photos-and-trailer-from-like-chronitons-through-the-hourglass/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Podcast: All Access Star Trek Goes “Off-Hour” With ‘Strange New Worlds’",
-      "when": "28 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/28/podcast-all-access-star-trek-goes-off-hour-with-strange-new-worlds/"
     },
     {
       "cat": "Games",
