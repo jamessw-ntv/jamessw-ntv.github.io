@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-03",
-    "fetched": "2026-09-03T08:49:37+00:00",
+    "fetched": "2026-09-03T13:28:12+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 14
+      "temp": 9,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 8
     },
     "days": [
       {
@@ -35,8 +35,8 @@
         "day": "Sat",
         "min": 10,
         "max": 17,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
+        "icon": "🌦️",
+        "desc": "Showers",
         "rain": 100
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108388.0,
-        "pct": 0.58
+        "price": 109118.0,
+        "pct": 1.68
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3349.01,
-        "pct": -0.14
+        "price": 3361.9,
+        "pct": 0.79
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Elina Psykou’s ‘Patrimonial Fears and Other Illusions’ Casts Veteran Trio Ahead of Venice Gap-Financing Market (EXCLUSIVE)",
+      "title": "Microseries Studio and Platform aTwist Officially Launches With First Slate of Originals",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/elina-psykou-patrimonial-fears-and-other-illusions-venice-1236838033/"
+      "url": "https://variety.com/2026/tv/news/microseries-studio-platform-atwist-launches-first-slate-1236848859/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tallinn Black Nights Festival Sets Focus on Baltic Cinema for 30th Anniversary Special Edition (EXCLUSIVE)",
+      "title": "‘Jet Lag: The Game’ Season 19 Finale Heads to Regal, Picturehouse Movie Theaters as Nebula Expands Cineworld Partnership (EXCLUSIVE)",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/tallinn-black-nights-festival-baltics-focus-30th-anni-1236850017/"
+      "url": "https://variety.com/2026/tv/news/jet-lag-the-game-finale-theatrical-release-season-19-1236849680/"
     },
     {
       "cat": "Film/TV",
-      "title": "Theo James Steps Into His Michael Corleone Era for a Darker, More Sinister ‘The Gentlemen’ Season 2: TV Review",
+      "title": "Steve Doocy, Brian Kilmeade Will Commemorate 9/11 on Fox News After Covering it 25 Years Ago",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/the-gentlemen-season-2-review-netflix-1236842633/"
+      "url": "https://variety.com/2026/tv/news/steve-doocy-brian-kilmeade-9-11-fox-news-coverage-1236850198/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Chad Powers’ Season 2 Ending: Who Knows the Truth About Russ Holliday and What Happened to Gerry?",
+      "title": "AI Giant Nvidia to Buy Hugging Face for $12.9 Billion",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/chad-powers-season-2-ending-explained-1236848716/"
+      "url": "https://variety.com/2026/digital/news/nvidia-acquires-hugging-face-12-9-billion-1236850349/"
     },
     {
       "cat": "Trek/Wars",
