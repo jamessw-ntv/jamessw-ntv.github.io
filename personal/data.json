@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-02",
-    "fetched": "2026-09-02T23:12:30+00:00",
+    "updated": "2026-09-03",
+    "fetched": "2026-09-03T03:59:38+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 14
+      "temp": 14,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 17
     },
     "days": [
       {
@@ -20,7 +20,7 @@
         "min": 7,
         "max": 15,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 100
       },
       {
@@ -34,7 +34,7 @@
       {
         "day": "Sat",
         "min": 10,
-        "max": 14,
+        "max": 16,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 100
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107676.0,
-        "pct": -0.37
+        "price": 108384.0,
+        "pct": -0.2
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3327.36,
-        "pct": -1.44
+        "price": 3350.47,
+        "pct": -0.9
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Should Hollywood Embrace Religion? Young Audiences Crave Complex Spiritual Characters and Plotlines That Challenge Faith, New Study Shows",
-      "when": "2 Sep",
+      "title": "‘Ramayana’ Sets November Release Date",
+      "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/hollywood-religion-young-people-spiritual-content-1236849362/"
+      "url": "https://variety.com/2026/film/news/ramayana-release-date-sony-1236849917/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ryan Reynolds Praises ‘The Odyssey’ After Passing ‘Deadpool & Wolverine’ to Become Biggest R-Rated Movie Ever: ‘Christopher Nolan Literally Breathes The Rarest Air on Earth’",
-      "when": "2 Sep",
+      "title": "George Lucas Says Opening Lucas Museum ‘Almost Broke My Will’: ‘It’s Taken So Long to Get Here’",
+      "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ryan-reynolds-odyssey-nolan-deadpool-wolverine-mayday-1236849352/"
+      "url": "https://variety.com/gallery/george-lucas-museum-star-wars-los-angeles/"
     },
     {
       "cat": "Film/TV",
-      "title": "Carla Jeffery, Actress in Disney Channel’s ‘Zombies,’ Dies at 33",
-      "when": "2 Sep",
+      "title": "Utopai Studios, DeNA Team on AI-Assisted Animation Projects in Japan (EXCLUSIVE)",
+      "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/carla-jeffery-dead-disney-channel-zombies-1236849763/"
+      "url": "https://variety.com/2026/film/news/utopai-studios-dena-ai-animation-japan-1236849545/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Avengers: Doomsday’ Shot Without a Finished Script, but Co-Director Joe Russo Says ‘We Always View’ the Screenplay as a ‘Living Organism’",
+      "title": "‘The Sun Never Sets’ Review: Dakota Fanning and Jake Johnson Split, Maybe, in Joe Swanberg’s Unsatisfying Romcom",
       "when": "2 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/avengers-doomsday-shot-without-finished-script-russo-bros-defend-1236849564/"
+      "url": "https://variety.com/2026/film/reviews/the-sun-never-sets-review-dakota-fanning-1236849830/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
