@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-03",
-    "fetched": "2026-09-03T17:45:07+00:00",
+    "fetched": "2026-09-03T20:50:50+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
+      "temp": 5,
       "icon": "☀️",
       "desc": "Clear",
       "wind": 7
@@ -18,7 +18,7 @@
       {
         "day": "Today",
         "min": 5,
-        "max": 15,
+        "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 98
@@ -72,45 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 112540.0,
-        "pct": 4.45
+        "price": 113191.0,
+        "pct": 4.92
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3473.97,
-        "pct": 4.33
+        "price": 3480.13,
+        "pct": 4.38
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Rosie O’Donnell Meets With Epstein Survivors and Sings ‘I Am Woman’: ‘I’m Sorry That Our Country Is So F—ed Up’",
+      "title": "‘The Gentlemen’ Producers on Balancing Quirkiness With Crime in ‘Glamorous’ Season 2: ‘We Are Always Looking for New Ways To Murder People’",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/rosie-odonnell-jeffrey-epstein-survivors-i-am-woman-video-1236850637/"
+      "url": "https://variety.com/2026/tv/global/the-gentlemen-season-2-producers-italy-1236840079/"
     },
     {
       "cat": "Film/TV",
-      "title": "Alex Witt Has Wisdom: How MS NOW Anchor Lasted Nearly 30 Years in Cable News",
+      "title": "Winnie the Pooh Celebrates 100 Years With $500 Cashmere Sweaters",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/alex-witt-wisdom-msnbc-ms-now-anchor-cable-news-30-years-1236850464/"
+      "url": "https://variety.com/2026/shopping/news/disney-winnie-the-pooh-redone-collection-shop-online-1236850931/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Wild Horse Nine’ Review: John Malkovich and Sam Rockwell Are a Perfectly Paired Double Act in Martin McDonagh’s Melancholy Seventies Caper",
+      "title": "Dark Comedy ‘Down to Die’ Marks Actress Marta Pozzan Directorial Debut (EXCLUSIVE)",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/wild-horse-nine-review-1236849978/"
+      "url": "https://variety.com/2026/film/columns/dark-comedy-down-to-die-marks-marta-pozzan-director-1236850677/"
     },
     {
       "cat": "Film/TV",
-      "title": "Rooney and Kate Mara as Horny Sisters Lusting for Orlando Bloom Get 6.5-Minute Venice Standing Ovation for ‘Bucking Fastard’",
+      "title": "Dolly Parton Tributes Score Big Ratings for the Networks; ABC’s ‘9 to 5’ Airing Is Most-Watched Broadcast Movie in More Than Three Years",
       "when": "3 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/rooney-kate-mara-werner-herzog-bucking-fastard-venice-premiere-1236850064/"
+      "url": "https://variety.com/2026/tv/news/dolly-parton-tributes-ratings-broadcast-networks-1236848984/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘The Mandalorian and Grogu’ Currently Streaming on Disney Plus, IMAX Enhanced Version Available",
+      "when": "3 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/the-mandalorian-and-grogu-currently-streaming-on-disney-plus-imax-enhanced-version-available.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘Reign of the Empire: Edge of the Abyss’ Is a Perfect Treat for ‘Andor’ Fans",
+      "when": "3 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/review-reign-of-the-empire-edge-of-the-abyss-is-a-perfect-treat-for-andor-fans.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Building a Better Bounty — ‘LEGO Star Wars: The Mandalorian’ Hits All the Right Studs (Review)",
+      "when": "3 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/building-a-better-bounty-lego-star-wars-the-mandalorian-hits-all-the-right-notes-review.html"
     },
     {
       "cat": "Trek/Wars",
@@ -118,27 +139,6 @@
       "when": "3 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/03/recap-review-star-trek-strange-new-worlds-gets-melodramatic-in-like-chronitons-through-the-hourglass/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘The Mandalorian and Grogu’ Currently Streaming on Disney Plus, IMAX Enhanced Version Available",
-      "when": "2 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/the-mandalorian-and-grogu-currently-streaming-on-disney-plus-imax-enhanced-version-available.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘Reign of the Empire: Edge of the Abyss’ Is a Perfect Treat for ‘Andor’ Fans",
-      "when": "2 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/review-reign-of-the-empire-edge-of-the-abyss-is-a-perfect-treat-for-andor-fans.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Building a Better Bounty — ‘LEGO Star Wars: The Mandalorian’ Hits All the Right Studs (Review)",
-      "when": "2 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/building-a-better-bounty-lego-star-wars-the-mandalorian-hits-all-the-right-notes-review.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
