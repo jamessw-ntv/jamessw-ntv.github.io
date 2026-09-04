@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-04",
-    "fetched": "2026-09-04T08:45:34+00:00",
+    "fetched": "2026-09-04T13:22:48+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 17
+      "temp": 12,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 20
     },
     "days": [
       {
@@ -20,8 +20,8 @@
         "min": 4,
         "max": 16,
         "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 100
+        "desc": "Showers",
+        "rain": 84
       },
       {
         "day": "Sat",
@@ -37,7 +37,7 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 66
+        "rain": 83
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 112631.0,
-        "pct": 3.93
+        "price": 110290.0,
+        "pct": 1.1
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3499.42,
-        "pct": 4.55
+        "price": 3406.99,
+        "pct": 1.42
       }
     ]
   },
   "releases": [
     {
-      "cat": "Film/TV",
-      "title": "Magdalena Koleśnik and Kay Greidanus to Lead Finn Szumlas’ Debut Feature ‘Stairway to Earth’ as Production Starts (EXCLUSIVE)",
+      "cat": "Trek/Wars",
+      "title": "Podcast: All Access Star Trek Joins The Soap Opera Continuum For ‘Strange New Worlds’",
       "when": "4 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/magdalena-kolesnik-kay-greidanus-stairway-to-earth-1236851412/"
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/04/podcast-all-access-star-trek-joins-the-soap-opera-continuum-for-strange-new-worlds/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tamar AI’s TapNow Brings AI-Native Filmmaking to Venice Production Bridge With HappyHorse-Backed 10,000 Parallel Universes Films, Unveils Streamer Glanze",
+      "title": "Iranian Director Mohsen Gharaei, in Venice With ‘Falling House,’ Set to Shoot ‘Centrifugal Force’ (EXCLUSIVE)",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/markets-festivals/tamar-ai-tapnow-happyhorse-glanze-venice-production-bridge-1236846503/"
+      "url": "https://variety.com/2026/film/global/iranian-mohsen-gharaei-venice-fallen-centrifugal-force-1236851432/"
     },
     {
       "cat": "Film/TV",
-      "title": "Anna Foglietta on Working With Alba Rohrwacher on Venice Drama ‘A Common Story’ ‘You Have to Have the Guts to Show Yourself Exactly as You Are’ — Trailer (EXCLUSIVE)",
+      "title": "‘Boys of Tommen’ Adds Jonathan Forbes, Cobhan O’brien, Harvey Moloney and More to Cast (EXCLUSIVE)",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/anna-foglietta-alba-rohrwacher-venice-common-story-trailer-1236845990/"
+      "url": "https://variety.com/2026/tv/global/boys-of-tommen-cast-jonathan-forbes-cobhan-obrien-1236851503/"
     },
     {
       "cat": "Film/TV",
-      "title": "Indonesia’s ‘2nd Miracle in Cell No. 7’ Gets Philippine Remake From Viva Communications (EXCLUSIVE)",
+      "title": "George Clooney Says the Government Shouldn’t Regulate AI: ‘These Are Not the People You Want to Entrust the Holy Grail With’",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/indonesia-2nd-miracle-cell-no-7-philippine-remake-1236851405/"
+      "url": "https://variety.com/2026/politics/global/george-clooney-government-regulate-ai-1236851500/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Spider-Man’ and ‘The Odyssey’ Propel U.K. Box Office to Best August Since 2018",
+      "when": "4 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/spider-man-odyssey-uk-box-office-best-august-since-2018-1236850423/"
     },
     {
       "cat": "Trek/Wars",
@@ -146,13 +153,6 @@
       "when": "1 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/01/new-star-trek-movie-inspired-by-crimson-tide-and-training-day-say-directors/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Preview ‘Star Trek: Strange New Worlds’ Soap Opera Episode With 6 New Photos And Trailer From “Like Chronitons Through The Hourglass”",
-      "when": "31 Aug",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/08/31/preview-star-trek-strange-new-worlds-soap-opera-episode-with-6-new-photos-and-trailer-from-like-chronitons-through-the-hourglass/"
     },
     {
       "cat": "Games",
