@@ -3,25 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-04",
-    "fetched": "2026-09-04T04:00:32+00:00",
+    "fetched": "2026-09-04T08:45:34+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
+      "temp": 13,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 16
+      "wind": 17
     },
     "days": [
       {
         "day": "Today",
         "min": 4,
-        "max": 15,
+        "max": 16,
         "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 98
+        "desc": "Drizzle",
+        "rain": 100
       },
       {
         "day": "Sat",
@@ -29,15 +29,15 @@
         "max": 17,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 98
+        "rain": 100
       },
       {
         "day": "Sun",
         "min": 10,
-        "max": 15,
+        "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 63
+        "rain": 66
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 112218.0,
-        "pct": 3.57
+        "price": 112631.0,
+        "pct": 3.93
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3477.21,
-        "pct": 3.77
+        "price": 3499.42,
+        "pct": 4.55
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Monsters of God’ Finale Twist: The Final Boss and Rogue Special Agent",
+      "title": "Magdalena Koleśnik and Kay Greidanus to Lead Finn Szumlas’ Debut Feature ‘Stairway to Earth’ as Production Starts (EXCLUSIVE)",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/monsters-of-god-finale-twist-hbo-anson-wong-eric-goode-ploughshare-tortoise-1236850725/"
+      "url": "https://variety.com/2026/film/global/magdalena-kolesnik-kay-greidanus-stairway-to-earth-1236851412/"
     },
     {
       "cat": "Film/TV",
-      "title": "Pablo Torre Sounds Off on the NBA’s Historic Ruling Against the Clippers, Kawhi Leonard and ESPN — and Teases His Next Big Sports Investigation",
+      "title": "Tamar AI’s TapNow Brings AI-Native Filmmaking to Venice Production Bridge With HappyHorse-Backed 10,000 Parallel Universes Films, Unveils Streamer Glanze",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/sports/news/pablo-torre-clippers-nba-kawhi-leonard-steve-ballmer-espn-mark-walter-lakers-1236851177/"
+      "url": "https://variety.com/2026/tv/markets-festivals/tamar-ai-tapnow-happyhorse-glanze-venice-production-bridge-1236846503/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Marriagetoxin’ Creators Joumyaku and Yoda Mizuki Tease Season 2: ‘There Is Plenty of Cool Action We Want You to See’ (EXCLUSIVE)",
+      "title": "Anna Foglietta on Working With Alba Rohrwacher on Venice Drama ‘A Common Story’ ‘You Have to Have the Guts to Show Yourself Exactly as You Are’ — Trailer (EXCLUSIVE)",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/marriagetoxin-creators-tease-season-2-1236850772/"
+      "url": "https://variety.com/2026/film/festivals/anna-foglietta-alba-rohrwacher-venice-common-story-trailer-1236845990/"
     },
     {
       "cat": "Film/TV",
-      "title": "Shakira, Romeo Santos, Prince Royce Among Top Winners at Premios Juventud 2026",
+      "title": "Indonesia’s ‘2nd Miracle in Cell No. 7’ Gets Philippine Remake From Viva Communications (EXCLUSIVE)",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/shakira-romeo-santos-prince-royce-winners-premios-juventud-1236851053/"
+      "url": "https://variety.com/2026/film/news/indonesia-2nd-miracle-cell-no-7-philippine-remake-1236851405/"
     },
     {
       "cat": "Trek/Wars",
