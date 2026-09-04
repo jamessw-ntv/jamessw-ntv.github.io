@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-04",
-    "fetched": "2026-09-04T17:31:27+00:00",
+    "fetched": "2026-09-04T20:38:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -26,14 +26,14 @@
       {
         "day": "Sun",
         "min": 10,
-        "max": 16,
+        "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 82
       },
       {
         "day": "Mon",
-        "min": 8,
+        "min": 7,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110394.0,
-        "pct": -1.78
+        "price": 110681.0,
+        "pct": -2.13
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3398.63,
-        "pct": -2.01
+        "price": 3404.8,
+        "pct": -2.09
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Alix Earle Rips Into ‘Toxic’ Alex Cooper in Fiery Statement on Feud: ‘The Way You Approach Business Is Disgusting. You Choose Money Over Morals’",
+      "title": "How John Malkovich’s 30-Year Oscar Drought Could Finally End With ‘Wild Horse Nine’",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/alix-earle-alex-cooper-feud-responds-1236851855/"
+      "url": "https://variety.com/2026/film/awards/wild-horse-nine-john-malkovich-oscars-best-actor-telluride-1236847559/"
     },
     {
       "cat": "Film/TV",
-      "title": "Producers United Joins Bipartisan Push for Federal Film and Television Production Tax Incentive",
+      "title": "Rob Rausch and Maura Higgins to Host Survival Competition Show for Peacock ‘Get Me Out of Here’",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/producers-united-pushes-federal-tax-incentive-1236851843/"
+      "url": "https://variety.com/2026/tv/news/rob-rausch-maura-higgins-host-survival-competition-show-1236851996/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Onslaught’ Director Adam Wingard on Adding Kink to His Movie, Why the Bad Guys Look Like ICE Agents and Spending ‘A Decade Slaving Away in the Studio System’ Making ‘Godzilla’",
+      "title": "Tetris Company Distances Itself From Trump White House’s ‘Build the Wall’ Game, Says ‘We Take Copyright Very Seriously’",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/onslaught-director-kink-ice-agents-making-godzilla-1236840618/"
+      "url": "https://variety.com/2026/digital/news/tetris-company-trump-white-house-build-the-wall-game-copyright-1236851993/"
     },
     {
       "cat": "Film/TV",
-      "title": "Amber Eggers, ‘Love After Lockup’ Star, Dies at 41",
+      "title": "‘The Basics of Philosophy’ Review: Paul Schrader Wrestles with Sin and Spinoza in His Latest Tortured-Man Drama",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/people-news/amber-eggers-dies-love-after-lockup-1236851809/"
+      "url": "https://variety.com/2026/film/reviews/the-basics-of-philosophy-review-1236847014/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
