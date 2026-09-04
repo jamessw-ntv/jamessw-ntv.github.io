@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-04",
-    "fetched": "2026-09-04T13:22:48+00:00",
+    "fetched": "2026-09-04T17:31:27+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,24 +12,16 @@
       "temp": 12,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 20
+      "wind": 24
     },
     "days": [
       {
         "day": "Today",
-        "min": 4,
-        "max": 16,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 84
-      },
-      {
-        "day": "Sat",
         "min": 10,
         "max": 17,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 100
+        "rain": 98
       },
       {
         "day": "Sun",
@@ -37,7 +29,15 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 83
+        "rain": 82
+      },
+      {
+        "day": "Mon",
+        "min": 8,
+        "max": 14,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 77
       }
     ]
   },
@@ -72,52 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110290.0,
-        "pct": 1.1
+        "price": 110394.0,
+        "pct": -1.78
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3406.99,
-        "pct": 1.42
+        "price": 3398.63,
+        "pct": -2.01
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Alix Earle Rips Into ‘Toxic’ Alex Cooper in Fiery Statement on Feud: ‘The Way You Approach Business Is Disgusting. You Choose Money Over Morals’",
+      "when": "4 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/digital/news/alix-earle-alex-cooper-feud-responds-1236851855/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Producers United Joins Bipartisan Push for Federal Film and Television Production Tax Incentive",
+      "when": "4 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/producers-united-pushes-federal-tax-incentive-1236851843/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Onslaught’ Director Adam Wingard on Adding Kink to His Movie, Why the Bad Guys Look Like ICE Agents and Spending ‘A Decade Slaving Away in the Studio System’ Making ‘Godzilla’",
+      "when": "4 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/features/onslaught-director-kink-ice-agents-making-godzilla-1236840618/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Amber Eggers, ‘Love After Lockup’ Star, Dies at 41",
+      "when": "4 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/people-news/amber-eggers-dies-love-after-lockup-1236851809/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Gorga the Hutt – ‘Star Wars’ Character Spotlight",
+      "when": "4 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/gorga-the-hutt-star-wars-character-spotlight.html"
+    },
     {
       "cat": "Trek/Wars",
       "title": "Podcast: All Access Star Trek Joins The Soap Opera Continuum For ‘Strange New Worlds’",
       "when": "4 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/04/podcast-all-access-star-trek-joins-the-soap-opera-continuum-for-strange-new-worlds/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Iranian Director Mohsen Gharaei, in Venice With ‘Falling House,’ Set to Shoot ‘Centrifugal Force’ (EXCLUSIVE)",
-      "when": "4 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/iranian-mohsen-gharaei-venice-fallen-centrifugal-force-1236851432/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Boys of Tommen’ Adds Jonathan Forbes, Cobhan O’brien, Harvey Moloney and More to Cast (EXCLUSIVE)",
-      "when": "4 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/boys-of-tommen-cast-jonathan-forbes-cobhan-obrien-1236851503/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "George Clooney Says the Government Shouldn’t Regulate AI: ‘These Are Not the People You Want to Entrust the Holy Grail With’",
-      "when": "4 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/politics/global/george-clooney-government-regulate-ai-1236851500/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Spider-Man’ and ‘The Odyssey’ Propel U.K. Box Office to Best August Since 2018",
-      "when": "4 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/spider-man-odyssey-uk-box-office-best-august-since-2018-1236850423/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "3 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/review-reign-of-the-empire-edge-of-the-abyss-is-a-perfect-treat-for-andor-fans.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Building a Better Bounty — ‘LEGO Star Wars: The Mandalorian’ Hits All the Right Studs (Review)",
-      "when": "3 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/building-a-better-bounty-lego-star-wars-the-mandalorian-hits-all-the-right-notes-review.html"
     },
     {
       "cat": "Trek/Wars",
