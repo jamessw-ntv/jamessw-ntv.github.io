@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-04",
-    "fetched": "2026-09-04T20:38:02+00:00",
+    "fetched": "2026-09-04T22:56:44+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 12,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 24
+      "wind": 23
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 17,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 98
+        "rain": 100
       },
       {
         "day": "Sun",
@@ -29,7 +29,7 @@
         "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 82
+        "rain": 81
       },
       {
         "day": "Mon",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 77
+        "rain": 60
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110681.0,
-        "pct": -2.13
+        "price": 110647.0,
+        "pct": -1.79
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3404.8,
-        "pct": -2.09
+        "price": 3405.75,
+        "pct": -1.83
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "How John Malkovich’s 30-Year Oscar Drought Could Finally End With ‘Wild Horse Nine’",
+      "title": "Jack Huston Cheers on Paul Schrader as Sexual Abuse Drama ‘Basics of Philosophy’ Premieres in Venice",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/wild-horse-nine-john-malkovich-oscars-best-actor-telluride-1236847559/"
+      "url": "https://variety.com/2026/film/festivals/paul-schrader-basics-of-philosophy-venice-premiere-1236851439/"
     },
     {
       "cat": "Film/TV",
-      "title": "Rob Rausch and Maura Higgins to Host Survival Competition Show for Peacock ‘Get Me Out of Here’",
+      "title": "Jay-Z Brings Out Lauryn Hill and Wyclef at ‘Jay-Z30’ London Concert",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/rob-rausch-maura-higgins-host-survival-competition-show-1236851996/"
+      "url": "https://variety.com/2026/music/news/jay-z-brings-out-lauryn-hill-london-1236852170/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tetris Company Distances Itself From Trump White House’s ‘Build the Wall’ Game, Says ‘We Take Copyright Very Seriously’",
+      "title": "Jennifer Lawrence Says ‘I Can’t Do a Lot’ of Botox Because ‘I Need to Have Movement in My Face’ as an Actor, So ‘I Get Baby Botox’",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/tetris-company-trump-white-house-build-the-wall-game-copyright-1236851993/"
+      "url": "https://variety.com/2026/film/news/jennifer-lawrence-baby-botox-face-move-actor-1236851814/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Basics of Philosophy’ Review: Paul Schrader Wrestles with Sin and Spinoza in His Latest Tortured-Man Drama",
+      "title": "17 Best Movies New to Streaming in September: ‘Toy Story 5,’ ‘Backrooms,’ ’Scary Movie 6,’ ’The Mandalorian and Grogu’",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-basics-of-philosophy-review-1236847014/"
+      "url": "https://variety.com/lists/best-movies-streaming-september-2026/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
