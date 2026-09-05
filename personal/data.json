@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-05",
-    "fetched": "2026-09-05T16:42:36+00:00",
+    "fetched": "2026-09-05T18:56:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 10,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 21
+      "wind": 15
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 111046.0,
-        "pct": 0.37
+        "price": 111071.0,
+        "pct": 0.47
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3426.37,
-        "pct": 0.46
+        "price": 3440.71,
+        "pct": 1.14
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Spider-Man: Brand New Day’ Is Fastest Film to Cross $900 Million at Domestic Box Office",
+      "title": "Telluride Toasts Andrew Haigh as ‘A Long Winter’ Hands Fred Hechinger and Caitríona Balfe Awards-Worthy Roles",
       "when": "5 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/spider-man-brand-new-day-box-office-900-million-1236849789/"
+      "url": "https://variety.com/2026/film/awards/andrew-haigh-a-long-winter-telluride-oscars-1236852682/"
     },
     {
       "cat": "Film/TV",
-      "title": "How Maggie Gyllenhaal Used Dakota Johnson and Ellen Burstyn to Reimagine Marilyn Monroe at 100 in Venice Short ‘Flesh Impact’",
+      "title": "Kid Cudi Defends Kanye West After Ending Feud: Kanye ‘Apologized and It Was Sincere’ After Antisemitic Outbursts",
       "when": "5 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/gyllenhaal-flesh-impact-marilyn-monroe-dakota-johnson-venice-1236852103/"
+      "url": "https://variety.com/2026/music/news/kid-cudi-kanye-west-end-feud-antisemitic-1236852747/"
     },
     {
       "cat": "Film/TV",
-      "title": "Teens Seek to Heal Wounds Through Macabre Rituals in Jannis Lenz’s ‘Oasis,’ With Hints of the Influence of Jessica Hausner, Michael Haneke",
+      "title": "‘Evil Dead’ Star Bruce Campbell Says He Has 5 Years to Live After Incurable Cancer Diagnosis: I’m ‘Dying’ but ‘I’m Moving On’",
       "when": "5 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/jannis-lenz-oasis-venice-1236852578/"
+      "url": "https://variety.com/2026/film/news/bruce-campbell-cancer-5-years-live-1236852722/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Primetime’ Review: Robert Pattinson Leads a Dazzling Cast in a Lurid Horror-Movie Portrait of a ‘Predator’-Hunter’s Predatory Instinct",
+      "title": "Robert Pattinson Kisses Suki Waterhouse as ‘Primetime’ Rocks Venice With 7-Minute Standing Ovation",
       "when": "5 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/primetime-review-robert-pattinson-1236846988/"
+      "url": "https://variety.com/2026/film/festivals/robert-pattinson-primetime-venice-premiere-1236837079/"
     },
     {
       "cat": "Trek/Wars",
