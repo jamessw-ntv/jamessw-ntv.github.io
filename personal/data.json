@@ -2,38 +2,38 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-04",
-    "fetched": "2026-09-04T22:56:44+00:00",
+    "updated": "2026-09-05",
+    "fetched": "2026-09-05T00:47:31+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 23
+      "temp": 15,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 22
     },
     "days": [
       {
         "day": "Today",
         "min": 10,
-        "max": 17,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
+        "max": 16,
+        "icon": "🌦️",
+        "desc": "Showers",
         "rain": 100
       },
       {
         "day": "Sun",
         "min": 10,
-        "max": 15,
+        "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 81
       },
       {
         "day": "Mon",
-        "min": 7,
+        "min": 8,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110647.0,
-        "pct": -1.79
+        "price": 110620.0,
+        "pct": -1.92
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3405.75,
-        "pct": -1.83
+        "price": 3409.34,
+        "pct": -2.05
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Jack Huston Cheers on Paul Schrader as Sexual Abuse Drama ‘Basics of Philosophy’ Premieres in Venice",
-      "when": "4 Sep",
+      "title": "Meet Topic, the Indie Studio Dominating the Festival Circuit With ‘The Debut,’ ‘Club Kid,’ ‘Wicker’",
+      "when": "5 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/paul-schrader-basics-of-philosophy-venice-premiere-1236851439/"
+      "url": "https://variety.com/2026/film/news/topic-studios-indie-film-the-debut-club-kid-wicker-1236852204/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jay-Z Brings Out Lauryn Hill and Wyclef at ‘Jay-Z30’ London Concert",
+      "title": "Halloween Horror Nights Opens at Universal Studios Hollywood With ‘Sinners,’ ‘Stranger Things 5’ and a Blood-Soaked Nikki From ‘Obsession’",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/jay-z-brings-out-lauryn-hill-london-1236852170/"
+      "url": "https://variety.com/2026/film/news/halloween-horror-nights-opena-universal-studios-hollywood-1236852215/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jennifer Lawrence Says ‘I Can’t Do a Lot’ of Botox Because ‘I Need to Have Movement in My Face’ as an Actor, So ‘I Get Baby Botox’",
+      "title": "Jordan Firstman’s ‘Club Kid’ Hits Telluride, and Colleen Camp Could Be Its Secret Oscar Weapon",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jennifer-lawrence-baby-botox-face-move-actor-1236851814/"
+      "url": "https://variety.com/2026/film/awards/club-kid-jordan-firstman-colleen-camp-telluride-oscars-1236852164/"
     },
     {
       "cat": "Film/TV",
-      "title": "17 Best Movies New to Streaming in September: ‘Toy Story 5,’ ‘Backrooms,’ ’Scary Movie 6,’ ’The Mandalorian and Grogu’",
+      "title": "‘Silo’ Season 3 Finale: Rebecca Ferguson, Creator Graham Yost on That Twist and Why Juliette Is ‘S–t Scared!’ Going Into the Final Season",
       "when": "4 Sep",
       "source": "Variety",
-      "url": "https://variety.com/lists/best-movies-streaming-september-2026/"
+      "url": "https://variety.com/2026/tv/news/silo-season-3-finale-juliette-declares-war-daniel-is-the-algorithm-1236849554/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
