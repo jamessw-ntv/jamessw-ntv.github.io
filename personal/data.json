@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-05",
-    "fetched": "2026-09-05T05:30:16+00:00",
+    "fetched": "2026-09-05T10:22:38+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 24
+      "temp": 11,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 16
     },
     "days": [
       {
@@ -26,7 +26,7 @@
       {
         "day": "Sun",
         "min": 10,
-        "max": 16,
+        "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 81
@@ -34,7 +34,7 @@
       {
         "day": "Mon",
         "min": 8,
-        "max": 14,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 73
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110492.0,
-        "pct": -1.71
+        "price": 110600.0,
+        "pct": -1.49
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3402.57,
-        "pct": -2.35
+        "price": 3412.81,
+        "pct": -2.37
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "As Swiss Films Expand International Reach, English-language Works Are on the Rise",
+      "title": "‘The Liberation’ Review: Carrie Coon Is Breathtaking as a Woman Lured by a Cult in Guy Nattiv’s Deeply Personal Film",
       "when": "5 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/swiss-films-venice-film-festival-late-shift-petra-volpe-1236838164/"
+      "url": "https://variety.com/2026/film/reviews/the-liberation-review-1236851030/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Elsinore’ Review: Andrew Scott Is Powerfully Moving as Ian Charleson, the ‘Chariots of Fire’ Star Who Played Hamlet While Ravaged by AIDS",
+      "title": "Swiss Projects at the Venice Gap-Financing Market: Natural Disaster, Complicated Romance, Exploited Migrants, Murder Mystery in Montana",
       "when": "5 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/elsinore-review-andrew-scott-1236852070/"
+      "url": "https://variety.com/2026/film/global/switzerland-venice-film-festival-gap-financing-market-1236841524/"
     },
     {
       "cat": "Film/TV",
-      "title": "Spain’s Impulse Cinema and Italy’s Fandango Forge Strategic Partnership to Boost Co-Production and Sales Opportunities (EXCLUSIVE)",
+      "title": "Rubaiyat Hossain on Bodies, Beauty and Venice, Toronto and London-Bound ‘The Difficult Bride,’ Clip Unveiled (EXCLUSIVE)",
       "when": "5 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/impulse-cinema-fandango-partnership-production-1236851343/"
+      "url": "https://variety.com/2026/film/festivals/rubaiyat-hossain-difficult-bride-1236851501/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Echo Chamber’ Starring Alicia Vikander Seals International Distribution Deals Ahead of Venice Premiere (EXCLUSIVE)",
+      "title": "Mad Solutions and Haitham Dabbour’s Irth Platform Announce Strategic Pan-Arab Content Partnership in Venice",
       "when": "5 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/echo-chamber-alicia-vikander-international-sales-1236851681/"
+      "url": "https://variety.com/2026/film/festivals/mad-solutions-haitham-dabbours-irth-pan-arab-partnership-1236852377/"
     },
     {
       "cat": "Trek/Wars",
