@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-05",
-    "fetched": "2026-09-05T21:03:21+00:00",
+    "fetched": "2026-09-05T22:46:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 11
+      "temp": 12,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 12
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110771.0,
-        "pct": 0.08
+        "price": 110811.0,
+        "pct": 0.12
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3441.64,
-        "pct": 1.08
+        "price": 3447.73,
+        "pct": 1.21
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Liam and Noel Gallagher Raise Fists and Electrify Venice as Oasis Doc Gets 8-Minute Standing Ovation",
+      "when": "5 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/oasis-documentary-premiere-liam-noel-gallagher-venice-ovation-1236845853/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Three Films, and a Second Oscar? How Penélope Cruz Could Dominate Awards Season With ‘La Bola Negra,’ ‘The Invite’ and ‘Bunker’",
+      "when": "5 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/penelope-cruz-oscars-la-bola-negra-the-invite-bunker-1236847565/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Oasis: Don’t Look Back in Anger’ Review: An Uncharacteristically Polite and Sentimental Portrait of a Raucous Band and Phenomenon",
+      "when": "5 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/oasis-dont-look-back-in-anger-review-1236852875/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Hey, Oscars: No Sympathy Required to Give Mike Leigh’s ‘Tender Loving Care’ the Consideration It Deserves",
       "when": "5 Sep",
       "source": "Variety",
       "url": "https://variety.com/2026/film/awards/mike-leigh-tender-loving-care-oscars-telluride-1236847564/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Pete Townshend: Behind Blue Eyes’ Review: The Legendary Rocker Gets a Lively Doc That Asks: Who Are You? And Doesn’t Fully Answer It",
-      "when": "5 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/pete-townshend-behind-blue-eyes-review-1236852232/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Andrew Scott Has Waited His Whole Career for a Role Like ‘Elsinore.’ Can Focus and the Bard Anoint Him With an Oscar?",
-      "when": "5 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/andrew-scott-elsinore-oscars-best-actor-telluride-1236847561/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Original ‘Practical Magic’ Star Alexandra Artrip Addresses ‘Negativity’ Over Recasting in Sequel: They ‘Did What They Thought Was Best to Be Successful’",
-      "when": "5 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/practical-magic-2-recasting-alexandra-artrip-1236852818/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
