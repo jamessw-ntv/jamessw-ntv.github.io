@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-06",
-    "fetched": "2026-09-06T16:52:56+00:00",
+    "fetched": "2026-09-06T18:59:10+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 6
+      "temp": 9,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 10
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110696.0,
-        "pct": -0.35
+        "price": 111007.0,
+        "pct": -0.09
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3448.15,
-        "pct": 0.52
+        "price": 3463.89,
+        "pct": 0.54
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Possible Love’ Review: Korean Master Lee Chang-dong Returns With a Beautifully Mature, Quietly Colossal Relationship Drama",
+      "title": "Macklemore Calls Out ‘Free Palestine’ Onstage, Spurring Petition Demanding He Leave Ed Sheeran Tour",
       "when": "6 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/possible-love-review-1236846877/"
+      "url": "https://variety.com/2026/music/news/macklemore-free-palestine-onstage-petition-ed-sheeran-1236853409/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘September 5’ Director Tim Fehlbaum Working on a ‘Historical Film’ Set in Berlin as Swiss Filmmakers Take on Challenges and Opportunities of Shooting in English",
+      "title": "‘Agata the Writer’ Review: Mia Wasikowska Plays an Author Adrift and Short of Ideas, in a Sly, Witty Film With Plenty",
       "when": "6 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/september-5-tim-fehlbaum-ursula-meier-michael-koch-1236852712/"
+      "url": "https://variety.com/2026/film/reviews/agata-the-writer-review-mia-wasikowska-1236853234/"
     },
     {
       "cat": "Film/TV",
-      "title": "Susan Sarandon Says She’s ‘Still Had Movies Taken Away Recently’ Over Palestine Support: ‘There Are Agencies That Are Telling People Not to Hire Me’",
+      "title": "Podcaster Amanda Hirsch Apologizes for ‘Insensitive, Wrong’ Polymarket Lindsay Clancy Sponsored Content: ‘I Should Have Known Better’",
       "when": "6 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/susan-sarandon-movies-taken-away-palestine-support-1236853245/"
+      "url": "https://variety.com/2026/digital/news/amanda-hirsch-apologizes-polymarket-lindsay-clancy-controversy-1236852279/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Woman Unknown’ Director May el-Toukhy Talks the Torment of World War II ‘Horizontal Collaborators’ and Venice’s Female Director Snub: ‘It’s a Structural Problem’",
+      "title": "‘Possible Love’ Cast Sobs as Lee Chang-dong’s Epic Embraced at Venice With 6-Minute Standing Ovation",
       "when": "6 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/woman-unknown-may-el-toukhy-world-war-ii-venice-directors-1236847532/"
+      "url": "https://variety.com/2026/film/festivals/possible-love-lee-chang-dong-venice-premiere-1236838135/"
     },
     {
       "cat": "Trek/Wars",
