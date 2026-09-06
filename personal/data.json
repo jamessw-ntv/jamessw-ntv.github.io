@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-06",
-    "fetched": "2026-09-06T00:46:06+00:00",
+    "fetched": "2026-09-06T05:43:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 12
+      "temp": 15,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 9
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 92
+        "rain": 98
       },
       {
         "day": "Mon",
@@ -29,7 +29,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 86
+        "rain": 92
       },
       {
         "day": "Tue",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 24
+        "rain": 10
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110982.0,
-        "pct": 0.33
+        "price": 111227.0,
+        "pct": 0.63
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3456.5,
-        "pct": 1.41
+        "price": 3501.9,
+        "pct": 2.82
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Debut’ Explodes at Telluride With Julianne Moore’s Gonzo, Career-Best Turn, Thanks to a Toolbelt, Unlit Cigarettes and a Faux Musical",
+      "title": "Wim Wenders on Why He Made a Documentary About Architect Peter Zumthor, and How Brad Pitt Helped Get It Made",
       "when": "6 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/the-debut-julianne-moore-telluride-oscars-paul-giamatti-1236852947/"
+      "url": "https://variety.com/2026/film/global/wim-wenders-peter-zumthor-venice-1236852836/"
     },
     {
       "cat": "Film/TV",
-      "title": "Creative Arts Emmy Awards: Winners List (Updating Live)",
-      "when": "5 Sep",
+      "title": "‘The Debut’ Review: Julianne Moore Is Astonishing in Jesse Eisenberg’s Funny and Dizzying Community-Theater Comedy",
+      "when": "6 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/creative-arts-emmy-awards-winners-list-night-one-1236849746/"
+      "url": "https://variety.com/2026/film/reviews/the-debut-review-julianne-moore-jesse-eisenberg-1236852779/"
     },
     {
       "cat": "Film/TV",
-      "title": "Liam and Noel Gallagher Raise Fists and Electrify Venice as Oasis Doc Gets 8-Minute Standing Ovation",
-      "when": "5 Sep",
+      "title": "Bad Bunny Wins Emmy for Super Bowl Halftime Show",
+      "when": "6 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/oasis-documentary-premiere-liam-noel-gallagher-venice-ovation-1236845853/"
+      "url": "https://variety.com/2026/artisans/awards/bad-bunny-emmy-super-bowl-halftime-show-1236849643/"
     },
     {
       "cat": "Film/TV",
-      "title": "Three Films, and a Second Oscar? How Penélope Cruz Could Dominate Awards Season With ‘La Bola Negra,’ ‘The Invite’ and ‘Bunker’",
-      "when": "5 Sep",
+      "title": "‘Elsinore’ Revisits Daniel Day-Lewis’ Infamous Walk-Off During ’80s ‘Hamlet’ Production",
+      "when": "6 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/penelope-cruz-oscars-la-bola-negra-the-invite-bunker-1236847565/"
+      "url": "https://variety.com/2026/film/news/elsinore-andrew-scott-daniel-day-lewis-hamlet-1236853006/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
