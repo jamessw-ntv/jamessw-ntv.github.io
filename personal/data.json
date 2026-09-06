@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-06",
-    "fetched": "2026-09-06T14:03:51+00:00",
+    "fetched": "2026-09-06T16:52:56+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 10,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 7
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 6
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 93
+        "rain": 90
       },
       {
         "day": "Tue",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 18
+        "rain": 7
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 73
+        "rain": 80
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110866.0,
-        "pct": 0.18
+        "price": 110696.0,
+        "pct": -0.35
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3464.61,
-        "pct": 1.58
+        "price": 3448.15,
+        "pct": 0.52
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Possible Love’ Review: Korean Master Lee Chang-dong Returns With a Beautifully Mature, Quietly Colossal Relationship Drama",
+      "when": "6 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/possible-love-review-1236846877/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘September 5’ Director Tim Fehlbaum Working on a ‘Historical Film’ Set in Berlin as Swiss Filmmakers Take on Challenges and Opportunities of Shooting in English",
@@ -104,13 +111,6 @@
       "when": "6 Sep",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/woman-unknown-may-el-toukhy-world-war-ii-venice-directors-1236847532/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘From Inside Out – The Architecture of Peter Zumthor’ Review: Wim Wenders’ Latest 3D Documentary Is an Architectural Marvel",
-      "when": "6 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/from-inside-out-the-architecture-of-peter-zumthor-review-1236853214/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
