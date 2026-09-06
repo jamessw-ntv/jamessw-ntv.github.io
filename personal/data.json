@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-06",
-    "fetched": "2026-09-06T21:10:32+00:00",
+    "fetched": "2026-09-06T23:41:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 11,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 11
+      "wind": 15
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 90
+        "rain": 100
       },
       {
         "day": "Tue",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 7
+        "rain": 5
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 80
+        "rain": 82
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 111054.0,
-        "pct": 0.22
+        "price": 111525.0,
+        "pct": 0.62
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3480.28,
-        "pct": 1.12
+        "price": 3496.08,
+        "pct": 1.48
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: A ‘Star Wars’ Fall Preview, Bit Reactor In Financial Trouble, and More",
+      "when": "6 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-a-star-wars-fall-preview-bit-reactor-in-financial-trouble-and-more.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Andy ‘The Butcher’ Williams, Musician and Wrestler, Dies After Match",
+      "when": "6 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/andy-butcher-williams-dead-guitar-wrestler-1236853498/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Netflix Bets ‘Ink’ and Its Timely Rupert Murdoch Story Can Win Oscars for Danny Boyle and Guy Pearce",
+      "when": "6 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/danny-boyle-ink-oscars-guy-pearce-telluride-netflix-1236847562/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "John Turturro Has Waited 40 Years for an Oscar Nomination. ‘The Only Living Pickpocket in New York’ Makes the Case",
+      "when": "6 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/john-turturro-oscars-only-living-pickpocket-telluride-1236847544/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Woman Unknown’ Review: Some More Problematic Sex — and Its Consequences — by Denmark’s May el-Toukhy",
       "when": "6 Sep",
       "source": "Variety",
       "url": "https://variety.com/2026/film/reviews/woman-unknown-review-1236853350/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Macklemore Calls Out ‘Free Palestine’ Onstage, Spurring Petition Demanding He Leave Ed Sheeran Tour",
-      "when": "6 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/macklemore-free-palestine-onstage-petition-ed-sheeran-1236853409/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Agata the Writer’ Review: Mia Wasikowska Plays an Author Adrift and Short of Ideas, in a Sly, Witty Film With Plenty",
-      "when": "6 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/agata-the-writer-review-mia-wasikowska-1236853234/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Podcaster Amanda Hirsch Apologizes for ‘Insensitive, Wrong’ Polymarket Lindsay Clancy Sponsored Content: ‘I Should Have Known Better’",
-      "when": "6 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/amanda-hirsch-apologizes-polymarket-lindsay-clancy-controversy-1236852279/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "3 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/the-mandalorian-and-grogu-currently-streaming-on-disney-plus-imax-enhanced-version-available.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘Reign of the Empire: Edge of the Abyss’ Is a Perfect Treat for ‘Andor’ Fans",
-      "when": "3 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/review-reign-of-the-empire-edge-of-the-abyss-is-a-perfect-treat-for-andor-fans.html"
     },
     {
       "cat": "Trek/Wars",
