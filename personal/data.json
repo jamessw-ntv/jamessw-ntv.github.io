@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-06",
-    "fetched": "2026-09-06T23:41:17+00:00",
+    "updated": "2026-09-07",
+    "fetched": "2026-09-07T04:03:03+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 15
+      "temp": 13,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 20
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 5
+        "rain": 0
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 82
+        "rain": 96
       }
     ]
   },
@@ -72,52 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 111525.0,
-        "pct": 0.62
+        "price": 110477.0,
+        "pct": -0.6
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3496.08,
-        "pct": 1.48
+        "price": 3466.32,
+        "pct": -0.53
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Rob Reiner Wins Posthumous Emmy for ‘The Bear’",
+      "when": "7 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/awards/rob-reiner-wins-posthumous-emmy-the-bear-1236849972/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Linda Cardellini Wins Emmy for Supporting Actress in a Limited Series for ‘DTF St. Louis’",
+      "when": "7 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/linda-cardellini-wins-emmy-best-supporting-actress-imited-series-1236850681/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "David Harbour Wins Emmy for Supporting Actor in Limited Series for ‘DTF: St. Louis’",
+      "when": "7 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/awards/david-harbour-dtf-st-louis-wins-emmy-supporting-actor-limited-series-1236850789/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Nathan Fielder Drops Weird Trailer for Secret Elizabeth Holmes Doc ‘You Can See Everything’",
+      "when": "7 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/nathan-fielder-secret-elizabeth-holmes-doc-you-can-see-everything-a24-telluride-1236853584/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "This Week, In a Galaxy Far, Far Away: A ‘Star Wars’ Fall Preview, Bit Reactor In Financial Trouble, and More",
       "when": "6 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-a-star-wars-fall-preview-bit-reactor-in-financial-trouble-and-more.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Andy ‘The Butcher’ Williams, Musician and Wrestler, Dies After Match",
-      "when": "6 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/andy-butcher-williams-dead-guitar-wrestler-1236853498/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Netflix Bets ‘Ink’ and Its Timely Rupert Murdoch Story Can Win Oscars for Danny Boyle and Guy Pearce",
-      "when": "6 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/danny-boyle-ink-oscars-guy-pearce-telluride-netflix-1236847562/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "John Turturro Has Waited 40 Years for an Oscar Nomination. ‘The Only Living Pickpocket in New York’ Makes the Case",
-      "when": "6 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/john-turturro-oscars-only-living-pickpocket-telluride-1236847544/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Woman Unknown’ Review: Some More Problematic Sex — and Its Consequences — by Denmark’s May el-Toukhy",
-      "when": "6 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/woman-unknown-review-1236853350/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
