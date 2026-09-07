@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-07",
-    "fetched": "2026-09-07T15:41:51+00:00",
+    "fetched": "2026-09-07T19:47:12+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 7
+      "temp": 5,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 4
     },
     "days": [
       {
         "day": "Today",
-        "min": 5,
-        "max": 14,
+        "min": 4,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -26,18 +26,18 @@
       {
         "day": "Wed",
         "min": 7,
-        "max": 12,
+        "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 96
+        "rain": 100
       },
       {
         "day": "Thu",
         "min": 8,
-        "max": 14,
+        "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 6
+        "rain": 2
       }
     ]
   },
@@ -72,24 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109146.0,
-        "pct": -1.4
+        "price": 109924.0,
+        "pct": -0.86
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3423.13,
-        "pct": -0.65
+        "price": 3457.8,
+        "pct": -0.07
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "BBC News Anchor Maryam Moshiri Reveals Blood Cancer Diagnosis",
+      "title": "MPA Signs Two Lumiere Summit Declarations, Joins Roundtables With Presidents Macron and Lee",
       "when": "7 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/bbc-news-maryam-moshiri-blood-cancer-1236854086/"
+      "url": "https://variety.com/2026/film/news/mpa-lumiere-summit-declarations-rivkin-macron-lee-1236854208/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Look Back’ Review: Once Past the Over- Preciousness of a Child’s World, Hirokazu Kore-eda’s Manga Adaptation Becomes a Moving Tribute to Friendship",
+      "when": "7 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/look-back-review-1236854197/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Summer Box Office Breaks All-Time Record With $4.67 Billion",
+      "when": "7 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/summer-box-office-breaks-all-time-record-1236854175/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Alpha Gang’ Review: Cate Blanchett, Chris Pine and an All-Star Cast Play Space Aliens in David and Nathan Zellner’s Endearingly Goofy Sci-Fi Spoof",
+      "when": "7 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/alpha-gang-review-1236854144/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Hiding from the Dark’ Review – A Thrilling and Tense Piece of ‘Star Wars’ Horror for All Ages",
+      "when": "7 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/hiding-from-the-dark-review-a-thrilling-and-tense-piece-of-star-wars-horror-for-all-ages.html"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +125,6 @@
       "when": "7 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/07/preview-star-trek-strange-new-worlds-episode-408-with-19-new-photos-from-orders-of-magnitude/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ellen Burstyn Cries as She Gets Venice Golden Lion for Lifetime Achievement: ‘It’s One Thing to Win an Oscar, Tony or Emmy — All of Which I’ve Won. But This Is a Lot’",
-      "when": "7 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/ellen-burstyn-cries-venice-golden-lion-1236853817/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Imperium’ Review: Sergei Loznitsa Brings Together Nearly Three Hours of Italian Footage From the Early 1970s Covering the Vastness of the USSR",
-      "when": "7 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/imperium-review-2-1236853999/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Festival Leaders Confront Growing Political Pressure at Lumiere Summit: ‘We Don’t Judge Artists by Their Passport’",
-      "when": "7 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/lumiere-summit-festival-panel-political-protection-1236853995/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "6 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-a-star-wars-fall-preview-bit-reactor-in-financial-trouble-and-more.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Gorga the Hutt – ‘Star Wars’ Character Spotlight",
-      "when": "4 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/gorga-the-hutt-star-wars-character-spotlight.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
