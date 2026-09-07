@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-07",
-    "fetched": "2026-09-07T19:47:12+00:00",
+    "fetched": "2026-09-07T22:42:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
+      "temp": 9,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 4
+      "wind": 3
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109924.0,
-        "pct": -0.86
+        "price": 109227.0,
+        "pct": -1.59
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3457.8,
-        "pct": -0.07
+        "price": 3431.28,
+        "pct": -1.33
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "MPA Signs Two Lumiere Summit Declarations, Joins Roundtables With Presidents Macron and Lee",
+      "title": "Macklemore Says His Call to ‘Free Palestine’ Is Not a ‘Criticism’ of Jewish People: ‘None of Us Will Be Free Until We Are All Free’",
       "when": "7 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/mpa-lumiere-summit-declarations-rivkin-macron-lee-1236854208/"
+      "url": "https://variety.com/2026/music/news/macklemore-responds-free-palestine-criticism-ed-sheeran-1236854276/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Look Back’ Review: Once Past the Over- Preciousness of a Child’s World, Hirokazu Kore-eda’s Manga Adaptation Becomes a Moving Tribute to Friendship",
+      "title": "‘No Paradise If You Are Killed by a Woman’ Review: Iraq’s Oscar Submission Offers a Patriotic Anthem to the Kurdish Peshmerga’s Fight Against Islamic State",
       "when": "7 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/look-back-review-1236854197/"
+      "url": "https://variety.com/2026/film/reviews/no-paradise-if-you-are-killed-by-a-woman-review-1236852895/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "The Lucas Museum Showcases a Variety of ‘Star Wars’ Content, Including Six Unreleased Episodes of ‘Star Wars Detours’",
+      "when": "7 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/the-lucas-museum-showcases-a-variety-of-star-wars-content-including-six-unreleased-episodes-of-star-wars-detours.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Summer Box Office Breaks All-Time Record With $4.67 Billion",
+      "title": "Elon Musk Documentary Teaser Asks If Billionaire Is the ‘Greatest Living Inventor’ or a ‘Fascist’ Who ‘Has Lost His Mind’",
       "when": "7 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/summer-box-office-breaks-all-time-record-1236854175/"
+      "url": "https://variety.com/2026/film/news/elon-musk-documentary-trailer-1236850977/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Alpha Gang’ Review: Cate Blanchett, Chris Pine and an All-Star Cast Play Space Aliens in David and Nathan Zellner’s Endearingly Goofy Sci-Fi Spoof",
+      "title": "‘Elsinore’ Director Simon Stone, Basking in Telluride’s Glow, on Making a Movie About Love of the Theater, the Peak AIDS Era, and Being ‘100% in the Service of Andrew Scott’",
       "when": "7 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/alpha-gang-review-1236854144/"
+      "url": "https://variety.com/2026/film/news/elsinore-telluride-film-festival-andrew-scott-simon-stone-1236854213/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "7 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/star-wars-visions-contributor-takashi-okazaki-honored-at-the-78th-emmy-awards.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: A ‘Star Wars’ Fall Preview, Bit Reactor In Financial Trouble, and More",
-      "when": "6 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-a-star-wars-fall-preview-bit-reactor-in-financial-trouble-and-more.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
