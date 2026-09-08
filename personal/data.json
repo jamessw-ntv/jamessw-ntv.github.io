@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-08",
-    "fetched": "2026-09-08T01:04:22+00:00",
+    "fetched": "2026-09-08T05:50:45+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 13,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 5
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 10
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 98
+        "rain": 92
       },
       {
         "day": "Thu",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 0
+        "rain": 4
       }
     ]
   },
@@ -72,38 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109848.0,
-        "pct": -1.24
+        "price": 108985.0,
+        "pct": -1.6
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3454.94,
-        "pct": -0.89
+        "price": 3430.59,
+        "pct": -1.45
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "French President Emmanuel Macron Calls on YouTube to Finance Content and Warns of Growing Threat to Cultural Model (EXCLUSIVE)",
-      "when": "7 Sep",
+      "title": "About Premium Content Inks International Deals for Mystery and Romance Series, Counterfeit Art Doc (EXCLUSIVE)",
+      "when": "8 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/french-president-emmanuel-macron-youtube-finance-content-1236854274/"
+      "url": "https://variety.com/2026/tv/global/apc-about-premium-content-sales-unifrance-rendez-vous-1236854000/"
     },
     {
       "cat": "Film/TV",
-      "title": "Macklemore Says His Call to ‘Free Palestine’ Is Not a ‘Criticism’ of Jewish People: ‘None of Us Will Be Free Until We Are All Free’",
-      "when": "7 Sep",
+      "title": "Lumiere Declaration Sets 15 Principles for Global Film Governance, Calling Audience Attention ‘a Trust to Be Honored, Not a Resource to Be Captured’",
+      "when": "8 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/macklemore-responds-free-palestine-criticism-ed-sheeran-1236854276/"
+      "url": "https://variety.com/2026/film/news/lumiere-declaration-global-film-governance-1236854395/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘No Paradise If You Are Killed by a Woman’ Review: Iraq’s Oscar Submission Offers a Patriotic Anthem to the Kurdish Peshmerga’s Fight Against Islamic State",
-      "when": "7 Sep",
+      "title": "Inside the Restoration of Indian Cult Classic ‘English, August,’ Heading to Venice as Relevant as Ever (EXCLUSIVE)",
+      "when": "8 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/no-paradise-if-you-are-killed-by-a-woman-review-1236852895/"
+      "url": "https://variety.com/2026/film/festivals/english-august-restoration-venice-indian-cult-classic-1236852825/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Korea Box Office: ‘The Odyssey’ Overwhelms ‘Spider-Man: Brand New Day’ as Admissions Top 10 Million",
+      "when": "8 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/korea-box-office-the-odyssey-spider-man-brand-new-day-the-intern-1236854398/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "John de Lancie Returns As Q For New ‘Star Trek Voyager’ Game Expansion – Watch Announcement Trailer",
+      "when": "8 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/07/john-de-lancie-returns-as-q-for-new-star-trek-voyager-game-expansion-watch-announcement-trailer/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +125,6 @@
       "when": "7 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/the-lucas-museum-showcases-a-variety-of-star-wars-content-including-six-unreleased-episodes-of-star-wars-detours.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Elon Musk Documentary Teaser Asks If Billionaire Is the ‘Greatest Living Inventor’ or a ‘Fascist’ Who ‘Has Lost His Mind’",
-      "when": "7 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/elon-musk-documentary-trailer-1236850977/"
     },
     {
       "cat": "Trek/Wars",
@@ -128,7 +135,7 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Preview ‘Star Trek: Strange New Worlds’ Episode 408 With 19 New Photos From “Orders of Magnitude”",
+      "title": "Preview ‘Star Trek: Strange New Worlds’ Episode 408 With 19 New Photos From “Orders of Magnitude” [UPDATED w/ Trailer]",
       "when": "7 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/07/preview-star-trek-strange-new-worlds-episode-408-with-19-new-photos-from-orders-of-magnitude/"
@@ -146,13 +153,6 @@
       "when": "4 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/04/podcast-all-access-star-trek-joins-the-soap-opera-continuum-for-strange-new-worlds/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Gets Melodramatic In “Like Chronitons Through The Hourglass”",
-      "when": "3 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/03/recap-review-star-trek-strange-new-worlds-gets-melodramatic-in-like-chronitons-through-the-hourglass/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
