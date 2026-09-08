@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-08",
-    "fetched": "2026-09-08T21:43:53+00:00",
+    "fetched": "2026-09-08T23:58:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 11,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 14
+      "wind": 20
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 98
+        "rain": 100
       },
       {
         "day": "Thu",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 0
+        "rain": 2
       },
       {
         "day": "Fri",
@@ -72,31 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108694.0,
-        "pct": -0.88
+        "price": 108613.0,
+        "pct": -0.84
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3437.57,
-        "pct": -0.39
+        "price": 3440.32,
+        "pct": -0.25
       }
     ]
   },
   "releases": [
     {
-      "cat": "Film/TV",
-      "title": "‘The Walking Dead: Daryl Dixon’ Final Season Reveals First-Look Teaser (TV News Roundup)",
+      "cat": "Trek/Wars",
+      "title": "You Could Become A Star Trek NPC In ‘Fleet Command’ Game Contest",
       "when": "8 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/tv-news-roundup-week-of-september-7-1236854923/"
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/08/you-could-become-a-star-trek-npc-in-fleet-command-game-contest/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Meta Labs’ Debut at Best Buy to Offer Free Demos of Tech Giant’s Latest AI Glasses and VR Headsets",
+      "title": "Congress Begins Drafting 20% Federal Film Incentive With Trump’s Blessing (EXCLUSIVE)",
       "when": "8 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/meta-labs-best-buy-demos-locations-details-products-2026-1236855156/"
+      "url": "https://variety.com/2026/film/news/congress-draft-federal-film-incentive-trump-1236855119/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Watch: ‘Star Trek: Scouts’ Returns For A Second Season",
+      "when": "8 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/08/watch-star-trek-scouts-returns-for-a-second-season/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Bruce Davis, Longtime AMPAS Executive Director, Dies at 83",
+      "when": "8 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/bruce-davis-dead-ampas-oscars-1236855231/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "British TV Sector Revenues Hit $5.1 Billion Last Year Driven by U.S. Streamers: It ‘Underlines the Strength of the U.K. Production Market’",
+      "when": "8 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/british-tv-sector-revenues-streamers-1236854714/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Fired ‘60 Minutes’ Managing Editor Says New CBS Bosses Wanted ‘White House Talking Points in Our Reporting’ and ‘We Questioned Authority’",
+      "when": "8 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/fired-60-minutes-editor-slams-cbs-bosses-statement-1236855188/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +132,6 @@
       "when": "8 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/08/ethan-peck-joins-leonard-nimoy-as-spock-for-star-trek-online-rediscovered/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Nick Offerman Slams Ben Shapiro’s ‘Rampant Homophobia’ After Being Attacked for Playing a Gay Role: ‘Holy S—. That’s Crazy’",
-      "when": "8 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/nick-offerman-slams-ben-shapiro-homophobia-1236854766/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Suno and Believe Music Announce Strategic Partnership",
-      "when": "8 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/suno-believe-strategic-partnership-1236855137/"
     },
     {
       "cat": "Trek/Wars",
@@ -141,20 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/09/edge-of-the-abyss-novel-excerpt-reveals-saw-gerrera-and-anto-kreegyr-meeting.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Exclusive Star Trek Day Clip From ‘The Sixty-Year Mission’ Documentary Film — Tickets On Sale Now",
-      "when": "8 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/08/exclusive-star-trek-day-clip-from-the-sixty-year-mission-documentary-film-tickets-on-sale-now/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "See Harry Mudd Return In Preview Of IDW’s Star Trek 60th Anniversary Special Comic",
-      "when": "8 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/08/see-harry-mudd-return-in-preview-of-idws-star-trek-60th-anniversary-special-comic/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
