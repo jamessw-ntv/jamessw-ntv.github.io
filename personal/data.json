@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-08",
-    "fetched": "2026-09-08T05:50:45+00:00",
+    "fetched": "2026-09-08T11:00:25+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
+      "temp": 9,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 10
+      "wind": 3
     },
     "days": [
       {
@@ -33,8 +33,8 @@
       },
       {
         "day": "Thu",
-        "min": 8,
-        "max": 14,
+        "min": 7,
+        "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 4
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108985.0,
-        "pct": -1.6
+        "price": 108972.0,
+        "pct": -0.86
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3430.59,
-        "pct": -1.45
+        "price": 3441.41,
+        "pct": -0.16
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "About Premium Content Inks International Deals for Mystery and Romance Series, Counterfeit Art Doc (EXCLUSIVE)",
+      "title": "‘Elite’ Star Ester Expósito Circles ‘Stink Eye,’ an Iberseries Co-Production & Financing Forum Title (EXCLUSIVE)",
       "when": "8 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/apc-about-premium-content-sales-unifrance-rendez-vous-1236854000/"
+      "url": "https://variety.com/2026/film/global/ester-exposito-stink-eye-iberseries-coproduction-forum-1236851062/"
     },
     {
       "cat": "Film/TV",
-      "title": "Lumiere Declaration Sets 15 Principles for Global Film Governance, Calling Audience Attention ‘a Trust to Be Honored, Not a Resource to Be Captured’",
+      "title": "Andy Serkis Unleashes Imagination with Venice Immersive Breakout ‘Nevatars’",
       "when": "8 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/lumiere-declaration-global-film-governance-1236854395/"
+      "url": "https://variety.com/2026/digital/global/andy-serkis-venice-immersive-nevatars-xreal-aura-1236853991/"
     },
     {
       "cat": "Film/TV",
-      "title": "Inside the Restoration of Indian Cult Classic ‘English, August,’ Heading to Venice as Relevant as Ever (EXCLUSIVE)",
+      "title": "France TV Exports Plummet Amid Ad Decline, Broadcaster Budget Cuts, ‘Deteriorating Economic Environment’",
       "when": "8 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/english-august-restoration-venice-indian-cult-classic-1236852825/"
+      "url": "https://variety.com/2026/tv/global/france-audiovisual-exports-unifrance-cnc-1236854471/"
     },
     {
       "cat": "Film/TV",
-      "title": "Korea Box Office: ‘The Odyssey’ Overwhelms ‘Spider-Man: Brand New Day’ as Admissions Top 10 Million",
+      "title": "‘Boys of Tommen’ Unveils First Images of Shirtless Conor Sanchez as Johnny and Wistful Nancy Surridge as Shannon",
       "when": "8 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/korea-box-office-the-odyssey-spider-man-brand-new-day-the-intern-1236854398/"
+      "url": "https://variety.com/2026/tv/global/boys-of-tommen-shirtless-conor-sanchez-johnny-shannon-1236854500/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
