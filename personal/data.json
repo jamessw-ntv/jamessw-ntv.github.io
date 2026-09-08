@@ -3,21 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-08",
-    "fetched": "2026-09-08T18:26:40+00:00",
+    "fetched": "2026-09-08T21:43:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 17
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
+        "min": 8,
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -33,10 +33,10 @@
       },
       {
         "day": "Fri",
-        "min": 4,
-        "max": 18,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "min": 5,
+        "max": 17,
+        "icon": "☀️",
+        "desc": "Clear",
         "rain": 0
       }
     ]
@@ -72,38 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109043.0,
-        "pct": -0.55
+        "price": 108694.0,
+        "pct": -0.88
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3464.16,
-        "pct": 0.36
+        "price": 3437.57,
+        "pct": -0.39
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Netflix to Report Box Office Numbers for 6 Upcoming Movies as Streamer Escalates Theatrical Plans (EXCLUSIVE)",
+      "title": "‘The Walking Dead: Daryl Dixon’ Final Season Reveals First-Look Teaser (TV News Roundup)",
       "when": "8 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/netflix-report-box-office-theatrical-releases-1236854834/"
+      "url": "https://variety.com/2026/tv/news/tv-news-roundup-week-of-september-7-1236854923/"
     },
     {
       "cat": "Film/TV",
-      "title": "Danielle Deadwyler, Ike Barinholtz and Connor Storrie Join Billie Eilish and Carey Mulligan in ‘The Bell Jar’",
+      "title": "‘Meta Labs’ Debut at Best Buy to Offer Free Demos of Tech Giant’s Latest AI Glasses and VR Headsets",
       "when": "8 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/bell-jar-movie-cast-connor-storrie-billie-eilish-sarah-polley-1236854835/"
+      "url": "https://variety.com/2026/shopping/news/meta-labs-best-buy-demos-locations-details-products-2026-1236855156/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Ethan Peck Joins Leonard Nimoy As Spock For ‘Star Trek Online: Rediscovered’",
+      "when": "8 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/08/ethan-peck-joins-leonard-nimoy-as-spock-for-star-trek-online-rediscovered/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Snowfall’ Spinoff ‘The Drop’ Is an Evocative, If Uneven, Portrait of South L.A. in the Gangsta Rap Era: TV Review",
+      "title": "Nick Offerman Slams Ben Shapiro’s ‘Rampant Homophobia’ After Being Attacked for Playing a Gay Role: ‘Holy S—. That’s Crazy’",
       "when": "8 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/the-drop-review-snowfall-spinoff-1236854947/"
+      "url": "https://variety.com/2026/tv/news/nick-offerman-slams-ben-shapiro-homophobia-1236854766/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Suno and Believe Music Announce Strategic Partnership",
+      "when": "8 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/digital/news/suno-believe-strategic-partnership-1236855137/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Adria Arjona Shares How She Was Almost Cast As Qi’ra In ‘Solo: A Star Wars Story’",
+      "when": "8 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/adria-arjona-shares-how-she-was-almost-cast-as-qira-in-solo-a-star-wars-story.html"
     },
     {
       "cat": "Trek/Wars",
@@ -113,25 +134,11 @@
       "url": "https://www.starwarsnewsnet.com/2026/09/star-wars-starfighter-and-original-1977-version-of-star-wars-will-be-shown-in-imax-70mm.html"
     },
     {
-      "cat": "Film/TV",
-      "title": "Inside Rauw Alejandro’s Three-Act Concert in New York, a Celebration of Music, Culture and Puerto Rican Pride: ‘It Creates an Impact on All Latinos to Embrace Their Culture’",
-      "when": "8 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/inside-rauw-alejandro-new-york-concert-puerto-rico-1236854969/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "‘Edge of the Abyss’ Novel Excerpt Reveals Saw Gerrera and Anto Kreegyr Meeting",
       "when": "8 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/edge-of-the-abyss-novel-excerpt-reveals-saw-gerrera-and-anto-kreegyr-meeting.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "The Lucas Museum Showcases a Variety of ‘Star Wars’ Content, Including Six Unreleased Episodes of ‘Star Wars Detours’",
-      "when": "8 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/the-lucas-museum-showcases-a-variety-of-star-wars-content-including-six-unreleased-episodes-of-star-wars-detours.html"
     },
     {
       "cat": "Trek/Wars",
@@ -146,13 +153,6 @@
       "when": "8 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/08/see-harry-mudd-return-in-preview-of-idws-star-trek-60th-anniversary-special-comic/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Interview: Rhys Darby On Adding Some “Flourish” To Trelane (And The Q) In ‘Star Trek: Strange New Worlds’",
-      "when": "8 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/08/interview-rhys-darby-on-adding-some-flourish-to-trelane-and-the-q-in-star-trek-strange-new-worlds/"
     },
     {
       "cat": "Games",
