@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-09",
-    "fetched": "2026-09-09T21:35:31+00:00",
+    "fetched": "2026-09-09T23:59:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 5
+      "temp": 12,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 13
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108336.0,
-        "pct": -0.38
+        "price": 108375.0,
+        "pct": -0.25
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3418.06,
-        "pct": -0.56
+        "price": 3416.13,
+        "pct": -0.74
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "NFL Season 2026-2027 Livestream: Here’s Where to Watch Pro Football Games Online",
+      "title": "Billy Joel Says He Had Brain Surgery After His Diagnosis: ‘Don’t Worry About Me’",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-2026-2027-nfl-season-football-online-free-1236855738/"
+      "url": "https://variety.com/2026/music/news/billy-joel-brain-surgery-after-diagnosis-1236856601/"
     },
     {
       "cat": "Film/TV",
-      "title": "Chernin Entertainment Expands Film Team With Key Hire, Promotions (EXCLUSIVE)",
+      "title": "‘Jupiter’ Review: A Claustrophobic Study of a Nuclear-Escalation Nightmare That Feels Too Small for the Big Screen",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/chernin-entertainment-expands-film-team-promotions-1236855746/"
+      "url": "https://variety.com/2026/film/reviews/jupiter-review-1236847030/"
     },
     {
       "cat": "Film/TV",
-      "title": "Axios Co-Founders Urge Wielding AI to Help ‘Simplify’ Your Life in New Book",
+      "title": "‘Diarra From Detroit’ Creator Diarra Kilpatrick on the Season 2 Finale, Moving to Paramount+ and Why  Centering Black Women’s Stories Is ‘Inherently Political’",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/axios-co-founders-simplify-book-ai-1236856128/"
+      "url": "https://variety.com/2026/tv/features/diarra-from-detroit-creator-diarra-kilpatrick-season-2-finale-season-3-plans-1236855012/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Legend of Zelda: Ocarina of Time’ 40th Anniversary Remake Sets Nintendo Switch 2 Release Date (Gaming News Roundup)",
+      "title": "‘Avengers: Doomsday’ Has Already Made $50 Million in Pre-Sales, Three Months Before Release",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-september-7-1236855160/"
+      "url": "https://variety.com/2026/film/news/avengers-doomsday-pre-sales-50-million-1236856525/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
