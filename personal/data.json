@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-09",
-    "fetched": "2026-09-09T04:12:00+00:00",
+    "fetched": "2026-09-09T09:31:15+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 21
+      "temp": 10,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
         "min": 7,
-        "max": 11,
+        "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 100
@@ -26,15 +26,15 @@
       {
         "day": "Thu",
         "min": 7,
-        "max": 13,
+        "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
         "day": "Fri",
-        "min": 5,
-        "max": 16,
+        "min": 6,
+        "max": 17,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109095.0,
-        "pct": -0.15
+        "price": 110040.0,
+        "pct": 1.09
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3456.38,
-        "pct": 0.43
+        "price": 3475.22,
+        "pct": 0.97
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Jon Stewart Uses Nathan Fielder’s ‘You Can See Everything’ Trailer to Troll Donald Trump and His ‘Human Printer’ Aide",
+      "title": "Suno Tries to Break into Music Mainstream With New Label-Backed Model ‘v6’",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jon-stewart-nathan-fielder-you-can-see-everything-trump-1236855432/"
+      "url": "https://variety.com/2026/music/news/suno-new-label-backed-model-v6-1236855351/"
     },
     {
       "cat": "Film/TV",
-      "title": "Louis Messina, Taylor Swift’s Tour Promoter, Urges Judge to Reject Live Nation/Ticketmaster Antitrust Settlement: ‘I Could Go Out of Business Like Other Promoters Who Have Fallen Victim to Live Nation’",
+      "title": "‘Four Weddings and a Funeral’ and ‘Love Actually’ Producer Duncan Kenworthy to Receive BAFTA Fellowship",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/louis-messina-taylor-swift-promoter-live-nation-ticketmaster-1236855357/"
+      "url": "https://variety.com/2026/film/global/duncan-kenworthy-to-receive-bafta-fellowship-1236855540/"
     },
     {
       "cat": "Film/TV",
-      "title": "John Mulaney Circling Lead Role in ‘Get Smart’ Reboot at Warner Bros.",
+      "title": "Euro-Atlantic Series Co-Pro Pitch Program Launches at Iberseries & Platino Industria in Madrid (EXCLUSIVE)",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/john-mulaney-get-smart-movie-reboot-warner-bros-1236855373/"
+      "url": "https://variety.com/2026/film/global/euro-atlantic-series-co-pro-iberseries-platino-industria-1236854250/"
     },
     {
       "cat": "Film/TV",
-      "title": "Netflix Orders New Series Take On ‘Lonesome Dove’ From ‘East of Eden’ Showrunners Zoe Kazan and Jeb Stuart",
+      "title": "Football Is Back: Seven Key Storylines for the 2026 NFL Season",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-lonesome-dove-orders-new-series-take-1236855339/"
+      "url": "https://variety.com/lists/nfl-2026-season-taylor-swift-travis-kelce-trump-joe-burrow-patrick-mahomes/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
