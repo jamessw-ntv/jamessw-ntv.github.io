@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-09",
-    "fetched": "2026-09-09T09:31:15+00:00",
+    "fetched": "2026-09-09T14:19:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 8,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 13
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 12,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 100
-      },
-      {
-        "day": "Thu",
         "min": 7,
         "max": 14,
         "icon": "☁️",
@@ -34,7 +26,15 @@
       {
         "day": "Fri",
         "min": 6,
-        "max": 17,
+        "max": 16,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
+      },
+      {
+        "day": "Sat",
+        "min": 7,
+        "max": 20,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110040.0,
-        "pct": 1.09
+        "price": 109300.0,
+        "pct": 0.91
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3475.22,
-        "pct": 0.97
+        "price": 3458.77,
+        "pct": 0.81
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Suno Tries to Break into Music Mainstream With New Label-Backed Model ‘v6’",
+      "title": "Martin Herlihy Exits ‘SNL’ After Five Seasons",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/suno-new-label-backed-model-v6-1236855351/"
+      "url": "https://variety.com/2026/tv/news/martin-herlihy-leaves-snl-1236855736/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Four Weddings and a Funeral’ and ‘Love Actually’ Producer Duncan Kenworthy to Receive BAFTA Fellowship",
+      "title": "Sydney Sweeney Goes Nude in Provocative Ad for Novig Sports Betting App",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/duncan-kenworthy-to-receive-bafta-fellowship-1236855540/"
+      "url": "https://variety.com/2026/digital/news/sydney-sweeney-nude-novig-ad-1236855720/"
     },
     {
       "cat": "Film/TV",
-      "title": "Euro-Atlantic Series Co-Pro Pitch Program Launches at Iberseries & Platino Industria in Madrid (EXCLUSIVE)",
+      "title": "Sony Pictures Entertainment CEO on Success of ‘Spider-Man: Brand New Day’: The Movie Is ‘Emotional’ and ‘Some People Come Away Crying’",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/euro-atlantic-series-co-pro-iberseries-platino-industria-1236854250/"
+      "url": "https://variety.com/2026/film/news/sony-pictures-ceo-spider-man-brand-new-day-emotional-people-crying-1236855666/"
     },
     {
       "cat": "Film/TV",
-      "title": "Football Is Back: Seven Key Storylines for the 2026 NFL Season",
+      "title": "‘Bleeding Hearts’: This Must-See TIFF Doc Is a Real Life ‘A Star Is Born’ (EXCLUSIVE)",
       "when": "9 Sep",
       "source": "Variety",
-      "url": "https://variety.com/lists/nfl-2026-season-taylor-swift-travis-kelce-trump-joe-burrow-patrick-mahomes/"
+      "url": "https://variety.com/2026/film/features/bleeding-hearts-doc-tiff-zella-day-jesse-woods-a-star-is-born-1236855126/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
