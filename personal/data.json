@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-10",
-    "fetched": "2026-09-10T21:30:49+00:00",
+    "fetched": "2026-09-10T23:55:00+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
+      "temp": 10,
       "icon": "☁️",
       "desc": "Overcast",
       "wind": 1
@@ -37,7 +37,7 @@
         "max": 22,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 53
+        "rain": 68
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107867.0,
-        "pct": -0.48
+        "price": 107141.0,
+        "pct": -1.11
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3437.4,
-        "pct": 0.49
+        "price": 3408.63,
+        "pct": -0.24
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "James Talarico Blasts ‘Government Censorship’ After ABC Pulls His Jimmy Kimmel Interview Over FCC Concerns: ‘Dangerous Form of Cancel Culture’",
+      "title": "Dan Schneider Loses ‘Quiet on Set’ Defamation Suit on Appeal",
       "when": "10 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/james-talarico-fcc-censorship-abc-jimmy-kimmel-interview-1236857957/"
+      "url": "https://variety.com/2026/tv/news/dan-schneider-quiet-on-set-defamation-dismissed-appeal-1236858005/"
     },
     {
       "cat": "Film/TV",
-      "title": "The Legend of Patricia Summersett’s ‘Zelda’: Voice Actress Behind Nintendo’s Iconic Princess on Franchise’s 40th Anniversary, Upcoming Live-Action Movie",
+      "title": "Netflix Taps ‘Friday Night Lights’ Director Peter Berg for NFL Gameday Openers, the First Narrated by Kyle Chandler",
       "when": "10 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/legend-of-zelda-voice-actress-40th-anniversary-movie-ocarina-1236855767/"
+      "url": "https://variety.com/2026/tv/news/netflix-peter-berg-kyle-chandler-friday-night-lights-nfl-gameday-1236858004/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jay-Z Brings Justin Timberlake Onstage in Paris",
+      "title": "Steve Carell Almost Played ‘The Office’ Creator Greg Daniels’ Dad in Biopic About the 1968 Olympics",
       "when": "10 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/jay-z-justin-timberlake-paris-holy-grail-1236857897/"
+      "url": "https://variety.com/2026/film/columns/steve-carell-the-office-creator-greg-daniels-dad-biopic-olympics-1236857975/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Fix’ Film Review: Ex-CIA Operatives Try To Rescue an Iranian Dissident in a Polished but Uneven Action Thriller",
+      "title": "‘The Legend of Zelda: Ocarina of Time’ 40th Anniversary Remake Sets Nintendo Switch 2 Release Date (Gaming News Roundup)",
       "when": "10 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-fix-film-review-liam-neeson-1236857684/"
+      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-september-7-1236855160/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
