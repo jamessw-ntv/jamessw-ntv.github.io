@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-10",
-    "fetched": "2026-09-10T09:30:17+00:00",
+    "fetched": "2026-09-10T14:12:41+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 7,
       "icon": "☀️",
       "desc": "Clear",
       "wind": 4
@@ -17,15 +17,7 @@
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 14,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Fri",
-        "min": 6,
+        "min": 5,
         "max": 16,
         "icon": "☁️",
         "desc": "Overcast",
@@ -34,10 +26,18 @@
       {
         "day": "Sat",
         "min": 6,
-        "max": 20,
+        "max": 21,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
+      },
+      {
+        "day": "Sun",
+        "min": 11,
+        "max": 22,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 58
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108401.0,
-        "pct": -1.49
+        "price": 107438.0,
+        "pct": -1.66
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3433.11,
-        "pct": -1.21
+        "price": 3391.67,
+        "pct": -1.88
       }
     ]
   },
   "releases": [
     {
-      "cat": "Film/TV",
-      "title": "Woody Norman, Malachi Kirby, Tuppence Middleton, Conrad Khan, Kola Bokinni to Star in Urban Horror Thriller ‘Skag & Bone’; Featuristic Produces, UTA on Board (EXCLUSIVE)",
+      "cat": "Games",
+      "title": "Satisfactory 1.0 - 2nd Anniversary!",
       "when": "10 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/urban-horror-thriller-skag-bone-cast-1236856168/"
+      "source": "Satisfactory",
+      "url": "https://store.steampowered.com/news/app/526870/view/701027323413004537"
     },
     {
       "cat": "Film/TV",
-      "title": "Telekom Srbija’s Content Head on Blueprint for Turning Serbian Production Powerhouse Into Global Player",
+      "title": "‘American Horror Story: 13’ Trailer: Jessica Lange, Sarah Paulson and Evan Peters Reprise Iconic Roles in Ryan Murphy’s Horror Anthology",
       "when": "10 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/telekom-srbija-content-head-serbian-production-powerhouse-1236851472/"
+      "url": "https://variety.com/2026/tv/news/american-horror-story-13-trailer-jessica-lange-sarah-paulson-1236833134/"
     },
     {
       "cat": "Film/TV",
-      "title": "Serbian Sci-Fi Epic ‘Sanctuary,’ Starring ‘The Handmaid’s Tale’s’ Nina Kiri, Acquired for U.S. Distribution (EXCLUSIVE)",
+      "title": "New York Games Week to Launch in October as First Citywide Video Game Industry Event",
       "when": "10 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/serbia-sci-fi-sanctuary-nina-kiri-us-distribution-1236851443/"
+      "url": "https://variety.com/2026/gaming/news/new-york-games-week-launches-2026-1236857222/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review: ‘The Book Of Boba Fett’ #1 Is A Solid Adaptation Of The First Episode",
+      "when": "10 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/review-the-book-of-boba-fett-1-is-a-solid-adaptation-of-the-first-episode.html"
     },
     {
       "cat": "Film/TV",
-      "title": "‘DJ Ahmet’ Leads Adriatic Awards Contest, Followed by ‘Yugo Florida’",
+      "title": "Toronto Platform Pick ‘Angh,’ With ‘Shetland’ Star Douglas Henshall, Boards Jungle Book Studio for World Sales, Unveils Clip (EXCLUSIVE)",
       "when": "10 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/dj-ahmet-yugo-florida-adriatic-awards-1236855711/"
+      "url": "https://variety.com/2026/film/festivals/angh-douglas-henshall-jungle-book-studio-toronto-platform-1236855800/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "K2 Media Capital Launches at Toronto Market With a Slate of Cross-Border IP Projects (EXCLUSIVE)",
+      "when": "10 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/k2-media-capital-toronto-market-cross-border-ip-projects-1236855881/"
     },
     {
       "cat": "Trek/Wars",
@@ -128,10 +142,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "You Could Become A Star Trek NPC In ‘Fleet Command’ Game Contest",
-      "when": "8 Sep",
+      "title": "Starfleet Security Isn’t Getting Any Easier In Preview Of ‘Star Trek: Red Shirts – Ghost Of The 21st Century’ #2",
+      "when": "9 Sep",
       "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/08/you-could-become-a-star-trek-npc-in-fleet-command-game-contest/"
+      "url": "https://trekmovie.com/2026/09/09/starfleet-security-isnt-getting-any-easier-in-preview-of-star-trek-red-shirts-ghost-of-the-21st-century-2/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,32 +162,18 @@
       "url": "https://www.starwarsnewsnet.com/2026/09/star-wars-starfighter-and-original-1977-version-of-star-wars-will-be-shown-in-imax-70mm.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Edge of the Abyss’ Novel Excerpt Reveals Saw Gerrera and Anto Kreegyr Meeting",
-      "when": "8 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/edge-of-the-abyss-novel-excerpt-reveals-saw-gerrera-and-anto-kreegyr-meeting.html"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/716786751176181500"
-    },
-    {
-      "cat": "Games",
-      "title": "1.2 Update Fixes v1.2.3.1",
-      "when": "24 Jun",
-      "source": "Satisfactory",
-      "url": "https://store.steampowered.com/news/app/526870/view/712279347386384662"
     }
   ],
   "dev": [
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
