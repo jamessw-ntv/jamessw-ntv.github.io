@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-11",
-    "fetched": "2026-09-11T18:19:37+00:00",
+    "fetched": "2026-09-11T21:38:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 1
+      "temp": 8,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 7
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
-        "max": 21,
+        "max": 20,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -28,12 +28,12 @@
         "min": 12,
         "max": 22,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 60
       },
       {
         "day": "Mon",
-        "min": 11,
+        "min": 12,
         "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107578.0,
-        "pct": 0.02
+        "price": 107881.0,
+        "pct": 0.07
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3546.07,
-        "pct": 3.4
+        "price": 3537.64,
+        "pct": 2.97
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Sheriff Country’ Sets Backdoor Pilot for Medical Spinoff Starring ‘Schitt’s Creek’ Actor Noah Reid",
+      "title": "‘Obsession’ One Year Later: Inde Navarrette and Curry Barker Dish on Memes, How Nikki Became More ‘Flirty’ and Their Wild Ride at TIFF",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/sheriff-country-medical-spinoff-noah-reid-1236858955/"
+      "url": "https://variety.com/2026/film/news/inde-navarrette-obsession-nikki-memes-curry-barker-tiff-talk-1236859203/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Dolly Parton International Airport’ Moves Closer to Becoming a Reality, as Nashville Airport Board Votes Unanimously for Name Change",
+      "title": "Watch Brandi Carlile and Bonnie Raitt Duet on ‘Love Me Like a Man’ for ‘Austin City Limits’ Premiere, Plus a Web-Only Bonus, ‘Angel From Montgomery’ (EXCLUSIVE)",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/dolly-parton-nashville-airport-name-change-vote-unanimous-1236858896/"
+      "url": "https://variety.com/2026/music/news/brandi-carlile-bonnie-raitt-duet-austin-city-limits-premiere-1236859141/"
     },
     {
       "cat": "Film/TV",
-      "title": "Maria Bartiromo Says ‘More to Come’ in First Comments After Shock Fox News Exit: ‘I Am So Grateful for the Outpouring of Love’",
+      "title": "‘It: Welcome to Derry’ Creators Andy and Barbara Muschietti on Late Tim Curry: ‘His Legacy Is Incredible’",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/maria-bartiromo-first-comments-fox-news-exit-grateful-1236858901/"
+      "url": "https://variety.com/2026/film/news/andy-and-barbara-muschietti-on-tim-curry-1236859145/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Long Day’s Journey Into Night’ Film With Jessica Lange and Ed Harris Lands Quiver Distribution Deal",
+      "title": "Russell Crowe Wipes Away Tears at Venice Premiere of Music Documentary ‘What Love Builds’ as Fans Yell ‘We Love You!’",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/quiver-distribution-long-days-journey-into-night-1236858826/"
+      "url": "https://variety.com/2026/film/festivals/russell-crowe-music-documentary-what-love-builds-venice-premiere-1236858501/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
