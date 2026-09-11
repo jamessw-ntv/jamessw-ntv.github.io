@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-11",
-    "fetched": "2026-09-11T09:27:39+00:00",
+    "fetched": "2026-09-11T14:12:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
+      "temp": 7,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 5
+      "wind": 4
     },
     "days": [
       {
         "day": "Today",
-        "min": 4,
-        "max": 16,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Sat",
         "min": 6,
         "max": 21,
         "icon": "☁️",
@@ -33,11 +25,19 @@
       },
       {
         "day": "Sun",
-        "min": 11,
+        "min": 12,
         "max": 22,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 51
+        "rain": 75
+      },
+      {
+        "day": "Mon",
+        "min": 11,
+        "max": 18,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 78
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107702.0,
-        "pct": -0.6
+        "price": 109969.0,
+        "pct": 2.3
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3449.93,
-        "pct": 0.51
+        "price": 3643.14,
+        "pct": 7.29
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "France, South Korea Take Center Stage as Global Film and TV Leaders Confront Industry Upheaval at Lumiere Summit: ‘Culture Itself Is Becoming a Driver of Growth’",
+      "title": "Lilly Wachowski on Her New Studio Anarchists United, the Black Power Origins of ‘The Matrix’ and How ‘Harry Potter’ Fans Are ‘Supporting Trans Genocide’",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/france-korea-macron-lumiere-summit-ai-saint-paul-de-vence-1236857980/"
+      "url": "https://variety.com/2026/tv/features/lilly-wachowski-jk-rowling-harry-potter-trans-the-matrix-1236858104/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscars: Singapore Selects Anthony Chen’s ‘We Are All Strangers’ for International Feature Race",
+      "title": "Hans Petter Moland Talks ‘Epic Love Story’ That Defined the Nation as Norway’s Oscar Submission ‘Growth of the Soil’ Debuts Trailer: ‘It Resonates with All of Us’ (EXCLUSIVE)",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/oscars-singapore-anthony-chen-we-are-all-strangers-1236858452/"
+      "url": "https://variety.com/2026/film/global/hans-petter-moland-oscars-growth-of-the-soil-trailer-1236858562/"
     },
     {
       "cat": "Film/TV",
-      "title": "Charli xcx Announces U.K. and Europe ‘Music, Fashion, Film’ Tour Dates, With Audrey Hobert Opening",
+      "title": "Kazakh Horror Sequel ‘Dastur: Teris Bata’ Boards Fearfolks for World Sales (EXCLUSIVE)",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/global/charli-xcx-uk-europe-music-fashion-film-tour-dates-1236858435/"
+      "url": "https://variety.com/2026/film/markets-festivals/kazakh-horror-sequel-dastur-teris-bata-fearfolks-world-sales-1236857282/"
     },
     {
       "cat": "Film/TV",
-      "title": "San Sebastian Competition Title ‘Border’ Boards Reel Suspects for Global Sales (EXCLUSIVE)",
+      "title": "Toronto Premiere of ‘Le Faux Soir’ Crowns Great Year for Walloon Cinema, Built on Belgian Region’s Creative Freedom, Can Do Attitude",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/san-sebastian-competition-border-boards-reel-suspects-sales-1236858429/"
+      "url": "https://variety.com/2026/film/global/walloon-cinema-belgium-toronto-1236858645/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Podcast: All Access Reviews ‘Strange New Worlds’ Badmiral Episode, Recaps Star Trek Day, And Chats With Rebecca Romijn",
+      "when": "11 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/11/podcast-all-access-reviews-strange-new-worlds-badmiral-episode-recaps-star-trek-day-and-chats-with-rebecca-romijn/"
     },
     {
       "cat": "Trek/Wars",
@@ -142,13 +149,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Interview: ‘Strange New Worlds’ Writers And Director On Soaps, Genres, And Season 5 Being “A Different Animal”",
-      "when": "9 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/09/interview-strange-new-worlds-writers-and-director-on-soaps-genres-and-season-5-being-a-different-animal/"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Adria Arjona Shares How She Was Almost Cast As Qi’ra In ‘Solo: A Star Wars Story’",
       "when": "8 Sep",
       "source": "SW News Net",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
