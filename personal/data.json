@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-11",
-    "fetched": "2026-09-11T14:12:06+00:00",
+    "fetched": "2026-09-11T18:19:37+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 6,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 4
+      "wind": 1
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 22,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 75
+        "rain": 60
       },
       {
         "day": "Mon",
@@ -37,7 +37,7 @@
         "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 78
+        "rain": 59
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109969.0,
-        "pct": 2.3
+        "price": 107578.0,
+        "pct": 0.02
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3643.14,
-        "pct": 7.29
+        "price": 3546.07,
+        "pct": 3.4
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Lilly Wachowski on Her New Studio Anarchists United, the Black Power Origins of ‘The Matrix’ and How ‘Harry Potter’ Fans Are ‘Supporting Trans Genocide’",
+      "title": "‘Sheriff Country’ Sets Backdoor Pilot for Medical Spinoff Starring ‘Schitt’s Creek’ Actor Noah Reid",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/features/lilly-wachowski-jk-rowling-harry-potter-trans-the-matrix-1236858104/"
+      "url": "https://variety.com/2026/tv/news/sheriff-country-medical-spinoff-noah-reid-1236858955/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hans Petter Moland Talks ‘Epic Love Story’ That Defined the Nation as Norway’s Oscar Submission ‘Growth of the Soil’ Debuts Trailer: ‘It Resonates with All of Us’ (EXCLUSIVE)",
+      "title": "‘Dolly Parton International Airport’ Moves Closer to Becoming a Reality, as Nashville Airport Board Votes Unanimously for Name Change",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/hans-petter-moland-oscars-growth-of-the-soil-trailer-1236858562/"
+      "url": "https://variety.com/2026/music/news/dolly-parton-nashville-airport-name-change-vote-unanimous-1236858896/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kazakh Horror Sequel ‘Dastur: Teris Bata’ Boards Fearfolks for World Sales (EXCLUSIVE)",
+      "title": "Maria Bartiromo Says ‘More to Come’ in First Comments After Shock Fox News Exit: ‘I Am So Grateful for the Outpouring of Love’",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/kazakh-horror-sequel-dastur-teris-bata-fearfolks-world-sales-1236857282/"
+      "url": "https://variety.com/2026/tv/news/maria-bartiromo-first-comments-fox-news-exit-grateful-1236858901/"
     },
     {
       "cat": "Film/TV",
-      "title": "Toronto Premiere of ‘Le Faux Soir’ Crowns Great Year for Walloon Cinema, Built on Belgian Region’s Creative Freedom, Can Do Attitude",
+      "title": "‘Long Day’s Journey Into Night’ Film With Jessica Lange and Ed Harris Lands Quiver Distribution Deal",
       "when": "11 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/walloon-cinema-belgium-toronto-1236858645/"
+      "url": "https://variety.com/2026/film/news/quiver-distribution-long-days-journey-into-night-1236858826/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Second Sister – ‘Star Wars’ Character Spotlight",
+      "when": "11 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/second-sister-star-wars-character-spotlight.html"
     },
     {
       "cat": "Trek/Wars",
@@ -153,13 +160,6 @@
       "when": "8 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/adria-arjona-shares-how-she-was-almost-cast-as-qira-in-solo-a-star-wars-story.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Starfighter’ and Original 1977 Version of ‘Star Wars’ Will Be Shown In IMAX 70MM",
-      "when": "8 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/star-wars-starfighter-and-original-1977-version-of-star-wars-will-be-shown-in-imax-70mm.html"
     },
     {
       "cat": "Games",
