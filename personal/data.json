@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-12",
-    "fetched": "2026-09-12T16:53:38+00:00",
+    "fetched": "2026-09-12T19:06:00+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 12,
-      "icon": "☀️",
-      "desc": "Clear",
+      "icon": "⛅",
+      "desc": "Partly cloudy",
       "wind": 12
     },
     "days": [
@@ -19,8 +19,8 @@
         "day": "Today",
         "min": 12,
         "max": 22,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 51
       },
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107836.0,
-        "pct": -0.63
+        "price": 107551.0,
+        "pct": -0.0
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3527.8,
-        "pct": -1.77
+        "price": 3514.86,
+        "pct": -0.79
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Jeremy Thomas Remembered as a Filmmaker ‘Full of Stories’ and a ‘Rebel With Taste’: ‘The Canon of His Work Is Unmatched’",
+      "title": "‘World of Warcraft Forever,’ Expanded Version of 2004 Game, Coming in November",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/jeremy-thomas-tributes-luca-guadagnino-1236859499/"
+      "url": "https://variety.com/2026/gaming/news/world-of-warcraft-forever-release-november-1236859755/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kling AI’s TIFF Market Panel Illuminates Tech Challenges and Human-Led Solutions in AI Filmmaking: ‘The Script Is Still the Blueprint’",
+      "title": "‘Oasis’ Review: A Sleek, Strange Parable about Bullying and Bonding at the Most Difficult Age",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/asia/kling-ai-tiff-market-ai-film-panel-1236858840/"
+      "url": "https://variety.com/2026/film/reviews/oasis-review-1236859441/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Odyssey’ Becomes Universal’s Highest-Grossing Film of All Time",
+      "title": "‘Diablo 5’ Set for Spring 2029 Release",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-odyssey-universal-highest-grossing-film-of-all-time-1236859551/"
+      "url": "https://variety.com/2026/gaming/news/diablo-5-release-2029-1236859632/"
     },
     {
       "cat": "Film/TV",
-      "title": "Courteney Cox on Her TIFF True-Crime Drama ‘Evil Genius’: ‘The Story Is So Unbelievable’",
+      "title": "NFL TV Favorites Like Joe Buck, Troy Aikman, Greg Olsen, Kirk Herbstreit Could Play for New Teams Next Season",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/courteney-cox-evil-genius-tiff-1236856455/"
+      "url": "https://variety.com/2026/tv/news/nfl-tv-sports-joe-buck-troy-aikman-contracts-1236859505/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
