@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-12",
-    "fetched": "2026-09-12T19:06:00+00:00",
+    "fetched": "2026-09-12T21:23:58+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
+      "temp": 13,
+      "icon": "☁️",
+      "desc": "Overcast",
       "wind": 12
     },
     "days": [
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107551.0,
-        "pct": -0.0
+        "price": 107578.0,
+        "pct": -0.32
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3514.86,
-        "pct": -0.79
+        "price": 3517.54,
+        "pct": -0.6
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘World of Warcraft Forever,’ Expanded Version of 2004 Game, Coming in November",
+      "title": "‘Letters From the Silenced Country’ Wins Golden Globes Impact Prize for Documentary Presented During Venice Film Festival (EXCLUSIVE)",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/world-of-warcraft-forever-release-november-1236859755/"
+      "url": "https://variety.com/2026/film/festivals/letters-from-silenced-country-golden-globes-impact-prize-1236858484/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Oasis’ Review: A Sleek, Strange Parable about Bullying and Bonding at the Most Difficult Age",
+      "title": "Mia Wasikowska Fills Out the Screen As ‘Agata the Writer’ in Kuba Dorabialski’s Venice Drama: ‘It’s Our Responsibility to Understand Each Other’",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/oasis-review-1236859441/"
+      "url": "https://variety.com/2026/film/global/mia-wasikowska-agata-the-writer-kuba-dorabialski-venice-1236859514/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Diablo 5’ Set for Spring 2029 Release",
+      "title": "Maggie Gyllenhaal’s Venice Jury Didn’t Award ‘Woman Unknown’ the Golden Lion Just Because It Was Directed by a Woman: It ‘Was Like a Laser Beam’",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/diablo-5-release-2029-1236859632/"
+      "url": "https://variety.com/2026/film/festivals/maggie-gyllenhaal-woman-unknown-venice-win-not-statement-1236859872/"
     },
     {
       "cat": "Film/TV",
-      "title": "NFL TV Favorites Like Joe Buck, Troy Aikman, Greg Olsen, Kirk Herbstreit Could Play for New Teams Next Season",
+      "title": "Jeremy Thomas Remembered as a Filmmaker ‘Full of Stories’ and a ‘Rebel With Taste’: ‘The Canon of His Work Is Unmatched’",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/nfl-tv-sports-joe-buck-troy-aikman-contracts-1236859505/"
+      "url": "https://variety.com/2026/film/global/jeremy-thomas-tributes-luca-guadagnino-1236859499/"
     },
     {
       "cat": "Trek/Wars",
