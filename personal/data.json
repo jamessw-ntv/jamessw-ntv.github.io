@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-12",
-    "fetched": "2026-09-12T09:09:08+00:00",
+    "fetched": "2026-09-12T13:29:36+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 10
+      "temp": 12,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 11
     },
     "days": [
       {
@@ -25,11 +25,11 @@
       },
       {
         "day": "Sun",
-        "min": 11,
+        "min": 12,
         "max": 22,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 50
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 61
       },
       {
         "day": "Mon",
@@ -37,7 +37,7 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 52
+        "rain": 59
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107864.0,
-        "pct": 0.03
+        "price": 107708.0,
+        "pct": -0.26
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3534.57,
-        "pct": 2.39
+        "price": 3539.96,
+        "pct": 1.55
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Gary Oldman Predicts HBO’s ‘Harry Potter’ Series Will Be ‘More Satisfying’ for Fans Than the Movies",
+      "title": "Female Bucking Bronc Riders Take Center Stage in ‘Cheyenne,’ TIFF-Bound Doc Produced by Jenna Bush Hager (EXCLUSIVE)",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/gary-oldman-hbo-harry-potter-series-more-satisfying-than-movies-1236859390/"
+      "url": "https://variety.com/2026/film/news/jenna-bush-hager-cheyenne-documentary-cowgirls-broncs-1236859187/"
     },
     {
       "cat": "Film/TV",
-      "title": "Paramount Argues States’ Antitrust Suit Will ‘Collapse Under Scrutiny’",
+      "title": "From ‘American Hostage’ to Podcasts, Hollywood Digs Deeper Into Digital IP — But Will the Same Stories Told on Different Platforms Hurt Business?",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-answer-antitrust-case-1236859363/"
+      "url": "https://variety.com/2026/film/news/hollywood-ip-competing-projects-1236859296/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jimmy Kimmel’s Pulled TV Interview With James Talarico Hits 5 Million Views in 24 Hours on YouTube",
+      "title": "Jeremy Thomas, Legendary British Producer and Oscar Winner, Dies at 77",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jimmy-kimmel-james-talarico-interview-youtube-views-1236857569/"
+      "url": "https://variety.com/2026/film/global/jeremy-thomas-dead-british-producer-oscar-winner-1236859473/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Julia Set’ Review: Chase Infiniti Confirms Her Movie-Star Mettle in Niki Byrne’s Riveting Math-Geek Bad Romance",
+      "title": "Liam Neeson on the ‘Rage’ Behind ‘The Lost Children of Tuam’ and Turning Producer for First Time to Tell Story of Irish Scandal",
       "when": "12 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-julia-set-review-chase-infiniti-1236858794/"
+      "url": "https://variety.com/2026/film/global/liam-neeson-rage-the-lost-children-of-tuam-producer-1236858532/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
