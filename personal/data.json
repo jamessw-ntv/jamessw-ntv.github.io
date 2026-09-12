@@ -3,29 +3,29 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-12",
-    "fetched": "2026-09-12T04:08:02+00:00",
+    "fetched": "2026-09-12T09:09:08+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 12
+      "temp": 15,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
         "min": 5,
-        "max": 20,
+        "max": 21,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
         "day": "Sun",
-        "min": 12,
+        "min": 11,
         "max": 22,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107810.0,
-        "pct": 0.28
+        "price": 107864.0,
+        "pct": 0.03
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3504.95,
-        "pct": 2.42
+        "price": 3534.57,
+        "pct": 2.39
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Gary Oldman Predicts HBO’s ‘Harry Potter’ Series Will Be ‘More Satisfying’ for Fans Than the Movies",
+      "when": "12 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/gary-oldman-hbo-harry-potter-series-more-satisfying-than-movies-1236859390/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Paramount Argues States’ Antitrust Suit Will ‘Collapse Under Scrutiny’",
+      "when": "12 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/paramount-answer-antitrust-case-1236859363/"
+    },
     {
       "cat": "Film/TV",
       "title": "Jimmy Kimmel’s Pulled TV Interview With James Talarico Hits 5 Million Views in 24 Hours on YouTube",
@@ -97,20 +111,6 @@
       "when": "12 Sep",
       "source": "Variety",
       "url": "https://variety.com/2026/film/reviews/the-julia-set-review-chase-infiniti-1236858794/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Lil Durk Acquitted in Murder-for-Hire Trial",
-      "when": "12 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/lil-durk-acquitted-murder-for-hire-trial-1236859311/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Uprising’ Star Woody Norman on the ‘Power Trip’ Playing King Richard II and Going Meatless at Age 10 After Working With Joaquin Phoenix",
-      "when": "12 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/the-uprising-star-norman-playing-king-richard-ii-going-meatless-age-10-joaquin-phoenix-1236857404/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
