@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-12",
-    "fetched": "2026-09-12T23:53:15+00:00",
+    "updated": "2026-09-13",
+    "fetched": "2026-09-13T04:19:33+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 18,
+      "temp": 22,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 13
+      "wind": 19
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 22,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 31
+        "rain": 35
       },
       {
         "day": "Mon",
@@ -29,7 +29,7 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 88
+        "rain": 92
       },
       {
         "day": "Tue",
@@ -37,7 +37,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 90
+        "rain": 88
       }
     ]
   },
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107725.0,
-        "pct": 0.08
+        "price": 107655.0,
+        "pct": -0.07
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3520.78,
-        "pct": 0.45
+        "price": 3516.3,
+        "pct": 0.42
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Paramount Leaving California Will Devastate Los Angeles Economy, Leaked Report Finds",
-      "when": "12 Sep",
+      "title": "Mahershala Ali Finally Made His ‘Blade’ Film With ‘Your Mother Your Mother Your Mother’",
+      "when": "13 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-leaving-california-los-angeles-economy-job-loss-1236860125/"
+      "url": "https://variety.com/2026/film/news/mahershala-ali-blade-your-mother-your-mother-your-mother-tiff-adia-bassam-tariq-1236860243/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Everybody Wants to F— Me’ Review: Giddily Genre-Crossing Comedy Sees Right Through Taron Egerton’s Nice-Guy Act",
-      "when": "12 Sep",
+      "title": "‘Animal Hospital’ Leads Roblox Innovation Awards 2026 Winners as Roblox Unveils 20th Anniversary Event",
+      "when": "13 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/everybody-wants-to-fuck-me-review-taron-egerton-1236859572/"
+      "url": "https://variety.com/2026/gaming/news/animal-hospital-roblox-innovation-awards-20th-anniversary-1236860184/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Misty Green’ Review: Chris Rock Tells the Story of a Party-Girl Actress, Brilliantly Played by Rosalind Eleazar, in The Best Movie About Hollywood in Years",
+      "when": "13 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/misty-green-review-chris-rock-rosiland-eleazar-1236859541/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘I Play Rocky’ Review: Anthony Ippolito Channels Sylvester Stallone in Peter Farrelly’s Cleverly Crafted Crowd-Pleaser About the Making of ‘Rocky’",
+      "when": "13 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/i-play-rocky-review-anthony-ippolito-peter-farrelly-1236859563/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +118,6 @@
       "when": "12 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/12/interview-strange-new-worlds-showrunner-talks-kirks-hard-choice-in-408-teases-twists-in-final-2-episodes/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘SNL U.K.’ Weekend Update Takes Aim at Trump’s New Hair — and Paddy Young Says the Punchline Was ‘Taken From Me by Our Legal Team’",
-      "when": "12 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/snl-uk-weekend-update-trump-new-hair-1236860013/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jeff Goldblum Performs a Jazz Number to Open ‘SNL U.K.’ Season 2: ‘Hoping You’ll Like Me More Than Nando’s or Marmite’",
-      "when": "12 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/jeff-goldblum-snl-uk-host-jazz-song-1236859923/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
