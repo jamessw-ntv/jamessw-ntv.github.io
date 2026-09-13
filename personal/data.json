@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-13",
-    "fetched": "2026-09-13T18:02:17+00:00",
+    "fetched": "2026-09-13T20:35:52+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 14,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 11
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 12
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107751.0,
-        "pct": 0.13
+        "price": 107945.0,
+        "pct": 0.33
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3490.55,
-        "pct": -0.84
+        "price": 3504.82,
+        "pct": -0.32
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Emmys Presenters: Matthew McConaughey, Shailene Woodley and ‘Baywatch’ Reboot Stars Join Lineup",
+      "title": "International Oscar Submissions: Nepal, Singapore, Israel, Romania, South Korea, Chile and More Join the List",
       "when": "13 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/emmys-matthew-mcconaughey-shailene-woodley-baywatch-1236860563/"
+      "url": "https://variety.com/lists/international-oscar-submissions-2027/"
     },
     {
       "cat": "Film/TV",
-      "title": "Seth Rogen Tells TIFF the Best Advice He’s Ever Received: ‘Less Semen, More Emotion!’",
+      "title": "Ella Langley’s ‘Dandelion’ Album Returns to No. 1 Spot on Billboard 200 for First Time in Four Months, So ‘Choosin’ Texas’ Won’t Get Lonely at the Top",
       "when": "13 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/seth-rogen-tiff-best-advice-semen-emotion-the-studio-judd-apatow-1236860532/"
+      "url": "https://variety.com/2026/music/news/ella-langley-dandelion-album-number-one-billboard-adela-1236860730/"
     },
     {
       "cat": "Film/TV",
-      "title": "Teary-Eyed Kaley Cuoco Recalls Death of Her ‘8 Simple Rules’ TV Dad John Ritter: ‘One of the Worst Days of My Life’",
+      "title": "‘On Behalf of My Son’ Review: A Strained Brazilian Drama About a Mother’s Apology Tour",
       "when": "13 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/columns/kaley-cuoco-death-8-simple-rules-john-ritter-1236860467/"
+      "url": "https://variety.com/2026/film/news/on-behalf-of-my-son-review-1236860722/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hollywood Ventures Group, Canada’s Big Picture Cinema Group, and Morocco’s Pink Sheep Team on Casablanca-Set Thriller ‘The Final Bet’ (EXCLUSIVE)",
+      "title": "New York Knicks Player Jalen Brunson — Emmys Host Mariska Hargitay’s Buddy — Expected to Open Show (EXCLUSIVE)",
       "when": "13 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/hollywood-ventures-big-picture-cinema-morocco-final-bet-1236859412/"
+      "url": "https://variety.com/2026/tv/news/new-york-knicks-jalen-brunson-emmys-mariska-hargitay-1236860658/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
