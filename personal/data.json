@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-13",
-    "fetched": "2026-09-13T20:35:52+00:00",
+    "fetched": "2026-09-13T23:03:22+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
+      "temp": 17,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 12
+      "wind": 10
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 45
+        "rain": 63
       },
       {
         "day": "Tue",
@@ -29,7 +29,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 84
+        "rain": 80
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 12
+        "rain": 10
       }
     ]
   },
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107945.0,
-        "pct": 0.33
+        "price": 107122.0,
+        "pct": -0.51
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3504.82,
-        "pct": -0.32
+        "price": 3457.3,
+        "pct": -1.71
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars’ To Be Released in Large Formats, Adria Arjona’s Alternate Role, and Not Much More",
+      "when": "13 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-star-wars-to-be-released-in-large-formats-adria-arjonas-alternate-role-and-not-much-more.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Dead Boys Guitarist Cheetah Chrome Dies at 71",
+      "when": "13 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/people-news/cheetah-chrome-dead-punk-guitarist-dead-boys-1236860807/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Sara Bareilles on ‘Good Grief’ and Finding Joy in the Tough Stuff: ‘Grief Is the Mothership of This Record, but It Carries Release, Hope, Optimism and Connection’",
+      "when": "13 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/sara-bareilles-interview-good-grief-album-1236860774/"
+    },
     {
       "cat": "Film/TV",
       "title": "International Oscar Submissions: Nepal, Singapore, Israel, Romania, South Korea, Chile and More Join the List",
@@ -97,20 +118,6 @@
       "when": "13 Sep",
       "source": "Variety",
       "url": "https://variety.com/2026/music/news/ella-langley-dandelion-album-number-one-billboard-adela-1236860730/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘On Behalf of My Son’ Review: A Strained Brazilian Drama About a Mother’s Apology Tour",
-      "when": "13 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/on-behalf-of-my-son-review-1236860722/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "New York Knicks Player Jalen Brunson — Emmys Host Mariska Hargitay’s Buddy — Expected to Open Show (EXCLUSIVE)",
-      "when": "13 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/new-york-knicks-jalen-brunson-emmys-mariska-hargitay-1236860658/"
     },
     {
       "cat": "Trek/Wars",
@@ -153,13 +160,6 @@
       "when": "10 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/review-the-book-of-boba-fett-1-is-a-solid-adaptation-of-the-first-episode.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Adria Arjona Shares How She Was Almost Cast As Qi’ra In ‘Solo: A Star Wars Story’",
-      "when": "8 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/adria-arjona-shares-how-she-was-almost-cast-as-qira-in-solo-a-star-wars-story.html"
     },
     {
       "cat": "Games",
