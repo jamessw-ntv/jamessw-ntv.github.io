@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-14",
-    "fetched": "2026-09-14T00:55:07+00:00",
+    "fetched": "2026-09-14T05:58:55+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 16,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 9
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 11
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 63
+        "rain": 73
       },
       {
         "day": "Tue",
@@ -29,7 +29,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 80
+        "rain": 86
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 10
+        "rain": 9
       }
     ]
   },
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107418.0,
-        "pct": -0.28
+        "price": 108435.0,
+        "pct": 0.6
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3474.96,
-        "pct": -1.29
+        "price": 3515.55,
+        "pct": -0.04
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Seth Green Says He Was Never Invited Back for the Canceled ‘Buffy the Vampire Slayer’ Reboot",
-      "when": "13 Sep",
+      "title": "‘Pretenders’ Review: A Superb Portrait of Chrissie Hynde and Her Legendary Band Captures Their Incandescence…and Tragedy",
+      "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/actors/seth-green-canceled-buffy-the-vampire-slayer-reboot-1236860816/"
+      "url": "https://variety.com/2026/film/reviews/pretenders-review-chrissie-hynde-tiff-1236860631/"
     },
     {
       "cat": "Film/TV",
-      "title": "Israel’s Minister of Culture Threatens to Revoke Israeli Citizenships of ‘NAZA’ Filmmakers",
-      "when": "13 Sep",
+      "title": "‘All That She Wants’ Review: Annie Murphy and Cooper Raiff Are Well-Matched in a Generation-Gap Romcom",
+      "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/israels-minister-culture-revoke-citizenships-naza-directors-1236860821/"
+      "url": "https://variety.com/2026/film/reviews/all-that-she-wants-review-1236860677/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Lanterns’ Star Poorna Jagannathan Breaks Down Zoe’s Brutal Episode 5: ‘It’s a Faustian Play She Makes’",
+      "when": "14 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/lanterns-episode-5-zoe-manhunter-john-kills-zoe-1236858961/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "’60 Minutes’ Kicks Off Much-Scrutinized 59th Season With Old Ticks, Tricks",
+      "when": "14 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/60-minutes-season-59-launch-cbs-news-old-tricks-ticks-1236860783/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +118,6 @@
       "when": "13 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-star-wars-to-be-released-in-large-formats-adria-arjonas-alternate-role-and-not-much-more.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Dead Boys Guitarist Cheetah Chrome Dies at 71",
-      "when": "13 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/people-news/cheetah-chrome-dead-punk-guitarist-dead-boys-1236860807/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sara Bareilles on ‘Good Grief’ and Finding Joy in the Tough Stuff: ‘Grief Is the Mothership of This Record, but It Carries Release, Hope, Optimism and Connection’",
-      "when": "13 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/sara-bareilles-interview-good-grief-album-1236860774/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
