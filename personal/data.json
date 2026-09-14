@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-14",
-    "fetched": "2026-09-14T18:28:47+00:00",
+    "fetched": "2026-09-14T22:22:52+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
+      "temp": 10,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 13
+      "wind": 16
     },
     "days": [
       {
@@ -72,59 +72,73 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110729.0,
-        "pct": 2.74
+        "price": 110168.0,
+        "pct": 2.81
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3548.63,
-        "pct": 1.58
+        "price": 3566.95,
+        "pct": 3.04
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Interview With Tilly Norwood Offers Fewer Reasons For the AI Actress’ Existence",
+      "title": "Emmys 2026 Red Carpet: Adam Brody, Matty Matheson, Trisha Paytas and More",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/features/a-qa-with-tilly-norwood-offers-fewer-reasons-her-existence-1236861262/"
+      "url": "https://variety.com/gallery/emmys-2026-red-carpet-fashion-looks/"
     },
     {
       "cat": "Film/TV",
-      "title": "Google’s Sean Downey on the YouTube TIFF Takeover, Oscars Ad Integration and Creators vs. Influencers",
+      "title": "‘Secret Lives of Mormon Wives’ Star Mikayla Matthews Steps Away From Series Amid Taylor Frankie Paul Scandal: ‘Feels Wrong and Unethical’",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/youtube-tiff-obsession-oscars-sean-downey-1236861238/"
+      "url": "https://variety.com/2026/tv/news/mikayla-matthews-leaving-mormon-wives-taylor-frankie-paul-1236861690/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Everytime’ Director Sandra Wollner on the Emotional Resonance of Her Un Certain Regard Winning Film: ‘We Carry Our Experiences Within Us’",
+      "title": "Final Emmy Predictions in 116 Categories: HBO Max Poised to Dominate With ‘The Pitt’ as ‘Widow’s Bay’ and ‘Hacks’ Chase Opposite All-Time Records",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/everytime-un-certain-regard-sandra-wollner-toronto-premiere-1236861318/"
+      "url": "https://variety.com/lists/2026-emmys-predictions/"
     },
     {
       "cat": "Film/TV",
-      "title": "Flanders Cinema Finds Global Momentum With TIFF Titles, Cannes Honors and Oscar Buzz",
+      "title": "Henry Winkler Refused to Let ABC Change ‘Happy Days’ Title to ‘Fonzie’s Happy Days’ Because ‘It Would Be a Slap in the Face’ to Co-Stars",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/flanders-cinema-coward-tiff-cannes-1236861391/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Preview ‘Star Trek: Strange New Worlds’ Fantasy Episode Sequel With 6 New Photos From “Once La’an a Time”",
-      "when": "14 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/14/preview-star-trek-strange-new-worlds-fantasy-episode-sequel-with-6-new-photos-from-once-laan-a-time/"
+      "url": "https://variety.com/2026/tv/news/henry-winkler-refused-happy-days-title-change-1236861512/"
     },
     {
       "cat": "Trek/Wars",
       "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars’ To Be Released in Large Formats, Adria Arjona’s Alternate Role, and Not Much More",
-      "when": "13 Sep",
+      "when": "14 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-star-wars-to-be-released-in-large-formats-adria-arjonas-alternate-role-and-not-much-more.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Second Sister – ‘Star Wars’ Character Spotlight",
+      "when": "14 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/second-sister-star-wars-character-spotlight.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review: ‘The Book Of Boba Fett’ #1 Is A Solid Adaptation Of The First Episode",
+      "when": "14 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/review-the-book-of-boba-fett-1-is-a-solid-adaptation-of-the-first-episode.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Preview ‘Star Trek: Strange New Worlds’ Fantasy Episode Sequel With 6 New Photos From “Once La’an a Time” [UPDATED w/ Trailer]",
+      "when": "14 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/14/preview-star-trek-strange-new-worlds-fantasy-episode-sequel-with-6-new-photos-from-once-laan-a-time/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +146,6 @@
       "when": "12 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/12/interview-strange-new-worlds-showrunner-talks-kirks-hard-choice-in-408-teases-twists-in-final-2-episodes/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Second Sister – ‘Star Wars’ Character Spotlight",
-      "when": "11 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/second-sister-star-wars-character-spotlight.html"
     },
     {
       "cat": "Trek/Wars",
@@ -155,13 +162,6 @@
       "url": "https://store.steampowered.com/news/app/526870/view/701027323413004537"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Review: ‘The Book Of Boba Fett’ #1 Is A Solid Adaptation Of The First Episode",
-      "when": "10 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/review-the-book-of-boba-fett-1-is-a-solid-adaptation-of-the-first-episode.html"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.0",
       "when": "11 Aug",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
