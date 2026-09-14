@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-13",
-    "fetched": "2026-09-13T23:03:22+00:00",
+    "updated": "2026-09-14",
+    "fetched": "2026-09-14T00:55:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 17,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 10
+      "temp": 16,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 9
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107122.0,
-        "pct": -0.51
+        "price": 107418.0,
+        "pct": -0.28
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3457.3,
-        "pct": -1.71
+        "price": 3474.96,
+        "pct": -1.29
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Seth Green Says He Was Never Invited Back for the Canceled ‘Buffy the Vampire Slayer’ Reboot",
+      "when": "13 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/actors/seth-green-canceled-buffy-the-vampire-slayer-reboot-1236860816/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Israel’s Minister of Culture Threatens to Revoke Israeli Citizenships of ‘NAZA’ Filmmakers",
+      "when": "13 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/israels-minister-culture-revoke-citizenships-naza-directors-1236860821/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars’ To Be Released in Large Formats, Adria Arjona’s Alternate Role, and Not Much More",
@@ -104,20 +118,6 @@
       "when": "13 Sep",
       "source": "Variety",
       "url": "https://variety.com/2026/music/news/sara-bareilles-interview-good-grief-album-1236860774/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "International Oscar Submissions: Nepal, Singapore, Israel, Romania, South Korea, Chile and More Join the List",
-      "when": "13 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/lists/international-oscar-submissions-2027/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ella Langley’s ‘Dandelion’ Album Returns to No. 1 Spot on Billboard 200 for First Time in Four Months, So ‘Choosin’ Texas’ Won’t Get Lonely at the Top",
-      "when": "13 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/ella-langley-dandelion-album-number-one-billboard-adela-1236860730/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
