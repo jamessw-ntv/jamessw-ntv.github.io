@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-14",
-    "fetched": "2026-09-14T12:24:47+00:00",
+    "fetched": "2026-09-14T18:28:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 11
+      "temp": 11,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
-        "min": 12,
-        "max": 17,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 73
-      },
-      {
-        "day": "Tue",
         "min": 7,
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 88
+        "rain": 92
       },
       {
         "day": "Wed",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 8
+      },
+      {
+        "day": "Thu",
+        "min": 6,
+        "max": 13,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 4
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109223.0,
-        "pct": 2.02
+        "price": 110729.0,
+        "pct": 2.74
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3523.76,
-        "pct": 1.86
+        "price": 3548.63,
+        "pct": 1.58
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Ji.hlava Documentary Film Festival Unveils New Visions Forum Lineup",
+      "title": "Interview With Tilly Norwood Offers Fewer Reasons For the AI Actress’ Existence",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/jihlava-documentary-film-festival-new-visions-forum-lineup-1236861064/"
+      "url": "https://variety.com/2026/biz/features/a-qa-with-tilly-norwood-offers-fewer-reasons-her-existence-1236861262/"
     },
     {
       "cat": "Film/TV",
-      "title": "Richie Mehta on Turning Bandit Queen Phoolan Devi’s Story Into a 48-Hour Siege: ‘She Was Somebody Who Found Agency’",
+      "title": "Google’s Sean Downey on the YouTube TIFF Takeover, Oscars Ad Integration and Creators vs. Influencers",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/richie-mehta-bandit-queen-phoolan-toronto-1236859457/"
+      "url": "https://variety.com/2026/film/news/youtube-tiff-obsession-oscars-sean-downey-1236861238/"
     },
     {
       "cat": "Film/TV",
-      "title": "Davika Hoorne and Banjong Pisanthanakun Reunite for Toronto Title ‘Inherit’",
+      "title": "‘Everytime’ Director Sandra Wollner on the Emotional Resonance of Her Un Certain Regard Winning Film: ‘We Carry Our Experiences Within Us’",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/davika-hoorne-banjong-pisanthanakun-inherit-toronto-1236855775/"
+      "url": "https://variety.com/2026/film/global/everytime-un-certain-regard-sandra-wollner-toronto-premiere-1236861318/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Your Mother Your Mother Your Mother’ Review: A Blistering Spiritual Actioner Finally Gives Mahershala Ali a Leading Role Worth His While",
+      "title": "Flanders Cinema Finds Global Momentum With TIFF Titles, Cannes Honors and Oscar Buzz",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/your-mother-your-mother-your-mother-mahershala-ali-1236860755/"
+      "url": "https://variety.com/2026/film/global/flanders-cinema-coward-tiff-cannes-1236861391/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Preview ‘Star Trek: Strange New Worlds’ Fantasy Episode Sequel With 6 New Photos From “Once La’an a Time”",
+      "when": "14 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/14/preview-star-trek-strange-new-worlds-fantasy-episode-sequel-with-6-new-photos-from-once-laan-a-time/"
     },
     {
       "cat": "Trek/Wars",
@@ -139,13 +146,6 @@
       "when": "11 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/11/podcast-all-access-reviews-strange-new-worlds-badmiral-episode-recaps-star-trek-day-and-chats-with-rebecca-romijn/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Escalates Quickly In “Orders Of Magnitude”",
-      "when": "10 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/10/recap-review-star-trek-strange-new-worlds-escalates-quickly-in-orders-of-magnitude/"
     },
     {
       "cat": "Games",
