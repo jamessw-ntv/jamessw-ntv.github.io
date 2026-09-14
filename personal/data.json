@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-14",
-    "fetched": "2026-09-14T05:58:55+00:00",
+    "fetched": "2026-09-14T12:24:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
+      "temp": 13,
+      "icon": "☁️",
+      "desc": "Overcast",
       "wind": 11
     },
     "days": [
@@ -29,7 +29,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 86
+        "rain": 88
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 9
+        "rain": 8
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108435.0,
-        "pct": 0.6
+        "price": 109223.0,
+        "pct": 2.02
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3515.55,
-        "pct": -0.04
+        "price": 3523.76,
+        "pct": 1.86
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Pretenders’ Review: A Superb Portrait of Chrissie Hynde and Her Legendary Band Captures Their Incandescence…and Tragedy",
+      "title": "Ji.hlava Documentary Film Festival Unveils New Visions Forum Lineup",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/pretenders-review-chrissie-hynde-tiff-1236860631/"
+      "url": "https://variety.com/2026/film/global/jihlava-documentary-film-festival-new-visions-forum-lineup-1236861064/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘All That She Wants’ Review: Annie Murphy and Cooper Raiff Are Well-Matched in a Generation-Gap Romcom",
+      "title": "Richie Mehta on Turning Bandit Queen Phoolan Devi’s Story Into a 48-Hour Siege: ‘She Was Somebody Who Found Agency’",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/all-that-she-wants-review-1236860677/"
+      "url": "https://variety.com/2026/film/festivals/richie-mehta-bandit-queen-phoolan-toronto-1236859457/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Lanterns’ Star Poorna Jagannathan Breaks Down Zoe’s Brutal Episode 5: ‘It’s a Faustian Play She Makes’",
+      "title": "Davika Hoorne and Banjong Pisanthanakun Reunite for Toronto Title ‘Inherit’",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/lanterns-episode-5-zoe-manhunter-john-kills-zoe-1236858961/"
+      "url": "https://variety.com/2026/film/festivals/davika-hoorne-banjong-pisanthanakun-inherit-toronto-1236855775/"
     },
     {
       "cat": "Film/TV",
-      "title": "’60 Minutes’ Kicks Off Much-Scrutinized 59th Season With Old Ticks, Tricks",
+      "title": "‘Your Mother Your Mother Your Mother’ Review: A Blistering Spiritual Actioner Finally Gives Mahershala Ali a Leading Role Worth His While",
       "when": "14 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/60-minutes-season-59-launch-cbs-news-old-tricks-ticks-1236860783/"
+      "url": "https://variety.com/2026/film/news/your-mother-your-mother-your-mother-mahershala-ali-1236860755/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
