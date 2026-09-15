@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-15",
-    "fetched": "2026-09-15T13:21:55+00:00",
+    "fetched": "2026-09-15T18:03:57+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 7,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 17
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 12,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 94
-      },
-      {
-        "day": "Wed",
         "min": 7,
         "max": 11,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 10
+        "rain": 4
       },
       {
         "day": "Thu",
@@ -37,7 +29,15 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 4
+        "rain": 18
+      },
+      {
+        "day": "Fri",
+        "min": 4,
+        "max": 19,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107910.0,
-        "pct": -1.3
+        "price": 107784.0,
+        "pct": -2.41
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3476.27,
-        "pct": -1.1
+        "price": 3418.0,
+        "pct": -3.6
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "BritBox’s Modern Adaptation of ‘Agatha Christie’s Tommy & Tuppence’ Stumbles Before Finding Steady Ground: TV Review",
+      "title": "Netflix’s ‘The Murder of JonBenét Ramsey’ Sets Release Date, First Look at Melissa McCarthy and Clive Owen",
       "when": "15 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/agatha-christie-tommy-and-tuppence-review-britbox-1236849440/"
+      "url": "https://variety.com/2026/tv/news/netflix-murder-of-jonbenet-ramsey-release-date-1236861705/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hawai’i Film Festival to Open With ‘The Navigator,’ Names ‘Drifter’ as Centerpiece (EXCLUSIVE)",
+      "title": "Here’s How to Get an ‘On T-Mobile’ Apple iPhone 18 Pro",
       "when": "15 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/hawaii-film-festival-navigator-opening-night-drifter-centerpiece-1236860970/"
+      "url": "https://variety.com/2026/shopping/news/t-mobile-postpaid-on-us-apple-iphone-18-pro-sponsored-online-1236858739/"
     },
     {
       "cat": "Film/TV",
-      "title": "Spotify Now Lets Parents Block Kids’ Music From Polluting Their Recommendations",
+      "title": "Israel’s Oscar Entry ‘Tell Me Everything’ Finds International Distribution as Paradise City Sales Unveils Trailer (EXCLUSIVE)",
       "when": "15 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/spotify-exclude-kids-family-music-recommendations-1236861534/"
+      "url": "https://variety.com/2026/film/global/israel-oscar-entry-tell-me-everything-trailer-sales-1236863172/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Reacher’ Spinoff ‘Neagley’ Shows the Franchise Doesn’t Work Without Reacher: TV Review",
+      "title": "Creator-Media Entrepreneur Hopes to Help Influencers Expand Appearances in Ads",
       "when": "15 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/neagley-review-reacher-spinoff-1236861542/"
+      "url": "https://variety.com/2026/tv/news/creator-media-entrepreneur-influencers-expand-commercials-1236862897/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Edge of the Abyss’ Audiobook Review – January LaVoy Channels Mon Mothma in Mature and Resonant ‘Andor’ Prequel",
+      "when": "15 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/edge-of-the-abyss-audiobook-review-january-lavoy-channels-mon-mothma-in-mature-and-resonant-andor-prequel.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "14 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/second-sister-star-wars-character-spotlight.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review: ‘The Book Of Boba Fett’ #1 Is A Solid Adaptation Of The First Episode",
-      "when": "14 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/review-the-book-of-boba-fett-1-is-a-solid-adaptation-of-the-first-episode.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
