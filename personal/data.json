@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-16",
-    "fetched": "2026-09-16T18:47:50+00:00",
+    "fetched": "2026-09-16T22:00:15+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 5
+      "temp": 9,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 2
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
-        "max": 12,
+        "min": 5,
+        "max": 11,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 2
@@ -34,7 +34,7 @@
       {
         "day": "Sat",
         "min": 11,
-        "max": 22,
+        "max": 23,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 8
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 106956.0,
-        "pct": 1.22
+        "price": 107133.0,
+        "pct": 1.31
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3392.1,
-        "pct": 1.8
+        "price": 3391.4,
+        "pct": 1.15
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "How American High Scored Big With ‘Minimum Wage’ Netflix Series While Building a Pipeline for the Next Generation of Comedians (EXCLUSIVE)",
+      "title": "Matthew Lillard Says ‘I Feel Ashamed’ for Acting in ‘Scream 7’ After Melissa Barrera Got Fired: ‘I Blew That. I’m on the Wrong Side of History’",
       "when": "16 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/features/american-high-minimum-wage-netflix-premiere-date-1236840196/"
+      "url": "https://variety.com/2026/film/news/matthew-lillard-regrets-scream-7-melissa-barrera-fired-palestine-1236864541/"
     },
     {
       "cat": "Film/TV",
-      "title": "VidCon Is Leaving Anaheim After Creator Convention Combines With LIONS, Parent of Cannes Lions",
+      "title": "‘Dancing With the Stars’ Season 35 Premiere Hits 6.7 Million Viewers, Best Opener in Six Years",
       "when": "16 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/vidcon-leaving-anaheim-lions-cannes-lions-1236864254/"
+      "url": "https://variety.com/2026/tv/news/dancing-with-the-stars-season-35-premiere-ratings-1236864750/"
     },
     {
       "cat": "Film/TV",
-      "title": "Naomi Watts, Demi Moore, Rachel Zegler and More Were Buzzing at Thom Browne’s Bug-Filled NYFW Show",
+      "title": "How to Stream ESPN on Sling: Watch ‘Monday Night Football,’ College Football and More for $19.99 a Month",
       "when": "16 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/fashion/thom-browne-nyfw-naomi-watt-sdemi-moore-rachel-zegler-1236864331/"
+      "url": "https://variety.com/2026/shopping/news/how-to-stream-espn-on-sling-tv-sign-up-online-1236864662/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Interview: Rebecca Romijn Is Sorry/Not Sorry About Gimmicks In ‘Star Trek: Strange New Worlds’",
+      "when": "16 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/16/interview-rebecca-romijn-is-sorry-not-sorry-about-gimmicks-in-star-trek-strange-new-worlds/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscars: France Selects Cannes Prizewinner ‘Minotaur’ for International Feature Race",
+      "title": "Macklemore Donating $1 Million Salary from Ed Sheeran Tour to Support Palestine: ‘I Invite Robert Kraft to Match My Donation’",
       "when": "16 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/oscars-france-cannes-prizewinner-minotaur-international-race-1236864305/"
+      "url": "https://variety.com/2026/music/news/macklemore-donating-ed-sheeran-tour-salary-palestine-support-1236864698/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘The High Republic Adventures: Pathfinders’ #5 Sinks Into Madness as the Series Approaches the Finale",
+      "when": "16 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/review-the-high-republic-adventures-pathfinders-5-sinks-into-madness-as-the-series-approaches-the-finale.html"
     },
     {
       "cat": "Trek/Wars",
@@ -141,20 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/09/edge-of-the-abyss-audiobook-review-january-lavoy-channels-mon-mothma-in-mature-and-resonant-andor-prequel.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars’ To Be Released in Large Formats, Adria Arjona’s Alternate Role, and Not Much More",
-      "when": "14 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-star-wars-to-be-released-in-large-formats-adria-arjonas-alternate-role-and-not-much-more.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Preview ‘Star Trek: Strange New Worlds’ Fantasy Episode Sequel With 6 New Photos From “Once La’an a Time” [UPDATED w/ Trailer]",
-      "when": "14 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/14/preview-star-trek-strange-new-worlds-fantasy-episode-sequel-with-6-new-photos-from-once-laan-a-time/"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory 1.0 - 2nd Anniversary!",
       "when": "10 Sep",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
