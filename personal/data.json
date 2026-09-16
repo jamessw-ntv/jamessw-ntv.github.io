@@ -3,32 +3,24 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-16",
-    "fetched": "2026-09-16T09:47:46+00:00",
+    "fetched": "2026-09-16T14:45:13+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 8,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 8
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
-        "max": 11,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 4
-      },
-      {
-        "day": "Thu",
-        "min": 6,
         "max": 12,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 8
       },
       {
@@ -38,6 +30,14 @@
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
+      },
+      {
+        "day": "Sat",
+        "min": 11,
+        "max": 22,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 14
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 106383.0,
-        "pct": -1.52
+        "price": 106053.0,
+        "pct": -0.39
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3368.15,
-        "pct": -3.07
+        "price": 3347.57,
+        "pct": -1.25
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Markus Lehmusruusu’s Finnish Oscar Entry ‘The Squirrel’ Earns Aki Kaurismäki’s Stamp of Approval: ‘He Said It’s Like ‘2001: A Space Odyssey,’ but Better Because It’s Full of Humanism’",
+      "title": "James Cameron’s Lightstorm Scoops Up AI-Powered 3D Tech Company Outsyders",
       "when": "16 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/markus-lehmusruusu-oscar-submission-squirrel-kaurismaki-1236863403/"
+      "url": "https://variety.com/2026/biz/news/james-camerons-lightstorm-ai-powered-3d-company-outsyders-1236864094/"
     },
     {
       "cat": "Film/TV",
-      "title": "Adam Fan Releases Debut English-Language Album ‘Skyfall’",
+      "title": "‘The Wire’ and ‘It’ Actor James Ransone Was Excluded From Emmys and Oscars In Memoriam Tributes; His Wife Says ‘It’s Simply Not Right’",
       "when": "16 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/adam-fan-debut-english-album-skyfall-1236863972/"
+      "url": "https://variety.com/2026/tv/news/james-ransone-excluded-emmys-oscars-in-memoriam-wife-1236864048/"
     },
     {
       "cat": "Film/TV",
-      "title": "John Abraham Starts Shooting Ribhu Dasgupta’s Psychological Thriller ‘Guru’ (EXCLUSIVE)",
+      "title": "Judge Judy Retiring From Onscreen Work After 30 Years on TV but Stresses: ‘I’m Still Going to Be Creative’",
       "when": "16 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/john-abraham-guru-shoot-ribhu-dasgupta-1236863957/"
+      "url": "https://variety.com/2026/tv/news/judge-judy-retiring-onscreen-1236864074/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscars: Spain Selects ‘La Bola Negra’ for International Features Race",
+      "title": "Ozzy Osbourne and Black Sabbath’s Final Concert Film Sets October Release Date",
       "when": "16 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/oscars-spain-javier-calvo-javier-ambrossi-la-bola-negra-1236863433/"
+      "url": "https://variety.com/2026/film/global/ozzy-osbourne-black-sabbath-concert-film-october-release-date-1236863996/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "See Kirk And Sato Unite To Save The Federation In Penultimate ‘Star Trek: The Last Starship’ Preview",
+      "when": "16 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/16/see-kirk-and-sato-unite-to-save-the-federation-in-penultimate-star-trek-the-last-starship-preview/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/09/14/preview-star-trek-strange-new-worlds-fantasy-episode-sequel-with-6-new-photos-from-once-laan-a-time/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Interview: ‘Strange New Worlds’ Showrunner Talks Kirk’s “Hard Choice” In 408; Teases “Twists” In Final 2 Episodes",
-      "when": "12 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/12/interview-strange-new-worlds-showrunner-talks-kirks-hard-choice-in-408-teases-twists-in-final-2-episodes/"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory 1.0 - 2nd Anniversary!",
       "when": "10 Sep",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
