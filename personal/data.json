@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-16",
-    "fetched": "2026-09-16T00:05:21+00:00",
+    "fetched": "2026-09-16T04:39:58+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -17,11 +17,11 @@
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 11,
+        "min": 6,
+        "max": 10,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 2
+        "rain": 4
       },
       {
         "day": "Thu",
@@ -29,7 +29,7 @@
         "max": 12,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 4
+        "rain": 8
       },
       {
         "day": "Fri",
@@ -72,52 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 106102.0,
-        "pct": -3.14
+        "price": 106436.0,
+        "pct": -2.3
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3366.6,
-        "pct": -4.4
+        "price": 3372.35,
+        "pct": -3.63
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Does Stephen Colbert Miss Late Night TV?: ‘Nope!’",
+      "when": "16 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/stephen-colbert-jimmy-kimmel-late-night-1236863664/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Cate Blanchett to Attend Tokyo Festival for Japan Premiere of Displacement Film Fund Shorts",
+      "when": "16 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/cate-blanchett-tokyo-festival-displacement-film-fund-shorts-1236863090/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Drake Unveils Surreal ‘Fear of Missing Out’ Film Featuring New Music Videos, Songs and an Ella Langley Remix",
+      "when": "16 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/drake-fear-of-missing-out-film-new-music-ella-langley-remix-1236863844/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Helicopter Crashes Near Site of Deadly Metro Bus Accident in Chatsworth",
+      "when": "16 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/helicopter-crash-chatsworth-metro-bus-accident-1236863870/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘Make-Up Man’ Documentary About Star Trek’s Michael Westmore Launches Indiegogo For Post-Production",
       "when": "15 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/15/make-up-man-documentary-about-star-treks-michael-westmore-launches-indiegogo-for-post-production/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Emmys Hit 6.7 Million Viewers, Down 9% From Last Year",
-      "when": "15 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/emmys-2026-ratings-viewers-1236863148/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Taylor Frankie Paul Sets Return to ‘The Secret Lives of Mormon Wives’ Following Chaotic Season 5 and Ongoing Legal Battle",
-      "when": "15 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/taylor-frankie-paul-returns-secret-lives-mormon-wives-season-6-1236863427/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How Competitive ‘Pokémon’ Inspired Author Ava Reid’s New Dystopian YA Series ‘Winterveil’",
-      "when": "15 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/winterveil-pokemon-new-ava-reid-book-1236863483/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Salvation’ Review: A Pin-Sharp Portrait of an Aspiring Life Coach in Personal Freefall",
-      "when": "15 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/salvation-review-2-1236863013/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
