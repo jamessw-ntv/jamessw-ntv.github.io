@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-17",
-    "fetched": "2026-09-17T05:57:16+00:00",
+    "fetched": "2026-09-17T11:24:21+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 8
+      "temp": 8,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 5
     },
     "days": [
       {
@@ -33,10 +33,10 @@
       },
       {
         "day": "Sat",
-        "min": 10,
+        "min": 11,
         "max": 23,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "⛅",
+        "desc": "Partly cloudy",
         "rain": 18
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107345.0,
-        "pct": 0.94
+        "price": 107368.0,
+        "pct": 0.93
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3427.76,
-        "pct": 1.74
+        "price": 3425.13,
+        "pct": 1.65
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Zhang Yimou to Lead Busan Competition Jury",
+      "title": "Peter Chan’s Directing Motto for Toronto Alzheimer’s Drama ‘The Road Not Taken’ Came From a Chengdu Dementia Care Home",
       "when": "17 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/zhang-yimou-busan-competition-jury-1236865108/"
+      "url": "https://variety.com/2026/film/festivals/peter-chan-road-not-taken-directing-motto-1236865282/"
     },
     {
       "cat": "Film/TV",
-      "title": "Virender Sehwag’s ‘Rise & Fall’ Season 2 Sets September Launch on Prime Video, Reveals First Four Contestants (EXCLUSIVE)",
+      "title": "Lola Tung and Daniel Bravo Hernández to Lead New York Theatre Workshop Benefit Reading of ‘Sanctuary City’",
       "when": "17 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/virender-sehwag-rise-and-fall-season-2-prime-video-september-1236864206/"
+      "url": "https://variety.com/2026/legit/news/lola-tung-daniel-bravo-hernandez-sanctuary-city-ny-workshop-1236865105/"
     },
     {
       "cat": "Film/TV",
-      "title": "Paul Walter Hauser Explains Mystery Pin He Wore to ‘Resident Evil’ Premiere",
+      "title": "Alief Boards Lithuania’s ‘Dice-Ching-O-Mat’ From Producer Uljana Kim and Helmer Kristijonas Vildziunas (EXCLUSIVE)",
       "when": "17 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/columns/paul-walter-hauser-explains-mystery-pin-wore-resident-evil-premiere-jeffrey-epstein-zorro-ranch-1236864875/"
+      "url": "https://variety.com/2026/film/global/alief-lithuania-dice-ching-o-mat-1236865305/"
     },
     {
       "cat": "Film/TV",
-      "title": "Singer Duncan Sheik Hospitalized, in ‘Critical But Stable Condition’",
+      "title": "Bill Skarsgard to Star in Hideo Kojima’s ‘Physint’ Video Game From Xbox",
       "when": "17 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/duncan-sheik-hospitalized-1236865061/"
+      "url": "https://variety.com/2026/gaming/news/physint-bill-skarsgard-hideo-kojima-xbox-game-1236865279/"
     },
     {
       "cat": "Trek/Wars",
