@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-17",
-    "fetched": "2026-09-17T00:15:32+00:00",
+    "fetched": "2026-09-17T05:57:16+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
+      "temp": 12,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 11
+      "wind": 8
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 10
+        "rain": 2
       },
       {
         "day": "Fri",
@@ -37,7 +37,7 @@
         "max": 23,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 4
+        "rain": 18
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107627.0,
-        "pct": 1.3
+        "price": 107345.0,
+        "pct": 0.94
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3414.21,
-        "pct": 1.31
+        "price": 3427.76,
+        "pct": 1.74
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Flamingo Estate’s Richard Christiansen on Pamela Anderson’s Pickles, Julianne Moore’s Honey and the Dolly Parton Coffee That ‘Got Away’",
-      "when": "16 Sep",
+      "title": "Zhang Yimou to Lead Busan Competition Jury",
+      "when": "17 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/scene/news/flamingo-estates-richard-christiansen-pamela-anderson-pickles-julianne-moore-honey-dolly-parton-coffee-1236861665/"
+      "url": "https://variety.com/2026/film/festivals/zhang-yimou-busan-competition-jury-1236865108/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ed Sheeran Backlash Explodes as Ms. Rachel, Hannah Einbinder and More Slam Singer After Macklemore Dropped From Tour: ‘Silence During a Genocide Is Not Neutral’",
-      "when": "16 Sep",
+      "title": "Virender Sehwag’s ‘Rise & Fall’ Season 2 Sets September Launch on Prime Video, Reveals First Four Contestants (EXCLUSIVE)",
+      "when": "17 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/ed-sheeran-backlash-celebrities-macklemore-palestine-1236864829/"
+      "url": "https://variety.com/2026/tv/news/virender-sehwag-rise-and-fall-season-2-prime-video-september-1236864206/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jessica Chastain to Star in New Netflix Drama Series ‘The Retrievals’",
-      "when": "16 Sep",
+      "title": "Paul Walter Hauser Explains Mystery Pin He Wore to ‘Resident Evil’ Premiere",
+      "when": "17 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jessica-chastain-netflix-the-retrievals-1236864926/"
+      "url": "https://variety.com/2026/politics/columns/paul-walter-hauser-explains-mystery-pin-wore-resident-evil-premiere-jeffrey-epstein-zorro-ranch-1236864875/"
     },
     {
       "cat": "Film/TV",
-      "title": "Paramount May Be Bluffing About Leaving California, But L.A. Mayor Taking It Seriously",
-      "when": "16 Sep",
+      "title": "Singer Duncan Sheik Hospitalized, in ‘Critical But Stable Condition’",
+      "when": "17 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-karen-bass-leaving-california-1236864828/"
+      "url": "https://variety.com/2026/music/news/duncan-sheik-hospitalized-1236865061/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Akiva Goldsman Doesn’t See ‘ Star Trek: Year One’ Happening",
+      "when": "17 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/16/akiva-goldsman-doesnt-see-star-trek-year-one-happening/"
     },
     {
       "cat": "Trek/Wars",
@@ -142,13 +149,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "‘Make-Up Man’ Documentary About Star Trek’s Michael Westmore Launches Indiegogo For Post-Production",
-      "when": "15 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/15/make-up-man-documentary-about-star-treks-michael-westmore-launches-indiegogo-for-post-production/"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "‘Edge of the Abyss’ Audiobook Review – January LaVoy Channels Mon Mothma in Mature and Resonant ‘Andor’ Prequel",
       "when": "15 Sep",
       "source": "SW News Net",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
