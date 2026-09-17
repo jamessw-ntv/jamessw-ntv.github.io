@@ -2,26 +2,26 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-16",
-    "fetched": "2026-09-16T22:00:15+00:00",
+    "updated": "2026-09-17",
+    "fetched": "2026-09-17T00:15:32+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 11,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 2
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
-        "min": 5,
-        "max": 11,
+        "min": 6,
+        "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 10
       },
       {
         "day": "Fri",
@@ -33,11 +33,11 @@
       },
       {
         "day": "Sat",
-        "min": 11,
+        "min": 10,
         "max": 23,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 8
+        "rain": 4
       }
     ]
   },
@@ -72,38 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107133.0,
-        "pct": 1.31
+        "price": 107627.0,
+        "pct": 1.3
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3391.4,
-        "pct": 1.15
+        "price": 3414.21,
+        "pct": 1.31
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Matthew Lillard Says ‘I Feel Ashamed’ for Acting in ‘Scream 7’ After Melissa Barrera Got Fired: ‘I Blew That. I’m on the Wrong Side of History’",
+      "title": "Flamingo Estate’s Richard Christiansen on Pamela Anderson’s Pickles, Julianne Moore’s Honey and the Dolly Parton Coffee That ‘Got Away’",
       "when": "16 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/matthew-lillard-regrets-scream-7-melissa-barrera-fired-palestine-1236864541/"
+      "url": "https://variety.com/2026/scene/news/flamingo-estates-richard-christiansen-pamela-anderson-pickles-julianne-moore-honey-dolly-parton-coffee-1236861665/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Dancing With the Stars’ Season 35 Premiere Hits 6.7 Million Viewers, Best Opener in Six Years",
+      "title": "Ed Sheeran Backlash Explodes as Ms. Rachel, Hannah Einbinder and More Slam Singer After Macklemore Dropped From Tour: ‘Silence During a Genocide Is Not Neutral’",
       "when": "16 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/dancing-with-the-stars-season-35-premiere-ratings-1236864750/"
+      "url": "https://variety.com/2026/music/news/ed-sheeran-backlash-celebrities-macklemore-palestine-1236864829/"
     },
     {
       "cat": "Film/TV",
-      "title": "How to Stream ESPN on Sling: Watch ‘Monday Night Football,’ College Football and More for $19.99 a Month",
+      "title": "Jessica Chastain to Star in New Netflix Drama Series ‘The Retrievals’",
       "when": "16 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-stream-espn-on-sling-tv-sign-up-online-1236864662/"
+      "url": "https://variety.com/2026/tv/news/jessica-chastain-netflix-the-retrievals-1236864926/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Paramount May Be Bluffing About Leaving California, But L.A. Mayor Taking It Seriously",
+      "when": "16 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/paramount-karen-bass-leaving-california-1236864828/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "16 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/16/interview-rebecca-romijn-is-sorry-not-sorry-about-gimmicks-in-star-trek-strange-new-worlds/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Macklemore Donating $1 Million Salary from Ed Sheeran Tour to Support Palestine: ‘I Invite Robert Kraft to Match My Donation’",
-      "when": "16 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/macklemore-donating-ed-sheeran-tour-salary-palestine-support-1236864698/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
