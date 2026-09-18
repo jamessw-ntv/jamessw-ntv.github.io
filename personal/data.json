@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-18",
-    "fetched": "2026-09-18T01:09:54+00:00",
+    "fetched": "2026-09-18T07:16:29+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 17,
+      "temp": 18,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 15
+      "wind": 16
     },
     "days": [
       {
         "day": "Today",
         "min": 3,
-        "max": 19,
+        "max": 20,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
         "day": "Sat",
-        "min": 10,
-        "max": 22,
-        "icon": "⛅",
-        "desc": "Partly cloudy",
-        "rain": 4
+        "min": 11,
+        "max": 23,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 2
       },
       {
         "day": "Sun",
         "min": 13,
         "max": 23,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 23
+        "icon": "⛅",
+        "desc": "Partly cloudy",
+        "rain": 41
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107560.0,
-        "pct": -0.02
+        "price": 108853.0,
+        "pct": 1.26
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3436.91,
-        "pct": 0.79
+        "price": 3491.06,
+        "pct": 1.53
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Nick Kroll Delivers Heartfelt Appeal for Productions to Shoot in L.A.: ‘It Will Bring Life Back’ to the City",
+      "title": "Alfonso Cuaron to Make First Korea Visit at Busan as Festival Also Spotlights European Women+ Filmmakers",
       "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/nick-kroll-la-productions-a-hundred-percent-1236866162/"
+      "url": "https://variety.com/2026/film/festivals/alfonso-cuaron-busan-film-festival-1236866555/"
     },
     {
       "cat": "Film/TV",
-      "title": "Battling Misconceptions and Figuring Out Use Cases: Entertainment Leaders Navigate AI’s Place in the Industry",
+      "title": "‘Tenzing’ Actor Tenzin Dalha Unveiled as Male Lead in Bengali Thriller ‘Chheledhora’ (EXCLUSIVE)",
       "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/battling-misconceptions-and-figuring-out-ai-entertainment-1236866336/"
+      "url": "https://variety.com/2026/film/news/tenzing-actor-tenzin-dalha-male-lead-chheledhora-1236866549/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Resident Evil’ Video Game References: All the Zombies, Weapons and Easter Eggs in Zach Cregger’s Reboot",
+      "title": "San Sebastián 2026: ’Les Mis,’ Los Javis, Brad Pitt, Penélope Cruz and Much More",
       "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/lists/resident-evil-video-game-references-easter-eggs/"
+      "url": "https://variety.com/2026/film/global/les-mis-los-javis-brad-pitt-penelope-cruz-san-sebastian-1236847674/"
     },
     {
       "cat": "Film/TV",
-      "title": "Top Marketers on How Creators, TikTok, Spotify and Pinterest Help Fuel Fandom",
-      "when": "17 Sep",
+      "title": "‘The Traitors: New Blood’ EPs Break Down NBC Premiere, Sweetening the Pot for the Faithful and Why the Civilian Cast ‘Played Hard Straight Away’",
+      "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/creators-marketers-tiktok-spotify-pintrest-lionsgate-amc-1236866303/"
+      "url": "https://variety.com/2026/tv/news/the-traitors-new-blood-game-changes-nbc-civilian-version-1236865874/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
