@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-18",
-    "fetched": "2026-09-18T12:51:36+00:00",
+    "fetched": "2026-09-18T17:00:32+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 14
+      "temp": 12,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
-        "min": 3,
-        "max": 20,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Sat",
-        "min": 11,
+        "min": 12,
         "max": 23,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "⛅",
+        "desc": "Partly cloudy",
         "rain": 2
       },
       {
         "day": "Sun",
         "min": 13,
-        "max": 23,
+        "max": 24,
         "icon": "⛅",
         "desc": "Partly cloudy",
-        "rain": 36
+        "rain": 31
+      },
+      {
+        "day": "Mon",
+        "min": 6,
+        "max": 13,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 81
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109663.0,
-        "pct": 1.71
+        "price": 113582.0,
+        "pct": 5.39
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3515.61,
-        "pct": 1.73
+        "price": 3648.47,
+        "pct": 5.2
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Japan’s Top Broadcasters Unite for First Joint Delegation to MipCancun (EXCLUSIVE)",
+      "title": "Sony Music, Universal Music Group Sue Suno Over Label-Backed Model: ‘Fruit of the Same Poisoned Tree’",
       "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/markets-festivals/japan-broadcasters-joint-delegation-mipcancun-1236866570/"
+      "url": "https://variety.com/2026/music/news/sony-music-universal-music-sue-suno-label-backed-model-1236866921/"
     },
     {
       "cat": "Film/TV",
-      "title": "Catalonia: A Dozen Highlights at San Sebastián, From a Time-Loop Thriller to a Singular Heist Tale and a Potential Arthouse Sleeper",
+      "title": "Rina Sawayama on Releasing New Music After Two-Year Break: ‘I Didn’t Think I Would Return’",
       "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/catalan-movies-to-track-at-san-sebastian-1236866601/"
+      "url": "https://variety.com/2026/shopping/news/rina-sawayama-new-music-travel-essentials-shop-online-1236864192/"
     },
     {
       "cat": "Film/TV",
-      "title": "Catalonia’s New Generation Raises Its Game as Ambition, Scale and Genre Drive Bolder Arthouse and Crossover Titles",
+      "title": "New Independent Film Studio SuperCinema Launches in Burbank",
       "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/berto-romero-mikel-guerra-meritxell-colell-1236866619/"
+      "url": "https://variety.com/2026/film/news/supercinema-burbank-concrete-independent-studio-1236864742/"
     },
     {
       "cat": "Film/TV",
-      "title": "International Oscar Submissions: Spain, Indonesia, Hungary, Nepal, Israel and More Join the List",
+      "title": "‘Red Snow,’ a Vampire Santa Horror-Comedy, Acquired by Shudder (EXCLUSIVE)",
       "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/lists/international-oscar-submissions-2027/"
+      "url": "https://variety.com/2026/film/news/vampire-santa-horror-comedy-red-snow-shudder-1236866691/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Sifo-Dyas – ‘Star Wars’ Character Spotlight",
+      "when": "18 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/sifo-dyas-star-wars-character-spotlight.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Podcast: All Access Star Trek Goes On A Fairy Tale Adventure With ‘Strange New Worlds’",
+      "when": "18 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/18/podcast-all-access-star-trek-goes-on-a-fairy-tale-adventure-with-strange-new-worlds/"
     },
     {
       "cat": "Trek/Wars",
@@ -135,24 +149,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Review: ‘The Fall of Kylo Ren’ #2 Introduces a New Mystery of the Force",
-      "when": "17 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/review-the-fall-of-kylo-ren-2-introduces-a-new-mystery-of-the-force.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Has Fun Storming The Castle In “Once La’An A Time”",
       "when": "17 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/17/recap-review-star-trek-strange-new-worlds-has-fun-storming-the-castle-in-once-laan-a-time/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Akiva Goldsman Doesn’t See ‘Star Trek: Year One’ Happening",
-      "when": "17 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/16/akiva-goldsman-doesnt-see-star-trek-year-one-happening/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
