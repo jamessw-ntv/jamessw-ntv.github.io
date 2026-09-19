@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-18",
-    "fetched": "2026-09-18T22:26:21+00:00",
+    "updated": "2026-09-19",
+    "fetched": "2026-09-19T01:04:22+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
+      "temp": 19,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 14
+      "wind": 16
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 23,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 6
       },
       {
         "day": "Sun",
@@ -29,7 +29,7 @@
         "max": 24,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 31
+        "rain": 30
       },
       {
         "day": "Mon",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 113931.0,
-        "pct": 6.26
+        "price": 114477.0,
+        "pct": 6.47
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3687.98,
-        "pct": 7.5
+        "price": 3678.94,
+        "pct": 7.07
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Sweet Magnolias’ Canceled at Netflix as Sheryl J. Anderson and JoAnna Garcia Swisher Set New Series ‘Ladies of the House’",
+      "title": "NFL on Sling TV 2026: Here’s How to Watch Minnesota Vikings vs. Chicago Bears Game Live Online",
       "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/sweet-magnolias-canceled-netflix-ladies-of-the-house-1236867314/"
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-min-vikings-vs-chi-bears-live-online-sling-tv-1236867237/"
     },
     {
       "cat": "Film/TV",
-      "title": "Dana Walden Envisions Partnerships Between Creators and Disney at Created in L.A. Kickoff Event: ‘Maybe We Can Tell Some Stories Together’",
+      "title": "Angelina Jolie and Salma Hayek Pinault on Their New Film ‘Without Blood’ and Spending ‘A Lot of Time Talking About Our Pain, Our Losses, Our Traumas’",
       "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/dana-walden-disney-created-in-la-1236867238/"
+      "url": "https://variety.com/2026/film/columns/angelina-jolie-salma-hayek-without-blood-pain-losses-traumas-1236867367/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sesame Street Transforms Chappell Roan’s ‘Hot to Go!’ Into the Potty-Training Anthem ‘Got to Go,’ With Lead Vocals From Cookie Monster",
+      "title": "Paramount and California AG Bonta Reportedly in ‘Advanced Talks’ to Settle Antitrust Suit",
       "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/sesame-street-chappell-roan-hot-to-go-potty-training-1236867298/"
+      "url": "https://variety.com/2026/film/news/paramount-california-ag-bonta-advanced-talks-settle-antitrust-suit-1236867326/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Knife: The Attempted Murder of Salman Rushdie’ Review: Alex Gibney Profiles the Controversial Author During His Harrowing Hospitalization",
+      "title": "Oscar Predictions: Best Adapted Screenplay — Epics, Trilogies and a Wild Dinner Party Could Define the Race",
       "when": "18 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/knife-the-attempted-murder-of-salman-rushdie-review-1236867255/"
+      "url": "https://variety.com/feature/2027-oscars-best-adapted-screenplay-predictions-1236834275/"
     },
     {
       "cat": "Trek/Wars",
