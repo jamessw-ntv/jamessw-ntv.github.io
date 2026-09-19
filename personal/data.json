@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-19",
-    "fetched": "2026-09-19T10:41:37+00:00",
+    "fetched": "2026-09-19T14:16:45+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 11
+      "temp": 14,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
-        "min": 12,
-        "max": 24,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 22
-      },
-      {
-        "day": "Sun",
         "min": 13,
         "max": 24,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 25
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 19
       },
       {
         "day": "Mon",
@@ -37,7 +29,15 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 93
+        "rain": 96
+      },
+      {
+        "day": "Tue",
+        "min": 5,
+        "max": 17,
+        "icon": "⛅",
+        "desc": "Partly cloudy",
+        "rain": 0
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 113872.0,
-        "pct": 3.77
+        "price": 114072.0,
+        "pct": 0.97
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3705.86,
-        "pct": 4.96
+        "price": 3697.78,
+        "pct": 2.66
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘Trees Are Watching’ Review: Eva Green Fights A.I. Generated Horrors in Self-Serious Misfire Boarded by Martin Scorsese",
+      "when": "19 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/trees-are-watching-review-1236865892/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "White House Blocks CNN and MS NOW Journalists From Entry and Confiscates Their Badges After Donald Trump Bans Networks",
+      "when": "19 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/white-house-blocks-ms-now-journalist-trump-ban-cnn-politico-1236867650/"
+    },
     {
       "cat": "Film/TV",
       "title": "Spain’s SETT Drives $521 Million Investment Push to Build Global Audiovisual Players",
@@ -97,20 +111,6 @@
       "when": "19 Sep",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/naomi-watts-older-women-in-the-industry-emmys-san-sebastian-1236867602/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Writer-Star Berto Romero, Director Javier Ruiz Caldera Unpack San Sebastian Buzz Title ‘5 More Minutes’: ‘Characters and Audience Should Feel Every Second’s Weight’",
-      "when": "19 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/5-more-minutes-berto-romero-javier-camara-san-sebastian-1236855174/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Lego’s ‘Ninjago Legends: Duskfall’ Anime-Style Shorts Premiere in Korea Ahead of YouTube Release",
-      "when": "19 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/legos-ninjago-legends-duskfall-premiere-youtube-1236866920/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
