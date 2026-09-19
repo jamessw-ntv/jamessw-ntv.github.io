@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-19",
-    "fetched": "2026-09-19T20:24:07+00:00",
+    "fetched": "2026-09-19T22:49:56+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
+      "temp": 18,
       "icon": "☀️",
       "desc": "Clear",
       "wind": 18
@@ -21,7 +21,7 @@
         "max": 24,
         "icon": "⛅",
         "desc": "Partly cloudy",
-        "rain": 21
+        "rain": 18
       },
       {
         "day": "Mon",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 86
+        "rain": 84
       },
       {
         "day": "Tue",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114023.0,
-        "pct": 0.16
+        "price": 113830.0,
+        "pct": 0.13
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3694.59,
-        "pct": -0.09
+        "price": 3685.21,
+        "pct": 0.41
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "‘Sweet Magnolias’ Creator Reacts to Netflix Cancellation: ‘I Hope Serenity Will Always Have a Place in Your Heart’",
+      "when": "19 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/sweet-magnolias-netflix-cancellation-1236869711/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Here’s How to Watch Isaac Cruz vs. Nestor Bravo Boxing Live Online",
+      "when": "19 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-isaac-cruz-vs-nestor-bravo-boxing-live-sept-2026-online-1236867642/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Henry Winkler Says His Name Was Cut From ‘Scream’ Poster Because ‘You Were the Fonz’ and It Would ‘Knock the Balance of Horror Off’",
+      "when": "19 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/henry-winkler-scream-movie-poster-1236869640/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Pete Davidson and Colin Jost Were Clowned for Buying the Staten Island Ferry. They Just Proved Everyone Wrong.",
       "when": "19 Sep",
       "source": "Variety",
       "url": "https://variety.com/2026/scene/news/pete-davidson-colin-jost-snapple-island-ferry-comedy-show-1236867593/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Smell of Apples’ Review: A Sun-Soaked but Chilling Child’s-Eye View of Apartheid-Era Privilege and Denial",
-      "when": "19 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-smell-of-apples-review-1236869637/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Elizabeth Warren Says it Would be a ‘Massive Mistake’ for Rob Bonta to Settle Lawsuit With Paramount as Trump Bans CNN from White House: ‘This Is a Dangerous Merger’",
-      "when": "19 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/elizabeth-warren-massive-mistake-rob-bonta-settle-paramount-1236869679/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Melissa Barrera Says Support for Macklemore After He Was Dropped from Ed Sheeran’s Tour Is ‘Beautiful’ and ‘I Didn’t Get That’ After Being Fired From ‘Scream’",
-      "when": "19 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/scream-melissa-barrera-macklemore-ed-sheeran-1236869660/"
     },
     {
       "cat": "Trek/Wars",
