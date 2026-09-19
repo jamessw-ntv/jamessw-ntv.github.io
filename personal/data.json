@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-19",
-    "fetched": "2026-09-19T05:43:03+00:00",
+    "fetched": "2026-09-19T10:41:37+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 23,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 14
+      "temp": 16,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
         "min": 12,
-        "max": 23,
+        "max": 24,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 22
@@ -27,8 +27,8 @@
         "day": "Sun",
         "min": 13,
         "max": 24,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 25
       },
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 113671.0,
-        "pct": 4.41
+        "price": 113872.0,
+        "pct": 3.77
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3688.72,
-        "pct": 5.81
+        "price": 3705.86,
+        "pct": 4.96
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "World Premiering at San Sebastián, Igor Legarreta Describes His Third Film ‘The Blind Ants’ as a Coastal Western Set in the Basque Country",
+      "title": "Spain’s SETT Drives $521 Million Investment Push to Build Global Audiovisual Players",
       "when": "19 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/igor-legarreta-the-blind-ants-san-sebastian-lamia-lazona-1236862823/"
+      "url": "https://variety.com/2026/global/global/sett-spain-audiovisual-hub-anima-kitchent-good-films-1236846260/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Darlene Love: I Know Where I’ve Been’ Review: A Stirring Pop Doc Traces How the Great Singer of ‘He’s a Rebel’ and Other Classics Reclaimed Her Name",
+      "title": "Naomi Watts Believes Standards Have Changed for Older Women in the Industry: ‘Look at the Emmys Last Week… That’s Heartening to See’",
       "when": "19 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/darlene-love-i-know-where-ive-been-review-1236865848/"
+      "url": "https://variety.com/2026/film/global/naomi-watts-older-women-in-the-industry-emmys-san-sebastian-1236867602/"
     },
     {
       "cat": "Film/TV",
-      "title": "NFL on Sling TV 2026: Here’s How to Watch Minnesota Vikings vs. Chicago Bears Game Live Online",
-      "when": "18 Sep",
+      "title": "Writer-Star Berto Romero, Director Javier Ruiz Caldera Unpack San Sebastian Buzz Title ‘5 More Minutes’: ‘Characters and Audience Should Feel Every Second’s Weight’",
+      "when": "19 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-min-vikings-vs-chi-bears-live-online-sling-tv-1236867237/"
+      "url": "https://variety.com/2026/film/global/5-more-minutes-berto-romero-javier-camara-san-sebastian-1236855174/"
     },
     {
       "cat": "Film/TV",
-      "title": "Angelina Jolie and Salma Hayek Pinault on Their New Film ‘Without Blood’ and Spending ‘A Lot of Time Talking About Our Pain, Our Losses, Our Traumas’",
-      "when": "18 Sep",
+      "title": "Lego’s ‘Ninjago Legends: Duskfall’ Anime-Style Shorts Premiere in Korea Ahead of YouTube Release",
+      "when": "19 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/angelina-jolie-salma-hayek-without-blood-pain-losses-traumas-1236867367/"
+      "url": "https://variety.com/2026/tv/global/legos-ninjago-legends-duskfall-premiere-youtube-1236866920/"
     },
     {
       "cat": "Trek/Wars",
