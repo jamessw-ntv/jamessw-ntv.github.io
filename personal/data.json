@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-19",
-    "fetched": "2026-09-19T14:16:45+00:00",
+    "fetched": "2026-09-19T17:53:49+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 14,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 10
+      "wind": 14
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 24,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 19
+        "rain": 21
       },
       {
         "day": "Mon",
@@ -29,7 +29,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 96
+        "rain": 86
       },
       {
         "day": "Tue",
@@ -72,59 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114072.0,
-        "pct": 0.97
+        "price": 114205.0,
+        "pct": 0.6
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3697.78,
-        "pct": 2.66
+        "price": 3708.54,
+        "pct": 1.38
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Trees Are Watching’ Review: Eva Green Fights A.I. Generated Horrors in Self-Serious Misfire Boarded by Martin Scorsese",
+      "title": "Orville Peck Dedicates Performance to ‘All the Gay Cowboys’: ‘We Exist, We Walk Among You’",
       "when": "19 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/trees-are-watching-review-1236865892/"
+      "url": "https://variety.com/2026/music/columns/orville-peck-dedicates-willie-nelson-duet-gay-cowboys-hollywood-bowl-1236869602/"
     },
     {
       "cat": "Film/TV",
-      "title": "White House Blocks CNN and MS NOW Journalists From Entry and Confiscates Their Badges After Donald Trump Bans Networks",
+      "title": "Spain’s National Film Prize Honoree Carmen Machi: ‘Acting Has Been the Driving Force of My Happiness and Also a Balm for My Darkest Moments’",
       "when": "19 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/white-house-blocks-ms-now-journalist-trump-ban-cnn-politico-1236867650/"
+      "url": "https://variety.com/2026/film/global/carmen-machi-spain-national-film-prize-honoree-1236868201/"
     },
     {
       "cat": "Film/TV",
-      "title": "Spain’s SETT Drives $521 Million Investment Push to Build Global Audiovisual Players",
+      "title": "Miley’s ‘Bass Persuades’ Is Pretty and Passable, but Surprisingly Light on Bass… or Persuasion: Album Review",
       "when": "19 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/global/global/sett-spain-audiovisual-hub-anima-kitchent-good-films-1236846260/"
+      "url": "https://variety.com/2026/music/news/miley-bass-persuades-album-review-1236868564/"
     },
     {
       "cat": "Film/TV",
-      "title": "Naomi Watts Believes Standards Have Changed for Older Women in the Industry: ‘Look at the Emmys Last Week… That’s Heartening to See’",
+      "title": "Cate Blanchett Tells Audience To Stop Recording Her London Play: ‘It Spoils It for The Next Group of People’",
       "when": "19 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/naomi-watts-older-women-in-the-industry-emmys-san-sebastian-1236867602/"
+      "url": "https://variety.com/2026/theater/news/cate-blanchett-tells-audience-stop-recording-1236869611/"
     },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars: Galactic Racer’ Full Official Soundtrack To Be Released, Main Title Theme Revealed",
-      "when": "18 Sep",
+      "when": "19 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/star-wars-galactic-racer-full-official-soundtrack-to-be-released-main-title-theme-revealed.html"
     },
     {
       "cat": "Trek/Wars",
       "title": "Sifo-Dyas – ‘Star Wars’ Character Spotlight",
-      "when": "18 Sep",
+      "when": "19 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/sifo-dyas-star-wars-character-spotlight.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘The Mandalorian and Grogu’: Nielsen Shows Solid Ratings for First Week on Streaming",
+      "when": "19 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/the-mandalorian-and-grogu-nielsen-shows-solid-ratings-for-first-week-on-streaming.html"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "18 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/18/podcast-all-access-star-trek-goes-on-a-fairy-tale-adventure-with-strange-new-worlds/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘The Mandalorian and Grogu’: Nielsen Shows Solid Ratings for First Week on Streaming",
-      "when": "17 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/the-mandalorian-and-grogu-nielsen-shows-solid-ratings-for-first-week-on-streaming.html"
     },
     {
       "cat": "Trek/Wars",
