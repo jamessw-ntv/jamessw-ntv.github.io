@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-20",
-    "fetched": "2026-09-20T14:39:25+00:00",
+    "fetched": "2026-09-20T18:09:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 14
+      "temp": 11,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 16
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 112990.0,
-        "pct": -1.11
+        "price": 113621.0,
+        "pct": -0.51
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3618.92,
-        "pct": -2.16
+        "price": 3677.69,
+        "pct": -0.76
       }
     ]
   },
   "releases": [
     {
-      "cat": "Film/TV",
-      "title": "‘Backrooms’ Surpasses $400 Million at Global Box Office",
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: ‘The Mandalorian and Grogu’ Streaming Numbers, ‘The Force Awakens’ Dethroned, and Not Much More",
       "when": "20 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/backrooms-box-office-milestone-400-million-1236870141/"
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-the-mandalorian-and-grogu-streaming-numbers-the-force-awakens-dethroned-and-not-much-more.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Paramount Settlement Talks With State AGs Reach Critical Stage as Merger Opponents Rally and Urge Rob Bonta ‘Do Not Cave’",
+      "title": "Kate Beckinsale Posts Cryptic Messages on Social Media, Sparking Concern from Fans",
       "when": "20 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-merger-settlement-rob-bonta-not-cave-warner-bros-1236869739/"
+      "url": "https://variety.com/2026/film/news/kate-beckinsale-cryptic-messages-on-social-media-1236870408/"
     },
     {
       "cat": "Film/TV",
-      "title": "How to Watch Patrick Clancy’s ’60 Minutes’ Interview Online",
+      "title": "Sylvester Stallone Says He Turned Down Trump’s ‘Special Ambassador’ to Hollywood Role Because It Was ‘Impossible’: ‘I Said Thank You and Ciao’",
       "when": "20 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-patrick-clancy-60-minutes-interview-online-1236867210/"
+      "url": "https://variety.com/2026/film/news/sylvester-stallone-special-ambassador-hollywood-trump-1236870394/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘SNL U.K.’ Brings Back Princess Diana as King Charles’ AI Assistant: ‘It’s That Woman From the ’90s!’",
+      "title": "NFL’s 20 Hottest WAGs: Taylor Swift, Madison Beer, Normani and More",
       "when": "20 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/snl-uk-princess-diana-king-charles-ai-assistant-1236870092/"
+      "url": "https://variety.com/lists/nfl-20-hottest-wags-taylor-swift-madison-beer-normani-olivia-ponton/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "From Oprah Winfrey and Christopher Nolan to Kim Kardashian and Robert De Niro: Inside the Lucas Museum of Narrative Art Opening Gala",
+      "when": "20 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/gallery/oprah-winfrey-christopher-nolan-robert-de-niro-kim-kardashian-lucas-museum-of-narrative-art-opening/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "19 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/sifo-dyas-star-wars-character-spotlight.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘The Mandalorian and Grogu’: Nielsen Shows Solid Ratings for First Week on Streaming",
-      "when": "19 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/the-mandalorian-and-grogu-nielsen-shows-solid-ratings-for-first-week-on-streaming.html"
     },
     {
       "cat": "Trek/Wars",
