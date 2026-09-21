@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-20",
-    "fetched": "2026-09-20T21:22:27+00:00",
+    "updated": "2026-09-21",
+    "fetched": "2026-09-21T00:02:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 12,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 14
+      "wind": 18
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 113646.0,
-        "pct": 0.19
+        "price": 113961.0,
+        "pct": 0.1
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3688.02,
-        "pct": 0.42
+        "price": 3713.96,
+        "pct": 0.76
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Ke Huy Quan Says His $100,000 ‘Indiana Jones’ Residual Check Was ‘Life-Changing’ As a Child Actor: It ‘Didn’t Make Any Sense’",
+      "when": "20 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/ke-huy-quan-indiana-jones-temple-of-doom-memoir-1236870595/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘My Hero Academia’ Reworks ‘You Say Run’ Theme With Electric Callboy for 10th Anniversary",
+      "when": "20 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/my-hero-academia-you-say-run-10th-anniversary-1236869470/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Lucas Museum Inauguration Took Place on Saturday With Major Industry and Political Figures In Attendance",
+      "when": "20 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/lucas-museum-inauguration-took-place-on-saturday-with-major-industry-figures-in-attendance.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Ben Affleck Almost Cast Ex-Wife Jennifer Garner in ‘Animals’ Before Deciding ‘We Don’t Wanna Do That’: ‘You Just Get Baggage’",
+      "when": "20 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/ben-affleck-ex-jennifer-garner-as-his-wife-in-animals-1236870451/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "NYU Langone Privately Bought the Site of a Landmark AMC Theater — New Yorkers Are Now Fighting to Save It",
       "when": "20 Sep",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/amc-kips-bay-protests-movie-theater-nyu-langone-1236870536/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The Assassin(s)’ Review: A Riveting South Korean Popcorn Thriller About a Real Assassination",
-      "when": "20 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/the-assassins-review-1236869794/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Magazine’ Review: Lily McInerny Scores Her Dream Internship in Alexandra Pechman’s Warmly Nostalgic Study of a Bygone Literary Scene",
-      "when": "20 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/magazine-review-2-1236870524/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Sweet Magnolias’ Cancellation: Creator, Stars JoAnna Garcia Swisher and Jamie Lynn Spears React to Netflix Series Ending",
-      "when": "20 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/sweet-magnolias-netflix-cancellation-1236869711/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "19 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/star-wars-galactic-racer-full-official-soundtrack-to-be-released-main-title-theme-revealed.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Sifo-Dyas – ‘Star Wars’ Character Spotlight",
-      "when": "19 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/sifo-dyas-star-wars-character-spotlight.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
