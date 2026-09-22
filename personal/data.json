@@ -2,39 +2,39 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-21",
-    "fetched": "2026-09-21T23:59:12+00:00",
+    "updated": "2026-09-22",
+    "fetched": "2026-09-22T04:22:13+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 14
+      "temp": 15,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
         "min": 5,
-        "max": 16,
-        "icon": "⛅",
-        "desc": "Partly cloudy",
+        "max": 15,
+        "icon": "🌤️",
+        "desc": "Mainly clear",
         "rain": 0
       },
       {
         "day": "Wed",
         "min": 5,
-        "max": 20,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "max": 21,
+        "icon": "⛅",
+        "desc": "Partly cloudy",
         "rain": 0
       },
       {
         "day": "Thu",
         "min": 10,
-        "max": 25,
+        "max": 24,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 2
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 121595.0,
-        "pct": 6.7
+        "price": 120072.0,
+        "pct": 5.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3897.33,
-        "pct": 4.99
+        "price": 3843.29,
+        "pct": 3.13
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Generative AI, Microdramas to Take Center Stage at Busan Market",
+      "when": "22 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/generative-ai-microdramas-busan-market-1236871628/"
+    },
     {
       "cat": "Film/TV",
       "title": "Robin Williams’ Daughter Calls for Fans Creating AI Videos of the Actor to ‘Have Some Shame’: ‘Leave Him Out of Your Delusional Bulls—’",
@@ -104,13 +111,6 @@
       "when": "21 Sep",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/tom-cruise-ai-movies-people-want-real-things-1236871464/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Christina Applegate Shares First Video Following Months-Long Hospitalization: ‘Love to You All Out There’",
-      "when": "21 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/christina-applegate-ms-battle-1236871479/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
