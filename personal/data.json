@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-22",
-    "fetched": "2026-09-22T18:41:11+00:00",
+    "fetched": "2026-09-22T21:55:36+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 5,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 5
+      "temp": 8,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 4
     },
     "days": [
       {
@@ -36,7 +36,7 @@
         "min": 13,
         "max": 26,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 26
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 121419.0,
-        "pct": 0.59
+        "price": 121159.0,
+        "pct": -0.35
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3864.14,
-        "pct": 0.08
+        "price": 3861.74,
+        "pct": -0.73
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Austin Film Society Announces $300,000 in Filmmaker Grant Awards, Launches Texas Lights Funding Program (EXCLUSIVE)",
+      "title": "Ari Emanuel on Outrunning ‘Entourage,’ the Art of the Phone Call and the Stolen Commission that Still Hurts",
       "when": "22 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/austin-film-society-texas-lights-1236872424/"
+      "url": "https://variety.com/2026/biz/news/ari-emanuel-outrunning-entourage-stolen-commission-1236872503/"
     },
     {
       "cat": "Film/TV",
-      "title": "George Lucas Says He Had Three More ‘Star Wars’ Movies to Make but ‘Decided to Retire’ From Directing Instead",
+      "title": "‘Digger’ First Reactions Split Over Tom Cruise’s ‘Baffling,’ ‘Unpleasant’ and ‘Brave’ New Movie: ‘The Divide on This Is Going to Be Wide’",
       "when": "22 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/george-lucas-star-wars-movies-retire-directing-1236872433/"
+      "url": "https://variety.com/2026/film/news/digger-first-reactions-tom-cruise-baffles-1236871935/"
     },
     {
       "cat": "Film/TV",
-      "title": "Don’t Lie, Don’t Cry and Use Common Sense: Adam Levy, Judge Judy’s Son, Joins the Family Business With ‘Adam’s Law’",
+      "title": "Spike Lee, Bowen Yang, Amandla Stenberg, Dave Franco and Chance the Rapper Front J.Crew’s 40th Anniversary Barn Jacket Campaign",
       "when": "22 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/adams-law-adam-levy-judge-judy-sheindlin-court-show-1236872416/"
+      "url": "https://variety.com/2026/shopping/news/j-crew-barn-jacket-campaign-spike-lee-bowen-yang-1236872685/"
     },
     {
       "cat": "Film/TV",
-      "title": "Disney Promotes Cathleen Taff to President Entertainment Studios and Consumer Products",
+      "title": "All the Top Shows, Movies and Networks in the Merged Paramount-Warner Bros: ‘Yellowstone,’ ‘Harry Potter,’ ‘Mission: Impossible’ and DC Under One Roof",
       "when": "22 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/disney-cathleen-taff-studios-consumer-products-president-1236872335/"
+      "url": "https://variety.com/2026/tv/news/paramount-warner-bros-merger-shows-movies-networks-1236872287/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
