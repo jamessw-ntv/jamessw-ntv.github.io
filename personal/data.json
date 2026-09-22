@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-22",
-    "fetched": "2026-09-22T14:34:42+00:00",
+    "fetched": "2026-09-22T18:41:11+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
+      "temp": 5,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
       "wind": 5
     },
     "days": [
@@ -37,7 +37,7 @@
         "max": 26,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 23
+        "rain": 26
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 120769.0,
-        "pct": 0.35
+        "price": 121419.0,
+        "pct": 0.59
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3844.51,
-        "pct": 0.16
+        "price": 3864.14,
+        "pct": 0.08
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "This $760 ‘Handmaid’s Tale’ Box Set Comes With Hand-Signed Artwork and a New Margaret Atwood Introduction",
+      "title": "Austin Film Society Announces $300,000 in Filmmaker Grant Awards, Launches Texas Lights Funding Program (EXCLUSIVE)",
       "when": "22 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/handmaids-tale-testaments-box-set-signed-limited-edition-1236872074/"
+      "url": "https://variety.com/2026/film/news/austin-film-society-texas-lights-1236872424/"
     },
     {
       "cat": "Film/TV",
-      "title": "Rachel Maddow’s ‘Kill. Bury. Print.’ Wins 2026 David Carr Award From Montclair Film Festival",
+      "title": "George Lucas Says He Had Three More ‘Star Wars’ Movies to Make but ‘Decided to Retire’ From Directing Instead",
       "when": "22 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/rachel-maddow-kill-bury-print-wins-2026-david-carr-award-1236871616/"
+      "url": "https://variety.com/2026/film/news/george-lucas-star-wars-movies-retire-directing-1236872433/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hayden Panettiere’s Cause of Death Revealed as Toxic Effects of Fentanyl and More; Death Ruled an Accident",
+      "title": "Don’t Lie, Don’t Cry and Use Common Sense: Adam Levy, Judge Judy’s Son, Joins the Family Business With ‘Adam’s Law’",
       "when": "22 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hayden-panettiere-cause-of-death-revealed-fentanyl-1236836083/"
+      "url": "https://variety.com/2026/tv/news/adams-law-adam-levy-judge-judy-sheindlin-court-show-1236872416/"
     },
     {
       "cat": "Film/TV",
-      "title": "Netflix Unveils ‘Kpop Demon Hunters’ Immersive Experience",
+      "title": "Disney Promotes Cathleen Taff to President Entertainment Studios and Consumer Products",
       "when": "22 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/kpop-demon-hunters-immersive-experience-netflix-tickets-1236872059/"
+      "url": "https://variety.com/2026/tv/news/disney-cathleen-taff-studios-consumer-products-president-1236872335/"
+    },
+    {
+      "cat": "Games",
+      "title": "Satisfactory - September News",
+      "when": "22 Sep",
+      "source": "Satisfactory",
+      "url": "https://store.steampowered.com/news/app/526870/view/677384059121304793"
     },
     {
       "cat": "Trek/Wars",
@@ -160,13 +167,6 @@
       "when": "10 Sep",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/701027323413004537"
-    },
-    {
-      "cat": "Games",
-      "title": "1.2 Update Fixes v1.2.4.0",
-      "when": "11 Aug",
-      "source": "Satisfactory",
-      "url": "https://store.steampowered.com/news/app/526870/view/716786751176181500"
     }
   ],
   "dev": [
