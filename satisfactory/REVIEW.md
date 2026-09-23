@@ -875,3 +875,40 @@ Save migration (plan v14):
 - A save past Phase 1 that never built Copperworks is sent back to build it.
 - Every other save lands where it was.
 
+
+### Rounds 9–10 (same day)
+
+The first-timer, veteran and code reviewers each ran twice more.
+
+What the veteran confirmed from game data: every unlock is in order, all 32 milestone
+costs and every Space Elevator count match, the generator and recipe rates match, and
+draw never exceeds capacity.
+
+Fixed:
+- **The opening can be followed as written.**
+  - Tier 1 Logistics is hand-crafted first, so every early line can split and merge.
+  - The mall step lists exactly what to hand-craft for the first machines. It only
+    lists what Tier 0 can craft; Rotors are asked for once Part Assembly unlocks them.
+  - The Space Elevator (1,500 Wire) waits for the A and B lines.
+  - Burners are described honestly: they need refilling while you play, and Obstacle
+    Clearing (Solid Biofuel) makes the fuel last longer.
+- **Nothing you need goes into a Sink.** Fuel goes to its generators, fuel rods to the
+  plants, and SAM Fluctuators to the ★ stockpile. The Sink milestone now comes before
+  the oil byproducts that use it.
+- **Power:** the Ballistic Warp Drive draws its real 1,000 MW average.
+- **Cards:**
+  - Bank cards show their build cost.
+  - Lightly used banks get an underclock hint, correct under MAX too.
+  - Every step has a "Done when" you can check the moment you've built it.
+  - Deliveries say to press Send when the elevator is full.
+- **State:**
+  - Migration holds Copperworks back only when it really is missing.
+  - Reset keeps the plan version.
+  - Undo walks a stack of ≈ and ⏭ marks.
+  - A whole jump can be undone in one tap, and that button clears on Reset and Load code.
+  - `PLAN_VERSION` is now 15.
+- **Speed:** the extras ledger stops when it flip-flops between two answers, so boot
+  time is back to ~1.1 s.
+
+Still open: district E's cards disagree slightly on how its fresh and recycled water is
+split.
