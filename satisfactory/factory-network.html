@@ -1060,6 +1060,9 @@ function effectivePhase(){ const nx=masterSteps().find(s=>!state[s.key]); return
 let bpViewPhase='now';   // open on what should be standing now, not the finished plan
 function viewPhase(){ return bpViewPhase==='final'?5:(bpViewPhase==='now'?effectivePhase():+bpViewPhase); }
 /* machines of a bank your ticks say are standing: its build step, then the last ticked Expand bite */
+/* the bank the ✅ Do Next card is on (a build or an Expand bite), so every view can mark it ▶ */
+function isNextBank(did,i){ const nx=masterSteps().find(s=>!state[s.key]); if(!nx) return false;
+  return (nx.ai!=null&&nx.district===did&&nx.ai===i)||(nx.expOf&&nx.expOf.d===did&&nx.expOf.i===i); }
 function tickedCount(d,bk){ if(!state['bp:'+d.id+':'+bk.tid]) return 0; let n=bankNowCount(d,bk);
   const pre='exp:'+d.id+':'; masterSteps().forEach(s=>{ if(s.expOf&&s.expOf.d===d.id&&state[s.key]&&s.key.startsWith(pre)&&(s.key.split(':')[3]===bk.tid)) n=Math.max(n,s.expOf.after); });
   return Math.min(bk.n,n); }
@@ -2096,7 +2099,9 @@ function bmApply(){
   const sl=document.getElementById('bmSlider'); if(sl){ sl.max=BM_SEQ.length-1; sl.value=bmStep; }
   const lbl=document.getElementById('bmStepLbl'); if(lbl) lbl.textContent='Chapter '+(bmStep+1)+' / '+BM_SEQ.length+(atNow?' · 📍 you are here':' · preview');
   const nowB=document.getElementById('bmNow'); if(nowB){ nowB.style.borderColor=atNow?'var(--line)':'var(--orange)'; nowB.style.color=atNow?'var(--muted)':'var(--orange)'; }
-  const cap=document.getElementById('bmCaption'); if(cap) cap.innerHTML='<b style="color:var(--txt)">'+BM_SEQ[bmStep].t+'</b>'+(atNow?' <span style="color:#8fe6a8;font-size:12px">📍 your progress</span>':' <span style="color:var(--muted);font-size:12px">(preview — 📍 Now returns to your progress)</span>')+'<br>'+BM_SEQ[bmStep].d;
+  const cap=document.getElementById('bmCaption'); if(cap) cap.innerHTML='<b style="color:var(--txt)">'+BM_SEQ[bmStep].t+'</b>'+(atNow?' <span style="color:#8fe6a8;font-size:12px">📍 your progress</span>'+(nx?(()=>{ const nd=nx.district&&DMAP[nx.district]; let t='<br><span style="color:var(--orange)">▶ Next: step '+(masterSteps().indexOf(nx)+1)+' — '+stripTags(nx.label)+'</span>';
+      if(nd){ const bks=districtBanks(nd), up=bks.filter(b=>tickedCount(nd,b)>0).length, m=bks.reduce((a,b)=>a+tickedCount(nd,b),0), mt=bks.reduce((a,b)=>a+b.n,0); t+=' <span style="color:var(--muted);font-size:12px">· '+nd.id+' '+nd.name+': '+up+'/'+bks.length+' sections standing, '+m+' of '+mt+' machines</span>'; }
+      return t; })():''):' <span style="color:var(--muted);font-size:12px">(preview — 📍 Now returns to your progress)</span>')+'<br>'+BM_SEQ[bmStep].d;
 }
 function bmSet(v){ bmStep=bmClamp(v,0,BM_SEQ.length-1); bmApply(); }
 function bmStop(){ if(bmTimer){ clearInterval(bmTimer); bmTimer=null; const b=document.getElementById('bmPlay'); if(b) b.textContent='▶ Play'; } }
@@ -2464,7 +2469,7 @@ function districtFlowSvg(d, banks, hiIdx){
     if(ext.length){ const full='◀ '+ext.map(e=>e[0]).join(', ');
       s+=`<text x="${p.x+2}" y="${p.y-6}" fill="#6f7c8a" font-size="8.5">${bpEsc(bpFit(full,CW-4,4.4))}<title>${bpEsc(full.slice(2))}</title></text>`; }
     s+=`<g class="bpsect" data-works="${d.id}" data-i="${i}" style="cursor:pointer">`;
-    s+=`<rect x="${p.x}" y="${p.y}" width="${CW}" height="${CH}" rx="8" fill="${col}" opacity="${done?.5:.97}" stroke="${hi?'#fff':'rgba(0,0,0,.32)'}" stroke-width="${hi?2.5:1}"><title>${bpEsc(bk.r)} — ${bk.n}× ${bk.b} · ~${side}×${side} foundations · out ${bk.outRate}/min</title></rect>`;
+    s+=`<rect x="${p.x}" y="${p.y}" width="${CW}" height="${CH}" rx="8" fill="${col}" opacity="${done?.5:.97}" stroke="${hi?'#fff':(isNextBank(d.id,i)?'#ff9e3d':'rgba(0,0,0,.32)')}" stroke-width="${hi||isNextBank(d.id,i)?2.5:1}"><title>${bpEsc(bk.r)} — ${bk.n}× ${bk.b} · ~${side}×${side} foundations · out ${bk.outRate}/min</title></rect>`;
     s+=`<text x="${p.x+28}" y="${p.y+17}" fill="#0a0d12" font-size="10" font-weight="700">§${i+1} · ${ab} ×${cnt}</text>`;
     s+=phaseChipSvg(p.x+CW-32,p.y+5,bankBuiltPhase(d,bk));
     s+=`<text x="${p.x+10}" y="${p.y+38}" fill="#0a0d12" font-size="12.5" font-weight="700">${bpEsc(bpFit(bk.r,CW-18,6.6))}</text>`;
@@ -2512,7 +2517,7 @@ function districtGridSvg(d, banks, hiIdx){
   banks.forEach((bk,i)=>{ const p=pos[i], done=!!state['bp:'+d.id+':'+bk.tid], hi=(i===hiIdx);
     const col=BCOL[bk.b]||'#8b97a3', ab=ABBR[bk.b]||'?', x=X(p.cx), y=Y(p.cy), w=p.s*cell;
     s+=`<g class="bpsect" data-works="${d.id}" data-i="${i}" style="cursor:pointer">`;
-    s+=`<rect x="${x}" y="${y}" width="${w}" height="${w}" rx="2" fill="${col}" opacity="${done?.5:.92}" stroke="${hi?'#fff':'#0a0d12'}" stroke-width="${hi?2.5:1}"><title>${bk.r}: ${bk.n}× ${bk.b} · ~${p.s}×${p.s} foundations</title></rect>`;
+    s+=`<rect x="${x}" y="${y}" width="${w}" height="${w}" rx="2" fill="${col}" opacity="${done?.5:.92}" stroke="${hi?'#fff':(isNextBank(d.id,i)?'#ff9e3d':'#0a0d12')}" stroke-width="${hi||isNextBank(d.id,i)?2.5:1}"><title>${bk.r}: ${bk.n}× ${bk.b} · ~${p.s}×${p.s} foundations</title></rect>`;
     s+=`<text x="${x+4}" y="${y+13}" fill="#0a0d12" font-size="10" font-weight="700">§${i+1}</text>`;
     if(w>52){ s+=`<text x="${x+4}" y="${y+25}" fill="#0c1620" font-size="9" font-weight="700">${bpEsc(bpFit(bk.r,w-8,5))}</text>`;
       s+=`<text x="${x+4}" y="${y+37}" fill="#10202a" font-size="8.5">${bpEsc(bpFit(ab+'×'+cntLabel(d,bk)+' · '+p.s+'×'+p.s,w-8,4.6))}</text>`; }
