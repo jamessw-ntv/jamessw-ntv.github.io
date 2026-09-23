@@ -259,7 +259,7 @@
     <h3>Just want to follow it? Do this:</h3>
     <p>Open <b>✅ Do Next</b> and keep doing the orange “▶ DO THIS NOW” card, hitting <b>✓ Done</b> after each. It walks Phase 0 setup → build <b>Ironworks</b> → add <b>Smart Plating</b> to ★ → deliver → coal power → <b>Steelworks + Copperworks</b> → … → <b>launch 🚀</b>. Tap <b>📐 Blueprint</b> on any step to see exactly where the machines and belts go.</p>
     <h3>Assumptions baked in</h3>
-    <p>Everything <b>above ground</b> (fly mod), and <b>MAX output</b>: every machine at <b>250% (3 Power Shards) + a Somersloop (2×)</b> = 5× each, so counts are ~⅕. Toggle ⚡ MAX off in Blueprints to see 100% counts. Far districts (Aluminium / Nuclear / Quantum) are <b>railed in</b>.</p>
+    <p>Everything <b>above ground</b> (fly mod), at <b>100% clock</b> by default (⚡ MAX = every machine at 250% with 3 Power Shards, ~40% of the machines). Far districts (Aluminium / Nuclear / Quantum) are <b>railed in</b>.</p>
     <h3>Belts &amp; pipes — when you get them, when to upgrade</h3>
     <p>Each build step prints the <b>exact belt Mk</b> for that line and flags <span class="tag qty">upgrade</span> when a trunk outgrows its belt. Lay the best belt you have unlocked, then come back and upgrade the fat trunks as new Mks arrive. Rough unlock timing:</p>
     <table style="margin:4px 0">
@@ -286,7 +286,7 @@
         <tr><td><b>Belt web / exact placement</b></td><td>The machine-level drill-down: every machine, <b>splitter (▫)</b>, <b>merger (◇)</b>, belt segment and <b>storage buffer (🗄)</b> for one bank. Click any area block to open it.</td></tr>
         <tr><td><b>Splitter / merger</b></td><td>The logistics piece that taps a belt off to a machine (splitter) or combines machine outputs back onto one belt (merger).</td></tr>
         <tr><td><b>Storage buffer (🗄)</b></td><td>A container between stages that evens out flow so a line never starves or backs up.</td></tr>
-        <tr><td><b>Overclock + Somersloop</b></td><td>Running a machine at <b>250%</b> (3 Power Shards) and slotting a <b>Somersloop</b> (2× output) = <b>5× per machine</b>, so you build ~⅕ the machines. That's the ⚡ <b>MAX</b> toggle; turn it off for 100% counts.</td></tr>
+        <tr><td><b>Overclock / Somersloop</b></td><td>Running a machine at <b>250%</b> (3 Power Shards) = <b>2.5× per machine</b> — that's the ⚡ <b>MAX</b> toggle. A <b>Somersloop</b> doubles output again without extra input; they're rare, so the 🎯 allocator says where yours are worth it.</td></tr>
         <tr><td><b>Trunk / lane</b></td><td>The main belt of a flow. When its rate tops a belt's throughput, you split it into parallel <b>lanes</b> (e.g. "2× Mk.6") and feed the manifold from both sides.</td></tr>
         <tr><td><b>Phase</b></td><td>A Space Elevator delivery milestone (1–5). Each completed phase unlocks the next tech tier and the next districts.</td></tr>
       </tbody>
@@ -464,7 +464,7 @@ function auditT(){ const bad=[];
 
 const DELIVERIES = {
   1:[['Smart Plating',50,'M1']],
-  2:[['Smart Plating',500,'M1'],['Versatile Framework',500,'M2'],['Automated Wiring',100,'M3']],
+  2:[['Smart Plating',1000,'M1'],['Versatile Framework',1000,'M2'],['Automated Wiring',100,'M3']],
   3:[['Versatile Framework',2500,'M2'],['Modular Engine',500,'M4'],['Adaptive Control Unit',100,'M5']],
   4:[['Assembly Director System',500,'M6'],['Magnetic Field Generator',500,'M7'],['Thermal Propulsion Rocket',250,'M8'],['Nuclear Pasta',100,'M9']],
   5:[['Nuclear Pasta',1000,'M9'],['Biochemical Sculptor',1000,'M10'],['AI Expansion Server',256,'M11'],['Ballistic Warp Drive',200,'M12']],
@@ -489,8 +489,8 @@ const INVENTORY = [
  {phase:0,category:'milestone',id:'PWR0',item:'⚡ Power: Biomass Burners (bootstrapping)',qty:'',note:'30 MW each; hand/belt-fed — replace at Tier 3'},
  {phase:1,category:'deliverable',id:'P1-D1',item:'Smart Plating',qty:50,note:'Assembled at ★ — load it into the Space Elevator and press Send · unlocks Tiers 3 & 4'},
  {phase:2,category:'module',id:'COAL',item:'⚡ Power: Coal Generators (by water, on their own coal node)',qty:'',note:'75 MW each; each needs 15 coal/min + 45 water/min (~2.7 generators per Water Extractor). Use a coal node of its own — Steelworks needs its coal'},
- {phase:2,category:'deliverable',id:'P2-D1',item:'Smart Plating',qty:500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
- {phase:2,category:'deliverable',id:'P2-D2',item:'Versatile Framework',qty:500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
+ {phase:2,category:'deliverable',id:'P2-D1',item:'Smart Plating',qty:1000,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
+ {phase:2,category:'deliverable',id:'P2-D2',item:'Versatile Framework',qty:1000,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:2,category:'deliverable',id:'P2-D3',item:'Automated Wiring',qty:100,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:3,category:'module',id:'PWR3',item:'⚡ Power: Fuel Generators (from oil)',qty:'',note:'250 MW each, 20 Fuel/min each — fed by D\'s Heavy Oil Residue → Residual Fuel line (see D\'s utilities step) plus crude → Fuel refineries if short'},
  {phase:3,category:'deliverable',id:'P3-D1',item:'Versatile Framework',qty:2500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
@@ -584,11 +584,11 @@ function renderTemplates(){
 /* ============================ SHOPPING ============================ */
 /* Somersloop amplification slots per building (1.0) — filling every slot doubles output. */
 const SLOOP_SLOTS={Smelter:1,Foundry:2,Constructor:1,Assembler:2,Manufacturer:4,Refinery:2,Blender:4,'Particle Accelerator':4,Converter:2,'Quantum Encoder':4};
-/* base MW per machine @100% (1.0). At MAX: ×2.5^1.321928 (overclock) ×4 (Somersloop —
-   amplification power scales with the SQUARE of the 2× output multiplier). Particle
-   Accelerator / Converter power fluctuates per recipe; these are averages. */
+/* base MW per machine @100% (1.0). At MAX (250% overclock): ×2.5^1.321928 ≈ ×3.36.
+   (A Somersloop would ×4 it again — sloops are optional advice, not in the counts.)
+   Particle Accelerator / Converter power fluctuates per recipe; these are averages. */
 const BASE_MW={Smelter:4,Foundry:16,Constructor:4,Assembler:15,Manufacturer:55,Refinery:30,Blender:75,'Particle Accelerator':500,Converter:100,'Quantum Encoder':1000};
-function machinePower(b){ const base=BASE_MW[b]||10; return bpMax ? base*Math.pow(2.5,1.321)*4 : base; }
+function machinePower(b){ const base=BASE_MW[b]||10; return bpMax ? base*Math.pow(2.5,1.321928) : base; }
 const GEN={1:{n:'Biomass Burners (coal only arrives with Tier 3)',mw:30},2:{n:'Coal',mw:75},3:{n:'Fuel',mw:250},4:{n:'Nuclear',mw:2500},5:{n:'Nuclear',mw:2500}};
 /* the TECH lists as they were when tech keys were positional (tech:2:1) — frozen, so the
    positional → slug migration keeps mapping old saves correctly after TECH is edited. */
@@ -700,17 +700,16 @@ function renderShopping(){
   const bld={}; let totMach=0; all.forEach(({b})=>{ bld[b.b]=(bld[b.b]||0)+b.n; totMach+=b.n; });
   const brows=Object.entries(bld).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<tr><td><b>${ABBR[k]||''} ${k}</b></td><td class="n">${v}</td></tr>`).join('');
   const bs=document.createElement('div'); bs.className='shopphase';
-  bs.innerHTML=`<h3>🏭 Buildings to make — whole build (${totMach} machines${bpMax?' at MAX 250%+sloop':''})</h3>`+
+  bs.innerHTML=`<h3>🏭 Buildings to make — whole build (${totMach} machines${bpMax?' at MAX 250%':''})</h3>`+
     '<table><thead><tr><th>Building</th><th>Count</th></tr></thead><tbody>'+brows+'</tbody></table>';
   rWrap.appendChild(bs);
   // ---- 3) POWER SHARD + SOMERSLOOP BUDGET ----
-  if(bpMax){ let shards=0, sloops=0; all.forEach(({b})=>{ shards+=b.n*3; sloops+=b.n*(SLOOP_SLOTS[b.b]||1); });
+  if(bpMax){ let shards=0; all.forEach(({b})=>{ shards+=b.n*3; });
     const ps=document.createElement('div'); ps.className='shopphase';
-    ps.innerHTML=`<h3>⚡ Power Shards & Somersloops budget (MAX everything)</h3>`+
+    ps.innerHTML=`<h3>⚡ Power Shards budget (MAX = 250% everywhere)</h3>`+
       `<table><thead><tr><th>Item</th><th>Needed</th><th>Where</th></tr></thead><tbody>`+
       `<tr><td><b>Power Shards</b> (3 per machine → 250%)</td><td class="n">${shards}</td><td>Power Slugs (green/yellow/purple) → MAM; ${totMach} machines × 3</td></tr>`+
-      `<tr><td><b>Somersloops</b> (fill every slot → 2×)</td><td class="n">${sloops}</td><td>found in the world; 1–4 per machine by type</td></tr>`+
-      `</tbody></table><div style="padding:6px 16px 12px;color:var(--muted);font-size:12px"><b style="color:#e0a050">⚠ Reality check:</b> the whole world contains only <b>~106 Somersloops</b> and wild slugs for <b>~730 Power Shards</b> (unlimited <i>Synthetic</i> Power Shards arrive at Tier 9), and MAM Alien Technology research plus any Alien Power Augmenters (10 sloops each) eat into that. If the totals above exceed what you own, full-MAX is a <b>late-game end state, not a build order</b> — use the allocator below to spend the sloops you actually have. Turn ⚡ MAX off in Blueprints to plan a 100% build.</div>`;
+      `</tbody></table><div style="padding:6px 16px 12px;color:var(--muted);font-size:12px"><b style="color:#e0a050">⚠ Reality check:</b> wild slugs give <b>~730 Power Shards</b> in the whole world (unlimited <i>Synthetic</i> Power Shards arrive at Tier 9). If the total above is more than that, leave the lowest-value banks at 100% — or plan at 🐢 100%.</div>`;
     rWrap.appendChild(ps);
   }
   // ---- 3b) SOMERSLOOP ALLOCATOR — where the sloops you REALLY own should go ----
@@ -735,13 +734,13 @@ function renderShopping(){
   // ---- 4) POWER PLAN (per phase, cumulative, generators needed) ----
   const pp=phasePower(); let cum=0;
   let tot100=0; all.forEach(({b})=>tot100+=(BASE_MW[b.b]||10)*b.n);
-  const totMaxMW=Math.round(tot100*Math.pow(2.5,1.321)*4);
+  const totMaxMW=Math.round(tot100*Math.pow(2.5,1.321928)/2.5);
   const prows=[1,2,3,4,5].map(p=>{ cum+=pp.mw[p]; const g=GEN[p], cnt=Math.ceil(cum*1.4/g.mw);
     return `<tr><td><span class="chip p${p}">P${p}</span></td><td class="n">+${Math.round(pp.mw[p])}</td><td class="n"><b>${Math.round(cum)}</b></td><td>${g.n}</td><td class="n">~${cnt}× ${g.mw}MW</td></tr>`; }).join('');
   const pw=document.createElement('div'); pw.className='shopphase';
   pw.innerHTML=`<h3>⚡ Power plan — cumulative draw &amp; generators ${bpMax?'(at full MAX overclock)':'(100%)'}</h3>`+
     '<table><thead><tr><th>Phase</th><th>+MW added</th><th>Total MW</th><th>Generator (tier)</th><th>Build (×1.4)</th></tr></thead><tbody>'+prows+'</tbody></table>'+
-    `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px"><b style="color:var(--orange)">Ramp your overclock — don't power 9 GW on coal in Phase 1.</b> MAX is brutally power-hungry (~13.4× MW/machine: overclock ×3.36, and a Somersloop <b>quadruples</b> power for its 2× output), so a fully-MAX build draws far <b>more</b> total power than 100%. Run machines near <b>100% early</b>, then crank to <b>250%+sloop as Fuel→Nuclear come online</b> (Phase 3–4). Whole build ≈ <b>${Math.round(tot100)} MW</b> at 100% / <b>${totMaxMW} MW</b> fully overclocked — if that second number looks impossible, that's because full-MAX is (see the Somersloop note above); sloop selectively. Particle Accelerators & Converters <b>fluctuate</b> (pasta/dark-matter runs spike to ~3× the average), so a bank of <b>Power Storage</b> next to each accelerator hall is mandatory, not optional. Keep ~40% headroom and stack new generator types on old. Miners, water extractors, pumps and train stations are <b>not</b> in these totals — add ~10–15%.</div>`;
+    `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px"><b style="color:var(--orange)">Ramp your overclock — don't power 9 GW on coal in Phase 1.</b> Overclocking is power-hungry (250% draws ~3.4× per machine for 2.5× output; a Somersloop quadruples power again), so a MAX build draws <b>more</b> total power than 100%. Whole build ≈ <b>${Math.round(tot100)} MW</b> at 100% / <b>${totMaxMW} MW</b> at 250%. Particle Accelerators & Converters <b>fluctuate</b> (pasta/dark-matter runs spike to ~3× the average), so a bank of <b>Power Storage</b> next to each accelerator hall is mandatory, not optional. Keep ~40% headroom and stack new generator types on old. Miners, water extractors, pumps and train stations are <b>not</b> in these totals — add ~10–15%.</div>`;
   rWrap.appendChild(pw);
   // ---- deliveries ----
   const dWrap=document.getElementById('deliv'); dWrap.innerHTML='';
@@ -926,7 +925,7 @@ function renderInventory(){
   // ----- plan-setting pill (the toggle every number depends on) -----
   const cp=document.getElementById('cfgpill');
   if(cp){ cp.textContent=(bpMax?'⚡ MAX ON':'🐢 100%')+(bpScale!==1?' · ×'+bpScale:'');
-    cp.title='Counts assume '+(bpMax?'250% + Somersloop in every machine (~⅕ machines — end-game sloops required)':'100% clocks (full counts, no sloops needed)')+' — click to toggle';
+    cp.title='Counts assume '+(bpMax?'250% overclock in every machine (3 Power Shards each, ~40% of the machines)':'100% clocks (nothing special needed)')+' — click to toggle';
     cp.onclick=()=>setPlanMax(!bpMax); }
   const pp=document.getElementById('pacepill');
   if(pp){ const pc=PACES[bpPace]; pp.textContent=pc.label+' pace'; pp.title=pc.desc+' — click to change (Minimum → Balanced → Fast)';
@@ -1546,10 +1545,10 @@ function applyCfg(){ bpScale=(state._cfg&&state._cfg.scale)||1;
   bpMax=(state._cfg&&typeof state._cfg.max==='boolean')?state._cfg.max:false;
   bpPace=(state._cfg&&PACES[state._cfg.pace])?state._cfg.pace:'minimum';
   _chCache.sig=null; _demandCache={}; _demP={}; _demOne={}; }
-/* MAX mode: every production machine runs at 250% (3 Power Shards) AND holds a
-   Somersloop (2× output) → 5× throughput each, so you build ~1/5 the machines.
-   The user is collecting enough slugs/sloops to do this everywhere. */
-const MAXFACTOR=5;
+/* MAX mode: every production machine runs at 250% (3 Power Shards) → 2.5× throughput,
+   so you build ~40% of the machines. Somersloops are NOT assumed (only ~106 exist and
+   they unlock late) — the 🎯 allocator says where the ones you own are worth slotting. */
+const MAXFACTOR=2.5;
 /* Design throughput of each of the 12 FINAL parts (parts/min). Everything else
    is sized by propagating these back through the recipe graph, so every bank is
    built to meet its true total demand (no starving feeds, no orphan banks). */
@@ -1631,7 +1630,7 @@ function districtBanks(d,scale){ scale=scale||bpScale||1; const eff=bpMax?MAXFAC
     const D=(demand[item]!=null&&demand[item]>0)?demand[item]:t.out[1];
     const mFull=D/t.out[1];                       // machines at 100% to meet demand
     const baseN=Math.max(1,Math.ceil(mFull));
-    const n=Math.max(1,Math.ceil(mFull/eff));     // machines at MAX (5×)
+    const n=Math.max(1,Math.ceil(mFull/eff));     // machines at MAX (2.5×)
     const inputs=t.in.map(([it,r])=>[it,+(mFull*r).toFixed(1)]); // true input flow needed
     return {tid,b:t.b,r:t.r,n,baseN,outItem:item,outRate:+D.toFixed(1),inputs,fp:t.fp};
   });
@@ -1845,7 +1844,7 @@ function renderBpPicker(){
     b.onclick=()=>{ bpMod=d.id; bpHi=-1; renderBlueprints(); }; c.appendChild(b); });
   const tune=document.createElement('div'); tune.style.cssText='display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:9px;width:100%';
   const mx=document.createElement('button'); mx.className='pbtn'+(bpMax?' active':''); mx.style.fontWeight='700';
-  mx.textContent=bpMax?'⚡ MAX output: ON (250% + Somersloop)':'⚡ MAX output: OFF (100%)';
+  mx.textContent=bpMax?'⚡ MAX output: ON (250%)':'⚡ MAX output: OFF (100%)';
   mx.onclick=()=>setPlanMax(!bpMax); tune.appendChild(mx);
   const ll=document.createElement('span'); ll.className='lbl'; ll.style.marginLeft='8px'; ll.textContent='layout:'; tune.appendChild(ll);
   [['flow','Flow'],['grid','Grid']].forEach(([v,lab])=>{ const b=document.createElement('button'); b.className='pbtn'+(bpLayout===v?' active':''); b.textContent=lab; b.onclick=()=>{ bpLayout=v; renderBpStage(); }; tune.appendChild(b); });
@@ -1866,8 +1865,8 @@ function renderBpPicker(){
     :(bpViewPhase==='now'?`Showing <b>what should be standing right now</b> (Phase ${viewPhase()}, from your ticked steps) — <b>k→n</b> means k now, n eventually, and <b>0→n</b> is land you are only reserving.`
       :`Showing the factory <b>as of the end of Phase ${bpViewPhase}</b> — <b>k→n</b> means k by then, n eventually.`);
   note.innerHTML=viewNote+' '+(bpMax
-    ? 'Each machine = <b>250% overclock (3 Power Shards) + 1 Somersloop (2×)</b> = 5× output, so counts are ~⅕. Sized to <b>total demand</b>, made once. Which banks you can really sloop is in the <b>🎯 allocator</b>.'
-    : 'Counts at 100% clock, sized to <b>total project demand</b> (made once, shared). Turn on ⚡ MAX to overclock + sloop and shrink the build.');
+    ? 'Each machine = <b>250% overclock (3 Power Shards)</b> = 2.5× output, so counts are ~40%. Sized to the <b>busiest phase</b>, made once. Where your Somersloops are worth it is in the <b>🎯 allocator</b>.'
+    : 'Counts at 100% clock, sized to the <b>busiest phase</b> (made once, shared). Turn on ⚡ MAX to overclock and shrink the build.');
   tune.appendChild(note); c.appendChild(tune);
 }
 const BP_LEGEND='<span style="color:#2dd4bf">━ teal</span> = belt in / manifold · <span style="color:#5aa9ff">┅ blue</span> = pipe (fluid) · small squares = splitter/merger · coloured boxes = machines (hover for footprint) · <span style="color:#b692ff">━ purple</span> = output belt out.';
@@ -1942,16 +1941,11 @@ function bankStepHTML(d,banks,bk,i){
         : `run a <b>${c.label}</b> belt of <b>${x[0]} ${nr}/min</b> (${srcLabel(x[0],d.id)}) into a splitter, manifold down the row`; }).join('; ')
     : `no material input — this <b>${bk.b}</b> runs on power alone`;
   const oc=carrierOf(bk.outItem,bk.outRate), path=beltUpgradePath(bk.outItem,bp);
-  /* PER-BANK CLOCK, resolved against the sloops you actually own. The plan used to tell
-     every bank "250% + Somersloop", which silently assumed ~853 sloops; ⅕ machines run at
-     100% would make ⅕ the design rate and blow every delivery estimate. So: banks the
-     allocator funds are told to amplify, and banks it does not are told the honest
-     alternative — shards only, and the machine count that implies. */
+  /* CLOCK: MAX runs every machine at 250% (shards only — counts already reflect it).
+     Somersloops are optional: if the 🎯 allocator funds this bank, say so and what it saves. */
   let ocb='';
-  if(bpMax){ const slots=SLOOP_SLOTS[bk.b]||1, funded=sloopFundedSet().has(d.id+':'+bk.tid);
-    ocb = funded
-      ? ` <span class="tag qty">⚡ 250% + Somersloop (${bk.n*3} shards + ${bk.n*slots} sloops here — this bank <b>is</b> in your sloop plan)</span>`
-      : ` <span class="tag qty" style="background:#3a2a12;color:#ffce8a">⚠ not in your sloop plan (${sloopsOwned()} sloops) — shards only: run these at <b>250%</b> (${bk.n*3} shards) and build <b>~${Math.max(bk.n,Math.ceil(bk.baseN/2.5))}×</b> instead of ${bk.n}×, or leave them at 100% and build <b>${bk.baseN}×</b></span>`; }
+  if(bpMax) ocb=` <span class="tag qty">⚡ run each at <b>250%</b> — ${bk.n*3} Power Shards for this bank</span>`;
+  if(sloopFundedSet().has(d.id+':'+bk.tid)) ocb+=` <span class="tag qty" style="background:#2a1f3a;color:#d3b6ff">🎯 optional: slot Somersloops here (${SLOOP_SLOTS[bk.b]||1} per machine) and you only need ~${Math.ceil(bk.n/2)}× — the best use of the sloops you own</span>`;
   const collect = oc.carrier==='pipe' ? `pipe the outputs together` : `merge the outputs along the row`;
   const upg = ` <span class="tag qty">${oc.carrier} upgrade: ${path}</span>`;
   const tb=T[bk.tid].by; let by='';
