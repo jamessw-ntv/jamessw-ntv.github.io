@@ -48,9 +48,14 @@ costs little real time and shrinks every bank:
 
 | Pace | Each phase's deliveries | Machines (100%) | Power at the end |
 |---|---|---|---|
-| 🐢 **Minimum** (default) | up to ~8 h of running | ~690 | ~16 GW |
-| ⚖ Balanced | up to ~4 h | ~1,400 | ~28 GW |
-| 🚀 Fast | the original design rates (P5 ~4 h) | ~2,070 | ~35 GW |
+| 🐢 **Minimum** (default) | up to ~8 h of running | ~710 | ~24 GW |
+| ⚖ Balanced | up to ~4 h | ~1,440 | ~41 GW |
+| 🚀 Fast | the original design rates (P5 ~4 h) | ~2,130 | ~51 GW |
+
+Power includes every miner and extractor, and the real per-recipe draw of Particle
+Accelerators, Converters, Quantum Encoders and the Biochemical Sculptor (datamined
+averages). Nuclear Pasta for Phase 5 starts banking during Phase 4, so its line runs at
+one even rate across both phases.
 
 Every bank is sized to its **busiest single phase** (finished deliveries stop drawing),
 and the counts include the one-off parts the finish really costs: every **HUB milestone
