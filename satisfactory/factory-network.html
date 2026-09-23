@@ -121,6 +121,12 @@
     #printhead{display:block!important}
   }
   #printhead{display:none;font-size:13px;margin:0 0 8px}
+  .ckrow{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:8px 10px;margin:6px 0;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.02)}
+  .ckrow.ok{border-color:#2f6b45;background:rgba(93,212,122,.06)} .ckdw{font-size:12px;color:var(--muted);margin-top:3px} .ckbtns{display:flex;gap:6px;flex-shrink:0}
+  @media (max-width:640px){ .ckrow{flex-direction:column;align-items:stretch} .ckbtns .pbtn{flex:1} }
+  .pwrline{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin:2px 0 10px} .pwrline i{flex:1;height:6px;border-radius:4px;background:var(--line);overflow:hidden;max-width:260px} .pwrline i b{display:block;height:100%}
+  .comingup h3{font-size:14px} .cuitem{padding:5px 0;color:var(--muted);font-size:13.5px;border-bottom:1px dashed var(--line)} .cuitem:last-child{border:0} .cuno{display:inline-block;min-width:34px;color:#8b97a3;font-weight:700}
+  body.focus #tab-inventory > .hint, body.focus #tab-inventory .toolbar > button:not(#pacepill):not(#cfgpill){display:none}
   /* couch/thumb ergonomics. Tablets get roomier chrome; PHONES keep the tightened
      layout above (this used to sit after the max-width:640px block at equal specificity
      and silently undid it, pushing "✓ Done — next" below the fold). On a phone only the
@@ -509,8 +515,8 @@ const BY_ADVICE={
  'Dark Matter Residue':'pipe it into the Dark-Matter-Crystal Particle Accelerators (each wants 150 m³/min) — it <b>cannot be sunk or packaged</b>, so any surplus backs the Quantum Encoders up and stops every Phase-5 final'};
 
 const INVENTORY = [
- {phase:0,category:'milestone',id:'PWR0',item:'⚡ Power: Biomass Burners (bootstrapping)',qty:'',note:'30 MW each; hand/belt-fed — replace at Tier 3'},
  {phase:0,category:'milestone',id:'P0-M1',item:'Complete all Tier 0 HUB upgrades (in order)',qty:'',note:'Unlocks Smelter/Constructor/Miner/Space Elevator'},
+ {phase:0,category:'milestone',id:'PWR0',item:'⚡ Power: Biomass Burners (bootstrapping)',qty:'',note:'30 MW each; hand/belt-fed — replace at Tier 3'},
  {phase:0,category:'milestone',id:'P0-M6',item:'Tier 1 Field Research → build a MAM (Molecular Analysis Machine)',qty:'',note:'The MAM is where every 🔓 MAM research step later in this plan happens'},
  {phase:0,category:'milestone',id:'P0-M2',item:'Build Space Elevator at Central Hub',qty:'',note:'Permanent location all game'},
  {phase:0,category:'milestone',id:'P0-M3',item:'Logistics (Tier 1: splitters/mergers) + Logistics Mk.2 (Tier 2: Belt Mk.2)',qty:'',note:'Needed for clean modules'},
@@ -762,7 +768,8 @@ function standingCount(d,bk,p){ const bp=bankBuiltPhase(d,bk); if(p<bp) return 0
 /* power drawn by what feeds a raw input: miners (Mk.1 5 MW @60/min, Mk.2 15 MW @120),
    Water Extractors (20 MW @120), Oil Extractors (40 MW @120). Nitrogen wells are powered
    by their Pressurizer (counted once, below). */
-function rawMW(item,rate,mk2){ if(!(rate>0)) return 0;
+const NOT_MINED=new Set(['Heavy Oil Residue']);   // byproduct only — never pumped from a node
+function rawMW(item,rate,mk2){ if(!(rate>0)||NOT_MINED.has(item)) return 0;
   if(item==='Water') return Math.ceil(rate/120)*20;
   if(item==='Crude Oil') return Math.ceil(rate/120)*40;
   if(isFluidItem(item)) return 0;
@@ -879,6 +886,13 @@ function saveState(s){ lsSet(LS,JSON.stringify(s)); }
 let state=loadState(), hideDone=false;
 let _refocus=null; // which control to re-focus after a full list rebuild (keyboard users keep their place)
 let auditList=null, auditIdx=0; // guided walk-your-save audit (adopting an existing factory)
+/* session check-in: once per page load, "are these still standing?" before you build on */
+let sessionChecked=false, jumpOpen=false;
+/* focus mode: just the current step, big, for a second screen (a per-viewer convenience) */
+let focusMode=false; try{ focusMode=localStorage.getItem('satis_focus')==='1'; }catch(e){}
+function setFocus(v){ focusMode=!!v; try{ localStorage.setItem('satis_focus',focusMode?'1':'0'); }catch(e){} document.body.classList.toggle('focus',focusMode); renderInventory(); }
+/* the steps that change what's standing in your world (what a check-in should verify) */
+function isBuildStep(s){ return s.ai!=null||!!s.expOf||!!POWER_IDS[s.key]||/^pwrb:/.test(s.key)||/^bp:[A-Z]+:(pad|rail)$/.test(s.key)||s.key==='NITRO'; }
 function gotoMapStep(id){ const b=document.querySelector('nav button[data-tab="buildmap"]'); if(b) b.click(); const did=(typeof WORKS2DIST!=='undefined'&&WORKS2DIST[id])||id; if(BM_SEQI[did]!==undefined){ bmStep=BM_SEQI[did]; bmApply(); if(typeof showDistrict==='function') showDistrict(did); } }
 /* delivery ETA from the same rates the plan is solved against (finalRate × the rounding
    slack of that phase's lines) — one rate system, matching phaseDeliverMin. */
@@ -890,7 +904,7 @@ function invStep(r){ let det=r.note||''; if(r.category==='deliverable'){ const d
   return {key:r.id,phase:r.phase,label:(r.qty!==''?r.qty+'× ':'')+r.item,detail:det,cat:r.category,deliv:r.category==='deliverable',district:r.category==='deliverable'?'PA':null}; }
 function pushDistrict(out,d,p){ const banks=districtBanks(d);
   // what the district will eat at full size — pick a site with these nodes in belt range
-  const need={}; banks.forEach(bk=>bk.inputs.forEach(([it,r])=>{ if(!ITEM2DIST[it]) need[it]=(need[it]||0)+r; }));
+  const need={}; banks.forEach(bk=>bk.inputs.forEach(([it,r])=>{ if(!ITEM2DIST[it]&&!NOT_MINED.has(it)) need[it]=(need[it]||0)+r; }));
   const needTxt=Object.keys(need).sort((a,b)=>need[b]-need[a]).map(it=>{ const r=Math.round(need[it]);
     if(it==='Water') return `<b>Water ${r} m³/min</b> (${Math.ceil(r/120)} extractors)`;
     if(it==='Crude Oil') return `<b>Crude ${r} m³/min</b> (~${Math.ceil(r/120)} normal / ${Math.ceil(r/240)} pure oil nodes)`;
@@ -946,7 +960,7 @@ function pushExpansions(out,p){ DISTRICTS.forEach(d=>{ const banks=districtBanks
       // running total built = max(what you built "now", demand at that phase)
       const before=Math.max(nw,bankCountAt(bk.tid,p-1)), after=Math.max(nw,bankCountAt(bk.tid,p)), add=after-before; if(add<=0) return;
       const t=T[bk.tid], raw={}, dD=((solveDemandPhase(p)[bk.outItem]||0)-(solveDemandPhase(p-1)[bk.outItem]||0))/t.out[1];
-      if(dD>0) t.in.forEach(([it,r])=>{ if(!ITEM2DIST[it]) raw[it]=(raw[it]||0)+dD*r; });
+      if(dD>0) t.in.forEach(([it,r])=>{ if(!ITEM2DIST[it]&&!NOT_MINED.has(it)) raw[it]=(raw[it]||0)+dD*r; });
       let mw=machinePower(bk.b,bk.tid)*add; Object.keys(raw).forEach(it=>{ mw+=rawMW(it,raw[it],p>=2); });
       const outNow=+Math.min(solveDemandPhase(p)[bk.outItem]||0, after*t.out[1]*(bpMax?MAXFACTOR:1)).toFixed(1);
       const base=`Phase ${p} needs more ${bk.outItem}: add <b>${add}× ${bk.b}</b> to the row you left room in (${before} → <b>${after}</b> of ${bk.n}). Extend its input manifold to the new machines. Output grows to <b>~${outNow}/min</b>.`;
@@ -1048,7 +1062,7 @@ function stockpileStep(q){ const L=extraLedger().entries.filter(e=>e.q===q&&e.ne
   const tot={}; L.forEach(e=>tot[e.item]=(tot[e.item]||0)+e.qty);
   const list=Object.keys(tot).sort((a,b)=>tot[b]-tot[a]).map(k=>'<b>'+Math.ceil(tot[k]).toLocaleString()+'</b> '+k).join(', ');
   return {key:'stock:'+q,phase:q,cat:'module',label:'🧺 Stockpile for Phase '+(q+1)+' while the deliveries run',
-    detail:'Your lines are sized to also make these one-off parts — belt the surplus into storage containers by ★ (your "mall"): '+list+'. They pay for Phase '+(q+1)+'\'s HUB milestones and the machines, generators and train kit you place next.'}; }
+    detail:'Your lines are sized to also make these one-off parts — belt the surplus into storage containers by ★ (your "mall"): '+list+'. They pay for Phase '+(q+1)+'\'s HUB milestones and the machines, generators and train kit you place next. At this pace they take up to <b>~'+fmtMin(extraWindow(q))+'</b> to pile up — keep playing (and building ahead) while they do; the next phase\'s 🔓 steps tell you when each pile is needed.'}; }
 /* Order a phase's steps so every step comes after what it needs — its milestone, its
    district pad, its suppliers, the parts a milestone costs — keeping the original order
    wherever there is a choice (stable topological sort). */
@@ -1063,6 +1077,8 @@ function orderPhase(steps){
     if(s.ai!=null&&s.district){ const d=DMAP[s.district], bk=districtBanks(d)[s.ai];
       dep(s,'bp:'+d.id+':pad'); dep(s,'bp:'+d.id+':rail');
       gatesOf(bk.tid).forEach(id=>dep(s,'ms:'+id));
+      if(bk.tid!=='T-COKE') dep(s,'bp:'+d.id+':util');                 // water / byproduct lines first
+      if(T[bk.tid].by&&T[bk.tid].by[0]==='Heavy Oil Residue') dep(s,'bp:D:T-COKE');   // somewhere for the residue to go
       // its machines are built from parts made this phase (a Converter needs SAM Fluctuators).
       // Only for the advanced buildings — basic ones are built from Ironworks parts made long
       // before (and would loop: Smelters are built from rods made from ingots).
@@ -1112,7 +1128,7 @@ function masterSteps(){ const key=planSigBase()+'|'+sloopsOwned(); if(_msCache[k
    power step. Records the top-ups (for the fuel solver and the build bill). */
 function powerWalk(out){
   const GT={burner:{b:'Biomass Burner',mw:30},coal:{b:'Coal Generator',mw:75},fuel:{b:'Fuel Generator',mw:250},nuc:{b:'Nuclear Power Plant',mw:2500}};
-  let cap=0, draw=0, pending=0, type='burner'; const bridges={}; const res=[]; const prevB=_bridgeCache[planSigBase()]||{}, used={};
+  let cap=0, draw=0, pending=0, type='burner'; let pendItem={}; const bridges={}; const res=[]; const prevB=_bridgeCache[planSigBase()]||{}, used={};
   // A machine only draws power while it produces. An Expand step placed before its phase's
   // power step mostly fills its output buffer and idles until the phase's other consumers
   // exist — so its draw is counted from that power step on, not before.
@@ -1120,14 +1136,18 @@ function powerWalk(out){
   const capOf=s=>{ if(s.key==='PWR0') return Math.ceil(phaseStandingMW(1).mw*1.4/30)*30;
     const id=POWER_IDS[s.key]; if(!id) return 0; const g=genAdd(id); return (g.n||0)*(id>=4?2500:GEN[id].mw); };
   for(let i=0;i<out.length;i++){ const s=out[i];
-    if(i>0&&out[i-1].phase!==s.phase){ draw+=pending; pending=0; }
+    if(i>0&&out[i-1].phase!==s.phase){ draw+=pending; pending=0; pendItem={}; }
     if(s.key==='COAL') type='coal'; if(s.key==='PWR3') type='fuel'; if(s.key==='PWR4') type='nuc';
     if(s.key==='COAL') cap=0;          // the hand-fed burners retire when coal comes online
     cap+=capOf(s);
-    if(POWER_IDS[s.key]){ draw+=pending; pending=0; }
+    if(POWER_IDS[s.key]){ draw+=pending; pending=0; pendItem={}; }
     let add=s.mw||0;
-    if(add>0&&/^exp:/.test(s.key)&&powerLater(i)){ pending+=add; add=0;
-      s.detail+=' <i>(These idle — and draw little power — until the rest of this phase is built; the ⚡ step later in the phase covers them.)</i>'; }
+    // a consumer switches on the expansions that feed it
+    const ins=s.ai!=null&&s.district?districtBanks(DMAP[s.district])[s.ai].inputs.map(x=>x[0]):s.ms?Object.keys(MSMAP[s.ms].cost):[];
+    ins.forEach(it=>{ if(pendItem[it]){ add+=pendItem[it]; pending-=pendItem[it]; delete pendItem[it]; } });
+    if((s.mw||0)>0&&/^exp:/.test(s.key)&&powerLater(i)){ const it=s.expOf?districtBanks(DMAP[s.expOf.d])[s.expOf.i].outItem:null;
+      pending+=s.mw; if(it) pendItem[it]=(pendItem[it]||0)+s.mw; add-=s.mw;
+      s.detail+=' <i>(These idle — and draw little power — until the step that uses them.)</i>'; }
     if(add>0&&draw+add>cap/1.1){
       // look ahead to the next power step in this phase (or the phase end): the peak draw until then
       let peak=draw, j=i; for(;j<out.length&&out[j].phase===s.phase&&!POWER_IDS[out[j].key];j++) if(!/^exp:/.test(out[j].key)) peak+=out[j].mw||0;
@@ -1277,10 +1297,44 @@ function renderInventory(){ backfillFinished();
     fr.querySelector('#frBal').onclick=()=>setPace('balanced');
     fr.querySelector('#frFast').onclick=()=>setPace('fast');
   }
+  // ----- session check-in: "logging in — is this still true?" -----
+  if(!sessionChecked&&next&&done0>0&&!auditList){ const ni=ms.indexOf(next), last=[];
+    for(let i2=ni-1;i2>=0&&last.length<3;i2--){ const x=ms[i2]; if(state[x.key]&&stepMode(x.key)!=='skip'&&isBuildStep(x)) last.push(x); }
+    const ci=document.createElement('div'); ci.className='invphase checkin'; ci.style.borderColor='var(--teal)';
+    const chIdx0=chapterOf(next), chp0=BM_SEQ[chIdx0];
+    const t0=ms.filter(x=>typeof state[x.key]==='number'&&state[x.key]>1e12).reduce((m,x)=>Math.max(m,state[x.key]),0);
+    const ago=t0?Math.round((Date.now()-t0)/36e5):null;
+    const doneWhen=x=>{ const t=String(x.detail||''); const k=t.indexOf('✅ Done when:'); return k>=0?t.slice(k+13).trim():''; };
+    ci.innerHTML=`<h3 style="background:#0f2a26">🎮 Welcome back — let's make sure the plan matches your save</h3>
+      <div style="padding:11px 16px">
+        <div class="nt" style="margin-bottom:8px">You're at <b>Step ${nextNo} of ${ms.length}</b> · Phase ${next.phase} · <b>${chp0?chp0.t:''}</b>${ago!=null?` · last tick ${ago<1?'under an hour':ago<48?ago+' h':Math.round(ago/24)+' days'} ago`:''}.
+        Fly past your last few builds and confirm they're standing and running:</div>
+        ${last.length?last.reverse().map(x=>`<div class="ckrow" data-k="${x.key}"><div><b>${x.label}</b>${doneWhen(x)?`<div class="ckdw">✅ ${doneWhen(x)}</div>`:''}</div>
+          <div class="ckbtns"><button class="pbtn ckyes" title="Standing and running">✓ Yes</button><button class="pbtn ckno" title="Not built yet (or broken) — put it back on the list">✗ Not yet</button></div></div>`).join(''):'<div class="nt">Nothing built to check yet.</div>'}
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">
+          <button class="pbtn" id="ckGo" style="background:var(--teal);color:#07201c;border-color:var(--teal);font-weight:700">✅ All good — let's build</button>
+          <button class="pbtn" id="ckJump">⏩ I'm further ahead than this…</button>
+          <button class="pbtn" id="ckSkip" title="Hide this check until the next time you open the page">Not now</button></div>
+        ${jumpOpen?`<div class="ckjump"><div class="nt" style="margin:8px 0 6px">Pick the <b>last step you've finished</b> — everything up to it gets ticked (a backup is kept: 📥 Load code → "undo").</div>
+          <select id="ckJumpSel" style="max-width:100%;padding:6px;background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:6px">${ms.slice(ni,ni+80).map((x,k)=>`<option value="${ni+k}">Step ${ni+k+1} — ${stripTags(x.label).slice(0,80)}</option>`).join('')}</select>
+          <button class="pbtn" id="ckJumpGo" style="margin-left:6px">Mark done up to here</button></div>`:''}
+      </div>`;
+    wrap.appendChild(ci);
+    ci.querySelectorAll('.ckrow').forEach(r=>{ const k=r.dataset.k;
+      r.querySelector('.ckyes').onclick=()=>{ r.classList.add('ok'); r.querySelector('.ckbtns').innerHTML='<span style="color:#8fe6a8">✓ standing</span>'; };
+      r.querySelector('.ckno').onclick=()=>{ markStep(k,'clear'); renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); }; });
+    ci.querySelector('#ckGo').onclick=()=>{ sessionChecked=true; jumpOpen=false; setFocus(true); };
+    ci.querySelector('#ckSkip').onclick=()=>{ sessionChecked=true; jumpOpen=false; renderInventory(); };
+    ci.querySelector('#ckJump').onclick=()=>{ jumpOpen=!jumpOpen; renderInventory(); };
+    const jg=ci.querySelector('#ckJumpGo'); if(jg) jg.onclick=()=>{ const upto=+ci.querySelector('#ckJumpSel').value;
+      try{ lsSet(LS+'_undo', JSON.stringify(state)); }catch(e){}
+      for(let k=0;k<=upto;k++) if(!state[ms[k].key]) state[ms[k].key]=Date.now();
+      saveState(state); jumpOpen=false; renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); };
+  }
   // ----- welcome back: last-tick context after a break -----
   const tickTimes=ms.filter(s=>typeof state[s.key]==='number'&&state[s.key]>1e12).map(s=>({s,t:state[s.key]})).sort((a,b)=>b.t-a.t);
   if(tickTimes.length&&next){ const last=tickTimes[0], days=(Date.now()-last.t)/864e5;
-    if(days>=3){ const wb=document.createElement('div'); wb.className='invphase'; wb.style.borderColor='#2a3a4a';
+    if(days>=3&&sessionChecked&&false){ const wb=document.createElement('div'); wb.className='invphase'; wb.style.borderColor='#2a3a4a';
       const recent=tickTimes.slice(0,3).map(x=>'<b>'+x.s.label+'</b>').join(' · ');
       wb.innerHTML=`<h3 style="background:#15202c">⏳ Welcome back — last tick ${new Date(last.t).toLocaleDateString()} (${Math.round(days)} day${Math.round(days)===1?'':'s'} ago)</h3>
         <div style="padding:10px 16px" class="nt">You last ticked: ${recent}.<br>Before building on: walk those in-game and check their <b style="color:#8fe6a8">✅ Done when</b> notes still hold (steady output, input belts full) — then carry on with the orange card below.</div>`;
@@ -1300,10 +1354,14 @@ function renderInventory(){ backfillFinished();
         <div style="font-size:12px;color:#9fb0c0;margin-bottom:9px">${chp.d}</div>
         <div style="font-size:16px;font-weight:700;color:var(--orange)">Step ${nextNo} — ${next.label}</div>
         <div class="nt" style="margin:5px 0 9px">${next.html||next.detail||''}</div>
-        ${arrive?`<div style="font-size:12px;color:var(--teal);margin-bottom:10px">▲ ${dist===0?'This is the delivery':`${dist} step${dist>1?'s':''} until`}: <b>${arrive.label}</b></div>`:''}
+        ${arrive?`<div style="font-size:12px;color:var(--teal);margin-bottom:6px">▲ ${dist===0?'This is the delivery':`${dist} step${dist>1?'s':''} until`}: <b>${arrive.label}</b></div>`:''}
+        ${(()=>{ const pv=ms[ms.indexOf(next)-1]; if(!pv||!pv._cap) return ''; const pc=Math.round(100*(pv._draw||0)/pv._cap);
+          return `<div class="pwrline"><span>⚡ ${Math.round(pv._draw||0)} / ${Math.round(pv._cap)} MW</span><i><b style="width:${Math.min(100,pc)}%;background:${pc>85?'#e0a050':'var(--teal)'}"></b></i><span>${pc}%</span></div>`; })()}
         <button class="pbtn" id="doNext" style="background:var(--orange);color:#1a1205;border-color:var(--orange);font-weight:700">✓ Done — next</button>`+
         ` <button class="pbtn" id="doEq" title="My existing factory already covers this — count it and move on, but don't claim it was built to this plan">≈ Already have it</button>`+
-        ` <button class="pbtn" id="doSkip" title="Deliberately not building this — move past it">⏭ Skip</button>${links}</div>`;
+        ` <button class="pbtn" id="doSkip" title="Deliberately not building this — move past it">⏭ Skip</button>${links}`+
+        ` <button class="pbtn" id="doUndo" title="Un-tick the last step you ticked">↶ Undo</button>`+
+        ` <button class="pbtn" id="doFocus" title="Show just this card — for a second screen">${focusMode?'☰ Full list':'🎯 Focus'}</button></div>`;
   } else nb.innerHTML=`<h3 style="background:#13261a">🎉 Every step done — pull the lever and launch! 🚀</h3>`;
   wrap.appendChild(nb);
   if(next){ const advance=mode=>{ markStep(next.key,mode); _refocus='doNext'; renderInventory();
@@ -1311,6 +1369,17 @@ function renderInventory(){ backfillFinished();
     const dn0=document.getElementById('doNext'); if(dn0) dn0.onclick=()=>advance('done');
     const dq=document.getElementById('doEq'); if(dq) dq.onclick=()=>advance('eq');
     const ds=document.getElementById('doSkip'); if(ds) ds.onclick=()=>advance('skip'); }
+  { const du=document.getElementById('doUndo'); if(du) du.onclick=()=>{ let best=null,bt=0; ms.forEach(x=>{ const v=state[x.key]; if(typeof v==='number'&&v>bt){ bt=v; best=x; } });
+      if(best){ markStep(best.key,'clear'); _refocus='doNext'; renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); } };
+    const df=document.getElementById('doFocus'); if(df) df.onclick=()=>setFocus(!focusMode); }
+  // ----- focus mode: the card, what's coming, and nothing else -----
+  if(focusMode&&next){ const ni=ms.indexOf(next), up=ms.slice(ni+1,ni+4);
+    if(up.length){ const cu=document.createElement('div'); cu.className='invphase comingup';
+      cu.innerHTML=`<h3>Coming up</h3><div style="padding:6px 16px 10px">${up.map((x,k)=>`<div class="cuitem"><span class="cuno">${ni+k+2}</span> ${x.label}</div>`).join('')}</div>`;
+      wrap.appendChild(cu); }
+    document.getElementById('overall').textContent=`Overall: ${done0}/${ms.length} steps · ${Math.round(done0/ms.length*100)}%`;
+    if(_refocus){ const el=document.getElementById(_refocus); if(el) el.focus(); } _refocus=null;
+    return; }
   // ----- districts online now -----
   const online=DISTRICTS.filter(d=>{ const banks=districtBanks(d); return state['bp:'+d.id+':pad']&&banks.length&&banks.every(b=>state['bp:'+d.id+':'+b.tid]); });
   if(online.length){ const rb=document.createElement('div'); rb.className='invphase';
@@ -1442,7 +1511,7 @@ function techList(p){ return (TECH[p]||[]).filter(t=>bpMax||!/Somersloop/.test(t
    an older build (or an older device) arrives in the old scheme and would otherwise
    read as "nothing built". Only touches plain data (DISTRICTS[].t, TECH, INVENTORY) so
    it is safe to call this early, before the render-time settings exist. */
-const PLAN_VERSION=11;
+const PLAN_VERSION=12;
 function migrateState(s){
   if(!s||typeof s!=='object') return s;
   // 1) bank keys were positional (bp:A:3) — fragile if a template list is reordered.
@@ -2354,15 +2423,19 @@ function rawSource(item,rate,p,mk2,mk3){ if(mk2===undefined) mk2=p>=2;
 function bankStepHTML(d,banks,bk,i,ctx){
   const now=bankNowCount(d,bk), total=bk.n, bp=bankBuiltPhase(d,bk), perLane=machinesPerLane(T[bk.tid]);
   ctx=ctx||{belt:beltCapAtPhase(bp),mk2:bp>=2};
-  const t=T[bk.tid], eff=bpMax?MAXFACTOR:1, Dnow=Math.min(solveDemandPhase(bp)[bk.outItem]||bk.outRate, now*t.out[1]*eff), busy=Math.round(100*Dnow/(now*t.out[1]*eff));
+  const t=T[bk.tid], eff=bpMax?MAXFACTOR:1, Dnow=Math.min(solveDemandPhase(bp)[bk.outItem]||bk.outRate, now*t.out[1]*eff);
   const byHere={}; banks.forEach(b2=>{ const tb2=T[b2.tid].by; if(tb2&&b2!==bk){ const r=(solveDemandPhase(bp)[b2.outItem]||0)/T[b2.tid].out[1]*tb2[1]; if(r>0) byHere[tb2[0]]=(byHere[tb2[0]]||0)+r; } });
   const shape = total>perLane ? (perLane===1?`a row, one input belt per machine`:`rows of ${perLane} (one input belt each)`) : `one row`;
   const place = total>now ? `<b>${now}× ${bk.b}</b> now — leave room for <b>${total}×</b> in ${shape}` : `<b>${total}× ${bk.b}</b> in ${shape}`;
-  const mf=Dnow/t.out[1];   // machine-equivalents of work this phase actually needs
+  const delivered0=(DELIVERIES[bp]||[]).some(x=>x[0]===bk.outItem);
+  const mf=(delivered0?Math.min(now*t.out[1]*eff, Math.max(Dnow,finalRateReal(bk.outItem,bp))):Dnow)/t.out[1];   // machine-equivalents of work this phase actually runs
   const feed=bk.inputs.length
     ? t.in.map(([it,r])=>{ const x=[it]; const nr=+(mf*r).toFixed(1), c=carrierCap(x[0],nr,ctx.belt), raw=!ITEM2DIST[x[0]];
         const loc=byHere[x[0]]?` (~${Math.round(Math.min(nr,byHere[x[0]]))}/min of it is byproduct from this district — route that first)`:'';
-        const from=(raw&&byHere[x[0]]?'piped from this district\'s byproduct':(raw?'from '+rawSource(x[0],nr,bp,ctx.mk2,ctx.mk3):srcLabel(x[0],d.id)+loc));
+        const bh=byHere[x[0]]||0;
+        const from=raw&&bh>=nr?'piped from this district\'s byproduct'
+          :raw&&bh>0?`from ${rawSource(x[0],Math.max(0,nr-bh),bp,ctx.mk2,ctx.mk3)} for the fresh ~${Math.round(nr-bh)}/min — the other ~${Math.round(bh)}/min comes back as this district's byproduct once its producer runs`
+          :(raw?'from '+rawSource(x[0],nr,bp,ctx.mk2,ctx.mk3):srcLabel(x[0],d.id)+loc);
         return `• <b>${x[0]} ${nr}/min</b> — ${c.carrier==='pipe'?c.label+' pipe':c.label+' belt'}, ${from}`; }).join('<br>')
     : `• nothing — it runs on power alone`;
   const oc=carrierOf(bk.outItem,bk.outRate), path=beltUpgradePath(bk.outItem,bp);
@@ -2377,6 +2450,7 @@ function bankStepHTML(d,banks,bk,i,ctx){
     by=`<br>⚠ <b>Byproduct:</b> ${tb[0]} ~${byr}/min at full size — ${BY_ADVICE[tb[0]]||'route it out or the machines clog'}.`; }
   const delivered=(DELIVERIES[bp]||[]).some(x=>x[0]===bk.outItem);
   const nowRate = delivered ? +Math.min(now*t.out[1]*eff, finalRateReal(bk.outItem,bp)).toFixed(2) : +Dnow.toFixed(1);
+  const busy=Math.round(100*nowRate/(now*t.out[1]*eff));
   const doneWhen = `it steadily makes <b>~${nowRate}/min</b>${busy<95?` — the machines will be busy ~${busy}% of the time (they're rounded up; some idling is normal)`:''}${bk.inputs.length?'':' (if it stops, you are short on power)'}${tb?', and the '+tb[0]+' line is flowing, not backed up':''}`;
   return `<div class="nm"><span class="tag module">§${i+1}</span> <b>Place:</b> ${place}.${ocb}</div>
     <div class="nt"><b>Feed:</b><br>${feed}<br><b>Output:</b> <b>${bk.outItem} ~${nowRate}/min</b>${total>now?' now ('+bk.outRate+'/min at full size)':''} → ${destLabel(d,i,banks)}.${by}${upg}<br><b style="color:#8fe6a8">✅ Done when:</b> ${doneWhen}.</div>`;
