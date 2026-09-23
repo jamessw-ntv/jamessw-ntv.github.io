@@ -946,8 +946,22 @@ Resolved since: district E's water now adds up (see rounds 11–13).
 - **`PLAN_VERSION` is 16.** Round 13 migrated saves from the previous build at 22 points
   each: nothing was lost, and boot takes ~1.1 s.
 
-Still open:
-- The Phase 3 Fuel Generator count ignores the bridge Coal Generators, so that phase has
-  more headroom than it needs.
-- Real node coordinates, which need the owner.
+Both items left open here are now resolved (round 14, below).
+
+### Round 14 — real node locations, Phase-3 fuel count
+
+- **Real resource nodes.** The app embeds every ore, oil and nitrogen node on the 1.0 map
+  (the satisfactory-calculator/SCIM export, via github.com/Tjark-Kuehl/satisfactorymap).
+  ★ sits in the middle of the Dune Desert's seven pure iron nodes (x 2918, y −1639 m).
+  `nodePlan()` assigns nodes live for your pace and clock: A–D take the nodes nearest ★,
+  and E–G take the best cluster anywhere. Each pad step lists its nodes with distance,
+  direction and coordinates, 📋 Items → 📍 Where has the table, and the Build Map places
+  each district in its real direction (spread ≥40° so panels don't overlap). `nodes.md`
+  is the Minimum-pace snapshot.
+- **What the real map showed:** crude oil is the scarcest resource. Minimum pace uses 20 of
+  the world's 30 oil nodes, ~2–3 km west of ★. Balanced also needs the oil-well satellites
+  (Phase 4). Fast exceeds the map at 100%, and the app says so: overclock the extractors.
+  Residual Fuel would ease this, but it comes from a Hard Drive, not a milestone.
+- **Phase 3 Fuel Generators** now count the coal generators already standing, including
+  coal top-ups: 5 instead of 8 at Minimum, which hits the intended ~40% headroom.
 

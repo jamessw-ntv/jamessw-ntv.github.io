@@ -101,6 +101,7 @@ and do what the orange card says. Everything below is reference.
 | **templates.md** | What a reusable cell/template is (exact specs live in the app + VERIFICATION.md). |
 | **train-network.md** | Rail plan + **drones** + signalling. |
 | **power.md** | When to switch biomass → coal → fuel → nuclear, and how much. |
+| **nodes.md** | Where to build: the real 1.0 resource nodes each district claims, with coordinates (Minimum pace; the app re-assigns live for your settings). |
 | **VERIFICATION.md** | *(maintainers)* every recipe, milestone and building cost checked against game data, with corrections logged. |
 | **REVIEW.md** | *(maintainers)* the review history and what's still open. |
 

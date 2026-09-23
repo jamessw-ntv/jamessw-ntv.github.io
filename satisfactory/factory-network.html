@@ -215,7 +215,7 @@
         <text x="16" y="55" fill="#8a97a4" font-size="9">W</text>
         <text x="108" y="55" fill="#8a97a4" font-size="9" text-anchor="end">E</text>
       </svg>
-      <div style="font-size:13px;color:var(--txt);line-height:1.5"><b style="color:var(--orange)">📍 Where to build:</b> put ★ and the Space Elevator on flat open ground (the <b>top-right Dune Desert plateau</b> works well) and build <b>above ground</b>. <b>Each district sits on its own ore</b> — its pad step lists exactly which nodes it needs. Keep A–D (and ★) within belt range of each other where you can; far districts (E, F, G) are <b>railed</b>. The map below places each district by compass relative to <b>★ Project Assembly</b> at the centre.</div>
+      <div style="font-size:13px;color:var(--txt);line-height:1.5"><b style="color:var(--orange)">📍 Where to build:</b> put ★ and the Space Elevator in the middle of the Dune Desert's <b>seven pure iron nodes</b> (≈ x 2918, y −1639 m — the top-right desert plateau) and build <b>above ground</b>. Each district is placed on <b>real 1.0 nodes</b>: its pad step lists every node it claims with distance, direction and coordinates, and 📋 Items → <b>📍 Where</b> has the whole table. A–D sit within belt range where the map allows; E, F and G are <b>railed</b>. This map draws each district in its real direction from ★ (drag to rearrange).</div>
     </div>
     <div id="bmCaption" class="hint" aria-live="polite" style="min-height:40px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 13px;color:var(--txt)"></div>
     <svg id="bmap" viewBox="0 0 1200 760" style="width:100%;height:auto;background:#0a0d12;border:1px solid var(--line);border-radius:10px;margin-top:8px"></svg>
@@ -852,6 +852,15 @@ function renderShopping(){
     '<table><thead><tr><th>Resource</th><th>Total/min</th><th>Nodes (≈ Mk.2 miner'+(bpMax?' @250%':'')+')</th><th>Bring via</th></tr></thead><tbody>'+nrows+'</tbody></table>'+
     `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">Mk.2 miner ≈ pure 240 / normal 120 / impure 60 /min${bpMax?' (×2.5 at 250%)':''}. Prefer <b>pure</b> for the big eaters; overclock lesser nodes with Power Shards to close gaps. Far resources are railed in. <b>Short on copper, iron or coal?</b> Tick the Fused Wire, Solid Steel and Oil-Based Diamonds alternates in 📖 Guide (each needs its hard drive); Pure Copper and Pure Iron Ingot are worth a hand-rebuild of those banks from Phase 3.<br><b style="color:#e0a050">⚡ Generator feed:</b> the coal and water for the generators are added as their own rows. (Crude for the Fuel refineries — D's Fuel bank — and nuclear fuel — uranium + sulfur, F §1–3 — are counted with production.)</div>`;
   rWrap.appendChild(ns);
+  // ---- 1b) WHERE: real 1.0 nodes each district claims ----
+  { const np=nodePlan(), ps2=document.createElement('div'); ps2.className='shopphase'; let rows='';
+    DISTRICTS.filter(d=>np[d.id]).forEach(d=>{ const P=np[d.id], c=P.centre;
+      Object.keys(P.res).forEach((it,k)=>{ const g=P.res[it], cnt=[0,0,0]; g.nodes.forEach(n=>cnt[n.p]++); const short=g.cap<g.need-0.5;
+        const spread=Math.round(Math.max(0,...g.nodes.map(n=>nodeDist(n,c))));
+        rows+=`<tr><td>${k?'':`<b style="color:${d.col}">${d.id}</b> ${d.name}<br><span style="color:var(--muted);font-size:11px">${Math.round(nodeDist(c,HOME))} m ${compass(HOME,c)} ★</span>`}</td><td>${it}</td><td>${Math.round(g.need)}</td><td>${[2,1,0].filter(q=>cnt[q]).map(q=>cnt[q]+' '+PURITY[q]).join(', ')||'—'}</td><td>${Math.round(g.cap)}${short?' <b style="color:#e0a050">⚠</b>':''}</td><td>≤ ${spread} m</td></tr>`; }); });
+    ps2.innerHTML=`<h3>📍 Where — the real 1.0 nodes each district claims</h3><div style="overflow-x:auto"><table><thead><tr><th>District</th><th>Resource</th><th>Needs/min</th><th>Nodes</th><th>They give/min</th><th>Spread from its centre</th></tr></thead><tbody>${rows}</tbody></table></div>`+
+      `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">★ sits in the middle of the Dune Desert's seven pure iron nodes (x ${HOME.x}, y ${HOME.y} m). Core districts take the nodes nearest ★; E, F and G go to the best cluster of their resource anywhere on the map and are railed in. Rates assume Miner Mk.3 (Mk.2 gives half — start on Mk.2, swap as you unlock Mk.3), Oil Extractors and Well Extractors at ${bpMax?'250% (MAX)':'100%'}; a node's belt is capped at Mk.5 (780/min). Each district's pad step lists every node with its coordinates (open them on satisfactory-calculator.com's interactive map). Node data: the 1.0 map export (SCIM), via github.com/Tjark-Kuehl/satisfactorymap.</div>`;
+    rWrap.appendChild(ps2); }
   // ---- 2) BUILDINGS BILL ----
   const bld={}; let totMach=0; all.forEach(({b})=>{ bld[b.b]=(bld[b.b]||0)+b.n; totMach+=b.n; });
   const brows=Object.entries(bld).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<tr><td><b>${ABBR[k]||''} ${k}</b></td><td class="n">${v}</td></tr>`).join('');
@@ -1020,6 +1029,60 @@ function stripTags(s){ return String(s).replace(/<[^>]+>/g,' ').replace(/\s+/g,'
 function invStep(r){ let det=r.note||''; if(r.category==='deliverable'){ det+=' — belt it into the Space Elevator, tick this and carry on building; when all '+r.qty+' are in, press <b>Send</b>'; const di=delivInfo(r); if(di&&di.min) det+=' · ≈ <b>'+di.min+' min</b> at '+di.rate+'/min'+(di.banked?' (~'+Math.round(di.banked*100)+'% of it banked during Phase '+(r.phase-1)+' — keep that line running into storage)':''); det+=' ✅ Done when: the line is feeding the elevator (the next phase\'s 🔓 steps wait for the Send)'; }
   if(r.id==='PWR0'){ const mw=phaseStandingMW(1).mw; const n=Math.ceil(mw*1.4/30); det+=` · Phase 1 draws up to ~<b>${Math.round(mw)} MW</b> by its end → build burners as the ⚡ bar asks, up to <b>~${n}</b> (~${n*10} Biomass/min between them at full load).`+(n>12?` <b>That's a lot of hand-feeding</b> — at this pace consider running Phase 1 on 🐢 Minimum and switching up once Coal Power is in.`:'')+' ✅ Done when: the first burners are placed and fuelled, and the HUB shows power.'; }
   return {key:r.id,phase:r.phase,label:(r.qty!==''?r.qty+'× ':'')+r.item,detail:det,cat:r.category,deliv:r.category==='deliverable',district:r.category==='deliverable'?'PA':null}; }
+/* ===== REAL RESOURCE NODES (Satisfactory 1.0 map data) =====
+   Every ore node, oil node, oil well and nitrogen well satellite on the 1.0 map: type,
+   purity (0 impure / 1 normal / 2 pure) and position in METRES (game x, y, z ÷ 100; −y is
+   north). Source: the satisfactory-calculator.com (SCIM) 1.0 export, via the
+   github.com/Tjark-Kuehl/satisfactorymap resources.json. Water is left out — extractors go
+   on any lake. HOME is ★ / the Space Elevator: the middle of the Dune Desert's cluster of
+   seven pure iron nodes (the top-right plateau this plan builds on). */
+const NODE_RAW='L0-625,2280,-33;L0-1105,2497,-54;L03830,-925,2;L03599,-2005,41;L0152,-1586,-14;L0925,-1327,7;L0-945,2282,-24;L0-560,2716,-38;L02374,-1649,26;L01350,1232,123;L02446,-1909,18;L02991,-855,59;L0-433,2396,-39;L03388,-2057,42;L0-413,2886,-26;L11213,-883,137;L141,2732,-41;L1208,-1350,169;L1-905,-1523,-17;L1668,-1507,-12;L12254,-2371,10;L1-1290,-395,29;L1-64,-1205,104;L12459,-2189,13;L1161,2642,-39;L1-2688,-791,-3;L11074,-432,148;L13087,-1007,64;L11583,-650,26;L1-2733,-197,-15;L1-1081,2611,-48;L11100,1968,-32;L1679,-958,94;L12959,-2729,12;L11862,771,11;L1-371,2015,-31;L1-1732,-1122,0;L1-1949,-258,-6;L1-87,2834,-11;L1-2314,-895,8;L1-1672,613,240;L1-2808,-421,-13;L1797,-759,120;L11760,-402,66;L1-2671,-244,-7;L12263,-2007,11;L1-526,2646,-38;L1638,84,140;L11416,2309,-58;L1403,-1447,4;L183,1476,-96;L12708,470,-16;L140,2711,-41;L1751,-1230,136;L11685,-1080,16;L1-1296,-970,42;L1-890,1533,-30;L13707,-2220,42;L1-1334,-352,38;L13435,-835,56;L1-1458,-320,33;L1-1644,648,244;L1606,-779,94;L13860,-2544,34;L11772,-865,25;L21469,1151,123;L2-1512,1844,10;L2-2062,-1417,49;L2503,-1572,-1;L23489,-1634,42;L2-2790,-1863,3;L2-418,-1524,92;L21665,78,159;L2-1781,-1652,76;L23911,-2087,50;L2-2818,-1347,20;L2-801,2047,15;L22199,422,-16;L22850,1119,-16;L21201,-100,104;L2-2803,-1814,3;L2-1650,-1333,16;L2-553,1290,87;L23116,-698,56;L2-1567,2022,10;L22254,-69,-15;L2-536,1604,34;L2-1079,602,27;L2-2273,-1583,89;L23551,-1230,50;L2-2615,-1165,43;L2-556,-1294,70;L2-2217,-1047,41;L2696,-1004,94;I02427,-1494,26;I0-557,1944,-26;I0-572,1928,-25;I0-415,1258,86;I02655,-1782,35;I0-650,-2012,69;I0-501,2845,-26;I0-949,2627,-46;I0-433,1303,87;I02642,-1629,33;I03118,-2153,24;I02334,1456,-3;I0-618,1946,-20;I0-382,1280,88;I0-365,2439,-25;I0-940,2681,-31;I0-650,1375,85;I0-913,2531,-45;I02333,1399,-3;I0-996,2678,-47;I0-439,2080,-22;I02485,-1462,36;I02840,-1216,45;I0-529,-2018,68;I0-423,1322,87;I0-972,2642,-46;I0-933,2541,-45;I0-924,2661,-31;I0-986,2658,-46;I03112,-1287,47;I0-589,1959,-22;I0-419,2069,-22;I02257,1476,-2;I03146,-1968,39;I03304,-1424,40;I0-350,2458,-25;I02215,1466,-2;I0-475,2896,-25;I0-605,1417,84;I1-2639,-308,-4;I13749,-2599,32;I12669,-1207,41;I1937,1603,21;I12411,-2398,10;I1-541,2294,-38;I13130,-1338,49;I1963,1598,21;I12457,301,-8;I12767,-1951,29;I12566,-1980,36;I1-1908,-1177,7;I1-1879,-1146,7;I1-90,2935,-25;I13382,-1776,50;I13777,-2542,33;I1-491,2317,-38;I1-2591,-447,-5;I12987,-1993,27;I1-504,3029,-26;I1927,1633,19;I1-1869,-1183,7;I12801,-2611,19;I1-11,2853,-11;I1-2584,-406,-3;I1-449,3023,-26;I1-2601,-277,-6;I11333,1979,-74;I11320,1947,-74;I12685,-1169,42;I13393,-1834,45;I1-590,-2246,96;I1-516,2294,-38;I12331,-264,90;I16,2838,-11;I12528,291,-8;I1970,1572,21;I12377,-230,88;I1-2614,-412,-3;I1-2562,-296,-7;I12450,-223,88;I1-102,2910,-25;I21249,52,156;I22737,-1482,41;I21645,2383,-86;I2-2309,-1151,39;I21336,2058,-74;I22552,-917,55;I22194,372,-13;I2591,-715,106;I21817,-1163,22;I2-434,-1368,80;I2-1704,-283,-6;I22859,-1277,39;I2-471,-1411,81;I2-1525,-458,7;I2-1627,1825,7;I22783,-2108,32;I2-961,1638,-37;I2-2520,-1250,38;I2-2274,-1189,39;I23472,-585,-7;I2842,-864,98;I22559,-31,36;I2709,-781,105;I21781,-1205,23;I2-1667,-266,-5;I22718,1004,-13;I2-449,-1395,80;I23724,-1534,40;I2835,-905,96;I22428,879,-6;I2-2501,-1264,38;I22976,-1502,40;I22459,44,6;I2-1106,-1352,19;I2-1644,1718,16;I23485,-1238,43;I2646,-714,106;I23048,-1729,38;I2-376,-1423,80;I23853,-1899,43;I23195,-1581,39;I2681,-810,99;I21286,18,155;I2-1676,1796,16;I21162,-156,140;I22827,-1793,42;C0201,-1698,155;C0-831,2758,-63;C0-840,2736,-62;C0-2669,-1334,60;C02564,-1844,35;C01306,1795,-55;C03269,-2096,37;C0953,-1684,133;C0-1567,1092,161;C03294,-1860,37;C0-717,1065,85;C03817,-2683,35;C0-1596,1129,163;C12334,-2479,11;C1-1634,-1921,108;C11081,1523,34;C12878,-2749,12;C11679,-1164,24;C12529,-1617,35;C153,1572,-121;C12974,-964,60;C1-968,-1353,2;C1-333,2316,-14;C1-368,2968,-24;C1-943,1658,-37;C13560,-664,-4;C1-1664,-1296,16;C1580,823,118;C1-2667,-513,-3;C11601,2594,-11;C12703,-2116,31;C172,1552,-121;C1-287,1982,-20;C1-2813,-720,-12;C12823,633,-16;C12975,-73,-3;C12977,-1080,55;C12776,-941,55;C150,1600,-121;C13489,-1856,42;C1-2683,-550,-3;C1-213,2831,-25;C2-1480,-302,-6;C22255,558,-13;C2-269,-1455,84;C2-218,-1453,100;C21499,47,155;C21526,52,152;C2808,2425,-44;C2-1719,1858,11;C23555,-1498,42;C23428,-1147,60;C2561,-860,99;C21577,149,154;C23808,-1699,42;G12118,-188,0;G11096,1558,42;G1904,807,101;G12080,-164,-1;G11038,-949,127;G1-1355,-1747,78;G1-128,-1046,109;G12243,-1287,72;G11142,-170,140;G2-1534,823,203;G22708,1201,-1;G22081,-240,6;G22366,-2601,118;G2-1316,2273,-8;G24066,-2068,-15;G2-923,2816,-46;G2-1785,-798,33;K04062,-2530,39;K083,704,232;K03689,-762,-5;K02207,-2505,13;K02189,-2553,11;K01775,1299,104;K01511,753,97;K0-2718,-1462,-16;K01939,1166,102;K01539,842,95;K0-2810,-1427,-16;K01808,1412,94;K01556,1131,60;K0-1447,644,31;K03654,-801,-1;K1-784,1292,-36;K1-868,1382,-36;K13626,-1358,59;K1-760,1306,-36;K12099,1630,53;K12715,-2465,16;K1-1101,-1292,-14;K13995,-2554,38;K11506,2499,-51;K1-1411,397,191;K1-1026,-1403,-16;K1-894,1368,-39;K11572,2419,-62;K11539,2528,-46;K13681,-1392,55;K12149,1168,108;K13659,-1334,53;K1576,455,249;K1-2755,-1659,-16;K1-1077,-1306,-15;K1-2657,-1626,15;K14004,-2629,34;K1330,1,231;K1-538,330,200;K12765,-2503,13;K14048,-1140,6;K1-648,-77,226;K11281,-248,83;K11559,2484,-61;K1-299,397,213;K1-996,-1468,-16;K2-1078,319,224;K23305,-2647,21;K21388,-240,94;K21227,-270,80;K2-610,962,212;K2-661,2969,-61;K2-1132,-441,163;K2-1484,563,31;K24045,-1168,11;K22398,1483,67;K21363,-209,94;K2-1136,-504,163;K22060,1812,103;K2172,2808,28;K2-1076,-524,162;K23255,-2645,17;O0300,-1868,-17;O0-436,-1903,23;O01697,2034,-92;O01674,-890,10;O01763,-942,14;O0-326,-1925,23;O0154,-1977,-16;O0571,-1913,-17;O01465,-2226,-16;O01478,-2129,-14;O1526,-89,136;O11783,2061,-92;O11728,-946,10;O1266,-1940,-17;O1525,-2015,-17;O1494,-47,132;O1-2325,628,-17;O11737,-918,11;O11485,-1939,-16;O1-357,-2095,-17;O11851,2144,-89;O1-2291,781,-17;O21842,2171,-89;O2-2450,906,-17;O2496,7,131;O2445,-2290,-17;O21821,1884,-56;O2122,-2253,-17;O2-2525,698,-16;O21848,1911,-57;S0913,2202,-1;S02965,133,-9;S0-411,-726,232;S0347,2843,9;S0-399,-936,3;S01283,-759,37;S1921,32,161;S1964,2204,-1;S13804,-1095,92;S1-1014,916,87;S1-2130,-1700,-13;S22465,-2770,15;S2-1450,1660,127;S2948,2245,-1;S21882,-2475,233;S22423,1528,89;B01989,934,12;B01033,675,95;B02611,483,-8;B0-56,443,211;B0896,626,104;B1395,521,236;B12631,536,-13;B11990,892,11;B126,98,240;B1-1506,0,195;B11060,505,98;B22603,562,-9;B2-53,921,228;B2-1774,450,238;B2-593,146,240;B21169,515,174;B2-2171,112,177;Q0550,-1306,72;Q0623,-1374,83;Q0621,2076,-42;Q1350,1185,134;Q13057,-3013,12;Q11967,-140,94;Q1553,2059,-58;Q1-1942,-1404,-12;Q13086,-2961,13;Q11901,-173,95;Q2-904,637,21;Q2-1674,-1457,-19;Q2617,1964,-37;Q2-1720,-1441,-20;Q21940,-55,103;Q2379,1209,134;Q2-905,673,21;U0-1328,-1876,465;U01802,-1892,235;U01687,508,0;U1-759,516,191;U1380,917,-48;M01330,2409,-142;M01530,-241,43;M0-809,-324,157;M0807,2048,57;M0-466,-2529,49;M02728,-2619,11;M0-1436,207,195;M01191,713,187;M02305,-336,22;M01619,1038,56;M1-1818,891,170;M1155,-8,147;M11726,-2855,216;M12283,1163,-16;M1-241,2699,-134;M1-1822,-1424,-17;M21629,654,98;M2-484,1289,236;M2826,-2196,89;N02134,1327,-3;N02147,1380,-2;N12157,1328,-3;N12180,1342,-2;N11251,2543,2;N11266,2530,-4;N12269,-3114,79;N12202,-3107,79;N1-2499,-1904,-17;N2-1429,1184,150;N2-1418,1220,153;N2-1428,1202,152;N2-1456,1260,154;N2-1476,1257,153;N2-1457,1194,152;N2-1443,1246,154;N2847,992,100;N2867,995,101;N2860,1095,100;N2879,1020,102;N2887,1077,100;N2840,1078,101;N2816,1035,102;N2831,1018,102;N2817,1067,102;N2880,1051,102;N22182,1375,-2;N22164,1395,-2;N22125,1381,-1;N22117,1332,-2;N21310,2574,2;N21305,2551,-3;N21282,2589,9;N21251,2565,7;N22265,-3136,82;N22252,-3098,79;N22213,-3123,79;N22218,-3083,82;N22240,-3140,79;N2-2520,-1916,-17;N2-2537,-1872,-12;N2-2547,-1911,-16;N2-2540,-1892,-15;N2-2509,-1847,-15;N2-2494,-1882,-17;o02642,1145,-1;o02714,1115,-1;o02671,1152,-1;o02641,1123,-1;o02674,1103,-1;o02695,1156,-1;o0-2619,705,-12;o0-2633,724,-14;o1-402,-43,251;o1-418,-99,251;o1-438,-84,251;o1-2606,726,-12;o1-2644,761,-13;o1-2654,725,-13;o2-390,-104,253;o2-370,-78,252;o2-432,-65,251;o2-2662,752,-13';
+const NODE_RES={I:'Iron Ore',C:'Copper Ore',L:'Limestone',K:'Coal',G:'Caterium Ore',Q:'Raw Quartz',S:'Sulfur',B:'Bauxite',U:'Uranium',M:'SAM Ore',O:'Crude Oil',o:'Crude Oil',N:'Nitrogen Gas'};
+const NODES=NODE_RAW.split(';').map((t,id)=>{ const m=t.match(/^(\w)(\d)(-?\d+),(-?\d+),(-?\d+)$/); return {id,c:m[1],r:NODE_RES[m[1]],well:m[1]==='o'||m[1]==='N',p:+m[2],x:+m[3],y:+m[4],z:+m[5]}; });
+const PURITY=['impure','normal','pure'];
+const HOME=(()=>{ const c=NODES.filter(n=>n.c==='I'&&n.p===2&&Math.hypot(n.x-2900,n.y+1600)<600); return {x:Math.round(c.reduce((a,n)=>a+n.x,0)/c.length),y:Math.round(c.reduce((a,n)=>a+n.y,0)/c.length)}; })();
+/* per-node output at full size: Miner Mk.3 (240/480/960, capped at a Mk.5 belt), Oil
+   Extractor (60/120/240), Resource Well Extractor (30/60/120) — all at 100% clock */
+function nodeRate(n){ const f=bpMax?MAXFACTOR:1;   // MAX overclocks the extractors too
+  if(n.well) return [30,60,120][n.p]*f; if(n.c==='O') return [60,120,240][n.p]*f; return Math.min(780,[240,480,960][n.p]*f); }
+function nodeDist(a,b){ return Math.hypot(a.x-b.x,a.y-b.y); }
+function compass(from,to){ const dx=to.x-from.x, dy=to.y-from.y; if(Math.hypot(dx,dy)<60) return 'right by';
+  const a=(Math.atan2(-dy,dx)*180/Math.PI+360)%360; return ['east','north-east','north','north-west','west','south-west','south','south-east'][Math.round(a/45)%8]+' of'; }
+/* what a district eats from nodes at full size (fresh intake; recycled byproduct netted off) */
+function districtRawNeed(d){ const banks=districtBanks(d), need={};
+  banks.forEach(bk=>bk.inputs.forEach(([it,r])=>{ if(!ITEM2DIST[it]&&!NOT_MINED.has(it)) need[it]=(need[it]||0)+r; }));
+  banks.forEach(bk=>{ const tb=T[bk.tid].by; if(tb&&need[tb[0]]) need[tb[0]]=Math.max(0,need[tb[0]]-bk.outRate/T[bk.tid].out[1]*tb[1]); });
+  return need; }
+/* Claim real nodes for every district: core districts (A–D) take the nodes nearest ★,
+   anchored on their main ore; the railed districts (E–G) go to the best cluster of their
+   main resource anywhere on the map. Nothing is claimed twice. Cached per plan. */
+const NODE_PRIMARY={A:'Iron Ore',B:'Copper Ore',C:'Coal',D:'Crude Oil',E:'Bauxite',F:'Uranium',G:'SAM Ore'};
+let _nodeCache={sig:null,plan:null};
+function nodePlan(){ const sig=planSig(); if(_nodeCache.sig===sig) return _nodeCache.plan;
+  const taken=new Set(), plan={};
+  const pick=(res,need,anchor)=>{ const pool=NODES.filter(n=>n.r===res&&!taken.has(n.id)).sort((a,b)=>(res!=='Nitrogen Gas'?(a.well-b.well):0)||nodeDist(a,anchor)-nodeDist(b,anchor)); const got=[]; let cap=0;
+    for(const n of pool){ if(cap>=need-0.01) break; got.push(n); cap+=nodeRate(n); taken.add(n.id); } return {nodes:got,cap}; };
+  const bestCluster=(res,need)=>{ let best=null,bs=Infinity; const W=res==='Nitrogen Gas'; NODES.filter(n=>n.r===res&&!taken.has(n.id)&&n.well===W).forEach(c=>{
+      const pool=NODES.filter(n=>n.r===res&&!taken.has(n.id)&&n.well===W).sort((a,b)=>nodeDist(a,c)-nodeDist(b,c)); let cap=0,rad=0;
+      for(const n of pool){ if(cap>=need) break; cap+=nodeRate(n); rad=nodeDist(n,c); }
+      const score=cap>=need?rad:1e6+(need-cap); if(score<bs){ bs=score; best=c; } }); return best||HOME; };
+  ['A','C','B','D','E','F','G'].forEach(id=>{ const d=DMAP[id]; if(!d) return; const need=districtRawNeed(d); delete need.Water;
+    const prim=NODE_PRIMARY[id], far=/train/.test(d.near);
+    const keys=Object.keys(need).filter(k=>need[k]>0.5).sort((a,b)=>(a===prim?-1:b===prim?1:need[b]-need[a]));
+    let anchor=(far||id==='D')&&need[prim]?bestCluster(prim,need[prim]):HOME; const res={};   // oil sits where the oil is
+    keys.forEach((it,k)=>{ const g=pick(it,need[it],anchor); res[it]={need:need[it],...g};
+      if(k===0&&g.nodes.length){ const w=g.nodes.reduce((a,n)=>a+nodeRate(n),0); anchor={x:g.nodes.reduce((a,n)=>a+n.x*nodeRate(n),0)/w,y:g.nodes.reduce((a,n)=>a+n.y*nodeRate(n),0)/w}; } });
+    plan[id]={centre:{x:Math.round(anchor.x),y:Math.round(anchor.y)},res,far}; });
+  _nodeCache={sig,plan}; return plan; }
+function nodeLine(n){ return `${PURITY[n.p]}${n.well&&n.r==='Crude Oil'?' <b>well satellite</b> (Resource Well Pressurizer — from Phase 4)':''} — ${Math.round(nodeDist(n,HOME))} m ${compass(HOME,n)} ★ (x ${n.x}, y ${n.y}, z ${n.z})`; }
+/* the pad step's site note: where the district goes and which nodes it claims */
+function nodeSiteHTML(d){ const np=nodePlan()[d.id]; if(!np) return '';
+  const c=np.centre, far=Math.round(nodeDist(c,HOME));
+  let h=`<br>📍 <b>Where (1.0 map data):</b> centre ~<b>${far} m ${compass(HOME,c)} ★</b> (x ${c.x}, y ${c.y})${np.far?' — a railed outpost':far>1500?' — too far for comfortable belts: pipe/belt it in along one trunk, or give it a rail link like E–G':''}. Claim:`;
+  Object.keys(np.res).forEach(it=>{ const g=np.res[it], cnt=[0,0,0]; g.nodes.forEach(n=>cnt[n.p]++);
+    const mix=[2,1,0].filter(q=>cnt[q]).map(q=>cnt[q]+' '+PURITY[q]).join(' + '), short=g.cap<g.need-0.5, farNode=g.nodes.some(n=>nodeDist(n,c)>1500);
+    h+=`<details style="margin:3px 0"><summary><b>${it}</b> ${Math.round(g.need)}/min → ${mix||'no nodes left'} (${Math.round(g.cap)}/min with Miner Mk.3${it==='Nitrogen Gas'||(it==='Crude Oil'&&g.nodes.some(n=>n.well))?' / extractors':''})${short?` <b style="color:#e0a050">⚠ the map runs out (${Math.round(g.need-g.cap)}/min short)${it==='Crude Oil'?' — overclock the extractors with Power Shards (250% = 2.5×) or use a slower pace':' — rail the rest in from another region'}</b>`:''}${farNode?' <span style="color:#e0a050">some are 1.5 km+ out — belt or rail them</span>':''}</summary><div style="font-size:12px;color:var(--muted)">${g.nodes.map(nodeLine).join('<br>')}</div></details>`; });
+  return h; }
 function pushDistrict(out,d,p){ const banks=districtBanks(d);
   // what the district will eat at full size — pick a site with these nodes in belt range
   const need={}; banks.forEach(bk=>bk.inputs.forEach(([it,r])=>{ if(!ITEM2DIST[it]&&!NOT_MINED.has(it)) need[it]=(need[it]||0)+r; }));
@@ -1030,7 +1093,7 @@ function pushDistrict(out,d,p){ const banks=districtBanks(d);
     if(it==='Nitrogen Gas') return `<b>Nitrogen ${r} m³/min</b> (a nitrogen <b>resource well</b> — ~${Math.ceil(r/60)} normal satellites; put the pad AT the well, nitrogen doesn't travel well)`;
     if(isFluidItem(it)) return `<b>${it} ${r} m³/min</b>`;
     return `<b>${it} ${r}/min</b> (~${Math.ceil(r/120)} normal / ${Math.ceil(r/240)} pure nodes with Miner Mk.2)`; }).join(', ');
-  out.push({key:'bp:'+d.id+':pad',phase:p,district:d.id,label:'Build '+d.id+' · '+d.name+' — lay the platform near '+d.near,detail:(d.phase===1?'Flat, open ground by the ore, room to grow. <i>Foundations arrive with Tier 1 Base Building a few steps on — until then build straight on the ground; you can foundation it later.</i>':'Above ground, flat &amp; wide, one level. Leave room to expand later.')+(needTxt?` <b>Site check</b> — at full size it eats ${needTxt}. Pick a spot with those nodes within belt range; if the area can't supply one, rail it in (or use the resource-saving alternates in 📖 Guide).`:'')+' ✅ Done when: the area is cleared and marked out (or foundationed) with room for every section, and power reaches it.'});
+  out.push({key:'bp:'+d.id+':pad',phase:p,district:d.id,label:'Build '+d.id+' · '+d.name+' — lay the platform near '+d.near,detail:(d.phase===1?'Flat, open ground by the ore, room to grow. <i>Foundations arrive with Tier 1 Base Building a few steps on — until then build straight on the ground; you can foundation it later.</i>':'Above ground, flat &amp; wide, one level. Leave room to expand later.')+(needTxt?` <b>Site check</b> — at full size it eats ${needTxt}. Pick a spot with those nodes within belt range; if the area can't supply one, rail it in (or use the resource-saving alternates in 📖 Guide).`:'')+nodeSiteHTML(d)+' ✅ Done when: the area is cleared and marked out (or foundationed) with room for every section, and power reaches it.'});
   if(/train/.test(d.near)) out.push({key:'bp:'+d.id+':rail',phase:p,district:d.id,mw:200,label:'🚆 '+d.id+': rail link to your core',detail:'Lay track from here to your core. At <b>each end</b>: 1 Train Station + <b>2 Freight Platforms</b> — one set to <b>Load</b> (what leaves), one to <b>Unload</b> (what arrives), since goods go both ways. Train: <b>1 Electric Locomotive + 2 Freight Cars</b> (one per platform; each holds 32 stacks, or a fluid car 1,600 m³). Ship refined parts, not raw ore. Mixed cargo unloads onto one belt — sort it with <b>Smart Splitters</b> (a MAM step) into containers. Goods between two far districts (E→F control rods, E→G sheet) ride via your core; once several far districts are linked, one train can run a loop through them (core → E → F → G → core). One train alone on its own track needs <b>no signals</b>; once lines share track, add Railway Signalling: <b>path signals</b> at junctions and station entrances, <b>block signals</b> along straights. ✅ Done when: a test train runs your core ↔ '+d.id+' both ways and unloads at each end.'});
   const util=districtUtils(d,banks);
   if(util.length) out.push({key:'bp:'+d.id+':util',phase:p,district:d.id,label:'⚠ '+d.id+': utilities & byproducts (support lines)',detail:stripTags(util.join(' '))+' ✅ Done when: each line above is placed and has somewhere to go.'});
@@ -1190,6 +1253,9 @@ function genAdd(p){ if(p<2) return {n:0};
   if(p>=4){ const tot=nuclearPlants(p), add=tot-nuclearPlants(p-1); return {building:'Nuclear Power Plant',n:add,tot,mw:2500}; }
   const was=_noFuel; _noFuel=true; const g=GEN[p]; let mw, prev;
   try{ mw=phaseStandingMW(p).mw; prev=p>2?phaseStandingMW(p-1).mw*1.4:0; } finally { _noFuel=was; }
+  if(p===3){ // the coal generators already standing — the ⚡ Coal step plus any coal top-ups so far — count too
+    const br=_bridgeCache[planSigBase()]||{}; let have=genAdd(2).n*75; for(let q=2;q<=3;q++) have+=((br[q]||{})['Coal Generator']||0)*75;
+    prev=Math.max(prev,have); }
   return {building:p===2?'Coal Generator':'Fuel Generator', n:Math.ceil(Math.max(0,mw*1.4-prev)/g.mw), mw:g.mw, prev};
 }
 function genWater(p){ // m³/min for coal gens (45) and nuclear plants (240) standing by phase p
@@ -1277,7 +1343,7 @@ function masterSteps(){ const key=planSigBase()+'|'+sloopsOwned(); if(_msCache[k
       steps=buildSteps();
       const now=JSON.stringify(_bridgeCache[planSigBase()]||{}); if(now===prev) break;
       _demOne={}; _demP={}; _demandCache={}; _extraCache={}; for(const k in _plantCache) delete _plantCache[k];
-      _sloopCache={sig:null,rows:null}; _fundedCache={sig:null,set:null}; }
+      _sloopCache={sig:null,rows:null}; _fundedCache={sig:null,set:null}; _nodeCache={sig:null,plan:null}; }
   } finally { _msBusy=false; }
   _msCache[key]=steps; return steps; }
 /* Walk the ordered steps tracking the draw you have built and the generators you have.
@@ -1804,7 +1870,7 @@ const PHCOL={0:'#bcd0e0',1:'#ffce8a',2:'#8fe6ff',3:'#b7f0a0',4:'#d3b6ff',5:'#ffa
 function phaseChipSvg(x,y,ph){ const c=PHCOL[ph]||'#bcd0e0'; return `<rect x="${x}" y="${y}" width="26" height="15" rx="4" fill="${c}"/><text x="${x+13}" y="${y+11}" fill="#10161d" font-size="10" font-weight="700" text-anchor="middle">P${ph}</text>`; }
 const WORKS2DIST={M1:'PA',M2:'PA',M3:'PA',M4:'PA',M5:'PA',M6:'PA',M7:'PA',M8:'PA',M9:'B',M10:'PA',M11:'G',M12:'PA',F1:'D',F2:'D'};   // legacy module ids from old links
 const BM_SEQ=[
- {node:null,phase:0,t:'Phase 0 · Foundation + first power',d:'Pick flat open ground for ★ Project Assembly + ▲ Space Elevator. ⚡ Start on Biomass Burners. Scout iron, copper, limestone & coal fields — each district\'s pad step says how many nodes it will need.'},
+ {node:null,phase:0,t:'Phase 0 · Foundation + first power',d:'★ Project Assembly + ▲ Space Elevator go in the middle of the Dune Desert\'s cluster of seven pure iron nodes (about x 2918, y −1639 m on the interactive map — the top-right desert). ⚡ Start on Biomass Burners. Each district\'s pad step lists the exact nodes it claims.'},
  {node:'A',phase:1,t:'① Build the IRONWORKS district',d:'📍 Near IRON + limestone. Smelt iron → plates, rods, screws, RIP, rotors, modular frames, concrete. This shared mini-base feeds almost everything.'},
  {node:'B',phase:1,t:'① Start a small COPPERWORKS · then Tier 1–2',d:'📍 Near COPPER + caterium. Just copper ingots, wire and cable for now — they pay for the Tier 1–2 milestones (splitters, the MAM, the Assembler, Belt Mk.2). Then back in Ironworks: RIP and rotors on Assemblers. Copperworks grows (copper sheet, quickwire…) as later phases need it.'},
  {node:'PA',phase:1,t:'① Project Assembly · add Smart Plating',d:'By the elevator: one Smart Plating station (RIP + Rotor from Ironworks). ▶ deliver 50 → unlocks Steel + Coal Power.'},
@@ -1857,6 +1923,13 @@ function buildBuildMap(){
   const view=svgEl('g',{}); svg.appendChild(view); bmView=view;
   const P={}; DISTRICTS.forEach(d=>P[d.id]=bmPanel(d));
   // initial compass placement, then push apart so panels never overlap
+  { const np=nodePlan(); DISTRICTS.forEach(d=>{ const c=np[d.id]&&np[d.id].centre; if(c&&nodeDist(c,HOME)>60) d.ang=Math.round(Math.atan2(c.y-HOME.y,c.x-HOME.x)*180/Math.PI); });
+    // keep each panel on its real bearing, but at least 40° from its neighbours so none overlap
+    const ring=DISTRICTS.filter(d=>d.id!=='PA');
+    for(let it=0;it<60;it++){ ring.sort((a,b)=>((a.ang+360)%360)-((b.ang+360)%360));
+      let moved=false; ring.forEach((d,i)=>{ const e=ring[(i+1)%ring.length]; let gap=((e.ang-d.ang)%360+360)%360; if(ring.length>1&&gap<40){ const push=(40-gap)/2+0.5; d.ang-=push; e.ang+=push; moved=true; } });
+      if(!moved) break; }
+    ring.forEach(d=>d.ang=Math.round(((d.ang+540)%360)-180)); }
   DISTRICTS.forEach(d=>{ if(d.id==='PA'){ d.px=BM_C.x; d.py=BM_C.y; } else { const a=d.ang*Math.PI/180; d.px=BM_C.x+780*Math.cos(a); d.py=BM_C.y+600*Math.sin(a); } });
   for(let pass=0;pass<300;pass++){ let moved=false;
     for(let i=0;i<DISTRICTS.length;i++) for(let j=i+1;j<DISTRICTS.length;j++){ const a=DISTRICTS[i],b=DISTRICTS[j],pa=P[a.id],pb=P[b.id];
@@ -1972,7 +2045,7 @@ function buildBuildMap(){
     view.appendChild(g);
   });
   // fixed on-canvas connection legend (sits in the corner, does not pan/zoom with the map)
-  const lg=svgEl('g',{});
+  const lg=svgEl('g',{transform:'translate(0,'+(BMH-212)+')'});   // bottom-left: the corner the compass layout leaves free
   lg.appendChild(svgEl('rect',{x:18,y:18,width:660,height:176,rx:14,fill:'rgba(12,16,22,.92)',stroke:'#2a323d','stroke-width':1.5}));
   const lrow=(yy,color,dash,txt)=>{ const ln=svgEl('line',{x1:42,y1:yy,x2:128,y2:yy,stroke:color,'stroke-width':5}); if(dash) ln.setAttribute('stroke-dasharray','13 8'); lg.appendChild(ln);
     lg.appendChild(svgEl('text',{x:146,y:yy+8,fill:'#cdd6df','font-size':23})).textContent=txt; };
@@ -2199,7 +2272,7 @@ function saveCfg(){ state._cfg=Object.assign({},state._cfg,{max:bpMax,scale:bpSc
 /* re-read the plan settings OUT of state — needed after any wholesale state replacement
    (Load code, undo, Reset), otherwise the live plan silently disagrees with the saved one. */
 function flushPlanCaches(){ _chCache.sig=null; _demandCache={}; _demP={}; _demOne={}; _msCache={}; _extraCache={}; _bridgeCache={};
-  for(const k in _plantCache) delete _plantCache[k]; _sloopCache={sig:null,rows:null}; _fundedCache={sig:null,set:null}; }
+  for(const k in _plantCache) delete _plantCache[k]; _sloopCache={sig:null,rows:null}; _fundedCache={sig:null,set:null}; _nodeCache={sig:null,plan:null}; }
 function applyCfg(){ bpScale=(state._cfg&&state._cfg.scale)||1;
   bpMax=(state._cfg&&typeof state._cfg.max==='boolean')?state._cfg.max:false;
   bpPace=(state._cfg&&PACES[state._cfg.pace])?state._cfg.pace:'minimum';
