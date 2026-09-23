@@ -24,33 +24,39 @@ mini-base grouped around one material family:
 | **C** | Steelworks | iron + coal | steel, beam, pipe, encased beam, stator, motor |
 | **D** | Oil & Electronics | crude oil | plastic, rubber, circuit board, computer, heavy frame, supercomputer |
 | **E** | Aluminium & Cooling | bauxite 🚆 | aluminium chain, heat sink, cooling system, turbo motor |
-| **F** | Nuclear & Particle | uranium 🚆 | copper powder, diamonds, nuclear pasta |
-| **G** | Quantum & SAM | SAM 🚆 | ficsite, time crystals, dark matter, EPM, NQP, oscillators, singularity cells |
-| **★** | Project Assembly | by the Space Elevator | **the 12 final elevator parts only** |
+| **F** | Nuclear & Particle | uranium 🚆 | nuclear fuel (sulfuric acid → uranium cells → fuel rods), copper powder, diamonds, nuclear pasta |
+| **G** | Quantum & SAM | SAM 🚆 | SAM fluctuators, ficsite, time crystals, dark matter, EPM, NQP, oscillators, singularity cells, **AI Expansion Server** (its EPM can't travel) |
+| **★** | Project Assembly | by the Space Elevator | **the final elevator parts** (all but the AI Expansion Server, which G makes and rails in) |
 
 Each base material is made **once**, in the district that owns it, sized to total
-demand, and shared. Only the **12 finals** are single-use and they live together
+demand, and shared. Only the **finals** are single-use and they live together
 by the elevator. Cross-district flows are few and one-directional (belts between
 the core districts; **trains** to/from the far ones; **drones** for small dribbles
 of expensive parts).
 
 You're in the **top-right Dune Desert plateau** (flat &amp; open), building everything
-**above ground** (fly mod). The ⚡ **MAX** toggle plans at 250% + Somersloop (≈5× per
-machine, so ~⅕ the machines); ⚡ **100%** plans the honest full counts. Note the world
-only contains **~106 Somersloops**, nowhere near enough to amplify everything — so the
-app's **🎯 allocator** takes the number you actually own and tells you which banks are
-worth it (the deep terminal chains, whose whole upstream tree halves), and each build
-step then says whether *that* bank should be amplified or just overclocked with shards.
+**above ground** (fly mod). Counts are at **100% clock** by default; the ⚡ pill switches
+to **250% overclock** (3 Power Shards per machine, ~40% of the machines). Somersloops are
+never assumed — only ~106 exist — so the app's **🎯 allocator** takes the number you own
+and each build step says whether *that* bank is worth slotting them into.
 
-### Why the design rates are what they are
+### Pace: how big the factory is
 
-The 12 final parts have design rates chosen to **minimise waiting**, not to maximise
-throughput: within each phase every part is rated to finish at about the same time, on
-that phase's unavoidable long pole — **P2 ~50 min, P3 ~125 min** (Versatile Framework's
-2,500 sets that floor), **P4 ~125 min, P5 ~250 min** (Nuclear Pasta's 1,100 sets that
-one). Nuclear Pasta is deliberately oversized for Phase 4 so it banks toward Phase 5
-while you build. Going faster than that in Phase 5 needs a copper operation bigger than
-the map can feed, so the plan stops there rather than going over the top.
+The first question the app asks is **how patient you are**. Once a phase's lines are
+built, its deliveries just *run* while you build the next district, so waiting longer
+costs little real time and shrinks every bank:
+
+| Pace | Each phase's deliveries | Machines (100%) | Power at the end |
+|---|---|---|---|
+| 🐢 **Minimum** (default) | up to ~8 h of running | ~670 | ~16 GW |
+| ⚖ Balanced | up to ~4 h | ~1,370 | ~28 GW |
+| 🚀 Fast | the original design rates (P5 ~4 h) | ~2,040 | ~34 GW |
+
+Every bank is sized to its **busiest single phase** (finished deliveries stop drawing),
+and the counts include the one-off parts the finish really costs: every **HUB milestone
+and MAM research** on the way (real 1.0 costs), and the **build cost of every machine,
+generator, extractor and train** you place. The app charges those to the phase *before*
+you need them — a 🧺 **Stockpile** step tells you what to bank while the deliveries run.
 
 ---
 
@@ -58,7 +64,7 @@ the map can feed, so the plan stops there rather than going over the top.
 
 | Tab | What it does |
 |-----|--------------|
-| **✅ Do Next** | The numbered **step-by-step encyclopaedia** (HUB → launch). The orange card shows the single next thing; tick it and it advances. Per-phase tech-unlock gating, live power, pre-flight 🎒 kit, ⚠ utilities, and **Expand …** steps that grow each district as you go. Tick anything you've already built. |
+| **✅ Do Next** | The numbered **step-by-step list** (HUB → launch). The orange card shows the single next thing; tick it and it advances. Every step comes after what it needs: the 🔓 milestone or MAM research that unlocks it (with its real cost), the district pad, its suppliers, the ⚡ generators to add, ⚠ utilities, **Expand …** steps and 🧺 stockpiles. Tick anything you've already built. |
 | **🗺️ Build Map** | A zoomable **nested atlas**: districts in place → their area blocks → (zoom in) the machines. Real **belt vs 🚆 train** links, raw feeds, phase slider that darkens unbuilt. Click an area → its belt web. |
 | **📐 Blueprints** | Per-district **Flow** (connections) / **Grid** (exact foundation footprints) layouts; click an area for its **belt web** (double-sided manifold, multi-lane belts). A **show:** control switches between the *Final plan*, any single phase, and **📍 My progress** — the factory as your ticks say it stands. |
 | **📋 Items We Need** | Whole-build shopping: raw nodes to claim (recycled byproducts already netted off), total buildings bill, the **power plan**, and the **🎯 Somersloop allocator** — enter how many you actually own and it tells you which banks to amplify. |
@@ -112,7 +118,7 @@ lanes** (e.g. "2× Mk.6") and feeds the manifold **from both sides**. Fluids go 
 | **Tier 0** | Tiers 1–2 | Smelter, Constructor, Miner Mk.1, **Space Elevator**, belts Mk.1 |
 | **Tiers 1–2** | — | Assembler, belts Mk.2, splitters/mergers |
 | **SE Phase 1** (50 Smart Plating) | Tiers 3–4 | Foundry/Steel, **Coal Power**, belt Mk.3, Modular Frames |
-| **Phase 2** (500 SP, 500 Versatile Framework, 100 Automated Wiring) | Tiers 5–6 | Manufacturer, **Oil/Refinery**, plastic/rubber, computers, belt Mk.4, **Trains** |
+| **Phase 2** (1000 SP, 1000 Versatile Framework, 100 Automated Wiring) | Tiers 5–6 | Manufacturer, **Oil/Refinery**, plastic/rubber, computers, belt Mk.4, **Trains** |
 | **Phase 3** (2500 VF, 500 Modular Engine, 100 ACU) | Tiers 7–8 | Blender, **Aluminium**, **Particle Accelerator**, **Nuclear**, belt Mk.5, **Drones** |
 | **Phase 4** (500 ADS, 500 MFG, 250 TPR, 100 Nuclear Pasta) | Tier 9 | **Quantum Encoder**, **Converter**, belt Mk.6, ficsite, dark matter |
 | **Phase 5** (1000 Nuclear Pasta, 1000 Biochemical Sculptor, 256 AI Expansion Server, 200 Ballistic Warp Drive) | **Game complete** 🚀 | — |

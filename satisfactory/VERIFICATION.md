@@ -82,6 +82,36 @@ the machines and ~26-48% of the raw draw. Byproducts (scrap water, alumina silic
 Quantum Encoder residue) are now credited as supply inside the solver, so machine
 counts and the raw-node claim finally agree with the routing advice the steps give.
 
+### Pace (not a game-data value) — 2026-09-23
+
+Sizing is now per **pace** (`PACES`): each phase's finals run at `quantity ÷ pace
+minutes` (Minimum 480, Balanced 240) and banks are sized to the **busiest single
+phase**. `FINAL_RATES` above survives as the 🚀 Fast pace.
+
+## Datamined 2026-09-23 — milestones, building costs, elevator phases
+
+Source: the game's own data exports (greeny/SatisfactoryTools 1.0 `data.json` and a
+2026-08 live-game export in carvalinh0/FICSIT-Planner — they agree on every milestone,
+MAM and building cost), plus two save-tool tables for the elevator
+(lordralinc/sat-save-tools `project_assembly_costs.json`, AnthorNet/SC-InteractiveMap
+`SpaceElevator.js`). The wiki itself was unreachable from the build environment.
+
+| Fact | Now | Was |
+|---|---|---|
+| Space Elevator Phase 2 | **1000 Smart Plating + 1000 Versatile Framework** + 100 Automated Wiring | 500 / 500 |
+| Phase 4 | includes **100 Nuclear Pasta** (confirmed) | (unconfirmed) |
+| Supercomputer unlock | **Tier 7 Control System Development** (not MAM) | listed under MAM Caterium |
+| High-Speed Connector (MAM) | costs 500 Quickwire + **50 Plastic** → research it in Phase 3+ | Phase 2 |
+| Magnetic Field Generator unlock | **Tier 8 Nuclear Power** | — |
+| Belt Mk.6 | Tier 9 **Peak Efficiency** (10,000 Iron Plate + 5,000 Alclad) — optional, plan caps at Mk.5 | assumed in Phase 5 |
+| Converter build cost | 10 FMF, 25 Cooling, 50 RCU, **100 SAM Fluctuator** → SAM Fluctuator bank added to G (6 Reanimated SAM + 5 Wire + 3 Steel Pipe → 1 per 6 s) | not modelled |
+| Excited Photonic Matter / Dark Matter Residue | **cannot be packaged** → AI Expansion Server moved to G | piped from G to ★ |
+
+The full milestone list (Tiers 3–9 + the MAM nodes the plan uses) and 20+ building
+costs live in `MS` and `BUILD_COST` in the app. Nuclear: 2,500 MW, 0.2 fuel rod/min,
+10 Uranium Waste/min per plant; Uranium Waste stacks to 500; Industrial Storage
+Container 48 slots.
+
 ## Corrections (QA passes, 2026-06-17)
 
 Multiple QA + data-verification passes re-checked every recipe against the
