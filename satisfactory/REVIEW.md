@@ -693,7 +693,7 @@ once and ticks the new steps in any phase whose deliveries are all done.
 correctly. Verified with a synthetic save finished through Phase 3: it opens on
 the first Phase-4 unlock.
 
-### Open — the "minimum factory" decisions (need the owner)
+### Open — the "minimum factory" decisions (need the owner) — *all done in Part 6*
 
 These are the biggest wins for *minimum*, but they change what the plan is, so
 they are not applied yet. Numbers are from the solver at 100%.
@@ -716,7 +716,7 @@ they are not applied yet. Numbers are from the solver at 100%.
    Smart Plating. It should be "reserve floor space, build it in Expand for
    Phase N".
 
-### Open — correctness, still to do
+### Open — correctness, still to do — *all done in Part 6 except the node-coordinate table*
 
 - **Nuclear fuel chain as real steps.** Sulfur → acid → cells → rods, plus
   waste, sized to the ⚡ step's plant count. It needs EM Control Rod and Encased
@@ -740,3 +740,90 @@ they are not applied yet. Numbers are from the solver at 100%.
   Assembly and Particle Accelerator.
 - **"Where":** the node-coordinate table is still owner-supplied, from round 2.
   Miner Mk and count per ore feed is computable now.
+
+
+---
+
+## Part 6 — Building the minimum factory (rounds 4–7, 2026-09-23)
+
+**Brief from the owner:** *"Continue until you think you have a perfect plan."*
+
+**Method:** a build-then-review loop. Each round ended with 3–5 independent reviewers
+driving the real app in headless Chromium:
+
+- a literal first-timer clicking through every step
+- a Satisfactory veteran judging buildability
+- a game-data auditor
+- an adversarial code and migration hunter
+- a docs editor
+
+Game facts came from the game's own data exports (SatisfactoryTools 1.0 and a 2026
+live export, which agree), not from memory. See VERIFICATION.md.
+
+### What the plan is now
+
+| | 🐢 Minimum (default) | ⚖ Balanced | 🚀 Fast |
+|---|---|---|---|
+| Each phase's deliveries | up to ~8 h | up to ~4 h | original design rates |
+| Machines (100% clock) | ~710 | ~1,440 | ~2,130 |
+| Power at the end | ~24 GW | ~41 GW | ~51 GW |
+| Nuclear plants (P4 / P5) | 7 / 13 | 13 / 21 | 18 / 25 |
+
+The Minimum-pace power figure includes every miner and extractor, plus datamined
+per-recipe draw for the variable buildings.
+
+### The big changes
+
+1. **Pace, not fixed rates.** Each phase's finals run at `quantity ÷ pace`, and every
+   bank is sized to its busiest single phase. Banks are built in the first phase that
+   needs them. Nuclear Pasta banks evenly across Phases 4–5.
+2. **Real milestones.** Every HUB milestone and MAM node the finish needs is a step,
+   with its datamined cost and unlocks. Every bank is gated on its recipe's milestone
+   and its building's milestone. Each phase is topologically sorted, so each milestone
+   is followed by the banks it unlocks, then by the banks that make the next
+   milestone's parts.
+3. **One-off costs are planned.** Milestone costs and the build cost of every
+   machine, generator, extractor, pressurizer and train are charged to the phase
+   before they are needed (solved to a fixed point). A 🧺 Stockpile step lists them.
+4. **Power never outruns generation.** Each phase's power chain is scheduled first.
+   D's Fuel bank feeds the fuel generators. Automatic ⚡ top-ups use the best
+   generator unlocked by then. Nuclear is sized with the fuel chain F builds. At every
+   step, draw stays under ~90% of capacity at every pace and clock setting.
+5. **Logistics fixes.**
+   - Nuclear Pasta moved next to the copper (B).
+   - Diamonds moved next to the coal (C).
+   - F makes only nuclear fuel.
+   - The AI Expansion Server is made in G, because Excited Photonic Matter can't
+     travel.
+   - SAM Fluctuators stockpile from Phase 4 via MAM research.
+   - Belts are capped at Mk.5 and pipes at Mk.1 (the upgrades are optional
+     milestones).
+6. **Readable steps.** Each step card shows:
+   - Place / Feed / Output / Done-when lines.
+   - Miner and extractor counts, using only the belts and miners unlocked at that
+     point.
+   - Byproduct routing.
+   - A site check that lists the nodes the district needs.
+7. **Data corrections**, all datamined:
+   - Phase 2 is 1,000 / 1,000 / 100.
+   - Supercomputer is Tier 7.
+   - Magnetic Field Generator is Tier 8.
+   - The Hazmat Suit needs MAM Gas Mask research.
+   - Recycled Plastic uses Fuel.
+   - Coated Iron Plate is 37.5 + 7.5.
+   - MAX is now 250% overclock with Power Shards only.
+8. **Save safety.** A `PLAN_VERSION` re-runs the backfill whenever steps land in
+   phases a save has already finished. The current phase is judged by district pads
+   and deliveries only. Moved templates keep their ticks. This is verified with saves
+   from three older builds at dozens of progress points, both at boot and through
+   Load code.
+
+### Still open
+
+- **Real node coordinates.** This needs the owner. Each pad step's site check now
+  lists the nodes it needs, which covers the rest.
+- **Map realism.** Copper (~2,860 ore/min) and coal (~1,780/min) at Minimum pace are
+  more than one desert region supplies. Each district sits by its own ore, the site
+  check says what to look for, and the resource-saving alternates cut copper ore by
+  ~60%, iron by ~50% and coal by ~55%. Each alternate needs its hard drive, so they
+  stay optional.
