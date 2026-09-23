@@ -765,9 +765,10 @@ live export, which agree), not from memory. See VERIFICATION.md.
 | | 🐢 Minimum (default) | ⚖ Balanced | 🚀 Fast |
 |---|---|---|---|
 | Each phase's deliveries | up to ~8 h | up to ~4 h | original design rates |
-| Machines (100% clock) | ~710 | ~1,440 | ~2,130 |
-| Power at the end | ~24 GW | ~41 GW | ~51 GW |
-| Nuclear plants (P4 / P5) | 7 / 13 | 13 / 21 | 18 / 25 |
+| Machines (100% clock) | ~720 | ~1,460 | ~2,180 |
+| Power at the end | ~25 GW | ~42 GW | ~53 GW |
+| Nuclear plants (P4 / P5) | 5 / 11 | 8 / 17 | 11 / 18 |
+| Steps | 257 | 312 | 367 |
 
 The Minimum-pace power figure includes every miner and extractor, plus datamined
 per-recipe draw for the variable buildings.
@@ -829,3 +830,48 @@ per-recipe draw for the variable buildings.
   Ingot need a Refinery, which arrives after those banks are first built, so they're
   offered as hand-rebuilds from Phase 3, not as switches. Each alternate needs its
   hard drive.
+
+---
+
+## Part 7 — The opening, fuel order and solver determinism (round 8, 2026-09-23)
+
+A first-timer walkthrough found two structural problems, and an adversarial code pass
+found one more:
+
+1. **The opening was hand-crafted.** Tiers 1–2 were Phase-0 one-liners ("do Part
+   Assembly"), so you had to hand-craft ~1,100 plates, 950 rods, 1,100 wire and 800
+   screws. Now they are six real 🔓 milestones in Phase 1, with their datamined costs:
+   Base Building, Logistics, Field Research (the MAM), Part Assembly, Logistics Mk.2 and
+   the Resource Sink.
+   - A **small Copperworks** (copper, wire, cable) now opens in Phase 1, straight after
+     the Ironworks basics, because those milestones cost wire and cable.
+   - The Assembler banks (RIP, Rotor, Frame, Smart Plating) wait for Part Assembly.
+   - Belts are Mk.1 (60/min) until Logistics Mk.2.
+   - The pads say foundations come with Base Building.
+   - Phase 1's own costs are paid within about an hour (`OPENING_WINDOW`), not over the
+     8-hour pace window.
+   - The MAM research nodes all come after Field Research. Caterium research waits for
+     Phase 2, its first real use.
+2. **A fuel top-up came before the fuel to run it.** D's Fuel refinery expansions now go
+   first in their phase, ahead of any ⚡ top-up of Fuel Generators.
+3. **The ledger depended on who called it first.** `computeExtras()` now always runs
+   with the solver's recursion guards off, so the same settings always give the same
+   plan. That adds about 35% to solve time.
+
+Smaller fixes:
+- The coke line's picture and card name the residue source (D §1 + §4), and its output
+  goes to a Sink.
+- Final-bank pictures show the delivery rate, matching the card.
+- Top-up cards give their instruction first and end on "Done when". Coal top-ups count
+  their coal miners and water extractors.
+- Power Storage is marked optional. The coal step says to let the burners run down.
+- Every milestone says whether its parts are in the stockpile or still being made, and
+  how long to allow.
+- Pads and rail links have a "Done when".
+- The check-in recap refreshes after "I'm further ahead".
+
+Save migration (plan v14):
+- The old Phase-0 ticks map onto the new milestones.
+- A save past Phase 1 that never built Copperworks is sent back to build it.
+- Every other save lands where it was.
+

@@ -43,12 +43,14 @@ hundreds of huts.
 You never tear a district down — you **add machines to it** as new consumers come
 online. Each phase bolts onto the last:
 
-- **Phase 1** — Stand up **Ironworks (A)** (smelting → plate/rod/screw → RIP +
-  Rotor). Build the **Project Assembly ★** pad by the elevator with one station:
-  **Smart Plating** (RIP + Rotor). Deliver 50.
-- **Phase 2** — Tier 3–4 milestones. Add **Copperworks (B)** (MAM: Caterium →
-  Quickwire), then **Steelworks (C)**; coal power. ★ gains **Versatile Framework**
-  and **Automated Wiring**. Deliver 1000 / 1000 / 100.
+- **Phase 1** — Stand up **Ironworks (A)** (smelting → plate/rod/screw, concrete)
+  and a **small Copperworks (B)** (copper → wire, cable). Their output pays for the
+  Tier 1–2 milestones — foundations, splitters, the MAM, the Assembler, Belt Mk.2, the
+  Sink. Then A's Assemblers (RIP + Rotor) and the **Project Assembly ★** pad by the
+  elevator with one station: **Smart Plating**. Deliver 50.
+- **Phase 2** — Tier 3–4 milestones. Grow A and B (MAM: Caterium → Quickwire), then
+  add **Steelworks (C)**; coal power. ★ gains **Versatile Framework** and
+  **Automated Wiring**. Deliver 1000 / 1000 / 100.
 - **Phase 3** — Tier 5–6. Add **Oil & Electronics (D)** (MAM: Quartz). ★ gains
   **Modular Engine** and **Adaptive Control Unit**. Deliver. Power: coal + fuel.
 - **Phase 4** — Tier 7–8, in dependency order: Bauxite Refinement → the aluminium

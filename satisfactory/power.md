@@ -54,15 +54,15 @@ F §1–3 are these three banks, sized from the plant count (0.2 rods/min per pl
 | **Uranium Fuel Rod** | Manufacturer | 20 Cells + 1.2 Encased Beam + 2 EM Control Rod → 0.4 Rods |
 | **Nuclear Power Plant** | — | 0.2 Rod + 240 Water → 2,500 MW + 10 Uranium Waste |
 
-At 🐢 Minimum pace that's **7 plants by the end of Phase 4 and 13 by the end of Phase 5**
-(2.6 rods/min). At 🚀 Fast it's 18 and 25. Uranium and sulfur are in the raw-node
+At 🐢 Minimum pace that's **5 plants by the end of Phase 4 and 11 by the end of Phase 5**
+(2.2 rods/min) — the fuel generators keep running alongside them. At 🚀 Fast it's 11 and 18. Uranium and sulfur are in the raw-node
 table.
 
 **Waste:** each plant makes **10 Uranium Waste/min**, and waste **cannot be sunk**.
 Pick where it goes before you switch the plants on:
 
 1. **Store it** in a wall of Industrial Storage Containers (48 slots × 500 = 24,000
-   each). At 13 plants that's about one container every 3 hours. Fine for a
+   each). At 11 plants that's about one container every 3½ hours. Fine for a
    one-launch save.
 2. **Plutonium chain.** Non-fissile Uranium → Plutonium Pellet → Encased Plutonium
    Cell → Plutonium Fuel Rod, then sink the rods. Needs Nitric Acid.
@@ -81,11 +81,11 @@ water each). Crude for the fuel refineries **is** counted, and so is nuclear fue
 
 | Phase | Draw at the end of the phase | Generators the ⚡ steps add |
 |-------|---------------|--------------------------|
-| 1 | ~100 MW | ~5 Biomass Burners |
-| 2 | ~520 MW | 10 **Coal Generators** (+1 burner top-up early on) |
-| 3 | ~1.9 GW | 5 Coal (top-up) + 7 **Fuel Generators** |
-| 4 | ~14.2 GW | 10 Fuel (bridge until nuclear) + 7 **Nuclear plants** |
-| 5 | ~24.3 GW | 6 more **Nuclear plants** (13 total) |
+| 1 | ~180 MW | ~9 Biomass Burners (Ironworks + the small Copperworks; hand-fed — Biomass lasts far longer per slot than leaves) |
+| 2 | ~530 MW | 10 **Coal Generators** |
+| 3 | ~2.0 GW | 10 Coal (top-up) + 8 **Fuel Generators** |
+| 4 | ~14.7 GW | 23 Fuel (bridge until nuclear — D's Fuel refineries grow first) + 5 **Nuclear plants** |
+| 5 | ~24.8 GW | 6 more **Nuclear plants** (11 total) |
 
 These are the app's own figures, **including every miner and extractor** and the real
 per-recipe draw of accelerators, converters and encoders (Nuclear Pasta, Dark Matter

@@ -48,9 +48,9 @@ costs little real time and shrinks every bank:
 
 | Pace | Each phase's deliveries | Machines (100%) | Power at the end |
 |---|---|---|---|
-| 🐢 **Minimum** (default) | up to ~8 h of running | ~710 | ~24 GW |
-| ⚖ Balanced | up to ~4 h | ~1,440 | ~41 GW |
-| 🚀 Fast | the original design rates (P5 ~4 h) | ~2,130 | ~51 GW |
+| 🐢 **Minimum** (default) | up to ~8 h of running | ~720 | ~25 GW |
+| ⚖ Balanced | up to ~4 h | ~1,460 | ~42 GW |
+| 🚀 Fast | the original design rates (P5 ~4 h) | ~2,180 | ~53 GW |
 
 Power includes every miner and extractor, and the real per-recipe draw of Particle
 Accelerators, Converters, Quantum Encoders and the Biochemical Sculptor (datamined
@@ -62,6 +62,9 @@ and the counts include the one-off parts the finish really costs: every **HUB mi
 and MAM research** on the way (real 1.0 costs), and the **build cost of every machine,
 generator, extractor and train** you place. The app charges those to the phase *before*
 you need them — a 🧺 **Stockpile** step tells you what to bank while the deliveries run.
+The one exception is the opening: Phase 1's own **Tier 1–2** milestones (splitters, the
+MAM, the Assembler, Belt Mk.2, the Sink) are paid by the Phase-1 lines within about an
+hour, so you never hand-craft them or wait a whole pace window for the Assembler.
 
 ---
 
@@ -125,7 +128,7 @@ lanes** (e.g. "2× Mk.5" — the plan stops at Mk.5; Mk.6 needs the optional Pea
 | Complete… | Unlocks | Key tools |
 |-----------|---------|-----------|
 | **Tier 0** | Tiers 1–2 | Smelter, Constructor, Miner Mk.1, **Space Elevator**, belts Mk.1 |
-| **Tiers 1–2** | — | Assembler, belts Mk.2, splitters/mergers |
+| **Tiers 1–2** (Phase 1 of the app, paid by Ironworks + a small Copperworks) | — | foundations, splitters/mergers, the **MAM**, **Assembler**, belts Mk.2, the AWESOME Sink |
 | **SE Phase 1** (50 Smart Plating) | Tiers 3–4 | Foundry/Steel, **Coal Power**, belt Mk.3, Modular Frames |
 | **Phase 2** (1000 SP, 1000 Versatile Framework, 100 Automated Wiring) | Tiers 5–6 | Manufacturer, **Oil/Refinery**, plastic/rubber, computers, belt Mk.4, **Trains** |
 | **Phase 3** (2500 VF, 500 Modular Engine, 100 ACU) | Tiers 7–8 | Blender, **Aluminium**, **Particle Accelerator**, **Nuclear**, belt Mk.5, **Drones** |
