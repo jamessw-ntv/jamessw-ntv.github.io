@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Refresh personal/data.json from public, keyless sources.
 
-Same design as refresh_sports.py: keep-last-good per source (a source that
+Keep-last-good per source (a source that
 errors leaves its existing data untouched), validate before accept, and only
 write when the meaningful data changed. Runs in GitHub Actions (open internet),
 NOT in the dev sandbox.
