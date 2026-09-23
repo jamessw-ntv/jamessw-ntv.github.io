@@ -824,6 +824,8 @@ per-recipe draw for the variable buildings.
   lists the nodes it needs, which covers the rest.
 - **Map realism.** Copper (~2,860 ore/min) and coal (~1,780/min) at Minimum pace are
   more than one desert region supplies. Each district sits by its own ore, the site
-  check says what to look for, and the resource-saving alternates cut copper ore by
-  ~60%, iron by ~50% and coal by ~55%. Each alternate needs its hard drive, so they
-  stay optional.
+  check says what to look for. The plan-wide alternates (Fused Wire, Solid Steel,
+  Oil-Based Diamonds) cut coal by ~55% and copper by ~20%. Pure Copper and Pure Iron
+  Ingot need a Refinery, which arrives after those banks are first built, so they're
+  offered as hand-rebuilds from Phase 3, not as switches. Each alternate needs its
+  hard drive.

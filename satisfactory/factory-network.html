@@ -264,7 +264,7 @@
     <h3>Just want to follow it? Do this:</h3>
     <p>Open <b>✅ Do Next</b> and keep doing the orange “▶ DO THIS NOW” card, hitting <b>✓ Done</b> after each. It walks Phase 0 setup → build <b>Ironworks</b> → add <b>Smart Plating</b> to ★ → deliver → coal power → <b>Steelworks + Copperworks</b> → … → <b>launch 🚀</b>. Tap <b>📐 Blueprint</b> on any step to see exactly where the machines and belts go.</p>
     <h3>Assumptions baked in</h3>
-    <p>Everything <b>above ground</b> (fly mod), at <b>100% clock</b> by default (⚡ MAX = every machine at 250% with 3 Power Shards, ~40% of the machines), sized for the <b>pace</b> you picked (🐢 Minimum: each phase's deliveries run up to ~8 h while you build the next district). Far districts (Aluminium / Nuclear / Quantum) are <b>railed in</b>.</p>
+    <p>Everything <b>above ground</b> (fly mod), at <b>100% clock</b> by default (⚡ MAX = every machine at 250% with 3 Power Shards, ~40% of the machines), sized for the <b>pace</b> you picked (see the pace pill on ✅ Do Next — e.g. 🐢 Minimum: each phase's deliveries run up to ~8 h while you build the next district). Far districts (Aluminium / Nuclear / Quantum) are <b>railed in</b>.</p>
     <h3>Belts &amp; pipes — when you get them, when to upgrade</h3>
     <p>Each build step prints the <b>exact belt Mk</b> for that line and flags <span class="tag qty">upgrade</span> when a trunk outgrows its belt. Lay the best belt you have unlocked, then come back and upgrade the fat trunks as new Mks arrive. Rough unlock timing:</p>
     <table style="margin:4px 0">
@@ -446,9 +446,18 @@ const ALTS={
 /* the standard table, kept pristine so toggling an alt off restores it exactly */
 const T_STD={}; Object.keys(T).forEach(k=>T_STD[k]=T[k]);
 function altsOn(){ return (state&&state._cfg&&Array.isArray(state._cfg.alts))?state._cfg.alts:[]; }
+/* An alternate can only replace a bank plan-wide if its building and inputs exist by the
+   phase that bank is first built (Pure Iron needs a Refinery, but Ironworks starts in Phase
+   1). Returns the phase the alternate becomes usable, or 0 if it's fine from the start. */
+const ALT_BUILDING_PHASE={Refinery:3,Manufacturer:3,Blender:4,'Particle Accelerator':4,Converter:5,'Quantum Encoder':5,Foundry:2};
+function altLatePhase(id){ const a=ALTS[id]; if(!a) return 0; const d=DISTRICTS.find(x=>x.t.includes(a.replaces)); if(!d) return 0;
+  const start=typeof availPhase==='function'?availPhase(a.replaces):d.phase; let ph=ALT_BUILDING_PHASE[a.b]||1;
+  a.in.forEach(([it])=>{ for(const dd of DISTRICTS) for(const tid of dd.t){ const t=T_STD[tid]; if(t&&t.out[0]===it){ ph=Math.max(ph,dd.id==='PA'?1:dd.phase); } } });
+  if(a.in.some(([it])=>it==='Plastic'||it==='Rubber')) ph=Math.max(ph,3);
+  return ph>start?ph:0; }
 function applyAlts(){
   Object.keys(T_STD).forEach(k=>{ T[k]=T_STD[k]; });
-  altsOn().forEach(id=>{ const a=ALTS[id]; if(!a||!T_STD[a.replaces]) return;
+  altsOn().forEach(id=>{ const a=ALTS[id]; if(!a||!T_STD[a.replaces]||altLatePhase(id)) return;
     const std=T_STD[a.replaces];
     const swapped={name:a.name,b:a.b,r:a.r,in:a.in,out:a.out,fp:a.fp,ph:std.ph,alt:id};
     if(a.by) swapped.by=a.by;                       // alts without a byproduct must not inherit one
@@ -771,7 +780,7 @@ function powerStepHint(p){ const g=GEN[p]||GEN[5], mw=phaseStandingMW(p).mw;
   if(p>=4){ const ga=genAdd(p), tot=ga.tot, add=ga.n;
     return ` · By the end of Phase ${p} your factory draws <b>~${Math.round(mw)} MW</b> (miners &amp; extractors included) → ${add>0?`add <b>${add}× Nuclear Power Plant</b> (${tot} in total, ${+(tot*0.2).toFixed(1)} fuel rods/min — F's fuel chain is sized for exactly this). They drink <b>${add*240} m³/min</b> of water → <b>${Math.ceil(add*240/120)}× Water Extractor</b> (${Math.ceil(add*240/300)}× Pipe Mk.1)`:`<b>no new plants needed</b> (${tot} in total)`}. Keep coal &amp; fuel running as base load.`; }
   // Phase 2 retires the hand-fed biomass burners; from Phase 3 on you stack on what you have
-  const prev=p>2?phaseStandingMW(p-1).mw*1.4:0, n=Math.ceil(Math.max(0,mw*1.4-prev)/g.mw);
+  const prev=p>2?phaseStandingMW(p-1).mw*1.4:0, n=genAdd(p).n;   // the same count the power walk and Items use
   const feed=p===2?` Feed them <b>${n*15} coal/min</b> (${Math.ceil(n*15/60)}× Miner Mk.1 on normal coal, or ${Math.ceil(n*15/120)}× Mk.2 once unlocked) and <b>${n*45} m³/min water</b> (${Math.ceil(n*45/120)}× Water Extractor).`:'';
   return ` · By the end of Phase ${p} your factory draws <b>~${Math.round(mw)} MW</b> (miners &amp; extractors included) → add <b>~${n}× ${g.mw} MW</b> ${g.n} (incl. 40% headroom).`+feed+(prev?` Keep the older generators running — stack, don't replace.`:''); }
 function renderShopping(){
@@ -797,7 +806,7 @@ function renderShopping(){
   const ns=document.createElement('div'); ns.className='shopphase';
   ns.innerHTML=`<h3>🪨 Raw nodes to claim — whole build ${bpMax?'(MAX: miners overclocked too)':'(100%)'}</h3>`+
     '<table><thead><tr><th>Resource</th><th>Total/min</th><th>Nodes (≈ Mk.2 miner'+(bpMax?' @250%':'')+')</th><th>Bring via</th></tr></thead><tbody>'+nrows+'</tbody></table>'+
-    `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">Mk.2 miner ≈ pure 240 / normal 120 / impure 60 /min${bpMax?' (×2.5 at 250%)':''}. Prefer <b>pure</b> for the big eaters; overclock lesser nodes with Power Shards to close gaps. Far resources are railed in. <b>Short on copper, iron or coal?</b> Tick the Pure Copper Ingot, Fused Wire, Pure Iron Ingot, Solid Steel and Oil-Based Diamonds alternates in 📖 Guide (each needs its hard drive) — together they cut copper ore ~60%, iron ~50% and coal ~55%.<br><b style="color:#e0a050">⚡ Generator feed:</b> the coal and water for the generators are added as their own rows. (Crude for the Fuel refineries — D's Fuel bank — and nuclear fuel — uranium + sulfur, F §1–3 — are counted with production.)</div>`;
+    `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">Mk.2 miner ≈ pure 240 / normal 120 / impure 60 /min${bpMax?' (×2.5 at 250%)':''}. Prefer <b>pure</b> for the big eaters; overclock lesser nodes with Power Shards to close gaps. Far resources are railed in. <b>Short on copper, iron or coal?</b> Tick the Fused Wire, Solid Steel and Oil-Based Diamonds alternates in 📖 Guide (each needs its hard drive); Pure Copper and Pure Iron Ingot are worth a hand-rebuild of those banks from Phase 3.<br><b style="color:#e0a050">⚡ Generator feed:</b> the coal and water for the generators are added as their own rows. (Crude for the Fuel refineries — D's Fuel bank — and nuclear fuel — uranium + sulfur, F §1–3 — are counted with production.)</div>`;
   rWrap.appendChild(ns);
   // ---- 2) BUILDINGS BILL ----
   const bld={}; let totMach=0; all.forEach(({b})=>{ bld[b.b]=(bld[b.b]||0)+b.n; totMach+=b.n; });
@@ -1308,7 +1317,7 @@ function renderInventory(){ backfillFinished();
     sec.innerHTML=`<h3><span class="chip p${p}">Phase ${p}</span> ${PHASE_NAMES[p]}<div class="prog"><i style="width:${pct}%"></i></div><span class="pct">${done}/${steps.length} · ${pct}%${nEq?` <span style="color:#ffce8a">≈${nEq}</span>`:''}${nSkip?` <span style="color:var(--muted)">⏭${nSkip}</span>`:''}</span><button class="pbtn phdone" data-p="${p}" style="margin-left:8px;padding:3px 9px">${done===steps.length?'↺ undo':'✓ all'}</button></h3>`;
     { const pm=phaseDeliverMin(p);
       if(pm){ // name the long pole: that is the line to stand up first and let it bank
-        let slow=null,slowMin=0; (DELIVERIES[p]||[]).forEach(([item,qty])=>{ const r=finalRateReal(item,p); if(r&&qty/r>slowMin){ slowMin=qty/r; slow=item; } });
+        let slow=null,slowMin=0; (DELIVERIES[p]||[]).forEach(([item,qty])=>{ const r=finalRateReal(item,p), m=r?qty*(1-bankedShare(item,p))/r:0; if(m>slowMin){ slowMin=m; slow=item; } });
         sec.innerHTML+=`<div style="padding:1px 16px 6px;color:var(--muted);font-size:12px">⏱ once built, ~<b>${fmtMin(pm)}</b> of running to hit this phase's deliveries (lines run in parallel${bpScale!==1?', at ×'+bpScale+' rate':''}).${slow?` <b style="color:#ffce8a">Long pole: ${slow}</b> (${fmtMin(slowMin)}) — build that line <b>first</b> and let it bank into containers while you do the rest.`:''}</div>`; } }
     // the overclock ramp, priced: shards are the other finite resource (~730 from wild slugs
     // until Synthetic Power Shards arrive at Tier 9), so show the running bill per phase
@@ -2561,12 +2570,12 @@ function renderAltToggles(){
   const host=document.getElementById('altToggles'); if(!host) return;
   const on=altsOn();
   host.innerHTML=Object.entries(ALTS).map(([id,a])=>{
-    const std=T_STD[a.replaces], act=on.indexOf(id)>=0;
+    const std=T_STD[a.replaces], late=altLatePhase(id), act=on.indexOf(id)>=0&&!late;
     const fmt=t=>(t.in.map(x=>x[0]+' '+x[1]).join(' + ')||'—')+' → '+t.out[0]+' '+t.out[1]+'/min';
     return `<div class="invrow${act?'':''}" style="border:1px solid ${act?'var(--teal)':'var(--line)'};border-radius:7px;margin-bottom:6px;background:${act?'rgba(45,212,191,.06)':'transparent'}">`+
-      `<input type="checkbox" data-alt="${id}" aria-label="Use the ${a.label} alternate recipe" ${act?'checked':''}>`+
+      `<input type="checkbox" data-alt="${id}" aria-label="Use the ${a.label} alternate recipe" ${act?'checked':''} ${late?'disabled':''}>`+
       `<div class="it"><div class="nm"><b>${a.label}</b> <span class="tag qty">alt · spot-check in-game</span> ${act?'<span class="tag" style="background:#0f2a26;color:#8fe6a8">IN USE</span>':''}</div>`+
-      `<div class="nt">${a.why}<br><span style="color:var(--muted)">standard:</span> ${fmt(std)} &nbsp;·&nbsp; <span style="color:var(--teal)">alt:</span> ${fmt(a)}</div></div></div>`;
+      `<div class="nt">${a.why}${late?`<br><b style="color:#ffce8a">Not a plan-wide switch:</b> this bank is first built before its building or inputs exist (Phase ${late}). Worth it later as a <b>rebuild</b> — once you're in Phase ${late}+, replace the bank by hand.`:''}<br><span style="color:var(--muted)">standard:</span> ${fmt(std)} &nbsp;·&nbsp; <span style="color:var(--teal)">alt:</span> ${fmt(a)}</div></div></div>`;
   }).join('');
   host.querySelectorAll('input[data-alt]').forEach(cb=>cb.onchange=e=>{
     const id=cb.dataset.alt; let list=altsOn().slice();
