@@ -48,9 +48,9 @@ costs little real time and shrinks every bank:
 
 | Pace | Each phase's deliveries | Machines (100%) | Power at the end |
 |---|---|---|---|
-| 🐢 **Minimum** (default) | up to ~8 h of running | ~720 | ~25 GW |
-| ⚖ Balanced | up to ~4 h | ~1,460 | ~42 GW |
-| 🚀 Fast | the original design rates (P5 ~4 h) | ~2,180 | ~53 GW |
+| 🐢 **Minimum** (default) | up to ~8 h of running | ~720 | ~26 GW |
+| ⚖ Balanced | up to ~4 h | ~1,470 | ~43 GW |
+| 🚀 Fast | the original design rates (P5 ~4 h) | ~2,180 | ~54 GW |
 
 Power includes every miner and extractor, and the real per-recipe draw of Particle
 Accelerators, Converters, Quantum Encoders and the Biochemical Sculptor (datamined

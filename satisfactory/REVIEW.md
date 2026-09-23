@@ -765,10 +765,10 @@ live export, which agree), not from memory. See VERIFICATION.md.
 | | 🐢 Minimum (default) | ⚖ Balanced | 🚀 Fast |
 |---|---|---|---|
 | Each phase's deliveries | up to ~8 h | up to ~4 h | original design rates |
-| Machines (100% clock) | ~720 | ~1,460 | ~2,180 |
-| Power at the end | ~25 GW | ~42 GW | ~53 GW |
+| Machines (100% clock) | ~720 | ~1,470 | ~2,180 |
+| Power at the end | ~26 GW | ~43 GW | ~54 GW |
 | Nuclear plants (P4 / P5) | 5 / 11 | 8 / 17 | 11 / 18 |
-| Steps | 257 | 312 | 367 |
+| Steps | 262 | 318 | 376 |
 
 The Minimum-pace power figure includes every miner and extractor, plus datamined
 per-recipe draw for the variable buildings.
@@ -912,3 +912,42 @@ Fixed:
 
 Still open: district E's cards disagree slightly on how its fresh and recycled water is
 split.
+
+Resolved since: district E's water now adds up (see rounds 11–13).
+
+### Rounds 11–13 (same day)
+
+- **No more underclock advice.** Lightly used banks sit at the far end of their input
+  manifold and pause when their output fills up. The old advice was an underclock that
+  no later step ever reversed.
+- **Byproducts feed sections in order.** A district's recycled byproduct goes to its
+  earliest consumer first. District E's water now adds up: 520 + 58 = 578 m³/min fresh.
+  Pad site checks count fresh intake only, and water comes off one district water main.
+- **The visual views show your real progress.**
+  - 📍 My progress and the Build Map at 📍 Now count machines from your ticks.
+  - The map outlines the district you're in and marks the next bank ▶. Its caption says
+    the next step and how much of that district stands.
+  - Blueprints marks the next bank, including in the phone build list ("k of n built").
+  - Step pictures collapse built machines into one "N built" chip.
+  - Phones get 40 px buttons, and the map appears on the first screen.
+- **Trains and fluids.**
+  - Each end of a rail link has a Load and an Unload platform, with a car per platform.
+    The Blueprints rail row now shows the same kit.
+  - New steps: Smart Splitter (MAM research) before the first rail link, Railway
+    Signalling (only needed when trains share track), and Pipeline Mk.2 (pipes run
+    600 m³/min from Phase 3).
+  - Goods between two far districts travel via the core.
+- **Mid-game.**
+  - Dark Matter loop: the encoders' residue is used first, and excess crystal overflows
+    to a Sink.
+  - Every delivery has a "Done when", and Pasta keeps banking after Phase 4.
+  - The Hazmat Suit's cost is shown.
+  - With MAX on, the Power Shard count reads "now" and "at full size".
+- **`PLAN_VERSION` is 16.** Round 13 migrated saves from the previous build at 22 points
+  each: nothing was lost, and boot takes ~1.1 s.
+
+Still open:
+- The Phase 3 Fuel Generator count ignores the bridge Coal Generators, so that phase has
+  more headroom than it needs.
+- Real node coordinates, which need the owner.
+
