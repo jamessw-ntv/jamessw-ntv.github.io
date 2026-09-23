@@ -54,15 +54,15 @@ F §1–3 are these three banks, sized from the plant count (0.2 rods/min per pl
 | **Uranium Fuel Rod** | Manufacturer | 20 Cells + 1.2 Encased Beam + 2 EM Control Rod → 0.4 Rods |
 | **Nuclear Power Plant** | — | 0.2 Rod + 240 Water → 2,500 MW + 10 Uranium Waste |
 
-At 🐢 Minimum pace that's **4 plants by the end of Phase 4 and 9 by the end of Phase 5**
-(1.8 rods/min). At 🚀 Fast it's 13 and 17. Uranium and sulfur are in the raw-node
+At 🐢 Minimum pace that's **7 plants by the end of Phase 4 and 13 by the end of Phase 5**
+(2.6 rods/min). At 🚀 Fast it's 18 and 25. Uranium and sulfur are in the raw-node
 table.
 
 **Waste:** each plant makes **10 Uranium Waste/min**, and waste **cannot be sunk**.
 Pick where it goes before you switch the plants on:
 
 1. **Store it** in a wall of Industrial Storage Containers (48 slots × 500 = 24,000
-   each). At 9 plants that's about one container every 4½ hours. Fine for a
+   each). At 13 plants that's about one container every 3 hours. Fine for a
    one-launch save.
 2. **Plutonium chain.** Non-fissile Uranium → Plutonium Pellet → Encased Plutonium
    Cell → Plutonium Fuel Rod, then sink the rods. Needs Nitric Acid.
@@ -81,14 +81,16 @@ water each). Crude for the fuel refineries **is** counted, and so is nuclear fue
 
 | Phase | Draw at the end of the phase | Generators the ⚡ steps add |
 |-------|---------------|--------------------------|
-| 1 | ~90 MW | ~5 Biomass Burners |
-| 2 | ~380 MW | 8 **Coal Generators** |
-| 3 | ~1.4 GW | 6 **Fuel Generators** |
-| 4 | ~7.7 GW | 4 Fuel (bridge) + 4 **Nuclear plants** |
-| 5 | ~16.3 GW | 5 more **Nuclear plants** (9 total) |
+| 1 | ~100 MW | ~5 Biomass Burners |
+| 2 | ~520 MW | 10 **Coal Generators** (+1 burner top-up early on) |
+| 3 | ~1.9 GW | 5 Coal (top-up) + 7 **Fuel Generators** |
+| 4 | ~14.2 GW | 10 Fuel (bridge until nuclear) + 7 **Nuclear plants** |
+| 5 | ~24.3 GW | 6 more **Nuclear plants** (13 total) |
 
-These are the app's own figures. Each ⚡ step includes 40% headroom; miners and
-pumps add another ~10–15%. Other paces and MAX: see the ⚡ power plan in 📋 Items
+These are the app's own figures, **including every miner and extractor** and the real
+per-recipe draw of accelerators, converters and encoders (Nuclear Pasta, Dark Matter
+Crystal, Biochemical Sculptor and the encoders average ~1,000 MW each). Each ⚡ step
+includes 40% headroom. Other paces and MAX: see the ⚡ power plan in 📋 Items
 We Need.
 
 ---
