@@ -20,11 +20,11 @@ mini-base grouped around one material family:
 | | District | Near | Makes (shared) |
 |---|----------|------|----------------|
 | **A** | Ironworks | iron + limestone | iron ingot/plate/rod/screw, RIP, rotor, modular frame, concrete |
-| **B** | Copperworks | copper + caterium | wire, cable, copper sheet, quickwire, AI limiter |
-| **C** | Steelworks | iron + coal | steel, beam, pipe, encased beam, stator, motor |
-| **D** | Oil & Electronics | crude oil | plastic, rubber, circuit board, computer, heavy frame, supercomputer |
+| **B** | Copperworks | copper + caterium | wire, cable, copper sheet, quickwire, AI limiter — and from Phase 4 **copper powder → Nuclear Pasta** (so ~3,000 ingots/min never ride a train) |
+| **C** | Steelworks | iron + coal | steel, beam, pipe, encased beam, stator, motor, and **diamonds** in Phase 5 (they eat coal) |
+| **D** | Oil & Electronics | crude oil | plastic, rubber, **fuel** (for the fuel generators), quartz, silica, circuit board, computer, heavy frame, crystal oscillator, supercomputer |
 | **E** | Aluminium & Cooling | bauxite 🚆 | aluminium chain, heat sink, cooling system, turbo motor |
-| **F** | Nuclear & Particle | uranium 🚆 | nuclear fuel (sulfuric acid → uranium cells → fuel rods), copper powder, diamonds, nuclear pasta |
+| **F** | Nuclear Fuel | uranium 🚆 | sulfuric acid → uranium cells → fuel rods, and the Nuclear Power Plants |
 | **G** | Quantum & SAM | SAM 🚆 | SAM fluctuators, ficsite, time crystals, dark matter, EPM, NQP, oscillators, singularity cells, **AI Expansion Server** (its EPM can't travel) |
 | **★** | Project Assembly | by the Space Elevator | **the final elevator parts** (all but the AI Expansion Server, which G makes and rails in) |
 
@@ -48,9 +48,9 @@ costs little real time and shrinks every bank:
 
 | Pace | Each phase's deliveries | Machines (100%) | Power at the end |
 |---|---|---|---|
-| 🐢 **Minimum** (default) | up to ~8 h of running | ~670 | ~16 GW |
-| ⚖ Balanced | up to ~4 h | ~1,370 | ~28 GW |
-| 🚀 Fast | the original design rates (P5 ~4 h) | ~2,040 | ~34 GW |
+| 🐢 **Minimum** (default) | up to ~8 h of running | ~690 | ~16 GW |
+| ⚖ Balanced | up to ~4 h | ~1,400 | ~28 GW |
+| 🚀 Fast | the original design rates (P5 ~4 h) | ~2,070 | ~35 GW |
 
 Every bank is sized to its **busiest single phase** (finished deliveries stop drawing),
 and the counts include the one-off parts the finish really costs: every **HUB milestone
@@ -82,6 +82,9 @@ plan onto a save that's already running.
 
 ## The files in this folder
 
+**To just follow the plan you only need the app:** open it, answer the one question,
+and do what the orange card says. Everything below is reference.
+
 | File | What it is |
 |------|------------|
 | **factory-network.html** | The interactive app (above). Open this. |
@@ -90,7 +93,8 @@ plan onto a save that's already running.
 | **templates.md** | What a reusable cell/template is (exact specs live in the app + VERIFICATION.md). |
 | **train-network.md** | Rail plan + **drones** + signalling. |
 | **power.md** | When to switch biomass → coal → fuel → nuclear, and how much. |
-| **VERIFICATION.md** | Every recipe cross-checked vs the wiki/SCIM, with corrections logged. |
+| **VERIFICATION.md** | *(maintainers)* every recipe, milestone and building cost checked against game data, with corrections logged. |
+| **REVIEW.md** | *(maintainers)* the review history and what's still open. |
 
 ---
 
@@ -106,7 +110,7 @@ plan onto a save that's already running.
 | Mk.6 | 1200 | 9 |
 
 When a trunk's rate tops the belt it's on, the belt web **splits it into parallel
-lanes** (e.g. "2× Mk.6") and feeds the manifold **from both sides**. Fluids go on
+lanes** (e.g. "2× Mk.5" — the plan stops at Mk.5; Mk.6 needs the optional Peak Efficiency milestone) and feeds the manifold **from both sides**. Fluids go on
 **pipes**, never belts.
 
 ---
@@ -120,7 +124,7 @@ lanes** (e.g. "2× Mk.6") and feeds the manifold **from both sides**. Fluids go 
 | **SE Phase 1** (50 Smart Plating) | Tiers 3–4 | Foundry/Steel, **Coal Power**, belt Mk.3, Modular Frames |
 | **Phase 2** (1000 SP, 1000 Versatile Framework, 100 Automated Wiring) | Tiers 5–6 | Manufacturer, **Oil/Refinery**, plastic/rubber, computers, belt Mk.4, **Trains** |
 | **Phase 3** (2500 VF, 500 Modular Engine, 100 ACU) | Tiers 7–8 | Blender, **Aluminium**, **Particle Accelerator**, **Nuclear**, belt Mk.5, **Drones** |
-| **Phase 4** (500 ADS, 500 MFG, 250 TPR, 100 Nuclear Pasta) | Tier 9 | **Quantum Encoder**, **Converter**, belt Mk.6, ficsite, dark matter |
+| **Phase 4** (500 ADS, 500 MFG, 250 TPR, 100 Nuclear Pasta) | Tier 9 | **Quantum Encoder**, **Converter**, ficsite, dark matter |
 | **Phase 5** (1000 Nuclear Pasta, 1000 Biochemical Sculptor, 256 AI Expansion Server, 200 Ballistic Warp Drive) | **Game complete** 🚀 | — |
 
 ---

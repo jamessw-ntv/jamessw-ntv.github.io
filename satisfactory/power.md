@@ -18,77 +18,78 @@ All figures are standard, 1.0, per generator at 100 % clock.
 
 ---
 
-## When to switch (the decision you asked about)
+## When to switch
 
-- **Biomass → Coal:** the instant Phase 1 is delivered (unlocks Tier 3 *Coal
-  Power*). Stop hand-feeding burners — build a **row of Coal Generators next to a
-  lake**, pump water in, belt coal in. One coal node (Mk.2 miner, ~120/min) runs
-  **~8 coal generators = 600 MW**. Set-and-forget.
-- **Coal → Fuel:** once **Oil & Electronics (D)** is running in Phase 3. Fuel
-  Generators give **250 MW each** (3.3× a coal gen) and free your coal up for
-  **steel** (which you need a lot of). Refine crude → Fuel, pipe it to a fuel-gen
-  bank. This carries you comfortably through Phase 3 and most of Phase 4.
-- **Fuel → Nuclear:** in **Phase 4**, when **Particle Accelerators** (Nuclear
-  Pasta, Diamonds, Dark Matter) come online — they each draw **250–1500 MW and
-  fluctuate hard**, and Phase 5's quantum factories push you into the **multi-GW**
-  range. One **Nuclear Power Plant = 2500 MW**; the full 100% plan needs
-  **~13 by the end of Phase 4 and ~19 by the end of Phase 5** (the app's ⚡ steps give
-  the live count). Site them **by lots of water**, and **deal with the Nuclear Waste**
-  (store it in containers, or process it later) — waste that backs up will stall
-  the plant and trip the grid.
+The app does the maths for you. Every ⚡ step in ✅ Do Next says how many generators
+to **add**, and the steps are ordered so **power always comes before the load**: each
+phase builds its power chain first. Wherever the next builds would pass ~90% of what
+you generate, a **⚡ Top up power** step appears using the best generator you've
+unlocked by then. The readout under the orange card shows *draw vs. capacity* at your
+point in the plan.
 
-> You don't have to *replace* the old generators — leave coal/fuel running as a
-> base load and **stack the new type on top**. Build-once applies to power too.
+- **Biomass → Coal:** Phase 2, as soon as Tier 3 *Coal Power* is done. Put coal
+  generators by water, on a coal node of their own (Steelworks needs its coal).
+- **Coal → Fuel:** Phase 3. D's **Fuel refinery bank** (60 crude → 40 Fuel, plus
+  30 Polymer Resin to sink) is sized for exactly the fuel generators the plan builds,
+  including any top-ups. Heavy Oil Residue from plastic/rubber can also become fuel
+  (Residual Fuel), but that's a bonus, not relied on.
+- **Fuel → Nuclear:** Phase 4. The nuclear chain comes first in the phase:
+  aluminium → Control System Development → Supercomputers → Nuclear Power
+  milestone → EM rods, uranium cells, fuel rods → plants. A few fuel generators
+  bridge the gap. Phase 5 adds more plants at the start of the phase.
 
----
-
-## The nuclear fuel chain (the part every plan forgets — sized here for 6 plants)
-
-Six plants = **15 GW**. The full 100% plan needs ~19 plants (~3.8 rods/min), so
-multiply the right-hand column by ~3.2 — or run a smaller factory (see REVIEW.md
-Part 5: sizing banks per phase cuts total draw by ~20%). The rod chain below is
-**not in the app's demand solver** (fuel isn't demanded by any elevator part),
-so build it from this table; scale linearly for more plants.
-
-| Step | Building | Per-minute recipe | For 6 plants (1.2 rods/min) |
-|------|----------|-------------------|------------------------------|
-| **Sulfuric Acid** | Refinery | 50 Sulfur + 50 Water → 50 Acid | **~2 Refineries** (~100 Sulfur/min — **claim a sulfur node!**) |
-| **Encased Uranium Cell** | Blender | 50 Uranium + 15 Concrete + 40 Acid → 25 Cells (+10 Acid back) | **~2.5 Blenders** (~120 Uranium ore/min ≈ one normal node) |
-| **Uranium Fuel Rod** | Manufacturer | 20 Cells + 1.2 Encased Beam + 2 EM Control Rod → 0.4 Rods | **3 Manufacturers** |
-| **Feed the plants** | — | 0.2 Rod + 240 Water per plant | 1.2 rods + 1,440 water/min |
-
-**Waste (the part that bites):** each plant emits **10 Uranium Waste/min** — 60/min
-for six — and waste **cannot be sunk**. Pick one before you switch the plants on:
-
-1. **Store it** — a growing wall of Industrial Storage Containers (fine for a
-   one-launch save; ~1 container fills every ~40 min at 6 plants).
-2. **Plutonium chain** — Non-fissile Uranium → Plutonium Pellet → Encased
-   Plutonium Cell → Plutonium Fuel Rod, then *sink the plutonium rods* (or burn
-   them, which makes worse waste). Needs **Nitric Acid** (nitrogen + sulfur).
-3. **Ficsonium** (Tier 9) — Particle Accelerator + Quantum Encoder + EPM turns
-   waste into clean Ficsonium fuel: the true zero-waste endgame.
-
-*Also missing from the app's raw table by design: generator fuel. Coal power
-eats 15 coal + 45 water per generator, fuel power 20 fuel/min per generator
-(refine crude → fuel), nuclear the numbers above — claim those nodes on top of
-the production totals.*
+> Don't *replace* old generators. Leave coal and fuel running as base load and
+> **stack the new type on top**.
 
 ---
 
-## Rough power budget per phase (plan headroom for ~1.5× this)
+## The nuclear fuel chain (built by the app in F · Nuclear Fuel)
 
-| Phase | Ballpark draw | Backbone to have running |
+F §1–3 are these three banks, sized from the plant count (0.2 rods/min per plant):
+
+| Step | Building | Per-minute recipe (1.0) |
+|------|----------|-------------------|
+| **Sulfuric Acid** | Refinery | 50 Sulfur + 50 Water → 50 Acid |
+| **Encased Uranium Cell** | Blender | 50 Uranium + 15 Concrete + 40 Acid → 25 Cells (+10 Acid back) |
+| **Uranium Fuel Rod** | Manufacturer | 20 Cells + 1.2 Encased Beam + 2 EM Control Rod → 0.4 Rods |
+| **Nuclear Power Plant** | — | 0.2 Rod + 240 Water → 2,500 MW + 10 Uranium Waste |
+
+At 🐢 Minimum pace that's **4 plants by the end of Phase 4 and 9 by the end of Phase 5**
+(1.8 rods/min). At 🚀 Fast it's 13 and 17. Uranium and sulfur are in the raw-node
+table.
+
+**Waste:** each plant makes **10 Uranium Waste/min**, and waste **cannot be sunk**.
+Pick where it goes before you switch the plants on:
+
+1. **Store it** in a wall of Industrial Storage Containers (48 slots × 500 = 24,000
+   each). At 9 plants that's about one container every 4½ hours. Fine for a
+   one-launch save.
+2. **Plutonium chain.** Non-fissile Uranium → Plutonium Pellet → Encased Plutonium
+   Cell → Plutonium Fuel Rod, then sink the rods. Needs Nitric Acid.
+3. **Ficsonium** (Tier 9, Peak Efficiency): turns waste into clean fuel.
+
+Wear a **Hazmat Suit** with Iodine-Infused Filters around uranium. The Tier 7
+milestone needs 50 Gas Filters, which come from MAM Mycelia → Fabric → Gas Mask.
+The plan lists those research steps.
+
+*Not in the raw-node table: coal and water for the coal generators (15 coal + 45
+water each). Crude for the fuel refineries **is** counted, and so is nuclear fuel.*
+
+---
+
+## Power budget per phase (🐢 Minimum pace, 100% clock)
+
+| Phase | Draw at the end of the phase | Generators the ⚡ steps add |
 |-------|---------------|--------------------------|
-| 1 | ~290 MW | ~14 Biomass Burners (a chore — push through to Tier 3 fast) |
-| 2 | ~890 MW | ~17 **Coal Generators** (one bank by water) |
-| 3 | ~2.5 GW | Coal **+ ~14 Fuel Generators** |
-| 4 | ~21.5 GW (Particle Accelerators spike) | Fuel **+ ~13 Nuclear plants** |
-| 5 | ~32.6 GW (quantum + converters) | **~19 Nuclear plants** as the backbone |
+| 1 | ~90 MW | ~5 Biomass Burners |
+| 2 | ~380 MW | 8 **Coal Generators** |
+| 3 | ~1.4 GW | 6 **Fuel Generators** |
+| 4 | ~7.7 GW | 4 Fuel (bridge) + 4 **Nuclear plants** |
+| 5 | ~16.3 GW | 5 more **Nuclear plants** (9 total) |
 
-These are the app's own figures at 100% clocks (what is actually standing at the
-end of each phase, generator counts incl. 40% headroom; miners and pumps add
-~10–15%). MAX mode draws far more — see the ⚡ power plan in 📋 Items We Need. The safe move is to **watch the power bar; when you're within ~20 %
-of the cap, add the next generator bank before building more production.**
+These are the app's own figures. Each ⚡ step includes 40% headroom; miners and
+pumps add another ~10–15%. Other paces and MAX: see the ⚡ power plan in 📋 Items
+We Need.
 
 ---
 
@@ -101,8 +102,8 @@ of the cap, add the next generator bank before building more production.**
   generators so a brief miner hiccup doesn't trip the grid.
 - At end-game, a row of **Power Storage** batteries smooths the Particle-
   Accelerator spikes and buys you seconds to react before a trip.
-- In **✅ Do Next**, each ⚡ Power step says how many generators to have by the
-  end of that phase, and the live readout tracks what you've ticked.
+- In **✅ Do Next**, each ⚡ step says how many generators to add, and the readout
+  under the orange card shows draw vs. capacity at your point in the plan.
 
 ---
 

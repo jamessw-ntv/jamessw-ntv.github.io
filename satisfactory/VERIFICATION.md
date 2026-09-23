@@ -107,6 +107,12 @@ MAM and building cost), plus two save-tool tables for the elevator
 | Converter build cost | 10 FMF, 25 Cooling, 50 RCU, **100 SAM Fluctuator** → SAM Fluctuator bank added to G (6 Reanimated SAM + 5 Wire + 3 Steel Pipe → 1 per 6 s) | not modelled |
 | Excited Photonic Matter / Dark Matter Residue | **cannot be packaged** → AI Expansion Server moved to G | piped from G to ★ |
 
+| Recycled Plastic (alt) | 30 Rubber + 30 **Fuel** → 60 Plastic — removed from the solver's alt toggles (it needs a Fuel supply the solver doesn't route) | modelled with Heavy Oil Residue |
+| Coated Iron Plate (alt) | **37.5 Iron Ingot + 7.5 Plastic** → 75 Iron Plate | 50 + 10 |
+| Fuel (standard) | Refinery: 60 Crude → 40 Fuel + 30 Polymer Resin — now D's Fuel bank | not modelled |
+| Hazmat Suit milestone | needs 50 Gas Filters → MAM Mycelia → Fabric → Gas Mask research | not listed |
+| SAM Fluctuator / Reanimated SAM | also unlockable early via MAM (SAM Reanimation: 20 SAM; SAM Fluctuator: 10 Reanimated SAM, 100 Steel Pipe, 200 Wire) | Tier 9 only |
+
 The full milestone list (Tiers 3–9 + the MAM nodes the plan uses) and 20+ building
 costs live in `MS` and `BUILD_COST` in the app. Nuclear: 2,500 MW, 0.2 fuel rod/min,
 10 Uranium Waste/min per plant; Uranium Waste stacks to 500; Industrial Storage

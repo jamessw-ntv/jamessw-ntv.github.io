@@ -18,10 +18,9 @@ finish at home.**
 
 - **Bauxite outpost →** make **Aluminum Ingots** (and Casing/Sheet) on-site →
   rail the ingots home. (Don't rail wet bauxite or alumina slurry.)
-- **Uranium outpost →** either run the **nuclear power plant on-site** next to
-  water and rail nothing back but power-via-… (you can't rail power) — so instead
-  process uranium to the cell/rod you need and rail that, OR site your whole
-  nuclear setup out there and only rail the **Nuclear Pasta feedstock** you need.
+- **Uranium outpost (F) →** make the fuel rods **and run the Nuclear Power Plants
+  there**, by water. Power reaches home over power lines, so the only freight is the
+  few inputs F imports (concrete, encased beams, EM control rods).
 - **Oil (if far) →** refine to **Plastic / Rubber / packaged Fuel** at the source
   and rail the solids; or just **pipe** oil home if it's within pipe range.
 - **Nitrogen →** it's a gas from a Resource Well; **package it** (Packager →
@@ -50,7 +49,7 @@ to a manageable number of unload platforms.
 
 - **One receiving yard at the Central Hub** with **one platform per incoming
   line**. Each platform unloads its cargo into a buffer of Storage/Industrial
-  Containers, which belt into whichever module needs it.
+  Containers, which belt into whichever district needs it.
 - **Each far resource is a spoke**: a small station out there that **loads** the
   refined intermediate. One train shuttles each spoke ↔ the hub.
 - Start with **point-to-point single-track** lines (one train each — no junction
@@ -69,7 +68,7 @@ to a manageable number of unload platforms.
 
 **At the hub (unload station):**
 1. Freight Platform(s) set to **Unload** into container buffers.
-2. Belt buffers out to the consuming module.
+2. Belt buffers out to the consuming district.
 3. Name it (e.g. `ALU-UNLOAD`).
 
 **The train:** 1 Locomotive + 1–2 Freight Cars is plenty per spoke early.
@@ -103,7 +102,7 @@ into the home port's input. One drone shuttles between a paired set of ports.
 |------------|--------------------------|-----------|
 | Quantum parcels | Neural-Quantum Processors, Superposition Oscillators | G · Quantum → ★ |
 | Aluminium electronics | Radio Control Units, Cooling Systems (if low rate) | E · Aluminium → ★ / D |
-| Nuclear delivery | Nuclear Pasta (small/min) | F · Nuclear → ★ |
+| Finals top-up | AI Expansion Servers | G · Quantum → ★ |
 | Finals top-up | spare AI Expansion Servers / Warp Drives | producing district → ★ |
 
 **Battery budget:** keep a small Battery line (or a drone-port battery buffer)
@@ -138,14 +137,15 @@ meet head-on; spokes join it via path-signalled junctions.
 | Line | Cargo (refined at source) | Feeds |
 |------|---------------------------|---------------|
 | **Aluminium** | Aluminum Ingot, Casing, Alclad Sheet | ★ Thermal Propulsion Rocket (Cooling Systems / Turbo Motors), Heat Sinks, radio units |
-| **Nuclear / Uranium** | Encased cells / processed uranium (or site nuclear out there) | nuclear power; F (Nuclear Pasta) support |
+| **Nuclear / Uranium** | nothing heavy — F makes rods and burns them on site | the plants, by power line |
 | **Nitrogen** | Packaged Nitrogen *or* finished Cooling Systems | E's Cooling Systems / Fused Frames → ★ Thermal Propulsion Rocket |
 | **Oil (if far)** | Plastic, Rubber, packaged Fuel | D, ★ Modular Engine / ACU, plastics everywhere |
-| **Bulk ore (optional)** | Extra Iron / Copper ingots if local nodes thin out | ★ Versatile Framework, F's Copper Powder (the copper-powder monster) |
+| **Bulk ore (optional)** | Extra Iron / Copper ingots if local nodes thin out | B's Copper Powder → Nuclear Pasta (the copper-powder monster) |
 
-The **copper-powder monster (F, Nuclear Pasta)** is the heaviest single
-consumer late (~4,700 copper ingot/min into F at 100%) — if Copperworks (B) can't keep up, a **copper ingot train**
-is the cleanest fix (rail ingots in, no module rebuild).
+The **copper-powder monster (Nuclear Pasta)** is the heaviest single consumer late
+(~2,750 copper ingot/min at 🐢 Minimum, ~5,300 at 🚀 Fast). That's why it lives **in
+Copperworks (B)**, next to the copper, not out at the uranium. If your copper nodes
+run thin, a **copper ore or ingot train into B** is the fix.
 
 ---
 

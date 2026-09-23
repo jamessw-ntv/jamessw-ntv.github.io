@@ -38,7 +38,7 @@ to a finished Project Assembly (Space Elevator Phase 5). Renders at
      it is what caught Ballistic Warp Drive being modelled on the wrong machine.
    - The legacy `MODULES` const has been deleted — it was unused and still quoted
      pre-rebalance rates. Don't reintroduce a second source of rates.
-2. **Change a doc:** edit the relevant `.md` / `.csv` and keep it in sync with
+2. **Change a doc:** edit the relevant `.md` and keep it in sync with
    the app.
 3. **Question:** just answer; don't commit.
 
