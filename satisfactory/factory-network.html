@@ -190,7 +190,7 @@
     <svg id="bmap" viewBox="0 0 1200 760" style="width:100%;height:auto;background:#0a0d12;border:1px solid var(--line);border-radius:10px;margin-top:8px"></svg>
     <div id="bmInside" style="display:none;margin-top:8px"></div>
     <div class="legend">
-      <span class="k"><span class="dot" style="background:var(--orange)"></span>★ Project Assembly panel (12 finals)</span>
+      <span class="k"><span class="dot" style="background:var(--orange)"></span>★ Project Assembly panel (the finals)</span>
       <span class="k"><span class="dot" style="background:#ffce8a"></span>District panel → its area blocks (zoom in)</span>
       <span class="k"><span class="ln" style="border-color:var(--teal)"></span>Belt feed (core districts)</span>
       <span class="k"><span class="ln" style="border-color:var(--orange);border-style:dashed"></span>🚆 Train feed (far districts E/F/G)</span>
@@ -222,7 +222,7 @@
   </section>
 
   <section id="tab-shopping" class="tab">
-    <p class="hint">Your whole-build shopping list, demand-solved: <b>raw nodes</b> to claim, the <b>total buildings</b> bill, your <b>Power-Shard + Somersloop</b> budget, and <b>parts to deliver</b> per phase. Everything respects the ⚡ MAX toggle (set in Blueprints).</p>
+    <p class="hint">Your whole-build shopping list, demand-solved: <b>raw nodes</b> to claim, the <b>total buildings</b> bill, your <b>Power Shard</b> budget and <b>Somersloop</b> allocator, and <b>parts to deliver</b> per phase. Everything follows your pace and clock (set on ✅ Do Next).</p>
     <div id="rawfeed"></div>
     <h2>Parts to deliver to the Space Elevator</h2>
     <div id="deliv"></div>
@@ -249,7 +249,7 @@
 
   <section id="tab-guide" class="tab">
     <h2>The big picture</h2>
-    <p class="hint" style="margin-top:0">Raw resources → the <b>7 production districts</b> → the <b>12 final parts</b> assembled at <b>★ Project Assembly</b> → delivered to the <b>▲ Space Elevator</b>. (The spatial layout and exact cross-district feeds live in the 🗺️ <b>Build Map</b>; this is just the shape of it.)</p>
+    <p class="hint" style="margin-top:0">Raw resources → the <b>7 production districts</b> → the <b>final parts</b> assembled at <b>★ Project Assembly</b> (Nuclear Pasta from F and the AI Expansion Server from G are railed in) → delivered to the <b>▲ Space Elevator</b>. (The spatial layout and exact cross-district feeds live in the 🗺️ <b>Build Map</b>; this is just the shape of it.)</p>
     <div id="flowOverview" style="overflow-x:auto"></div>
     <h2>How to use this</h2>
     <ol>
@@ -264,7 +264,7 @@
     <h3>Just want to follow it? Do this:</h3>
     <p>Open <b>✅ Do Next</b> and keep doing the orange “▶ DO THIS NOW” card, hitting <b>✓ Done</b> after each. It walks Phase 0 setup → build <b>Ironworks</b> → add <b>Smart Plating</b> to ★ → deliver → coal power → <b>Steelworks + Copperworks</b> → … → <b>launch 🚀</b>. Tap <b>📐 Blueprint</b> on any step to see exactly where the machines and belts go.</p>
     <h3>Assumptions baked in</h3>
-    <p>Everything <b>above ground</b> (fly mod), at <b>100% clock</b> by default (⚡ MAX = every machine at 250% with 3 Power Shards, ~40% of the machines). Far districts (Aluminium / Nuclear / Quantum) are <b>railed in</b>.</p>
+    <p>Everything <b>above ground</b> (fly mod), at <b>100% clock</b> by default (⚡ MAX = every machine at 250% with 3 Power Shards, ~40% of the machines), sized for the <b>pace</b> you picked (🐢 Minimum: each phase's deliveries run up to ~8 h while you build the next district). Far districts (Aluminium / Nuclear / Quantum) are <b>railed in</b>.</p>
     <h3>Belts &amp; pipes — when you get them, when to upgrade</h3>
     <p>Each build step prints the <b>exact belt Mk</b> for that line and flags <span class="tag qty">upgrade</span> when a trunk outgrows its belt. Lay the best belt you have unlocked, then come back and upgrade the fat trunks as new Mks arrive. Rough unlock timing:</p>
     <table style="margin:4px 0">
@@ -275,7 +275,7 @@
         <tr><td><b>Belt Mk.3</b></td><td>270 /min</td><td>Phase 2 (Tier 4)</td></tr>
         <tr><td><b>Belt Mk.4</b></td><td>480 /min</td><td>Phase 3 (Tier 5)</td></tr>
         <tr><td><b>Belt Mk.5</b></td><td>780 /min</td><td>Phase 4 (Tier 7)</td></tr>
-        <tr><td><b>Belt Mk.6</b></td><td>1200 /min</td><td>Phase 5 (Tier 9)</td></tr>
+        <tr><td><b>Belt Mk.6</b></td><td>1200 /min</td><td>optional — Tier 9 Peak Efficiency (the plan caps at Mk.5)</td></tr>
         <tr><td><b>Pipe Mk.1 / Mk.2</b></td><td>300 / 600 m³/min</td><td>Phase 2 (Tier 3) / Phase 3 (Tier 6)</td></tr>
       </tbody>
     </table>
@@ -292,7 +292,7 @@
         <tr><td><b>Splitter / merger</b></td><td>The logistics piece that taps a belt off to a machine (splitter) or combines machine outputs back onto one belt (merger).</td></tr>
         <tr><td><b>Storage buffer (🗄)</b></td><td>A container between stages that evens out flow so a line never starves or backs up.</td></tr>
         <tr><td><b>Overclock / Somersloop</b></td><td>Running a machine at <b>250%</b> (3 Power Shards) = <b>2.5× per machine</b> — that's the ⚡ <b>MAX</b> toggle. A <b>Somersloop</b> doubles output again without extra input; they're rare, so the 🎯 allocator says where yours are worth it.</td></tr>
-        <tr><td><b>Trunk / lane</b></td><td>The main belt of a flow. When its rate tops a belt's throughput, you split it into parallel <b>lanes</b> (e.g. "2× Mk.6") and feed the manifold from both sides.</td></tr>
+        <tr><td><b>Trunk / lane</b></td><td>The main belt of a flow. When its rate tops a belt's throughput, you split it into parallel <b>lanes</b> (e.g. "2× Mk.5") and feed the manifold from both sides.</td></tr>
         <tr><td><b>Phase</b></td><td>A Space Elevator delivery milestone (1–5). Each completed phase unlocks the next tech tier and the next districts.</td></tr>
       </tbody>
     </table>
@@ -307,13 +307,12 @@
     <table>
       <thead><tr><th>Alt recipe</th><th>Building</th><th>Why it helps</th></tr></thead>
       <tbody>
-        <tr><td><b>Recycled Plastic</b> (30 Rubber + 30 Heavy Oil Residue → 60 Plastic)</td><td>Refinery</td><td>Pair with Recycled Rubber to <b>consume all Heavy Oil Residue</b> and roughly halve crude-oil draw — closes the byproduct loop from the Oil district.</td></tr>
-        <tr><td><b>Recycled Rubber</b> (30 Plastic + 30 Heavy Oil Residue → 60 Rubber)</td><td>Refinery</td><td>The other half of the loop; together they turn HOR into free Plastic/Rubber.</td></tr>
+        <tr><td><b>Recycled Plastic / Rubber</b> (30 Rubber or Plastic + 30 <b>Fuel</b> → 60)</td><td>Refinery</td><td>With Residual Fuel (60 Heavy Oil Residue → 40 Fuel) this turns your residue into more plastic/rubber and cuts crude draw. Not modelled by the solver — plan the extra refineries by hand.</td></tr>
         <tr><td><b>Cast Screw</b> (12.5 Iron Ingot → 50 Screw)</td><td>Constructor</td><td>Skips the Iron Rod step for screws — fewer machines in Ironworks.</td></tr>
         <tr><td><b>Steel Rod / Steel Screw</b></td><td>Constructor</td><td>Rods/screws from cheap steel — frees iron once Steelworks is big.</td></tr>
         <tr><td><b>Coated Iron Plate, Stitched Iron Plate</b></td><td>Assembler</td><td>More Reinforced Iron Plate per input — shrinks the RIP-heavy chains.</td></tr>
         <tr><td><b>Sloppy Alumina, Electrode Aluminum Scrap</b></td><td>Refinery</td><td>Far less waste water / coal in the aluminium chain.</td></tr>
-        <tr><td><b>Heavy Oil Residue → Residual Fuel / Petroleum Coke</b></td><td>Refinery</td><td>If you don't run the recycled loop, burn HOR for power (see each oil district's ⚠ Utilities note).</td></tr>
+        <tr><td><b>Heavy Oil Residue → Residual Fuel / Petroleum Coke</b></td><td>Refinery</td><td>Standard recipes (not alternates): burn HOR for power via Residual Fuel (see each oil district's ⚠ Utilities note).</td></tr>
       </tbody>
     </table>
     <p class="hint">Turning these on changes machine counts but never the build <i>order</i> or districts. The app stays on standard recipes by design.</p>
@@ -383,6 +382,7 @@ const T = {
  'T-SULFACID':{name:'Sulfuric Acid line', b:'Refinery', r:'Sulfuric Acid', in:[['Sulfur',50],['Water',50]], out:['Sulfuric Acid',50], fp:'2×4', ph:4},
  'T-URANCELL':{name:'Encased Uranium Cell line', b:'Blender', r:'Encased Uranium Cell', in:[['Uranium',50],['Concrete',15],['Sulfuric Acid',40]], out:['Encased Uranium Cell',25], by:['Sulfuric Acid',10], fp:'3×4', ph:4},
  'T-FUELROD':{name:'Uranium Fuel Rod cell', b:'Manufacturer', r:'Uranium Fuel Rod', in:[['Encased Uranium Cell',20],['Encased Industrial Beam',1.2],['Electromagnetic Control Rod',2]], out:['Uranium Fuel Rod',0.4], fp:'3×4', ph:4},
+ 'T-FUEL':{name:'Fuel refinery line', b:'Refinery', r:'Fuel', in:[['Crude Oil',60]], out:['Fuel',40], by:['Polymer Resin',30], fp:'2×4', ph:3},
  'T-PASTA': {name:'Nuclear Pasta cell', b:'Particle Accelerator', r:'Nuclear Pasta', in:[['Copper Powder',100],['Pressure Conversion Cube',0.5]], out:['Nuclear Pasta',0.5], fp:'4×5', ph:4},
  /* Phase-5 chains */
  'T-REANSAM':{name:'Reanimated SAM cell', b:'Constructor', r:'Reanimated SAM', in:[['SAM Ore',120]], out:['Reanimated SAM',30], fp:'1×2', ph:5},
@@ -422,11 +422,8 @@ const ALTS={
    in:[['Iron Ingot',12.5]],out:['Screw',50],fp:'1×2',
    why:'Screws straight from ingots — deletes the Iron Rod stage feeding them, the single biggest machine saving in Ironworks.'},
  'A-COATEDPLATE':{replaces:'T-PLATE',label:'Coated Iron Plate',name:'Coated Iron Plate cell',b:'Assembler',r:'Coated Iron Plate',
-   in:[['Iron Ingot',50],['Plastic',10]],out:['Iron Plate',75],fp:'2×3',
+   in:[['Iron Ingot',37.5],['Plastic',7.5]],out:['Iron Plate',75],fp:'2×3',
    why:'Far more plate per ingot. Note it makes Ironworks depend on Plastic, so only switch after the oil district is running.'},
- 'A-RECPLASTIC':{replaces:'T-PLASTIC',label:'Recycled Plastic',name:'Recycled Plastic line',b:'Refinery',r:'Recycled Plastic',
-   in:[['Rubber',30],['Heavy Oil Residue',30]],out:['Plastic',60],fp:'2×4',
-   why:'Turns the Heavy Oil Residue you already have into plastic and roughly halves crude draw. Keep Rubber on the standard recipe — it is what produces the residue this consumes.'},
  'A-SLOPPYALUMINA':{replaces:'T-ALUMINA',label:'Sloppy Alumina',name:'Sloppy Alumina line',b:'Refinery',r:'Sloppy Alumina',
    in:[['Bauxite',200],['Water',200]],out:['Alumina Solution',240],fp:'2×4',
    why:'More alumina per refinery. Costs more bauxite per unit but cuts the machine count and the water loop in the aluminium chain.'},
@@ -441,8 +438,7 @@ function applyAlts(){
     const swapped={name:a.name,b:a.b,r:a.r,in:a.in,out:a.out,fp:a.fp,ph:std.ph,alt:id};
     if(a.by) swapped.by=a.by;                       // alts without a byproduct must not inherit one
     T[a.replaces]=swapped; });
-  if(typeof _demandCache!=='undefined'){ _demandCache={}; _demP={}; _demOne={};
-    _sloopCache={sig:null,rows:null}; _chCache={sig:null,map:null}; _fundedCache={sig:null,set:null}; }
+  if(typeof flushPlanCaches==='function'&&typeof _msCache!=='undefined') flushPlanCaches();
 }
 
 /* ---------------------------------------------------------------------
@@ -482,23 +478,25 @@ const BY_ADVICE={
  'Heavy Oil Residue':'route it to Residual Fuel refineries (→ free power) or the AWESOME Sink, or the refineries clog',
  'Water':'loop it back into the Alumina Solution refineries through a valve (byproduct water gets priority over fresh) — backed-up scrap water deadlocks the whole aluminium chain',
  'Silica':'belt it back into the Aluminum Ingot silica feed (it covers part of that demand) or sink the excess',
+ 'Polymer Resin':'belt it into an AWESOME Sink (or feed Rubber/Plastic alternates) — if it backs up, the fuel refineries stop and the fuel generators go dark',
  'Sulfuric Acid':'pipe it straight back into the Encased Uranium Cell blenders\' acid feed (it covers part of that demand)',
  'Dark Matter Residue':'pipe it into the Dark-Matter-Crystal Particle Accelerators (each wants 150 m³/min) — it <b>cannot be sunk or packaged</b>, so any surplus backs the Quantum Encoders up and stops every Phase-5 final'};
 
 const INVENTORY = [
  {phase:0,category:'milestone',id:'P0-M1',item:'Complete all Tier 0 HUB upgrades (in order)',qty:'',note:'Unlocks Smelter/Constructor/Miner/Space Elevator'},
+ {phase:0,category:'milestone',id:'P0-M6',item:'Tier 1 Field Research → build a MAM (Molecular Analysis Machine)',qty:'',note:'The MAM is where every 🔓 MAM research step later in this plan happens'},
  {phase:0,category:'milestone',id:'P0-M2',item:'Build Space Elevator at Central Hub',qty:'',note:'Permanent location all game'},
  {phase:0,category:'milestone',id:'P0-M3',item:'Logistics Mk.2 (belts + splitters/mergers)',qty:'',note:'Needed for clean modules'},
  {phase:0,category:'milestone',id:'P0-M4',item:'Part Assembly milestone (Assembler)',qty:'',note:'Gate to everything'},
  {phase:0,category:'milestone',id:'P0-M5',item:'Resource Sink Bonus Program (Sink + Shop)',qty:'',note:'Build Sink at Central Hub'},
- {phase:0,category:'module',id:'P0-MALL',item:'Central Hub personal mall (storage)',qty:'',note:'One container per part on hand'},
+ {phase:0,category:'module',id:'P0-MALL',item:'Central Hub personal mall (storage)',qty:'',note:'One container per part on hand. Copperworks only arrives in Phase 2, so for your first machines run a starter Smelter + 2 Constructors on a copper node (Wire and Cable) — or hand-craft them'},
  {phase:0,category:'milestone',id:'PWR0',item:'⚡ Power: Biomass Burners (bootstrapping)',qty:'',note:'30 MW each; hand/belt-fed — replace at Tier 3'},
  {phase:1,category:'deliverable',id:'P1-D1',item:'Smart Plating',qty:50,note:'Assembled at ★ — load it into the Space Elevator and press Send · unlocks Tiers 3 & 4'},
  {phase:2,category:'module',id:'COAL',item:'⚡ Power: Coal Generators (by water, on their own coal node)',qty:'',note:'75 MW each; each needs 15 coal/min + 45 water/min (~2.7 generators per Water Extractor). Use a coal node of its own — Steelworks needs its coal'},
  {phase:2,category:'deliverable',id:'P2-D1',item:'Smart Plating',qty:1000,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:2,category:'deliverable',id:'P2-D2',item:'Versatile Framework',qty:1000,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:2,category:'deliverable',id:'P2-D3',item:'Automated Wiring',qty:100,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
- {phase:3,category:'module',id:'PWR3',item:'⚡ Power: Fuel Generators (from oil)',qty:'',note:'250 MW each, 20 Fuel/min each — fed by D\'s Heavy Oil Residue → Residual Fuel line (see D\'s utilities step) plus crude → Fuel refineries if short'},
+ {phase:3,category:'module',id:'PWR3',item:'⚡ Power: Fuel Generators (from oil)',qty:'',note:'250 MW each, 20 Fuel/min each — fed by D\'s Fuel refineries (the Fuel bank, sized for exactly these generators). Build this before the rest of Phase 3 so the grid never trips'},
  {phase:3,category:'deliverable',id:'P3-D1',item:'Versatile Framework',qty:2500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:3,category:'deliverable',id:'P3-D2',item:'Modular Engine',qty:500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:3,category:'deliverable',id:'P3-D3',item:'Adaptive Control Unit',qty:100,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
@@ -507,12 +505,12 @@ const INVENTORY = [
  {phase:4,category:'deliverable',id:'P4-D1',item:'Assembly Director System',qty:500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:4,category:'deliverable',id:'P4-D2',item:'Magnetic Field Generator',qty:500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:4,category:'deliverable',id:'P4-D3',item:'Thermal Propulsion Rocket',qty:250,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
- {phase:4,category:'deliverable',id:'P4-D4',item:'Nuclear Pasta',qty:100,note:'Made in F · Nuclear & Particle — rail it to ★, load it into the Space Elevator and press Send'},
- {phase:5,category:'deliverable',id:'P5-D1',item:'Nuclear Pasta',qty:1000,note:'Made in F · Nuclear & Particle — rail it to ★, load it into the Space Elevator and press Send · keep F\'s Pasta running from Phase 4 so this banks up early'},
+ {phase:4,category:'deliverable',id:'P4-D4',item:'Nuclear Pasta',qty:100,note:'Made in B · Copperworks — belt it to ★, load it into the Space Elevator and press Send'},
+ {phase:5,category:'deliverable',id:'P5-D1',item:'Nuclear Pasta',qty:1000,note:'Made in B · Copperworks — belt it to ★, load it into the Space Elevator and press Send · keep B\'s Pasta running from Phase 4 so this banks up early'},
  {phase:5,category:'deliverable',id:'P5-D2',item:'Biochemical Sculptor',qty:1000,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:5,category:'deliverable',id:'P5-D3',item:'AI Expansion Server',qty:256,note:'Made in G · Quantum & SAM — rail it to ★, load it into the Space Elevator and press Send'},
  {phase:5,category:'deliverable',id:'P5-D4',item:'Ballistic Warp Drive',qty:200,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
- {phase:5,category:'module',id:'PWR5',item:'⚡ Power: extend nuclear + Power Storage',qty:'',note:'Phase 5 adds Quantum Encoders & Converters — the biggest jump in draw. Particle Accelerators and Converters spike, so put Power Storage beside each hall'},
+ {phase:5,category:'module',id:'PWR5',item:'⚡ Power: extend nuclear + Power Storage',qty:'',note:'Phase 5 adds Quantum Encoders & Converters — the biggest jump in draw. Particle Accelerators and Converters spike, so put Power Storage beside each hall (Power Storage is Tier 4 Expanded Power Infrastructure — 50 Encased Beam, 100 Steel Beam, 200 Modular Frame, 2,000 Wire)'},
  {phase:5,category:'milestone',id:'FINISH',item:'Run final launch sequence & pull the lever 🚀',qty:'',note:'Project Assembly launches — game complete'},
 ];
 
@@ -614,14 +612,16 @@ const MS=[
  {id:'T3-STEEL',tier:3,name:'Basic Steel Production',cost:{'Modular Frame':50,Rotor:150,Concrete:500,Wire:1000},gives:'Foundry, Steel Ingot / Beam / Pipe, Versatile Framework',unlocks:['T-STEEL','T-BEAM','T-PIPE','T-VERSFRAME']},
  {id:'T4-ADVSTEEL',tier:4,name:'Advanced Steel Production',cost:{'Steel Pipe':100,'Modular Frame':100,Rotor:200,Concrete:500},gives:'Miner Mk.2, Encased Industrial Beam, Stator, Motor, Automated Wiring',unlocks:['T-EIBEAM','T-STATOR','T-MOTOR','T-AUTOWIRE']},
  {id:'T4-LOG3',tier:4,name:'Logistics Mk.3',cost:{'Steel Beam':200,'Steel Pipe':200,'Reinforced Iron Plate':400},gives:'Conveyor Belt Mk.3, Industrial Storage Container'},
- {id:'MAM-CAT',mam:true,name:'Caterium Ingots',cost:{'Caterium Ore':50},gives:'Caterium Ingot',unlocks:['T-CATERIUM']},
+ {id:'MAM-CATSCAN',mam:true,name:'Caterium (analyse a sample)',cost:{'Caterium Ore':10},gives:'the Caterium research tree'},
+ {id:'MAM-CAT',mam:true,needs:['MAM-CATSCAN'],name:'Caterium Ingots',cost:{'Caterium Ore':50},gives:'Caterium Ingot',unlocks:['T-CATERIUM']},
  {id:'MAM-QW',mam:true,needs:['MAM-CAT'],name:'Quickwire',cost:{'Caterium Ingot':50},gives:'Quickwire',unlocks:['T-QUICKWIRE']},
  {id:'MAM-AIL',mam:true,needs:['MAM-QW'],name:'AI Limiter',cost:{Quickwire:200,'Copper Sheet':50},gives:'AI Limiter',unlocks:['T-AILIMITER']},
  {id:'MAM-HSC',mam:true,needs:['MAM-AIL'],name:'High-Speed Connector',cost:{Quickwire:500,Plastic:50},gives:'High-Speed Connector',unlocks:['T-HSCONN']},
- {id:'MAM-QZ',mam:true,name:'Quartz Crystals',cost:{'Raw Quartz':20},gives:'Quartz Crystal',unlocks:['T-QUARTZX']},
+ {id:'MAM-QZSCAN',mam:true,name:'Quartz (analyse a sample)',cost:{'Raw Quartz':10},gives:'the Quartz research tree'},
+ {id:'MAM-QZ',mam:true,needs:['MAM-QZSCAN'],name:'Quartz Crystals',cost:{'Raw Quartz':20},gives:'Quartz Crystal',unlocks:['T-QUARTZX']},
  {id:'MAM-SIL',mam:true,needs:['MAM-QZ'],name:'Silica',cost:{'Raw Quartz':20},gives:'Silica',unlocks:['T-SILICA']},
  {id:'MAM-OSC',mam:true,needs:['MAM-QZ'],name:'Crystal Oscillator',cost:{'Quartz Crystal':100,'Reinforced Iron Plate':50},gives:'Crystal Oscillator',unlocks:['T-CRYSTALOSC']},
- {id:'T5-OIL',tier:5,name:'Oil Processing',cost:{Motor:50,'Encased Industrial Beam':100,'Steel Pipe':500,'Copper Sheet':500},gives:'Oil Extractor, Refinery, Plastic, Rubber, Circuit Board',unlocks:['T-PLASTIC','T-RUBBER','T-CIRCUIT']},
+ {id:'T5-OIL',tier:5,name:'Oil Processing',cost:{Motor:50,'Encased Industrial Beam':100,'Steel Pipe':500,'Copper Sheet':500},gives:'Oil Extractor, Refinery, Plastic, Rubber, Circuit Board',unlocks:['T-PLASTIC','T-RUBBER','T-CIRCUIT','T-FUEL']},
  {id:'T5-PETRO',tier:5,name:'Petroleum Power',cost:{Motor:100,'Encased Industrial Beam':100,Rubber:200,Plastic:200},gives:'Fuel Generator'},
  {id:'T5-LOG4',tier:5,name:'Logistics Mk.4',cost:{Rubber:200,'Encased Industrial Beam':300,'Modular Frame':400},gives:'Conveyor Belt Mk.4'},
  {id:'T6-IM',tier:6,name:'Industrial Manufacturing',cost:{Motor:200,'Modular Frame':200,Plastic:400,Cable:1000},gives:'Manufacturer, Computer, Heavy Modular Frame, Modular Engine, Adaptive Control Unit',unlocks:['T-COMPUTER','T-HMFRAME','T-MODENGINE','T-ACU']},
@@ -629,7 +629,10 @@ const MS=[
  {id:'T7-BAUX',tier:7,name:'Bauxite Refinement',cost:{Computer:100,'Heavy Modular Frame':100,Motor:250,Rubber:500},gives:'Alumina Solution, Aluminum Scrap / Ingot / Casing, Alclad Sheet',unlocks:['T-ALUMINA','T-ALSCRAP','T-ALINGOT','T-ALCASING','T-ALCLAD']},
  {id:'T7-CSD',tier:7,name:'Control System Development',cost:{'Alclad Aluminum Sheet':200,'Aluminum Casing':400,Computer:200,Plastic:1000},gives:'Blender, Sulfuric Acid, Radio Control Unit, Supercomputer, Assembly Director System',unlocks:['T-SUPERCOMP','T-RCU','T-ADS','T-SULFACID']},
  {id:'T7-LOG5',tier:7,name:'Logistics Mk.5',cost:{'Alclad Aluminum Sheet':200,'Encased Industrial Beam':400,'Reinforced Iron Plate':600},gives:'Conveyor Belt Mk.5'},
- {id:'T7-HAZ',tier:7,name:'Hazmat Suit',cost:{'Gas Filter':50,'Aluminum Casing':100,Quickwire:500},gives:'Hazmat Suit + Iodine-Infused Filter — radiation protection for uranium',unlocks:['T-URANCELL'],note:'Gas Filters are hand-made at the Equipment Workshop (2 Fabric + 4 Coal + 2 Iron Plate each; Fabric from Mycelia + Biomass).'},
+ {id:'MAM-MYC',mam:true,phase:4,name:'Mycelia',cost:{Mycelia:5},gives:'the Mycelia research tree (Fabric → Gas Mask)',note:'Mycelia grows in caves and dark forests — pick up a stack.'},
+ {id:'MAM-FAB',mam:true,phase:4,needs:['MAM-MYC'],name:'Fabric',cost:{Mycelia:25,Biomass:100},gives:'Fabric'},
+ {id:'MAM-GASMASK',mam:true,phase:4,needs:['MAM-FAB'],name:'Gas Mask',cost:{Coal:10,Fabric:50,'Steel Pipe':50},gives:'Gas Mask + Gas Filter (the Hazmat Suit milestone costs 50 Gas Filters)'},
+ {id:'T7-HAZ',tier:7,needs:['MAM-GASMASK'],name:'Hazmat Suit',cost:{'Gas Filter':50,'Aluminum Casing':100,Quickwire:500},gives:'Hazmat Suit + Iodine-Infused Filter — radiation protection for uranium',unlocks:['T-URANCELL'],note:'Gas Filters are hand-made at the Equipment Workshop (2 Fabric + 4 Coal + 2 Iron Plate each; Fabric from Mycelia + Biomass).'},
  {id:'T8-AAP',tier:8,name:'Advanced Aluminum Production',cost:{'Radio Control Unit':50,'Aluminum Casing':200,'Alclad Aluminum Sheet':400,Wire:3000},gives:'Resource Well Pressurizer / Extractor, Heat Sink, Cooling System, Fused Modular Frame',unlocks:['T-HEATSINK','T-COOLING','T-FUSEDFRAME']},
  {id:'T8-NUC',tier:8,name:'Nuclear Power',cost:{Supercomputer:50,'Heavy Modular Frame':200,Cable:1000,Concrete:2000},gives:'Nuclear Power Plant, Encased Uranium Cell, EM Control Rod, Uranium Fuel Rod, Magnetic Field Generator',unlocks:['T-EMROD','T-URANCELL','T-FUELROD','T-MFG']},
  {id:'T8-LEP',tier:8,name:'Leading-Edge Production',cost:{'Fused Modular Frame':50,Supercomputer:100,'Steel Pipe':1000},gives:'Turbo Motor, Miner Mk.3, Thermal Propulsion Rocket',unlocks:['T-TURBOMOTOR','T-TPR']},
@@ -642,6 +645,9 @@ const MSMAP={}; MS.forEach(m=>MSMAP[m.id]=m);
 const TIER_PHASE={3:2,4:2,5:3,6:3,7:4,8:4,9:5};
 /* template → the milestones that must be done before it can be built */
 const GATE={}; MS.forEach(m=>(m.unlocks||[]).forEach(t=>(GATE[t]=GATE[t]||[]).push(m.id)));
+/* …and a bank also waits for the milestone that unlocks its BUILDING */
+const BUILDING_GATE={Foundry:'T3-STEEL',Refinery:'T5-OIL',Manufacturer:'T6-IM',Blender:'T7-CSD','Particle Accelerator':'T8-PE',Converter:'T9-MC','Quantum Encoder':'T9-QE'};
+function gatesOf(tid){ const g=(GATE[tid]||[]).slice(), b=T[tid]&&BUILDING_GATE[T[tid].b]; if(b&&!g.includes(b)) g.push(b); return g; }
 /* real 1.0 build costs of the buildings the plan places (datamined) */
 const BUILD_COST={
  Smelter:{'Iron Rod':5,Wire:8}, Constructor:{'Reinforced Iron Plate':2,Cable:8}, Assembler:{'Reinforced Iron Plate':8,Rotor:4,Cable:10},
@@ -659,7 +665,7 @@ const BUILD_COST={
  'Electric Locomotive':{'Modular Frame':5,Motor:10,'Steel Pipe':20,Rubber:20,Wire:50}, 'Freight Car':{'Modular Frame':5,'Steel Pipe':10,'Steel Beam':10}};
 const TECH={
  1:['Finish HUB Tiers 0–2'],
- 2:['Tier 3 Coal Power (+ Pipelines Mk.1)','Tier 3 Basic Steel Production','Tier 4 Logistics Mk.3 (Belt Mk.3)','Tier 4 Advanced Steel (Encased Beam)','Tier 4 Miner Mk.2','MAM: build a Molecular Analysis Machine, research Caterium → Caterium Ingot, Quickwire, AI Limiter, High-Speed Connector, Supercomputer'],
+ 2:['Tier 3 Coal Power (+ Pipelines Mk.1)','Tier 3 Basic Steel Production','Tier 4 Logistics Mk.3 (Belt Mk.3)','Tier 4 Advanced Steel (Encased Beam)','Tier 4 Miner Mk.2','MAM: build a Molecular Analysis Machine, research Caterium → Caterium Ingot, Quickwire, AI Limiter'],
  3:['Tier 5 Oil Processing (Plastic/Rubber/Fuel)','Tier 5 Belt Mk.4','Manufacturer','Tier 6 Railway (start trains) + Pipe Mk.2','MAM: research Quartz → Quartz Crystal, Silica, Crystal Oscillator'],
  4:['Tier 7 Bauxite Refinement (Aluminium)','Tier 7 Belt Mk.5','Tier 7 Control System Development (Blender, Sulfuric Acid, Radio Control Unit, Assembly Director System)','Tier 8 Advanced Aluminum Production (Resource Well Pressurizer, Cooling System, Fused Modular Frame)','Tier 8 Nuclear Power + Particle Accelerator','Power Shards/Somersloops via MAM + exploration'],
  5:['Tier 9 Matter Conversion (Converter)','Tier 9 Belt Mk.6','Quantum Encoder + Quantum Energy','MAM: Alien Technology → Reanimated SAM, SAM Fluctuator (each Converter costs 100 Fluctuators — make them before placing G)','Every remaining Tier 9 milestone — check each Phase-5 final-part recipe is unlocked before building ★']
@@ -754,7 +760,7 @@ function renderShopping(){
   const ns=document.createElement('div'); ns.className='shopphase';
   ns.innerHTML=`<h3>🪨 Raw nodes to claim — whole build ${bpMax?'(MAX: miners overclocked too)':'(100%)'}</h3>`+
     '<table><thead><tr><th>Resource</th><th>Total/min</th><th>Nodes (≈ Mk.2 miner'+(bpMax?' @250%':'')+')</th><th>Bring via</th></tr></thead><tbody>'+nrows+'</tbody></table>'+
-    `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">Mk.2 miner ≈ pure 240 / normal 120 / impure 60 /min${bpMax?' (×2.5 at 250%)':''}. Prefer <b>pure</b> for the big eaters; overclock lesser nodes with Power Shards to close gaps. Far resources are railed in.<br><b style="color:#e0a050">⚠ Generator fuel is NOT in these totals:</b> coal for Coal Power, crude→Fuel for Fuel Generators, generator water, and <b>uranium + sulfur</b> for Nuclear (see power.md) all come on top — claim those nodes too when you build each power tier.</div>`;
+    `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">Mk.2 miner ≈ pure 240 / normal 120 / impure 60 /min${bpMax?' (×2.5 at 250%)':''}. Prefer <b>pure</b> for the big eaters; overclock lesser nodes with Power Shards to close gaps. Far resources are railed in.<br><b style="color:#e0a050">⚠ Generator fuel is NOT in these totals:</b> coal for Coal Power, crude→Fuel for Fuel Generators and generator water come on top — claim those nodes too. (Nuclear fuel — uranium + sulfur — <b>is</b> counted: it's F §1–3.)</div>`;
   rWrap.appendChild(ns);
   // ---- 2) BUILDINGS BILL ----
   const bld={}; let totMach=0; all.forEach(({b})=>{ bld[b.b]=(bld[b.b]||0)+b.n; totMach+=b.n; });
@@ -784,7 +790,7 @@ function renderShopping(){
       `<div style="padding:9px 16px 4px;font-size:13px">I own <input id="sloopOwn" type="number" min="0" max="500" value="${owned}" style="width:76px;padding:4px 7px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--txt);font-size:13px"> Somersloops <button class="pbtn" id="sloopApply">recalculate</button> <span style="color:var(--muted)">· ranked by machines saved per sloop</span></div>`+
       `<div style="padding:2px 16px 8px;color:var(--muted);font-size:12px">A Somersloop doubles output <b>without</b> extra input, so amplifying a bank halves that bank <b>and its whole upstream tree</b> — which is why the best targets are the <b>ends</b> of long chains, never smelters or cheap constructor parts.</div>`+
       '<table><thead><tr><th>Amplify this bank</th><th>Sloops</th><th>Machines</th><th>Coverage</th><th>≈ machines saved</th></tr></thead><tbody>'+rows+'</tbody></table>'+
-      `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">Spends <b>${spent}</b> of ${owned} sloops${left>0?` (<b>${left}</b> spare — bank them for Alien Power Augmenters, +500 MW each)`:''} and takes roughly <b>${saved}</b> machines out of the build. Everything <i>not</i> in this list should run <b>un-slooped</b>; overclock those with Power Shards instead, which costs power but no sloops. Savings are estimates from the demand solver — the exact counts still come from the ⚡ MAX / 100% toggle.</div>`;
+      `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">Spends <b>${spent}</b> of ${owned} sloops${left>0?` (<b>${left}</b> spare — bank them for Alien Power Augmenters, +500 MW each)`:''} and saves roughly <b>${Math.min(saved,Math.round(totMach*0.5))}</b> machines (an estimate — banks share upstream, so the savings overlap). Everything <i>not</i> in this list should run <b>un-slooped</b>; overclock those with Power Shards instead, which costs power but no sloops. Savings are estimates from the demand solver — the exact counts still come from the ⚡ MAX / 100% toggle.</div>`;
     rWrap.appendChild(al);
     const applyBtn=al.querySelector('#sloopApply'), inp=al.querySelector('#sloopOwn');
     const commit=()=>{ const v=Math.max(0,Math.min(500,+inp.value||0)); state._cfg=Object.assign({},state._cfg,{sloops:v}); saveState(state); renderShopping(); };
@@ -795,20 +801,22 @@ function renderShopping(){
   const pp=phasePower(); let cum=0;
   let tot100=0; all.forEach(({b})=>tot100+=(BASE_MW[b.b]||10)*b.n);
   const totMaxMW=Math.round(tot100*Math.pow(2.5,1.321928)/2.5);
-  const prows=[1,2,3,4,5].map(p=>{ cum+=pp.mw[p]; const g=GEN[p], cnt=Math.ceil(cum*1.4/g.mw);
-    return `<tr><td><span class="chip p${p}">P${p}</span></td><td class="n">+${Math.round(pp.mw[p])}</td><td class="n"><b>${Math.round(cum)}</b></td><td>${g.n}</td><td class="n">~${cnt}× ${g.mw}MW</td></tr>`; }).join('');
+  const prows=[1,2,3,4,5].map(p=>{ cum+=pp.mw[p]; const g=GEN[p], ga=p===1?{n:Math.ceil(cum*1.4/g.mw)}:genAdd(p), cnt=ga.n;
+    masterSteps(); const br=bridgesFor()[p]||{}, extra=Object.keys(br).map(k=>` + ${br[k]}× ${k} (top-up)`).join('');
+    return `<tr><td><span class="chip p${p}">P${p}</span></td><td class="n">+${Math.round(pp.mw[p])}</td><td class="n"><b>${Math.round(cum)}</b></td><td>${g.n}</td><td class="n">~${cnt}× ${g.mw}MW${extra}</td></tr>`; }).join('');
   const pw=document.createElement('div'); pw.className='shopphase';
   pw.innerHTML=`<h3>⚡ Power plan — cumulative draw &amp; generators ${bpMax?'(at full MAX overclock)':'(100%)'}</h3>`+
-    '<table><thead><tr><th>Phase</th><th>+MW added</th><th>Total MW</th><th>Generator (tier)</th><th>Build (×1.4)</th></tr></thead><tbody>'+prows+'</tbody></table>'+
-    `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px"><b style="color:var(--orange)">Ramp your overclock — don't power 9 GW on coal in Phase 1.</b> Overclocking is power-hungry (250% draws ~3.4× per machine for 2.5× output; a Somersloop quadruples power again), so a MAX build draws <b>more</b> total power than 100%. Whole build ≈ <b>${Math.round(tot100)} MW</b> at 100% / <b>${totMaxMW} MW</b> at 250%. Particle Accelerators & Converters <b>fluctuate</b> (pasta/dark-matter runs spike to ~3× the average), so a bank of <b>Power Storage</b> next to each accelerator hall is mandatory, not optional. Keep ~40% headroom and stack new generator types on old. Miners, water extractors, pumps and train stations are <b>not</b> in these totals — add ~10–15%.</div>`;
+    '<table><thead><tr><th>Phase</th><th>+MW added</th><th>Total MW</th><th>Generator (tier)</th><th>Add this phase (incl. 40% headroom)</th></tr></thead><tbody>'+prows+'</tbody></table>'+
+    `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px"><b style="color:var(--orange)">Don't overclock before you have the power.</b> Overclocking is power-hungry (250% draws ~3.4× per machine for 2.5× output; a Somersloop quadruples power again), so a MAX build draws <b>more</b> total power than 100%. Whole build ≈ <b>${Math.round(tot100)} MW</b> at 100% / <b>${totMaxMW} MW</b> at 250%. Particle Accelerators & Converters <b>fluctuate</b> (pasta/dark-matter runs spike to ~3× the average), so a bank of <b>Power Storage</b> next to each accelerator hall is mandatory, not optional. Keep ~40% headroom and stack new generator types on old. Miners, water extractors, pumps and train stations are <b>not</b> in these totals — add ~10–15%.</div>`;
   rWrap.appendChild(pw);
   // ---- deliveries ----
   const dWrap=document.getElementById('deliv'); dWrap.innerHTML='';
   for(let p=1;p<=5;p++){ const d=DELIVERIES[p];
     const sec=document.createElement('div'); sec.className='shopphase';
     sec.innerHTML=`<h3><span class="chip p${p}">Phase ${p}</span> ${PHASE_NAMES[p]}</h3>`+
-      `<table><thead><tr><th>Part</th><th>Qty</th><th>Where it's assembled</th></tr></thead><tbody>`+
-      d.map(x=>`<tr><td>${x[0]}</td><td class="n">${x[1]}</td><td><span class="u" onclick="gotoBlueprint('${x[2]}')">★ Project Assembly</span></td></tr>`).join('')+
+      `<table><thead><tr><th>Part</th><th>Qty</th><th>Where it's made</th></tr></thead><tbody>`+
+      d.map(x=>{ const mk=makerOf(x[0]), did=mk?mk.d.id:'PA', nm=did==='PA'?'★ Project Assembly':did+' · '+DMAP[did].name+' (railed to ★)';
+        return `<tr><td>${x[0]}</td><td class="n">${x[1]}</td><td><span class="u" onclick="gotoBlueprint('${did}')">${nm}</span></td></tr>`; }).join('')+
       `</tbody></table>`;
     dWrap.appendChild(sec);
   }
@@ -824,22 +832,23 @@ let state=loadState(), hideDone=false;
 let _refocus=null; // which control to re-focus after a full list rebuild (keyboard users keep their place)
 let auditList=null, auditIdx=0; // guided walk-your-save audit (adopting an existing factory)
 function gotoMapStep(id){ const b=document.querySelector('nav button[data-tab="buildmap"]'); if(b) b.click(); const did=(typeof WORKS2DIST!=='undefined'&&WORKS2DIST[id])||id; if(BM_SEQI[did]!==undefined){ bmStep=BM_SEQI[did]; bmApply(); if(typeof showDistrict==='function') showDistrict(did); } }
-/* delivery ETA from the same design rates the whole plan is solved against
-   (FINAL_RATES × scale) — one rate system, matching phaseDeliverMin. */
+/* delivery ETA from the same rates the plan is solved against (finalRate × the rounding
+   slack of that phase's lines) — one rate system, matching phaseDeliverMin. */
 function delivInfo(r){ const list=DELIVERIES[r.phase]||[]; const d=list.find(x=>x[0]===r.item&&x[1]===r.qty)||list.find(x=>x[0]===r.item); if(!d) return null; const rate=+finalRateReal(r.item,r.phase).toFixed(2); return {module:d[2],rate,min:rate?Math.round(r.qty/rate):0}; }
 function stripTags(s){ return String(s).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim(); }
 function invStep(r){ let det=r.note||''; if(r.category==='deliverable'){ const di=delivInfo(r); if(di&&di.min) det+=' · ≈ <b>'+di.min+' min</b> at '+di.rate+'/min'; }
+  if(r.id==='PWR0'){ const mw=phaseStandingMW(1).mw; det+=` · Phase 1 draws ~<b>${Math.round(mw)} MW</b> → have <b>~${Math.ceil(mw*1.4/30)} burners</b> (keep them fed — Solid Biofuel lasts longest).`; }
   return {key:r.id,phase:r.phase,label:(r.qty!==''?r.qty+'× ':'')+r.item,detail:det,cat:r.category,deliv:r.category==='deliverable',district:r.category==='deliverable'?'PA':null}; }
 function pushDistrict(out,d,p){ const banks=districtBanks(d);
   out.push({key:'bp:'+d.id+':pad',phase:p,district:d.id,label:'Build '+d.id+' · '+d.name+' — lay the platform near '+d.near,detail:'Above ground, flat &amp; wide, one level. Leave room to expand later.'});
-  if(/train/.test(d.near)) out.push({key:'bp:'+d.id+':rail',phase:p,district:d.id,label:'🚆 '+d.id+': rail link to your core',detail:'Station + freight platform here; ship refined parts back, never raw ore. See train-network.md.'});
+  if(/train/.test(d.near)) out.push({key:'bp:'+d.id+':rail',phase:p,district:d.id,label:'🚆 '+d.id+': rail link to your core',detail:'Lay track from here to your core. Place a <b>Train Station + Freight Platform at each end</b> (2 of each), <b>1 Electric Locomotive + 2 Freight Cars</b> (each car holds 32 stacks, or 1,600 m³ as a fluid car). Ship refined parts, not raw ore. Signalling: see train-network.md.'});
   const util=districtUtils(d,banks);
   if(util.length) out.push({key:'bp:'+d.id+':util',phase:p,district:d.id,label:'⚠ '+d.id+': utilities & byproducts (support lines)',detail:stripTags(util.join(' '))});
   pushBanks(out,d,banks,p); }
 /* the banks of district d that are first needed in phase p */
 function pushBanks(out,d,banks,p){
   banks.forEach((bk,i)=>{ if(bankBuiltPhase(d,bk)!==p) return; const now=bankNowCount(d,bk);
-    out.push({key:'bp:'+d.id+':'+bk.tid,ai:i,phase:p,district:d.id,label:(d.id==='PA'?'[★ PA]':'['+d.id+']')+' §'+(i+1)+' '+bk.r+' — '+now+'× '+bk.b+(bk.n>now?' (→'+bk.n+')':''),html:bankStepHTML(d,banks,bk,i), get detail(){ return stripTags(this.html); }}); }); }
+    out.push({key:'bp:'+d.id+':'+bk.tid,ai:i,phase:p,district:d.id,mw:machinePower(bk.b)*now,label:(d.id==='PA'?'[★ PA]':'['+d.id+']')+' §'+(i+1)+' '+bk.r+' — '+now+'× '+bk.b+(bk.n>now?' (→'+bk.n+')':''),html:bankStepHTML(d,banks,bk,i), get detail(){ return stripTags(this.html); }}); }); }
 /* banks of districts built in an earlier phase that are first needed now */
 function pushLateBanks(out,p){ DISTRICTS.forEach(d=>{ if(d.id==='PA'||d.phase>=p) return; pushBanks(out,d,districtBanks(d),p); }); }
 function pushPAphase(out,p){ const d=DMAP['PA'], banks=districtBanks(d);
@@ -873,14 +882,17 @@ function bankViewCount(d,bk){
   return Math.max(1,Math.min(bk.n,bankCountAt(bk.tid,ph)));
 }
 function cntLabel(d,bk){ const k=bankViewCount(d,bk); return bk.n>k?k+'→'+bk.n:''+bk.n; }
-function pushExpansions(out,p){ DISTRICTS.forEach(d=>{ const banks=districtBanks(d), grew=[];
+function pushExpansions(out,p){ DISTRICTS.forEach(d=>{ const banks=districtBanks(d), grew=[], raw={}; let mw=0;
     banks.forEach(bk=>{ if(p<=bankBuiltPhase(d,bk)) return; const nw=bankNowCount(d,bk);
       // running total built = max(what you built "now", demand at that phase) — nets out the floored "+1 now" for zero-at-build banks
-      const add=Math.max(nw,bankCountAt(bk.tid,p))-Math.max(nw,bankCountAt(bk.tid,p-1)); if(add>0) grew.push('+'+add+'× '+bk.r); });
-    if(grew.length) out.push({key:'exp:'+d.id+':'+p,phase:p,district:d.id,label:(d.id==='PA'?'★ ':'')+'Expand '+d.id+' · '+d.name+' for Phase '+p,detail:'New Phase '+p+' consumers need more — add machines into the room you left: '+grew.join(', ')+'.'}); }); }
+      const add=Math.max(nw,bankCountAt(bk.tid,p))-Math.max(nw,bankCountAt(bk.tid,p-1)); if(add>0){ grew.push('+'+add+'× '+bk.r); mw+=machinePower(bk.b)*add;
+        const t=T[bk.tid], dD=((solveDemandPhase(p)[bk.outItem]||0)-(solveDemandPhase(p-1)[bk.outItem]||0))/t.out[1];
+        if(dD>0) t.in.forEach(([it,r])=>{ if(!ITEM2DIST[it]) raw[it]=(raw[it]||0)+dD*r; }); } });
+    const rawTxt=Object.keys(raw).map(it=>'<b>+'+Math.round(raw[it])+'/min '+it+'</b> ('+rawSource(it,raw[it],p)+')').join(', ');
+    if(grew.length) out.push({key:'exp:'+d.id+':'+p,phase:p,district:d.id,mw,label:(d.id==='PA'?'★ ':'')+'Expand '+d.id+' · '+d.name+' for Phase '+p,detail:'New Phase '+p+' consumers need more — add machines into the room you left: '+grew.join(', ')+'.'+(rawTxt?' More raw feed: '+rawTxt+'.':'')}); }); }
 /* utility/power rows per phase: 'pre' go before the phase's new districts, 'post' after
    them (Fuel Generators need D's residue line; nuclear rods need E's EM Control Rods). */
-const PHASEROWS={2:{pre:['COAL']},3:{post:['PWR3']},4:{pre:['NITRO'],post:['PWR4']},5:{post:['PWR5']}};
+const PHASEROWS={2:{pre:['COAL']},3:{post:['PWR3']},4:{pre:['NITRO'],post:['PWR4']},5:{pre:['PWR5']}};
 const POWER_IDS={COAL:2,PWR3:3,PWR4:4,PWR5:5};
 function phaseRowStep(id){ const r=INVENTORY.find(x=>x.id===id); if(!r) return null; const st=invStep(r);
   if(POWER_IDS[id]) st.detail+=powerStepHint(POWER_IDS[id]);
@@ -890,9 +902,10 @@ function phaseRowStep(id){ const r=INVENTORY.find(x=>x.id===id); if(!r) return n
 function makerOf(item){ for(const d of DISTRICTS) for(const tid of d.t) if(T[tid]&&T[tid].out[0]===item) return {d,tid}; return null; }
 /* the earliest phase a template CAN be built: its district exists and its tier milestones are open */
 function availPhase(tid){ const mk=DISTRICTS.find(d=>d.t.includes(tid)); let ph=mk?(mk.id==='PA'?1:mk.phase):1;
-  (GATE[tid]||[]).forEach(id=>{ const m=MSMAP[id]; if(m.tier) ph=Math.max(ph,TIER_PHASE[m.tier]); }); return ph; }
+  gatesOf(tid).forEach(id=>{ const m=MSMAP[id]; if(m.tier) ph=Math.max(ph,TIER_PHASE[m.tier]); }); return ph; }
 /* which phase a milestone step sits in */
 function msPhase(m){ if(m.phase) return m.phase; if(m.tier) return TIER_PHASE[m.tier];
+  if(!(m.unlocks||[]).length){ let ph=5; MS.forEach(o=>{ if((o.needs||[]).includes(m.id)) ph=Math.min(ph,msPhase(o)); }); return ph; }
   let ph=6; (m.unlocks||[]).forEach(tid=>{ const mk=DISTRICTS.find(d=>d.t.includes(tid)); if(mk){ const bk=districtBanks(mk).find(b=>b.tid===tid); if(bk) ph=Math.min(ph,bankBuiltPhase(mk,bk)); } });
   // a MAM node must also come no later than the nodes that need it
   MS.forEach(o=>{ if((o.needs||[]).includes(m.id)&&o.mam) ph=Math.min(ph,msPhase(o)); });
@@ -905,15 +918,15 @@ function msKey(m){ return 'ms:'+m.id; }
    deliveries run), else to the same phase. Solved to a fixed point, since build costs
    change machine counts which change build costs. */
 let _exTag='', _extraCache={};
-function extrasFor(q){ if(_exTag) return (_exWork[q]||{}); const key=planSig(); if(!_extraCache[key]) _extraCache[key]=computeExtras(); return _extraCache[key].byPhase[q]||{}; }
+function extrasFor(q){ if(_exTag) return (_exWork[q]||{}); const key=planSigBase(); if(!_extraCache[key]) _extraCache[key]=computeExtras(); return _extraCache[key].byPhase[q]||{}; }
 let _exWork={};
-function extraLedger(){ const key=planSig(); if(!_extraCache[key]) _extraCache[key]=computeExtras(); return _extraCache[key]; }
+function extraLedger(){ const key=planSigBase(); if(!_extraCache[key]) _extraCache[key]=computeExtras(); return _extraCache[key]; }
 function chargePhase(item,needPhase){ const mk=makerOf(item); if(!mk) return null;     // not made in the factory (ore, hand-crafted)
   const av=availPhase(mk.tid); return av>needPhase ? null : Math.max(1,needPhase-1,av); }
 function buildCountsByPhase(){ // machines & generators PLACED in each phase (deltas)
   const out={1:{},2:{},3:{},4:{},5:{}}; const add=(p,b,n)=>{ if(n>0&&p>=1&&p<=5) out[p][b]=(out[p][b]||0)+n; };
   DISTRICTS.forEach(d=>districtBanks(d).forEach(bk=>{ let prev=0; for(let p=1;p<=5;p++){ const n=standingCount(d,bk,p); add(p,bk.b,n-prev); prev=Math.max(prev,n); } }));
-  for(let p=2;p<=5;p++){ const g=genAdd(p); if(g.n>0) add(p,g.building,g.n); }
+  for(let p=2;p<=5;p++){ const g=genAdd(p); if(g.n>0) add(p,g.building,g.n); const b=bridgesFor()[p]||{}; for(const k in b) add(p,k,b[k]); }
   // water & oil extractors (normal nodes / 120 per extractor) — fresh water for production + generators
   let wPrev=0, oPrev=0;
   for(let p=1;p<=5;p++){ let w=0,o=0; DISTRICTS.forEach(d=>districtBanks(d).forEach(bk=>{ const n=standingCount(d,bk,p); if(!n) return; const f=n/bk.n;
@@ -927,7 +940,8 @@ function buildCountsByPhase(){ // machines & generators PLACED in each phase (de
   return out; }
 function computeExtras(){
   let byPhase={}; const entries=[];
-  for(let it=0;it<4;it++){
+  let last='';
+  for(let it=0;it<8;it++){
     _exWork=byPhase; _exTag='ex'+it+'|'+JSON.stringify(byPhase).length;
     _demOne={}; _demP={}; _demandCache={};
     const nb={}, ne=[]; const put=(q,item,qty,why,need)=>{ if(!q) return; nb[q]=nb[q]||{}; nb[q][item]=(nb[q][item]||0)+qty; ne.push({q,item,qty,why,need}); };
@@ -937,6 +951,7 @@ function computeExtras(){
     for(let p=1;p<=5;p++) for(const b in bc[p]){ const c=BUILD_COST[b]; if(!c) continue;
       for(const item in c){ if(p===1&&!['Iron Rod','Wire','Reinforced Iron Plate','Rotor','Cable'].includes(item)) continue; put(chargePhase(item,p),item,c[item]*bc[p][b],'build:'+b,p); } }
     byPhase=nb; entries.length=0; ne.forEach(e=>entries.push(e));
+    const sig=JSON.stringify(nb); if(sig===last) break; last=sig;
   }
   _exWork={}; _exTag=''; _demOne={}; _demP={}; _demandCache={};
   return {byPhase,entries}; }
@@ -946,7 +961,8 @@ function extraWindow(q){ const pace=PACES[bpPace]||PACES.minimum; if(pace.min) r
 /* generators ADDED in phase p, and the water they drink */
 function genAdd(p){ if(p<2) return {n:0};
   if(p>=4){ const tot=nuclearPlants(p), add=tot-nuclearPlants(p-1); return {building:'Nuclear Power Plant',n:add,tot,mw:2500}; }
-  const g=GEN[p], mw=phaseStandingMW(p).mw, prev=p>2?phaseStandingMW(p-1).mw*1.4:0;
+  const was=_noFuel; _noFuel=true; const g=GEN[p]; let mw, prev;
+  try{ mw=phaseStandingMW(p).mw; prev=p>2?phaseStandingMW(p-1).mw*1.4:0; } finally { _noFuel=was; }
   return {building:p===2?'Coal Generator':'Fuel Generator', n:Math.ceil(Math.max(0,mw*1.4-prev)/g.mw), mw:g.mw, prev};
 }
 function genWater(p){ // m³/min for coal gens (45) and nuclear plants (240) standing by phase p
@@ -954,7 +970,7 @@ function genWater(p){ // m³/min for coal gens (45) and nuclear plants (240) sta
 function fmtCost(c){ return Object.keys(c).map(k=>'<b>'+c[k].toLocaleString()+'</b> '+k).join(', '); }
 function msStep(m){ const p=msPhase(m);
   const src=Object.keys(m.cost).map(item=>{ const mk=makerOf(item); return mk?(mk.d.id==='PA'?'★':mk.d.id)+' §'+(mk.d.t.indexOf(mk.tid)+1):null; }).filter(Boolean);
-  const where=m.mam?'Research it in the <b>MAM</b> (Molecular Analysis Machine, from HUB Tier 1)':'Complete this <b>HUB milestone</b> (Tier '+m.tier+')';
+  const where=m.mam?'Research it in the <b>MAM</b> (Molecular Analysis Machine, from HUB Tier 1) — if the node is still locked, research the one before it in that tree first':'Complete this <b>HUB milestone</b> (Tier '+m.tier+')';
   const cost=Object.keys(m.cost).length?` — it costs ${fmtCost(m.cost)}${src.length?' (made by '+[...new Set(src)].join(', ')+')':''}`:'';
   return {key:msKey(m),ms:m.id,phase:p,cat:'milestone',label:'🔓 '+(m.mam?'MAM':'Tier '+m.tier)+' · '+m.name,
     detail:where+cost+'. Unlocks: '+m.gives+'.'+(m.note?' '+m.note:'')}; }
@@ -977,7 +993,7 @@ function orderPhase(steps){
   steps.forEach(s=>{
     if(s.ai!=null&&s.district){ const d=DMAP[s.district], bk=districtBanks(d)[s.ai];
       dep(s,'bp:'+d.id+':pad'); dep(s,'bp:'+d.id+':rail');
-      (GATE[bk.tid]||[]).forEach(id=>dep(s,'ms:'+id));
+      gatesOf(bk.tid).forEach(id=>dep(s,'ms:'+id));
       // its machines are built from parts made this phase (a Converter needs SAM Fluctuators).
       // Only for the advanced buildings — basic ones are built from Ironworks parts made long
       // before (and would loop: Smelters are built from rods made from ingots).
@@ -988,18 +1004,66 @@ function orderPhase(steps){
     if(/^bp:[A-Z]+:util$/.test(s.key)||/^bp:[A-Z]+:rail$/.test(s.key)) dep(s,'bp:'+s.district+':pad');
     if(/:rail$/.test(s.key)) dep(s,'ms:T6-RAIL');
     if(s.key==='COAL') dep(s,'ms:T3-COAL');
-    if(s.key==='PWR3'){ dep(s,'ms:T5-PETRO'); dep(s,'bp:D:util'); }
+    if(s.key==='PWR3'){ dep(s,'ms:T5-PETRO'); dep(s,'bp:D:T-FUEL'); }
+    if(s.key==='PWR5'){ dep(s,'exp:F:5'); }
     if(s.key==='PWR4'){ dep(s,'ms:T8-NUC'); dep(s,'bp:F:T-FUELROD'); }
     if(s.key==='NITRO') dep(s,'ms:T8-AAP');
   });
   const done=new Set(), out=[]; const left=steps.slice();
   const ok=s=>[...deps.get(s)].every(o=>done.has(o));
+  // the phase's power step and everything it needs go FIRST — so the grid grows before the load
+  const pw=steps.find(s=>POWER_IDS[s.key]), first=new Set();
+  if(pw){ const stack=[pw]; while(stack.length){ const x=stack.pop(); if(first.has(x)) continue; first.add(x); deps.get(x).forEach(o=>stack.push(o)); } }
+  const pri=s=>first.has(s)?0:1;
+  left.sort((a,b)=>pri(a)-pri(b)||a._i-b._i);
   while(left.length){ let idx=left.findIndex(s=>ok(s)&&[...soft.get(s)].every(o=>done.has(o)));
     if(idx<0) idx=left.findIndex(ok);  // soft deps would loop — drop them for this pick
     if(idx<0) idx=0;                 // a hard cycle would be a data bug — fall back to the original order
     const s=left.splice(idx,1)[0]; done.add(s); out.push(s); }
   steps.forEach(s=>delete s._i); return out; }
-function masterSteps(){ const out=[];
+/* what each milestone gives the step text: better belts, better miners */
+const MS_CTX={'T4-LOG3':{belt:270},'T5-LOG4':{belt:480},'T7-LOG5':{belt:780},'T4-ADVSTEEL':{mk2:true}};
+let _msCache={};
+function masterSteps(){ const key=planSigBase()+'|'+sloopsOwned(); if(_msCache[key]) return _msCache[key];
+  let steps=null;
+  for(let it=0;it<3;it++){ const prev=JSON.stringify(bridgesFor());
+    steps=buildSteps();
+    const now=JSON.stringify(bridgesFor()); if(now===prev) break;
+    _demOne={}; _demP={}; _demandCache={}; _extraCache={}; for(const k in _plantCache) delete _plantCache[k]; }
+  _msCache[key]=steps; return steps; }
+/* Walk the ordered steps tracking the draw you have built and the generators you have.
+   Wherever the next step would push the draw past what you can generate, insert a ⚡
+   top-up with the best generator unlocked by then, sized to carry you to the phase's next
+   power step. Records the top-ups (for the fuel solver and the build bill). */
+function powerWalk(out){
+  const GT={burner:{b:'Biomass Burner',mw:30},coal:{b:'Coal Generator',mw:75},fuel:{b:'Fuel Generator',mw:250},nuc:{b:'Nuclear Power Plant',mw:2500}};
+  let cap=0, draw=0, pending=0, type='burner'; const bridges={}; const res=[];
+  // A machine only draws power while it produces. An Expand step placed before its phase's
+  // power step mostly fills its output buffer and idles until the phase's other consumers
+  // exist — so its draw is counted from that power step on, not before.
+  const powerLater=i=>{ for(let j=i+1;j<out.length&&out[j].phase===out[i].phase;j++) if(POWER_IDS[out[j].key]) return true; return false; };
+  const capOf=s=>{ if(s.key==='PWR0') return Math.ceil(phaseStandingMW(1).mw*1.4/30)*30;
+    const id=POWER_IDS[s.key]; if(!id) return 0; const g=genAdd(id); return (g.n||0)*(id>=4?2500:GEN[id].mw); };
+  for(let i=0;i<out.length;i++){ const s=out[i];
+    if(i>0&&out[i-1].phase!==s.phase){ draw+=pending; pending=0; }
+    if(s.key==='COAL') type='coal'; if(s.key==='PWR3') type='fuel'; if(s.key==='PWR4') type='nuc';
+    cap+=capOf(s);
+    if(POWER_IDS[s.key]){ draw+=pending; pending=0; }
+    let add=s.mw||0;
+    if(add>0&&/^exp:/.test(s.key)&&powerLater(i)){ pending+=add; add=0;
+      s.detail+=' <i>(These idle — and draw little power — until the rest of this phase is built; the ⚡ step later in the phase covers them.)</i>'; }
+    if(add>0&&draw+add>cap/1.1){
+      // look ahead to the next power step in this phase (or the phase end): the peak draw until then
+      let peak=draw, j=i; for(;j<out.length&&out[j].phase===s.phase&&!POWER_IDS[out[j].key];j++) if(!/^exp:/.test(out[j].key)) peak+=out[j].mw||0;
+      const g=GT[type], n=Math.max(1,Math.ceil((peak*1.25-cap)/g.mw));
+      if(n>0){ const p=s.phase; bridges[p]=bridges[p]||{}; bridges[p][g.b]=(bridges[p][g.b]||0)+n;
+        res.push({key:'pwrb:'+p+':'+res.filter(x=>x.phase===p&&/^pwrb:/.test(x.key)).length,phase:p,cat:'module',label:`⚡ Top up power: add ${n}× ${g.b}`,
+          detail:`The next builds would outrun your generators (~${Math.round(draw)} MW drawn of ~${Math.round(cap)} MW). Add <b>${n}× ${g.b}</b> (${g.mw} MW each) now${type==='fuel'?` — each burns 20 Fuel/min; D's Fuel bank is sized to include them`:type==='coal'?' — each needs 15 coal + 45 water/min':''}${type==='burner'?' — hand-fed until coal arrives':''}. It covers you to the next ⚡ step.`});
+        cap+=n*g.mw; } }
+    draw+=add; s._draw=draw; s._cap=cap; res.push(s); }
+  _bridgeCache[planSigBase()]=bridges;
+  return res; }
+function buildSteps(){ const out=[]; const ctx={belt:120,mk2:false};   // Phase 0 gives Logistics Mk.2 + Miner Mk.1
   INVENTORY.filter(r=>r.phase===0).forEach(r=>out.push(invStep(r)));
   for(let p=1;p<=5;p++){ const ph=[];
     MS.filter(m=>msActive(m)&&msPhase(m)===p&&!m.mam).forEach(m=>ph.push(msStep(m)));
@@ -1011,12 +1075,15 @@ function masterSteps(){ const out=[];
     DISTRICTS.filter(d=>d.id!=='PA'&&d.phase===p).forEach(d=>pushDistrict(ph,d,p));
     pushRows(rows.post);
     pushPAphase(ph,p);
-    orderPhase(ph).forEach(s=>out.push(s));
+    orderPhase(ph).forEach(s=>{
+      if(s.ms&&MS_CTX[s.ms]) Object.assign(ctx,MS_CTX[s.ms]);
+      if(s.ai!=null&&s.district){ const d=DMAP[s.district], banks=districtBanks(d); s.html=bankStepHTML(d,banks,banks[s.ai],s.ai,Object.assign({},ctx)); }
+      out.push(s); });
     const st=stockpileStep(p); if(st) out.push(st);
     INVENTORY.filter(r=>r.phase===p&&r.category==='deliverable').forEach(r=>out.push(invStep(r)));
   }
   const fin=INVENTORY.find(r=>r.id==='FINISH'); if(fin) out.push(invStep(fin));
-  return out; }
+  return powerWalk(out); }
 /* which BM_SEQ chapter (the goal-level "what's next" narrative) a step belongs to.
    District steps land on their district's chapter; deliverables on that phase's
    ★ PA chapter; everything else on the first chapter of its phase. */
@@ -1166,16 +1233,10 @@ function renderInventory(){ backfillFinished();
     rb.innerHTML=`<h3 style="background:#13261a">⚙️ Districts online (${online.length})</h3><div style="padding:9px 16px">`+
       online.map(d=>`<span class="raw"><b>${d.id==='PA'?'★':d.id}</b> ${d.name}</span>`).join(' ')+`</div>`;
     wrap.appendChild(rb); }
-  // ----- live power readout (sum power of every machine you've ticked) -----
-  // a 'skip'ped bank does not exist, so it draws nothing; an 'eq' one does exist in your save
-  let mwOn=0; ms.forEach(s=>{ if(stepMode(s.key)==='skip') return;
-    if(state[s.key]&&s.ai!=null&&s.district){ const dd=DMAP[s.district]; if(dd){ const bk=districtBanks(dd)[s.ai]; if(bk){
-      // what you actually placed: the "now" block, grown by every Expand step you've ticked
-      let n=bankNowCount(dd,bk);
-      for(let q=bankBuiltPhase(dd,bk)+1;q<=5;q++){ const ek='exp:'+dd.id+':'+q; if(state[ek]&&stepMode(ek)!=='skip') n=Math.max(n,Math.min(bk.n,bankCountAt(bk.tid,q))); }
-      mwOn+=machinePower(bk.b)*n; } } } });
-  if(mwOn>0){ const g=GEN[next?next.phase:5]||GEN[5]; const need=Math.ceil(mwOn*1.4/g.mw); const pb=document.createElement('div'); pb.className='invphase';
-    pb.innerHTML=`<h3 style="background:#2a1c08">⚡ Power online so far: ~${Math.round(mwOn)} MW</h3><div style="padding:9px 16px;color:var(--muted);font-size:13px">Keep generators ≥ this with ~40% headroom — you're on <b>${g.n}</b>: ~<b>${need}× ${g.mw}MW</b> generators. Full plan in <span class="u" onclick="document.querySelector('nav button[data-tab=&quot;shopping&quot;]').click()">📋 Items We Need</span>.</div>`;
+  // ----- power at your place in the plan (from the same walk that places the ⚡ steps) -----
+  const at=next?ms[ms.indexOf(next)-1]:ms[ms.length-1];
+  if(at&&at._cap){ const d=at._draw||0, c=at._cap||0; const pb=document.createElement('div'); pb.className='invphase';
+    pb.innerHTML=`<h3 style="background:#2a1c08">⚡ Power at this point in the plan: ~${Math.round(d)} MW used of ~${Math.round(c)} MW</h3><div style="padding:9px 16px;color:var(--muted);font-size:13px">If you've followed the ⚡ steps you have ~${Math.round(c)} MW of generators; the machines built so far draw ~${Math.round(d)} MW while running (${c?Math.round(100*d/c):0}%). The plan adds generators <b>before</b> this passes ~90%. Per-phase totals: <span class="u" onclick="document.querySelector('nav button[data-tab=&quot;shopping&quot;]').click()">📋 Items We Need</span>.</div>`;
     wrap.appendChild(pb); }
   // ----- FULL numbered encyclopaedia: every step, in order, grouped by phase -----
   for(let p=0;p<=5;p++){ const steps=ms.filter(s=>s.phase===p); if(!steps.length) continue;
@@ -1234,8 +1295,7 @@ function renderInventory(){ backfillFinished();
 document.getElementById('resetinv').onclick=()=>{ if(confirm('Reset all progress? (A one-shot backup is kept — 📥 Load code with "undo" to restore.)')){
   try{ lsSet(LS+'_undo', JSON.stringify(state)); }catch(e){}
   state={_cfg:state._cfg,_mig:state._mig};   // keep _mig: a reset save is not an "old" one; clearing ticks is not a request to change the plan itself
-  saveState(state); applyCfg(); renderInventory();
-  if(typeof renderBlueprints==='function') renderBlueprints();
+  saveState(state); applyAlts(); applyCfg(); rerenderAll(); renderAltToggles();
   if(typeof buildBuildMap==='function') buildBuildMap();
   if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); } };
 document.getElementById('collapseDone').onclick=e=>{ hideDone=!hideDone; e.target.textContent=hideDone?'👁️ Show completed':'👁️ Hide completed'; renderInventory(); };
@@ -1270,7 +1330,7 @@ document.getElementById('loadcode').onclick=()=>{ const code=prompt('Paste a pro
     const nIn=cnt(obj), nCur=cnt(state);
     if(nCur>0 && !confirm('Incoming code: '+nIn+' ticked step'+(nIn===1?'':'s')+'. You currently have '+nCur+'. Replace? (Current ticks are backed up — type "undo" in Load code to get them back.)')) return;
     try{ lsSet(LS+'_undo', JSON.stringify(state)); }catch(e){}
-    state=obj; saveState(state); applyCfg(); renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof buildBuildMap==='function') buildBuildMap(); alert('✅ Progress restored.'); }
+    state=obj; saveState(state); applyAlts(); auditT(); applyCfg(); rerenderAll(); renderAltToggles(); alert('✅ Progress restored.'); }
   catch(e){ alert('That code wasn\'t valid: '+e.message); } };
 
 /* ============================ 2D BUILD MAP — material districts ============================ */
@@ -1278,11 +1338,11 @@ const SVGNS='http://www.w3.org/2000/svg';
 /* the modular mini-base DISTRICTS (see architecture.md). ang = compass placement; PA = centre. */
 const DISTRICTS=[
  {id:'A',name:'Ironworks',near:'iron + limestone',ang:200,phase:1,col:'#6fcf97',role:'The backbone — smelts iron and makes the plates, rods, screws, RIP, rotors & frames almost everything else is built from.',t:['T-IRON','T-PLATE','T-ROD','T-SCREW','T-RIP','T-ROTOR','T-FRAME','T-CONCRETE']},
- {id:'B',name:'Copperworks',near:'copper + caterium',ang:340,phase:2,col:'#5ab0e6',role:'All things copper & caterium — wire, cable, copper sheet, quickwire and AI limiters that feed the electronics chains.',t:['T-COPPER','T-CATERIUM','T-WIRE','T-CABLE','T-COPSHEET','T-QUICKWIRE','T-AILIMITER']},
- {id:'C',name:'Steelworks',near:'iron + coal',ang:158,phase:2,col:'#e6915a',role:'Iron + coal → steel, then the beams, pipes, stators and motors the heavier machinery needs.',t:['T-STEEL','T-BEAM','T-PIPE','T-EIBEAM','T-STATOR','T-MOTOR']},
- {id:'D',name:'Oil & Electronics',near:'crude oil',ang:55,phase:3,col:'#b692ff',role:'Refines oil into plastic & rubber, then builds circuit boards, computers, heavy frames, crystal oscillators & supercomputers.',t:['T-PLASTIC','T-RUBBER','T-QUARTZX','T-SILICA','T-CIRCUIT','T-COMPUTER','T-HSCONN','T-HMFRAME','T-CRYSTALOSC','T-SUPERCOMP']},
+ {id:'B',name:'Copperworks',near:'copper + caterium',ang:340,phase:2,col:'#5ab0e6',role:'All things copper & caterium — wire, cable, copper sheet, quickwire and AI limiters — and, from Phase 4, the copper firehose: copper powder → Nuclear Pasta (kept here so ~3,000 ingots/min never ride a train).',t:['T-COPPER','T-CATERIUM','T-WIRE','T-CABLE','T-COPSHEET','T-QUICKWIRE','T-AILIMITER','T-COPPERPOWDER','T-PCC','T-PASTA']},
+ {id:'C',name:'Steelworks',near:'iron + coal',ang:158,phase:2,col:'#e6915a',role:'Iron + coal → steel, then the beams, pipes, stators and motors the heavier machinery needs — and, in Phase 5, Diamonds (they eat coal, so they live by the coal).',t:['T-STEEL','T-BEAM','T-PIPE','T-EIBEAM','T-STATOR','T-MOTOR','T-DIAMONDS']},
+ {id:'D',name:'Oil & Electronics',near:'crude oil',ang:55,phase:3,col:'#b692ff',role:'Refines oil into plastic & rubber, then builds circuit boards, computers, heavy frames, crystal oscillators & supercomputers.',t:['T-PLASTIC','T-FUEL','T-RUBBER','T-QUARTZX','T-SILICA','T-CIRCUIT','T-COMPUTER','T-HSCONN','T-HMFRAME','T-CRYSTALOSC','T-SUPERCOMP']},
  {id:'E',name:'Aluminium & Cooling',near:'bauxite (train)',ang:-48,phase:4,col:'#cbb27a',role:'Railed-in bauxite → the aluminium chain, heat sinks, cooling systems, radio control units, fused frames & turbo motors.',t:['T-ALUMINA','T-ALSCRAP','T-ALINGOT','T-ALCASING','T-ALCLAD','T-HEATSINK','T-COOLING','T-FUSEDFRAME','T-RCU','T-TURBOMOTOR','T-EMROD']},
- {id:'F',name:'Nuclear & Particle',near:'uranium (train)',ang:28,phase:4,col:'#ff6b9d',role:'Nuclear fuel (sulfur + uranium → fuel rods for the power plants) + a copper firehose → copper powder, diamonds, pressure cubes and Nuclear Pasta.',t:['T-SULFACID','T-URANCELL','T-FUELROD','T-COPPERPOWDER','T-PCC','T-PASTA','T-DIAMONDS']},
+ {id:'F',name:'Nuclear Fuel',near:'uranium (train)',ang:28,phase:4,col:'#ff6b9d',role:'By the uranium: sulfuric acid → encased uranium cells → fuel rods for the Nuclear Power Plants (build the plants here too, by water). Small — the copper-hungry particle work lives in B.',t:['T-SULFACID','T-URANCELL','T-FUELROD']},
  {id:'G',name:'Quantum & SAM',near:'SAM (train)',ang:108,phase:5,col:'#ffadc4',role:'The endgame lab — SAM → ficsite, dark matter, time crystals, EPM and the quantum processors/oscillators/cells, plus the AI Expansion Server (its EPM can\'t travel, so it is made here and railed to ★).',t:['T-REANSAM','T-SAMFLUC','T-DMRESIDUE','T-FICINGOT','T-FICTRIGON','T-TIMECRYSTAL','T-DMCRYSTAL','T-EPM','T-NQP','T-SUPEROSC','T-SINGCELL','T-AISERVER']},
  {id:'PA',name:'Project Assembly',near:'by the Space Elevator',ang:null,phase:1,col:'#ff9e3d',role:'By the elevator — assembles the final parts from everything the districts ship in (all but the AI Expansion Server, which G makes), and launches them.',t:['T-SMARTPLATE','T-VERSFRAME','T-AUTOWIRE','T-MODENGINE','T-ACU','T-ADS','T-MFG','T-TPR','T-SCULPTOR','T-WARP']},
 ];
@@ -1303,6 +1363,9 @@ function migrateState(s){
   // 1) bank keys were positional (bp:A:3) — fragile if a template list is reordered.
   DISTRICTS.forEach(d=>d.t.forEach((tid,i)=>{ const o='bp:'+d.id+':'+i, n='bp:'+d.id+':'+tid;
     if(s[o]!==undefined){ if(s[n]===undefined) s[n]=s[o]; delete s[o]; } }));
+  // 1b) a template that moved district keeps its tick (AI Server ★→G; pasta chain F→B; diamonds F→C)
+  DISTRICTS.forEach(d=>d.t.forEach(tid=>{ const n='bp:'+d.id+':'+tid; if(s[n]!==undefined) return;
+    ['A','B','C','D','E','F','G','PA'].forEach(o=>{ const k='bp:'+o+':'+tid; if(o!==d.id&&s[k]!==undefined){ s[n]=s[k]; delete s[k]; } }); }));
   // 2) tech-unlock keys were positional too (tech:2:1) — re-key them by slug.
   for(let p=1;p<=5;p++) (TECH_V1[p]||[]).forEach((t,ti)=>{ const o='tech:'+p+':'+ti, n=techKey(p,t);
     if(s[o]!==undefined){ if(s[n]===undefined) s[n]=s[o]; delete s[o]; } });
@@ -1358,12 +1421,24 @@ function migrateState(s){
   //    finished long ago. Flag it; once the solver is up, backfillFinished() ticks every
   //    step of a phase whose deliveries are all done (run once per migration).
   if((s._mig||0)<5){ if(hasProgress) s._backfill=1; s._mig=5; }
+  // 8) a save taken mid-phase: any milestone whose unlocked bank is already ticked was done
+  //    (plus the MAM nodes before it); the old one-line tech slugs map onto the new steps.
+  if((s._mig||0)<6){
+    const tick=id=>{ const m=MSMAP[id]; if(!m) return; if(s['ms:'+id]===undefined) s['ms:'+id]=1; (m.needs||[]).forEach(tick); };
+    MS.forEach(m=>(m.unlocks||[]).forEach(tid=>{ if(Object.keys(s).some(k=>/^bp:[A-Z]+:/.test(k)&&k.endsWith(':'+tid)&&s[k])) tick(m.id); }));
+    const SLUG={'tier-3-coal-power':'T3-COAL','tier-3-basic-steel-productio':'T3-STEEL','tier-4-logistics-mk-3':'T4-LOG3','tier-4-advanced-steel':'T4-ADVSTEEL',
+      'tier-5-oil-processing':'T5-OIL','tier-5-belt-mk-4':'T5-LOG4','manufacturer':'T6-IM','tier-6-railway':'T6-RAIL','tier-7-bauxite-refinement':'T7-BAUX',
+      'tier-7-belt-mk-5':'T7-LOG5','tier-7-control-system-develo':'T7-CSD','tier-8-advanced-aluminum-pro':'T8-AAP','tier-8-nuclear-power':'T8-NUC',
+      'tier-9-matter-conversion':'T9-MC','quantum-encoder-quantum-ener':'T9-QE'};
+    Object.keys(s).forEach(k=>{ const m=k.match(/^tech:\d:(.+)$/); if(!m||!s[k]) return; for(const pre in SLUG) if(m[1].indexOf(pre)===0) tick(SLUG[pre]); });
+    s._mig=6;
+  }
   return s;
 }
 migrateState(state); saveState(state);
 const PHCOL={0:'#bcd0e0',1:'#ffce8a',2:'#8fe6ff',3:'#b7f0a0',4:'#d3b6ff',5:'#ffadc4'}; // phase chip colours (match .chip.pN)
 function phaseChipSvg(x,y,ph){ const c=PHCOL[ph]||'#bcd0e0'; return `<rect x="${x}" y="${y}" width="26" height="15" rx="4" fill="${c}"/><text x="${x+13}" y="${y+11}" fill="#10161d" font-size="10" font-weight="700" text-anchor="middle">P${ph}</text>`; }
-const WORKS2DIST={M1:'PA',M2:'PA',M3:'PA',M4:'PA',M5:'PA',M6:'PA',M7:'PA',M8:'PA',M9:'F',M10:'PA',M11:'PA',M12:'PA',F1:'D',F2:'D'};
+const WORKS2DIST={M1:'PA',M2:'PA',M3:'PA',M4:'PA',M5:'PA',M6:'PA',M7:'PA',M8:'PA',M9:'B',M10:'PA',M11:'G',M12:'PA',F1:'D',F2:'D'};   // legacy module ids from old links
 const BM_SEQ=[
  {node:null,phase:0,t:'Phase 0 · Foundation + first power',d:'Pick a flat desert shelf for the ★ Project Assembly + ▲ Space Elevator. ⚡ Start on Biomass Burners. Scout your nearest Iron, Copper, Limestone & Coal.'},
  {node:'A',phase:1,t:'① Build the IRONWORKS district',d:'📍 Near IRON + limestone. Smelt iron → plates, rods, screws, RIP, rotors, modular frames, concrete. This shared mini-base feeds almost everything.'},
@@ -1374,7 +1449,7 @@ const BM_SEQ=[
  {node:'D',phase:3,t:'③ Build the OIL & ELECTRONICS district',d:'📍 On CRUDE OIL. Plastic, rubber, circuit boards, computers, heavy frames, supercomputers. ⚡ Fuel Generators.'},
  {node:'PA',phase:3,t:'③ Project Assembly · +Modular Engine, +Adaptive Control Unit',d:'Add Modular Engine (Motor←C + Rubber←D) and ACU (Auto-Wiring + Circuit Board←D + Heavy Frame←D + Computer←D). Deliver Phase 3 → Aluminium, Nuclear.'},
  {node:'E',phase:4,t:'④ Build the ALUMINIUM & COOLING district',d:'📍🚆 By BAUXITE + water + nitrogen. Aluminium, heat sinks, cooling systems, turbo motors, fused frames.'},
- {node:'F',phase:4,t:'④ Build the NUCLEAR & PARTICLE district',d:'📍🚆 By URANIUM + water + a copper feed. ⚡ Nuclear power. Copper powder, diamonds, pressure cubes, and Nuclear Pasta (delivered).'},
+ {node:'F',phase:4,t:'④ Build the NUCLEAR FUEL district',d:'📍🚆 By URANIUM + water. Sulfuric acid → uranium cells → fuel rods, and the Nuclear Power Plants beside them. (Nuclear Pasta is made in Copperworks.)'},
  {node:'PA',phase:4,t:'④ Project Assembly · +ADS, +Magnetic Field Generator, +Thermal Propulsion Rocket',d:'Add three stations fed by districts A–F. Deliver Phase 4 → Tier 9.'},
  {node:'G',phase:5,t:'⑤ Build the QUANTUM & SAM district',d:'📍🚆 SAM + quartz. Reanimated SAM, dark matter (residue→crystal), ficsite, time crystals, EPM, neural-quantum processors, oscillators, singularity cells.'},
  {node:'PA',phase:5,t:'⑤ Project Assembly · +Biochemical Sculptor, +Ballistic Warp Drive',d:'Add the final two stations (the AI Expansion Server arrives by rail from G). Deliver Phase 5 → run the launch → 🚀 DONE!'},
@@ -1681,16 +1756,16 @@ const SECT={'Iron Ingot':'Ironworks · smelting','Copper Ingot':'Copperworks · 
 const ABBR={Smelter:'Sm',Foundry:'Fo',Constructor:'Co',Assembler:'As',Manufacturer:'Mf',Refinery:'Rf',Blender:'Bl','Particle Accelerator':'PA',Converter:'Cv','Quantum Encoder':'QE'};
 const BCOL={Smelter:'#5ab0e6',Foundry:'#e6915a',Constructor:'#6fcf97',Assembler:'#b692ff',Manufacturer:'#ffce8a',Refinery:'#5aa9ff',Blender:'#2dd4bf','Particle Accelerator':'#ff6b9d',Converter:'#9aa7b4','Quantum Encoder':'#ffadc4'};
 function sName(b){ return SECT[b.r]||(b.r+' bank'); }
-function beltMk(rate){ rate=+rate; if(!rate) return ''; const c=[[60,'Mk.1'],[120,'Mk.2'],[270,'Mk.3'],[480,'Mk.4'],[780,'Mk.5'],[1200,'Mk.6']];
+function beltMk(rate){ rate=+rate; if(!rate) return ''; const c=[[60,'Mk.1'],[120,'Mk.2'],[270,'Mk.3'],[480,'Mk.4'],[780,'Mk.5']];
   for(const [cap,mk] of c) if(rate<=cap+0.01) return mk;
-  return 'Mk.6 ×'+Math.ceil(rate/1200); }
+  return 'Mk.5 ×'+Math.ceil(rate/780); }   // Mk.6 needs Peak Efficiency — the plan runs parallel Mk.5 lanes
 function pipeMk(rate){ rate=+rate; if(!rate) return 'Mk.1'; if(rate<=300) return 'Mk.1'; if(rate<=600) return 'Mk.2'; return 'Mk.2 ×'+Math.ceil(rate/600); }
 /* belt for solids, pipe for fluids — returns {carrier, mk} */
 function carrierOf(item,rate){ return (typeof isFluidItem==='function'&&isFluidItem(item)) ? {carrier:'pipe',mk:pipeMk(rate)} : {carrier:'belt',mk:beltMk(rate)||'Mk.1'}; }
 /* belt/pipe Mk you actually HAVE by each phase (tier-gated):
    belts Mk2→Mk6 unlock at P1,P2,P3,P4,P5; pipes Mk1@P2, Mk2@P3+. */
 function beltCapAtPhase(p){ return [0,120,270,480,780,780][Math.max(1,Math.min(5,p))]; }   // Mk.6 (Peak Efficiency) is optional — run parallel Mk.5 lanes
-function pipeCapAtPhase(p){ return p>=3?600:(p>=2?300:300); }
+function pipeCapAtPhase(p){ return 300; }   // Pipe Mk.2 (Tier 6 Pipeline Engineering) is optional — run parallel Mk.1 pipes
 function carrierName(cap){ return ({120:'Mk.2',270:'Mk.3',480:'Mk.4',780:'Mk.5',1200:'Mk.6',300:'Pipe Mk.1',600:'Pipe Mk.2'})[cap]||'Mk.1'; }
 /* the belt-upgrade PATH for an item as its rate grows phase by phase, using only
    the belt you have at each phase: e.g. "Mk.2 → Mk.4 (P3) → 2× Mk.6 (P5)". */
@@ -1710,7 +1785,7 @@ function carrierAtPhase(item,rate,p){ const fluid=isFluidItem(item); const tiers
 /* widest efficient row: how many machines one belt/pipe lane can serve (the
    binding stream — output or any input), so you build long rows and add lanes. */
 function machinesPerLane(t){ const eff=bpMax?MAXFACTOR:1; let mn=Infinity;
-  const streams=[[t.out[0],t.out[1]],...t.in]; streams.forEach(([it,r])=>{ if(!r) return; const cap=isFluidItem(it)?600:1200; mn=Math.min(mn,Math.max(1,Math.floor(cap/(r*eff)))); });
+  const streams=[[t.out[0],t.out[1]],...t.in]; streams.forEach(([it,r])=>{ if(!r) return; const cap=isFluidItem(it)?300:780; mn=Math.min(mn,Math.max(1,Math.floor(cap/(r*eff)))); });
   return isFinite(mn)?mn:8; }
 /* ---- DISTRICT-BASED TOP-DOWN FLOOR PLANS ----
    Each district's banks are sized to TOTAL project demand (sum of every
@@ -1734,7 +1809,9 @@ let bpMod='A', bpHi=-1,
     bpPace=(state._cfg&&PACES[state._cfg.pace])?state._cfg.pace:'minimum',
     bpZoom=1;
 /* one signature for "which plan am I looking at" — every solver cache keys on it */
-function planSig(){ return (bpMax?'1':'0')+'|'+bpScale+'|'+bpPace+'|'+(typeof altsOn==='function'?altsOn().join(','):'')+(typeof _noPseudo!=='undefined'&&_noPseudo?'|np':'')+(typeof _exTag!=='undefined'&&_exTag?'|'+_exTag:''); }
+/* the plan signature without the internal solver flags — keys the extras ledger */
+function planSigBase(){ return (bpMax?'1':'0')+'|'+bpScale+'|'+bpPace+'|'+(typeof altsOn==='function'?altsOn().join(','):''); }
+function planSig(){ return (bpMax?'1':'0')+'|'+bpScale+'|'+bpPace+'|'+(typeof altsOn==='function'?altsOn().join(','):'')+(typeof _noPseudo!=='undefined'&&_noPseudo?'|np':'')+(typeof _noFuel!=='undefined'&&_noFuel?'|nf':'')+(typeof _exTag!=='undefined'&&_exTag?'|'+_exTag:''); }
 /* MAX/100% changes every count on every tab — so redraw every tab, not just the one
    you clicked in (the others used to keep showing the old mode until a reload). */
 function rerenderAll(){ renderCards(); renderTemplates(); renderShopping(); renderInventory(); renderBlueprints(); buildBuildMap(); renderFlowOverview(); }
@@ -1743,10 +1820,12 @@ function setPace(v){ if(!PACES[v]) return; bpPace=v; saveCfg(); rerenderAll(); }
 function saveCfg(){ state._cfg=Object.assign({},state._cfg,{max:bpMax,scale:bpScale,pace:bpPace}); saveState(state); _chCache.sig=null; }
 /* re-read the plan settings OUT of state — needed after any wholesale state replacement
    (Load code, undo, Reset), otherwise the live plan silently disagrees with the saved one. */
+function flushPlanCaches(){ _chCache.sig=null; _demandCache={}; _demP={}; _demOne={}; _msCache={}; _extraCache={}; _bridgeCache={};
+  for(const k in _plantCache) delete _plantCache[k]; _sloopCache={sig:null,rows:null}; _fundedCache={sig:null,set:null}; }
 function applyCfg(){ bpScale=(state._cfg&&state._cfg.scale)||1;
   bpMax=(state._cfg&&typeof state._cfg.max==='boolean')?state._cfg.max:false;
   bpPace=(state._cfg&&PACES[state._cfg.pace])?state._cfg.pace:'minimum';
-  _chCache.sig=null; _demandCache={}; _demP={}; _demOne={}; }
+  flushPlanCaches(); }
 /* MAX mode: every production machine runs at 250% (3 Power Shards) → 2.5× throughput,
    so you build ~40% of the machines. Somersloops are NOT assumed (only ~106 exist and
    they unlock late) — the 🎯 allocator says where the ones you own are worth slotting. */
@@ -1754,7 +1833,8 @@ const MAXFACTOR=2.5;
 /* Design throughput of each of the 12 FINAL parts (parts/min). Everything else
    is sized by propagating these back through the recipe graph, so every bank is
    built to meet its true total demand (no starving feeds, no orphan banks). */
-/* Chosen to MINIMISE WAITING rather than to maximise throughput. Each phase's parts
+/* Used by the 🚀 Fast pace only (Minimum/Balanced derive rates from the pace).
+   Chosen to MINIMISE WAITING rather than to maximise throughput. Each phase's parts
    are rated so they all finish at about the same time, on that phase's unavoidable
    long pole, so no single line holds up a delivery:
      P2 ~50 min  · P3 ~125 min (Versatile Framework's 2,500 sets this floor)
@@ -1789,8 +1869,8 @@ let _demOne={};
 function solvePhaseOnly(p,delivOnly){ const key=p+'|'+planSig()+(delivOnly?'|d':''); if(_demOne[key]) return _demOne[key];
   const producible=new Set(),prod={}; DISTRICTS.forEach(d=>d.t.forEach(tid=>{const it=T[tid].out[0];producible.add(it);prod[it]=tid;}));
   const seed={}; (DELIVERIES[p]||[]).forEach(([item])=>{ seed[item]=(seed[item]||0)+finalRate(item,p); });
-  if(!_noPseudo) PSEUDO_FINALS.forEach(f=>{ const r=f.rate(p); if(r>0) seed[f.item]=(seed[f.item]||0)+r; });
-  if(!_noPseudo&&!delivOnly){ const ex=extrasFor(p), w=extraWindow(p); for(const k in ex) seed[k]=(seed[k]||0)+ex[k]/w; }
+  PSEUDO_FINALS.forEach(f=>{ const r=f.rate(p); if(r>0) seed[f.item]=(seed[f.item]||0)+r; });
+  if(!delivOnly){ const ex=extrasFor(p), w=extraWindow(p); for(const k in ex) seed[k]=(seed[k]||0)+ex[k]/w; }
   let demand={};
   for(let iter=0;iter<80;iter++){ const nd=Object.assign({},seed);
     producible.forEach(item=>{ const D=demand[item]||0; if(D<=0)return; const t=T[prod[item]],mf=D/t.out[1]; t.in.forEach(([inp,r])=>{ if(producible.has(inp)) nd[inp]=(nd[inp]||0)+mf*r; }); });
@@ -1802,16 +1882,23 @@ function solvePhaseOnly(p,delivOnly){ const key=p+'|'+planSig()+(delivOnly?'|d':
     demand=nd; }
   _demOne[key]=demand; return demand; }
 /* extra demand that is not an elevator part (e.g. nuclear fuel rods) — filled in below */
-const PSEUDO_FINALS=[{item:'Uranium Fuel Rod', rate:p=>0.2*nuclearPlants(p)}];   // 0.2 rod/min per plant
+const PSEUDO_FINALS=[{item:'Uranium Fuel Rod', rate:p=>_noPseudo?0:0.2*nuclearPlants(p)},   // 0.2 rod/min per plant
+  {item:'Fuel', rate:p=>_noFuel?0:20*fuelGensStanding(p)}];                                   // 20 Fuel/min per fuel generator
+let _noFuel=false;                                     // 20 Fuel/min per fuel generator
+/* fuel generators standing by phase p: Phase 3's switch step plus any fuel top-ups
+   (the walk in masterSteps records those in _bridgeCache) */
+let _bridgeCache={};
+function bridgesFor(){ return _bridgeCache[planSigBase()]||{}; }
+function fuelGensStanding(p){ if(p<3) return 0; let n=genAdd(3).n; const b=bridgesFor(); for(let q=3;q<=p;q++) n+=(b[q]&&b[q]['Fuel Generator'])||0; return n; }
 /* Nuclear plants standing by the end of phase p: coal + fuel carry you to the end of
    Phase 3; everything drawn beyond that (×1.4 headroom) is nuclear. Sized from the
    factory WITHOUT its own fuel chain (the headroom covers that), which keeps it acyclic. */
 let _noPseudo=false; const _plantCache={};
 function nuclearPlants(p){ if(p<4) return 0; const key=p+'|'+planSig(); if(_plantCache[key]!=null) return _plantCache[key];
-  const was=_noPseudo; _noPseudo=true;
-  const mw=phaseStandingMW(p).mw, base=phaseStandingMW(3).mw;
-  _noPseudo=was;
-  const n=Math.ceil(Math.max(0,mw*1.4-base*1.4)/2500);
+  const was=_noPseudo; _noPseudo=true; let mw, base;
+  try{ mw=phaseStandingMW(p).mw; base=phaseStandingMW(3).mw; } finally { _noPseudo=was; }
+  const chainMW=70;   // per plant: its share of acid refinery + cell blender + rod manufacturer
+  let n=Math.ceil(Math.max(0,mw*1.4-base*1.4)/2500); n=Math.ceil(Math.max(0,(mw+n*chainMW)*1.4-base*1.4)/2500);
   _plantCache[key]=n; return n; }
 let _demandCache={};
 function solveDemand(scale){ const key=planSig(); if(_demandCache[key]) return _demandCache[key];
@@ -2063,7 +2150,7 @@ function renderBpPicker(){
     b.textContent=lab; b.title=v==='final'?'Every machine the finished plan needs':(v==='now'?'What should be standing right now, from your ticked steps':'What should be standing by the end of Phase '+v);
     b.onclick=()=>{ bpViewPhase=v; renderBlueprints(); }; tune.appendChild(b); });
   const lbl=document.createElement('span'); lbl.className='lbl'; lbl.style.marginLeft='8px'; lbl.textContent='×scale:'; tune.appendChild(lbl);
-  [0.5,1,1.5,2].forEach(s=>{ const b=document.createElement('button'); b.className='pbtn'+(bpScale===s?' active':''); b.textContent='×'+s; b.onclick=()=>{ bpScale=s; saveCfg(); renderBlueprints(); if(typeof renderInventory==='function') renderInventory(); }; tune.appendChild(b); });
+  [0.5,1,1.5,2].forEach(s=>{ const b=document.createElement('button'); b.className='pbtn'+(bpScale===s?' active':''); b.textContent='×'+s; b.onclick=()=>{ bpScale=s; saveCfg(); rerenderAll(); }; tune.appendChild(b); });
   const note=document.createElement('span'); note.className='hint'; note.style.margin='0 0 0 8px';
   const viewNote=bpViewPhase==='final'?'Showing <b>every machine the finished plan needs</b>.'
     :(bpViewPhase==='now'?`Showing <b>what should be standing right now</b> (Phase ${viewPhase()}, from your ticked steps) — <b>k→n</b> means k now, n eventually, and <b>0→n</b> is land you are only reserving.`
@@ -2136,20 +2223,30 @@ function districtUtils(d,banks){
   return util;
 }
 /* how to GET a raw input: what to place on the nodes, and how many (normal purity) */
-function rawSource(item,rate,p){
+function carrierCap(item,rate,cap){ const fluid=isFluidItem(item); const tiers=fluid?[300]:[60,120,270,480,780].filter(c=>c<=cap);
+  let pick=tiers.find(c=>c>=rate-0.01), lanes=1; if(!pick){ pick=tiers[tiers.length-1]; lanes=Math.ceil(rate/pick); }
+  return {label:(lanes>1?lanes+'× ':'')+carrierName(pick), carrier:fluid?'pipe':'belt'}; }
+function rawSource(item,rate,p,mk2){ if(mk2===undefined) mk2=p>=2;
   if(item==='Water') return `${Math.ceil(rate/120)}× Water Extractor (120/min each)`;
   if(item==='Crude Oil') return `${Math.ceil(rate/120)}× Oil Extractor on normal nodes (120/min each; pure 240)`;
   if(item==='Nitrogen Gas') return `Resource Well Extractors on a nitrogen well (~60/min per normal satellite) — see the 💨 Nitrogen step`;
   if(isFluidItem(item)) return 'pump & pipe in';
-  const mk2=p>=2, per=mk2?120:60;
+  const per=mk2?120:60;
   return `${Math.ceil(rate/per)}× Miner ${mk2?'Mk.2':'Mk.1'} on normal ${item.replace(/ Ore$/,'')} nodes (${per}/min each; pure ×2, impure ×½)${item==='Uranium'?' — ☢ Hazmat Suit on':''}`; }
-function bankStepHTML(d,banks,bk,i){
+/* ctx = what you have unlocked when you reach this step (set by masterSteps' walk):
+   {belt: best belt /min, mk2: Miner Mk.2 unlocked}. Without it, assume the phase's best. */
+function bankStepHTML(d,banks,bk,i,ctx){
   const now=bankNowCount(d,bk), total=bk.n, bp=bankBuiltPhase(d,bk), perLane=machinesPerLane(T[bk.tid]);
+  ctx=ctx||{belt:beltCapAtPhase(bp),mk2:bp>=2};
+  const t=T[bk.tid], eff=bpMax?MAXFACTOR:1, Dnow=Math.min(solveDemandPhase(bp)[bk.outItem]||bk.outRate, now*t.out[1]*eff), busy=Math.round(100*Dnow/(now*t.out[1]*eff));
+  const byHere={}; banks.forEach(b2=>{ const tb2=T[b2.tid].by; if(tb2&&b2!==bk){ const r=(solveDemandPhase(bp)[b2.outItem]||0)/T[b2.tid].out[1]*tb2[1]; if(r>0) byHere[tb2[0]]=(byHere[tb2[0]]||0)+r; } });
   const shape = total>perLane ? `rows of ${perLane} (one input belt each)` : `one row`;
   const place = total>now ? `<b>${now}× ${bk.b}</b> now — leave room for <b>${total}×</b> in ${shape}` : `<b>${total}× ${bk.b}</b> in ${shape}`;
+  const mf=Dnow/t.out[1];   // machine-equivalents of work this phase actually needs
   const feed=bk.inputs.length
-    ? bk.inputs.map(x=>{ const nr=total>0?+((now/total)*x[1]).toFixed(1):x[1], c=carrierAtPhase(x[0],nr,bp), raw=!ITEM2DIST[x[0]];
-        const from=raw?'from '+rawSource(x[0],nr,bp):srcLabel(x[0],d.id);
+    ? t.in.map(([it,r])=>{ const x=[it]; const nr=+(mf*r).toFixed(1), c=carrierCap(x[0],nr,ctx.belt), raw=!ITEM2DIST[x[0]];
+        const loc=byHere[x[0]]?` (~${Math.round(Math.min(nr,byHere[x[0]]))}/min of it is byproduct from this district — route that first)`:'';
+        const from=(raw?'from '+rawSource(x[0],nr,bp,ctx.mk2):srcLabel(x[0],d.id))+loc;
         return `• <b>${x[0]} ${nr}/min</b> — ${c.carrier==='pipe'?c.label+' pipe':c.label+' belt'}, ${from}`; }).join('<br>')
     : `• nothing — it runs on power alone`;
   const oc=carrierOf(bk.outItem,bk.outRate), path=beltUpgradePath(bk.outItem,bp);
@@ -2157,14 +2254,14 @@ function bankStepHTML(d,banks,bk,i){
      Somersloops are optional: if the 🎯 allocator funds this bank, say so and what it saves. */
   let ocb='';
   if(bpMax) ocb=` <span class="tag qty">⚡ run each at <b>250%</b> — ${bk.n*3} Power Shards for this bank</span>`;
-  if(sloopFundedSet().has(d.id+':'+bk.tid)) ocb+=` <span class="tag qty" style="background:#2a1f3a;color:#d3b6ff">🎯 optional: slot Somersloops here (${SLOOP_SLOTS[bk.b]||1} per machine) and you only need ~${Math.ceil(bk.n/2)}× — the best use of the sloops you own</span>`;
+  if(sloopFundedSet().has(d.id+':'+bk.tid)) ocb+=` <span class="tag qty" style="background:#2a1f3a;color:#d3b6ff">🎯 optional, late: slot Somersloops here (${SLOOP_SLOTS[bk.b]||1} per machine) and you only need ~${Math.ceil(bk.n/2)}× — needs MAM <i>Production Amplifier</i> research (100 SAM Fluctuators), so it's a Phase-5 upgrade</span>`;
   const upg = ` <span class="tag qty">${oc.carrier} upgrade path: ${path}</span>`;
   const tb=T[bk.tid].by; let by='';
   if(tb){ const mFull=bk.outRate/T[bk.tid].out[1], byr=+(mFull*tb[1]).toFixed(1);
     by=`<br>⚠ <b>Byproduct:</b> ${tb[0]} ~${byr}/min at full size — ${BY_ADVICE[tb[0]]||'route it out or the machines clog'}.`; }
-  const nowRate = total>0 ? +((now/total)*bk.outRate).toFixed(1) : bk.outRate;
-  const doneWhen = `it steadily makes <b>~${nowRate}/min</b>${bk.inputs.length?' and its input belts stay full (an idle machine = the feed upstream is short)':' (if it stops, you are short on power)'}${tb?', and the '+tb[0]+' line is flowing':''}`;
-  return `<div class="nm"><span class="tag module">§${i+1}</span> <b>Place:</b> ${place} (${bk.r}).${ocb}</div>
+  const nowRate = +Dnow.toFixed(1);
+  const doneWhen = `it steadily makes <b>~${nowRate}/min</b>${busy<95?` — the machines will be busy ~${busy}% of the time (they're rounded up; some idling is normal)`:''}${bk.inputs.length?'':' (if it stops, you are short on power)'}${tb?', and the '+tb[0]+' line is flowing, not backed up':''}`;
+  return `<div class="nm"><span class="tag module">§${i+1}</span> <b>Place:</b> ${place}.${ocb}</div>
     <div class="nt"><b>Feed:</b><br>${feed}<br><b>Output:</b> <b>${bk.outItem} ~${nowRate}/min</b>${total>now?' now ('+bk.outRate+'/min at full size)':''} → ${destLabel(d,i,banks)}.${by}${upg}<br><b style="color:#8fe6a8">✅ Done when:</b> ${doneWhen}.</div>`;
 }
 /* per-phase demand: how big each bank needs to be by the END of phase p (so you
@@ -2177,7 +2274,7 @@ function solveDemandPhase(p){ const key=p+'|'+planSig(); if(_demP[key]) return _
   for(let q=1;q<=p;q++){ const one=solvePhaseOnly(q); for(const k in one) demand[k]=Math.max(demand[k]||0,one[k]); }
   _demP[key]=demand; return demand; }
 function bankCountAt(tid,p){ const t=T[tid],eff=bpMax?MAXFACTOR:1, D=solveDemandPhase(p)[t.out[0]]||0; return Math.max(0,Math.ceil(D/t.out[1]/eff)); }
-const BELTCAP=1200; // Mk.6 /min — split a trunk into lanes above this
+const BELTCAP=780; // Mk.5 /min — split a trunk into lanes above this (Mk.6 is optional)
 /* drill-down: realistic belt WEB for one bank — double-sided manifold, multiple
    belt lanes when the rate tops a belt, and build-now (solid) vs expand-later (grey). */
 /* NOTE: SVG <text> must contain NO html tags (<b> breaks out of <svg> in the
@@ -2363,7 +2460,7 @@ function renderFlowOverview(){
   // PA box with the 12 finals
   s+=`<g class="foDist" data-id="PA" style="cursor:pointer"><title>Open ★ Project Assembly on the Build Map</title>`;
   s+=`<rect x="${paX}" y="${startY}" width="${paW}" height="${paH}" rx="10" fill="rgba(40,28,8,.5)" stroke="#ff9e3d" stroke-width="2"/>`;
-  s+=`<text x="${paX+12}" y="${startY+20}" fill="#ffce8a" font-size="12" font-weight="700">The 12 final parts → ★</text>`;
+  s+=`<text x="${paX+12}" y="${startY+20}" fill="#ffce8a" font-size="12" font-weight="700">The final parts → ★</text>`;
   const finals=Object.keys(FINAL_RATES).sort((a,b)=>(FINAL_PHASE[a]||9)-(FINAL_PHASE[b]||9)||a.localeCompare(b));
   finals.forEach((f,i)=>{ const yy=startY+40+i*((paH-50)/Math.max(1,finals.length-1)); s+=`<text x="${paX+14}" y="${yy}" fill="#e6edf3" font-size="10"><tspan fill="#ffce8a">P${FINAL_PHASE[f]||'?'}</tspan> · ${bpEsc(f)}</text>`; });
   s+=`</g>`;
@@ -2412,6 +2509,7 @@ document.addEventListener('keydown',e=>{ if(e.key!=='Enter'&&e.key!==' ') return
 /* ============================ INIT ============================ */
 applyAlts();     // before anything solves, so saved alt choices are in effect
 auditT();
+backfillFinished();   // before the map is drawn, so its 📍 reflects migrated progress
 buildBuildMap();
 renderCards(); renderTemplates(); renderShopping(); renderInventory();
 renderBlueprints(); renderFlowOverview(); renderAltToggles();
