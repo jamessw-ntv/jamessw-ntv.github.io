@@ -375,6 +375,9 @@ const T = {
  'T-ADS':   {name:'Assembly Director System cell', b:'Assembler', r:'Assembly Director System', in:[['Adaptive Control Unit',1.5],['Supercomputer',0.75]], out:['Assembly Director System',0.75], fp:'2×3', ph:4},
  'T-MFG':   {name:'Magnetic Field Generator cell', b:'Assembler', r:'Magnetic Field Generator', in:[['Versatile Framework',2.5],['Electromagnetic Control Rod',1]], out:['Magnetic Field Generator',1], fp:'2×3', ph:4},
  'T-TPR':   {name:'Thermal Propulsion Rocket cell', b:'Manufacturer', r:'Thermal Propulsion Rocket', in:[['Modular Engine',2.5],['Turbo Motor',1],['Cooling System',3],['Fused Modular Frame',1]], out:['Thermal Propulsion Rocket',1], fp:'3×4', ph:4},
+ 'T-SULFACID':{name:'Sulfuric Acid line', b:'Refinery', r:'Sulfuric Acid', in:[['Sulfur',50],['Water',50]], out:['Sulfuric Acid',50], fp:'2×4', ph:4},
+ 'T-URANCELL':{name:'Encased Uranium Cell line', b:'Blender', r:'Encased Uranium Cell', in:[['Uranium',50],['Concrete',15],['Sulfuric Acid',40]], out:['Encased Uranium Cell',25], by:['Sulfuric Acid',10], fp:'3×4', ph:4},
+ 'T-FUELROD':{name:'Uranium Fuel Rod cell', b:'Manufacturer', r:'Uranium Fuel Rod', in:[['Encased Uranium Cell',20],['Encased Industrial Beam',1.2],['Electromagnetic Control Rod',2]], out:['Uranium Fuel Rod',0.4], fp:'3×4', ph:4},
  'T-PASTA': {name:'Nuclear Pasta cell', b:'Particle Accelerator', r:'Nuclear Pasta', in:[['Copper Powder',100],['Pressure Conversion Cube',0.5]], out:['Nuclear Pasta',0.5], fp:'4×5', ph:4},
  /* Phase-5 chains */
  'T-REANSAM':{name:'Reanimated SAM cell', b:'Constructor', r:'Reanimated SAM', in:[['SAM Ore',120]], out:['Reanimated SAM',30], fp:'1×2', ph:5},
@@ -473,6 +476,7 @@ const BY_ADVICE={
  'Heavy Oil Residue':'route it to Residual Fuel refineries (→ free power) or the AWESOME Sink, or the refineries clog',
  'Water':'loop it back into the Alumina Solution refineries through a valve (byproduct water gets priority over fresh) — backed-up scrap water deadlocks the whole aluminium chain',
  'Silica':'belt it back into the Aluminum Ingot silica feed (it covers part of that demand) or sink the excess',
+ 'Sulfuric Acid':'pipe it straight back into the Encased Uranium Cell blenders\' acid feed (it covers part of that demand)',
  'Dark Matter Residue':'pipe it into the Dark-Matter-Crystal Particle Accelerators (each wants 150 m³/min) — it <b>cannot be sunk or packaged</b>, so any surplus backs the Quantum Encoders up and stops every Phase-5 final'};
 
 const INVENTORY = [
@@ -493,14 +497,14 @@ const INVENTORY = [
  {phase:3,category:'deliverable',id:'P3-D2',item:'Modular Engine',qty:500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:3,category:'deliverable',id:'P3-D3',item:'Adaptive Control Unit',qty:100,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:4,category:'module',id:'NITRO',item:'💨 Nitrogen Gas: Resource Well Pressurizer + Extractors',qty:'',note:'Cooling Systems and Fused Modular Frames (district E) need Nitrogen Gas. It only comes from resource wells: place a Resource Well Pressurizer on a nitrogen well, Resource Well Extractors on its satellite nodes, and pipe it to E. Site E at the well if you can — gas can only ride a train packaged (Packager)'},
- {phase:4,category:'module',id:'PWR4',item:'⚡ Power: first Nuclear Power Plant(s)',qty:'',note:'2500 MW each · needs the uranium fuel-rod chain (uranium + sulfur — see power.md), ~240 water/min per plant, and waste handling (waste can\'t be sunk)'},
+ {phase:4,category:'module',id:'PWR4',item:'⚡ Power: first Nuclear Power Plant(s)',qty:'',note:'2500 MW each; each burns 0.2 Uranium Fuel Rod/min (from F §3) and 240 m³ water/min and makes 10 Uranium Waste/min. Build them by water near F once its fuel rods are flowing, and decide where the waste goes first (see F\'s utilities step)'},
  {phase:4,category:'deliverable',id:'P4-D1',item:'Assembly Director System',qty:500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:4,category:'deliverable',id:'P4-D2',item:'Magnetic Field Generator',qty:500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:4,category:'deliverable',id:'P4-D3',item:'Thermal Propulsion Rocket',qty:250,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:4,category:'deliverable',id:'P4-D4',item:'Nuclear Pasta',qty:100,note:'Made in F · Nuclear & Particle — rail it to ★, load it into the Space Elevator and press Send'},
  {phase:5,category:'deliverable',id:'P5-D1',item:'Nuclear Pasta',qty:1000,note:'Made in F · Nuclear & Particle — rail it to ★, load it into the Space Elevator and press Send · keep F\'s Pasta running from Phase 4 so this banks up early'},
  {phase:5,category:'deliverable',id:'P5-D2',item:'Biochemical Sculptor',qty:1000,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
- {phase:5,category:'deliverable',id:'P5-D3',item:'AI Expansion Server',qty:256,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
+ {phase:5,category:'deliverable',id:'P5-D3',item:'AI Expansion Server',qty:256,note:'Made in G · Quantum & SAM — rail it to ★, load it into the Space Elevator and press Send'},
  {phase:5,category:'deliverable',id:'P5-D4',item:'Ballistic Warp Drive',qty:200,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:5,category:'module',id:'PWR5',item:'⚡ Power: extend nuclear + Power Storage',qty:'',note:'Phase 5 adds Quantum Encoders & Converters — the biggest jump in draw. Particle Accelerators and Converters spike, so put Power Storage beside each hall'},
  {phase:5,category:'milestone',id:'FINISH',item:'Run final launch sequence & pull the lever 🚀',qty:'',note:'Project Assembly launches — game complete'},
@@ -666,6 +670,8 @@ function phasePower(){ const mach={}, mw={}; let pm=0, pw=0;
   return {mach,mw}; }
 /* the generator line a ⚡ power step should carry: how many to have by the end of phase p */
 function powerStepHint(p){ const g=GEN[p]||GEN[5], mw=phaseStandingMW(p).mw;
+  if(p>=4){ const tot=nuclearPlants(p), add=tot-nuclearPlants(p-1);
+    return ` · By the end of Phase ${p} your factory draws <b>~${Math.round(mw)} MW</b> → ${add>0?`add <b>${add}× Nuclear Power Plant</b> (${tot} in total, ${+(tot*0.2).toFixed(1)} fuel rods/min — F's fuel chain is sized for exactly this)`:`<b>no new plants needed</b> (${tot} in total)`}. Keep coal &amp; fuel running as base load; add ~10–15% for miners &amp; pumps.`; }
   // Phase 2 retires the hand-fed biomass burners; from Phase 3 on you stack on what you have
   const prev=p>2?phaseStandingMW(p-1).mw*1.4:0, n=Math.ceil(Math.max(0,mw*1.4-prev)/g.mw);
   return ` · By the end of Phase ${p} your factory draws <b>~${Math.round(mw)} MW</b>`+(prev?` (you already have ~${Math.round(prev)} MW of generators)`:'')+
@@ -1093,9 +1099,9 @@ const DISTRICTS=[
  {id:'C',name:'Steelworks',near:'iron + coal',ang:158,phase:2,col:'#e6915a',role:'Iron + coal → steel, then the beams, pipes, stators and motors the heavier machinery needs.',t:['T-STEEL','T-BEAM','T-PIPE','T-EIBEAM','T-STATOR','T-MOTOR']},
  {id:'D',name:'Oil & Electronics',near:'crude oil',ang:55,phase:3,col:'#b692ff',role:'Refines oil into plastic & rubber, then builds circuit boards, computers, heavy frames, crystal oscillators & supercomputers.',t:['T-PLASTIC','T-RUBBER','T-QUARTZX','T-SILICA','T-CIRCUIT','T-COMPUTER','T-HSCONN','T-HMFRAME','T-CRYSTALOSC','T-SUPERCOMP']},
  {id:'E',name:'Aluminium & Cooling',near:'bauxite (train)',ang:-48,phase:4,col:'#cbb27a',role:'Railed-in bauxite → the aluminium chain, heat sinks, cooling systems, radio control units, fused frames & turbo motors.',t:['T-ALUMINA','T-ALSCRAP','T-ALINGOT','T-ALCASING','T-ALCLAD','T-HEATSINK','T-COOLING','T-FUSEDFRAME','T-RCU','T-TURBOMOTOR','T-EMROD']},
- {id:'F',name:'Nuclear & Particle',near:'uranium (train)',ang:28,phase:4,col:'#ff6b9d',role:'Nuclear power + a copper firehose → copper powder, diamonds, pressure cubes and Nuclear Pasta.',t:['T-COPPERPOWDER','T-PCC','T-PASTA','T-DIAMONDS']},
- {id:'G',name:'Quantum & SAM',near:'SAM (train)',ang:108,phase:5,col:'#ffadc4',role:'The endgame lab — SAM → ficsite, dark matter, time crystals, EPM and the quantum processors/oscillators/cells.',t:['T-REANSAM','T-DMRESIDUE','T-FICINGOT','T-FICTRIGON','T-TIMECRYSTAL','T-DMCRYSTAL','T-EPM','T-NQP','T-SUPEROSC','T-SINGCELL']},
- {id:'PA',name:'Project Assembly',near:'by the Space Elevator',ang:null,phase:1,col:'#ff9e3d',role:'By the elevator — assembles the 12 final parts from everything the districts ship in, and launches them.',t:['T-SMARTPLATE','T-VERSFRAME','T-AUTOWIRE','T-MODENGINE','T-ACU','T-ADS','T-MFG','T-TPR','T-SCULPTOR','T-AISERVER','T-WARP']},
+ {id:'F',name:'Nuclear & Particle',near:'uranium (train)',ang:28,phase:4,col:'#ff6b9d',role:'Nuclear fuel (sulfur + uranium → fuel rods for the power plants) + a copper firehose → copper powder, diamonds, pressure cubes and Nuclear Pasta.',t:['T-SULFACID','T-URANCELL','T-FUELROD','T-COPPERPOWDER','T-PCC','T-PASTA','T-DIAMONDS']},
+ {id:'G',name:'Quantum & SAM',near:'SAM (train)',ang:108,phase:5,col:'#ffadc4',role:'The endgame lab — SAM → ficsite, dark matter, time crystals, EPM and the quantum processors/oscillators/cells, plus the AI Expansion Server (its EPM can\'t travel, so it is made here and railed to ★).',t:['T-REANSAM','T-DMRESIDUE','T-FICINGOT','T-FICTRIGON','T-TIMECRYSTAL','T-DMCRYSTAL','T-EPM','T-NQP','T-SUPEROSC','T-SINGCELL','T-AISERVER']},
+ {id:'PA',name:'Project Assembly',near:'by the Space Elevator',ang:null,phase:1,col:'#ff9e3d',role:'By the elevator — assembles the final parts from everything the districts ship in (all but the AI Expansion Server, which G makes), and launches them.',t:['T-SMARTPLATE','T-VERSFRAME','T-AUTOWIRE','T-MODENGINE','T-ACU','T-ADS','T-MFG','T-TPR','T-SCULPTOR','T-WARP']},
 ];
 const DMAP={}; DISTRICTS.forEach(d=>DMAP[d.id]=d);
 /* stable key for a tech-unlock step: slugged from what it unlocks, so reordering the
@@ -1170,7 +1176,7 @@ const BM_SEQ=[
  {node:'F',phase:4,t:'④ Build the NUCLEAR & PARTICLE district',d:'📍🚆 By URANIUM + water + a copper feed. ⚡ Nuclear power. Copper powder, diamonds, pressure cubes, and Nuclear Pasta (delivered).'},
  {node:'PA',phase:4,t:'④ Project Assembly · +ADS, +Magnetic Field Generator, +Thermal Propulsion Rocket',d:'Add three stations fed by districts A–F. Deliver Phase 4 → Tier 9.'},
  {node:'G',phase:5,t:'⑤ Build the QUANTUM & SAM district',d:'📍🚆 SAM + quartz. Reanimated SAM, dark matter (residue→crystal), ficsite, time crystals, EPM, neural-quantum processors, oscillators, singularity cells.'},
- {node:'PA',phase:5,t:'⑤ Project Assembly · +Biochemical Sculptor, +AI Expansion Server, +Ballistic Warp Drive',d:'Add the final three stations. Deliver Phase 5 → run the launch → 🚀 DONE!'},
+ {node:'PA',phase:5,t:'⑤ Project Assembly · +Biochemical Sculptor, +Ballistic Warp Drive',d:'Add the final two stations (the AI Expansion Server arrives by rail from G). Deliver Phase 5 → run the launch → 🚀 DONE!'},
 ];
 const BM_SEQI={}; DISTRICTS.forEach(d=>{ const f=BM_SEQ.findIndex(s=>s.node===d.id); BM_SEQI[d.id]=f<0?99:f; });
 let bmView=null, bmZoom={k:1,tx:0,ty:0}, bmFitZoom={k:1,tx:0,ty:0};
@@ -1527,7 +1533,7 @@ let bpMod='A', bpHi=-1,
     bpPace=(state._cfg&&PACES[state._cfg.pace])?state._cfg.pace:'minimum',
     bpZoom=1;
 /* one signature for "which plan am I looking at" — every solver cache keys on it */
-function planSig(){ return (bpMax?'1':'0')+'|'+bpScale+'|'+bpPace; }
+function planSig(){ return (bpMax?'1':'0')+'|'+bpScale+'|'+bpPace+'|'+(typeof altsOn==='function'?altsOn().join(','):'')+(typeof _noPseudo!=='undefined'&&_noPseudo?'|np':''); }
 /* MAX/100% changes every count on every tab — so redraw every tab, not just the one
    you clicked in (the others used to keep showing the old mode until a reload). */
 function rerenderAll(){ renderCards(); renderTemplates(); renderShopping(); renderInventory(); renderBlueprints(); buildBuildMap(); renderFlowOverview(); }
@@ -1581,7 +1587,7 @@ let _demOne={};
 function solvePhaseOnly(p){ const key=p+'|'+planSig(); if(_demOne[key]) return _demOne[key];
   const producible=new Set(),prod={}; DISTRICTS.forEach(d=>d.t.forEach(tid=>{const it=T[tid].out[0];producible.add(it);prod[it]=tid;}));
   const seed={}; (DELIVERIES[p]||[]).forEach(([item])=>{ seed[item]=(seed[item]||0)+finalRate(item,p); });
-  PSEUDO_FINALS.forEach(f=>{ const r=f.rate(p); if(r>0) seed[f.item]=(seed[f.item]||0)+r; });
+  if(!_noPseudo) PSEUDO_FINALS.forEach(f=>{ const r=f.rate(p); if(r>0) seed[f.item]=(seed[f.item]||0)+r; });
   let demand={};
   for(let iter=0;iter<80;iter++){ const nd=Object.assign({},seed);
     producible.forEach(item=>{ const D=demand[item]||0; if(D<=0)return; const t=T[prod[item]],mf=D/t.out[1]; t.in.forEach(([inp,r])=>{ if(producible.has(inp)) nd[inp]=(nd[inp]||0)+mf*r; }); });
@@ -1593,7 +1599,17 @@ function solvePhaseOnly(p){ const key=p+'|'+planSig(); if(_demOne[key]) return _
     demand=nd; }
   _demOne[key]=demand; return demand; }
 /* extra demand that is not an elevator part (e.g. nuclear fuel rods) — filled in below */
-const PSEUDO_FINALS=[];
+const PSEUDO_FINALS=[{item:'Uranium Fuel Rod', rate:p=>0.2*nuclearPlants(p)}];   // 0.2 rod/min per plant
+/* Nuclear plants standing by the end of phase p: coal + fuel carry you to the end of
+   Phase 3; everything drawn beyond that (×1.4 headroom) is nuclear. Sized from the
+   factory WITHOUT its own fuel chain (the headroom covers that), which keeps it acyclic. */
+let _noPseudo=false; const _plantCache={};
+function nuclearPlants(p){ if(p<4) return 0; const key=p+'|'+planSig(); if(_plantCache[key]!=null) return _plantCache[key];
+  const was=_noPseudo; _noPseudo=true;
+  const mw=phaseStandingMW(p).mw, base=phaseStandingMW(3).mw;
+  _noPseudo=was;
+  const n=Math.ceil(Math.max(0,mw*1.4-base*1.4)/2500);
+  _plantCache[key]=n; return n; }
 let _demandCache={};
 function solveDemand(scale){ const key=planSig(); if(_demandCache[key]) return _demandCache[key];
   const producible=new Set(), prod={};
@@ -1911,7 +1927,9 @@ function districtUtils(d,banks){
   // by: field on a template can never go unmentioned in the district's support lines
   Object.keys(byTot).forEach(it=>{ if(['Heavy Oil Residue','Water','Silica'].indexOf(it)>=0) return;
     util.push(`♻ <b>${it} ~${Math.round(byTot[it])}/min:</b> ${BY_ADVICE[it]||'route it out — if it backs up the machines making it stop'}.`); });
-  if(d.id==='F') util.push(`☢️ <b>Nuclear Waste:</b> running nuclear power makes Uranium Waste — it <b>cannot be sunk</b>: store it in Industrial Storage Containers or process it (plutonium chain, or Ficsonium at Tier 9). Backed-up waste stalls the plant. Fuel rods need <b>uranium + sulfur</b> — see power.md.`);
+  if(d.id==='F'){ const pl=nuclearPlants(5), w=pl*10;
+    util.push(`☢️ <b>Radiation:</b> uranium ore, cells, rods and waste are radioactive — wear a <b>Hazmat Suit</b> with <b>Iodine Infused Filters</b> whenever you work here, and keep conveyors of it away from paths you walk.`);
+    util.push(`☢️ <b>Nuclear Waste ~${w}/min</b> (${pl} plants × 10): it <b>cannot be sunk</b>. Belt it from every plant into a wall of <b>Industrial Storage Containers</b> (one holds ~24,000 → a new container every ~${w?Math.round(24000/w/60):0} h) — or process it later (plutonium chain, or Ficsonium at Tier 9). If waste backs up, the plant stops.`); }
   return util;
 }
 function bankStepHTML(d,banks,bk,i){
