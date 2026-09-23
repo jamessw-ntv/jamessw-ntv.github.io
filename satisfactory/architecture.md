@@ -46,8 +46,8 @@ online. Each phase bolts onto the last:
 - **Phase 1** — Stand up **Ironworks (A)** (smelting → plate/rod/screw → RIP +
   Rotor). Build the **Project Assembly ★** pad by the elevator with one station:
   **Smart Plating** (RIP + Rotor). Deliver 50.
-- **Phase 2** — Add **Steelworks (C)** and **Copperworks (B)**. Expand A
-  (Modular Frame). ★ gains **Versatile Framework** (Frame ← A + Beam ← C) and
+- **Phase 2** — Add **Copperworks (B)**, then **Steelworks (C)**. Expand A
+  (its Modular Frame bank is placed in Phase 1 and grows here). ★ gains **Versatile Framework** (Frame ← A + Beam ← C) and
   **Automated Wiring** (Stator ← C + Cable ← B). Deliver. Power: **coal**.
 - **Phase 3** — Add **Oil & Electronics (D)**. Expand C (Motor). ★ gains
   **Modular Engine** (Motor ← C + Rubber ← D + Smart Plating) and **Adaptive
@@ -76,7 +76,8 @@ steps below are the shape of it:
 4. **Expand it each phase** as later consumers come online (the app's *Expand …*
    steps say how many machines to add).
 5. **MAX** — overclock every machine to 250% (3 Power Shards) + a Somersloop (2×),
-   ~⅕ the machines. Toggle ⚡ MAX off in Blueprints for a 100% plan.
+   ~⅕ the machines — needs end-game shards and sloops. The app starts at **100%**;
+   switch with the ⚡ pill on ✅ Do Next (it asks on first open).
 
 Don't forget the silent build-breakers: **power** (ramp biomass → coal → fuel →
 nuclear *ahead* of demand — see `power.md`), **utilities** (water; Heavy Oil

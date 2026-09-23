@@ -6,7 +6,7 @@ bring in **trains for the far districts** that own resources you don't have
 nearby: **Aluminium (bauxite), Nuclear (uranium), and Quantum & SAM**. Trains
 come online at **Tier 6 (Railway)**, unlocked by finishing Space-Elevator
 Phase 2 — so the rail build-out is a **Phase 4 job**, exactly when aluminium /
-nuclear become mandatory. **Drones** (Tier 7) carry the small, high-value parcels
+nuclear become mandatory. **Drones** (Tier 8) carry the small, high-value parcels
 on top of the rail backbone — see the drone section below.
 
 ---
@@ -42,8 +42,8 @@ to a manageable number of unload platforms.
         Uranium/Nuclear ───────┤
                                ▼
                       ┌──────────────────┐         belts
-        Nitrogen ─────►   CENTRAL HUB     ├───────────────► module row
-                      │  rail receiving   │  (M1…M12)
+        Nitrogen ─────►   CENTRAL HUB     ├───────────────► core districts
+                      │  rail receiving   │  (A–D + ★)
         Oil/Ore ──────►   yard (N plats)  │
                       └──────────────────┘
 ```
@@ -78,7 +78,7 @@ fully loaded/unloaded"** so it self-paces.
 
 ---
 
-## Drones — the small-parcel layer (Tier 7+)
+## Drones — the small-parcel layer (Tier 8+)
 
 Trains move **bulk** down a fixed track; **drones** move **small, high-value,
 low-throughput** parts point-to-point with no track to lay. Use them for exactly
@@ -135,16 +135,16 @@ meet head-on; spokes join it via path-signalled junctions.
 
 ## Which lines you actually build (Phase 4 → 5)
 
-| Line | Cargo (refined at source) | Feeds modules |
+| Line | Cargo (refined at source) | Feeds |
 |------|---------------------------|---------------|
-| **Aluminium** | Aluminum Ingot, Casing, Alclad Sheet | M8 (Cooling Systems / Turbo Motors), Heat Sinks, radio units |
-| **Nuclear / Uranium** | Encased cells / processed uranium (or site nuclear out there) | M9 power; pasta support |
-| **Nitrogen** | Packaged Nitrogen *or* finished Cooling Systems | M8 (Thermal Propulsion Rocket) |
-| **Oil (if far)** | Plastic, Rubber, packaged Fuel | F1, M4, M5, plastics everywhere |
-| **Bulk ore (optional)** | Extra Iron / Copper ingots if local nodes thin out | M2, M9 (copper-powder monster) |
+| **Aluminium** | Aluminum Ingot, Casing, Alclad Sheet | ★ Thermal Propulsion Rocket (Cooling Systems / Turbo Motors), Heat Sinks, radio units |
+| **Nuclear / Uranium** | Encased cells / processed uranium (or site nuclear out there) | nuclear power; F (Nuclear Pasta) support |
+| **Nitrogen** | Packaged Nitrogen *or* finished Cooling Systems | E's Cooling Systems / Fused Frames → ★ Thermal Propulsion Rocket |
+| **Oil (if far)** | Plastic, Rubber, packaged Fuel | D, ★ Modular Engine / ACU, plastics everywhere |
+| **Bulk ore (optional)** | Extra Iron / Copper ingots if local nodes thin out | ★ Versatile Framework, F's Copper Powder (the copper-powder monster) |
 
-The **copper-powder monster (M9, Nuclear Pasta)** is the heaviest single
-consumer late — if your top-left copper can't keep up, a **copper ingot train**
+The **copper-powder monster (F, Nuclear Pasta)** is the heaviest single
+consumer late (~4,700 copper ingot/min into F at 100%) — if Copperworks (B) can't keep up, a **copper ingot train**
 is the cleanest fix (rail ingots in, no module rebuild).
 
 ---
@@ -157,4 +157,4 @@ to/from the far districts (Aluminium / Nuclear / Quantum), and **purple** for
 finished parts heading to ★ Project Assembly; raw ore/fluid feeds show as
 ⛏ belts / 🛢 pipes into each district panel. Use the phase slider to watch the
 rail spokes light up in Phase 4–5. Drone lines are a small-parcel layer you add
-on top (Tier 7) per the table above.
+on top (Tier 8) per the table above.

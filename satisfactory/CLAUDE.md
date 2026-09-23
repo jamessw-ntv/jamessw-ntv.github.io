@@ -11,7 +11,8 @@ to a finished Project Assembly (Space Elevator Phase 5). Renders at
 - `index.html` — a tiny redirect to `factory-network.html`.
 - `README.md` — read this first; the overview and master timeline.
 - `architecture.md`, `templates.md`, `train-network.md`, `power.md`,
-  `VERIFICATION.md`, `inventory.csv` — companion docs. (The old `build-guide.md`
+  `VERIFICATION.md`, `REVIEW.md` — companion docs. (The old `inventory.csv` was
+  deleted — it described the retired M1–M12 plan; the app's ⬇️ Steps CSV replaces it.) (The old `build-guide.md`
   was folded into `architecture.md` + the app's ✅ Do Next tab.)
 
 ## Intent routing

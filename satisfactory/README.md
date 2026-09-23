@@ -85,7 +85,6 @@ plan onto a save that's already running.
 | **train-network.md** | Rail plan + **drones** + signalling. |
 | **power.md** | When to switch biomass → coal → fuel → nuclear, and how much. |
 | **VERIFICATION.md** | Every recipe cross-checked vs the wiki/SCIM, with corrections logged. |
-| **inventory.csv** | The deliveries/milestones checklist (spreadsheet-friendly). |
 
 ---
 
