@@ -496,8 +496,8 @@ const INVENTORY = [
  {phase:4,category:'deliverable',id:'P4-D1',item:'Assembly Director System',qty:500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:4,category:'deliverable',id:'P4-D2',item:'Magnetic Field Generator',qty:500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:4,category:'deliverable',id:'P4-D3',item:'Thermal Propulsion Rocket',qty:250,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
- {phase:4,category:'deliverable',id:'P4-D4',item:'Nuclear Pasta',qty:100,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
- {phase:5,category:'deliverable',id:'P5-D1',item:'Nuclear Pasta',qty:1000,note:'Assembled at ★ — load it into the Space Elevator and press Send · keep ★ Nuclear Pasta running from Phase 4 so this banks up early'},
+ {phase:4,category:'deliverable',id:'P4-D4',item:'Nuclear Pasta',qty:100,note:'Made in F · Nuclear & Particle — rail it to ★, load it into the Space Elevator and press Send'},
+ {phase:5,category:'deliverable',id:'P5-D1',item:'Nuclear Pasta',qty:1000,note:'Made in F · Nuclear & Particle — rail it to ★, load it into the Space Elevator and press Send · keep F\'s Pasta running from Phase 4 so this banks up early'},
  {phase:5,category:'deliverable',id:'P5-D2',item:'Biochemical Sculptor',qty:1000,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:5,category:'deliverable',id:'P5-D3',item:'AI Expansion Server',qty:256,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:5,category:'deliverable',id:'P5-D4',item:'Ballistic Warp Drive',qty:200,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
@@ -664,8 +664,11 @@ function phasePower(){ const mach={}, mw={}; let pm=0, pw=0;
   for(let p=1;p<=5;p++){ const st=phaseStandingMW(p); mach[p]=st.mach-pm; mw[p]=st.mw-pw; pm=st.mach; pw=st.mw; }
   return {mach,mw}; }
 /* the generator line a ⚡ power step should carry: how many to have by the end of phase p */
-function powerStepHint(p){ const g=GEN[p]||GEN[5], mw=phaseStandingMW(p).mw, n=Math.ceil(mw*1.4/g.mw);
-  return ` · By the end of Phase ${p} your factory draws <b>~${Math.round(mw)} MW</b> → have <b>~${n}× ${g.mw} MW</b> ${g.n} (incl. 40% headroom; add ~10–15% for miners &amp; pumps). Keep your older generators running — stack, don't replace.`; }
+function powerStepHint(p){ const g=GEN[p]||GEN[5], mw=phaseStandingMW(p).mw;
+  // Phase 2 retires the hand-fed biomass burners; from Phase 3 on you stack on what you have
+  const prev=p>2?phaseStandingMW(p-1).mw*1.4:0, n=Math.ceil(Math.max(0,mw*1.4-prev)/g.mw);
+  return ` · By the end of Phase ${p} your factory draws <b>~${Math.round(mw)} MW</b>`+(prev?` (you already have ~${Math.round(prev)} MW of generators)`:'')+
+    ` → add <b>~${n}× ${g.mw} MW</b> ${g.n} (incl. 40% headroom; add ~10–15% for miners &amp; pumps).`+(prev?` Keep the older generators running — stack, don't replace.`:''); }
 function renderShopping(){
   const all=allDistrictBanks();
   const rWrap=document.getElementById('rawfeed'); rWrap.innerHTML='';
@@ -825,6 +828,9 @@ function masterSteps(){ const out=[];
    ★ PA chapter; everything else on the first chapter of its phase. */
 function chapterRaw(s){
   if(!s||s.phase===0) return 0;
+  // Expand steps open their phase (before its new districts) — keep them on the phase's
+  // first chapter, or the running max would park every new district on the ★ chapter.
+  if(/^exp:/.test(s.key)){ const j=BM_SEQ.findIndex(c=>c.phase===s.phase); return j<0?0:j; }
   if(s.key==='FINISH') return BM_SEQ.length-1;
   if(s.district){ const i=BM_SEQ.findIndex(c=>c.node===s.district&&(s.district!=='PA'||c.phase===s.phase)); if(i>=0&&BM_SEQ[i].phase===s.phase) return i; }
   if(s.deliv){ const i=BM_SEQ.findIndex(c=>c.node==='PA'&&c.phase===s.phase); if(i>=0) return i; }
@@ -1020,7 +1026,7 @@ function renderInventory(){
 }
 document.getElementById('resetinv').onclick=()=>{ if(confirm('Reset all progress? (A one-shot backup is kept — 📥 Load code with "undo" to restore.)')){
   try{ lsSet(LS+'_undo', JSON.stringify(state)); }catch(e){}
-  state={_cfg:state._cfg};   // clearing ticks is not a request to change the plan itself
+  state={_cfg:state._cfg,_mig:state._mig};   // keep _mig: a reset save is not an "old" one; clearing ticks is not a request to change the plan itself
   saveState(state); applyCfg(); renderInventory();
   if(typeof renderBlueprints==='function') renderBlueprints();
   if(typeof buildBuildMap==='function') buildBuildMap();
@@ -1564,7 +1570,7 @@ function srcLabel(item,did){ const sd=ITEM2DIST[item];
   const dd=DMAP[sd], here=DMAP[did], rail=/train/.test(dd.near)||(here&&/train/.test(here.near));
   return 'from '+dd.id+'·'+dd.name+(rail?' 🚆 rail':' belt'); }
 function destLabel(d,i,banks){ const it=banks[i].outItem, out=[];
-  if(FINAL_RATES[it]!==undefined) return '▲ Space Elevator';
+  if(FINAL_RATES[it]!==undefined) out.push(d.id==='PA'?'▲ Space Elevator':'▲ Space Elevator (🚆 to ★)');   // finals can feed later finals too
   banks.forEach((b,j)=>{ if(j!==i&&b.inputs.some(x=>x[0]===it)) out.push('§'+(j+1)+' here'); });
   DISTRICTS.forEach(o=>{ if(o.id===d.id) return; if(districtBanks(o).some(b=>b.inputs.some(x=>x[0]===it))){
     const rail=/train/.test(o.near)||/train/.test(d.near); out.push((o.id==='PA'?'★ PA':o.id+'·'+o.name)+(rail?' 🚆':'')); } });

@@ -669,6 +669,23 @@ Two more things would have misled them the whole way:
 | 11 | Delivery notes quoted the deleted M1–M12 modules (1, 2, 5) | "Assembled at ★ — load it into the Space Elevator and press Send". Dead module rows deleted. |
 | 12 | Docs described the old plan (5, 6) | `inventory.csv` deleted (⬇️ Steps CSV replaces it). power.md budget table now uses the app's numbers (it was 3–5× low). Drones corrected to Tier 8. M-numbers removed from train-network.md. architecture.md matches the build order. |
 
+**Verified by the seventh reviewer:**
+- 0 consumer-before-supplier cases, down from 45 in the old order at 100% and
+  39 in MAX.
+- Old saves from five points in the game migrate correctly, both at boot and
+  through Load code.
+- The power table totals match the standing count in every phase.
+- 0 JS errors in any tab, in both modes.
+
+It also caught five real bugs in the first pass of these fixes, all fixed
+before merge:
+- Expand steps parked the chapter card on ★ while you built D–G.
+- Reset dropped `_mig`, which flipped a 100% player to MAX on the next reload.
+- Finals hid their other consumers (Smart Plating also feeds Modular Engine).
+- The Pasta delivery notes said ★, but Pasta is made in F.
+- Power steps sized for the whole load while telling you to "stack". They now
+  say how many to *add*.
+
 **Save safety:** new steps would have thrown a returning player back into an
 old phase, which was the round-2 bug. `migrateState` step 4 (`_mig=2`) runs
 once and ticks the new steps in any phase whose deliveries are all done.
