@@ -59,6 +59,7 @@
   .bpsect:focus-visible,.bmmod:focus-visible{outline:2.5px solid #fff}
   /* Build Map level-of-detail: zoomed out → big district cards only; zoomed in → the inner area blocks */
   #bmap.bm-overview .bmdetail{display:none}
+  #bmap.bm-overview .bmedge{display:none}   /* line labels only once you zoom in — at overview they're unreadable */
   #bmap:not(.bm-overview) .bmoverview{display:none}
   @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important;scroll-behavior:auto!important} }
   .approx{background:#2a2412;border:1px solid #4a3d12;color:#ffd98a;padding:8px 12px;border-radius:8px;font-size:13px;margin-bottom:10px}
@@ -121,17 +122,23 @@
     #printhead{display:block!important}
   }
   #printhead{display:none;font-size:13px;margin:0 0 8px}
-  .vizwrap{margin:8px 0 4px;overflow-x:auto} .vizwrap:empty{display:none} .stepviz{display:block;width:100%;max-width:760px;height:auto;min-width:420px;font-family:inherit}
+  .vizwrap{margin:8px 0 4px;overflow-x:auto} .vizwrap:empty{display:none} .stepviz{display:block;width:100%;max-width:760px;height:auto;font-family:inherit}
   .costchips{display:flex;flex-wrap:wrap;gap:6px} .cchip{background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:4px 9px;font-size:12.5px}
   .cchip i{font-style:normal;color:var(--muted);font-size:11px;margin-left:6px}
   .journey{display:flex;gap:4px;align-items:center;margin:0 0 8px} .jd{width:10px;height:10px;border-radius:50%;background:var(--line)}
-  .jd.done{background:var(--green)} .jd.now{background:var(--orange);box-shadow:0 0 0 3px rgba(255,158,61,.25);width:12px;height:12px} .jd.newph{margin-left:10px}
+  .jd.done{background:var(--green)} .jd.now{background:var(--orange);box-shadow:0 0 0 3px rgba(255,158,61,.25);width:12px;height:12px} .jg{display:inline-flex;flex-direction:column;align-items:center;margin-right:12px} .jdots{display:flex;gap:4px;align-items:center;height:14px} .jl{font-size:9.5px;color:#8b97a3;margin-top:2px}
   .ckrow{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:8px 10px;margin:6px 0;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.02)}
   .ckrow.ok{border-color:#2f6b45;background:rgba(93,212,122,.06)} .ckdw{font-size:12px;color:var(--muted);margin-top:3px} .ckbtns{display:flex;gap:6px;flex-shrink:0}
   @media (max-width:640px){ .ckrow{flex-direction:column;align-items:stretch} .ckbtns .pbtn{flex:1} }
   .pwrline{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin:2px 0 10px} .pwrline i{flex:1;height:6px;border-radius:4px;background:var(--line);overflow:hidden;max-width:260px} .pwrline i b{display:block;height:100%}
   .comingup h3{font-size:14px} .cuitem{padding:5px 0;color:var(--muted);font-size:13.5px;border-bottom:1px dashed var(--line)} .cuitem:last-child{border:0} .cuno{display:inline-block;min-width:34px;color:#8b97a3;font-weight:700}
   body.focus #tab-inventory > .hint, body.focus #tab-inventory .toolbar > button:not(#pacepill):not(#cfgpill){display:none}
+  body.focus .hubbar, body.focus header{display:none}
+  body.focus #doNext{font-size:18px;padding:13px 26px}
+  body.focus .steptitle{font-size:21px!important}
+  .donebox{border:1px solid #2f6b45;background:rgba(93,212,122,.07);border-radius:8px;padding:8px 11px;margin:6px 0 10px;font-size:14px}
+  .focusbadge{display:none;font-size:11px;font-weight:700;color:var(--teal);border:1px solid var(--teal);border-radius:10px;padding:1px 8px;margin-left:8px}
+  body.focus .focusbadge{display:inline-block}
   /* couch/thumb ergonomics. Tablets get roomier chrome; PHONES keep the tightened
      layout above (this used to sit after the max-width:640px block at equal specificity
      and silently undid it, pushing "✓ Done — next" below the fold). On a phone only the
@@ -520,7 +527,7 @@ const BY_ADVICE={
  'Dark Matter Residue':'pipe it into the Dark-Matter-Crystal Particle Accelerators (each wants 150 m³/min) — it <b>cannot be sunk or packaged</b>, so any surplus backs the Quantum Encoders up and stops every Phase-5 final'};
 
 const INVENTORY = [
- {phase:0,category:'milestone',id:'P0-M1',item:'Complete all Tier 0 HUB upgrades (in order)',qty:'',note:'Unlocks Smelter/Constructor/Miner/Space Elevator'},
+ {phase:0,category:'milestone',id:'P0-M1',item:'Complete all Tier 0 HUB upgrades (in order)',qty:'',note:'Hand-craft the parts at the Craft Bench (iron plates, rods, wire, cable, concrete, screws — the HUB shows each upgrade\'s cost) and mine ore with the Portable Miner. Unlocks the Smelter, Constructor, Miner Mk.1, Biomass Burner and the Space Elevator'},
  {phase:0,category:'milestone',id:'PWR0',item:'⚡ Power: Biomass Burners (bootstrapping)',qty:'',note:'30 MW each; hand/belt-fed — replace at Tier 3'},
  {phase:0,category:'milestone',id:'P0-M6',item:'Tier 1 Field Research → build a MAM (Molecular Analysis Machine)',qty:'',note:'The MAM is where every 🔓 MAM research step later in this plan happens'},
  {phase:0,category:'milestone',id:'P0-M2',item:'Build Space Elevator at Central Hub',qty:'',note:'Permanent location all game'},
@@ -892,9 +899,10 @@ let state=loadState(), hideDone=false;
 let _refocus=null; // which control to re-focus after a full list rebuild (keyboard users keep their place)
 let auditList=null, auditIdx=0; // guided walk-your-save audit (adopting an existing factory)
 /* session check-in: once per page load, "are these still standing?" before you build on */
-let sessionChecked=false, jumpOpen=false, checkinArmed=null;   // armed only if you OPENED the page with progress
+let sessionChecked=false, jumpOpen=false, checkinArmed=null, ckRows=null;   // armed only if you OPENED the page with progress
 /* focus mode: just the current step, big, for a second screen (a per-viewer convenience) */
 let focusMode=false; try{ focusMode=localStorage.getItem('satis_focus')==='1'; }catch(e){}
+try{ document.body.classList.toggle('focus',focusMode); }catch(e){}
 function setFocus(v){ focusMode=!!v; try{ localStorage.setItem('satis_focus',focusMode?'1':'0'); }catch(e){} document.body.classList.toggle('focus',focusMode); renderInventory(); }
 /* the steps that change what's standing in your world (what a check-in should verify) */
 /* ---------- the picture on each step card: what you place, what feeds it, where it goes ---------- */
@@ -920,11 +928,21 @@ function stepVisual(st){
   const svg=(w,h,body,label)=>`<svg class="stepviz" viewBox="0 0 ${w} ${h}" role="img" aria-label="${sx(label)}">${defs}${body}</svg>`;
   // a production bank (new) or an expansion of one
   const bankOf=st.ai!=null&&st.district?{d:DMAP[st.district],i:st.ai}:(st.expOf?{d:DMAP[st.expOf.d],i:st.expOf.i}:null);
+  const narrow=typeof window!=='undefined'&&window.innerWidth<640;
   if(bankOf){ const banks=districtBanks(bankOf.d), bk=banks[bankOf.i], t=T[bk.tid], eff=bpMax?MAXFACTOR:1;
     let solid=0, glow=0, ghost=0, outRate;
     if(st.expOf){ solid=st.expOf.before; glow=st.expOf.after-st.expOf.before; ghost=Math.max(0,bk.n-st.expOf.after); outRate=Math.min(solveDemandPhase(st.phase)[bk.outItem]||0, st.expOf.after*t.out[1]*eff); }
     else { const now=bankNowCount(bankOf.d,bk); glow=now; ghost=Math.max(0,bk.n-now); outRate=Math.min(solveDemandPhase(st.phase)[bk.outItem]||bk.outRate, now*t.out[1]*eff); }
     const mf=outRate/t.out[1], ins=t.in.map(([it,r])=>[it,mf*r]);
+    const dest0=destLabel(bankOf.d,bankOf.i,banks).replace(/<[^>]+>/g,'');
+    const srcOf=it=>ITEM2DIST[it]?(ITEM2DIST[it]===bankOf.d.id?'§'+(ITEM2SECT[it]+1)+' here':ITEM2DIST[it]==='PA'?'★':ITEM2DIST[it]):(isFluidItem(it)?'pump':'miners');
+    if(narrow){ // stacked: inputs → machines → output, full width, readable on a phone
+      let y=6, body=''; ins.forEach(([it,r])=>{ body+=pill(0,y,340,it,`${+r.toFixed(1)}/min · ${srcOf(it)}`,isFluidItem(it)?'#5aa9ff':'#2a323d'); y+=42; });
+      body+=`<path d="M170 ${y} v12" stroke="#2dd4bf" stroke-width="2" marker-end="url(#ah)"/>`; y+=18;
+      const [mrow,mw2,mh2]=(()=>{ const r=machineRow(0,y,bk.b,solid,glow,ghost,30); return r; })(); body+=mrow; y+=mh2+2;
+      body+=`<path d="M170 ${y} v12" stroke="#2dd4bf" stroke-width="2" marker-end="url(#ah)"/>`; y+=18;
+      body+=pill(0,y,340,bk.outItem+' ~'+(+outRate.toFixed(1))+'/min','→ '+dest0,'#b692ff'); y+=46;
+      return svg(340,y,body,`${bk.r}: ${glow} ${bk.b} to place`); }
     const inH=Math.max(1,ins.length)*46, [mrow,mw,mh]=machineRow(200,10,bk.b,solid,glow,ghost,20), H=Math.max(inH,mh+10,56)+14, midY=10+Math.min(mh,64)/2;
     let body='';
     ins.forEach(([it,r],k)=>{ const y=8+k*46, src=ITEM2DIST[it]?(ITEM2DIST[it]===bankOf.d.id?'§'+(ITEM2SECT[it]+1)+' here':ITEM2DIST[it]==='PA'?'★':ITEM2DIST[it]):(isFluidItem(it)?'pump':'miners');
@@ -932,9 +950,9 @@ function stepVisual(st){
     if(!ins.length) body+=pill(0,8,166,'⚡ power only','no item input','#2a323d')+arrow(168,27,196,midY);
     body+=mrow;
     const ox=200+mw+18; const dest=destLabel(bankOf.d,bankOf.i,banks).replace(/<[^>]+>/g,'');
-    body+=arrow(200+mw+2,midY,ox-2,midY)+pill(ox,midY-19,Math.max(150,640-ox),bk.outItem+' ~'+(+outRate.toFixed(1))+'/min','→ '+dest,'#b692ff');
+    body+=arrow(200+mw+2,midY,ox-2,midY)+pill(ox,midY-19,Math.max(210,640-ox),bk.outItem+' ~'+(+outRate.toFixed(1))+'/min','→ '+dest,'#b692ff');
     body+=`<text x="200" y="${H-2}" font-size="10" fill="#8b97a3">${glow?(st.expOf?'white-edged = add now · faded = already built':'white-edged = place now'):''}${ghost?' · dashed = room to leave':''}</text>`;
-    return svg(Math.max(640,ox+160),H,body,`${bk.r}: ${glow} ${bk.b} to place`); }
+    return svg(Math.max(640,ox+220),H,body,`${bk.r}: ${glow} ${bk.b} to place`); }
   // generators: a ⚡ step or a top-up
   const gm=/^pwrb:/.test(st.key)?st.label.match(/add (\d+)× (.+)$/):null;
   if(POWER_IDS[st.key]||gm){ let n=0, b='';
@@ -944,6 +962,12 @@ function stepVisual(st){
     let body=''; for(let k=0;k<show;k++){ const x=6+(k%12)*44, y=8+Math.floor(k/12)*44; body+=`<circle cx="${x+18}" cy="${y+18}" r="17" fill="${col}" fill-opacity=".25" stroke="${col}"/><text x="${x+18}" y="${y+23}" font-size="15" text-anchor="middle">⚡</text>`; }
     const rows=Math.ceil(show/12); body+=`<text x="6" y="${rows*44+18}" font-size="11.5" fill="#9aa7b4">${n}× ${sx(b)}${n>show?' (showing '+show+')':''}</text>`;
     return svg(540,rows*44+24,body,`${n} ${b}`); }
+  // a delivery: what the elevator is waiting for
+  if(st.deliv){ const di=delivInfo(INVENTORY.find(r=>r.id===st.key)||{}); const m=String(st.label).match(/^(\d+)×/); const qty=m?+m[1]:0;
+    let body=`<rect x="4" y="6" width="44" height="52" rx="6" fill="#1c232d" stroke="#b692ff"/><text x="26" y="40" font-size="24" text-anchor="middle">▲</text>`;
+    body+=`<text x="62" y="24" font-size="13" font-weight="700" fill="#e6edf3">${sx(st.label)}</text>`;
+    if(di&&di.min) body+=`<rect x="62" y="34" width="360" height="10" rx="5" fill="#2a323d"/><rect x="62" y="34" width="${Math.round(360*(di.banked||0))}" height="10" rx="5" fill="#b692ff"/><text x="62" y="60" font-size="11" fill="#9aa7b4">~${di.rate}/min → about ${fmtMin(di.min)} of running${di.banked?' (the purple part is already banked)':''}</text>`;
+    return svg(440,66,body,st.label); }
   // a milestone: what it costs
   if(st.ms){ const m=MSMAP[st.ms]; const items=Object.keys(m.cost); if(!items.length) return '';
     return `<div class="costchips">${items.map(it=>{ const mk=makerOf(it); return `<span class="cchip"><b>${m.cost[it].toLocaleString()}</b> ${it}${mk?`<i>${mk.d.id==='PA'?'★':mk.d.id} §${mk.d.t.indexOf(mk.tid)+1}</i>`:'<i>hand/ore</i>'}</span>`; }).join('')}</div>`; }
@@ -951,7 +975,8 @@ function stepVisual(st){
 /* the journey: every chapter as a dot, done / now / to come */
 function journeyBar(ms,next){ const cur=next?chapterOf(next):BM_SEQ.length-1;
   const doneCh=new Set(); BM_SEQ.forEach((c,i)=>{ const st=ms.filter(x=>chapterOf(x)===i); if(st.length&&st.every(x=>state[x.key])) doneCh.add(i); });
-  return `<div class="journey" aria-label="Chapter ${cur+1} of ${BM_SEQ.length}">${BM_SEQ.map((c,i)=>`<span class="jd ${i===cur?'now':doneCh.has(i)?'done':''}${i>0&&BM_SEQ[i-1].phase!==c.phase?' newph':''}" title="${sx(c.t)}"></span>`).join('')}</div>`; }
+  const groups=[]; BM_SEQ.forEach((c,i)=>{ if(!groups.length||groups[groups.length-1].ph!==c.phase) groups.push({ph:c.phase,items:[]}); groups[groups.length-1].items.push(i); });
+  return `<div class="journey" aria-label="Chapter ${cur+1} of ${BM_SEQ.length}">${groups.map(g=>`<span class="jg"><span class="jdots">${g.items.map(i=>`<span class="jd ${i===cur?'now':doneCh.has(i)?'done':''}" title="Chapter ${i+1} — ${sx(BM_SEQ[i].t)}"></span>`).join('')}</span><span class="jl">P${g.ph}</span></span>`).join('')}</div>`; }
 function isBuildStep(s){ return s.ai!=null||!!s.expOf||!!POWER_IDS[s.key]||/^pwrb:/.test(s.key)||/^bp:[A-Z]+:(pad|rail)$/.test(s.key)||s.key==='NITRO'; }
 function gotoMapStep(id){ const b=document.querySelector('nav button[data-tab="buildmap"]'); if(b) b.click(); const did=(typeof WORKS2DIST!=='undefined'&&WORKS2DIST[id])||id; if(BM_SEQI[did]!==undefined){ bmStep=BM_SEQI[did]; bmApply(); if(typeof showDistrict==='function') showDistrict(did); } }
 /* delivery ETA from the same rates the plan is solved against (finalRate × the rounding
@@ -959,7 +984,7 @@ function gotoMapStep(id){ const b=document.querySelector('nav button[data-tab="b
 function delivInfo(r){ const list=DELIVERIES[r.phase]||[]; const d=list.find(x=>x[0]===r.item&&x[1]===r.qty)||list.find(x=>x[0]===r.item); if(!d) return null;
   const rate=+finalRateReal(r.item,r.phase).toFixed(2), left=r.qty*(1-bankedShare(r.item,r.phase)); return {module:d[2],rate,banked:bankedShare(r.item,r.phase),min:rate?Math.round(left/rate):0}; }
 function stripTags(s){ return String(s).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim(); }
-function invStep(r){ let det=r.note||''; if(r.category==='deliverable'){ const di=delivInfo(r); if(di&&di.min) det+=' · ≈ <b>'+di.min+' min</b> at '+di.rate+'/min'+(di.banked?' (~'+Math.round(di.banked*100)+'% of it banked during Phase '+(r.phase-1)+' — keep that line running into storage)':''); }
+function invStep(r){ let det=r.note||''; if(r.category==='deliverable'){ det+=' — start it sending, tick this, and carry on: the next steps build while it runs'; const di=delivInfo(r); if(di&&di.min) det+=' · ≈ <b>'+di.min+' min</b> at '+di.rate+'/min'+(di.banked?' (~'+Math.round(di.banked*100)+'% of it banked during Phase '+(r.phase-1)+' — keep that line running into storage)':''); }
   if(r.id==='PWR0'){ const mw=phaseStandingMW(1).mw; det+=` · Phase 1 draws ~<b>${Math.round(mw)} MW</b> → have <b>~${Math.ceil(mw*1.4/30)} burners</b> (keep them fed with leaves, wood or biomass).`; }
   return {key:r.id,phase:r.phase,label:(r.qty!==''?r.qty+'× ':'')+r.item,detail:det,cat:r.category,deliv:r.category==='deliverable',district:r.category==='deliverable'?'PA':null}; }
 function pushDistrict(out,d,p){ const banks=districtBanks(d);
@@ -979,7 +1004,7 @@ function pushDistrict(out,d,p){ const banks=districtBanks(d);
 /* the banks of district d that are first needed in phase p */
 function pushBanks(out,d,banks,p){
   banks.forEach((bk,i)=>{ if(bankBuiltPhase(d,bk)!==p) return; const now=bankNowCount(d,bk);
-    out.push({key:'bp:'+d.id+':'+bk.tid,ai:i,phase:p,district:d.id,mw:machinePower(bk.b,bk.tid)*now+bankRawMW(bk,now,p>=2),label:(d.id==='PA'?'[★ PA]':'['+d.id+']')+' §'+(i+1)+' '+bk.r+' — '+now+'× '+bk.b+(bk.n>now?' (→'+bk.n+')':''),html:bankStepHTML(d,banks,bk,i), get detail(){ return stripTags(this.html); }}); }); }
+    out.push({key:'bp:'+d.id+':'+bk.tid,ai:i,phase:p,district:d.id,mw:machinePower(bk.b,bk.tid)*now+bankRawMW(bk,now,p>=2),label:(d.id==='PA'?'[★ PA]':'['+d.id+']')+' §'+(i+1)+' '+bk.r+' — '+now+'× '+bk.b+(bk.n>now?' · room for '+bk.n:''),html:bankStepHTML(d,banks,bk,i), get detail(){ return stripTags(this.html); }}); }); }
 /* banks of districts built in an earlier phase that are first needed now */
 function pushLateBanks(out,p){ DISTRICTS.forEach(d=>{ if(d.id==='PA'||d.phase>=p) return; pushBanks(out,d,districtBanks(d),p); }); }
 function pushPAphase(out,p){ const d=DMAP['PA'], banks=districtBanks(d);
@@ -1004,7 +1029,7 @@ function bankNowCount(d,bk){ return Math.max(1,Math.min(bk.n,bankCountAt(bk.tid,
    the counts instead of doing nothing. */
 function effectivePhase(){ const nx=masterSteps().find(s=>!state[s.key]); return nx?Math.max(1,nx.phase):5; }
 /* Blueprints view mode: the final plan, a specific phase, or where you actually are. */
-let bpViewPhase='final';
+let bpViewPhase='now';   // open on what should be standing now, not the finished plan
 function viewPhase(){ return bpViewPhase==='final'?5:(bpViewPhase==='now'?effectivePhase():+bpViewPhase); }
 function bankViewCount(d,bk){
   if(bpViewPhase==='final') return bk.n;
@@ -1024,10 +1049,17 @@ function pushExpansions(out,p){ DISTRICTS.forEach(d=>{ const banks=districtBanks
       let mw=machinePower(bk.b,bk.tid)*add; Object.keys(raw).forEach(it=>{ mw+=rawMW(it,raw[it],p>=2); });
       const outNow=+Math.min(solveDemandPhase(p)[bk.outItem]||0, after*t.out[1]*(bpMax?MAXFACTOR:1)).toFixed(1);
       const base=`Phase ${p} needs more ${bk.outItem}: add <b>${add}× ${bk.b}</b> to the row you left room in (${before} → <b>${after}</b> of ${bk.n}). Extend its input manifold to the new machines. Output grows to <b>~${outNow}/min</b>.`;
-      const rawTxt=mk2=>Object.keys(raw).map(it=>'<b>+'+Math.round(raw[it])+'/min '+it+'</b> ('+rawSource(it,raw[it],p,mk2)+')').join(', ');
-      out.push({key:'exp:'+d.id+':'+p+':'+bk.tid,expOf:{d:d.id,i,add,before,after},phase:p,district:d.id,mw,
-        label:`➕ Expand ${d.id==='PA'?'★':d.id} §${i+1} ${bk.r}: +${add}× ${bk.b}`,
-        rawTxt, base, detail:base+(Object.keys(raw).length?' More raw feed: '+rawTxt(p>=3)+'.':'')}); }); }); }
+      const rawTxt=(mk2,f)=>Object.keys(raw).map(it=>'<b>+'+Math.round(raw[it]*(f||1))+'/min '+it+'</b> ('+rawSource(it,raw[it]*(f||1),p,mk2)+')').join(', ');
+      // big expansions come in bites of ≤10 machines — each is one "place these, tick" moment.
+      // The LAST bite keeps the plain key, so anything waiting on this expansion waits for all of it.
+      const CH=10, bites=Math.ceil(add/CH);
+      for(let c=0;c<bites;c++){ const lo=before+c*CH, hi=Math.min(after,lo+CH), k=hi-lo, lastBite=c===bites-1;
+        const outAt=+Math.min(solveDemandPhase(p)[bk.outItem]||0, hi*t.out[1]*(bpMax?MAXFACTOR:1)).toFixed(1);
+        const txt=`Phase ${p} needs more ${bk.outItem}: add <b>${k}× ${bk.b}</b> to the row you left room in (${lo} → <b>${hi}</b> of ${bk.n}${bites>1?` — bite ${c+1} of ${bites}`:''}). Extend the input manifold to the new machines.`;
+        const dw=` ✅ Done when: §${i+1} makes ~${outAt}/min${lastBite?'':' (more machines in the next bite)'}.`;
+        out.push({key:'exp:'+d.id+':'+p+':'+bk.tid+(lastBite?'':':'+(c+1)),expOf:{d:d.id,i,add:k,before:lo,after:hi},bite:c,bites,phase:p,district:d.id,mw:mw*k/add,
+          label:`➕ Expand ${d.id==='PA'?'★':d.id} §${i+1} ${bk.r}: +${k}× ${bk.b}${bites>1?` (${c+1}/${bites})`:''}`,
+          rawTxt:Object.keys(raw).length?(mk2=>rawTxt(mk2,k/add)):null, base:txt, tail:dw, detail:txt+(Object.keys(raw).length?' More raw feed: '+rawTxt(p>=3,k/add)+'.':'')+dw}); } }); }); }
 /* utility/power rows per phase: 'pre' go before the phase's new districts, 'post' after
    them (Fuel Generators need D's residue line; nuclear rods need E's EM Control Rods). */
 const PHASEROWS={2:{pre:['COAL']},3:{post:['PWR3']},4:{pre:['NITRO'],post:['PWR4']},5:{pre:['PWR5']}};
@@ -1144,6 +1176,8 @@ function orderPhase(steps){
       // before (and would loop: Smelters are built from rods made from ingots).
       if(ADV_BUILD.has(bk.b)) Object.keys(BUILD_COST[bk.b]||{}).forEach(it=>{ const k=bankKeyOf(it); if(k&&k!==s.key) softDep(s,k); });
       bk.inputs.forEach(([it])=>{ const k=bankKeyOf(it); if(k){ dep(s,k); const mk=makerOf(it); dep(s,'exp:'+mk.d.id+':'+s.phase+':'+mk.tid); } if(it==='Nitrogen Gas') dep(s,'NITRO'); }); }
+    if(s.expOf&&s.bite>0){ const base='exp:'+s.expOf.d+':'+s.phase+':'+districtBanks(DMAP[s.expOf.d])[s.expOf.i].tid; dep(s,base+':'+s.bite); }
+    if(s.expOf&&s.bites>1&&s.bite===s.bites-1){ const base='exp:'+s.expOf.d+':'+s.phase+':'+districtBanks(DMAP[s.expOf.d])[s.expOf.i].tid; for(let c=1;c<s.bites;c++) dep(s,base+':'+c); }
     if(s.expOf){ const d=DMAP[s.expOf.d], bk=districtBanks(d)[s.expOf.i];   // grow the suppliers before the consumers
       bk.inputs.forEach(([it])=>{ const mk=makerOf(it); if(mk) dep(s,'exp:'+mk.d.id+':'+s.phase+':'+mk.tid); }); }
     if(s.ms){ const m=MSMAP[s.ms]; (m.needs||[]).forEach(id=>dep(s,'ms:'+id));
@@ -1179,7 +1213,8 @@ function masterSteps(){ const key=planSigBase()+'|'+sloopsOwned(); if(_msCache[k
     for(let it=0;it<6;it++){ const prev=JSON.stringify(_bridgeCache[planSigBase()]||{});
       steps=buildSteps();
       const now=JSON.stringify(_bridgeCache[planSigBase()]||{}); if(now===prev) break;
-      _demOne={}; _demP={}; _demandCache={}; _extraCache={}; for(const k in _plantCache) delete _plantCache[k]; }
+      _demOne={}; _demP={}; _demandCache={}; _extraCache={}; for(const k in _plantCache) delete _plantCache[k];
+      _sloopCache={sig:null,rows:null}; _fundedCache={sig:null,set:null}; }
   } finally { _msBusy=false; }
   _msCache[key]=steps; return steps; }
 /* Walk the ordered steps tracking the draw you have built and the generators you have.
@@ -1235,7 +1270,7 @@ function buildSteps(){ const out=[]; const ctx={belt:120,mk2:false};   // Phase 
     orderPhase(ph).forEach(s=>{
       if(s.ms&&MS_CTX[s.ms]) Object.assign(ctx,MS_CTX[s.ms]);
       if(s.ai!=null&&s.district){ const d=DMAP[s.district], banks=districtBanks(d); s.html=bankStepHTML(d,banks,banks[s.ai],s.ai,Object.assign({},ctx)); }
-      if(s.rawTxt){ const r=s.rawTxt(ctx.mk2); s.detail=s.base+(r?' More raw feed: '+r+'.':''); }
+      if(s.rawTxt){ const r=s.rawTxt(ctx.mk2); s.detail=s.base+(r?' More raw feed: '+r+'.':'')+(s.tail||''); }
       out.push(s); });
     const st=stockpileStep(p); if(st) out.push(st);
     INVENTORY.filter(r=>r.phase===p&&r.category==='deliverable').forEach(r=>out.push(invStep(r)));
@@ -1286,6 +1321,7 @@ function tickKey(key){ markStep(key,'done'); }
 function backfillFinished(){ if(!state._backfill) return; delete state._backfill;
   const ms=masterSteps();
   ms.forEach(st=>{ const m=st.key.match(/^exp:([A-Z]+):(\d):/); if(m&&state[st.key]===undefined&&state['exp:'+m[1]+':'+m[2]]) state[st.key]=state['exp:'+m[1]+':'+m[2]]; });
+  ms.forEach(st=>{ const m=st.key.match(/^(exp:[A-Z]+:\d:[A-Z-]+):\d+$/); if(m&&state[st.key]===undefined&&state[m[1]]) state[st.key]=state[m[1]]; });
   for(let p=1;p<=5;p++){ const dels=INVENTORY.filter(r=>r.phase===p&&r.category==='deliverable');
     if(!dels.length||!dels.every(r=>state[r.id])) continue;
     ms.forEach(st=>{ if(st.phase<=p&&state[st.key]===undefined) state[st.key]=1; }); }
@@ -1346,7 +1382,10 @@ function renderInventory(){ backfillFinished();
   // ----- first run: settle the one plan setting before showing counts -----
   if(!state._cfg && done0===0){
     const fr=document.createElement('div'); fr.className='invphase'; fr.style.borderColor='var(--teal)';
-    const sizes={}; ['minimum','balanced','fast'].forEach(k=>{ const keep=bpPace; bpPace=k; let n=0; DISTRICTS.forEach(d=>districtBanks(d).forEach(b=>n+=b.n)); sizes[k]=n; bpPace=keep; });
+    const sizes={minimum:'<span data-sz="minimum">…</span>',balanced:'<span data-sz="balanced">…</span>',fast:'<span data-sz="fast">…</span>'};
+    setTimeout(()=>{ if(state._cfg) return; ['minimum','balanced','fast'].forEach(k=>{ const keep=bpPace; bpPace=k; let n=0;
+      try{ DISTRICTS.forEach(d=>districtBanks(d).forEach(b=>n+=b.n)); } finally{ bpPace=keep; }
+      document.querySelectorAll('[data-sz="'+k+'"]').forEach(e=>e.textContent=n); }); },50);
     fr.innerHTML=`<h3 style="background:#0f2a26">⚙ One question before the numbers</h3><div style="padding:12px 16px"><div class="nt" style="margin-bottom:9px">How patient are you? Once a phase's lines are built, its deliveries just <b>run</b> while you build the next district — so waiting longer costs little real time and means <b>far fewer machines</b>. (Change any time with the pace pill above.)</div>
       <button class="pbtn" id="frMin" style="font-weight:700;border-color:var(--teal)">🐢 Minimum — ~${sizes.minimum} machines, up to ~8 h per phase (recommended)</button>
       <button class="pbtn" id="frBal" style="font-weight:700">⚖ Balanced — ~${sizes.balanced} machines, up to ~4 h per phase</button>
@@ -1359,8 +1398,9 @@ function renderInventory(){ backfillFinished();
   }
   // ----- session check-in: "logging in — is this still true?" -----
   if(checkinArmed===null) checkinArmed=done0>0;
-  if(checkinArmed&&!sessionChecked&&next&&done0>0&&!auditList){ const ni=ms.indexOf(next), last=[];
-    for(let i2=ni-1;i2>=0&&last.length<3;i2--){ const x=ms[i2]; if(state[x.key]&&stepMode(x.key)!=='skip'&&isBuildStep(x)) last.push(x); }
+  if(checkinArmed&&!sessionChecked&&next&&done0>0&&!auditList){ const ni=ms.indexOf(next);
+    if(!ckRows){ ckRows=[]; for(let i2=ni-1;i2>=0&&ckRows.length<3;i2--){ const x=ms[i2]; if(state[x.key]&&stepMode(x.key)!=='skip'&&isBuildStep(x)) ckRows.push(x.key); } ckRows.reverse(); }
+    const last=ckRows.map(k=>ms.find(x=>x.key===k)).filter(Boolean);
     const ci=document.createElement('div'); ci.className='invphase checkin'; ci.style.borderColor='var(--teal)';
     const chIdx0=chapterOf(next), chp0=BM_SEQ[chIdx0];
     const t0=ms.filter(x=>typeof state[x.key]==='number'&&state[x.key]>1e12).reduce((m,x)=>Math.max(m,state[x.key]),0);
@@ -1370,8 +1410,8 @@ function renderInventory(){ backfillFinished();
       <div style="padding:11px 16px">
         <div class="nt" style="margin-bottom:8px">You're at <b>Step ${nextNo} of ${ms.length}</b> · Phase ${next.phase} · <b>${chp0?chp0.t:''}</b>${ago!=null?` · last tick ${ago<1?'under an hour':ago<48?ago+' h':Math.round(ago/24)+' days'} ago`:''}.
         Fly past your last few builds and confirm they're standing and running:</div>
-        ${last.length?last.reverse().map(x=>`<div class="ckrow" data-k="${x.key}"><div><b>${x.label}</b>${doneWhen(x)?`<div class="ckdw">✅ ${doneWhen(x)}</div>`:''}</div>
-          <div class="ckbtns"><button class="pbtn ckyes" title="Standing and running">✓ Yes</button><button class="pbtn ckno" title="Not built yet (or broken) — put it back on the list">✗ Not yet</button></div></div>`).join(''):'<div class="nt">Nothing built to check yet.</div>'}
+        ${last.length?last.map(x=>`<div class="ckrow${state[x.key]?'':' back'}" data-k="${x.key}"><div><b>${x.label}</b>${doneWhen(x)?`<div class="ckdw">✅ ${doneWhen(x)}</div>`:''}</div>
+          <div class="ckbtns">${state[x.key]?`<button class="pbtn ckyes" title="Standing and running">✓ Yes</button><button class="pbtn ckno" title="Not built yet (or broken) — put it back on the list">✗ Not yet</button>`:`<span style="color:#ffce8a">↩ back on your list</span>`}</div></div>`).join(''):'<div class="nt">Nothing built to check yet.</div>'}
         <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">
           <button class="pbtn" id="ckGo" style="background:var(--teal);color:#07201c;border-color:var(--teal);font-weight:700">✅ All good — let's build</button>
           <button class="pbtn" id="ckJump">⏩ I'm further ahead than this…</button>
@@ -1381,7 +1421,7 @@ function renderInventory(){ backfillFinished();
           <button class="pbtn" id="ckJumpGo" style="margin-left:6px">Mark done up to here</button></div>`:''}
       </div>`;
     wrap.appendChild(ci);
-    ci.querySelectorAll('.ckrow').forEach(r=>{ const k=r.dataset.k;
+    ci.querySelectorAll('.ckrow:not(.back)').forEach(r=>{ const k=r.dataset.k;
       r.querySelector('.ckyes').onclick=()=>{ r.classList.add('ok'); r.querySelector('.ckbtns').innerHTML='<span style="color:#8fe6a8">✓ standing</span>'; };
       r.querySelector('.ckno').onclick=()=>{ markStep(k,'clear'); renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); }; });
     ci.querySelector('#ckGo').onclick=()=>{ sessionChecked=true; jumpOpen=false; setFocus(true); };
@@ -1389,7 +1429,7 @@ function renderInventory(){ backfillFinished();
     ci.querySelector('#ckJump').onclick=()=>{ jumpOpen=!jumpOpen; renderInventory(); };
     const jg=ci.querySelector('#ckJumpGo'); if(jg) jg.onclick=()=>{ const upto=+ci.querySelector('#ckJumpSel').value;
       try{ lsSet(LS+'_undo', JSON.stringify(state)); }catch(e){}
-      for(let k=0;k<=upto;k++) if(!state[ms[k].key]) state[ms[k].key]=Date.now();
+      const t0=Date.now(); for(let k=0;k<=upto;k++) if(!state[ms[k].key]) state[ms[k].key]=t0+k;   // distinct, in order — so ↶ Undo peels back one step
       saveState(state); jumpOpen=false; renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); };
   }
   // ----- welcome back: last-tick context after a break -----
@@ -1409,21 +1449,23 @@ function renderInventory(){ backfillFinished();
     const chSteps=ms.filter(s=>chapterOf(s)===chIdx), chPos=chSteps.indexOf(next)+1;
     const ni=ms.indexOf(next); let arrive=null,dist=0;
     for(let i2=ni;i2<ms.length;i2++){ if(ms[i2].deliv||ms[i2].key==='FINISH'){ arrive=ms[i2]; dist=i2-ni; break; } }
-    nb.innerHTML=`<h3 style="background:#2a1c08"><span class="chip p${next.phase}">Phase ${next.phase}</span> ▶ DO THIS NOW <span class="pct" style="margin-left:auto">Step ${nextNo} of ${ms.length}</span></h3>
+    nb.innerHTML=`<h3 style="background:#2a1c08"><span class="chip p${next.phase}">Phase ${next.phase}</span> ▶ DO THIS NOW<span class="focusbadge">🎯 FOCUS</span> <span class="pct" style="margin-left:auto">Step ${nextNo} of ${ms.length}</span></h3>
       <div style="padding:12px 16px">
         ${journeyBar(ms,next)}
         <div style="font-size:12.5px;color:var(--muted);margin-bottom:2px"><b style="color:var(--txt)">📖 Chapter ${chIdx+1}/${BM_SEQ.length} — ${chp.t}</b> · task ${chPos} of ${chSteps.length}</div>
-        <div style="font-size:12px;color:#9fb0c0;margin-bottom:9px">${chp.d}</div>
-        <div style="font-size:16px;font-weight:700;color:var(--orange)">Step ${nextNo} — ${next.label}</div>
+        <div style="font-size:12px;color:#9fb0c0;margin-bottom:9px">${chp.d}${next.district&&chp.node!==next.district&&DMAP[next.district]?` <b style="color:#ffce8a">· this step: ${next.district==='PA'?'★ Project Assembly':next.district+' · '+DMAP[next.district].name}</b>`:''}</div>
+        <div class="steptitle" style="font-size:16px;font-weight:700;color:var(--orange)">Step ${nextNo} — ${next.label}</div>
         <div class="vizwrap">${stepVisual(next)}</div>
-        <div class="nt" style="margin:5px 0 9px">${next.html||next.detail||''}</div>
+        ${(()=>{ const h=String(next.html||next.detail||''); const k=h.indexOf('✅ Done when:'); if(k<0) return `<div class="nt" style="margin:5px 0 9px">${h}</div>`;
+          const mm=h.slice(0,k).match(/<b[^>]*>$/); const cut=mm?k-mm[0].length:k; const body=h.slice(0,cut), dw=h.slice(k).replace(/^✅ Done when:(<\/b>)?/,'');
+          return `<div class="nt" style="margin:5px 0 6px">${body}</div><div class="donebox"><b style="color:#8fe6a8">✅ Done when:</b> ${dw.replace(/<\/div>\s*$/,'')}</div>`; })()}
         ${arrive?`<div style="font-size:12px;color:var(--teal);margin-bottom:6px">▲ ${dist===0?'This is the delivery':`${dist} step${dist>1?'s':''} until`}: <b>${arrive.label}</b></div>`:''}
         ${(()=>{ const pv=ms[ms.indexOf(next)-1]; if(!pv||!pv._cap) return ''; const pc=Math.round(100*(pv._draw||0)/pv._cap);
           return `<div class="pwrline"><span>⚡ ${Math.round(pv._draw||0)} / ${Math.round(pv._cap)} MW</span><i><b style="width:${Math.min(100,pc)}%;background:${pc>85?'#e0a050':'var(--teal)'}"></b></i><span>${pc}%</span></div>`; })()}
         <button class="pbtn" id="doNext" style="background:var(--orange);color:#1a1205;border-color:var(--orange);font-weight:700">✓ Done — next</button>`+
         ` <button class="pbtn" id="doEq" title="My existing factory already covers this — count it and move on, but don't claim it was built to this plan">≈ Already have it</button>`+
         ` <button class="pbtn" id="doSkip" title="Deliberately not building this — move past it">⏭ Skip</button>${links}`+
-        ` <button class="pbtn" id="doUndo" title="Un-tick the last step you ticked">↶ Undo</button>`+
+        ` <button class="pbtn" id="doUndo" title="Un-tick the last step you ticked" ${done0?'':'disabled'}>↶ Undo</button>`+
         ` <button class="pbtn" id="doFocus" title="Show just this card — for a second screen">${focusMode?'☰ Full list':'🎯 Focus'}</button></div>`;
   } else nb.innerHTML=`<h3 style="background:#13261a">🎉 Every step done — pull the lever and launch! 🚀</h3>`;
   wrap.appendChild(nb);
@@ -1436,7 +1478,7 @@ function renderInventory(){ backfillFinished();
       if(best){ markStep(best.key,'clear'); _refocus='doNext'; renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); } };
     const df=document.getElementById('doFocus'); if(df) df.onclick=()=>setFocus(!focusMode); }
   // ----- focus mode: the card, what's coming, and nothing else -----
-  if(focusMode&&next){ const ni=ms.indexOf(next), up=ms.slice(ni+1,ni+4);
+  if(focusMode&&next){ const ni=ms.indexOf(next), up=ms.slice(ni+1).filter(x=>!state[x.key]).slice(0,3);
     if(up.length){ const cu=document.createElement('div'); cu.className='invphase comingup';
       cu.innerHTML=`<h3>Coming up</h3><div style="padding:6px 16px 10px">${up.map((x,k)=>`<div class="cuitem"><span class="cuno">${ni+k+2}</span> ${x.label}</div>`).join('')}</div>`;
       wrap.appendChild(cu); }
@@ -1574,7 +1616,7 @@ function techList(p){ return (TECH[p]||[]).filter(t=>bpMax||!/Somersloop/.test(t
    an older build (or an older device) arrives in the old scheme and would otherwise
    read as "nothing built". Only touches plain data (DISTRICTS[].t, TECH, INVENTORY) so
    it is safe to call this early, before the render-time settings exist. */
-const PLAN_VERSION=12;
+const PLAN_VERSION=13;
 function migrateState(s){
   if(!s||typeof s!=='object') return s;
   // 1) bank keys were positional (bp:A:3) — fragile if a template list is reordered.
@@ -1951,7 +1993,7 @@ function bmApply(){
     if(t) t.textContent=mk+'§'+(i+1)+' '+(ABBR[bk.b]||'?')+'×'+(ghost?('0→'+tot):(cNow<tot?cNow+'→'+tot:tot));
   });
   const sl=document.getElementById('bmSlider'); if(sl){ sl.max=BM_SEQ.length-1; sl.value=bmStep; }
-  const lbl=document.getElementById('bmStepLbl'); if(lbl) lbl.textContent='Chapter '+bmStep+' / '+(BM_SEQ.length-1)+(atNow?' · 📍 you are here':' · preview');
+  const lbl=document.getElementById('bmStepLbl'); if(lbl) lbl.textContent='Chapter '+(bmStep+1)+' / '+BM_SEQ.length+(atNow?' · 📍 you are here':' · preview');
   const nowB=document.getElementById('bmNow'); if(nowB){ nowB.style.borderColor=atNow?'var(--line)':'var(--orange)'; nowB.style.color=atNow?'var(--muted)':'var(--orange)'; }
   const cap=document.getElementById('bmCaption'); if(cap) cap.innerHTML='<b style="color:var(--txt)">'+BM_SEQ[bmStep].t+'</b>'+(atNow?' <span style="color:#8fe6a8;font-size:12px">📍 your progress</span>':' <span style="color:var(--muted);font-size:12px">(preview — 📍 Now returns to your progress)</span>')+'<br>'+BM_SEQ[bmStep].d;
 }
@@ -2762,6 +2804,7 @@ document.addEventListener('keydown',e=>{ if(e.key!=='Enter'&&e.key!==' ') return
 applyAlts();     // before anything solves, so saved alt choices are in effect
 auditT();
 backfillFinished();   // before the map is drawn, so its 📍 reflects migrated progress
+{ const nx=masterSteps().find(s=>!state[s.key]); if(nx&&nx.district&&DMAP[nx.district]) bpMod=nx.district; }   // Blueprints open on the district you're working in
 buildBuildMap();
 renderCards(); renderTemplates(); renderShopping(); renderInventory();
 renderBlueprints(); renderFlowOverview(); renderAltToggles();
