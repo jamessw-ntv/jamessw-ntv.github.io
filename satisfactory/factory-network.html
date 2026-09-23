@@ -59,7 +59,7 @@
   .bpsect:focus-visible,.bmmod:focus-visible{outline:2.5px solid #fff}
   /* Build Map level-of-detail: zoomed out → big district cards only; zoomed in → the inner area blocks */
   #bmap.bm-overview .bmdetail{display:none}
-  #bmap.bm-overview .bmedge{display:none}   /* line labels only once you zoom in — at overview they're unreadable */
+  #bmap.bm-overview text.bmedge{display:none}   /* line labels only once you zoom in — at overview they're unreadable; the lines stay */
   #bmap:not(.bm-overview) .bmoverview{display:none}
   @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important;scroll-behavior:auto!important} }
   .approx{background:#2a2412;border:1px solid #4a3d12;color:#ffd98a;padding:8px 12px;border-radius:8px;font-size:13px;margin-bottom:10px}
@@ -928,6 +928,15 @@ function clip(t,n){ t=String(t); return t.length>n?t.slice(0,n-1)+'…':t; }
 function machineRow(x0,y0,b,solid,glow,ghost,maxShow,perRow){ // returns [svg, width, height]
   const C=BCOL[b]||'#8b97a3', A=ABBR[b]||b.slice(0,2), tot=solid+glow+ghost, show=Math.min(tot,maxShow||20), per=perRow||10, sz=26, gap=6;
   let out='', k=0;
+  if(tot>show&&solid>0){   // too many to draw: one "N built" chip, then every new machine, then a little room
+    out+=`<rect x="${x0}" y="${y0}" width="${2*sz+gap}" height="${sz}" rx="5" fill="${C}" fill-opacity=".55" stroke="${C}"/><text x="${x0+sz+gap/2}" y="${y0+17}" font-size="10" font-weight="700" text-anchor="middle" fill="#10161d">${solid} built</text>`;
+    const g=Math.min(glow,show-2), gh=Math.min(ghost,Math.max(0,show-2-g)), n=2+g+gh;
+    for(let j=2;j<n;j++){ const cx=x0+(j%per)*(sz+gap), cy=y0+Math.floor(j/per)*(sz+gap), isG=j<2+g;
+      out+=isG?`<rect x="${cx}" y="${cy}" width="${sz}" height="${sz}" rx="5" fill="${C}" stroke="#fff" stroke-width="2"/>`:`<rect x="${cx}" y="${cy}" width="${sz}" height="${sz}" rx="5" fill="none" stroke="${C}" stroke-opacity=".6" stroke-dasharray="3 3"/>`;
+      out+=`<text x="${cx+sz/2}" y="${cy+17}" font-size="10" font-weight="700" text-anchor="middle" fill="${isG?'#10161d':C}">${sx(A)}</text>`; }
+    const rows=Math.ceil(n/per), w=Math.min(n,per)*(sz+gap), rest=tot-solid-g-gh;
+    if(rest>0) out+=`<text x="${x0+w+4}" y="${y0+(rows-1)*(sz+gap)+17}" font-size="11" fill="#9aa7b4">+${rest}</text>`;
+    return [out, w+(rest>0?28:0), rows*(sz+gap)]; }
   for(;k<show;k++){ const cx=x0+(k%per)*(sz+gap), cy=y0+Math.floor(k/per)*(sz+gap);
     if(k<solid) out+=`<rect x="${cx}" y="${cy}" width="${sz}" height="${sz}" rx="5" fill="${C}" fill-opacity=".55" stroke="${C}"/>`;
     else if(k<solid+glow) out+=`<rect x="${cx}" y="${cy}" width="${sz}" height="${sz}" rx="5" fill="${C}" stroke="#fff" stroke-width="2"/>`;
@@ -1050,8 +1059,13 @@ function effectivePhase(){ const nx=masterSteps().find(s=>!state[s.key]); return
 /* Blueprints view mode: the final plan, a specific phase, or where you actually are. */
 let bpViewPhase='now';   // open on what should be standing now, not the finished plan
 function viewPhase(){ return bpViewPhase==='final'?5:(bpViewPhase==='now'?effectivePhase():+bpViewPhase); }
+/* machines of a bank your ticks say are standing: its build step, then the last ticked Expand bite */
+function tickedCount(d,bk){ if(!state['bp:'+d.id+':'+bk.tid]) return 0; let n=bankNowCount(d,bk);
+  const pre='exp:'+d.id+':'; masterSteps().forEach(s=>{ if(s.expOf&&s.expOf.d===d.id&&state[s.key]&&s.key.startsWith(pre)&&(s.key.split(':')[3]===bk.tid)) n=Math.max(n,s.expOf.after); });
+  return Math.min(bk.n,n); }
 function bankViewCount(d,bk){
   if(bpViewPhase==='final') return bk.n;
+  if(bpViewPhase==='now') return tickedCount(d,bk);
   const ph=viewPhase(), bp=bankBuiltPhase(d,bk);
   if(ph<bp) return 0;                                   // not standing yet at this point
   return Math.max(1,Math.min(bk.n,bankCountAt(bk.tid,ph)));
@@ -2038,12 +2052,14 @@ function bpResolve(id){ if(DMAP[id]) return id; if(typeof WORKS2DIST!=='undefine
 function gotoBlueprint(id, ai){ bpMod=bpResolve(id); bpHi=(ai!=null&&+ai>=0)?+ai:-1; const b=document.querySelector('nav button[data-tab="blueprints"]'); if(b) b.click(); renderBlueprints();
   if(bpHi>=0) setTimeout(()=>{ const ss=document.querySelectorAll('#bpStage svg'); const el=ss[ss.length-1]; if(el&&el.scrollIntoView) el.scrollIntoView({behavior:_scrollBehavior(),block:'center'}); },70); }
 function bmApply(){
-  const hi=BM_SEQ[bmStep].node, derived=bmDerivedStep(), atNow=bmStep===derived;
+  const derived=bmDerivedStep(), atNow=bmStep===derived, nx=atNow?masterSteps().find(s=>!state[s.key]):null;
+  const hi=BM_SEQ[bmStep].node||(nx&&nx.district)||null;
+  const nxBank=nx&&nx.district?(nx.ai!=null?nx.district+':'+nx.ai:(nx.expOf?nx.expOf.d+':'+nx.expOf.i:null)):null;
   document.querySelectorAll('#bmap .bmnode').forEach(n=>{ const s=+n.dataset.seq; n.style.transition='opacity .4s';
     // future districts render as RESERVED LAND: readable dashed ghost, not near-invisible
     n.style.opacity = s<=bmStep ? 1 : 0.28;
     if(n.classList.contains('bmmod')){ const r=n.querySelector('rect'); const on=(n.dataset.mod===hi);
-      if(r){ r.setAttribute('stroke', on?'#ffffff':(s<=bmStep?'#0a0d12':DMAP[n.dataset.mod].col)); r.setAttribute('stroke-width', on?4:2);
+      if(r){ r.setAttribute('stroke', on?'#ffffff':(s<=bmStep?'#3a4655':DMAP[n.dataset.mod].col)); r.setAttribute('stroke-width', on?4:2);
         if(s>bmStep) r.setAttribute('stroke-dasharray','14 9'); else r.removeAttribute('stroke-dasharray'); } }
   });
   document.querySelectorAll('#bmap .bmedge').forEach(e=>{ const s=+e.dataset.seq, res=e.dataset.res==='1'; e.style.transition='opacity .4s'; e.style.opacity = s<=bmStep?(res?0.2:0.55):0.06; });
@@ -2060,18 +2076,22 @@ function bmApply(){
     // Use the SAME semantics as the checklist (bankNowCount): a bank is a ghost only while
     // its build phase is still in the future, and its count is never 0 at a chapter whose
     // own steps say "build 1× now" — the two views must agree.
-    const bPh=bankBuiltPhase(DMAP[did],bk), ghost=ph<bPh&&!done;
-    const cNow=ghost?0:Math.max(1,Math.min(tot,bankCountAt(bk.tid,ph)));
+    const bPh=bankBuiltPhase(DMAP[did],bk), futurePanel=BM_SEQI[did]>bmStep;
+    const built=atNow?tickedCount(DMAP[did],bk):0;
+    const ghost=atNow?!done:((ph<bPh||futurePanel)&&!done);
+    const cNow=atNow?built:(ghost?0:Math.max(1,Math.min(tot,bankCountAt(bk.tid,ph))));
+    const isNext=nxBank===did+':'+i;
     if(r){ r.setAttribute('fill-opacity',ghost?0.14:0.96);
       // a dasharray paints nothing without a stroke — give the ghost a visible outline
       if(ghost){ r.setAttribute('stroke',BCOL[bk.b]||'#8b97a3'); r.setAttribute('stroke-width',1.2); r.setAttribute('stroke-dasharray','4 3'); }
       else { r.removeAttribute('stroke-dasharray');
         // built-to-plan reads green, an adopted existing line amber, a skipped one grey
         if(done){ r.setAttribute('stroke', md==='eq'?'#ffce8a':(md==='skip'?'#8b97a3':'#5dd47a')); r.setAttribute('stroke-width',2); }
-        else { r.removeAttribute('stroke'); r.removeAttribute('stroke-width'); } } }
+        else { r.removeAttribute('stroke'); r.removeAttribute('stroke-width'); } }
+      if(isNext){ r.setAttribute('stroke','#ff9e3d'); r.setAttribute('stroke-width',3); r.removeAttribute('stroke-dasharray'); } }
     g.querySelectorAll('text,line').forEach(tx=>tx.setAttribute('opacity',ghost?0.4:1));
     const mk=md==='eq'?'≈ ':(md==='skip'?'⏭ ':(done?'✓ ':''));
-    if(t) t.textContent=mk+'§'+(i+1)+' '+(ABBR[bk.b]||'?')+'×'+(ghost?('0→'+tot):(cNow<tot?cNow+'→'+tot:tot));
+    if(t) t.textContent=(isNext?'▶ ':mk)+'§'+(i+1)+' '+(ABBR[bk.b]||'?')+'×'+(ghost&&!atNow?('0→'+tot):(cNow<tot?cNow+'→'+tot:tot));
   });
   const sl=document.getElementById('bmSlider'); if(sl){ sl.max=BM_SEQ.length-1; sl.value=bmStep; }
   const lbl=document.getElementById('bmStepLbl'); if(lbl) lbl.textContent='Chapter '+(bmStep+1)+' / '+BM_SEQ.length+(atNow?' · 📍 you are here':' · preview');
