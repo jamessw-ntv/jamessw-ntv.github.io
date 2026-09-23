@@ -1370,7 +1370,7 @@ function phaseDeliverMin(p){ const ds=DELIVERIES[p]||[]; let mx=0; ds.forEach(([
      'eq'    = my existing factory already covers this (adopting a running save)
      'skip'  = deliberately not doing this
    Only `number` counts as "built to plan" where that distinction matters. */
-function markStep(key,mode){ if(mode==='clear') delete state[key]; else { state[key]=(mode==='done'?Date.now():mode); if(mode!=='done') state._lastMark={k:key,t:Date.now()}; } saveState(state); }
+function markStep(key,mode){ if(mode==='clear') delete state[key]; else { state[key]=(mode==='done'?Date.now():mode); if(mode!=='done'){ state._marks=(state._marks||[]).filter(m=>m.k!==key).concat([{k:key,t:Date.now()}]).slice(-50); } } saveState(state); }
 function stepMode(key){ const v=state[key]; return (v===undefined||v===0)?null:(typeof v==='number'?'done':v); }
 const MODE_LABEL={done:'✓ built',eq:'≈ already had it',skip:'⏭ skipped'};
 function tickKey(key){ markStep(key,'done'); }
@@ -1534,7 +1534,9 @@ function renderInventory(){ backfillFinished();
     const ds=document.getElementById('doSkip'); if(ds) ds.onclick=()=>advance('skip'); }
   { const uj=document.getElementById('doUndoJump'); if(uj) uj.onclick=()=>{ (lastJump||[]).forEach(k=>delete state[k]); lastJump=null; saveState(state); renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); }; }
   { const du=document.getElementById('doUndo'); if(du) du.onclick=()=>{ let best=null,bt=0; ms.forEach(x=>{ const v=state[x.key]; if(typeof v==='number'&&v>bt){ bt=v; best=x; } });
-      const lm=state._lastMark; if(lm&&lm.t>bt&&typeof state[lm.k]==='string'){ best=ms.find(x=>x.key===lm.k)||best; delete state._lastMark; }   // a ≈ / ⏭ mark is newer than any tick
+      const lm=(state._marks||[]).filter(m=>typeof state[m.k]==='string').pop();
+      if(lm&&lm.t>bt){ best=ms.find(x=>x.key===lm.k)||best; state._marks=state._marks.filter(m=>m!==lm); }   // a ≈ / ⏭ mark is newer than any tick
+      if(best&&lastJump) lastJump=lastJump.filter(k=>k!==best.key);
       if(best){ markStep(best.key,'clear'); _refocus='doNext'; renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); } };
     const df=document.getElementById('doFocus'); if(df) df.onclick=()=>setFocus(!focusMode); }
   // ----- focus mode: the card, what's coming, and nothing else -----
@@ -1612,7 +1614,7 @@ function renderInventory(){ backfillFinished();
 }
 document.getElementById('resetinv').onclick=()=>{ if(confirm('Reset all progress? (A one-shot backup is kept — 📥 Load code with "undo" to restore.)')){
   try{ lsSet(LS+'_undo', JSON.stringify(state)); }catch(e){}
-  state={_cfg:state._cfg,_mig:state._mig,_planv:PLAN_VERSION};   // keep _mig: a reset save is not an "old" one; clearing ticks is not a request to change the plan itself
+  lastJump=null; state={_cfg:state._cfg,_mig:state._mig,_planv:PLAN_VERSION};   // keep _mig: a reset save is not an "old" one; clearing ticks is not a request to change the plan itself
   saveState(state); applyAlts(); applyCfg(); rerenderAll(); renderAltToggles();
   if(typeof buildBuildMap==='function') buildBuildMap();
   if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); } };
@@ -1638,7 +1640,7 @@ document.getElementById('savecode').onclick=()=>{ try{ const code=btoa(unescape(
   document.body.removeChild(ta);
   prompt(copied?'✅ Copied! Your progress code (paste into Load code on another device):':'Copy this progress code (Load code on another device):', code);
 }catch(e){ alert('Could not make a code: '+e.message); } };
-document.getElementById('loadcode').onclick=()=>{ const code=prompt('Paste a progress code to restore (this replaces your current ticks — a backup of them is kept; type "undo" to restore the last backup):'); if(!code) return;
+document.getElementById('loadcode').onclick=()=>{ lastJump=null; const code=prompt('Paste a progress code to restore (this replaces your current ticks — a backup of them is kept; type "undo" to restore the last backup):'); if(!code) return;
   try{
     let obj;
     if(code.trim().toLowerCase()==='undo'){ obj=JSON.parse(localStorage.getItem(LS+'_undo')||'null'); if(!obj) throw new Error('no backup stored yet'); }
@@ -1679,7 +1681,7 @@ function techList(p){ return (TECH[p]||[]).filter(t=>bpMax||!/Somersloop/.test(t
    an older build (or an older device) arrives in the old scheme and would otherwise
    read as "nothing built". Only touches plain data (DISTRICTS[].t, TECH, INVENTORY) so
    it is safe to call this early, before the render-time settings exist. */
-const PLAN_VERSION=14;
+const PLAN_VERSION=15;
 function migrateState(s){
   if(!s||typeof s!=='object') return s;
   // 1) bank keys were positional (bp:A:3) — fragile if a template list is reordered.
@@ -2642,7 +2644,7 @@ function bankStepHTML(d,banks,bk,i,ctx){
   const doneWhen = bk.outItem==='Fuel'&&!(ctx&&ctx.gens)?`the refineries run and Fuel fills its pipe (it backs up until the Fuel Generators at the ⚡ step switch on — that's fine)`:`it steadily makes <b>~${nowRate}/min</b>${busy<95?` — the machines will be busy ~${busy}% of the time (they're rounded up; some idling is normal)`:''}${bk.inputs.length?'':' (if it stops, you are short on power)'}${tb?', and the '+tb[0]+' line is flowing, not backed up':''}`;
   const bc=BUILD_COST[bk.b], bcost=bc?' <span style="color:var(--muted)">(builds from '+Object.keys(bc).map(k=>bc[k]*now+' '+k).join(' + ')+')</span>':'';
   const nosplit=ctx.split===false?`<div class="nt" style="color:#e0a050">⚠ No splitters or mergers yet (Tier 1 Logistics is a few steps on): give each machine its own belt straight from a miner or the machine before it, and belt the spare output into a container. Re-do it as a manifold once they unlock.</div>`:'';
-  const under=busy<50&&now>0?(busy<5?` It's barely needed yet: set it to 1% clock (click the machine → clock speed) or feed it only from overflow, so it doesn't starve the lines sharing its input.`:` Underclock to ~${Math.ceil(busy)}% (click a machine → clock speed; no shards needed) — otherwise it runs flat out and starves the other lines sharing its input.`):'';
+  const under=busy<50&&now>0?(busy<5?` It's barely needed yet: set it to 1% clock (click the machine → clock speed) or feed it only from overflow, so it doesn't starve the lines sharing its input.`:` Underclock to ~${Math.min(250,Math.ceil(busy*eff))}% (click a machine → clock speed; no shards needed) — otherwise it runs flat out and starves the other lines sharing its input.`):'';
   return nosplit+`<div class="nm"><span class="tag module">§${i+1}</span> <b>Place:</b> ${place}.${bcost}${ocb}${under}</div>
     <div class="nt"><b>Feed:</b><br>${feed}<br><b>Output:</b> <b>${bk.outItem} ~${nowRate}/min</b>${total>now?' now ('+bk.outRate+'/min at full size)':''} → ${destLabel(d,i,banks)}.${by}${upg}<br><b style="color:#8fe6a8">✅ Done when:</b> ${doneWhen}.</div>`;
 }
