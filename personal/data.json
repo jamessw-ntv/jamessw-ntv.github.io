@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-23",
-    "fetched": "2026-09-23T16:36:46+00:00",
+    "fetched": "2026-09-23T20:05:56+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 10,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 3
+      "wind": 7
     },
     "days": [
       {
@@ -25,15 +25,15 @@
       },
       {
         "day": "Fri",
-        "min": 13,
-        "max": 25,
+        "min": 12,
+        "max": 24,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 43
       },
       {
         "day": "Sat",
-        "min": 10,
+        "min": 9,
         "max": 13,
         "icon": "🌦️",
         "desc": "Showers",
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119704.0,
-        "pct": -1.3
+        "price": 119855.0,
+        "pct": -1.1
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3787.08,
-        "pct": -1.63
+        "price": 3796.89,
+        "pct": -1.82
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Conclave’ Director Edward Berger, Matthew Libatique to Be Feted at Evolution Mallorca International Film Festival",
+      "title": "Los Angeles Lakers Release Official Photo Book Chronicling Seven Decades of Purple-and-Gold History",
       "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/edward-berger-matthew-libatique-evolution-mallorca-festival-1236873241/"
+      "url": "https://variety.com/2026/shopping/news/los-angeles-lakers-photo-history-book-taschen-buy-online-1236873647/"
     },
     {
       "cat": "Film/TV",
-      "title": "Power at Any Age: Gloria Reuben Urges Menopausal Women to Advocate for Their Health",
+      "title": "‘Les Misérables’ Review: A Starry, Lavishly Empty, French-Language Version of Victor Hugo’s Epic",
       "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/gloria-reuben-health-during-menopause-astellas-1236826431/"
+      "url": "https://variety.com/2026/film/reviews/les-miserables-review-1236871999/"
     },
     {
       "cat": "Film/TV",
-      "title": "France’s Film and TV Industry Faces Funding Squeeze as Netflix Becomes Leading Private Investor in French Content",
+      "title": "Hayley Williams Speaks Out on Death of Ex-Husband Chad Gilbert: ‘Have Not Known If It’s Appropriate’ to Comment, but ‘I Will Forever Be Grateful’",
       "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/frances-film-tv-industry-netflix-1236873181/"
+      "url": "https://variety.com/2026/music/news/hayley-williams-pays-tribute-chad-gilbert-ex-husband-1236873617/"
     },
     {
       "cat": "Film/TV",
-      "title": "DIRECTV Announces ‘Netflix On Us,’ Five Streaming Apps Included In Genre Pack Packages",
+      "title": "No, Those Dior x A24 Shirts Aren’t Going on Sale",
       "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/directv-netflix-on-us-deal-genre-pack-price-details-2026-1236873437/"
+      "url": "https://variety.com/2026/shopping/news/dior-a24-shirt-robert-pattinson-sabrina-carpenter-buy-1236870529/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Starfleet Academy’ Cast And William Shatner Set For NYCC Star Trek Panel",
+      "when": "23 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/23/starfleet-academy-cast-and-william-shatner-set-for-nycc-star-trek-panel/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "23 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/22/star-trek-online-rediscovered-with-three-spocks-available-now-watch-launch-trailer/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "See Captain Seven Command The Enterprise-G In Preview Of IDW’s New Flagship ‘Star Trek’ Comic",
-      "when": "23 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/22/see-captain-seven-command-the-uss-enterprise-g-in-preview-of-first-issue-of-new-star-trek-comic/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "24m ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
