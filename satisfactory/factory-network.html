@@ -140,6 +140,9 @@
   .ckrow{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:8px 10px;margin:6px 0;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.02)}
   .ckrow.ok{border-color:#2f6b45;background:rgba(93,212,122,.06)} .ckdw{font-size:12px;color:var(--muted);margin-top:3px} .ckbtns{display:flex;gap:6px;flex-shrink:0}
   @media (max-width:640px){ .ckrow{flex-direction:column;align-items:stretch} .ckbtns .pbtn{flex:1} }
+  /* phones: thumb-sized buttons, and the map's "where to build" note gives way to the map */
+  @media (max-width:640px){ .pbtn{min-height:40px;padding:8px 14px} #bmZoomIn,#bmZoomOut,#bmZoomReset{min-width:44px}
+    .bmwhere{display:none!important} }
   .pwrline{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin:2px 0 10px} .pwrline i{flex:1;height:6px;border-radius:4px;background:var(--line);overflow:hidden;max-width:260px} .pwrline i b{display:block;height:100%}
   .comingup h3{font-size:14px} .cuitem{padding:5px 0;color:var(--muted);font-size:13.5px;border-bottom:1px dashed var(--line)} .cuitem:last-child{border:0} .cuno{display:inline-block;min-width:34px;color:#8b97a3;font-weight:700}
   body.focus #tab-inventory > .hint, body.focus #tab-inventory .toolbar > button:not(#pacepill):not(#cfgpill){display:none}
@@ -201,7 +204,7 @@
       <button class="pbtn" id="bmZoomReset" title="Reset view">⟲</button>
       <button class="pbtn" id="bmResetLayout" title="Restore the auto compass layout" style="margin-left:6px">⤢ Reset layout</button>
     </div>
-    <div style="display:flex;align-items:center;gap:14px;background:linear-gradient(90deg,#1a2230,#161b22);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:8px">
+    <div class="bmwhere" style="display:flex;align-items:center;gap:14px;background:linear-gradient(90deg,#1a2230,#161b22);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:8px">
       <svg viewBox="0 0 124 96" style="width:124px;height:96px;flex:0 0 auto" aria-label="world map locator, base in the top-right">
         <rect x="10" y="14" width="104" height="74" rx="8" fill="#0e1620" stroke="#3a4654"/>
         <text x="62" y="10" fill="#6b7785" font-size="8.5" text-anchor="middle">the world map</text>
