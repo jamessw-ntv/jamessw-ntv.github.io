@@ -873,7 +873,7 @@ function renderShopping(){
     al.innerHTML=`<h3>🎯 Somersloop allocator — where to put the ones you own</h3>`+
       `<div style="padding:9px 16px 4px;font-size:13px">I own <input id="sloopOwn" type="number" min="0" max="500" value="${owned}" style="width:76px;padding:4px 7px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--txt);font-size:13px"> Somersloops <button class="pbtn" id="sloopApply">recalculate</button> <span style="color:var(--muted)">· ranked by machines saved per sloop</span></div>`+
       `<div style="padding:2px 16px 8px;color:var(--muted);font-size:12px">A Somersloop doubles output <b>without</b> extra input, so amplifying a bank halves that bank <b>and its whole upstream tree</b> — which is why the best targets are the <b>ends</b> of long chains, never smelters or cheap constructor parts.</div>`+
-      '<table><thead><tr><th>Amplify this bank</th><th>Sloops</th><th>Machines</th><th>Coverage</th><th>≈ machines saved</th></tr></thead><tbody>'+rows+'</tbody></table>'+
+      '<div style="overflow-x:auto"><table><thead><tr><th>Amplify this bank</th><th>Sloops</th><th>Machines</th><th>Coverage</th><th>≈ machines saved</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
       `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">Spends <b>${spent}</b> of ${owned} sloops${left>0?` (<b>${left}</b> spare — bank them for Alien Power Augmenters, +500 MW each)`:''} and saves roughly <b>${Math.min(saved,Math.round(totMach*0.5))}</b> machines (an estimate — banks share upstream, so the savings overlap). Everything <i>not</i> in this list should run <b>un-slooped</b>; overclock those with Power Shards instead, which costs power but no sloops. Savings are estimates from the demand solver — the exact counts still come from the ⚡ MAX / 100% toggle.</div>`;
     rWrap.appendChild(al);
     const applyBtn=al.querySelector('#sloopApply'), inp=al.querySelector('#sloopOwn');
@@ -1136,7 +1136,7 @@ function computeExtras(){   // always solved with the recursion guards OFF — e
   try{ return computeExtras0(); } finally{ [_noPseudo,_noFuel,_noCoke]=fl; } }
 function computeExtras0(){
   let byPhase={}; const entries=[];
-  let last='';
+  let last='', last2='';
   for(let it=0;it<8;it++){
     _exWork=byPhase; _exTag='ex'+it+'|'+JSON.stringify(byPhase).length;
     _demOne={}; _demP={}; _demandCache={};
@@ -1148,8 +1148,10 @@ function computeExtras0(){
     const bc=buildCountsByPhase();
     for(let p=1;p<=5;p++) for(const b in bc[p]){ const c=BUILD_COST[b]; if(!c) continue;
       for(const item in c){ if(p===1&&!['Iron Rod','Wire','Reinforced Iron Plate','Rotor','Cable'].includes(item)) continue; put(chargePhase(item,p),item,c[item]*bc[p][b],'build:'+b,p); } }
+    const sig=JSON.stringify(nb);
+    if(sig===last2){ for(const q in byPhase) for(const k in byPhase[q]){ nb[q]=nb[q]||{}; nb[q][k]=Math.max(nb[q][k]||0,byPhase[q][k]); } byPhase=nb; entries.length=0; ne.forEach(e=>entries.push(e)); break; }   // 2-cycle: take the larger of the two
     byPhase=nb; entries.length=0; ne.forEach(e=>entries.push(e));
-    const sig=JSON.stringify(nb); if(sig===last) break; last=sig;
+    if(sig===last) break; last2=last; last=sig;
   }
   _exWork={}; _exTag=''; _demOne={}; _demP={}; _demandCache={};
   return {byPhase,entries}; }
@@ -1358,22 +1360,23 @@ function phaseDeliverMin(p){ const ds=DELIVERIES[p]||[]; let mx=0; ds.forEach(([
      'eq'    = my existing factory already covers this (adopting a running save)
      'skip'  = deliberately not doing this
    Only `number` counts as "built to plan" where that distinction matters. */
-function markStep(key,mode){ if(mode==='clear') delete state[key]; else state[key]=(mode==='done'?Date.now():mode); saveState(state); }
-function stepMode(key){ const v=state[key]; return v===undefined?null:(typeof v==='number'?'done':v); }
+function markStep(key,mode){ if(mode==='clear') delete state[key]; else { state[key]=(mode==='done'?Date.now():mode); if(mode!=='done') state._lastMark={k:key,t:Date.now()}; } saveState(state); }
+function stepMode(key){ const v=state[key]; return (v===undefined||v===0)?null:(typeof v==='number'?'done':v); }
 const MODE_LABEL={done:'✓ built',eq:'≈ already had it',skip:'⏭ skipped'};
 function tickKey(key){ markStep(key,'done'); }
+function held(k){ return Array.isArray(state._hold)&&state._hold.includes(k); }   // steps a migration proved you still have to build
 function backfillFinished(){ if(!state._backfill) return; delete state._backfill;
   const ms=masterSteps();
   ms.forEach(st=>{ const m=st.key.match(/^exp:([A-Z]+):(\d):/); if(m&&state[st.key]===undefined&&state['exp:'+m[1]+':'+m[2]]) state[st.key]=state['exp:'+m[1]+':'+m[2]]; });
   ms.forEach(st=>{ const m=st.key.match(/^(exp:[A-Z]+:\d:[A-Z-]+):\d+$/); if(m&&state[st.key]===undefined&&state[m[1]]) state[st.key]=state[m[1]]; });
   for(let p=1;p<=5;p++){ const dels=INVENTORY.filter(r=>r.phase===p&&r.category==='deliverable');
     if(!dels.length||!dels.every(r=>state[r.id])) continue;
-    ms.forEach(st=>{ if(st.phase<=p&&state[st.key]===undefined) state[st.key]=1; }); }
+    ms.forEach(st=>{ if(st.phase<=p&&state[st.key]===undefined&&!held(st.key)) state[st.key]=1; }); }
   // you are working in the latest phase you've ticked anything in — every earlier phase is behind you
   // (judged only by steps that never move phase: district pads and deliveries — a bank can
   //  move to a later phase between versions, e.g. AI Limiter now waits for its first consumer)
   let cur=0; ms.forEach(st=>{ if(state[st.key]&&(/^bp:[A-Z]+:pad$/.test(st.key)||st.deliv)) cur=Math.max(cur,st.phase); });
-  ms.forEach(st=>{ if(st.phase<cur&&state[st.key]===undefined) state[st.key]=1; });
+  ms.forEach(st=>{ if(st.phase<cur&&state[st.key]===undefined&&!held(st.key)) state[st.key]=1; });
   saveState(state); }
 function renderInventory(){ backfillFinished();
   const wrap=document.getElementById('invlist'); wrap.innerHTML=''; let tA=0,dA=0;
@@ -1521,6 +1524,7 @@ function renderInventory(){ backfillFinished();
     const ds=document.getElementById('doSkip'); if(ds) ds.onclick=()=>advance('skip'); }
   { const uj=document.getElementById('doUndoJump'); if(uj) uj.onclick=()=>{ (lastJump||[]).forEach(k=>delete state[k]); lastJump=null; saveState(state); renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); }; }
   { const du=document.getElementById('doUndo'); if(du) du.onclick=()=>{ let best=null,bt=0; ms.forEach(x=>{ const v=state[x.key]; if(typeof v==='number'&&v>bt){ bt=v; best=x; } });
+      const lm=state._lastMark; if(lm&&lm.t>bt&&typeof state[lm.k]==='string'){ best=ms.find(x=>x.key===lm.k)||best; delete state._lastMark; }   // a ≈ / ⏭ mark is newer than any tick
       if(best){ markStep(best.key,'clear'); _refocus='doNext'; renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); } };
     const df=document.getElementById('doFocus'); if(df) df.onclick=()=>setFocus(!focusMode); }
   // ----- focus mode: the card, what's coming, and nothing else -----
@@ -1598,7 +1602,7 @@ function renderInventory(){ backfillFinished();
 }
 document.getElementById('resetinv').onclick=()=>{ if(confirm('Reset all progress? (A one-shot backup is kept — 📥 Load code with "undo" to restore.)')){
   try{ lsSet(LS+'_undo', JSON.stringify(state)); }catch(e){}
-  state={_cfg:state._cfg,_mig:state._mig};   // keep _mig: a reset save is not an "old" one; clearing ticks is not a request to change the plan itself
+  state={_cfg:state._cfg,_mig:state._mig,_planv:PLAN_VERSION};   // keep _mig: a reset save is not an "old" one; clearing ticks is not a request to change the plan itself
   saveState(state); applyAlts(); applyCfg(); rerenderAll(); renderAltToggles();
   if(typeof buildBuildMap==='function') buildBuildMap();
   if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); } };
@@ -1737,7 +1741,9 @@ function migrateState(s){
     const MAPV={'P0-M3':['T1-LOG','T2-LOG2'],'P0-M4':['T2-PA'],'P0-M5':['T2-SINK'],'P0-M6':['T1-FR']};
     for(const o in MAPV){ if(s[o]) MAPV[o].forEach(id=>{ if(s['ms:'+id]===undefined) s['ms:'+id]=s[o]; }); delete s[o]; }
     if(s['P0-M1']&&Object.keys(s).some(k=>/^bp:A:/.test(k)&&s[k])&&s['ms:T1-BASE']===undefined) s['ms:T1-BASE']=1;
-    if(!s['bp:B:pad']) ['bp:B:pad','bp:B:T-COPPER','bp:B:T-WIRE','bp:B:T-CABLE'].forEach(k=>{ if(!s[k]) s[k]=0; });
+    const p2=INVENTORY.filter(r=>r.phase===2&&r.category==='deliverable').every(r=>s[r.id]);
+    ['bp:B:pad','bp:B:T-COPPER','bp:B:T-WIRE','bp:B:T-CABLE'].forEach(k=>{ if(s[k]===0) delete s[k]; });   // v14.0 wrote 0s — undo that
+    if(!s['bp:B:pad']&&!p2) s._hold=['bp:B:pad','bp:B:T-COPPER','bp:B:T-WIRE','bp:B:T-CABLE'].filter(k=>s[k]===undefined);
   }
   // 9) PLAN_VERSION bumps whenever steps are added to phases a save may have finished —
   //    re-run the backfill once; also undo step 3's old habit of ticking ★'s Phase-5 util early.
