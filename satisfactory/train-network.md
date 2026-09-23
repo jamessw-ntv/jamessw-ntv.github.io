@@ -71,9 +71,20 @@ to a manageable number of unload platforms.
 2. Belt buffers out to the consuming district.
 3. Name it (e.g. `ALU-UNLOAD`).
 
-**The train:** 1 Locomotive + 1–2 Freight Cars is plenty per spoke early.
-Set its **time table**: `ALU-LOAD → ALU-UNLOAD → (repeat)`. Tick **"wait until
+**Goods go both ways**, so each end gets **two** Freight Platforms: one set to
+**Load** (what leaves) and one to **Unload** (what arrives). The app's rail step asks
+for exactly that: 1 station + 2 platforms at each end.
+
+**The train:** 1 Locomotive + 2 Freight Cars (one per platform) is plenty per spoke
+early. Set its **time table**: `ALU-LOAD → ALU-UNLOAD → (repeat)`. Tick **"wait until
 fully loaded/unloaded"** so it self-paces.
+
+**Mixed cargo** unloads onto one belt. Sort it into containers with **Smart
+Splitters** (MAM Caterium research: 10 AI Limiter + 50 Reinforced Iron Plate — the app
+schedules it before the first rail step).
+
+**Far-to-far goods** (E's EM Control Rods to F, E's Alclad to G) ride via your core. One
+train can also run a loop `core → E → F → G → core`, stopping at each station.
 
 ---
 
@@ -115,6 +126,10 @@ buffer a few hundred so a hiccup doesn't ground the fleet.
 ---
 
 ## Signalling (only once lines share track)
+
+One train alone on its own track needs **no signals**. Signals come from the separate
+**Tier 6 Railway Signalling** milestone (50 Computer, 400 Steel Pipe, 1,000 Copper
+Sheet), which the app schedules in Phase 3.
 
 Keep it trivial with two signal types:
 
