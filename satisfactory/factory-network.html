@@ -226,8 +226,9 @@
 
   <section id="tab-inventory" class="tab active">
     <div id="warnbar" class="warnbar"></div>
-    <p class="hint" style="margin-top:0">Your guided to-do: the <b>▶ Do This Now</b> card always shows the single next thing to build (with where, machines, belt-mark, output) — tick <b>Done</b> and it advances. Or work any phase/section directly. <b>Tick anything you've already built</b> to mark it — it greys/colours green on the Build Map &amp; Blueprints too. Districts start small and <b>Expand …</b> steps grow them each phase (each pad leaves room for it).</p>
+    <p class="hint" style="margin-top:0"><b>Just follow the orange ▶ Do This Now card:</b> do what it says in-game, press <b>✓ Done — next</b>, repeat until launch. Everything else here is reference.</p>
     <div class="toolbar">
+      <button id="pacepill" title="How long you let each phase's deliveries run — click to change"></button>
       <button id="cfgpill" title="The plan setting every number depends on — click to toggle"></button>
       <button id="auditbtn" title="Walk your factory district by district and record what is actually standing">🔁 Audit my save</button>
       <button id="printinv">🖨️ Print manual</button>
@@ -431,7 +432,7 @@ function applyAlts(){
     const swapped={name:a.name,b:a.b,r:a.r,in:a.in,out:a.out,fp:a.fp,ph:std.ph,alt:id};
     if(a.by) swapped.by=a.by;                       // alts without a byproduct must not inherit one
     T[a.replaces]=swapped; });
-  if(typeof _demandCache!=='undefined'){ _demandCache={}; _demP={};
+  if(typeof _demandCache!=='undefined'){ _demandCache={}; _demP={}; _demOne={};
     _sloopCache={sig:null,rows:null}; _chCache={sig:null,map:null}; _fundedCache={sig:null,set:null}; }
 }
 
@@ -621,7 +622,7 @@ function treeMachines(item,rate){
 }
 let _sloopCache={sig:null,rows:null};
 function sloopRows(){
-  const sig=String(bpScale);
+  const sig=planSig();
   if(_sloopCache.sig===sig&&_sloopCache.rows) return _sloopCache.rows;
   const rows=[];
   DISTRICTS.forEach(d=>districtBanks(d,bpScale).forEach(b=>{
@@ -638,7 +639,7 @@ function sloopRows(){
    it should really run at, instead of every step claiming 250%+Somersloop. */
 let _fundedCache={sig:null,set:null};
 function sloopsOwned(){ const v=state._cfg&&+state._cfg.sloops; return (v||v===0)?v:106; }
-function sloopFundedSet(){ const sig=sloopsOwned()+'|'+bpScale+'|'+(bpMax?1:0);
+function sloopFundedSet(){ const sig=sloopsOwned()+'|'+planSig();
   if(_fundedCache.sig===sig&&_fundedCache.set) return _fundedCache.set;
   const s=new Set(); sloopPlan(sloopsOwned()).plan.forEach(r=>s.add(r.did+':'+r.tid));
   _fundedCache={sig,set:s}; return s; }
@@ -760,7 +761,7 @@ let auditList=null, auditIdx=0; // guided walk-your-save audit (adopting an exis
 function gotoMapStep(id){ const b=document.querySelector('nav button[data-tab="buildmap"]'); if(b) b.click(); const did=(typeof WORKS2DIST!=='undefined'&&WORKS2DIST[id])||id; if(BM_SEQI[did]!==undefined){ bmStep=BM_SEQI[did]; bmApply(); if(typeof showDistrict==='function') showDistrict(did); } }
 /* delivery ETA from the same design rates the whole plan is solved against
    (FINAL_RATES × scale) — one rate system, matching phaseDeliverMin. */
-function delivInfo(r){ const list=DELIVERIES[r.phase]||[]; const d=list.find(x=>x[0]===r.item&&x[1]===r.qty)||list.find(x=>x[0]===r.item); if(!d) return null; const rate=(FINAL_RATES[r.item]||0)*(bpScale||1); return {module:d[2],rate,min:rate?Math.round(r.qty/rate):0}; }
+function delivInfo(r){ const list=DELIVERIES[r.phase]||[]; const d=list.find(x=>x[0]===r.item&&x[1]===r.qty)||list.find(x=>x[0]===r.item); if(!d) return null; const rate=+finalRateReal(r.item,r.phase).toFixed(2); return {module:d[2],rate,min:rate?Math.round(r.qty/rate):0}; }
 function stripTags(s){ return String(s).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim(); }
 function invStep(r){ let det=r.note||''; if(r.category==='deliverable'){ const di=delivInfo(r); if(di&&di.min) det+=' · ≈ <b>'+di.min+' min</b> at '+di.rate+'/min'; }
   return {key:r.id,phase:r.phase,label:(r.qty!==''?r.qty+'× ':'')+r.item,detail:det,cat:r.category,deliv:r.category==='deliverable',district:r.category==='deliverable'?'PA':null}; }
@@ -769,7 +770,13 @@ function pushDistrict(out,d,p){ const banks=districtBanks(d);
   if(/train/.test(d.near)) out.push({key:'bp:'+d.id+':rail',phase:p,district:d.id,label:'🚆 '+d.id+': rail link to your core',detail:'Station + freight platform here; ship refined parts back, never raw ore. See train-network.md.'});
   const util=districtUtils(d,banks);
   if(util.length) out.push({key:'bp:'+d.id+':util',phase:p,district:d.id,label:'⚠ '+d.id+': utilities & byproducts (support lines)',detail:stripTags(util.join(' '))});
-  banks.forEach((bk,i)=>{ const now=bankNowCount(d,bk); out.push({key:'bp:'+d.id+':'+bk.tid,ai:i,phase:p,district:d.id,label:'['+d.id+'] §'+(i+1)+' '+bk.r+' — '+now+'× '+bk.b+(bk.n>now?' (→'+bk.n+')':''),detail:stripTags(bankStepHTML(d,banks,bk,i))}); }); }
+  pushBanks(out,d,banks,p); }
+/* the banks of district d that are first needed in phase p */
+function pushBanks(out,d,banks,p){
+  banks.forEach((bk,i)=>{ if(bankBuiltPhase(d,bk)!==p) return; const now=bankNowCount(d,bk);
+    out.push({key:'bp:'+d.id+':'+bk.tid,ai:i,phase:p,district:d.id,label:(d.id==='PA'?'[★ PA]':'['+d.id+']')+' §'+(i+1)+' '+bk.r+' — '+now+'× '+bk.b+(bk.n>now?' (→'+bk.n+')':''),html:bankStepHTML(d,banks,bk,i), get detail(){ return stripTags(this.html); }}); }); }
+/* banks of districts built in an earlier phase that are first needed now */
+function pushLateBanks(out,p){ DISTRICTS.forEach(d=>{ if(d.id==='PA'||d.phase>=p) return; pushBanks(out,d,districtBanks(d),p); }); }
 function pushPAphase(out,p){ const d=DMAP['PA'], banks=districtBanks(d);
   if(p===1){ out.push({key:'bp:PA:pad',phase:1,district:'PA',label:'★ Project Assembly — set up the pad by the Space Elevator',detail:'The Hub / Space Elevator area (built in Phase 0) is your ★ platform. Keep a flat space beside it for the final-part assemblers + a buffer of each part — this is the only zone that changes every phase.'});
   }
@@ -779,8 +786,13 @@ function pushPAphase(out,p){ const d=DMAP['PA'], banks=districtBanks(d);
   const uph=needs.length?Math.min(...needs):1;
   if(p===uph){ const putil=districtUtils(d,banks);
     if(putil.length) out.push({key:'bp:PA:util',phase:p,district:'PA',label:'⚠ ★ PA: utilities & byproducts (support lines)',detail:stripTags(putil.join(' '))}); }
-  banks.forEach((bk,i)=>{ if(T[bk.tid]&&T[bk.tid].ph===p){ const now=bankNowCount(d,bk); out.push({key:'bp:PA:'+bk.tid,ai:i,phase:p,district:'PA',label:'[★ PA] §'+(i+1)+' '+bk.r+' — '+now+'× '+bk.b+(bk.n>now?' (→'+bk.n+')':''),detail:stripTags(bankStepHTML(d,banks,bk,i))}); } }); }
-function bankBuiltPhase(d,bk){ return d.id==='PA' ? ((T[bk.tid]&&T[bk.tid].ph)||1) : d.phase; }
+  pushBanks(out,d,banks,p); }
+/* A bank is built in the first phase anything actually needs it — not "1× now" phases
+   early (that stole Reinforced Iron Plate from Smart Plating in Phase 1). Its district's
+   pad still goes down in the district's own phase, with the floor space reserved. */
+function bankBuiltPhase(d,bk){ const from=d.id==='PA'?1:d.phase;
+  for(let p=from;p<=5;p++) if(bankCountAt(bk.tid,p)>0) return p;
+  return d.id==='PA' ? ((T[bk.tid]&&T[bk.tid].ph)||1) : d.phase; }
 function bankNowCount(d,bk){ return Math.max(1,Math.min(bk.n,bankCountAt(bk.tid,bankBuiltPhase(d,bk)))); }
 /* The phase your TICKS say you're at — so "My progress" can show the factory as it
    should look right now, which is what makes ticking an "Expand …" step visibly change
@@ -816,6 +828,7 @@ function masterSteps(){ const out=[];
     const rows=PHASEROWS[p]||{}; const pushRows=ids=>(ids||[]).forEach(id=>{ const st=phaseRowStep(id); if(st) out.push(st); });
     pushRows(rows.pre);
     pushExpansions(out,p);          // grow the suppliers first, so the new consumers below get a full belt
+    pushLateBanks(out,p);           // banks of older districts whose first consumer arrives this phase
     DISTRICTS.filter(d=>d.id!=='PA'&&d.phase===p).forEach(d=>pushDistrict(out,d,p));
     pushRows(rows.post);
     pushPAphase(out,p);
@@ -843,7 +856,7 @@ function chapterRaw(s){
    when the plan settings change the step list. */
 let _chCache={sig:null,map:null};
 function chapterIndexMap(){
-  const sig=(bpMax?'1':'0')+'|'+bpScale;
+  const sig=planSig();
   if(_chCache.sig===sig&&_chCache.map) return _chCache.map;
   const m=new Map(); let run=0;
   masterSteps().forEach(s=>{ run=Math.max(run,chapterRaw(s)); m.set(s.key,run); });
@@ -853,7 +866,7 @@ function chapterOf(s){ if(!s) return 0; const v=chapterIndexMap().get(s.key); re
 /* the chapter your ticks say you're actually on — drives the Build Map's 📍 */
 function bmDerivedStep(){ const nx=masterSteps().find(s=>!state[s.key]); return nx?chapterOf(nx):BM_SEQ.length-1; }
 function fmtMin(m){ m=Math.round(m); return m<90?m+' min':(m/60).toFixed(1)+' h'; }
-function phaseDeliverMin(p){ const ds=DELIVERIES[p]||[]; let mx=0; ds.forEach(([item,qty])=>{ const r=FINAL_RATES[item]*(bpScale||1); if(r) mx=Math.max(mx,qty/r); }); return mx; }
+function phaseDeliverMin(p){ const ds=DELIVERIES[p]||[]; let mx=0; ds.forEach(([item,qty])=>{ const r=finalRateReal(item,p); if(r) mx=Math.max(mx,qty/r); }); return mx; }
 /* A step can be settled three ways, and all three are TRUTHY so every existing
    state[key] check keeps working and the guided card advances past all of them:
      number  = built to plan (a timestamp — powers the welcome-back context)
@@ -909,15 +922,22 @@ function renderInventory(){
   if(cp){ cp.textContent=(bpMax?'⚡ MAX ON':'🐢 100%')+(bpScale!==1?' · ×'+bpScale:'');
     cp.title='Counts assume '+(bpMax?'250% + Somersloop in every machine (~⅕ machines — end-game sloops required)':'100% clocks (full counts, no sloops needed)')+' — click to toggle';
     cp.onclick=()=>setPlanMax(!bpMax); }
+  const pp=document.getElementById('pacepill');
+  if(pp){ const pc=PACES[bpPace]; pp.textContent=pc.label+' pace'; pp.title=pc.desc+' — click to change (Minimum → Balanced → Fast)';
+    pp.onclick=()=>{ const order=['minimum','balanced','fast']; setPace(order[(order.indexOf(bpPace)+1)%3]); }; }
   // ----- first run: settle the one plan setting before showing counts -----
   if(!state._cfg && done0===0){
     const fr=document.createElement('div'); fr.className='invphase'; fr.style.borderColor='var(--teal)';
-    fr.innerHTML=`<h3 style="background:#0f2a26">⚙ One question before the numbers</h3><div style="padding:12px 16px"><div class="nt" style="margin-bottom:9px">How will you run your machines? This sets <b>every machine count, kit list and power figure</b> in the plan — pick 100% unless you already have a mountain of Power Shards &amp; Somersloops. (Change any time: the ⚡ pill above, or 📐 Blueprints.)</div>
-      <button class="pbtn" id="fr100" style="font-weight:700;border-color:var(--teal)">🐢 100% — full machine counts, nothing special needed</button>
-      <button class="pbtn" id="frMax" style="font-weight:700">⚡ MAX — 250% + Somersloop, ~⅕ the machines (end-game resources)</button></div>`;
+    const sizes={}; ['minimum','balanced','fast'].forEach(k=>{ const keep=bpPace; bpPace=k; let n=0; DISTRICTS.forEach(d=>districtBanks(d).forEach(b=>n+=b.n)); sizes[k]=n; bpPace=keep; });
+    fr.innerHTML=`<h3 style="background:#0f2a26">⚙ One question before the numbers</h3><div style="padding:12px 16px"><div class="nt" style="margin-bottom:9px">How patient are you? Once a phase's lines are built, its deliveries just <b>run</b> while you build the next district — so waiting longer costs little real time and means <b>far fewer machines</b>. (Change any time with the pace pill above.)</div>
+      <button class="pbtn" id="frMin" style="font-weight:700;border-color:var(--teal)">🐢 Minimum — ~${sizes.minimum} machines, up to ~8 h per phase (recommended)</button>
+      <button class="pbtn" id="frBal" style="font-weight:700">⚖ Balanced — ~${sizes.balanced} machines, up to ~4 h per phase</button>
+      <button class="pbtn" id="frFast" style="font-weight:700">🚀 Fast — ~${sizes.fast} machines, the original design rates</button>
+      <div class="nt" style="margin-top:8px;color:var(--muted)">All at 100% clock speed — nothing special needed. Got a pile of Power Shards? The ⚡ pill switches to 250% overclock later.</div></div>`;
     wrap.appendChild(fr);
-    fr.querySelector('#fr100').onclick=()=>setPlanMax(false);
-    fr.querySelector('#frMax').onclick=()=>setPlanMax(true);
+    fr.querySelector('#frMin').onclick=()=>setPace('minimum');
+    fr.querySelector('#frBal').onclick=()=>setPace('balanced');
+    fr.querySelector('#frFast').onclick=()=>setPace('fast');
   }
   // ----- welcome back: last-tick context after a break -----
   const tickTimes=ms.filter(s=>typeof state[s.key]==='number'&&state[s.key]>1e12).map(s=>({s,t:state[s.key]})).sort((a,b)=>b.t-a.t);
@@ -941,7 +961,7 @@ function renderInventory(){
         <div style="font-size:12.5px;color:var(--muted);margin-bottom:2px"><b style="color:var(--txt)">📖 Chapter ${chIdx+1}/${BM_SEQ.length} — ${chp.t}</b> · task ${chPos} of ${chSteps.length}</div>
         <div style="font-size:12px;color:#9fb0c0;margin-bottom:9px">${chp.d}</div>
         <div style="font-size:16px;font-weight:700;color:var(--orange)">Step ${nextNo} — ${next.label}</div>
-        <div class="nt" style="margin:5px 0 9px">${next.detail||''}</div>
+        <div class="nt" style="margin:5px 0 9px">${next.html||next.detail||''}</div>
         ${arrive?`<div style="font-size:12px;color:var(--teal);margin-bottom:10px">▲ ${dist===0?'This is the delivery':`${dist} step${dist>1?'s':''} until`}: <b>${arrive.label}</b></div>`:''}
         <button class="pbtn" id="doNext" style="background:var(--orange);color:#1a1205;border-color:var(--orange);font-weight:700">✓ Done — next</button>`+
         ` <button class="pbtn" id="doEq" title="My existing factory already covers this — count it and move on, but don't claim it was built to this plan">≈ Already have it</button>`+
@@ -979,7 +999,7 @@ function renderInventory(){
     sec.innerHTML=`<h3><span class="chip p${p}">Phase ${p}</span> ${PHASE_NAMES[p]}<div class="prog"><i style="width:${pct}%"></i></div><span class="pct">${done}/${steps.length} · ${pct}%${nEq?` <span style="color:#ffce8a">≈${nEq}</span>`:''}${nSkip?` <span style="color:var(--muted)">⏭${nSkip}</span>`:''}</span><button class="pbtn phdone" data-p="${p}" style="margin-left:8px;padding:3px 9px">${done===steps.length?'↺ undo':'✓ all'}</button></h3>`;
     { const pm=phaseDeliverMin(p);
       if(pm){ // name the long pole: that is the line to stand up first and let it bank
-        let slow=null,slowMin=0; (DELIVERIES[p]||[]).forEach(([item,qty])=>{ const r=(FINAL_RATES[item]||0)*(bpScale||1); if(r&&qty/r>slowMin){ slowMin=qty/r; slow=item; } });
+        let slow=null,slowMin=0; (DELIVERIES[p]||[]).forEach(([item,qty])=>{ const r=finalRateReal(item,p); if(r&&qty/r>slowMin){ slowMin=qty/r; slow=item; } });
         sec.innerHTML+=`<div style="padding:1px 16px 6px;color:var(--muted);font-size:12px">⏱ once built, ~<b>${fmtMin(pm)}</b> of running to hit this phase's deliveries (lines run in parallel${bpScale!==1?', at ×'+bpScale+' rate':''}).${slow?` <b style="color:#ffce8a">Long pole: ${slow}</b> (${fmtMin(slowMin)}) — build that line <b>first</b> and let it bank into containers while you do the rest.`:''}</div>`; } }
     // the overclock ramp, priced: shards are the other finite resource (~730 from wild slugs
     // until Synthetic Power Shards arrive at Tier 9), so show the running bill per phase
@@ -1007,7 +1027,7 @@ function renderInventory(){
       const modeChip=mode==='eq'?` <span class="tag qty" style="background:#3a2a12;color:#ffce8a">≈ existing line — verify it actually makes ${s.ai!=null?'the rate below':'this'}</span>`
         :(mode==='skip'?` <span class="tag milestone">⏭ skipped</span>`:'');
       const cyc=` <span class="u" data-cyc="${s.key}" title="Cycle: built → ≈ already have it → ⏭ skipped → not done">⟳</span>`;
-      row.innerHTML=`<input type="checkbox" data-key="${s.key}" aria-label="Step ${no} — ${stripTags(s.label)}" ${ch?'checked':''}><div class="it"><div class="nm">${isNext?'▶ ':''}<b style="color:#8b97a3">Step ${no}</b> — ${tag}${s.label}${links}${cyc}${modeChip}</div><div class="nt">${s.detail||''}</div></div>`;
+      row.innerHTML=`<input type="checkbox" data-key="${s.key}" aria-label="Step ${no} — ${stripTags(s.label)}" ${ch?'checked':''}><div class="it"><div class="nm">${isNext?'▶ ':''}<b style="color:#8b97a3">Step ${no}</b> — ${tag}${s.label}${links}${cyc}${modeChip}</div><div class="nt">${s.html||s.detail||''}</div></div>`;
       row.querySelector('input').onchange=e=>{ markStep(s.key,e.target.checked?'done':'clear'); _refocus=s.key; renderInventory(); if(typeof renderBlueprints==='function') renderBlueprints(); if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); };
       const cycEl=row.querySelector('[data-cyc]');
       if(cycEl) cycEl.onclick=ev=>{ ev.stopPropagation(); const nx={null:'done',done:'eq',eq:'skip',skip:'clear'}[String(mode)];
@@ -1124,6 +1144,12 @@ function migrateState(s){
       const rows=PHASEROWS[p]||{}; [].concat(rows.pre||[],rows.post||[]).forEach(id=>{ if(s[id]===undefined) s[id]=1; });
     }
     s._mig=2;
+  }
+  // 5) Pace arrived in plan v3. A save with progress was built to the original design
+  //    rates, so it keeps them ('fast'); new saves start at 'minimum'.
+  if((s._mig||0)<3){
+    if(hasProgress&&!(s._cfg&&s._cfg.pace)) s._cfg=Object.assign({},s._cfg,{pace:'fast'});
+    s._mig=3;
   }
   return s;
 }
@@ -1463,7 +1489,7 @@ function carrierName(cap){ return ({120:'Mk.2',270:'Mk.3',480:'Mk.4',780:'Mk.5',
    the belt you have at each phase: e.g. "Mk.2 → Mk.4 (P3) → 2× Mk.6 (P5)". */
 function beltUpgradePath(item,builtPhase){ const fluid=isFluidItem(item); const tiers=fluid?[300,600]:[120,270,480,780,1200];
   const out=[]; let prev='';
-  for(let p=builtPhase;p<=5;p++){ const rate=(solveDemandPhase(p,bpScale)[item]||0); if(rate<=0) continue;
+  for(let p=builtPhase;p<=5;p++){ const rate=(solveDemandPhase(p)[item]||0); if(rate<=0) continue;
     const cap=fluid?pipeCapAtPhase(p):beltCapAtPhase(p); const avail=tiers.filter(c=>c<=cap+0.01); if(!avail.length) continue;
     let pick=avail.find(c=>c>=rate-0.01), lanes=1; if(!pick){ pick=avail[avail.length-1]; lanes=Math.ceil(rate/pick); }
     const lbl=(lanes>1?lanes+'× ':'')+carrierName(pick);
@@ -1486,22 +1512,34 @@ function machinesPerLane(t){ const eff=bpMax?MAXFACTOR:1; let mn=Infinity;
    machines → merger → output belt bus (purple), on a foundation grid. */
 const ITEM2DIST={}, ITEM2SECT={};
 DISTRICTS.forEach(d=>d.t.forEach((tid,i)=>{ const t=T[tid]; if(t){ ITEM2DIST[t.out[0]]=d.id; ITEM2SECT[t.out[0]]=i; } }));
+/* PACE — how long you let each phase's deliveries run once its lines are built. The
+   factory is idle-time you spend building the next district anyway, so a slower pace costs
+   little real time and shrinks EVERY bank. 'fast' keeps the original design rates above. */
+const PACES={
+  minimum:{label:'🐢 Minimum',min:480,desc:'fewest machines — each phase\'s deliveries take up to ~8 h of running (build the next district meanwhile)'},
+  balanced:{label:'⚖ Balanced',min:240,desc:'each phase\'s deliveries take up to ~4 h of running'},
+  fast:{label:'🚀 Fast',min:null,desc:'the original design rates — the biggest factory, Phase 5 in ~4 h'}};
 /* ⚡ MAX and ×scale are PLAN settings — persisted with your ticks so the plan
    you see is the plan you saved, on every device, every session. */
 let bpMod='A', bpHi=-1,
     bpScale=(state._cfg&&state._cfg.scale)||1,
     bpMax=(state._cfg&&typeof state._cfg.max==='boolean')?state._cfg.max:false,
+    bpPace=(state._cfg&&PACES[state._cfg.pace])?state._cfg.pace:'minimum',
     bpZoom=1;
+/* one signature for "which plan am I looking at" — every solver cache keys on it */
+function planSig(){ return (bpMax?'1':'0')+'|'+bpScale+'|'+bpPace; }
 /* MAX/100% changes every count on every tab — so redraw every tab, not just the one
    you clicked in (the others used to keep showing the old mode until a reload). */
-function setPlanMax(v){ bpMax=!!v; saveCfg();
-  renderCards(); renderShopping(); renderInventory(); renderBlueprints(); buildBuildMap(); renderFlowOverview(); }
-function saveCfg(){ state._cfg=Object.assign({},state._cfg,{max:bpMax,scale:bpScale}); saveState(state); _chCache.sig=null; }
+function rerenderAll(){ renderCards(); renderTemplates(); renderShopping(); renderInventory(); renderBlueprints(); buildBuildMap(); renderFlowOverview(); }
+function setPlanMax(v){ bpMax=!!v; saveCfg(); rerenderAll(); }
+function setPace(v){ if(!PACES[v]) return; bpPace=v; saveCfg(); rerenderAll(); }
+function saveCfg(){ state._cfg=Object.assign({},state._cfg,{max:bpMax,scale:bpScale,pace:bpPace}); saveState(state); _chCache.sig=null; }
 /* re-read the plan settings OUT of state — needed after any wholesale state replacement
    (Load code, undo, Reset), otherwise the live plan silently disagrees with the saved one. */
 function applyCfg(){ bpScale=(state._cfg&&state._cfg.scale)||1;
   bpMax=(state._cfg&&typeof state._cfg.max==='boolean')?state._cfg.max:false;
-  _chCache.sig=null; _demandCache={}; _demP={}; }
+  bpPace=(state._cfg&&PACES[state._cfg.pace])?state._cfg.pace:'minimum';
+  _chCache.sig=null; _demandCache={}; _demP={}; _demOne={}; }
 /* MAX mode: every production machine runs at 250% (3 Power Shards) AND holds a
    Somersloop (2× output) → 5× throughput each, so you build ~1/5 the machines.
    The user is collecting enough slugs/sloops to do this everywhere. */
@@ -1523,23 +1561,44 @@ const FINAL_RATES={'Smart Plating':10,'Versatile Framework':20,'Automated Wiring
  'Modular Engine':4,'Adaptive Control Unit':0.8,'Assembly Director System':4,
  'Magnetic Field Generator':4,'Thermal Propulsion Rocket':2,'Nuclear Pasta':4,
  'Biochemical Sculptor':4,'AI Expansion Server':1,'Ballistic Warp Drive':0.8};
-let _demandCache={};
-function solveDemand(scale){ scale=scale||1; const key=''+scale; if(_demandCache[key]) return _demandCache[key];
-  const producible=new Set(), prod={};
-  DISTRICTS.forEach(d=>d.t.forEach(tid=>{ const it=T[tid].out[0]; producible.add(it); prod[it]=tid; }));
+/* the rate a FINAL part is DESIGNED for while phase p's deliveries run (what the banks
+   are sized to). The real rate is usually higher — see phaseSpeedup. */
+function finalRate(item,p){ const pace=PACES[bpPace]||PACES.minimum, scale=bpScale||1;
+  if(!pace.min) return (FINAL_RATES[item]||0)*scale;
+  const d=(DELIVERIES[p]||[]).find(x=>x[0]===item); if(!d) return 0;
+  return d[1]/pace.min*scale; }
+/* Machine counts round UP, so a phase's lines can run faster than designed — by the
+   slack of the tightest bank the phase uses (≥1). Small phases (where every bank is one
+   machine) finish far sooner than the pace target; this makes the ETAs honest. */
+function phaseSpeedup(p){ const one=solvePhaseOnly(p), eff=bpMax?MAXFACTOR:1; let f=Infinity;
+  DISTRICTS.forEach(d=>d.t.forEach(tid=>{ const t=T[tid], D=one[t.out[0]]||0; if(D<=0) return;
+    f=Math.min(f, bankCountAt(tid,p)*t.out[1]*eff/D); }));
+  return isFinite(f)?Math.max(1,f):1; }
+function finalRateReal(item,p){ return finalRate(item,p)*phaseSpeedup(p); }
+/* demand for ONE phase on its own: only the finals delivered in phase p, back-propagated.
+   Banks are then sized to the busiest single phase — finished deliveries stop drawing. */
+let _demOne={};
+function solvePhaseOnly(p){ const key=p+'|'+planSig(); if(_demOne[key]) return _demOne[key];
+  const producible=new Set(),prod={}; DISTRICTS.forEach(d=>d.t.forEach(tid=>{const it=T[tid].out[0];producible.add(it);prod[it]=tid;}));
+  const seed={}; (DELIVERIES[p]||[]).forEach(([item])=>{ seed[item]=(seed[item]||0)+finalRate(item,p); });
+  PSEUDO_FINALS.forEach(f=>{ const r=f.rate(p); if(r>0) seed[f.item]=(seed[f.item]||0)+r; });
   let demand={};
-  for(let iter=0;iter<80;iter++){ const nd={};
-    for(const k in FINAL_RATES) nd[k]=(nd[k]||0)+FINAL_RATES[k]*scale;
-    producible.forEach(item=>{ const D=demand[item]||0; if(D<=0) return; const t=T[prod[item]], mf=D/t.out[1];
-      t.in.forEach(([inp,r])=>{ if(producible.has(inp)) nd[inp]=(nd[inp]||0)+mf*r; }); });
+  for(let iter=0;iter<80;iter++){ const nd=Object.assign({},seed);
+    producible.forEach(item=>{ const D=demand[item]||0; if(D<=0)return; const t=T[prod[item]],mf=D/t.out[1]; t.in.forEach(([inp,r])=>{ if(producible.has(inp)) nd[inp]=(nd[inp]||0)+mf*r; }); });
     // A byproduct is SUPPLY: recycled scrap water, alumina's silica and the Quantum
     // Encoders' dark-matter residue all reduce what you must actually make. Crediting it
     // here is what makes the machine counts match the routing advice the steps give.
     const credit=byproductCredit(demand,prod,producible);
     for(const k in credit) if(nd[k]!==undefined) nd[k]=Math.max(0,nd[k]-credit[k]);
-    demand=nd;
-  }
-  _demandCache[key]={demand,prod,producible}; return _demandCache[key];
+    demand=nd; }
+  _demOne[key]=demand; return demand; }
+/* extra demand that is not an elevator part (e.g. nuclear fuel rods) — filled in below */
+const PSEUDO_FINALS=[];
+let _demandCache={};
+function solveDemand(scale){ const key=planSig(); if(_demandCache[key]) return _demandCache[key];
+  const producible=new Set(), prod={};
+  DISTRICTS.forEach(d=>d.t.forEach(tid=>{ const it=T[tid].out[0]; producible.add(it); prod[it]=tid; }));
+  _demandCache[key]={demand:solveDemandPhase(5),prod,producible}; return _demandCache[key];
 }
 /* per-minute byproduct supply implied by a demand solution (keyed by item) */
 function byproductCredit(demand,prod,producible){ const by={};
@@ -1892,17 +1951,12 @@ function bankStepHTML(d,banks,bk,i){
    build a small block now and expand it as later consumers come online). */
 const FINAL_PHASE={'Smart Plating':1,'Versatile Framework':2,'Automated Wiring':2,'Modular Engine':3,'Adaptive Control Unit':3,'Assembly Director System':4,'Magnetic Field Generator':4,'Thermal Propulsion Rocket':4,'Nuclear Pasta':4,'Biochemical Sculptor':5,'AI Expansion Server':5,'Ballistic Warp Drive':5};
 let _demP={};
-function solveDemandPhase(p,scale){ scale=scale||1; const key=p+'|'+scale; if(_demP[key]) return _demP[key];
-  const producible=new Set(),prod={}; DISTRICTS.forEach(d=>d.t.forEach(tid=>{const it=T[tid].out[0];producible.add(it);prod[it]=tid;}));
-  let demand={};
-  for(let iter=0;iter<80;iter++){ const nd={};
-    for(const k in FINAL_RATES){ if((FINAL_PHASE[k]||1)<=p) nd[k]=(nd[k]||0)+FINAL_RATES[k]*scale; }
-    producible.forEach(item=>{ const D=demand[item]||0; if(D<=0)return; const t=T[prod[item]],mf=D/t.out[1]; t.in.forEach(([inp,r])=>{ if(producible.has(inp)) nd[inp]=(nd[inp]||0)+mf*r; }); });
-    const credit=byproductCredit(demand,prod,producible);            // same credit, per phase
-    for(const k in credit) if(nd[k]!==undefined) nd[k]=Math.max(0,nd[k]-credit[k]);
-    demand=nd; }
+/* how big each bank must be by the END of phase p = the busiest single phase so far */
+function solveDemandPhase(p){ const key=p+'|'+planSig(); if(_demP[key]) return _demP[key];
+  const demand={};
+  for(let q=1;q<=p;q++){ const one=solvePhaseOnly(q); for(const k in one) demand[k]=Math.max(demand[k]||0,one[k]); }
   _demP[key]=demand; return demand; }
-function bankCountAt(tid,p){ const t=T[tid],eff=bpMax?MAXFACTOR:1, D=solveDemandPhase(p,bpScale)[t.out[0]]||0; return Math.max(0,Math.ceil(D/t.out[1]/eff)); }
+function bankCountAt(tid,p){ const t=T[tid],eff=bpMax?MAXFACTOR:1, D=solveDemandPhase(p)[t.out[0]]||0; return Math.max(0,Math.ceil(D/t.out[1]/eff)); }
 const BELTCAP=1200; // Mk.6 /min — split a trunk into lanes above this
 /* drill-down: realistic belt WEB for one bank — double-sided manifold, multiple
    belt lanes when the rate tops a belt, and build-now (solid) vs expand-later (grey). */
