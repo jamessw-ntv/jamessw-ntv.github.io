@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-23",
-    "fetched": "2026-09-23T05:44:21+00:00",
+    "fetched": "2026-09-23T11:14:42+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 8
+      "temp": 12,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 5
     },
     "days": [
       {
@@ -34,9 +34,9 @@
       {
         "day": "Fri",
         "min": 14,
-        "max": 24,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "max": 26,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
         "rain": 53
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 122216.0,
-        "pct": 1.93
+        "price": 121172.0,
+        "pct": 0.31
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3898.84,
-        "pct": 1.63
+        "price": 3861.35,
+        "pct": 0.24
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "ECAM Incubator Title ‘The Woodworm’ Explores Female Identity in the Shadow of an Artist Father",
+      "title": "‘You Crazy Thing’ Director Miia Tervo Proves That Everyone Deserves to Be Seen – and That Perfection Is Boring (EXCLUSIVE)",
       "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/global/global/ecam-incubator-title-the-woodworm-laura-obradors-1236867632/"
+      "url": "https://variety.com/2026/film/global/you-crazy-thing-finland-miia-tervo-first-look-exclusive-1236872997/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Fluorescent, Dirty and Sexy’: Eire Cid’s ‘The Imaginary Kings’ Presented at Madrid Film School (ECAM) Incubator",
+      "title": "White House Says Trump’s Ban of CNN, MS NOW and Politico Does Not Violate First Amendment: Access ‘Is a Privilege — Not a Right’",
       "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/eire-cid-the-imaginary-kings-ecam-incubator-2026-1236856874/"
+      "url": "https://variety.com/2026/politics/news/white-house-defends-trump-cnn-ban-filing-access-privilege-1236873037/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sister Group Strikes Partnership With Branded Entertainment Company Common Interest, Makes Minority Investment",
+      "title": "‘Ah Girl,’ ‘The Sea Speaks His Name’ to Bookend Jakarta Film Week",
       "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/sister-group-strikes-partnership-company-common-interest-1236872327/"
+      "url": "https://variety.com/2026/film/festivals/ah-girl-the-sea-speaks-his-name-jakarta-film-week-1236873054/"
     },
     {
       "cat": "Film/TV",
-      "title": "Robert Pattinson Says ‘The Batman 2’ Is ‘So Ambitious’ and a ‘Different Take’ on the Franchise: ‘It’s a Real Left Turn From the First’",
+      "title": "Why the ‘Anomaly’ and ‘Surprise’ of ‘Obsession’ and ‘Backrooms’ Shouldn’t Guide Where the Industry Looks Next",
       "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/robert-pattinson-batman-2-different-take-1236872971/"
+      "url": "https://variety.com/2026/film/news/why-obsession-and-backrooms-shouldnt-guide-industry-1236873011/"
     },
     {
       "cat": "Trek/Wars",
