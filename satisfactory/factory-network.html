@@ -1008,8 +1008,9 @@ function invStep(r){ let det=r.note||''; if(r.category==='deliverable'){ det+=' 
 function pushDistrict(out,d,p){ const banks=districtBanks(d);
   // what the district will eat at full size — pick a site with these nodes in belt range
   const need={}; banks.forEach(bk=>bk.inputs.forEach(([it,r])=>{ if(!ITEM2DIST[it]&&!NOT_MINED.has(it)) need[it]=(need[it]||0)+r; }));
+  banks.forEach(bk=>{ const tb=T[bk.tid].by; if(tb&&need[tb[0]]) need[tb[0]]=Math.max(0,need[tb[0]]-bk.outRate/T[bk.tid].out[1]*tb[1]); });   // recycled byproduct isn't a node you need
   const needTxt=Object.keys(need).sort((a,b)=>need[b]-need[a]).map(it=>{ const r=Math.round(need[it]);
-    if(it==='Water') return `<b>Water ${r} m³/min</b> (${Math.ceil(r/120)} extractors)`;
+    if(it==='Water') return `<b>fresh Water ${r} m³/min</b> (${Math.ceil(r/120)} extractors)`;
     if(it==='Crude Oil') return `<b>Crude ${r} m³/min</b> (~${Math.ceil(r/120)} normal / ${Math.ceil(r/240)} pure oil nodes)`;
     if(it==='Nitrogen Gas') return `<b>Nitrogen ${r} m³/min</b> (a nitrogen <b>resource well</b> — ~${Math.ceil(r/60)} normal satellites; put the pad AT the well, nitrogen doesn't travel well)`;
     if(isFluidItem(it)) return `<b>${it} ${r} m³/min</b>`;
@@ -2583,7 +2584,7 @@ function districtUtils(d,banks){
   const water=banks.reduce((s,b)=>{ const w=b.inputs.find(x=>x[0]==='Water'); return s+(w?w[1]:0); },0);
   const byTot={}; banks.forEach(b=>{ const tb=T[b.tid].by; if(tb) byTot[tb[0]]=(byTot[tb[0]]||0)+(b.outRate/T[b.tid].out[1])*tb[1]; });
   const byWater=byTot['Water']||0;
-  if(water>0) util.push(`💧 <b>Water:</b> pump ~<b>${Math.round(Math.max(0,water-byWater))}/min</b> fresh from the nearest lake (watch head-lift — add extra pumps per 20–30 m climb)${byWater?` — the other ~${Math.round(Math.min(water,byWater))}/min comes back as byproduct water (see ♻️ below)`:''} and pipe it in.`);
+  if(water>0) util.push(`💧 <b>Water:</b> pump ~<b>${Math.round(Math.max(0,water-byWater))}/min</b> fresh (<b>${Math.ceil(Math.max(0,water-byWater)/120)}× Water Extractor</b> on one shared water main that every section tees off — cheaper than one set per section) from the nearest lake (watch head-lift — add extra pumps per 20–30 m climb)${byWater?` — the other ~${Math.round(Math.min(water,byWater))}/min comes back as byproduct water (see ♻️ below)`:''} and pipe it in.`);
   if(byTot['Heavy Oil Residue']){ const hor=byTot['Heavy Oil Residue'], refs=Math.ceil(hor/60), fuel=Math.round(hor*2/3), gens=Math.floor(fuel/20);
     util.push(`🛢 <b>Heavy Oil Residue</b> (~${Math.round(hor)}/min at full size): a fluid, so it can't go in a sink — pipe it into this district's <b>Petroleum Coke</b> bank (40 residue → 120 coke) and belt the coke to an <b>AWESOME Sink</b>. That bank grows with the residue each phase. If residue backs up, Plastic and Rubber stop.`); }
   if(byWater) util.push(`♻️ <b>Scrap byproduct water ~${Math.round(byWater)}/min:</b> loop it back into the Alumina refineries through a <b>valve</b> (byproduct line gets priority; top up with fresh). If it backs up, the entire aluminium chain deadlocks — the most common late-game stall.`);
@@ -2602,7 +2603,7 @@ function carrierCap(item,rate,cap){ const fluid=isFluidItem(item); const tiers=f
   let pick=tiers.find(c=>c>=rate-0.01), lanes=1; if(!pick){ pick=tiers[tiers.length-1]; lanes=Math.ceil(rate/pick); }
   return {label:(lanes>1?lanes+'× ':'')+carrierName(pick), carrier:fluid?'pipe':'belt'}; }
 function rawSource(item,rate,p,mk2,mk3){ if(mk2===undefined) mk2=p>=2;
-  if(item==='Water') return `${Math.ceil(rate/120)}× Water Extractor (120/min each)`;
+  if(item==='Water') return `the district's water main (≈${Math.ceil(rate/120)}× Water Extractor's worth, 120/min each)`;
   if(item==='Crude Oil') return `${Math.ceil(rate/120)}× Oil Extractor on normal nodes (120/min each; pure 240)`;
   if(item==='Nitrogen Gas') return `Resource Well Extractors on a nitrogen well (~60/min per normal satellite) — see the 💨 Nitrogen step`;
   if(isFluidItem(item)) return 'pump & pipe in';
@@ -2615,6 +2616,9 @@ function bankStepHTML(d,banks,bk,i,ctx){
   ctx=ctx||{belt:beltCapAtPhase(bp),mk2:bp>=2};
   const t=T[bk.tid], eff=bpMax?MAXFACTOR:1, Dnow=Math.min(solveDemandPhase(bp)[bk.outItem]||bk.outRate, now*t.out[1]*eff);
   const byHere={}; banks.forEach(b2=>{ const tb2=T[b2.tid].by; if(tb2&&b2!==bk){ const r=(solveDemandPhase(bp)[b2.outItem]||0)/T[b2.tid].out[1]*tb2[1]; if(r>0) byHere[tb2[0]]=(byHere[tb2[0]]||0)+r; } });
+  // earlier sections take the recycled byproduct first — only what they leave reaches this one
+  for(let j=0;j<i;j++){ const b2=banks[j], t2=T[b2.tid], D2=solveDemandPhase(bp)[b2.outItem]||0;
+    t2.in.forEach(([it,r])=>{ if(byHere[it]) byHere[it]=Math.max(0,byHere[it]-D2/t2.out[1]*r); }); }
   const shape = total>perLane ? (perLane===1?`a row, one input belt per machine`:`rows of ${perLane} (one input belt each)`) : `one row`;
   const place = total>now ? `<b>${now}× ${bk.b}</b> now — leave room for <b>${total}×</b> in ${shape}` : `<b>${total}× ${bk.b}</b> in ${shape}`;
   const delivered0=(DELIVERIES[bp]||[]).some(x=>x[0]===bk.outItem);
