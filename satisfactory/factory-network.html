@@ -424,6 +424,21 @@ const ALTS={
  'A-COATEDPLATE':{replaces:'T-PLATE',label:'Coated Iron Plate',name:'Coated Iron Plate cell',b:'Assembler',r:'Coated Iron Plate',
    in:[['Iron Ingot',37.5],['Plastic',7.5]],out:['Iron Plate',75],fp:'2×3',
    why:'Far more plate per ingot. Note it makes Ironworks depend on Plastic, so only switch after the oil district is running.'},
+ 'A-PURECOPPER':{replaces:'T-COPPER',label:'Pure Copper Ingot',name:'Pure Copper Ingot line',b:'Refinery',r:'Pure Copper Ingot',
+   in:[['Copper Ore',15],['Water',10]],out:['Copper Ingot',37.5],fp:'2×4',
+   why:'2.5 ingots per ore instead of 1 — cuts copper ORE by 60%, the fix when your copper nodes run out (Nuclear Pasta alone eats ~2,750 ingots/min). Needs Oil Processing (Refinery) and water.'},
+ 'A-FUSEDWIRE':{replaces:'T-WIRE',label:'Fused Wire',name:'Fused Wire cell',b:'Assembler',r:'Fused Wire',
+   in:[['Copper Ingot',12],['Caterium Ingot',3]],out:['Wire',90],fp:'2×3',
+   why:'6 wire per copper ingot instead of 2 (plus a little caterium) — shrinks the whole copper chain.'},
+ 'A-SOLIDSTEEL':{replaces:'T-STEEL',label:'Solid Steel Ingot',name:'Solid Steel Ingot line',b:'Foundry',r:'Solid Steel Ingot',
+   in:[['Iron Ingot',40],['Coal',40]],out:['Steel Ingot',60],fp:'2×3',
+   why:'A third less coal per steel ingot — the first thing to switch if your coal nodes are thin.'},
+ 'A-OILDIAMONDS':{replaces:'T-DIAMONDS',label:'Oil-Based Diamonds',name:'Oil-Based Diamonds cell',b:'Particle Accelerator',r:'Oil-Based Diamonds',
+   in:[['Crude Oil',200]],out:['Diamonds',40],fp:'4×5',
+   why:'Diamonds from crude instead of 600 coal/min per accelerator — removes the biggest coal eater. Build this bank by the oil (next to D) rather than in C.'},
+ 'A-PUREIRON':{replaces:'T-IRON',label:'Pure Iron Ingot',name:'Pure Iron Ingot line',b:'Refinery',r:'Pure Iron Ingot',
+   in:[['Iron Ore',35],['Water',20]],out:['Iron Ingot',65],fp:'2×4',
+   why:'~1.9 ingots per ore — nearly halves iron ore. Needs Oil Processing (Refinery) and water, so switch in Phase 3+.'},
  'A-SLOPPYALUMINA':{replaces:'T-ALUMINA',label:'Sloppy Alumina',name:'Sloppy Alumina line',b:'Refinery',r:'Sloppy Alumina',
    in:[['Bauxite',200],['Water',200]],out:['Alumina Solution',240],fp:'2×4',
    why:'More alumina per refinery. Costs more bauxite per unit but cuts the machine count and the water loop in the aluminium chain.'},
@@ -763,7 +778,7 @@ function renderShopping(){
   const ns=document.createElement('div'); ns.className='shopphase';
   ns.innerHTML=`<h3>🪨 Raw nodes to claim — whole build ${bpMax?'(MAX: miners overclocked too)':'(100%)'}</h3>`+
     '<table><thead><tr><th>Resource</th><th>Total/min</th><th>Nodes (≈ Mk.2 miner'+(bpMax?' @250%':'')+')</th><th>Bring via</th></tr></thead><tbody>'+nrows+'</tbody></table>'+
-    `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">Mk.2 miner ≈ pure 240 / normal 120 / impure 60 /min${bpMax?' (×2.5 at 250%)':''}. Prefer <b>pure</b> for the big eaters; overclock lesser nodes with Power Shards to close gaps. Far resources are railed in.<br><b style="color:#e0a050">⚠ Generator fuel is NOT in these totals:</b> coal for Coal Power, crude→Fuel for Fuel Generators and generator water come on top — claim those nodes too. (Nuclear fuel — uranium + sulfur — <b>is</b> counted: it's F §1–3.)</div>`;
+    `<div style="padding:6px 16px 12px;color:var(--muted);font-size:12px">Mk.2 miner ≈ pure 240 / normal 120 / impure 60 /min${bpMax?' (×2.5 at 250%)':''}. Prefer <b>pure</b> for the big eaters; overclock lesser nodes with Power Shards to close gaps. Far resources are railed in. <b>Short on copper, iron or coal?</b> Tick the Pure Copper Ingot, Fused Wire, Pure Iron Ingot, Solid Steel and Oil-Based Diamonds alternates in 📖 Guide (each needs its hard drive) — together they cut copper ore ~60%, iron ~50% and coal ~55%.<br><b style="color:#e0a050">⚠ Generator fuel is NOT in these totals:</b> coal for Coal Power, crude→Fuel for Fuel Generators and generator water come on top — claim those nodes too. (Nuclear fuel — uranium + sulfur — <b>is</b> counted: it's F §1–3.)</div>`;
   rWrap.appendChild(ns);
   // ---- 2) BUILDINGS BILL ----
   const bld={}; let totMach=0; all.forEach(({b})=>{ bld[b.b]=(bld[b.b]||0)+b.n; totMach+=b.n; });
