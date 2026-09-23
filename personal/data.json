@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-23",
-    "fetched": "2026-09-23T00:13:31+00:00",
+    "fetched": "2026-09-23T05:44:21+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
+      "temp": 20,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 1
+      "wind": 8
     },
     "days": [
       {
@@ -29,15 +29,15 @@
         "max": 24,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 0
+        "rain": 1
       },
       {
         "day": "Fri",
-        "min": 13,
-        "max": 26,
-        "icon": "🌧️",
-        "desc": "Rain",
-        "rain": 41
+        "min": 14,
+        "max": 24,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 53
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 121256.0,
-        "pct": -0.01
+        "price": 122216.0,
+        "pct": 1.93
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3870.83,
-        "pct": -0.49
+        "price": 3898.84,
+        "pct": 1.63
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Rob Bonta Sued Paramount to Counter Political Influence, Then Fell Victim to It",
+      "title": "ECAM Incubator Title ‘The Woodworm’ Explores Female Identity in the Shadow of an Artist Father",
       "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/rob-bonta-paramount-politics-newsom-nashville-1236872658/"
+      "url": "https://variety.com/2026/global/global/ecam-incubator-title-the-woodworm-laura-obradors-1236867632/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tom Cruise Welcomes Prince William and Kate Middleton at ‘Digger’ World Premiere in London: ‘We Love Them and Really Appreciate What They Do for the Arts’",
-      "when": "22 Sep",
+      "title": "‘Fluorescent, Dirty and Sexy’: Eire Cid’s ‘The Imaginary Kings’ Presented at Madrid Film School (ECAM) Incubator",
+      "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/tom-cruise-prince-william-kate-digger-premiere-london-1236871955/"
+      "url": "https://variety.com/2026/film/global/eire-cid-the-imaginary-kings-ecam-incubator-2026-1236856874/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ari Emanuel on Outrunning ‘Entourage,’ the Art of the Phone Call and the Stolen Commission that Still Hurts",
-      "when": "22 Sep",
+      "title": "Sister Group Strikes Partnership With Branded Entertainment Company Common Interest, Makes Minority Investment",
+      "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/ari-emanuel-outrunning-entourage-stolen-commission-1236872503/"
+      "url": "https://variety.com/2026/film/global/sister-group-strikes-partnership-company-common-interest-1236872327/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Digger’ First Reactions Split Over Tom Cruise’s ‘Baffling,’ ‘Unpleasant’ and ‘Brave’ New Movie: ‘The Divide on This Is Going to Be Wide’",
-      "when": "22 Sep",
+      "title": "Robert Pattinson Says ‘The Batman 2’ Is ‘So Ambitious’ and a ‘Different Take’ on the Franchise: ‘It’s a Real Left Turn From the First’",
+      "when": "23 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/digger-first-reactions-tom-cruise-baffles-1236871935/"
+      "url": "https://variety.com/2026/film/news/robert-pattinson-batman-2-different-take-1236872971/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Trek Online: Rediscovered’ (With Three Spocks!) Available Now – Watch Launch Trailer",
+      "when": "23 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/22/star-trek-online-rediscovered-with-three-spocks-available-now-watch-launch-trailer/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "See Captain Seven Command The Enterprise-G In Preview Of IDW’s New Flagship ‘Star Trek’ Comic",
+      "when": "23 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/22/see-captain-seven-command-the-uss-enterprise-g-in-preview-of-first-issue-of-new-star-trek-comic/"
     },
     {
       "cat": "Games",
@@ -135,13 +149,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Preview ‘Star Trek: Strange New Worlds’ Season Finale With 18 New Photos From “Tomorrow’s Enterprise” [UPDATED w/ Trailer]",
-      "when": "21 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/21/preview-star-trek-strange-new-worlds-season-finale-with-18-new-photos-from-tomorrows-enterprise/"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Lucas Museum Inauguration Took Place on Saturday With Major Industry and Political Figures In Attendance",
       "when": "20 Sep",
       "source": "SW News Net",
@@ -155,13 +162,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-the-mandalorian-and-grogu-streaming-numbers-the-force-awakens-dethroned-and-not-much-more.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Podcast: All Access Star Trek Goes On A Fairy Tale Adventure With ‘Strange New Worlds’",
-      "when": "18 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/18/podcast-all-access-star-trek-goes-on-a-fairy-tale-adventure-with-strange-new-worlds/"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory 1.0 - 2nd Anniversary!",
       "when": "10 Sep",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
