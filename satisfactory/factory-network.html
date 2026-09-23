@@ -127,6 +127,16 @@
   .cchip i{font-style:normal;color:var(--muted);font-size:11px;margin-left:6px}
   .journey{display:flex;gap:4px;align-items:center;margin:0 0 8px} .jd{width:10px;height:10px;border-radius:50%;background:var(--line)}
   .jd.done{background:var(--green)} .jd.now{background:var(--orange);box-shadow:0 0 0 3px rgba(255,158,61,.25);width:12px;height:12px} .jg{display:inline-flex;flex-direction:column;align-items:center;margin-right:12px} .jdots{display:flex;gap:4px;align-items:center;height:14px} .jl{font-size:9.5px;color:#8b97a3;margin-top:2px}
+  .skiplink{position:absolute;left:-9999px} .skiplink:focus{position:static;display:inline-block;margin:4px 0;color:var(--teal)}
+  .phoneonly{display:none}
+  @media (max-width:640px){
+    .phoneonly{display:inline-block}
+    #tab-inventory .toolbar:not(.open) > button:not(#pacepill):not(#cfgpill):not(#toolsmore){display:none}
+    body.focus .actbar{position:sticky;bottom:0;background:var(--panel);padding:8px 0 6px;margin:0 -2px;border-top:1px solid var(--line);z-index:5}
+  }
+  .jl{font-size:11px!important}
+  .chip{white-space:nowrap}
+  @media (max-width:640px){ #invlist .invphase > h3{font-size:15px;flex-wrap:wrap;row-gap:4px} .focusbadge{display:none!important} }
   .ckrow{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:8px 10px;margin:6px 0;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.02)}
   .ckrow.ok{border-color:#2f6b45;background:rgba(93,212,122,.06)} .ckdw{font-size:12px;color:var(--muted);margin-top:3px} .ckbtns{display:flex;gap:6px;flex-shrink:0}
   @media (max-width:640px){ .ckrow{flex-direction:column;align-items:stretch} .ckbtns .pbtn{flex:1} }
@@ -161,7 +171,7 @@
 </div>
 <header>
   <h1><span>SATISFACTORY</span> 1.0 — Modular Factory Plan</h1>
-  <p>Verified, build-once works · guided step-by-step · organic map + grid blueprints · power &amp; trains planned · fully offline.</p>
+  <p>A step-by-step plan from your first HUB to the launch in Satisfactory 1.0: answer one question, then tick each step as you build it. Every count, belt, milestone and generator is worked out for you — fully offline.</p>
 </header>
 <nav>
   <button data-tab="inventory" class="active">✅ Do Next</button>
@@ -252,6 +262,7 @@
     <div class="toolbar">
       <button id="pacepill" title="How long you let each phase's deliveries run — click to change"></button>
       <button id="cfgpill" title="The plan setting every number depends on — click to toggle"></button>
+      <button id="toolsmore" class="phoneonly" onclick="this.parentNode.classList.toggle('open')">⋯ Tools</button>
       <button id="auditbtn" title="Walk your factory district by district and record what is actually standing">🔁 Audit my save</button>
       <button id="printinv">🖨️ Print manual</button>
       <button id="exportall">⬇️ Steps CSV</button>
@@ -262,6 +273,7 @@
       <span class="pct" id="overall" style="margin-left:auto;align-self:center"></span>
     </div>
     <div id="printhead"></div>
+    <a href="#doNext" class="skiplink" onclick="event.preventDefault();const b=document.getElementById('doNext');if(b){b.focus();b.scrollIntoView({block:'center'});}">Skip to the current step</a>
     <div id="invlist"></div>
   </section>
 
@@ -527,7 +539,7 @@ const BY_ADVICE={
  'Dark Matter Residue':'pipe it into the Dark-Matter-Crystal Particle Accelerators (each wants 150 m³/min) — it <b>cannot be sunk or packaged</b>, so any surplus backs the Quantum Encoders up and stops every Phase-5 final'};
 
 const INVENTORY = [
- {phase:0,category:'milestone',id:'P0-M1',item:'Complete all Tier 0 HUB upgrades (in order)',qty:'',note:'Hand-craft the parts at the Craft Bench (iron plates, rods, wire, cable, concrete, screws — the HUB shows each upgrade\'s cost) and mine ore with the Portable Miner. Unlocks the Smelter, Constructor, Miner Mk.1, Biomass Burner and the Space Elevator'},
+ {phase:0,category:'milestone',id:'P0-M1',item:'Complete all Tier 0 HUB upgrades (in order)',qty:'',note:'Hand-craft the parts at the Craft Bench (iron plates, rods, wire, cable, concrete, screws — the HUB shows each upgrade\'s cost) and mine ore with the Portable Miner. Unlocks the Smelter, Constructor, Miner Mk.1, Biomass Burner and the Space Elevator. ✅ Done when: the HUB shows the Tier 1 and Tier 2 milestones available'},
  {phase:0,category:'milestone',id:'PWR0',item:'⚡ Power: Biomass Burners (bootstrapping)',qty:'',note:'30 MW each; hand/belt-fed — replace at Tier 3'},
  {phase:0,category:'milestone',id:'P0-M6',item:'Tier 1 Field Research → build a MAM (Molecular Analysis Machine)',qty:'',note:'The MAM is where every 🔓 MAM research step later in this plan happens'},
  {phase:0,category:'milestone',id:'P0-M2',item:'Build Space Elevator at Central Hub',qty:'',note:'Permanent location all game'},
@@ -540,7 +552,7 @@ const INVENTORY = [
  {phase:2,category:'deliverable',id:'P2-D1',item:'Smart Plating',qty:1000,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:2,category:'deliverable',id:'P2-D2',item:'Versatile Framework',qty:1000,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:2,category:'deliverable',id:'P2-D3',item:'Automated Wiring',qty:100,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
- {phase:3,category:'module',id:'PWR3',item:'⚡ Power: Fuel Generators (from oil)',qty:'',note:'250 MW each, 20 Fuel/min each — fed by D\'s Fuel refineries (the Fuel bank, sized for exactly these generators). Build this before the rest of Phase 3 so the grid never trips'},
+ {phase:3,category:'module',id:'PWR3',item:'⚡ Power: Fuel Generators (from oil)',qty:'',note:'250 MW each, 20 Fuel/min each — fed by D\'s Fuel refineries (the Fuel bank, sized for exactly these generators, including any fuel top-ups later)'},
  {phase:3,category:'deliverable',id:'P3-D1',item:'Versatile Framework',qty:2500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:3,category:'deliverable',id:'P3-D2',item:'Modular Engine',qty:500,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
  {phase:3,category:'deliverable',id:'P3-D3',item:'Adaptive Control Unit',qty:100,note:'Assembled at ★ — load it into the Space Elevator and press Send'},
@@ -818,7 +830,7 @@ function renderShopping(){
   const byT=byproductTotals(bpScale), recycled={};
   Object.keys(raw).forEach(k=>{ if(byT[k]>0){ recycled[k]=Math.min(raw[k],byT[k]); raw[k]=Math.max(0,raw[k]-byT[k]); } });
   const rawKeys=Object.keys(raw).sort((a,b)=>raw[b]-raw[a]);
-  const nrows=rawKeys.map(k=>{ const v=+raw[k].toFixed(1), fluid=fluidSet.includes(k);
+  const nrows=rawKeys.filter(k=>raw[k]>=0.5).map(k=>{ const v=+raw[k].toFixed(1), fluid=fluidSet.includes(k);
     const per = fluid?'' : `~${Math.ceil(v/(240*(bpMax?2.5:1)))} pure <span style="color:var(--muted)">/ ${Math.ceil(v/(120*(bpMax?2.5:1)))} normal</span>`;
     const where=[...(usedIn[k]||[])], far=where.every(x=>DMAP[x]&&/train/.test(DMAP[x].near));
     const via = (fluid?'🔵 ':'')+'at '+where.join(', ')+(far?' (🚆 far — mined there, refined parts railed)':'');
@@ -903,13 +915,13 @@ let sessionChecked=false, jumpOpen=false, checkinArmed=null, ckRows=null;   // a
 /* focus mode: just the current step, big, for a second screen (a per-viewer convenience) */
 let focusMode=false; try{ focusMode=localStorage.getItem('satis_focus')==='1'; }catch(e){}
 try{ document.body.classList.toggle('focus',focusMode); }catch(e){}
-function setFocus(v){ focusMode=!!v; try{ localStorage.setItem('satis_focus',focusMode?'1':'0'); }catch(e){} document.body.classList.toggle('focus',focusMode); renderInventory(); }
+function setFocus(v){ focusMode=!!v; _refocus='doNext'; try{ localStorage.setItem('satis_focus',focusMode?'1':'0'); }catch(e){} document.body.classList.toggle('focus',focusMode); renderInventory(); }
 /* the steps that change what's standing in your world (what a check-in should verify) */
 /* ---------- the picture on each step card: what you place, what feeds it, where it goes ---------- */
 function sx(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function clip(t,n){ t=String(t); return t.length>n?t.slice(0,n-1)+'…':t; }
-function machineRow(x0,y0,b,solid,glow,ghost,maxShow){ // returns [svg, width, height]
-  const C=BCOL[b]||'#8b97a3', A=ABBR[b]||b.slice(0,2), tot=solid+glow+ghost, show=Math.min(tot,maxShow||20), per=10, sz=26, gap=6;
+function machineRow(x0,y0,b,solid,glow,ghost,maxShow,perRow){ // returns [svg, width, height]
+  const C=BCOL[b]||'#8b97a3', A=ABBR[b]||b.slice(0,2), tot=solid+glow+ghost, show=Math.min(tot,maxShow||20), per=perRow||10, sz=26, gap=6;
   let out='', k=0;
   for(;k<show;k++){ const cx=x0+(k%per)*(sz+gap), cy=y0+Math.floor(k/per)*(sz+gap);
     if(k<solid) out+=`<rect x="${cx}" y="${cy}" width="${sz}" height="${sz}" rx="5" fill="${C}" fill-opacity=".55" stroke="${C}"/>`;
@@ -939,7 +951,7 @@ function stepVisual(st){
     if(narrow){ // stacked: inputs → machines → output, full width, readable on a phone
       let y=6, body=''; ins.forEach(([it,r])=>{ body+=pill(0,y,340,it,`${+r.toFixed(1)}/min · ${srcOf(it)}`,isFluidItem(it)?'#5aa9ff':'#2a323d'); y+=42; });
       body+=`<path d="M170 ${y} v12" stroke="#2dd4bf" stroke-width="2" marker-end="url(#ah)"/>`; y+=18;
-      const [mrow,mw2,mh2]=(()=>{ const r=machineRow(0,y,bk.b,solid,glow,ghost,30); return r; })(); body+=mrow; y+=mh2+2;
+      const [mrow,mw2,mh2]=machineRow(0,y,bk.b,solid,glow,ghost,27,9); body+=mrow; y+=mh2+2;
       body+=`<path d="M170 ${y} v12" stroke="#2dd4bf" stroke-width="2" marker-end="url(#ah)"/>`; y+=18;
       body+=pill(0,y,340,bk.outItem+' ~'+(+outRate.toFixed(1))+'/min','→ '+dest0,'#b692ff'); y+=46;
       return svg(340,y,body,`${bk.r}: ${glow} ${bk.b} to place`); }
@@ -964,9 +976,9 @@ function stepVisual(st){
     return svg(540,rows*44+24,body,`${n} ${b}`); }
   // a delivery: what the elevator is waiting for
   if(st.deliv){ const di=delivInfo(INVENTORY.find(r=>r.id===st.key)||{}); const m=String(st.label).match(/^(\d+)×/); const qty=m?+m[1]:0;
-    let body=`<rect x="4" y="6" width="44" height="52" rx="6" fill="#1c232d" stroke="#b692ff"/><text x="26" y="40" font-size="24" text-anchor="middle">▲</text>`;
+    let body=`<rect x="4" y="6" width="44" height="52" rx="6" fill="#2a1f3a" stroke="#b692ff"/><text x="26" y="41" font-size="24" text-anchor="middle" fill="#b692ff">▲</text>`;
     body+=`<text x="62" y="24" font-size="13" font-weight="700" fill="#e6edf3">${sx(st.label)}</text>`;
-    if(di&&di.min) body+=`<rect x="62" y="34" width="360" height="10" rx="5" fill="#2a323d"/><rect x="62" y="34" width="${Math.round(360*(di.banked||0))}" height="10" rx="5" fill="#b692ff"/><text x="62" y="60" font-size="11" fill="#9aa7b4">~${di.rate}/min → about ${fmtMin(di.min)} of running${di.banked?' (the purple part is already banked)':''}</text>`;
+    if(di&&di.banked) body+=`<rect x="62" y="34" width="360" height="10" rx="5" fill="#2a323d"/><rect x="62" y="34" width="${Math.round(360*di.banked)}" height="10" rx="5" fill="#b692ff"/><text x="62" y="60" font-size="11" fill="#9aa7b4">purple = already banked during the previous phase</text>`;
     return svg(440,66,body,st.label); }
   // a milestone: what it costs
   if(st.ms){ const m=MSMAP[st.ms]; const items=Object.keys(m.cost); if(!items.length) return '';
@@ -1070,6 +1082,7 @@ function phaseRowStep(id){ const r=INVENTORY.find(x=>x.id===id); if(!r) return n
     if(id==='COAL') st.mw=Math.ceil(g.n*15/120)*15+Math.ceil(g.n*45/120)*20;
     if(id==='PWR4'||id==='PWR5') st.mw=Math.ceil(g.n*240/120)*20; }
   if(id==='NITRO') st.mw=150;
+  if(POWER_IDS[id]) st.detail+=' ✅ Done when: the generators are running and the power graph shows the new capacity (no fuse trips while everything runs).';
   if(id==='NITRO'){ let n=0; DISTRICTS.forEach(d=>districtBanks(d).forEach(bk=>bk.inputs.forEach(x=>{ if(x[0]==='Nitrogen Gas') n+=x[1]; }))); if(n) st.detail+=' · Plan for <b>~'+Math.round(n)+' m³/min</b> of Nitrogen Gas at full build.'; }
   return st; }
 /* item → the template that makes it (ignoring alternates' output names) */
@@ -1154,7 +1167,7 @@ function stockpileStep(q){ const L=extraLedger().entries.filter(e=>e.q===q&&e.ne
   const tot={}; L.forEach(e=>tot[e.item]=(tot[e.item]||0)+e.qty);
   const list=Object.keys(tot).sort((a,b)=>tot[b]-tot[a]).map(k=>'<b>'+Math.ceil(tot[k]).toLocaleString()+'</b> '+k).join(', ');
   return {key:'stock:'+q,phase:q,cat:'module',label:'🧺 Stockpile for Phase '+(q+1)+' while the deliveries run',
-    detail:'Your lines are sized to also make these one-off parts — belt the surplus into storage containers by ★ (your "mall"): '+list+'. They pay for Phase '+(q+1)+'\'s HUB milestones and the machines, generators and train kit you place next. At this pace they take up to <b>~'+fmtMin(extraWindow(q))+'</b> to pile up — keep playing (and building ahead) while they do; the next phase\'s 🔓 steps tell you when each pile is needed.'}; }
+    detail:'Your lines are sized to also make these one-off parts — belt the surplus into storage containers by ★ (your "mall"): '+list+'. They pay for Phase '+(q+1)+'\'s HUB milestones and the machines, generators and train kit you place next. At this pace they take up to <b>~'+fmtMin(extraWindow(q))+'</b> to pile up — keep playing (and building ahead) while they do; the next phase\'s 🔓 steps tell you when each pile is needed. ✅ Done when: a labelled container for each part is placed by ★ and filling.'}; }
 /* Order a phase's steps so every step comes after what it needs — its milestone, its
    district pad, its suppliers, the parts a milestone costs — keeping the original order
    wherever there is a choice (stable topological sort). */
@@ -1250,7 +1263,7 @@ function powerWalk(out){
       if(!used[pk]){ n=Math.max(n,((prevB[s.phase]||{})[g.b])||0); used[pk]=1; }   // never shrink between passes
       if(n>0){ const p=s.phase; bridges[p]=bridges[p]||{}; bridges[p][g.b]=(bridges[p][g.b]||0)+n;
         res.push({key:'pwrb:'+p+':'+res.filter(x=>x.phase===p&&/^pwrb:/.test(x.key)).length,phase:p,cat:'module',label:`⚡ Top up power: add ${n}× ${g.b}`,
-          detail:`The next builds would outrun your generators (~${Math.round(draw)} MW drawn of ~${Math.round(cap)} MW). Add <b>${n}× ${g.b}</b> (${g.mw} MW each) now${type==='fuel'?` — each burns 20 Fuel/min; D's Fuel bank is sized to include them`:type==='coal'?' — each needs 15 coal + 45 water/min':''}${type==='burner'?' — hand-fed until coal arrives':''}. It covers you to the next ⚡ step.`});
+          detail:`✅ Done when: they're running and the power graph shows the extra capacity. The next builds would outrun your generators (~${Math.round(draw)} MW drawn of ~${Math.round(cap)} MW). Add <b>${n}× ${g.b}</b> (${g.mw} MW each) now${type==='fuel'?` — each burns 20 Fuel/min; D's Fuel bank is sized to include them`:type==='coal'?' — each needs 15 coal + 45 water/min':''}${type==='burner'?' — hand-fed until coal arrives':''}. It covers you to the next ⚡ step.`});
         cap+=n*g.mw; res[res.length-1]._draw=draw; res[res.length-1]._cap=cap; } }
     draw+=add; s._draw=draw; s._cap=cap; res.push(s); }
   _bridgeCache[planSigBase()]=bridges;
@@ -1459,14 +1472,14 @@ function renderInventory(){ backfillFinished();
         ${(()=>{ const h=String(next.html||next.detail||''); const k=h.indexOf('✅ Done when:'); if(k<0) return `<div class="nt" style="margin:5px 0 9px">${h}</div>`;
           const mm=h.slice(0,k).match(/<b[^>]*>$/); const cut=mm?k-mm[0].length:k; const body=h.slice(0,cut), dw=h.slice(k).replace(/^✅ Done when:(<\/b>)?/,'');
           return `<div class="nt" style="margin:5px 0 6px">${body}</div><div class="donebox"><b style="color:#8fe6a8">✅ Done when:</b> ${dw.replace(/<\/div>\s*$/,'')}</div>`; })()}
-        ${arrive?`<div style="font-size:12px;color:var(--teal);margin-bottom:6px">▲ ${dist===0?'This is the delivery':`${dist} step${dist>1?'s':''} until`}: <b>${arrive.label}</b></div>`:''}
+        ${arrive&&dist>0?`<div style="font-size:12px;color:var(--teal);margin-bottom:6px">▲ ${dist} step${dist>1?'s':''} until: <b>${arrive.label}</b></div>`:''}
         ${(()=>{ const pv=ms[ms.indexOf(next)-1]; if(!pv||!pv._cap) return ''; const pc=Math.round(100*(pv._draw||0)/pv._cap);
           return `<div class="pwrline"><span>⚡ ${Math.round(pv._draw||0)} / ${Math.round(pv._cap)} MW</span><i><b style="width:${Math.min(100,pc)}%;background:${pc>85?'#e0a050':'var(--teal)'}"></b></i><span>${pc}%</span></div>`; })()}
-        <button class="pbtn" id="doNext" style="background:var(--orange);color:#1a1205;border-color:var(--orange);font-weight:700">✓ Done — next</button>`+
-        ` <button class="pbtn" id="doEq" title="My existing factory already covers this — count it and move on, but don't claim it was built to this plan">≈ Already have it</button>`+
-        ` <button class="pbtn" id="doSkip" title="Deliberately not building this — move past it">⏭ Skip</button>${links}`+
+        <div class="actbar"><button class="pbtn" id="doNext" style="background:var(--orange);color:#1a1205;border-color:var(--orange);font-weight:700" title="Tick this step (keyboard: D)">${next.deliv?'✓ Sending — next':'✓ Done — next'}</button>`+
+        (next.deliv?'':` <button class="pbtn" id="doEq" title="My existing factory already covers this — count it and move on, but don't claim it was built to this plan">≈ Already have it</button>`+
+        ` <button class="pbtn" id="doSkip" title="Deliberately not building this — move past it">⏭ Skip</button>`)+`${links}`+
         ` <button class="pbtn" id="doUndo" title="Un-tick the last step you ticked" ${done0?'':'disabled'}>↶ Undo</button>`+
-        ` <button class="pbtn" id="doFocus" title="Show just this card — for a second screen">${focusMode?'☰ Full list':'🎯 Focus'}</button></div>`;
+        ` <button class="pbtn" id="doFocus" title="Show just this card — for a second screen">${focusMode?'☰ Full list':'🎯 Focus'}</button></div></div>`;
   } else nb.innerHTML=`<h3 style="background:#13261a">🎉 Every step done — pull the lever and launch! 🚀</h3>`;
   wrap.appendChild(nb);
   if(next){ const advance=mode=>{ markStep(next.key,mode); _refocus='doNext'; renderInventory();
@@ -1556,6 +1569,9 @@ document.getElementById('resetinv').onclick=()=>{ if(confirm('Reset all progress
   saveState(state); applyAlts(); applyCfg(); rerenderAll(); renderAltToggles();
   if(typeof buildBuildMap==='function') buildBuildMap();
   if(typeof syncBuiltOnMap==='function') syncBuiltOnMap(); } };
+document.addEventListener('keydown',e=>{ if(e.key!=='d'&&e.key!=='D') return; const t=e.target; if(t&&(/INPUT|SELECT|TEXTAREA/.test(t.tagName)||t.isContentEditable)) return;
+  if(e.ctrlKey||e.metaKey||e.altKey) return; const inv=document.getElementById('tab-inventory'); if(!inv||!inv.classList.contains('active')) return;
+  const b=document.getElementById('doNext'); if(b){ e.preventDefault(); b.click(); } });
 document.getElementById('collapseDone').onclick=e=>{ hideDone=!hideDone; e.target.textContent=hideDone?'👁️ Show completed':'👁️ Hide completed'; renderInventory(); };
 function dlCsv(csv,name){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download=name; a.click(); }
 document.getElementById('exportall').onclick=()=>{ const e=s=>`"${String(s).replace(/"/g,'""')}"`; let csv='phase,step,detail,status\n';
@@ -1707,15 +1723,19 @@ const BM_SEQ=[
  {node:null,phase:0,t:'Phase 0 · Foundation + first power',d:'Pick flat open ground for ★ Project Assembly + ▲ Space Elevator. ⚡ Start on Biomass Burners. Scout iron, copper, limestone & coal fields — each district\'s pad step says how many nodes it will need.'},
  {node:'A',phase:1,t:'① Build the IRONWORKS district',d:'📍 Near IRON + limestone. Smelt iron → plates, rods, screws, RIP, rotors, modular frames, concrete. This shared mini-base feeds almost everything.'},
  {node:'PA',phase:1,t:'① Project Assembly · add Smart Plating',d:'By the elevator: one Smart Plating station (RIP + Rotor from Ironworks). ▶ deliver 50 → unlocks Steel + Coal Power.'},
+ {node:null,phase:2,t:'② Unlock & grow · Tier 3–4, coal power, bigger Ironworks',d:'The HUB milestones and MAM research for this phase, the power it needs, and the extra machines your existing districts need — one bite at a time.'},
  {node:'B',phase:2,t:'② Build the COPPERWORKS district',d:'📍 Near COPPER + caterium. Wire, cable, copper sheet, quickwire — build this BEFORE Steelworks (Stators need its wire).'},
  {node:'C',phase:2,t:'② Build the STEELWORKS district',d:'📍 Near IRON + COAL. Steel → beams, pipes, stators (need Wire←B), motors, encased beams. ⚡ switch to Coal Generators by water.'},
  {node:'PA',phase:2,t:'② Project Assembly · +Versatile Framework, +Automated Wiring',d:'Add two stations: Versatile Framework (Frame←A + Beam←C) and Automated Wiring (Stator←C + Cable←B). Deliver Phase 2 → Oil, Manufacturer, Trains.'},
+ {node:null,phase:3,t:'③ Unlock & grow · Tier 5–6, oil power, bigger A–C',d:'The HUB milestones and MAM research for this phase, the power it needs, and the extra machines your existing districts need — one bite at a time.'},
  {node:'D',phase:3,t:'③ Build the OIL & ELECTRONICS district',d:'📍 On CRUDE OIL. Plastic, rubber, circuit boards, computers, heavy frames, supercomputers. ⚡ Fuel Generators.'},
  {node:'PA',phase:3,t:'③ Project Assembly · +Modular Engine, +Adaptive Control Unit',d:'Add Modular Engine (Motor←C + Rubber←D) and ACU (Auto-Wiring + Circuit Board←D + Heavy Frame←D + Computer←D). Deliver Phase 3 → Aluminium, Nuclear.'},
+ {node:null,phase:4,t:'④ Unlock & grow · Tier 7–8, bigger A–D before the far districts',d:'The HUB milestones and MAM research for this phase, the power it needs, and the extra machines your existing districts need — one bite at a time.'},
  {node:'E',phase:4,t:'④ Build the ALUMINIUM & COOLING district',d:'📍🚆 By BAUXITE + water + nitrogen. Aluminium, heat sinks, cooling systems, turbo motors, fused frames.'},
  {node:'F',phase:4,t:'④ Build the NUCLEAR FUEL district',d:'📍🚆 By URANIUM + water. Sulfuric acid → uranium cells → fuel rods, and the Nuclear Power Plants beside them. (Nuclear Pasta is made in Copperworks.)'},
  {node:'G',phase:4,t:'④ Start the QUANTUM & SAM district · SAM line',d:'📍🚆 By SAM. Pad, rail, then MAM SAM research → Reanimated SAM → SAM Fluctuators, stockpiling while Phase 4 delivers (Converters cost 100 each).'},
  {node:'PA',phase:4,t:'④ Project Assembly · +ADS, +Magnetic Field Generator, +Thermal Propulsion Rocket',d:'Add three stations fed by districts A–F. Deliver Phase 4 → Tier 9.'},
+ {node:null,phase:5,t:'⑤ Unlock & grow · Tier 9, more nuclear, bigger everything',d:'The HUB milestones and MAM research for this phase, the power it needs, and the extra machines your existing districts need — one bite at a time.'},
  {node:'G',phase:5,t:'⑤ Build the QUANTUM & SAM district',d:'Pad + rail + the SAM line go down at the end of Phase 4 (MAM SAM research) so SAM Fluctuators stockpile while Phase 4 delivers. 📍🚆 SAM + quartz. Reanimated SAM, dark matter (residue→crystal), ficsite, time crystals, EPM, neural-quantum processors, oscillators, singularity cells.'},
  {node:'PA',phase:5,t:'⑤ Project Assembly · +Biochemical Sculptor, +Ballistic Warp Drive',d:'Add the final two stations (the AI Expansion Server arrives by rail from G). Deliver Phase 5 → run the launch → 🚀 DONE!'},
 ];
