@@ -939,17 +939,21 @@ function bankViewCount(d,bk){
   return Math.max(1,Math.min(bk.n,bankCountAt(bk.tid,ph)));
 }
 function cntLabel(d,bk){ const k=bankViewCount(d,bk); return bk.n>k?k+'→'+bk.n:''+bk.n; }
-function pushExpansions(out,p){ DISTRICTS.forEach(d=>{ const banks=districtBanks(d), grew=[], raw={}; let mw=0;
-    banks.forEach(bk=>{ if(p<=bankBuiltPhase(d,bk)) return; const nw=bankNowCount(d,bk);
-      // running total built = max(what you built "now", demand at that phase) — nets out the floored "+1 now" for zero-at-build banks
-      const add=Math.max(nw,bankCountAt(bk.tid,p))-Math.max(nw,bankCountAt(bk.tid,p-1)); if(add>0){ grew.push('+'+add+'× '+bk.r); mw+=machinePower(bk.b,bk.tid)*add;
-        const t=T[bk.tid], dD=((solveDemandPhase(p)[bk.outItem]||0)-(solveDemandPhase(p-1)[bk.outItem]||0))/t.out[1];
-        if(dD>0) t.in.forEach(([it,r])=>{ if(!ITEM2DIST[it]) raw[it]=(raw[it]||0)+dD*r; }); } });
-    Object.keys(raw).forEach(it=>{ mw+=rawMW(it,raw[it],p>=2); });
-    const base='New Phase '+p+' consumers need more — add machines into the room you left: '+grew.join(', ')+'.';
-    const rawTxt=mk2=>Object.keys(raw).map(it=>'<b>+'+Math.round(raw[it])+'/min '+it+'</b> ('+rawSource(it,raw[it],p,mk2)+')').join(', ');
-    if(grew.length) out.push({key:'exp:'+d.id+':'+p,phase:p,district:d.id,mw,label:(d.id==='PA'?'★ ':'')+'Expand '+d.id+' · '+d.name+' for Phase '+p,
-      rawTxt, base, detail:base+(Object.keys(raw).length?' More raw feed: '+rawTxt(p>=3)+'.':'')}); }); }
+/* One Expand step PER BANK: "A §1 Iron Ingot: +4 Smelters" — small, tickable, in the
+   order their consumers need them (orderPhase links each consumer to its supplier's step). */
+function pushExpansions(out,p){ DISTRICTS.forEach(d=>{ const banks=districtBanks(d);
+    banks.forEach((bk,i)=>{ if(p<=bankBuiltPhase(d,bk)) return; const nw=bankNowCount(d,bk);
+      // running total built = max(what you built "now", demand at that phase)
+      const before=Math.max(nw,bankCountAt(bk.tid,p-1)), after=Math.max(nw,bankCountAt(bk.tid,p)), add=after-before; if(add<=0) return;
+      const t=T[bk.tid], raw={}, dD=((solveDemandPhase(p)[bk.outItem]||0)-(solveDemandPhase(p-1)[bk.outItem]||0))/t.out[1];
+      if(dD>0) t.in.forEach(([it,r])=>{ if(!ITEM2DIST[it]) raw[it]=(raw[it]||0)+dD*r; });
+      let mw=machinePower(bk.b,bk.tid)*add; Object.keys(raw).forEach(it=>{ mw+=rawMW(it,raw[it],p>=2); });
+      const outNow=+Math.min(solveDemandPhase(p)[bk.outItem]||0, after*t.out[1]*(bpMax?MAXFACTOR:1)).toFixed(1);
+      const base=`Phase ${p} needs more ${bk.outItem}: add <b>${add}× ${bk.b}</b> to the row you left room in (${before} → <b>${after}</b> of ${bk.n}). Extend its input manifold to the new machines. Output grows to <b>~${outNow}/min</b>.`;
+      const rawTxt=mk2=>Object.keys(raw).map(it=>'<b>+'+Math.round(raw[it])+'/min '+it+'</b> ('+rawSource(it,raw[it],p,mk2)+')').join(', ');
+      out.push({key:'exp:'+d.id+':'+p+':'+bk.tid,expOf:{d:d.id,i,add,before,after},phase:p,district:d.id,mw,
+        label:`➕ Expand ${d.id==='PA'?'★':d.id} §${i+1} ${bk.r}: +${add}× ${bk.b}`,
+        rawTxt, base, detail:base+(Object.keys(raw).length?' More raw feed: '+rawTxt(p>=3)+'.':'')}); }); }); }
 /* utility/power rows per phase: 'pre' go before the phase's new districts, 'post' after
    them (Fuel Generators need D's residue line; nuclear rods need E's EM Control Rods). */
 const PHASEROWS={2:{pre:['COAL']},3:{post:['PWR3']},4:{pre:['NITRO'],post:['PWR4']},5:{pre:['PWR5']}};
@@ -1063,16 +1067,18 @@ function orderPhase(steps){
       // Only for the advanced buildings — basic ones are built from Ironworks parts made long
       // before (and would loop: Smelters are built from rods made from ingots).
       if(ADV_BUILD.has(bk.b)) Object.keys(BUILD_COST[bk.b]||{}).forEach(it=>{ const k=bankKeyOf(it); if(k&&k!==s.key) softDep(s,k); });
-      bk.inputs.forEach(([it])=>{ const k=bankKeyOf(it); if(k){ dep(s,k); const mk=makerOf(it); dep(s,'exp:'+mk.d.id+':'+s.phase); } if(it==='Nitrogen Gas') dep(s,'NITRO'); }); }
+      bk.inputs.forEach(([it])=>{ const k=bankKeyOf(it); if(k){ dep(s,k); const mk=makerOf(it); dep(s,'exp:'+mk.d.id+':'+s.phase+':'+mk.tid); } if(it==='Nitrogen Gas') dep(s,'NITRO'); }); }
+    if(s.expOf){ const d=DMAP[s.expOf.d], bk=districtBanks(d)[s.expOf.i];   // grow the suppliers before the consumers
+      bk.inputs.forEach(([it])=>{ const mk=makerOf(it); if(mk) dep(s,'exp:'+mk.d.id+':'+s.phase+':'+mk.tid); }); }
     if(s.ms){ const m=MSMAP[s.ms]; (m.needs||[]).forEach(id=>dep(s,'ms:'+id));
-      Object.keys(m.cost).forEach(item=>{ const k=bankKeyOf(item); if(k) dep(s,k); const mk=makerOf(item); if(mk) dep(s,'exp:'+mk.d.id+':'+s.phase); }); }
+      Object.keys(m.cost).forEach(item=>{ const k=bankKeyOf(item); if(k) dep(s,k); const mk=makerOf(item); if(mk) dep(s,'exp:'+mk.d.id+':'+s.phase+':'+mk.tid); }); }
     if(/^bp:[A-Z]+:util$/.test(s.key)||/^bp:[A-Z]+:rail$/.test(s.key)) dep(s,'bp:'+s.district+':pad');
     if(/:rail$/.test(s.key)) dep(s,'ms:T6-RAIL');
     if(s.key==='COAL') dep(s,'ms:T3-COAL');
     { const gb={COAL:['Coal Generator','Water Extractor'],PWR3:['Fuel Generator','Oil Extractor'],PWR4:['Nuclear Power Plant','Water Extractor'],PWR5:['Nuclear Power Plant','Water Extractor']}[s.key];
       if(gb) gb.forEach(b=>Object.keys(BUILD_COST[b]||{}).forEach(it=>{ const k=bankKeyOf(it); if(k) dep(s,k); })); }
     if(s.key==='PWR3'){ dep(s,'ms:T5-PETRO'); dep(s,'bp:D:T-FUEL'); }
-    if(s.key==='PWR5'){ dep(s,'exp:F:5'); }
+    if(s.key==='PWR5'){ ['T-SULFACID','T-URANCELL','T-FUELROD'].forEach(t=>dep(s,'exp:F:5:'+t)); }
     if(s.key==='PWR4'){ dep(s,'ms:T8-NUC'); dep(s,'bp:F:T-FUELROD'); }
     if(s.key==='NITRO') dep(s,'ms:T8-AAP');
   });
@@ -1199,6 +1205,7 @@ const MODE_LABEL={done:'✓ built',eq:'≈ already had it',skip:'⏭ skipped'};
 function tickKey(key){ markStep(key,'done'); }
 function backfillFinished(){ if(!state._backfill) return; delete state._backfill;
   const ms=masterSteps();
+  ms.forEach(st=>{ const m=st.key.match(/^exp:([A-Z]+):(\d):/); if(m&&state[st.key]===undefined&&state['exp:'+m[1]+':'+m[2]]) state[st.key]=state['exp:'+m[1]+':'+m[2]]; });
   for(let p=1;p<=5;p++){ const dels=INVENTORY.filter(r=>r.phase===p&&r.category==='deliverable');
     if(!dels.length||!dels.every(r=>state[r.id])) continue;
     ms.forEach(st=>{ if(st.phase<=p&&state[st.key]===undefined) state[st.key]=1; }); }
@@ -1435,7 +1442,7 @@ function techList(p){ return (TECH[p]||[]).filter(t=>bpMax||!/Somersloop/.test(t
    an older build (or an older device) arrives in the old scheme and would otherwise
    read as "nothing built". Only touches plain data (DISTRICTS[].t, TECH, INVENTORY) so
    it is safe to call this early, before the render-time settings exist. */
-const PLAN_VERSION=10;
+const PLAN_VERSION=11;
 function migrateState(s){
   if(!s||typeof s!=='object') return s;
   // 1) bank keys were positional (bp:A:3) — fragile if a template list is reordered.
