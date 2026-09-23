@@ -121,6 +121,11 @@
     #printhead{display:block!important}
   }
   #printhead{display:none;font-size:13px;margin:0 0 8px}
+  .vizwrap{margin:8px 0 4px;overflow-x:auto} .vizwrap:empty{display:none} .stepviz{display:block;width:100%;max-width:760px;height:auto;min-width:420px;font-family:inherit}
+  .costchips{display:flex;flex-wrap:wrap;gap:6px} .cchip{background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:4px 9px;font-size:12.5px}
+  .cchip i{font-style:normal;color:var(--muted);font-size:11px;margin-left:6px}
+  .journey{display:flex;gap:4px;align-items:center;margin:0 0 8px} .jd{width:10px;height:10px;border-radius:50%;background:var(--line)}
+  .jd.done{background:var(--green)} .jd.now{background:var(--orange);box-shadow:0 0 0 3px rgba(255,158,61,.25);width:12px;height:12px} .jd.newph{margin-left:10px}
   .ckrow{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:8px 10px;margin:6px 0;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.02)}
   .ckrow.ok{border-color:#2f6b45;background:rgba(93,212,122,.06)} .ckdw{font-size:12px;color:var(--muted);margin-top:3px} .ckbtns{display:flex;gap:6px;flex-shrink:0}
   @media (max-width:640px){ .ckrow{flex-direction:column;align-items:stretch} .ckbtns .pbtn{flex:1} }
@@ -887,11 +892,66 @@ let state=loadState(), hideDone=false;
 let _refocus=null; // which control to re-focus after a full list rebuild (keyboard users keep their place)
 let auditList=null, auditIdx=0; // guided walk-your-save audit (adopting an existing factory)
 /* session check-in: once per page load, "are these still standing?" before you build on */
-let sessionChecked=false, jumpOpen=false;
+let sessionChecked=false, jumpOpen=false, checkinArmed=null;   // armed only if you OPENED the page with progress
 /* focus mode: just the current step, big, for a second screen (a per-viewer convenience) */
 let focusMode=false; try{ focusMode=localStorage.getItem('satis_focus')==='1'; }catch(e){}
 function setFocus(v){ focusMode=!!v; try{ localStorage.setItem('satis_focus',focusMode?'1':'0'); }catch(e){} document.body.classList.toggle('focus',focusMode); renderInventory(); }
 /* the steps that change what's standing in your world (what a check-in should verify) */
+/* ---------- the picture on each step card: what you place, what feeds it, where it goes ---------- */
+function sx(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function clip(t,n){ t=String(t); return t.length>n?t.slice(0,n-1)+'…':t; }
+function machineRow(x0,y0,b,solid,glow,ghost,maxShow){ // returns [svg, width, height]
+  const C=BCOL[b]||'#8b97a3', A=ABBR[b]||b.slice(0,2), tot=solid+glow+ghost, show=Math.min(tot,maxShow||20), per=10, sz=26, gap=6;
+  let out='', k=0;
+  for(;k<show;k++){ const cx=x0+(k%per)*(sz+gap), cy=y0+Math.floor(k/per)*(sz+gap);
+    if(k<solid) out+=`<rect x="${cx}" y="${cy}" width="${sz}" height="${sz}" rx="5" fill="${C}" fill-opacity=".55" stroke="${C}"/>`;
+    else if(k<solid+glow) out+=`<rect x="${cx}" y="${cy}" width="${sz}" height="${sz}" rx="5" fill="${C}" stroke="#fff" stroke-width="2"/>`;
+    else out+=`<rect x="${cx}" y="${cy}" width="${sz}" height="${sz}" rx="5" fill="none" stroke="${C}" stroke-opacity=".6" stroke-dasharray="3 3"/>`;
+    out+=`<text x="${cx+sz/2}" y="${cy+17}" font-size="10" font-weight="700" text-anchor="middle" fill="${k<solid+glow?'#10161d':C}">${sx(A)}</text>`; }
+  const rows=Math.ceil(show/per), w=Math.min(show,per)*(sz+gap);
+  if(tot>show) out+=`<text x="${x0+w+4}" y="${y0+(rows-1)*(sz+gap)+17}" font-size="11" fill="#9aa7b4">+${tot-show}</text>`;
+  return [out, w+(tot>show?28:0), rows*(sz+gap)]; }
+function pill(x,y,w,title,sub,col){ return `<rect x="${x}" y="${y}" width="${w}" height="38" rx="7" fill="#1c232d" stroke="${col||'#2a323d'}"/>`+
+  `<text x="${x+8}" y="${y+16}" font-size="11.5" font-weight="700" fill="#e6edf3">${sx(clip(title,Math.floor(w/6.6)))}</text>`+
+  `<text x="${x+8}" y="${y+31}" font-size="10.5" fill="#9aa7b4">${sx(clip(sub,Math.floor(w/5.8)))}</text>`; }
+function arrow(x1,y1,x2,y2,col){ return `<path d="M${x1} ${y1} C ${(x1+x2)/2} ${y1}, ${(x1+x2)/2} ${y2}, ${x2} ${y2}" fill="none" stroke="${col||'#2dd4bf'}" stroke-width="2" marker-end="url(#ah)"/>`; }
+function stepVisual(st){
+  const defs=`<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2dd4bf"/></marker></defs>`;
+  const svg=(w,h,body,label)=>`<svg class="stepviz" viewBox="0 0 ${w} ${h}" role="img" aria-label="${sx(label)}">${defs}${body}</svg>`;
+  // a production bank (new) or an expansion of one
+  const bankOf=st.ai!=null&&st.district?{d:DMAP[st.district],i:st.ai}:(st.expOf?{d:DMAP[st.expOf.d],i:st.expOf.i}:null);
+  if(bankOf){ const banks=districtBanks(bankOf.d), bk=banks[bankOf.i], t=T[bk.tid], eff=bpMax?MAXFACTOR:1;
+    let solid=0, glow=0, ghost=0, outRate;
+    if(st.expOf){ solid=st.expOf.before; glow=st.expOf.after-st.expOf.before; ghost=Math.max(0,bk.n-st.expOf.after); outRate=Math.min(solveDemandPhase(st.phase)[bk.outItem]||0, st.expOf.after*t.out[1]*eff); }
+    else { const now=bankNowCount(bankOf.d,bk); glow=now; ghost=Math.max(0,bk.n-now); outRate=Math.min(solveDemandPhase(st.phase)[bk.outItem]||bk.outRate, now*t.out[1]*eff); }
+    const mf=outRate/t.out[1], ins=t.in.map(([it,r])=>[it,mf*r]);
+    const inH=Math.max(1,ins.length)*46, [mrow,mw,mh]=machineRow(200,10,bk.b,solid,glow,ghost,20), H=Math.max(inH,mh+10,56)+14, midY=10+Math.min(mh,64)/2;
+    let body='';
+    ins.forEach(([it,r],k)=>{ const y=8+k*46, src=ITEM2DIST[it]?(ITEM2DIST[it]===bankOf.d.id?'§'+(ITEM2SECT[it]+1)+' here':ITEM2DIST[it]==='PA'?'★':ITEM2DIST[it]):(isFluidItem(it)?'pump':'miners');
+      body+=pill(0,y,166,it,`${+r.toFixed(1)}/min · ${src}`,isFluidItem(it)?'#5aa9ff':'#2a323d')+arrow(168,y+19,196,midY); });
+    if(!ins.length) body+=pill(0,8,166,'⚡ power only','no item input','#2a323d')+arrow(168,27,196,midY);
+    body+=mrow;
+    const ox=200+mw+18; const dest=destLabel(bankOf.d,bankOf.i,banks).replace(/<[^>]+>/g,'');
+    body+=arrow(200+mw+2,midY,ox-2,midY)+pill(ox,midY-19,Math.max(150,640-ox),bk.outItem+' ~'+(+outRate.toFixed(1))+'/min','→ '+dest,'#b692ff');
+    body+=`<text x="200" y="${H-2}" font-size="10" fill="#8b97a3">${glow?(st.expOf?'white-edged = add now · faded = already built':'white-edged = place now'):''}${ghost?' · dashed = room to leave':''}</text>`;
+    return svg(Math.max(640,ox+160),H,body,`${bk.r}: ${glow} ${bk.b} to place`); }
+  // generators: a ⚡ step or a top-up
+  const gm=/^pwrb:/.test(st.key)?st.label.match(/add (\d+)× (.+)$/):null;
+  if(POWER_IDS[st.key]||gm){ let n=0, b='';
+    if(gm){ n=+gm[1]; b=gm[2]; } else { const g=genAdd(POWER_IDS[st.key]); n=g.n||0; b=g.building||''; }
+    if(!n) return '';
+    const col=/Nuclear/.test(b)?'#ff6b9d':/Fuel/.test(b)?'#ffce8a':/Coal/.test(b)?'#8b97a3':'#6fcf97', show=Math.min(n,24);
+    let body=''; for(let k=0;k<show;k++){ const x=6+(k%12)*44, y=8+Math.floor(k/12)*44; body+=`<circle cx="${x+18}" cy="${y+18}" r="17" fill="${col}" fill-opacity=".25" stroke="${col}"/><text x="${x+18}" y="${y+23}" font-size="15" text-anchor="middle">⚡</text>`; }
+    const rows=Math.ceil(show/12); body+=`<text x="6" y="${rows*44+18}" font-size="11.5" fill="#9aa7b4">${n}× ${sx(b)}${n>show?' (showing '+show+')':''}</text>`;
+    return svg(540,rows*44+24,body,`${n} ${b}`); }
+  // a milestone: what it costs
+  if(st.ms){ const m=MSMAP[st.ms]; const items=Object.keys(m.cost); if(!items.length) return '';
+    return `<div class="costchips">${items.map(it=>{ const mk=makerOf(it); return `<span class="cchip"><b>${m.cost[it].toLocaleString()}</b> ${it}${mk?`<i>${mk.d.id==='PA'?'★':mk.d.id} §${mk.d.t.indexOf(mk.tid)+1}</i>`:'<i>hand/ore</i>'}</span>`; }).join('')}</div>`; }
+  return ''; }
+/* the journey: every chapter as a dot, done / now / to come */
+function journeyBar(ms,next){ const cur=next?chapterOf(next):BM_SEQ.length-1;
+  const doneCh=new Set(); BM_SEQ.forEach((c,i)=>{ const st=ms.filter(x=>chapterOf(x)===i); if(st.length&&st.every(x=>state[x.key])) doneCh.add(i); });
+  return `<div class="journey" aria-label="Chapter ${cur+1} of ${BM_SEQ.length}">${BM_SEQ.map((c,i)=>`<span class="jd ${i===cur?'now':doneCh.has(i)?'done':''}${i>0&&BM_SEQ[i-1].phase!==c.phase?' newph':''}" title="${sx(c.t)}"></span>`).join('')}</div>`; }
 function isBuildStep(s){ return s.ai!=null||!!s.expOf||!!POWER_IDS[s.key]||/^pwrb:/.test(s.key)||/^bp:[A-Z]+:(pad|rail)$/.test(s.key)||s.key==='NITRO'; }
 function gotoMapStep(id){ const b=document.querySelector('nav button[data-tab="buildmap"]'); if(b) b.click(); const did=(typeof WORKS2DIST!=='undefined'&&WORKS2DIST[id])||id; if(BM_SEQI[did]!==undefined){ bmStep=BM_SEQI[did]; bmApply(); if(typeof showDistrict==='function') showDistrict(did); } }
 /* delivery ETA from the same rates the plan is solved against (finalRate × the rounding
@@ -1298,7 +1358,8 @@ function renderInventory(){ backfillFinished();
     fr.querySelector('#frFast').onclick=()=>setPace('fast');
   }
   // ----- session check-in: "logging in — is this still true?" -----
-  if(!sessionChecked&&next&&done0>0&&!auditList){ const ni=ms.indexOf(next), last=[];
+  if(checkinArmed===null) checkinArmed=done0>0;
+  if(checkinArmed&&!sessionChecked&&next&&done0>0&&!auditList){ const ni=ms.indexOf(next), last=[];
     for(let i2=ni-1;i2>=0&&last.length<3;i2--){ const x=ms[i2]; if(state[x.key]&&stepMode(x.key)!=='skip'&&isBuildStep(x)) last.push(x); }
     const ci=document.createElement('div'); ci.className='invphase checkin'; ci.style.borderColor='var(--teal)';
     const chIdx0=chapterOf(next), chp0=BM_SEQ[chIdx0];
@@ -1350,9 +1411,11 @@ function renderInventory(){ backfillFinished();
     for(let i2=ni;i2<ms.length;i2++){ if(ms[i2].deliv||ms[i2].key==='FINISH'){ arrive=ms[i2]; dist=i2-ni; break; } }
     nb.innerHTML=`<h3 style="background:#2a1c08"><span class="chip p${next.phase}">Phase ${next.phase}</span> ▶ DO THIS NOW <span class="pct" style="margin-left:auto">Step ${nextNo} of ${ms.length}</span></h3>
       <div style="padding:12px 16px">
+        ${journeyBar(ms,next)}
         <div style="font-size:12.5px;color:var(--muted);margin-bottom:2px"><b style="color:var(--txt)">📖 Chapter ${chIdx+1}/${BM_SEQ.length} — ${chp.t}</b> · task ${chPos} of ${chSteps.length}</div>
         <div style="font-size:12px;color:#9fb0c0;margin-bottom:9px">${chp.d}</div>
         <div style="font-size:16px;font-weight:700;color:var(--orange)">Step ${nextNo} — ${next.label}</div>
+        <div class="vizwrap">${stepVisual(next)}</div>
         <div class="nt" style="margin:5px 0 9px">${next.html||next.detail||''}</div>
         ${arrive?`<div style="font-size:12px;color:var(--teal);margin-bottom:6px">▲ ${dist===0?'This is the delivery':`${dist} step${dist>1?'s':''} until`}: <b>${arrive.label}</b></div>`:''}
         ${(()=>{ const pv=ms[ms.indexOf(next)-1]; if(!pv||!pv._cap) return ''; const pc=Math.round(100*(pv._draw||0)/pv._cap);
