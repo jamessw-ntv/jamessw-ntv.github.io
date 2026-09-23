@@ -116,7 +116,11 @@
     input[type=checkbox]{filter:grayscale(1)}
     /* the dark SVG diagrams print as light-on-white noise — the text steps ARE the manual */
     .bpdiagram,#bmap,#bmInside,#flowOverview,.legend,#bmCaption{display:none!important}
+    /* screen-only controls inside the list/card */
+    .pbtn,[data-cyc],.phdone,#printhead+.x{display:none!important}
+    #printhead{display:block!important}
   }
+  #printhead{display:none;font-size:13px;margin:0 0 8px}
   /* couch/thumb ergonomics. Tablets get roomier chrome; PHONES keep the tightened
      layout above (this used to sit after the max-width:640px block at equal specificity
      and silently undid it, pushing "✓ Done — next" below the fold). On a phone only the
@@ -239,6 +243,7 @@
       <button id="resetinv" class="warn">↺ Reset all</button>
       <span class="pct" id="overall" style="margin-left:auto;align-self:center"></span>
     </div>
+    <div id="printhead"></div>
     <div id="invlist"></div>
   </section>
 
@@ -962,16 +967,21 @@ function stockpileStep(q){ const L=extraLedger().entries.filter(e=>e.q===q&&e.ne
 /* Order a phase's steps so every step comes after what it needs — its milestone, its
    district pad, its suppliers, the parts a milestone costs — keeping the original order
    wherever there is a choice (stable topological sort). */
+const ADV_BUILD=new Set(['Manufacturer','Refinery','Blender','Particle Accelerator','Converter','Quantum Encoder']);
 function orderPhase(steps){
   const byKey={}; steps.forEach((s,i)=>{ s._i=i; byKey[s.key]=s; });
-  const deps=new Map(); steps.forEach(s=>deps.set(s,new Set()));
+  const deps=new Map(), soft=new Map(); steps.forEach(s=>{ deps.set(s,new Set()); soft.set(s,new Set()); });
   const dep=(s,k)=>{ const o=byKey[k]; if(o&&o!==s) deps.get(s).add(o); };
+  const softDep=(s,k)=>{ const o=byKey[k]; if(o&&o!==s) soft.get(s).add(o); };
   const bankKeyOf=item=>{ const mk=makerOf(item); return mk?'bp:'+mk.d.id+':'+mk.tid:null; };
   steps.forEach(s=>{
     if(s.ai!=null&&s.district){ const d=DMAP[s.district], bk=districtBanks(d)[s.ai];
       dep(s,'bp:'+d.id+':pad'); dep(s,'bp:'+d.id+':rail');
       (GATE[bk.tid]||[]).forEach(id=>dep(s,'ms:'+id));
-      Object.keys(BUILD_COST[bk.b]||{}).forEach(it=>{ const k=bankKeyOf(it); if(k&&k!==s.key) dep(s,k); });
+      // its machines are built from parts made this phase (a Converter needs SAM Fluctuators).
+      // Only for the advanced buildings — basic ones are built from Ironworks parts made long
+      // before (and would loop: Smelters are built from rods made from ingots).
+      if(ADV_BUILD.has(bk.b)) Object.keys(BUILD_COST[bk.b]||{}).forEach(it=>{ const k=bankKeyOf(it); if(k&&k!==s.key) softDep(s,k); });
       bk.inputs.forEach(([it])=>{ const k=bankKeyOf(it); if(k){ dep(s,k); const mk=makerOf(it); dep(s,'exp:'+mk.d.id+':'+s.phase); } if(it==='Nitrogen Gas') dep(s,'NITRO'); }); }
     if(s.ms){ const m=MSMAP[s.ms]; (m.needs||[]).forEach(id=>dep(s,'ms:'+id));
       Object.keys(m.cost).forEach(item=>{ const k=bankKeyOf(item); if(k) dep(s,k); const mk=makerOf(item); if(mk) dep(s,'exp:'+mk.d.id+':'+s.phase); }); }
@@ -983,8 +993,10 @@ function orderPhase(steps){
     if(s.key==='NITRO') dep(s,'ms:T8-AAP');
   });
   const done=new Set(), out=[]; const left=steps.slice();
-  while(left.length){ let idx=left.findIndex(s=>[...deps.get(s)].every(o=>done.has(o)));
-    if(idx<0) idx=0;                 // a cycle would be a data bug — fall back to the original order
+  const ok=s=>[...deps.get(s)].every(o=>done.has(o));
+  while(left.length){ let idx=left.findIndex(s=>ok(s)&&[...soft.get(s)].every(o=>done.has(o)));
+    if(idx<0) idx=left.findIndex(ok);  // soft deps would loop — drop them for this pick
+    if(idx<0) idx=0;                 // a hard cycle would be a data bug — fall back to the original order
     const s=left.splice(idx,1)[0]; done.add(s); out.push(s); }
   steps.forEach(s=>delete s._i); return out; }
 function masterSteps(){ const out=[];
@@ -1094,7 +1106,7 @@ function renderInventory(){ backfillFinished();
   }
   // ----- plan-setting pill (the toggle every number depends on) -----
   const cp=document.getElementById('cfgpill');
-  if(cp){ cp.textContent=(bpMax?'⚡ MAX ON':'🐢 100%')+(bpScale!==1?' · ×'+bpScale:'');
+  if(cp){ cp.textContent=(bpMax?'⚡ 250% clock':'⚙ 100% clock')+(bpScale!==1?' · ×'+bpScale:'');
     cp.title='Counts assume '+(bpMax?'250% overclock in every machine (3 Power Shards each, ~40% of the machines)':'100% clocks (nothing special needed)')+' — click to toggle';
     cp.onclick=()=>setPlanMax(!bpMax); }
   const pp=document.getElementById('pacepill');
@@ -1231,7 +1243,9 @@ function dlCsv(csv,name){ const a=document.createElement('a'); a.href=URL.create
 document.getElementById('exportall').onclick=()=>{ const e=s=>`"${String(s).replace(/"/g,'""')}"`; let csv='phase,step,detail,status\n';
   masterSteps().forEach(s=>{ const m=stepMode(s.key); csv+=[s.phase,e(s.label),e(String(s.detail||'').replace(/<[^>]+>/g,'')),m?(m==='done'?'built':m==='eq'?'existing':'skipped'):'todo'].join(',')+'\n'; });
   dlCsv(csv,'satisfactory-all-steps.csv'); };
-document.getElementById('printinv').onclick=()=>window.print();
+document.getElementById('printinv').onclick=()=>{ const ph=document.getElementById('printhead');
+  if(ph) ph.innerHTML=`<b>Satisfactory build manual</b> — ${PACES[bpPace].label} pace · ${bpMax?'250% clock (Power Shards)':'100% clock'}${bpScale!==1?' · ×'+bpScale:''} · printed ${new Date().toLocaleDateString()}. Counts are only valid for these settings.`;
+  window.print(); };
 /* item search: filter template cards live by item / building / recipe / district */
 (function(){ const sb=document.getElementById('tplSearch'); if(!sb) return;
   sb.oninput=()=>{ const q=sb.value.trim().toLowerCase();
@@ -2121,33 +2135,37 @@ function districtUtils(d,banks){
     util.push(`☢️ <b>Nuclear Waste ~${w}/min</b> (${pl} plants × 10): it <b>cannot be sunk</b>. Belt it from every plant into a wall of <b>Industrial Storage Containers</b> (one holds ~24,000 → a new container every ~${w?Math.round(24000/w/60):0} h) — or process it later (plutonium chain, or Ficsonium at Tier 9). If waste backs up, the plant stops.`); }
   return util;
 }
+/* how to GET a raw input: what to place on the nodes, and how many (normal purity) */
+function rawSource(item,rate,p){
+  if(item==='Water') return `${Math.ceil(rate/120)}× Water Extractor (120/min each)`;
+  if(item==='Crude Oil') return `${Math.ceil(rate/120)}× Oil Extractor on normal nodes (120/min each; pure 240)`;
+  if(item==='Nitrogen Gas') return `Resource Well Extractors on a nitrogen well (~60/min per normal satellite) — see the 💨 Nitrogen step`;
+  if(isFluidItem(item)) return 'pump & pipe in';
+  const mk2=p>=2, per=mk2?120:60;
+  return `${Math.ceil(rate/per)}× Miner ${mk2?'Mk.2':'Mk.1'} on normal ${item.replace(/ Ore$/,'')} nodes (${per}/min each; pure ×2, impure ×½)${item==='Uranium'?' — ☢ Hazmat Suit on':''}`; }
 function bankStepHTML(d,banks,bk,i){
   const now=bankNowCount(d,bk), total=bk.n, bp=bankBuiltPhase(d,bk), perLane=machinesPerLane(T[bk.tid]);
-  const shape = total>perLane ? `${perLane}-wide rows (one belt each), ${Math.ceil(total/perLane)} rows for ${total}` : `one ${total}-wide row`;
-  const placeStr = total>now ? `${now}× ${bk.b} now at a row head — lay it out as ${shape}; leave room for <b>${total}× total</b>` : `${total}× ${bk.b} as ${shape}`;
+  const shape = total>perLane ? `rows of ${perLane} (one input belt each)` : `one row`;
+  const place = total>now ? `<b>${now}× ${bk.b}</b> now — leave room for <b>${total}×</b> in ${shape}` : `<b>${total}× ${bk.b}</b> in ${shape}`;
   const feed=bk.inputs.length
-    ? bk.inputs.map(x=>{ const nr=total>0?+((now/total)*x[1]).toFixed(1):x[1], c=carrierAtPhase(x[0],nr,bp); return c.carrier==='pipe'
-        ? `pipe <b>${x[0]} ${nr}/min</b> (${srcLabel(x[0],d.id)}) in via <b>${c.label} pipe</b> to each ${bk.b}`
-        : `run a <b>${c.label}</b> belt of <b>${x[0]} ${nr}/min</b> (${srcLabel(x[0],d.id)}) into a splitter, manifold down the row`; }).join('; ')
-    : `no material input — this <b>${bk.b}</b> runs on power alone`;
+    ? bk.inputs.map(x=>{ const nr=total>0?+((now/total)*x[1]).toFixed(1):x[1], c=carrierAtPhase(x[0],nr,bp), raw=!ITEM2DIST[x[0]];
+        const from=raw?'from '+rawSource(x[0],nr,bp):srcLabel(x[0],d.id);
+        return `• <b>${x[0]} ${nr}/min</b> — ${c.carrier==='pipe'?c.label+' pipe':c.label+' belt'}, ${from}`; }).join('<br>')
+    : `• nothing — it runs on power alone`;
   const oc=carrierOf(bk.outItem,bk.outRate), path=beltUpgradePath(bk.outItem,bp);
   /* CLOCK: MAX runs every machine at 250% (shards only — counts already reflect it).
      Somersloops are optional: if the 🎯 allocator funds this bank, say so and what it saves. */
   let ocb='';
   if(bpMax) ocb=` <span class="tag qty">⚡ run each at <b>250%</b> — ${bk.n*3} Power Shards for this bank</span>`;
   if(sloopFundedSet().has(d.id+':'+bk.tid)) ocb+=` <span class="tag qty" style="background:#2a1f3a;color:#d3b6ff">🎯 optional: slot Somersloops here (${SLOOP_SLOTS[bk.b]||1} per machine) and you only need ~${Math.ceil(bk.n/2)}× — the best use of the sloops you own</span>`;
-  const collect = oc.carrier==='pipe' ? `pipe the outputs together` : `merge the outputs along the row`;
-  const upg = ` <span class="tag qty">${oc.carrier} upgrade: ${path}</span>`;
+  const upg = ` <span class="tag qty">${oc.carrier} upgrade path: ${path}</span>`;
   const tb=T[bk.tid].by; let by='';
   if(tb){ const mFull=bk.outRate/T[bk.tid].out[1], byr=+(mFull*tb[1]).toFixed(1);
-    by=` <span class="tag qty">⚠ byproduct: ${tb[0]} ${byr}/min — ${BY_ADVICE[tb[0]]||'route it out or the machines clog'}</span>`; }
+    by=`<br>⚠ <b>Byproduct:</b> ${tb[0]} ~${byr}/min at full size — ${BY_ADVICE[tb[0]]||'route it out or the machines clog'}.`; }
   const nowRate = total>0 ? +((now/total)*bk.outRate).toFixed(1) : bk.outRate;
-  const grows = total>now ? ` (grows to ${bk.outRate}/min when all ${total} are built)` : '';
-  const doneWhen = bk.inputs.length
-    ? `it steadily outputs <b>~${nowRate}/min</b> of ${bk.outItem}${grows} and the input belt${bk.inputs.length>1?'s stay':' stays'} full — if a machine sits idle the feed upstream is short; if parts back up before it you over-built downstream${tb?'; and the '+tb[0]+' byproduct line is flowing, not backed up':''}`
-    : `it steadily outputs <b>~${nowRate}/min</b> of ${bk.outItem}${grows} (runs on power alone — if it stops, you're short on power)`;
-  return `<div class="nm"><span class="tag module">§${i+1}</span> Place <b>${placeStr}</b> (${bk.r}).${ocb}</div>
-    <div class="nt"><b>Feed (start, Phase ${bp}):</b> ${feed}.<br><b>Collect:</b> ${collect} → <b>${bk.outItem} ~${nowRate}/min now</b>${total>now?' ('+bk.outRate+'/min at full size)':''} → ${destLabel(d,i,banks)}.${upg}${by}<br><b style="color:#8fe6a8">✅ Done when:</b> ${doneWhen}.</div>`;
+  const doneWhen = `it steadily makes <b>~${nowRate}/min</b>${bk.inputs.length?' and its input belts stay full (an idle machine = the feed upstream is short)':' (if it stops, you are short on power)'}${tb?', and the '+tb[0]+' line is flowing':''}`;
+  return `<div class="nm"><span class="tag module">§${i+1}</span> <b>Place:</b> ${place} (${bk.r}).${ocb}</div>
+    <div class="nt"><b>Feed:</b><br>${feed}<br><b>Output:</b> <b>${bk.outItem} ~${nowRate}/min</b>${total>now?' now ('+bk.outRate+'/min at full size)':''} → ${destLabel(d,i,banks)}.${by}${upg}<br><b style="color:#8fe6a8">✅ Done when:</b> ${doneWhen}.</div>`;
 }
 /* per-phase demand: how big each bank needs to be by the END of phase p (so you
    build a small block now and expand it as later consumers come online). */
