@@ -172,13 +172,14 @@ All rates are **standard recipes, one machine, 100 % clock**, unless noted.
 | Phase | Parts (qty) | Unlocks |
 |-------|-------------|---------|
 | 1 | Smart Plating ×50 | Tiers 3 & 4 |
-| 2 | Smart Plating ×500 · Versatile Framework ×500 · Automated Wiring ×100 | Tiers 5 & 6 |
+| 2 | Smart Plating ×1,000 · Versatile Framework ×1,000 · Automated Wiring ×100 | Tiers 5 & 6 |
 | 3 | Versatile Framework ×2,500 · Modular Engine ×500 · Adaptive Control Unit ×100 | Tiers 7 & 8 |
 | 4 | Assembly Director System ×500 · Magnetic Field Generator ×500 · Thermal Propulsion Rocket ×250 · Nuclear Pasta ×100 | Tier 9 |
 | 5 | Nuclear Pasta ×1,000 · Biochemical Sculptor ×1,000 · AI Expansion Server ×256 · Ballistic Warp Drive ×200 | Game complete |
 
-*(One third-party guide misreported Phase 2 as 1000/1000/100 — that is wrong; the
-in-game value is 500/500/100.)*
+*(An earlier version of this table said 500/500/100, from a third-party guide. The
+game's own data says 1,000/1,000/100 — see the datamined row in the table above — and
+the app uses that.)*
 
 ## 2. Belt / pipe throughput & availability — CONFIRMED
 
