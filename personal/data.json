@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-22",
-    "fetched": "2026-09-22T21:55:36+00:00",
+    "updated": "2026-09-23",
+    "fetched": "2026-09-23T00:13:31+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 15,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 4
+      "wind": 1
     },
     "days": [
       {
@@ -35,9 +35,9 @@
         "day": "Fri",
         "min": 13,
         "max": 26,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 26
+        "icon": "🌧️",
+        "desc": "Rain",
+        "rain": 41
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 121159.0,
-        "pct": -0.35
+        "price": 121256.0,
+        "pct": -0.01
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3861.74,
-        "pct": -0.73
+        "price": 3870.83,
+        "pct": -0.49
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Rob Bonta Sued Paramount to Counter Political Influence, Then Fell Victim to It",
+      "when": "23 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/rob-bonta-paramount-politics-newsom-nashville-1236872658/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Tom Cruise Welcomes Prince William and Kate Middleton at ‘Digger’ World Premiere in London: ‘We Love Them and Really Appreciate What They Do for the Arts’",
+      "when": "22 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/tom-cruise-prince-william-kate-digger-premiere-london-1236871955/"
+    },
     {
       "cat": "Film/TV",
       "title": "Ari Emanuel on Outrunning ‘Entourage,’ the Art of the Phone Call and the Stolen Commission that Still Hurts",
@@ -97,20 +111,6 @@
       "when": "22 Sep",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/digger-first-reactions-tom-cruise-baffles-1236871935/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Spike Lee, Bowen Yang, Amandla Stenberg, Dave Franco and Chance the Rapper Front J.Crew’s 40th Anniversary Barn Jacket Campaign",
-      "when": "22 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/j-crew-barn-jacket-campaign-spike-lee-bowen-yang-1236872685/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "All the Top Shows, Movies and Networks in the Merged Paramount-Warner Bros: ‘Yellowstone,’ ‘Harry Potter,’ ‘Mission: Impossible’ and DC Under One Roof",
-      "when": "22 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/paramount-warner-bros-merger-shows-movies-networks-1236872287/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
