@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-24",
-    "fetched": "2026-09-24T07:29:11+00:00",
+    "fetched": "2026-09-24T13:27:03+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 22,
+      "temp": 16,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 10
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
         "min": 9,
         "max": 24,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 12
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 8
       },
       {
         "day": "Fri",
-        "min": 13,
-        "max": 22,
+        "min": 14,
+        "max": 23,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 48
+        "rain": 33
       },
       {
         "day": "Sat",
-        "min": 7,
-        "max": 13,
+        "min": 8,
+        "max": 14,
         "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 76
+        "desc": "Drizzle",
+        "rain": 67
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119722.0,
-        "pct": -1.73
+        "price": 119197.0,
+        "pct": -1.55
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3821.32,
-        "pct": -1.5
+        "price": 3785.53,
+        "pct": -1.53
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Netflix’s ‘A Different World’ Is a Bold, Fun and Timely Reboot Centering the Uniqueness of Gen Z: TV Review",
+      "title": "Marlene Emilie Lyngstad Addresses First Reactions to Controversial Love Story ‘Cute’: ‘Maybe People Are Confronted by Their Own Monsters?’",
       "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/a-different-world-review-netflix-1236865625/"
+      "url": "https://variety.com/2026/film/global/marlene-emilie-lyngstad-controversial-love-story-cute-1236871906/"
     },
     {
       "cat": "Film/TV",
-      "title": "Asia Video Content Spend to Hit $15 Billion in 2026 as Streaming and Local Film Draw Capital, Media Partners Asia Report Finds",
+      "title": "Paramount to Raise $7.5 Billion More in Debt to Fund Warner Bros. Deal",
       "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/asia-video-content-investment-15-billion-2026-mpa-report-1236874011/"
+      "url": "https://variety.com/2026/film/news/paramount-7-5-billion-more-debt-warner-bros-merger-1236874269/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sean Gunn Says He’s ‘Too Old’ and ‘Retired’ From Playing Rocket Raccoon in ‘Guardians of the Galaxy’: It ‘Hurts After a While’",
+      "title": "Brazil’s Desvia Filmes Enters New Era With Doubled Focus on Indie and Rachel Daisy Ellis’ San Sebastián Co-Pro Forum’s Buzzy ‘The Last Cruise’",
       "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/sean-gunn-retired-rocket-raccoon-guardians-of-the-galaxy-1236873997/"
+      "url": "https://variety.com/2026/film/global/desvia-filmes-rachel-daisy-ellis-new-era-the-last-cruise-1236870939/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘No One Achieves Anything Alone’: Inside Variety’s Power of Women Event With Jennifer Hudson, Sharon Stone, Pearlena Igbokwe and Melissa McCarthy",
+      "title": "‘The Swan’ Unmasked: Inside the Most Sadistic Reality Show Ever",
       "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/scene/news/varietys-power-of-women-jennifer-hudson-sharon-stone-1236873980/"
+      "url": "https://variety.com/2026/tv/features/the-swan-hulu-documentary-plastic-surgery-reality-show-1236874036/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
