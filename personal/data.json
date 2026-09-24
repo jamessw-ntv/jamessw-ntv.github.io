@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-24",
-    "fetched": "2026-09-24T13:27:03+00:00",
+    "fetched": "2026-09-24T18:21:29+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
+      "temp": 17,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 9
+      "wind": 7
     },
     "days": [
       {
         "day": "Today",
-        "min": 9,
-        "max": 24,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 8
-      },
-      {
-        "day": "Fri",
         "min": 14,
         "max": 23,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 33
+        "rain": 34
       },
       {
         "day": "Sat",
@@ -37,7 +29,15 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 67
+        "rain": 74
+      },
+      {
+        "day": "Sun",
+        "min": 5,
+        "max": 16,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 8
       }
     ]
   },
@@ -72,45 +72,73 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119197.0,
-        "pct": -1.55
+        "price": 120228.0,
+        "pct": 0.55
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3785.53,
-        "pct": -1.53
+        "price": 3816.47,
+        "pct": 0.99
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Marlene Emilie Lyngstad Addresses First Reactions to Controversial Love Story ‘Cute’: ‘Maybe People Are Confronted by Their Own Monsters?’",
+      "title": "Sam Worthington and Sofia Carson to Star in ‘The Parsifal Mosaic’ TV Show in the Works at Hulu, Legendary (EXCLUSIVE)",
       "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/marlene-emilie-lyngstad-controversial-love-story-cute-1236871906/"
+      "url": "https://variety.com/2026/tv/news/the-parsifal-mosaic-tv-show-sam-worthington-hulu-1236874353/"
     },
     {
       "cat": "Film/TV",
-      "title": "Paramount to Raise $7.5 Billion More in Debt to Fund Warner Bros. Deal",
+      "title": "Former Disney CEO Bob Iger on What He Valued in a Successor After Chapek Ouster: Can They Deal With a ‘Real Crisis’ in ‘Reasonable and Sane and Steady,’ ‘Mature Way’",
       "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-7-5-billion-more-debt-warner-bros-merger-1236874269/"
+      "url": "https://variety.com/2026/tv/news/disney-bob-iger-picking-new-ceo-firing-chapek-1236874587/"
     },
     {
       "cat": "Film/TV",
-      "title": "Brazil’s Desvia Filmes Enters New Era With Doubled Focus on Indie and Rachel Daisy Ellis’ San Sebastián Co-Pro Forum’s Buzzy ‘The Last Cruise’",
+      "title": "Lawmakers Unveil 20%-30% U.S. Film Incentive in Bid to Restore Hollywood Production",
       "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/desvia-filmes-rachel-daisy-ellis-new-era-the-last-cruise-1236870939/"
+      "url": "https://variety.com/2026/film/news/lawmakers-federal-film-incentive-introduced-1236873572/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Swan’ Unmasked: Inside the Most Sadistic Reality Show Ever",
+      "title": "Black Bear Lands Distribution Rights to Taylor Jenkins Reid’s ‘Atmosphere’ Movie, Produced by Laika",
       "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/features/the-swan-hulu-documentary-plastic-surgery-reality-show-1236874036/"
+      "url": "https://variety.com/2026/film/news/black-bear-taylor-jenkins-reid-atmosphere-1236873994/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Dave Filoni Confirms Mortis Gods Will be Explored in ‘Ahsoka’ Season 2",
+      "when": "24 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/dave-filoni-confirms-mortis-gods-will-be-explored-in-ahsoka-season-2.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Lucas Museum Inauguration Took Place on Saturday With Major Industry and Political Figures In Attendance",
+      "when": "24 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/lucas-museum-inauguration-took-place-on-saturday-with-major-industry-figures-in-attendance.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: ‘The Mandalorian and Grogu’ Streaming Numbers, ‘The Force Awakens’ Dethroned, and Not Much More",
+      "when": "24 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-the-mandalorian-and-grogu-streaming-numbers-the-force-awakens-dethroned-and-not-much-more.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Season 4 Finale Is Right On Time With “Tomorrow’s Enterprise”",
+      "when": "24 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/24/recap-review-star-trek-strange-new-worlds-season-4-finale-is-right-on-time-with-tomorrows-enterprise/"
     },
     {
       "cat": "Trek/Wars",
@@ -127,39 +155,11 @@
       "url": "https://trekmovie.com/2026/09/23/star-trek-strange-new-worlds-tried-to-get-william-shatner-to-return-as-kirk-for-tos-episode-sequel-exclusive/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek Online: Rediscovered’ (With Three Spocks!) Available Now – Watch Launch Trailer",
-      "when": "23 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/22/star-trek-online-rediscovered-with-three-spocks-available-now-watch-launch-trailer/"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory - September News",
       "when": "22 Sep",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/677384059121304793"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Dave Filoni Confirms Mortis Gods Will be Explored in ‘Ahsoka’ Season 2",
-      "when": "21 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/dave-filoni-confirms-mortis-gods-will-be-explored-in-ahsoka-season-2.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Lucas Museum Inauguration Took Place on Saturday With Major Industry and Political Figures In Attendance",
-      "when": "20 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/lucas-museum-inauguration-took-place-on-saturday-with-major-industry-figures-in-attendance.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: ‘The Mandalorian and Grogu’ Streaming Numbers, ‘The Force Awakens’ Dethroned, and Not Much More",
-      "when": "20 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-the-mandalorian-and-grogu-streaming-numbers-the-force-awakens-dethroned-and-not-much-more.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
