@@ -983,7 +983,7 @@ function stepVisual(st){
       body+=`<path d="M170 ${y} v12" stroke="#2dd4bf" stroke-width="2" marker-end="url(#ah)"/>`; y+=18;
       const [mrow,mw2,mh2]=machineRow(0,y,bk.b,solid,glow,ghost,27,9); body+=mrow; y+=mh2+2;
       body+=`<path d="M170 ${y} v12" stroke="#2dd4bf" stroke-width="2" marker-end="url(#ah)"/>`; y+=18;
-      body+=pill(0,y,340,bk.outItem+' ~'+(+outRate.toFixed(1))+'/min','→ '+dest0,'#b692ff'); y+=46;
+      body+=pill(0,y,340,bk.outItem+' ~'+(+outRate.toFixed(isFin?2:1))+'/min','→ '+dest0,'#b692ff'); y+=46;
       return svg(340,y,body,`${bk.r}: ${glow} ${bk.b} to place`); }
     const inH=Math.max(1,ins.length)*46, [mrow,mw,mh]=machineRow(200,10,bk.b,solid,glow,ghost,20), H=Math.max(inH,mh+10,56)+14, midY=10+Math.min(mh,64)/2;
     let body='';
@@ -992,8 +992,8 @@ function stepVisual(st){
     if(!ins.length) body+=pill(0,8,166,'⚡ power only','no item input','#2a323d')+arrow(168,27,196,midY);
     body+=mrow;
     const ox=200+mw+18; const dest=destLabel(bankOf.d,bankOf.i,banks).replace(/<[^>]+>/g,'');
-    body+=arrow(200+mw+2,midY,ox-2,midY)+pill(ox,midY-19,Math.max(210,640-ox),bk.outItem+' ~'+(+outRate.toFixed(1))+'/min','→ '+dest,'#b692ff');
-    body+=`<text x="200" y="${H-2}" font-size="10" fill="#8b97a3">${glow?(st.expOf?'white-edged = add now · faded = already built':'white-edged = place now'):''}${ghost?' · dashed = room to leave':''}</text>`;
+    body+=arrow(200+mw+2,midY,ox-2,midY)+pill(ox,midY-19,Math.max(210,640-ox),bk.outItem+' ~'+(+outRate.toFixed(isFin?2:1))+'/min','→ '+dest,'#b692ff');
+    body+=`<text x="200" y="${H-2}" font-size="10" fill="#8b97a3">${glow?(st.expOf?'white-edged = add now · faded = already built':'white-edged = place now'):''}${ghost?' · drawn 10 a row':''}${ghost?' · dashed = room to leave':''}</text>`;
     return svg(Math.max(640,ox+220),H,body,`${bk.r}: ${glow} ${bk.b} to place`); }
   // generators: a ⚡ step or a top-up
   const gm=/^pwrb:/.test(st.key)?st.label.match(/add (\d+)× (.+)$/):null;
@@ -2059,7 +2059,9 @@ function buildBuildMap(){
     svg.appendChild(svgEl('text',{x:x,y:y,fill:'#46525f','font-size':40,'font-weight':'700','text-anchor':a})).textContent=t; });
   // default view: zoom to fit the laid-out panels so district names are legible at a glance (not tiny blobs)
   const cW=Math.max(1,maxx-minx), cH=Math.max(1,maxy-miny), fit=Math.max(0.6,Math.min(BMW/(cW+140),BMH/(cH+140),2.6));
-  bmFitZoom={k:fit,tx:BMW/2*(1-fit),ty:BMH/2*(1-fit)}; bmZoom={...bmFitZoom}; bmApplyView(); bmSetupZoom(svg);
+  bmFitZoom={k:fit,tx:BMW/2*(1-fit),ty:BMH/2*(1-fit)}; bmZoom={...bmFitZoom};
+  if(window.innerWidth<640){ const nx=masterSteps().find(s=>!state[s.key]), d=DMAP[(nx&&nx.district)||'PA']; if(d&&d.px!=null){ const k=fit*2.4; bmZoom={k,tx:BMW/2-d.px*k,ty:BMH/2-d.py*k}; } }   // phones open on your district, readable
+  bmApplyView(); bmSetupZoom(svg);
   bmStep=bmDerivedStep();   // the map opens at YOUR progress, not at step 0
   bmApply();
 }
