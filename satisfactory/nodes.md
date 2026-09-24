@@ -10,36 +10,39 @@ Node data: the Satisfactory 1.0 map export from satisfactory-calculator.com (SCI
 
 | District | Where | Resource | Needs/min | Nodes | They give/min |
 |---|---|---|---|---|---|
-| **A** Ironworks | 97 m east of ★ | Iron Ore | 1231 | 2 pure | 1560 |
-|  |  | Limestone | 695 | 1 pure | 780 |
-| **B** Copperworks | 181 m east of ★ | Copper Ore | 2818 | 1 pure, 4 normal, 3 impure | 3420 |
-|  |  | Caterium Ore | 410 | 1 normal | 480 |
-| **C** Steelworks | 502 m east of ★ | Coal | 1486 | 4 normal | 1920 |
-|  |  | Iron Ore | 757 | 2 normal | 960 |
+| **A** Ironworks | 48 m right by ★ | Iron Ore | 1231 | 3 pure | 1440 |
+|  |  | Limestone | 695 | 1 pure, 2 impure | 720 |
+| **B** Copperworks | 344 m south-east of ★ | Copper Ore | 2818 | 3 pure, 6 normal, 3 impure | 3240 |
+|  |  | Caterium Ore | 410 | 1 pure, 1 normal | 720 |
+| **C** Steelworks | 546 m north-east of ★ | Coal | 1486 | 1 pure, 5 normal | 1680 |
+|  |  | Iron Ore | 757 | 3 normal, 2 impure | 960 |
 | **D** Oil & Electronics | 2256 m west of ★ | Crude Oil | 2488 | 5 pure, 8 normal, 7 impure | 2580 |
-|  |  | Raw Quartz | 383 | 2 impure | 480 |
-| **E** Aluminium & Cooling | 2223 m south of ★ | Bauxite | 520 | 1 pure | 780 |
+|  |  | Raw Quartz | 383 | 1 normal, 2 impure | 480 |
+| **E** Aluminium & Cooling | 2213 m south of ★ | Bauxite | 520 | 1 pure, 1 normal | 720 |
 |  |  | Nitrogen Gas | 358 | 2 pure, 2 normal, 1 impure | 390 |
-|  |  | Coal | 260 | 1 normal | 480 |
-| **F** Nuclear Fuel | 4253 m west of ★ | Uranium | 220 | 1 impure | 240 |
-|  |  | Sulfur | 132 | 1 normal | 480 |
-| **G** Quantum & SAM | 5369 m south-west of ★ | SAM Ore | 440 | 1 normal | 480 |
+|  |  | Coal | 260 | 1 normal, 1 impure | 360 |
+| **F** Nuclear Fuel | 3602 m south-west of ★ | Uranium | 220 | 1 normal | 240 |
+|  |  | Sulfur | 132 | 1 normal | 240 |
+| **G** Quantum & SAM | 2165 m west of ★ | SAM Ore | 440 | 1 pure | 480 |
 
 ## Every node, by district
 
-### A · Ironworks — centre x 3012, y -1615 (97 m east of ★)
+### A · Ironworks — centre x 2950, y -1675 (48 m right by ★)
 
 **Iron Ore**
 
 - pure — 149 m south-east of ★ (x 2976, y -1502, z 40)
 - pure — 158 m north-east of ★ (x 3048, y -1729, z 38)
+- pure — 179 m north-west of ★ (x 2827, y -1793, z 42)
 
 **Limestone**
 
 - pure — 571 m east of ★ (x 3489, y -1634, z 42)
+- impure — 544 m north-west of ★ (x 2446, y -1909, z 18)
+- impure — 544 m west of ★ (x 2374, y -1649, z 26)
 
 
-### B · Copperworks — centre x 3093, y -1685 (181 m east of ★)
+### B · Copperworks — centre x 3229, y -1493 (344 m south-east of ★)
 
 **Copper Ore**
 
@@ -51,13 +54,18 @@ Node data: the Satisfactory 1.0 map export from satisfactory-calculator.com (SCI
 - impure — 576 m north-east of ★ (x 3269, y -2096, z 37)
 - normal — 611 m east of ★ (x 3489, y -1856, z 42)
 - pure — 652 m east of ★ (x 3555, y -1498, z 42)
+- normal — 677 m south of ★ (x 2974, y -964, z 60)
+- pure — 709 m south-east of ★ (x 3428, y -1147, z 60)
+- normal — 712 m south of ★ (x 2776, y -941, z 55)
+- pure — 892 m east of ★ (x 3808, y -1699, z 42)
 
 **Caterium Ore**
 
 - normal — 761 m south-west of ★ (x 2243, y -1287, z 72)
+- pure — 1226 m east of ★ (x 4066, y -2068, z -15)
 
 
-### C · Steelworks — centre x 3420, y -1637 (502 m east of ★)
+### C · Steelworks — centre x 3279, y -2049 (546 m north-east of ★)
 
 **Coal**
 
@@ -65,11 +73,16 @@ Node data: the Satisfactory 1.0 map export from satisfactory-calculator.com (SCI
 - normal — 801 m east of ★ (x 3659, y -1334, z 53)
 - normal — 802 m east of ★ (x 3681, y -1392, z 55)
 - normal — 851 m north of ★ (x 2715, y -2465, z 16)
+- normal — 877 m north of ★ (x 2765, y -2503, z 13)
+- pure — 1061 m north of ★ (x 3255, y -2645, z 17)
 
 **Iron Ore**
 
-- normal — 484 m east of ★ (x 3382, y -1776, z 50)
+- impure — 400 m north-east of ★ (x 3146, y -1968, z 39)
+- impure — 552 m north of ★ (x 3118, y -2153, z 24)
 - normal — 513 m east of ★ (x 3393, y -1834, z 45)
+- normal — 484 m east of ★ (x 3382, y -1776, z 50)
+- normal — 361 m north of ★ (x 2987, y -1993, z 27)
 
 
 ### D · Oil & Electronics — centre x 824, y -799 (2256 m west of ★)
@@ -101,12 +114,14 @@ Node data: the Satisfactory 1.0 map export from satisfactory-calculator.com (SCI
 
 - impure — 2391 m west of ★ (x 550, y -1306, z 72)
 - impure — 2310 m west of ★ (x 623, y -1374, z 83)
+- normal — 1784 m south-west of ★ (x 1901, y -173, z 95)
 
 
-### E · Aluminium & Cooling — centre x 2603, y 562 (2223 m south of ★) · railed
+### E · Aluminium & Cooling — centre x 2612, y 553 (2213 m south of ★) · railed
 
 **Bauxite**
 
+- normal — 2194 m south of ★ (x 2631, y 536, z -13)
 - pure — 2223 m south of ★ (x 2603, y 562, z -9)
 
 **Nitrogen Gas**
@@ -120,24 +135,25 @@ Node data: the Satisfactory 1.0 map export from satisfactory-calculator.com (SCI
 **Coal**
 
 - normal — 2910 m south of ★ (x 2149, y 1168, z 108)
+- impure — 2971 m south of ★ (x 1939, y 1166, z 102)
 
 
-### F · Nuclear Fuel — centre x -1328, y -1876 (4253 m west of ★) · railed
+### F · Nuclear Fuel — centre x 380, y 917 (3602 m south-west of ★) · railed
 
 **Uranium**
 
-- impure — 4253 m west of ★ (x -1328, y -1876, z 465)
+- normal — 3602 m south-west of ★ (x 380, y 917, z -48)
 
 **Sulfur**
 
-- normal — 5048 m west of ★ (x -2130, y -1700, z -13)
+- normal — 2604 m south-west of ★ (x 921, y 32, z 161)
 
 
-### G · Quantum & SAM — centre x -1818, y 891 (5369 m south-west of ★) · railed
+### G · Quantum & SAM — centre x 826, y -2196 (2165 m west of ★) · railed
 
 **SAM Ore**
 
-- normal — 5369 m south-west of ★ (x -1818, y 891, z 170)
+- pure — 2165 m west of ★ (x 826, y -2196, z 89)
 
 ## What the real map changes
 

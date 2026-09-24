@@ -965,3 +965,17 @@ Both items left open here are now resolved (round 14, below).
 - **Phase 3 Fuel Generators** now count the coal generators already standing, including
   coal top-ups: 5 instead of 8 at Minimum, which hits the intended ~40% headroom.
 
+
+### Round 15 — node verification
+
+- All 522 embedded nodes match the source export one-to-one, and ★ is the centroid of the
+  desert's seven pure iron nodes.
+- **Fixed:** Miner Mk.3 rates were doubled. They are now 120/240/480 per impure, normal
+  and pure node (240/min on a normal node), so node counts roughly doubled. Oil is still
+  the only shortfall (Balanced, Fast), and `nodes.md` is regenerated.
+- **Fixed:** Page load had regressed, because the Phase-3 fuel count re-solved Phase 2
+  with nothing cached. `genAdd` is now memoised per solver state and page load is ~10%
+  faster than before the regression.
+- **Fixed:** When clusters tie, the far districts take the one nearer ★.
+- **Fixed:** Map bearings now keep ≥32° between panels, and an angle under 60 m from ★
+  falls back to the default. There are no overlaps at any pace, with or without MAX.

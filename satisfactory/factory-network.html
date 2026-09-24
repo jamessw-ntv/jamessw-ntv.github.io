@@ -1041,10 +1041,10 @@ const NODE_RES={I:'Iron Ore',C:'Copper Ore',L:'Limestone',K:'Coal',G:'Caterium O
 const NODES=NODE_RAW.split(';').map((t,id)=>{ const m=t.match(/^(\w)(\d)(-?\d+),(-?\d+),(-?\d+)$/); return {id,c:m[1],r:NODE_RES[m[1]],well:m[1]==='o'||m[1]==='N',p:+m[2],x:+m[3],y:+m[4],z:+m[5]}; });
 const PURITY=['impure','normal','pure'];
 const HOME=(()=>{ const c=NODES.filter(n=>n.c==='I'&&n.p===2&&Math.hypot(n.x-2900,n.y+1600)<600); return {x:Math.round(c.reduce((a,n)=>a+n.x,0)/c.length),y:Math.round(c.reduce((a,n)=>a+n.y,0)/c.length)}; })();
-/* per-node output at full size: Miner Mk.3 (240/480/960, capped at a Mk.5 belt), Oil
+/* per-node output at full size: Miner Mk.3 (120/240/480, capped at a Mk.5 belt), Oil
    Extractor (60/120/240), Resource Well Extractor (30/60/120) — all at 100% clock */
 function nodeRate(n){ const f=bpMax?MAXFACTOR:1;   // MAX overclocks the extractors too
-  if(n.well) return [30,60,120][n.p]*f; if(n.c==='O') return [60,120,240][n.p]*f; return Math.min(780,[240,480,960][n.p]*f); }
+  if(n.well) return [30,60,120][n.p]*f; if(n.c==='O') return [60,120,240][n.p]*f; return Math.min(780,[120,240,480][n.p]*f); }
 function nodeDist(a,b){ return Math.hypot(a.x-b.x,a.y-b.y); }
 function compass(from,to){ const dx=to.x-from.x, dy=to.y-from.y; if(Math.hypot(dx,dy)<60) return 'right by';
   const a=(Math.atan2(-dy,dx)*180/Math.PI+360)%360; return ['east','north-east','north','north-west','west','south-west','south','south-east'][Math.round(a/45)%8]+' of'; }
@@ -1065,7 +1065,7 @@ function nodePlan(){ const sig=planSig(); if(_nodeCache.sig===sig) return _nodeC
   const bestCluster=(res,need)=>{ let best=null,bs=Infinity; const W=res==='Nitrogen Gas'; NODES.filter(n=>n.r===res&&!taken.has(n.id)&&n.well===W).forEach(c=>{
       const pool=NODES.filter(n=>n.r===res&&!taken.has(n.id)&&n.well===W).sort((a,b)=>nodeDist(a,c)-nodeDist(b,c)); let cap=0,rad=0;
       for(const n of pool){ if(cap>=need) break; cap+=nodeRate(n); rad=nodeDist(n,c); }
-      const score=cap>=need?rad:1e6+(need-cap); if(score<bs){ bs=score; best=c; } }); return best||HOME; };
+      const score=(cap>=need?rad:1e6+(need-cap))+0.1*nodeDist(c,HOME); if(score<bs){ bs=score; best=c; } }); return best||HOME; };   // ties → nearer ★
   ['A','C','B','D','E','F','G'].forEach(id=>{ const d=DMAP[id]; if(!d) return; const need=districtRawNeed(d); delete need.Water;
     const prim=NODE_PRIMARY[id], far=/train/.test(d.near);
     const keys=Object.keys(need).filter(k=>need[k]>0.5).sort((a,b)=>(a===prim?-1:b===prim?1:need[b]-need[a]));
@@ -1249,7 +1249,11 @@ const OPENING_WINDOW=60;   // minutes: Phase 1's own Tier 1–2 milestones and m
 function extraWindow(q){ const pace=PACES[bpPace]||PACES.minimum; if(pace.min) return pace.min;
   let mx=240; (DELIVERIES[q]||[]).forEach(([item,qty])=>{ const r=finalRate(item,q); if(r) mx=Math.max(mx,qty/r); }); return mx; }
 /* generators ADDED in phase p, and the water they drink */
+let _genCache={};
 function genAdd(p){ if(p<2) return {n:0};
+  const gk=p+'|'+planSig()+'|'+(_noFuel?1:0)+(_noPseudo?1:0)+'|'+(_exTag||'')+'|'+JSON.stringify(_bridgeCache[planSigBase()]||{});
+  if(_genCache[gk]) return _genCache[gk]; const r=genAdd0(p); _genCache[gk]=r; return r; }
+function genAdd0(p){
   if(p>=4){ const tot=nuclearPlants(p), add=tot-nuclearPlants(p-1); return {building:'Nuclear Power Plant',n:add,tot,mw:2500}; }
   const was=_noFuel; _noFuel=true; const g=GEN[p]; let mw, prev;
   try{ mw=phaseStandingMW(p).mw; prev=p>2?phaseStandingMW(p-1).mw*1.4:0; } finally { _noFuel=was; }
@@ -1343,7 +1347,7 @@ function masterSteps(){ const key=planSigBase()+'|'+sloopsOwned(); if(_msCache[k
       steps=buildSteps();
       const now=JSON.stringify(_bridgeCache[planSigBase()]||{}); if(now===prev) break;
       _demOne={}; _demP={}; _demandCache={}; _extraCache={}; for(const k in _plantCache) delete _plantCache[k];
-      _sloopCache={sig:null,rows:null}; _fundedCache={sig:null,set:null}; _nodeCache={sig:null,plan:null}; }
+      _sloopCache={sig:null,rows:null}; _fundedCache={sig:null,set:null}; _nodeCache={sig:null,plan:null}; _genCache={}; }
   } finally { _msBusy=false; }
   _msCache[key]=steps; return steps; }
 /* Walk the ordered steps tracking the draw you have built and the generators you have.
@@ -1923,11 +1927,11 @@ function buildBuildMap(){
   const view=svgEl('g',{}); svg.appendChild(view); bmView=view;
   const P={}; DISTRICTS.forEach(d=>P[d.id]=bmPanel(d));
   // initial compass placement, then push apart so panels never overlap
-  { const np=nodePlan(); DISTRICTS.forEach(d=>{ const c=np[d.id]&&np[d.id].centre; if(c&&nodeDist(c,HOME)>60) d.ang=Math.round(Math.atan2(c.y-HOME.y,c.x-HOME.x)*180/Math.PI); });
-    // keep each panel on its real bearing, but at least 40° from its neighbours so none overlap
+  { const np=nodePlan(); DISTRICTS.forEach(d=>{ if(d.ang0===undefined) d.ang0=d.ang; const c=np[d.id]&&np[d.id].centre; d.ang=(c&&nodeDist(c,HOME)>60)?Math.round(Math.atan2(c.y-HOME.y,c.x-HOME.x)*180/Math.PI):d.ang0; });
+    // keep each panel on its real bearing, but at least 32° from its neighbours so none overlap
     const ring=DISTRICTS.filter(d=>d.id!=='PA');
     for(let it=0;it<60;it++){ ring.sort((a,b)=>((a.ang+360)%360)-((b.ang+360)%360));
-      let moved=false; ring.forEach((d,i)=>{ const e=ring[(i+1)%ring.length]; let gap=((e.ang-d.ang)%360+360)%360; if(ring.length>1&&gap<40){ const push=(40-gap)/2+0.5; d.ang-=push; e.ang+=push; moved=true; } });
+      let moved=false; ring.forEach((d,i)=>{ const e=ring[(i+1)%ring.length]; let gap=((e.ang-d.ang)%360+360)%360; if(ring.length>1&&gap<32){ const push=(32-gap)/2+0.5; d.ang-=push; e.ang+=push; moved=true; } });
       if(!moved) break; }
     ring.forEach(d=>d.ang=Math.round(((d.ang+540)%360)-180)); }
   DISTRICTS.forEach(d=>{ if(d.id==='PA'){ d.px=BM_C.x; d.py=BM_C.y; } else { const a=d.ang*Math.PI/180; d.px=BM_C.x+780*Math.cos(a); d.py=BM_C.y+600*Math.sin(a); } });
@@ -2274,7 +2278,7 @@ function saveCfg(){ state._cfg=Object.assign({},state._cfg,{max:bpMax,scale:bpSc
 /* re-read the plan settings OUT of state — needed after any wholesale state replacement
    (Load code, undo, Reset), otherwise the live plan silently disagrees with the saved one. */
 function flushPlanCaches(){ _chCache.sig=null; _demandCache={}; _demP={}; _demOne={}; _msCache={}; _extraCache={}; _bridgeCache={};
-  for(const k in _plantCache) delete _plantCache[k]; _sloopCache={sig:null,rows:null}; _fundedCache={sig:null,set:null}; _nodeCache={sig:null,plan:null}; }
+  for(const k in _plantCache) delete _plantCache[k]; _sloopCache={sig:null,rows:null}; _fundedCache={sig:null,set:null}; _nodeCache={sig:null,plan:null}; _genCache={}; }
 function applyCfg(){ bpScale=(state._cfg&&state._cfg.scale)||1;
   bpMax=(state._cfg&&typeof state._cfg.max==='boolean')?state._cfg.max:false;
   bpPace=(state._cfg&&PACES[state._cfg.pace])?state._cfg.pace:'minimum';
