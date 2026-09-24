@@ -611,3 +611,371 @@ fixed — including two claims that turned out to be *test* artifacts rather tha
 product defects (a selector that also matched the guided card's own chapter line,
 and a hand-seeded "old save" that omitted expansion ticks a real old save would
 have). Checking those two saved two unnecessary code changes.
+
+
+---
+
+## Part 5 — "Can I just follow it?" review (round 3, 2026-09-23)
+
+**Brief from the owner:** review the whole plan for how easy it is to follow
+step by step to reach the **minimum completed factory** (Project Assembly
+launched).
+
+**Method:** six independent reviewers ran at once, each driving the real app in
+headless Chromium:
+
+1. A first-time player on Phases 0–2.
+2. The same, on Phases 3–5 through launch.
+3. An 800-hour veteran asking "is this the minimum?"
+4. A mechanical dependency audit of `masterSteps()`.
+5. A technical-writing and second-screen editor.
+6. A Satisfactory 1.0 reality-checker.
+
+Findings were cross-checked against each other and against the code before
+anything was changed. A seventh reviewer then tried to break the fixes.
+
+### Headline
+
+**The item order is sound. Unlocks, power and "done" were not.** The dependency
+audit found **0 forward item dependencies** across 67 bank steps: nothing is
+used before the step that makes it. But a player following the list word for
+word stalled at four places:
+
+- **Step 34:** Caterium needs MAM research, and no step mentioned the MAM.
+- **Step 62:** Quartz needs MAM research, with the same gap.
+- **Steps 83 and 93:** nuclear fuel and nitrogen had no steps at all.
+
+Two more things would have misled them the whole way:
+
+- **Power was 15–35× too high.** It charged the final size of every bank to the
+  phase it was built in, so Phase 1 asked for ~90 generators to run ~300 MW.
+- **"✅ Done when" could never pass.** It quoted the finished rate: "8 smelters →
+  steadily outputs 5,695/min".
+
+### Fixed in this round
+
+| # | Finding (who found it) | Fix |
+|---|---|---|
+| 1 | Power 15–35× high; no generator counts; `GEN[1]` said 75 MW coal in a phase with no coal (1, 2, 4, 6) | `standingCount`/`phaseStandingMW` count what is actually standing per phase. The live readout counts ticked banks plus ticked Expand steps. Every ⚡ step now says "by the end of Phase p you draw ~X MW → have ~N× generators". Phase 1 is Biomass at 30 MW. Phase 5 has its own ⚡ step. |
+| 2 | MAM research never mentioned (1, 4, 6) | Tickable unlocks: Caterium (Phase 2), Quartz (Phase 3), Alien Technology / SAM Fluctuators (Phase 5). |
+| 3 | Tier 7–8 gates and nitrogen missing (2, 4, 6) | Control System Development and Advanced Aluminum Production unlock lines. A 💨 Nitrogen step with the m³/min to plan for. |
+| 4 | Done-when and Collect used the final rate (1, 5, 6) | Both show the rate for the machines you place now, plus "grows to X when all N are built". |
+| 5 | Expansions came *after* the new consumers they feed (2, 4) | Per phase the order is now: unlocks → pre-power → **Expand** → new districts → post-power → ★ → deliveries. |
+| 6 | Fuel Generators came before the oil district; nuclear came before E's EM Control Rods (2, 4) | PWR3 and PWR4 now come after the phase's districts. |
+| 7 | ★ utilities (water, Dark Matter Residue) were a Phase-1 step (1, 4) | Emitted in the first phase a ★ bank needs them (Phase 5). |
+| 8 | Steps 1–4 repeated as 8–12; "Unlock: Miner Mk.1s" (1, 4, 5) | Phase-1 duplicates removed. The Somersloop hunt shows only in MAX mode. |
+| 9 | First-run "100%" left other tabs showing MAX until a reload; MAX was the default (1, 5) | `setPlanMax` re-renders every tab. New saves default to 100%; old saves with progress keep MAX. |
+| 10 | Rail imports labelled "belt"; outputs routed to "§next here" (2) | Rail if either end is a rail district. Destinations list the real consumers, or ▲ Space Elevator for finals. |
+| 11 | Delivery notes quoted the deleted M1–M12 modules (1, 2, 5) | "Assembled at ★ — load it into the Space Elevator and press Send". Dead module rows deleted. |
+| 12 | Docs described the old plan (5, 6) | `inventory.csv` deleted (⬇️ Steps CSV replaces it). power.md budget table now uses the app's numbers (it was 3–5× low). Drones corrected to Tier 8. M-numbers removed from train-network.md. architecture.md matches the build order. |
+
+**Verified by the seventh reviewer:**
+- 0 consumer-before-supplier cases, down from 45 in the old order at 100% and
+  39 in MAX.
+- Old saves from five points in the game migrate correctly, both at boot and
+  through Load code.
+- The power table totals match the standing count in every phase.
+- 0 JS errors in any tab, in both modes.
+
+It also caught five real bugs in the first pass of these fixes, all fixed
+before merge:
+- Expand steps parked the chapter card on ★ while you built D–G.
+- Reset dropped `_mig`, which flipped a 100% player to MAX on the next reload.
+- Finals hid their other consumers (Smart Plating also feeds Modular Engine).
+- The Pasta delivery notes said ★, but Pasta is made in F.
+- Power steps sized for the whole load while telling you to "stack". They now
+  say how many to *add*.
+
+**Save safety:** new steps would have thrown a returning player back into an
+old phase, which was the round-2 bug. `migrateState` step 4 (`_mig=2`) runs
+once and ticks the new steps in any phase whose deliveries are all done.
+`TECH_V1` freezes the old lists so positional-key migration still maps
+correctly. Verified with a synthetic save finished through Phase 3: it opens on
+the first Phase-4 unlock.
+
+### Open — the "minimum factory" decisions (need the owner) — *all done in Part 6*
+
+These are the biggest wins for *minimum*, but they change what the plan is, so
+they are not applied yet. Numbers are from the solver at 100%.
+
+1. **Size banks per phase, not all phases at once.** `solveDemand` keeps every
+   earlier final's rate alive (Smart Plating at 10/min all the way to Phase 5).
+   Sizing each bank to its busiest single phase: **2,136 → 1,477 machines
+   (−31%)**, 32.6 → 26.1 GW, iron ore −43%. **Phase times stay the same.**
+2. **A "🐢 Minimum finish" preset.** A target time per phase instead of
+   hard-coded `FINAL_RATES`. At ~8 h per phase (AFK time while you build the
+   next district) the whole factory is **~540 machines and ~13 GW**. ×scale today
+   only offers 0.5–2, and it is hidden in Blueprints.
+3. **Nuclear Pasta at 4/min sets the size of Phase 4** (4,800 copper ingot/min).
+   Turning it down is the single biggest shrink.
+4. **Make nuclear optional.** No production recipe uses uranium. At minimum
+   scale, coal plus fuel covers the power. F could then sit by copper and coal
+   instead of uranium. That removes a rail line and the fuel-rod and waste chain.
+5. **Banks with zero demand still get "1× now"** (`bankNowCount` floors at 1).
+   Example: Phase-1 Modular Frame, which steals Reinforced Iron Plate from
+   Smart Plating. It should be "reserve floor space, build it in Expand for
+   Phase N".
+
+### Open — correctness, still to do — *all done in Part 6 except the node-coordinate table*
+
+- **Nuclear fuel chain as real steps.** Sulfur → acid → cells → rods, plus
+  waste, sized to the ⚡ step's plant count. It needs EM Control Rod and Encased
+  Beam demand in the solver (today E §11 is sized only for the Magnetic Field
+  Generator).
+- **Phase-5 fluids at ★:** Excited Photonic Matter and Dark Matter Residue
+  can't be packaged, so they can't come from G by rail. Put an EPM Converter at
+  ★, and handle the residue there (a local Dark-Matter-Crystal accelerator or
+  fluid buffers).
+- **Building and milestone costs aren't in demand.** 8 Converters need 800 SAM
+  Fluctuators. 14 Particle Accelerators need 140 Supercomputers. Milestones need
+  hundreds of Fused Modular Frames and Radio Control Units. Add "bank N× X
+  before step Y" steps.
+- **MAX mode:** step titles show the funded count, while the detail says to
+  build ~2× when the bank isn't in your sloop plan. Feeds aren't halved for
+  slooped banks. Sloops are assumed from Phase 1 but unlock in Phase 4. (100%
+  is now the default, so this only bites if you choose MAX.)
+- **Presentation:** each step is one ~90-word paragraph. Split it into
+  Place / Feed / Collect / Done-when lines. The print header should state the
+  mode. Hide screen-only buttons in print. "PA" is used for both Project
+  Assembly and Particle Accelerator.
+- **"Where":** the node-coordinate table is still owner-supplied, from round 2.
+  Miner Mk and count per ore feed is computable now.
+
+
+---
+
+## Part 6 — Building the minimum factory (rounds 4–7, 2026-09-23)
+
+**Brief from the owner:** *"Continue until you think you have a perfect plan."*
+
+**Method:** a build-then-review loop. Each round ended with 3–5 independent reviewers
+driving the real app in headless Chromium:
+
+- a literal first-timer clicking through every step
+- a Satisfactory veteran judging buildability
+- a game-data auditor
+- an adversarial code and migration hunter
+- a docs editor
+
+Game facts came from the game's own data exports (SatisfactoryTools 1.0 and a 2026
+live export, which agree), not from memory. See VERIFICATION.md.
+
+### What the plan is now
+
+| | 🐢 Minimum (default) | ⚖ Balanced | 🚀 Fast |
+|---|---|---|---|
+| Each phase's deliveries | up to ~8 h | up to ~4 h | original design rates |
+| Machines (100% clock) | ~720 | ~1,470 | ~2,180 |
+| Power at the end | ~26 GW | ~43 GW | ~54 GW |
+| Nuclear plants (P4 / P5) | 5 / 11 | 8 / 17 | 11 / 18 |
+| Steps | 262 | 318 | 376 |
+
+The Minimum-pace power figure includes every miner and extractor, plus datamined
+per-recipe draw for the variable buildings.
+
+### The big changes
+
+1. **Pace, not fixed rates.** Each phase's finals run at `quantity ÷ pace`, and every
+   bank is sized to its busiest single phase. Banks are built in the first phase that
+   needs them. Nuclear Pasta banks evenly across Phases 4–5.
+2. **Real milestones.** Every HUB milestone and MAM node the finish needs is a step,
+   with its datamined cost and unlocks. Every bank is gated on its recipe's milestone
+   and its building's milestone. Each phase is topologically sorted, so each milestone
+   is followed by the banks it unlocks, then by the banks that make the next
+   milestone's parts.
+3. **One-off costs are planned.** Milestone costs and the build cost of every
+   machine, generator, extractor, pressurizer and train are charged to the phase
+   before they are needed (solved to a fixed point). A 🧺 Stockpile step lists them.
+4. **Power never outruns generation.** Each phase's power chain is scheduled first.
+   D's Fuel bank feeds the fuel generators. Automatic ⚡ top-ups use the best
+   generator unlocked by then. Nuclear is sized with the fuel chain F builds. At every
+   step, draw stays under ~90% of capacity at every pace and clock setting.
+5. **Logistics fixes.**
+   - Nuclear Pasta moved next to the copper (B).
+   - Diamonds moved next to the coal (C).
+   - F makes only nuclear fuel.
+   - The AI Expansion Server is made in G, because Excited Photonic Matter can't
+     travel.
+   - SAM Fluctuators stockpile from Phase 4 via MAM research.
+   - Belts are capped at Mk.5 and pipes at Mk.1 (the upgrades are optional
+     milestones).
+6. **Readable steps.** Each step card shows:
+   - Place / Feed / Output / Done-when lines.
+   - Miner and extractor counts, using only the belts and miners unlocked at that
+     point.
+   - Byproduct routing.
+   - A site check that lists the nodes the district needs.
+7. **Data corrections**, all datamined:
+   - Phase 2 is 1,000 / 1,000 / 100.
+   - Supercomputer is Tier 7.
+   - Magnetic Field Generator is Tier 8.
+   - The Hazmat Suit needs MAM Gas Mask research.
+   - Recycled Plastic uses Fuel.
+   - Coated Iron Plate is 37.5 + 7.5.
+   - MAX is now 250% overclock with Power Shards only.
+8. **Save safety.** A `PLAN_VERSION` re-runs the backfill whenever steps land in
+   phases a save has already finished. The current phase is judged by district pads
+   and deliveries only. Moved templates keep their ticks. This is verified with saves
+   from three older builds at dozens of progress points, both at boot and through
+   Load code.
+
+### Still open
+
+- **Real node coordinates.** This needs the owner. Each pad step's site check now
+  lists the nodes it needs, which covers the rest.
+- **Map realism.** Copper (~2,860 ore/min) and coal (~1,780/min) at Minimum pace are
+  more than one desert region supplies. Each district sits by its own ore, the site
+  check says what to look for. The plan-wide alternates (Fused Wire, Solid Steel,
+  Oil-Based Diamonds) cut coal by ~55% and copper by ~20%. Pure Copper and Pure Iron
+  Ingot need a Refinery, which arrives after those banks are first built, so they're
+  offered as hand-rebuilds from Phase 3, not as switches. Each alternate needs its
+  hard drive.
+
+---
+
+## Part 7 — The opening, fuel order and solver determinism (round 8, 2026-09-23)
+
+A first-timer walkthrough found two structural problems, and an adversarial code pass
+found one more:
+
+1. **The opening was hand-crafted.** Tiers 1–2 were Phase-0 one-liners ("do Part
+   Assembly"), so you had to hand-craft ~1,100 plates, 950 rods, 1,100 wire and 800
+   screws. Now they are six real 🔓 milestones in Phase 1, with their datamined costs:
+   Base Building, Logistics, Field Research (the MAM), Part Assembly, Logistics Mk.2 and
+   the Resource Sink.
+   - A **small Copperworks** (copper, wire, cable) now opens in Phase 1, straight after
+     the Ironworks basics, because those milestones cost wire and cable.
+   - The Assembler banks (RIP, Rotor, Frame, Smart Plating) wait for Part Assembly.
+   - Belts are Mk.1 (60/min) until Logistics Mk.2.
+   - The pads say foundations come with Base Building.
+   - Phase 1's own costs are paid within about an hour (`OPENING_WINDOW`), not over the
+     8-hour pace window.
+   - The MAM research nodes all come after Field Research. Caterium research waits for
+     Phase 2, its first real use.
+2. **A fuel top-up came before the fuel to run it.** D's Fuel refinery expansions now go
+   first in their phase, ahead of any ⚡ top-up of Fuel Generators.
+3. **The ledger depended on who called it first.** `computeExtras()` now always runs
+   with the solver's recursion guards off, so the same settings always give the same
+   plan. That adds about 35% to solve time.
+
+Smaller fixes:
+- The coke line's picture and card name the residue source (D §1 + §4), and its output
+  goes to a Sink.
+- Final-bank pictures show the delivery rate, matching the card.
+- Top-up cards give their instruction first and end on "Done when". Coal top-ups count
+  their coal miners and water extractors.
+- Power Storage is marked optional. The coal step says to let the burners run down.
+- Every milestone says whether its parts are in the stockpile or still being made, and
+  how long to allow.
+- Pads and rail links have a "Done when".
+- The check-in recap refreshes after "I'm further ahead".
+
+Save migration (plan v14):
+- The old Phase-0 ticks map onto the new milestones.
+- A save past Phase 1 that never built Copperworks is sent back to build it.
+- Every other save lands where it was.
+
+
+### Rounds 9–10 (same day)
+
+The first-timer, veteran and code reviewers each ran twice more.
+
+What the veteran confirmed from game data: every unlock is in order, all 32 milestone
+costs and every Space Elevator count match, the generator and recipe rates match, and
+draw never exceeds capacity.
+
+Fixed:
+- **The opening can be followed as written.**
+  - Tier 1 Logistics is hand-crafted first, so every early line can split and merge.
+  - The mall step lists exactly what to hand-craft for the first machines. It only
+    lists what Tier 0 can craft; Rotors are asked for once Part Assembly unlocks them.
+  - The Space Elevator (1,500 Wire) waits for the A and B lines.
+  - Burners are described honestly: they need refilling while you play, and Obstacle
+    Clearing (Solid Biofuel) makes the fuel last longer.
+- **Nothing you need goes into a Sink.** Fuel goes to its generators, fuel rods to the
+  plants, and SAM Fluctuators to the ★ stockpile. The Sink milestone now comes before
+  the oil byproducts that use it.
+- **Power:** the Ballistic Warp Drive draws its real 1,000 MW average.
+- **Cards:**
+  - Bank cards show their build cost.
+  - Lightly used banks get an underclock hint, correct under MAX too.
+  - Every step has a "Done when" you can check the moment you've built it.
+  - Deliveries say to press Send when the elevator is full.
+- **State:**
+  - Migration holds Copperworks back only when it really is missing.
+  - Reset keeps the plan version.
+  - Undo walks a stack of ≈ and ⏭ marks.
+  - A whole jump can be undone in one tap, and that button clears on Reset and Load code.
+  - `PLAN_VERSION` is now 15.
+- **Speed:** the extras ledger stops when it flip-flops between two answers, so boot
+  time is back to ~1.1 s.
+
+Still open: district E's cards disagree slightly on how its fresh and recycled water is
+split.
+
+Resolved since: district E's water now adds up (see rounds 11–13).
+
+### Rounds 11–13 (same day)
+
+- **No more underclock advice.** Lightly used banks sit at the far end of their input
+  manifold and pause when their output fills up. The old advice was an underclock that
+  no later step ever reversed.
+- **Byproducts feed sections in order.** A district's recycled byproduct goes to its
+  earliest consumer first. District E's water now adds up: 520 + 58 = 578 m³/min fresh.
+  Pad site checks count fresh intake only, and water comes off one district water main.
+- **The visual views show your real progress.**
+  - 📍 My progress and the Build Map at 📍 Now count machines from your ticks.
+  - The map outlines the district you're in and marks the next bank ▶. Its caption says
+    the next step and how much of that district stands.
+  - Blueprints marks the next bank, including in the phone build list ("k of n built").
+  - Step pictures collapse built machines into one "N built" chip.
+  - Phones get 40 px buttons, and the map appears on the first screen.
+- **Trains and fluids.**
+  - Each end of a rail link has a Load and an Unload platform, with a car per platform.
+    The Blueprints rail row now shows the same kit.
+  - New steps: Smart Splitter (MAM research) before the first rail link, Railway
+    Signalling (only needed when trains share track), and Pipeline Mk.2 (pipes run
+    600 m³/min from Phase 3).
+  - Goods between two far districts travel via the core.
+- **Mid-game.**
+  - Dark Matter loop: the encoders' residue is used first, and excess crystal overflows
+    to a Sink.
+  - Every delivery has a "Done when", and Pasta keeps banking after Phase 4.
+  - The Hazmat Suit's cost is shown.
+  - With MAX on, the Power Shard count reads "now" and "at full size".
+- **`PLAN_VERSION` is 16.** Round 13 migrated saves from the previous build at 22 points
+  each: nothing was lost, and boot takes ~1.1 s.
+
+Both items left open here are now resolved (round 14, below).
+
+### Round 14 — real node locations, Phase-3 fuel count
+
+- **Real resource nodes.** The app embeds every ore, oil and nitrogen node on the 1.0 map
+  (the satisfactory-calculator/SCIM export, via github.com/Tjark-Kuehl/satisfactorymap).
+  ★ sits in the middle of the Dune Desert's seven pure iron nodes (x 2918, y −1639 m).
+  `nodePlan()` assigns nodes live for your pace and clock: A–D take the nodes nearest ★,
+  and E–G take the best cluster anywhere. Each pad step lists its nodes with distance,
+  direction and coordinates, 📋 Items → 📍 Where has the table, and the Build Map places
+  each district in its real direction (spread ≥40° so panels don't overlap). `nodes.md`
+  is the Minimum-pace snapshot.
+- **What the real map showed:** crude oil is the scarcest resource. Minimum pace uses 20 of
+  the world's 30 oil nodes, ~2–3 km west of ★. Balanced also needs the oil-well satellites
+  (Phase 4). Fast exceeds the map at 100%, and the app says so: overclock the extractors.
+  Residual Fuel would ease this, but it comes from a Hard Drive, not a milestone.
+- **Phase 3 Fuel Generators** now count the coal generators already standing, including
+  coal top-ups: 5 instead of 8 at Minimum, which hits the intended ~40% headroom.
+
+
+### Round 15 — node verification
+
+- All 522 embedded nodes match the source export one-to-one, and ★ is the centroid of the
+  desert's seven pure iron nodes.
+- **Fixed:** Miner Mk.3 rates were doubled. They are now 120/240/480 per impure, normal
+  and pure node (240/min on a normal node), so node counts roughly doubled. Oil is still
+  the only shortfall (Balanced, Fast), and `nodes.md` is regenerated.
+- **Fixed:** Page load had regressed, because the Phase-3 fuel count re-solved Phase 2
+  with nothing cached. `genAdd` is now memoised per solver state and page load is ~10%
+  faster than before the regression.
+- **Fixed:** When clusters tie, the far districts take the one nearer ★.
+- **Fixed:** Map bearings now keep ≥32° between panels, and an angle under 60 m from ★
+  falls back to the default. There are no overlaps at any pace, with or without MAX.

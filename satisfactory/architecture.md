@@ -25,13 +25,13 @@ ore. Arrows show the few parts that cross between districts (the "back and forth
 | # | District | Near | Makes (shared outputs) | Imports |
 |---|----------|------|------------------------|---------|
 | **A** | **Ironworks** | iron + limestone (+coal) | Iron Ingot, **Iron Plate, Iron Rod, Screw, Reinforced Iron Plate, Rotor, Modular Frame**, Concrete | — |
-| **B** | **Copperworks** | copper + caterium | Copper Ingot, **Wire, Cable, Copper Sheet, Quickwire**, AI Limiter | — |
-| **C** | **Steelworks** | iron + coal (big pair) | Steel Ingot, **Steel Beam, Steel Pipe, Encased Beam, Stator, Motor** | Wire ← B, Rotor ← A |
-| **D** | **Oil & Electronics** | crude oil | **Plastic, Rubber, Circuit Board, Computer, Heavy Modular Frame**, Supercomputer, Silica, Quartz Crystal, Crystal Oscillator | Copper Sheet ← B, Frames ← A/C |
+| **B** | **Copperworks** | copper + caterium | Copper Ingot, **Wire, Cable, Copper Sheet, Quickwire**, AI Limiter; from Phase 4 Copper Powder, Pressure Conversion Cube, **Nuclear Pasta** | — |
+| **C** | **Steelworks** | iron + coal (big pair) | Steel Ingot, **Steel Beam, Steel Pipe, Encased Beam, Stator, Motor**; Diamonds in Phase 5 | Wire ← B, Rotor ← A |
+| **D** | **Oil & Electronics** | crude oil | **Plastic, Rubber, Fuel, Circuit Board, Computer, Heavy Modular Frame**, Supercomputer, Silica, Quartz Crystal, Crystal Oscillator | Copper Sheet ← B, Frames ← A/C |
 | **E** | **Aluminium & Cooling** | bauxite + water + nitrogen *(train)* | Aluminium Ingot/Casing/Sheet, Heat Sink, **Cooling System**, Fused Modular Frame, **Radio Control Unit**, Turbo Motor, EM Control Rod | Heavy Frame ← D, Rubber ← D, Crystal Osc ← D |
-| **F** | **Nuclear & Particle** | uranium + water + lots of copper *(train)* | Nuclear **power**, Copper Powder, Diamonds, **Nuclear Pasta**, Pressure Conversion Cube | Copper Ingot ← B |
-| **G** | **Quantum & SAM** | SAM + quartz *(train/endgame)* | Reanimated SAM, Ficsite, Time Crystal, **Dark Matter** (residue→crystal), Excited Photonic Matter, Neural-Quantum Processor, Superposition Oscillator, Singularity Cell | Diamonds ← F, Aluminium ← E |
-| **★** | **PROJECT ASSEMBLY** | **at the Space Elevator** | The **12 final elevator parts only** (Smart Plating, Versatile Framework, Automated Wiring, Modular Engine, ACU, ADS, MFG, TPR, Nuclear Pasta delivery, Biochemical Sculptor, AI Expansion Server, Ballistic Warp Drive) | everything, on belts/trains |
+| **F** | **Nuclear Fuel** | uranium + sulfur + water *(train)* | Sulfuric Acid, Encased Uranium Cell, **Uranium Fuel Rod**, and the Nuclear Power Plants | Concrete ← A, Encased Beam ← C, EM Control Rod ← E |
+| **G** | **Quantum & SAM** | SAM + quartz *(train/endgame)* | Reanimated SAM, **SAM Fluctuator**, Ficsite, Time Crystal, **Dark Matter** (residue→crystal), Excited Photonic Matter, Neural-Quantum Processor, Superposition Oscillator, Singularity Cell, **AI Expansion Server** | Diamonds ← C, Pasta ← B, MFG ← ★ |
+| **★** | **PROJECT ASSEMBLY** | **at the Space Elevator** | The **final elevator parts** (Smart Plating, Versatile Framework, Automated Wiring, Modular Engine, ACU, ADS, MFG, TPR, Biochemical Sculptor, Ballistic Warp Drive; Nuclear Pasta comes from B, the AI Expansion Server from G by rail) | everything, on belts/trains |
 
 So **7 production districts + 1 assembly zone** — mini-bases, not a monolith, not
 hundreds of huts.
@@ -43,21 +43,27 @@ hundreds of huts.
 You never tear a district down — you **add machines to it** as new consumers come
 online. Each phase bolts onto the last:
 
-- **Phase 1** — Stand up **Ironworks (A)** (smelting → plate/rod/screw → RIP +
-  Rotor). Build the **Project Assembly ★** pad by the elevator with one station:
-  **Smart Plating** (RIP + Rotor). Deliver 50.
-- **Phase 2** — Add **Steelworks (C)** and **Copperworks (B)**. Expand A
-  (Modular Frame). ★ gains **Versatile Framework** (Frame ← A + Beam ← C) and
-  **Automated Wiring** (Stator ← C + Cable ← B). Deliver. Power: **coal**.
-- **Phase 3** — Add **Oil & Electronics (D)**. Expand C (Motor). ★ gains
-  **Modular Engine** (Motor ← C + Rubber ← D + Smart Plating) and **Adaptive
-  Control Unit** (Auto-Wiring + Circuit Board ← D + Heavy Frame ← D + Computer ←
-  D). Deliver. Power: **fuel**.
-- **Phase 4** — Train out to **Aluminium (E)** and **Nuclear (F)**. ★ gains
-  **ADS, Magnetic Field Generator, Thermal Propulsion Rocket, Nuclear Pasta**.
-  Power: **nuclear**.
-- **Phase 5** — Add **Quantum & SAM (G)**. ★ gains **Biochemical Sculptor, AI
-  Expansion Server, Ballistic Warp Drive**. Deliver → launch. 🚀
+- **Phase 1** — Stand up **Ironworks (A)** (smelting → plate/rod/screw, concrete)
+  and a **small Copperworks (B)** (copper → wire, cable). Their output pays for the
+  Tier 1–2 milestones — foundations, splitters, the MAM, the Assembler, Belt Mk.2, the
+  Sink. Then A's Assemblers (RIP + Rotor) and the **Project Assembly ★** pad by the
+  elevator with one station: **Smart Plating**. Deliver 50.
+- **Phase 2** — Tier 3–4 milestones. Grow A and B (MAM: Caterium → Quickwire), then
+  add **Steelworks (C)**; coal power. ★ gains **Versatile Framework** and
+  **Automated Wiring**. Deliver 1000 / 1000 / 100.
+- **Phase 3** — Tier 5–6. Add **Oil & Electronics (D)** (MAM: Quartz). ★ gains
+  **Modular Engine** and **Adaptive Control Unit**. Deliver. Power: coal + fuel.
+- **Phase 4** — Tier 7–8, in dependency order: Bauxite Refinement → the aluminium
+  chain in **E** → Control System Development (Supercomputer, RCU, ADS) → Advanced
+  Aluminum Production (nitrogen, cooling, fused frames) → Nuclear Power (EM rods,
+  **F**'s fuel chain, plants, MFG) → Leading-Edge (turbo motors, TPR) → Particle
+  Enrichment (**B**'s copper powder → Nuclear Pasta, next to the copper). Deliver.
+- **Phase 5** — Tier 9: Matter Conversion (SAM → **SAM Fluctuators** first — every
+  Converter costs 100) → Converters in **G** → Quantum Encoding (G's encoders, incl.
+  the AI Expansion Server) → Spatial Energy Regulation (Singularity Cells, Warp Drive).
+  ★ gains **Biochemical Sculptor** and **Ballistic Warp Drive**. Deliver → launch. 🚀
+
+The app's ✅ Do Next orders all of this for you, with each milestone's real cost.
 
 ---
 
@@ -75,8 +81,8 @@ steps below are the shape of it:
    shows every splitter, merger, belt and buffer). Fluids on pipes.
 4. **Expand it each phase** as later consumers come online (the app's *Expand …*
    steps say how many machines to add).
-5. **MAX** — overclock every machine to 250% (3 Power Shards) + a Somersloop (2×),
-   ~⅕ the machines. Toggle ⚡ MAX off in Blueprints for a 100% plan.
+5. **Clock** — counts are at 100%. The ⚡ pill switches to 250% overclock (3 Power
+   Shards per machine, ~40% of the machines). Somersloops are optional per bank.
 
 Don't forget the silent build-breakers: **power** (ramp biomass → coal → fuel →
 nuclear *ahead* of demand — see `power.md`), **utilities** (water; Heavy Oil
@@ -111,19 +117,10 @@ far resources (bauxite, uranium, nitrogen, SAM) are railed in.
   possible" you asked for.
 - **Districts are independent mini-bases** — a problem in Copperworks doesn't trip
   Ironworks; you can read, expand or re-clock one without touching the rest.
-- **Only the 12 finals are single-use**, and they're consolidated by the elevator
+- **Only the finals are single-use**, and they're consolidated by the elevator
   so "parts come together at the end" is literally true.
 - **Cross-flows are few and one-directional** (B→C for wire, A→C for rotors,
   D→★ for electronics…), so it never becomes spaghetti.
 
 ---
 
-*Built: the interactive **Build Map** (in `factory-network.html`) is now the
-districts on a compass ring around the central **★ Project Assembly**, with
-auto-drawn cross-district part feeds (teal), resource feeds (faded), and
-finished-part deliveries to ★ (purple). Click any district to see what it makes.
-The guided **build sequence** walks district-by-district, phase by phase
-("① build Ironworks → add Smart Plating to ★ → ② build Steelworks + Copperworks
-→ …"). The per-works **Blueprints** remain as the detailed machine-by-machine
-floor plans for each part, and the **Do Next** checklist drives the granular
-tick-off. The map's ▶ Play animates the whole build-out.*

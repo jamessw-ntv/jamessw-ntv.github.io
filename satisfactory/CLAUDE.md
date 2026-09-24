@@ -10,26 +10,35 @@ to a finished Project Assembly (Space Elevator Phase 5). Renders at
   libraries, works offline). This is where all the logic and data live.
 - `index.html` — a tiny redirect to `factory-network.html`.
 - `README.md` — read this first; the overview and master timeline.
-- `architecture.md`, `templates.md`, `train-network.md`, `power.md`,
-  `VERIFICATION.md`, `inventory.csv` — companion docs. (The old `build-guide.md`
+- `architecture.md`, `templates.md`, `train-network.md`, `power.md`, `nodes.md` (generated from the app's `NODES`/`nodePlan()` at Minimum pace — regenerate it when sizing changes),
+  `VERIFICATION.md`, `REVIEW.md` — companion docs. (The old `inventory.csv` was
+  deleted — it described the retired M1–M12 plan; the app's ⬇️ Steps CSV replaces it.) (The old `build-guide.md`
   was folded into `architecture.md` + the app's ✅ Do Next tab.)
 
 ## Intent routing
 
 1. **Change the app** (tweak a recipe, module, blueprint, copy): edit
    `factory-network.html`. The data lives in the `T` (standard recipes), `ALTS`
-   (opt-in alternates), `DISTRICTS`, `FINAL_RATES`, `DELIVERIES` and `INVENTORY`
+   (opt-in alternates), `DISTRICTS`, `PACES`/`FINAL_RATES`, `DELIVERIES`, `MS`
+   (milestones), `BUILD_COST` and `INVENTORY`
    consts in its `<script>`; presentation is the surrounding HTML/CSS.
-   - `FINAL_RATES` is the single knob that sizes the whole build: every bank is
-     demand-solved back from those 12 numbers. They are tuned so each phase's parts
-     finish together (see the comment above them) — change one and re-check the
-     per-phase runtimes, machine count and raw totals, not just the one part.
+   - **Sizing:** each phase's finals run at `DELIVERIES qty ÷ pace minutes` (`PACES`; the
+     `fast` pace uses `FINAL_RATES`). `solvePhaseOnly(p)` back-propagates one phase;
+     banks are sized to the busiest phase (`solveDemandPhase`). One-off costs — every
+     `MS` milestone and the `BUILD_COST` of everything placed — are charged to the phase
+     before they're needed (`computeExtras`, fixed-point) and folded in as a rate.
+   - **Order:** `masterSteps()` builds each phase then `orderPhase()` topologically sorts
+     it (milestone → bank it unlocks → the parts the next milestone costs). Run the
+     order check (no consumer before its supplier, chapters never go backwards) after
+     any change to `MS`, `DISTRICTS` or `T`.
+   - Milestone/building/elevator data is datamined 1.0 (see VERIFICATION.md). Don't
+     change it from memory.
    - A **port-count invariant** (`PORTS` + `auditT()`) runs at load and warns in the
      console if any recipe needs more inputs than its building has. Keep it green;
      it is what caught Ballistic Warp Drive being modelled on the wrong machine.
    - The legacy `MODULES` const has been deleted — it was unused and still quoted
      pre-rebalance rates. Don't reintroduce a second source of rates.
-2. **Change a doc:** edit the relevant `.md` / `.csv` and keep it in sync with
+2. **Change a doc:** edit the relevant `.md` and keep it in sync with
    the app.
 3. **Question:** just answer; don't commit.
 

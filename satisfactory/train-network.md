@@ -6,7 +6,7 @@ bring in **trains for the far districts** that own resources you don't have
 nearby: **Aluminium (bauxite), Nuclear (uranium), and Quantum & SAM**. Trains
 come online at **Tier 6 (Railway)**, unlocked by finishing Space-Elevator
 Phase 2 — so the rail build-out is a **Phase 4 job**, exactly when aluminium /
-nuclear become mandatory. **Drones** (Tier 7) carry the small, high-value parcels
+nuclear become mandatory. **Drones** (Tier 8) carry the small, high-value parcels
 on top of the rail backbone — see the drone section below.
 
 ---
@@ -18,10 +18,9 @@ finish at home.**
 
 - **Bauxite outpost →** make **Aluminum Ingots** (and Casing/Sheet) on-site →
   rail the ingots home. (Don't rail wet bauxite or alumina slurry.)
-- **Uranium outpost →** either run the **nuclear power plant on-site** next to
-  water and rail nothing back but power-via-… (you can't rail power) — so instead
-  process uranium to the cell/rod you need and rail that, OR site your whole
-  nuclear setup out there and only rail the **Nuclear Pasta feedstock** you need.
+- **Uranium outpost (F) →** make the fuel rods **and run the Nuclear Power Plants
+  there**, by water. Power reaches home over power lines, so the only freight is the
+  few inputs F imports (concrete, encased beams, EM control rods).
 - **Oil (if far) →** refine to **Plastic / Rubber / packaged Fuel** at the source
   and rail the solids; or just **pipe** oil home if it's within pipe range.
 - **Nitrogen →** it's a gas from a Resource Well; **package it** (Packager →
@@ -42,15 +41,15 @@ to a manageable number of unload platforms.
         Uranium/Nuclear ───────┤
                                ▼
                       ┌──────────────────┐         belts
-        Nitrogen ─────►   CENTRAL HUB     ├───────────────► module row
-                      │  rail receiving   │  (M1…M12)
+        Nitrogen ─────►   CENTRAL HUB     ├───────────────► core districts
+                      │  rail receiving   │  (A–D + ★)
         Oil/Ore ──────►   yard (N plats)  │
                       └──────────────────┘
 ```
 
 - **One receiving yard at the Central Hub** with **one platform per incoming
   line**. Each platform unloads its cargo into a buffer of Storage/Industrial
-  Containers, which belt into whichever module needs it.
+  Containers, which belt into whichever district needs it.
 - **Each far resource is a spoke**: a small station out there that **loads** the
   refined intermediate. One train shuttles each spoke ↔ the hub.
 - Start with **point-to-point single-track** lines (one train each — no junction
@@ -69,16 +68,27 @@ to a manageable number of unload platforms.
 
 **At the hub (unload station):**
 1. Freight Platform(s) set to **Unload** into container buffers.
-2. Belt buffers out to the consuming module.
+2. Belt buffers out to the consuming district.
 3. Name it (e.g. `ALU-UNLOAD`).
 
-**The train:** 1 Locomotive + 1–2 Freight Cars is plenty per spoke early.
-Set its **time table**: `ALU-LOAD → ALU-UNLOAD → (repeat)`. Tick **"wait until
+**Goods go both ways**, so each end gets **two** Freight Platforms: one set to
+**Load** (what leaves) and one to **Unload** (what arrives). The app's rail step asks
+for exactly that: 1 station + 2 platforms at each end.
+
+**The train:** 1 Locomotive + 2 Freight Cars (one per platform) is plenty per spoke
+early. Set its **time table**: `ALU-LOAD → ALU-UNLOAD → (repeat)`. Tick **"wait until
 fully loaded/unloaded"** so it self-paces.
+
+**Mixed cargo** unloads onto one belt. Sort it into containers with **Smart
+Splitters** (MAM Caterium research: 10 AI Limiter + 50 Reinforced Iron Plate — the app
+schedules it before the first rail step).
+
+**Far-to-far goods** (E's EM Control Rods to F, E's Alclad to G) ride via your core. One
+train can also run a loop `core → E → F → G → core`, stopping at each station.
 
 ---
 
-## Drones — the small-parcel layer (Tier 7+)
+## Drones — the small-parcel layer (Tier 8+)
 
 Trains move **bulk** down a fixed track; **drones** move **small, high-value,
 low-throughput** parts point-to-point with no track to lay. Use them for exactly
@@ -103,7 +113,7 @@ into the home port's input. One drone shuttles between a paired set of ports.
 |------------|--------------------------|-----------|
 | Quantum parcels | Neural-Quantum Processors, Superposition Oscillators | G · Quantum → ★ |
 | Aluminium electronics | Radio Control Units, Cooling Systems (if low rate) | E · Aluminium → ★ / D |
-| Nuclear delivery | Nuclear Pasta (small/min) | F · Nuclear → ★ |
+| Finals top-up | AI Expansion Servers | G · Quantum → ★ |
 | Finals top-up | spare AI Expansion Servers / Warp Drives | producing district → ★ |
 
 **Battery budget:** keep a small Battery line (or a drone-port battery buffer)
@@ -116,6 +126,10 @@ buffer a few hundred so a hiccup doesn't ground the fleet.
 ---
 
 ## Signalling (only once lines share track)
+
+One train alone on its own track needs **no signals**. Signals come from the separate
+**Tier 6 Railway Signalling** milestone (50 Computer, 400 Steel Pipe, 1,000 Copper
+Sheet), which the app schedules in Phase 3.
 
 Keep it trivial with two signal types:
 
@@ -135,17 +149,18 @@ meet head-on; spokes join it via path-signalled junctions.
 
 ## Which lines you actually build (Phase 4 → 5)
 
-| Line | Cargo (refined at source) | Feeds modules |
+| Line | Cargo (refined at source) | Feeds |
 |------|---------------------------|---------------|
-| **Aluminium** | Aluminum Ingot, Casing, Alclad Sheet | M8 (Cooling Systems / Turbo Motors), Heat Sinks, radio units |
-| **Nuclear / Uranium** | Encased cells / processed uranium (or site nuclear out there) | M9 power; pasta support |
-| **Nitrogen** | Packaged Nitrogen *or* finished Cooling Systems | M8 (Thermal Propulsion Rocket) |
-| **Oil (if far)** | Plastic, Rubber, packaged Fuel | F1, M4, M5, plastics everywhere |
-| **Bulk ore (optional)** | Extra Iron / Copper ingots if local nodes thin out | M2, M9 (copper-powder monster) |
+| **Aluminium** | Aluminum Ingot, Casing, Alclad Sheet | ★ Thermal Propulsion Rocket (Cooling Systems / Turbo Motors), Heat Sinks, radio units |
+| **Nuclear / Uranium** | nothing heavy — F makes rods and burns them on site | the plants, by power line |
+| **Nitrogen** | Packaged Nitrogen *or* finished Cooling Systems | E's Cooling Systems / Fused Frames → ★ Thermal Propulsion Rocket |
+| **Oil (if far)** | Plastic, Rubber, packaged Fuel | D, ★ Modular Engine / ACU, plastics everywhere |
+| **Bulk ore (optional)** | Extra Iron / Copper ingots if local nodes thin out | B's Copper Powder → Nuclear Pasta (the copper-powder monster) |
 
-The **copper-powder monster (M9, Nuclear Pasta)** is the heaviest single
-consumer late — if your top-left copper can't keep up, a **copper ingot train**
-is the cleanest fix (rail ingots in, no module rebuild).
+The **copper-powder monster (Nuclear Pasta)** is the heaviest single consumer late
+(~2,750 copper ingot/min at 🐢 Minimum, ~5,300 at 🚀 Fast). That's why it lives **in
+Copperworks (B)**, next to the copper, not out at the uranium. If your copper nodes
+run thin, a **copper ore or ingot train into B** is the fix.
 
 ---
 
@@ -157,4 +172,4 @@ to/from the far districts (Aluminium / Nuclear / Quantum), and **purple** for
 finished parts heading to ★ Project Assembly; raw ore/fluid feeds show as
 ⛏ belts / 🛢 pipes into each district panel. Use the phase slider to watch the
 rail spokes light up in Phase 4–5. Drone lines are a small-parcel layer you add
-on top (Tier 7) per the table above.
+on top (Tier 8) per the table above.

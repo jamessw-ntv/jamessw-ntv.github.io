@@ -41,8 +41,7 @@ hard-code colours or redefine `:root`.** Every page also starts with the standar
 | Project | Lives at | Status | What it is |
 |---|---|---|---|
 | 🏛️ **Blue Prince — Room & Item Log** | [`/blue-prince/`](./blue-prince/) | active | Spoiler-free notepad of rooms, items, codes and puzzles |
-| 🏆 **Multi-Sport Dashboard** | [`/sports/`](./sports/) | active | World Cup 2026 + AFL + NRL at a glance |
-| 🖖 **Trek & Wars — Comics + Books Timeline** | [`/trek-wars/`](./trek-wars/) | active | Publication timeline of Trek & Wars comics and novels |
+| 🏭 **Satisfactory 1.0 — Build Planner** | [`/satisfactory/`](./satisfactory/) | active | Guided build-once plan from the HUB to Project Assembly |
 
 Status meanings: **active** = working and maintained · **wip** = built but not
 finished/tested · **planned** = a card with no page yet.
@@ -62,26 +61,10 @@ of the hub's data-driven pattern.
   [`CLAUDE.md`](./blue-prince/CLAUDE.md) (spoiler-free logging rules) ·
   [`LOGGING.md`](./blue-prince/LOGGING.md) (how to log from a normal chat).
 
-### 🏆 Multi-Sport Dashboard
-One glanceable view of three competitions at once: **FIFA World Cup 2026**
-(Socceroos), **AFL** (Carlton), and **NRL** (Melbourne Storm + State of Origin,
-backing Queensland) — each with a "path to glory" gate sequence.
-- **How it works:** data-driven from `sports/data.json` (groups, ladders, fixtures,
-  odds, bracket, paths). Results are **verified against dependent facts** before
-  being asserted — a score must reproduce the standings it feeds.
-- **Docs:** [`CLAUDE.md`](./sports/CLAUDE.md) (data shape + update protocol).
-
-### 🖖 Trek & Wars — Comics + Books Timeline
-A **visual publication timeline** of every Star Trek and Star Wars comic and novel
-from 1967 to present, in four swimlanes (Trek/Wars × Comics/Novels). Each series is
-a horizontal bar spanning its years on a shared decade axis; tap a row for the
-detail panel (publisher, counts, blurb, where-to-read links). Responsive from one
-markup — label beside the bar on desktop, stacked above it on mobile.
-- **How it works:** data-driven from `trek-wars/data.json` (one entry per series).
-- **History:** ported in from a handoff doc as an interactive pan/zoom **"star
-  map"**, which read as mostly-empty space; it was replaced with this simpler,
-  denser timeline.
-- **Docs:** [`CLAUDE.md`](./trek-wars/CLAUDE.md) (data shape + routing).
+### 🏭 Satisfactory 1.0 — Build Planner
+A build-once plan to take one Satisfactory 1.0 save from the HUB to a finished
+Space Elevator, as a self-contained offline app (`factory-network.html`).
+- **Docs:** [`README.md`](./satisfactory/README.md) · [`CLAUDE.md`](./satisfactory/CLAUDE.md).
 
 ---
 
@@ -96,8 +79,7 @@ docs/
   PORTING.md      how to bring a project in from another chat (one paste)
   MIGRATION.md    one-time setup/rename runbook (now complete)
 blue-prince/      Blue Prince log        (own README + CLAUDE.md + LOGGING.md)
-sports/           Multi-Sport Dashboard   (own CLAUDE.md)
-trek-wars/        Trek & Wars timeline    (own CLAUDE.md)
+satisfactory/     Satisfactory planner    (own README + CLAUDE.md)
 CLAUDE.md         hub-wide instructions for the maintaining chat
 .github/workflows/pages.yml   deploys the whole repo root to Pages
 ```

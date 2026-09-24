@@ -82,6 +82,42 @@ the machines and ~26-48% of the raw draw. Byproducts (scrap water, alumina silic
 Quantum Encoder residue) are now credited as supply inside the solver, so machine
 counts and the raw-node claim finally agree with the routing advice the steps give.
 
+### Pace (not a game-data value) — 2026-09-23
+
+Sizing is now per **pace** (`PACES`): each phase's finals run at `quantity ÷ pace
+minutes` (Minimum 480, Balanced 240) and banks are sized to the **busiest single
+phase**. `FINAL_RATES` above survives as the 🚀 Fast pace.
+
+## Datamined 2026-09-23 — milestones, building costs, elevator phases
+
+Source: the game's own data exports (greeny/SatisfactoryTools 1.0 `data.json` and a
+2026-08 live-game export in carvalinh0/FICSIT-Planner — they agree on every milestone,
+MAM and building cost), plus two save-tool tables for the elevator
+(lordralinc/sat-save-tools `project_assembly_costs.json`, AnthorNet/SC-InteractiveMap
+`SpaceElevator.js`). The wiki itself was unreachable from the build environment.
+
+| Fact | Now | Was |
+|---|---|---|
+| Space Elevator Phase 2 | **1000 Smart Plating + 1000 Versatile Framework** + 100 Automated Wiring | 500 / 500 |
+| Phase 4 | includes **100 Nuclear Pasta** (confirmed) | (unconfirmed) |
+| Supercomputer unlock | **Tier 7 Control System Development** (not MAM) | listed under MAM Caterium |
+| High-Speed Connector (MAM) | costs 500 Quickwire + **50 Plastic** → research it in Phase 3+ | Phase 2 |
+| Magnetic Field Generator unlock | **Tier 8 Nuclear Power** | — |
+| Belt Mk.6 | Tier 9 **Peak Efficiency** (10,000 Iron Plate + 5,000 Alclad) — optional, plan caps at Mk.5 | assumed in Phase 5 |
+| Converter build cost | 10 FMF, 25 Cooling, 50 RCU, **100 SAM Fluctuator** → SAM Fluctuator bank added to G (6 Reanimated SAM + 5 Wire + 3 Steel Pipe → 1 per 6 s) | not modelled |
+| Excited Photonic Matter / Dark Matter Residue | **cannot be packaged** → AI Expansion Server moved to G | piped from G to ★ |
+
+| Recycled Plastic (alt) | 30 Rubber + 30 **Fuel** → 60 Plastic — removed from the solver's alt toggles (it needs a Fuel supply the solver doesn't route) | modelled with Heavy Oil Residue |
+| Coated Iron Plate (alt) | **37.5 Iron Ingot + 7.5 Plastic** → 75 Iron Plate | 50 + 10 |
+| Fuel (standard) | Refinery: 60 Crude → 40 Fuel + 30 Polymer Resin — now D's Fuel bank | not modelled |
+| Hazmat Suit milestone | needs 50 Gas Filters → MAM Mycelia → Fabric → Gas Mask research | not listed |
+| SAM Fluctuator / Reanimated SAM | also unlockable early via MAM (SAM Reanimation: 20 SAM; SAM Fluctuator: 10 Reanimated SAM, 100 Steel Pipe, 200 Wire) | Tier 9 only |
+
+The full milestone list (Tiers 3–9 + the MAM nodes the plan uses) and 20+ building
+costs live in `MS` and `BUILD_COST` in the app. Nuclear: 2,500 MW, 0.2 fuel rod/min,
+10 Uranium Waste/min per plant; Uranium Waste stacks to 500; Industrial Storage
+Container 48 slots.
+
 ## Corrections (QA passes, 2026-06-17)
 
 Multiple QA + data-verification passes re-checked every recipe against the
@@ -136,13 +172,14 @@ All rates are **standard recipes, one machine, 100 % clock**, unless noted.
 | Phase | Parts (qty) | Unlocks |
 |-------|-------------|---------|
 | 1 | Smart Plating ×50 | Tiers 3 & 4 |
-| 2 | Smart Plating ×500 · Versatile Framework ×500 · Automated Wiring ×100 | Tiers 5 & 6 |
+| 2 | Smart Plating ×1,000 · Versatile Framework ×1,000 · Automated Wiring ×100 | Tiers 5 & 6 |
 | 3 | Versatile Framework ×2,500 · Modular Engine ×500 · Adaptive Control Unit ×100 | Tiers 7 & 8 |
 | 4 | Assembly Director System ×500 · Magnetic Field Generator ×500 · Thermal Propulsion Rocket ×250 · Nuclear Pasta ×100 | Tier 9 |
 | 5 | Nuclear Pasta ×1,000 · Biochemical Sculptor ×1,000 · AI Expansion Server ×256 · Ballistic Warp Drive ×200 | Game complete |
 
-*(One third-party guide misreported Phase 2 as 1000/1000/100 — that is wrong; the
-in-game value is 500/500/100.)*
+*(An earlier version of this table said 500/500/100, from a third-party guide. The
+game's own data says 1,000/1,000/100 — see the datamined row in the table above — and
+the app uses that.)*
 
 ## 2. Belt / pipe throughput & availability — CONFIRMED
 
