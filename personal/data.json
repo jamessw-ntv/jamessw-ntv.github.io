@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-24",
-    "fetched": "2026-09-24T01:16:18+00:00",
+    "fetched": "2026-09-24T07:29:11+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 22,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 15
+      "wind": 10
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 24,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 12
       },
       {
         "day": "Fri",
@@ -29,7 +29,7 @@
         "max": 22,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 31
+        "rain": 48
       },
       {
         "day": "Sat",
@@ -37,7 +37,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 81
+        "rain": 76
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119737.0,
-        "pct": -1.78
+        "price": 119722.0,
+        "pct": -1.73
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3810.99,
-        "pct": -2.15
+        "price": 3821.32,
+        "pct": -1.5
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Visit’ at Pasadena Playhouse Review: The ’50s Absurdist Comedy Is Too Smug in Its Peak-Bleak View of Venal Humanity, but Jefferson Mays and Melinda Page Hamilton Are Worth the Visit",
+      "title": "Netflix’s ‘A Different World’ Is a Bold, Fun and Timely Reboot Centering the Uniqueness of Gen Z: TV Review",
       "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/legit/reviews/the-visit-pasadena-playhouse-stage-review-absurdist-comedy-1236873818/"
+      "url": "https://variety.com/2026/tv/reviews/a-different-world-review-netflix-1236865625/"
     },
     {
       "cat": "Film/TV",
-      "title": "Rolf de Heer Named President of Tokyo Film Festival Jury",
+      "title": "Asia Video Content Spend to Hit $15 Billion in 2026 as Streaming and Local Film Draw Capital, Media Partners Asia Report Finds",
       "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/rolf-de-heer-president-tokyo-film-festival-jury-1236872048/"
+      "url": "https://variety.com/2026/tv/news/asia-video-content-investment-15-billion-2026-mpa-report-1236874011/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Game Changer’ Host Sam Reich on Season 8’s 23-Contestant, 90-Minute, Non-Chili’s-Sponsored Finale and ‘Acid Trip’ Season 9 Episode Plans",
-      "when": "23 Sep",
+      "title": "Sean Gunn Says He’s ‘Too Old’ and ‘Retired’ From Playing Rocket Raccoon in ‘Guardians of the Galaxy’: It ‘Hurts After a While’",
+      "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/game-changer-finale-sam-reich-season-8-episodes-season-9-1236872466/"
+      "url": "https://variety.com/2026/film/news/sean-gunn-retired-rocket-raccoon-guardians-of-the-galaxy-1236873997/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Gremlins 3’ Delayed to 2028 by Warner Bros.",
-      "when": "23 Sep",
+      "title": "‘No One Achieves Anything Alone’: Inside Variety’s Power of Women Event With Jennifer Hudson, Sharon Stone, Pearlena Igbokwe and Melissa McCarthy",
+      "when": "24 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/gremlins-3-release-date-delayed-warner-bros-1236873796/"
+      "url": "https://variety.com/2026/scene/news/varietys-power-of-women-jennifer-hudson-sharon-stone-1236873980/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "56m ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
