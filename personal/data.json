@@ -3,33 +3,33 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-25",
-    "fetched": "2026-09-25T01:19:42+00:00",
+    "fetched": "2026-09-25T07:29:49+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 3
+      "temp": 22,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 2
     },
     "days": [
       {
         "day": "Today",
-        "min": 14,
-        "max": 24,
+        "min": 13,
+        "max": 25,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 63
+        "rain": 73
       },
       {
         "day": "Sat",
-        "min": 8,
-        "max": 14,
+        "min": 7,
+        "max": 13,
         "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 82
+        "desc": "Drizzle",
+        "rain": 90
       },
       {
         "day": "Sun",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 10
+        "rain": 12
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 120740.0,
-        "pct": 0.8
+        "price": 119625.0,
+        "pct": -0.16
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3841.5,
-        "pct": 0.78
+        "price": 3812.42,
+        "pct": -0.25
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "12 Takeaways From Ousted Disney CEO Bob Chapek’s New Book",
+      "title": "‘Unabomber’ Review: A Portrait of the Terrorist as a Young Man, Given a Hokey TV-Movie Gloss",
       "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/takeaways-bob-chapek-book-ousted-disney-ceo-1236875084/"
+      "url": "https://variety.com/2026/film/reviews/unabomber-review-1236874990/"
     },
     {
       "cat": "Film/TV",
-      "title": "Dakota Johnson on Being in Taylor Swift’s ‘Patient Zero’ Music Video: ‘We Respect Each Other’s Creative Minds’",
-      "when": "24 Sep",
+      "title": "Silver Lion Winner ‘Miss Violence’ Director Alexandros Avranas to Helm Greek Adaptation of Globoplay’s Hit Series ‘The Others’ (EXCLUSIVE)",
+      "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/dakota-johnson-taylor-swift-music-video-1236875221/"
+      "url": "https://variety.com/2026/film/global/miss-violence-alexandros-avranas-globoplay-the-others-1236873711/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Star Trek: Strange New Worlds’ Star Celia Rose Gooding Breaks Down That Time-Jumping Season 4 Finale",
-      "when": "24 Sep",
+      "title": "Taylor Swift Still Has Unfinished Business With Her Exes — Thank God! — While Also Mooning Over Her Groom in ‘The Life of a Showgirl: The Encore’: New Tracks Review",
+      "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/star-trek-strange-new-worlds-finale-celia-rose-gooding-timejump-1236873713/"
+      "url": "https://variety.com/2026/music/news/taylor-swift-review-life-showgirl-encore-new-tracks-1236875342/"
     },
     {
       "cat": "Film/TV",
-      "title": "VMAs Producer Van Toffler on Madonna’s Return, the Taylor Takeover and Why He Brought the Show West Again: ‘L.A. and Snoop Is a Lethal Combo’",
-      "when": "24 Sep",
+      "title": "Gaussian Scout, Pixentinel Take Top Prizes at San Sebastián’s Zinemaldia Startup Challenge",
+      "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/vmas-preview-producer-van-toffler-snoop-madonna-swift-2-1236875249/"
+      "url": "https://variety.com/2026/global/global/gaussian-scout-pixentinel-win-zinemaldia-startup-challenge-1236874175/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
