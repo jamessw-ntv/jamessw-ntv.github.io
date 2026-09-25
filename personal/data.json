@@ -3,29 +3,29 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-25",
-    "fetched": "2026-09-25T18:24:54+00:00",
+    "fetched": "2026-09-25T22:09:22+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 6
+      "temp": 11,
+      "icon": "🌦️",
+      "desc": "Showers",
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 14,
+        "min": 7,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 97
       },
       {
         "day": "Sun",
-        "min": 6,
+        "min": 5,
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
@@ -33,7 +33,7 @@
       },
       {
         "day": "Mon",
-        "min": 3,
+        "min": 4,
         "max": 18,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119544.0,
-        "pct": -0.6
+        "price": 119256.0,
+        "pct": -0.79
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3836.17,
-        "pct": 0.44
+        "price": 3816.55,
+        "pct": -0.28
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Chris Hansen Slams ‘Primetime’ and Robert Pattinson’s Portayal of Him: ‘So Bizarre’ and ‘Detached From Reality’",
+      "title": "Paramount Says Timing for Warner Bros. Deal Close ‘If Any’ Is ‘Not Yet Certain’ but Pencils In Oct. 5 Date to Issue PSKY Shareholders Warrants Tied to WBD Merger",
       "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/chris-hansen-slams-primetime-robert-pattinson-catch-predator-1236875792/"
+      "url": "https://variety.com/2026/film/news/paramount-warner-bros-deal-close-not-yet-certain-warrants-issue-date-1236876018/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bleecker Street Names Frank Martinez as Head of Distribution",
+      "title": "Jodie Turner-Smith Sued for Allegedly Enabling Brother’s Sexual Misconduct and Drug Dealing",
       "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/frank-martinez-bleecker-street-head-of-distribution-1236875789/"
+      "url": "https://variety.com/2026/film/news/jodie-turner-smith-sued-brother-sexual-misconduct-drugs-1236875978/"
     },
     {
       "cat": "Film/TV",
-      "title": "How ‘Never After Dark’ Dodges Horror Clichés: Shoot Well-Lit Scenes, Challenge Conventional Storytelling and ‘Pull the Rug Out From Under People’",
+      "title": "White House Has Spent More Than $440,000 on Pro-Trump TV Ads Paid for by U.S. Government; Administration Defends ‘Unapologetically American’ Spots and Denies They’re Campaign Ads",
       "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/never-after-dark-japanese-medium-movie-horror-cliches-1236872636/"
+      "url": "https://variety.com/2026/tv/news/white-house-defends-pro-trump-tv-ads-paid-by-us-taxpayers-1236875952/"
     },
     {
       "cat": "Film/TV",
-      "title": "Universal Crosses $5 Billion at the Global Box Office, First Studio to Reach Milestone in 2026",
+      "title": "Margaret Qualley and Sabrina Carpenter Join Tom Holland in Fred Astaire Biopic as Adele Astaire, Ginger Rogers",
       "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/universal-5-billion-global-box-office-odyssey-michael-obsession-1236875740/"
+      "url": "https://variety.com/2026/film/news/margaret-qualley-sabrina-carpenter-tom-holland-fred-astaire-biopic-1236850613/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
