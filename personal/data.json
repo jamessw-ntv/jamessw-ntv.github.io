@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-25",
-    "fetched": "2026-09-25T13:31:28+00:00",
+    "fetched": "2026-09-25T18:24:54+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 0
+      "temp": 12,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
-        "min": 13,
-        "max": 25,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 73
-      },
-      {
-        "day": "Sat",
         "min": 8,
         "max": 14,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 90
+        "rain": 97
       },
       {
         "day": "Sun",
@@ -37,7 +29,15 @@
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 12
+        "rain": 25
+      },
+      {
+        "day": "Mon",
+        "min": 3,
+        "max": 18,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 2
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119816.0,
-        "pct": 0.5
+        "price": 119544.0,
+        "pct": -0.6
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3847.12,
-        "pct": 1.62
+        "price": 3836.17,
+        "pct": 0.44
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Dolly Parton’s ‘9 to 5’ Returns to Theaters With Ticket Sales Donated to Dollywood Foundation After Star’s Death",
+      "title": "Chris Hansen Slams ‘Primetime’ and Robert Pattinson’s Portayal of Him: ‘So Bizarre’ and ‘Detached From Reality’",
       "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/dolly-parton-9-to-5-theaters-charity-death-1236875525/"
+      "url": "https://variety.com/2026/film/news/chris-hansen-slams-primetime-robert-pattinson-catch-predator-1236875792/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tim Blake Nelson’s ‘The Life and Deaths of Wilson Shedd,’ Jesse Eisenberg’s ‘The Debut’ Among Rome Film Festival Standout Titles",
+      "title": "Bleecker Street Names Frank Martinez as Head of Distribution",
       "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/tim-blake-nelson-wilson-shedd-jesse-eisenbergs-the-debut-1236875474/"
+      "url": "https://variety.com/2026/film/news/frank-martinez-bleecker-street-head-of-distribution-1236875789/"
     },
     {
       "cat": "Film/TV",
-      "title": "LISTEN: The Delicate Art of Releasing a Hit Streaming Series",
+      "title": "How ‘Never After Dark’ Dodges Horror Clichés: Shoot Well-Lit Scenes, Challenge Conventional Storytelling and ‘Pull the Rug Out From Under People’",
       "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/strictly-business-luminate-wallenstein-streaming-series-1236875398/"
+      "url": "https://variety.com/2026/film/features/never-after-dark-japanese-medium-movie-horror-cliches-1236872636/"
     },
     {
       "cat": "Film/TV",
-      "title": "Produced by J.A. Bayona, Netflix Documentary Series ‘Beyond Society’ Examines What Happens After the Survivors of the 1972 Andes Plane Crash Return to Uruguay",
+      "title": "Universal Crosses $5 Billion at the Global Box Office, First Studio to Reach Milestone in 2026",
       "when": "25 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/j-a-bayona-netflix-documentary-beyond-society-san-sebastian-1236874930/"
+      "url": "https://variety.com/2026/film/box-office/universal-5-billion-global-box-office-odyssey-michael-obsession-1236875740/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "King Lee-Char – ‘Star Wars’ Character Spotlight",
+      "when": "25 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/king-lee-char-star-wars-character-spotlight.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Podcast: All Access Explores Possible Star Trek Futures And Visits “Tomorrow’s Enterprise”",
+      "when": "25 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/25/podcast-all-access-explores-possible-star-trek-futures-and-visits-tomorrows-enterprise/"
     },
     {
       "cat": "Trek/Wars",
@@ -128,13 +142,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Dave Filoni Confirms Mortis Gods Will be Explored in ‘Ahsoka’ Season 2",
-      "when": "24 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/dave-filoni-confirms-mortis-gods-will-be-explored-in-ahsoka-season-2.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Recap/Review: ‘Star Trek: Strange New Worlds’ Season 4 Finale Is Right On Time With “Tomorrow’s Enterprise”",
       "when": "24 Sep",
       "source": "TrekMovie",
@@ -146,13 +153,6 @@
       "when": "23 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/23/starfleet-academy-cast-and-william-shatner-set-for-nycc-star-trek-panel/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek: Strange New Worlds’ Tried To Get William Shatner To Return As Kirk For TOS Episode Sequel [EXCLUSIVE]",
-      "when": "23 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/23/star-trek-strange-new-worlds-tried-to-get-william-shatner-to-return-as-kirk-for-tos-episode-sequel-exclusive/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
