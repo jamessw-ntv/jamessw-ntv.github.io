@@ -45,6 +45,8 @@
   .tick .nm{color:var(--muted);font-size:11px;margin-bottom:6px}
   .tick .px{font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
   .tick .pct{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+  .mk-refresh{padding:4px 11px;font-size:12px;align-self:center}
+  .mk-refresh[disabled]{opacity:.6;cursor:progress}
   .up{color:var(--green)} .down{color:var(--red)} .flat{color:var(--muted)}
   .blk-empty{color:var(--muted);font-size:13px;background:var(--panel);border:1px solid var(--line);
     border-radius:var(--radius);padding:14px 16px}
@@ -73,7 +75,8 @@
     <div id="wxBox"></div>
   </section>
   <section>
-    <div class="panel-head"><h2>Markets</h2><span class="grow"></span><span class="block-meta" id="mkMeta"></span></div>
+    <div class="panel-head"><h2>Markets</h2><span class="grow"></span><span class="block-meta" id="mkMeta"></span>
+      <button class="toggle mk-refresh" id="mkRefresh" type="button" title="Fetch the latest prices">↻ Refresh</button></div>
     <div id="mkBox"></div>
   </section>
 </div>
@@ -91,8 +94,6 @@
    repo is renamed to jamessw-ntv.github.io. status: "active" | "wip" | "planned".
    Leave href "" for planned projects that don't have a page yet. */
 const PROJECTS = [
-  { ico:"🏛️", title:"Blue Prince — Room & Item Log", href:"blue-prince/",
-    status:"active", desc:"Spoiler-free notepad of rooms, items, codes and puzzles, logged from my own play." },
   { ico:"🏭", title:"Satisfactory 1.0 — Build Planner", href:"satisfactory/",
     status:"active", desc:"A build-once plan to take one Satisfactory 1.0 save from the HUB to a finished Space Elevator — guided step-by-step, build map, blueprints, power and trains, fully offline." },
   { ico:"🪐", title:"Neptune's Pride — Bot Sandbox", href:"neptunes-sandbox/",
@@ -163,6 +164,33 @@ function renderMarkets(d){
   box.innerHTML = rows.length ? `<div class="mk">${rows.map(tick).join("")}</div>`
     : `<div class="blk-empty">Live market data isn't available right now.</div>`;
 }
+/* Crypto straight from CoinGecko (CORS-friendly) so Refresh is truly live;
+   ASX has no browser-callable source, so it comes from the hourly feed. */
+const CG_IDS = { BTC:"bitcoin", ETH:"ethereum" };
+async function liveCrypto(m){
+  try{
+    const r = await fetch("https://api.coingecko.com/api/v3/simple/price?ids="
+      + Object.values(CG_IDS).join(",") + "&vs_currencies=aud&include_24hr_change=true", {cache:"no-store"});
+    if(!r.ok) return false;
+    const cg = await r.json(); let hit = false;
+    (m.crypto||[]).forEach(row=>{ const q = cg[CG_IDS[row.code]];
+      if(q && q.aud!=null){ row.price = q.aud; row.pct = q.aud_24h_change; hit = true; } });
+    return hit;
+  }catch(e){ return false; }
+}
+async function refreshMarkets(){
+  const btn = document.getElementById("mkRefresh");
+  btn.disabled = true; btn.textContent = "↻ Refreshing…";
+  const d = await loadFeed() || {};
+  d.markets = d.markets || {};
+  const live = await liveCrypto(d.markets);
+  renderMarkets(d);
+  const age = stampAge(d.meta);
+  document.getElementById("mkMeta").textContent = live ? "crypto live · ASX " + (age||"n/a") : age;
+  btn.disabled = false; btn.textContent = "↻ Refresh";
+}
+document.getElementById("mkRefresh").addEventListener("click", refreshMarkets);
+
 (async function(){
   const d = await loadFeed();
   renderBriefing(d); renderMarkets(d);

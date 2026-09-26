@@ -15,15 +15,15 @@ index.html        the menu (a PROJECTS array → cards)
 assets/hub.css    the shared design system (single source of truth)
 _template/        starter skeleton for new projects
 docs/             DESIGN.md (design system), PORTING.md (how projects arrive)
-<project>/        one folder per project (e.g. blue-prince/), each self-contained
+<project>/        one folder per project (e.g. satisfactory/), each self-contained
 ```
 
 Each project folder owns its own `index.html`, `data.json`, `images/`, and may
-have its own `CLAUDE.md` with project-specific rules (e.g. `blue-prince/CLAUDE.md`).
+have its own `CLAUDE.md` with project-specific rules (e.g. `satisfactory/CLAUDE.md`).
 
 ## Routing — figure out what I'm asking for
 
-1. **Project content** (e.g. "log this Blue Prince room") → defer to that
+1. **Project content** (e.g. "update the Satisfactory plan") → defer to that
    project's own `CLAUDE.md` and edit files inside that project's folder.
 2. **A new project / "port this in"** → follow [`docs/PORTING.md`](./docs/PORTING.md):
    create `/<slug>/` from `_template/`, conform to the design system, add a card
@@ -39,4 +39,4 @@ have its own `CLAUDE.md` with project-specific rules (e.g. `blue-prince/CLAUDE.m
    leading `/`). See [`docs/DESIGN.md`](./docs/DESIGN.md).
 2. **Keep every project self-contained** in its own clearly-named folder.
 3. Keep files valid, commit to `main`, push. Don't open PRs unless asked.
-4. Respect each project's own rules (spoiler-free for Blue Prince, etc.).
+4. Respect each project's own rules (see each folder's `CLAUDE.md`).

@@ -63,7 +63,7 @@ Dark theme, system font stack, generous radii, pill-shaped controls.
   `.status` (`.active`/`.wip`/`.planned`), `.toggle`, `footer.site`.
 - **No build step, no dependencies.** Plain HTML/CSS/JS that runs from a static
   file. Data-driven projects keep a `data.json` beside their `index.html` and
-  render it client-side (see `blue-prince/` for the reference implementation).
+  render it client-side (fetch `data.json`, raw-GitHub URL first, same-origin fallback).
 
 ## Starting a new project
 

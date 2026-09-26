@@ -40,26 +40,10 @@ hard-code colours or redefine `:root`.** Every page also starts with the standar
 
 | Project | Lives at | Status | What it is |
 |---|---|---|---|
-| 🏛️ **Blue Prince — Room & Item Log** | [`/blue-prince/`](./blue-prince/) | active | Spoiler-free notepad of rooms, items, codes and puzzles |
 | 🏭 **Satisfactory 1.0 — Build Planner** | [`/satisfactory/`](./satisfactory/) | active | Guided build-once plan from the HUB to Project Assembly |
 
 Status meanings: **active** = working and maintained · **wip** = built but not
 finished/tested · **planned** = a card with no page yet.
-
-### 🏛️ Blue Prince — Room & Item Log
-A **spoiler-free** notepad for the game *Blue Prince*: rooms, items, codes, puzzles
-and dated notes, logged from my own play. The read-only viewer renders
-`blue-prince/data.json`; it starts empty on purpose and is filled from a logging
-chat (it never pre-fills facts from a wiki). This is the **reference implementation**
-of the hub's data-driven pattern.
-- **How it works:** `index.html` fetches `data.json` (raw-GitHub URL first,
-  same-origin fallback) and renders tabs for rooms / items / puzzles / notes / tips.
-- **History:** the hub's first resident — the repo began life as the standalone
-  *blue-prince-log* repo and was then generalised into this hub (see the migration
-  runbook below).
-- **Docs:** [`README.md`](./blue-prince/README.md) (schema) ·
-  [`CLAUDE.md`](./blue-prince/CLAUDE.md) (spoiler-free logging rules) ·
-  [`LOGGING.md`](./blue-prince/LOGGING.md) (how to log from a normal chat).
 
 ### 🏭 Satisfactory 1.0 — Build Planner
 A build-once plan to take one Satisfactory 1.0 save from the HUB to a finished
@@ -78,7 +62,6 @@ docs/
   DESIGN.md       design philosophy + system rules
   PORTING.md      how to bring a project in from another chat (one paste)
   MIGRATION.md    one-time setup/rename runbook (now complete)
-blue-prince/      Blue Prince log        (own README + CLAUDE.md + LOGGING.md)
 satisfactory/     Satisfactory planner    (own README + CLAUDE.md)
 CLAUDE.md         hub-wide instructions for the maintaining chat
 .github/workflows/pages.yml   deploys the whole repo root to Pages
