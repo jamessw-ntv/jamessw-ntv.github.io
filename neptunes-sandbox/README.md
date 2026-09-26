@@ -41,6 +41,10 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
   with the garrison and lets you tap the stops; Done turns them into collect all everywhere, drop
   all at the last stop, back and repeat. The route editor has the same *Supply lane* / *Patrol*
   presets. At someone else's star only carrier-to-carrier moves work; a carrier keeps 1 ship.
+  Type a number in a carrier's box to set its load; *Route…* on a carrier row jumps straight to
+  tapping stops; a saved route's orders and waits can be changed in place. Keys: `A` add stops,
+  `L` loop, `Backspace` undo last stop, `Enter` save, `Esc` stop picking / cancel, `[` `]` step
+  through the carriers at a star. Buttons grow to 40 px on touch screens.
 - **Alliances**: alliance web, opinion matrix (what each bot thinks of each other),
   alliance history (formed, ended, who betrayed whom), treachery stats.
 - **Empires**: leaderboard with tech levels, and charts over time.
