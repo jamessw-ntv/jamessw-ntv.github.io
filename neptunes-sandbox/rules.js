@@ -6,7 +6,7 @@
 
    Every value can also be tweaked live from the Rules tab; that only affects
    the current game. Edit this file to change the defaults for new games. */
-const NP_RULES = [
+var NP_RULES = [   // `var` so the browser exposes it as window.NP_RULES for sim.js
   // ---- time ----
   { key:"productionTicks", value:24, group:"Time", label:"Ticks per production cycle", confirmed:true,
     note:"Default cycle is 24 ticks (1 tick = 1 hour in a real-time game)." },

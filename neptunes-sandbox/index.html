@@ -33,7 +33,8 @@
   @media (max-width:860px){.cols{grid-template-columns:1fr}}
   .box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)}
   .box h2{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
-  .box + .box{margin-top:14px}
+  .box + .box,.cols + .box{margin-top:14px}
+  .cols > .box + .box{margin-top:0}
   .muted{color:var(--muted)} .small{font-size:12px}
   .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
   .row + .row{margin-top:8px}
@@ -53,7 +54,8 @@
   /* ---- tables ---- */
   .tbl{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
   .tbl th{color:var(--muted);font-weight:600;text-align:left;border-bottom:1px solid var(--line);padding:6px 8px;white-space:nowrap}
-  .tbl td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}
+  .tbl td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:middle}
+  .nowrap td{white-space:nowrap}
   .tbl td.num,.tbl th.num{text-align:right}
   .scroll{overflow-x:auto}
   .matrix td{text-align:center;min-width:54px}
@@ -242,7 +244,7 @@
 <script>
 "use strict";
 const sim = window.NPSim;
-const SAVE_KEY = "npSandbox.v1";
+const SAVE_KEY = "npSandbox.v2";
 const $ = id => document.getElementById(id);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
 const col = p => `var(${p.color})`;
@@ -256,7 +258,7 @@ function save() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } cat
 function load() { try { return JSON.parse(localStorage.getItem(SAVE_KEY) || "null"); } catch (e) { return null; } }
 function snap() { history[S.turn] = JSON.stringify(S); history.length = S.turn + 1; }
 function startGame(state) { S = state; history = []; snap(); selStar = null; save(); renderAll(); }
-function afterChange() { snap(); save(); renderAll(); }   // admin edits become part of this turn
+function afterChange() { sim.checkVictory(S); snap(); save(); renderAll(); }   // admin edits become part of this turn
 
 function step(n) {
   for (let i = 0; i < n && !S.winner; i++) { sim.nextTurn(S); snap(); }
@@ -272,6 +274,7 @@ function back() {
 function stopAuto() { clearInterval(autoTimer); autoTimer = null; $("bAuto").textContent = "▶ Auto"; }
 function toggleAuto() {
   if (autoTimer) return stopAuto();
+  if (S.winner) return;
   autoTimer = setInterval(() => step(1), +$("speed").value);
   $("bAuto").textContent = "⏸ Pause";
 }
@@ -296,7 +299,7 @@ function renderClock() {
   const toProd = R.productionTicks - (S.tick % R.productionTicks);
   $("clock").innerHTML = `<b>Turn ${S.turn}</b> · tick ${S.tick} · day ${day} · production in ${toProd} ticks · ${R.ticksPerTurn} ticks/turn`;
   $("bBack").disabled = S.turn === 0 || !history[S.turn - 1];
-  $("bNext").disabled = $("bFive").disabled = !!S.winner;
+  $("bNext").disabled = $("bFive").disabled = $("bAuto").disabled = !!S.winner;
   if (S.winner) {
     const w = S.winner, names = w.ids.map(id => pname(S.players[id])).join(" + ");
     const how = { solo:"holds enough stars to win", last:"is the last empire standing",
@@ -340,7 +343,7 @@ function renderMap() {
       <circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${r}" fill="${o ? col(o) : "var(--line)"}" stroke="var(--black)" stroke-width="2"/>
       ${parked.length ? `<circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${r + 3}" fill="none" stroke="var(--text)" stroke-opacity=".5" stroke-width="1"/>` : ""}
       <title>${esc(tip)}</title></g>`);
-    if (names) out.push(`<text x="${X(s.x) + r + 3}" y="${Y(s.y) + 3}">${esc(s.name)}</text>`);
+    if (names) out.push(`<text x="${X(s.x) + r + 7}" y="${Y(s.y) + 3}">${esc(s.name)}</text>`);
     if (selStar === s.id) out.push(`<circle class="sel" cx="${X(s.x)}" cy="${Y(s.y)}" r="${r + 5}"/>`);
   }
   const map = $("map");
@@ -459,7 +462,7 @@ function renderAllyHistory() {
       <td class="num">${days}</td><td>${status}</td><td>${how}</td></tr>`;
   });
   $("allyHistory").innerHTML = rows.length
-    ? `<table class="tbl"><tr><th>Pair</th><th>Made by</th><th class="num">Formed (turn)</th><th class="num">Ended</th><th class="num">Days</th><th>Status</th><th>How it ended</th></tr>${rows.join("")}</table>`
+    ? `<table class="tbl nowrap"><tr><th>Pair</th><th>Made by</th><th class="num">Formed (turn)</th><th class="num">Ended</th><th class="num">Days</th><th>Status</th><th>How it ended</th></tr>${rows.join("")}</table>`
     : `<div class="muted small">No alliances yet — step a few turns.</div>`;
 }
 
@@ -468,7 +471,7 @@ function renderBoard() {
   const T = sim.TECHS;
   const short = { scanning:"Sc", range:"Rg", terraforming:"Tf", experimentation:"Ex", weapons:"Wp", banking:"Bk", manufacturing:"Mf" };
   const ps = S.players.slice().sort((a, b) => sim.totals(S, b.id).stars - sim.totals(S, a.id).stars);
-  $("board").innerHTML = `<table class="tbl"><tr><th>Empire</th><th>Bot</th><th class="num">Stars</th><th class="num">Ships</th>
+  $("board").innerHTML = `<table class="tbl nowrap"><tr><th>Empire</th><th>Bot</th><th class="num">Stars</th><th class="num">Ships</th>
     <th class="num">E / I / S</th><th class="num">$</th>${T.map(t => `<th class="num" title="${sim.TECH_LABEL[t]}">${short[t]}</th>`).join("")}
     <th>Researching</th><th>Allies</th></tr>
     ${ps.map(p => { const t = sim.totals(S, p.id);
@@ -484,7 +487,8 @@ function renderBoard() {
 /* Line chart: one 2px line per empire, legend via direct end labels + the table above. */
 function renderChart() {
   const m = $("metric").value, st = S.stats, ps = S.players;
-  const W = 760, H = 300, L = 44, Rp = 86, Tp = 12, B = 26;
+  // drawn at the container's real pixel width so text stays 11px on phones
+  const W = Math.max(320, Math.round($("chart").parentNode.clientWidth) || 760), H = W < 500 ? 240 : 300, L = 40, Rp = 86, Tp = 12, B = 26;
   const maxV = Math.max(1, ...st.flatMap(s => s.p.map(x => x[m])));
   const maxT = Math.max(1, st[st.length - 1].turn);
   const x = t => L + (t / maxT) * (W - L - Rp), y = v => Tp + (1 - v / maxV) * (H - Tp - B);
@@ -601,7 +605,8 @@ $("ngGo").onclick = () => {
     rules:S.rules, settings:{ lockAll:S.settings.lockAll, betrayal:S.settings.betrayal, instantBreak:S.settings.instantBreak,
       coalitionWin:S.settings.coalitionWin, maxTurns:+$("ngMax").value || 400 } }));
   $("ngSeed").value = Math.floor(Math.random() * 1e6);
-  tab = "galaxy"; renderAll();
+  tab = "galaxy"; try { localStorage.setItem("npSandbox.tab", tab); } catch (e) {}
+  renderAll();
 };
 
 /* export / import */
@@ -613,7 +618,8 @@ $("exportBtn").onclick = () => {
 };
 $("importFile").onchange = async e => {
   const f = e.target.files[0]; if (!f) return;
-  try { const st = JSON.parse(await f.text()); if (!st.stars || !st.players) throw 0; stopAuto(); startGame(st); }
+  try { const st = JSON.parse(await f.text()); if (!st.stars || !st.players || !st.rules || !(st.rules.ticksPerTurn > 0)) throw 0;
+    st.rules = Object.assign(sim.defaultRules(), st.rules); stopAuto(); startGame(st); }
   catch (err) { alert("That file isn't a sandbox save."); }
   e.target.value = "";
 };
@@ -662,7 +668,10 @@ document.addEventListener("keydown", e => {
 });
 
 const saved = load();
-startGame(saved && saved.stars && saved.v === 1 ? saved : sim.newGame({ seed:Math.floor(Math.random() * 1e6) }));
+// only trust a save that has a full rule set; top up any rules added to rules.js since it was made
+const usable = saved && saved.v === 1 && saved.stars && saved.rules && saved.rules.ticksPerTurn > 0;
+if (usable) saved.rules = Object.assign(sim.defaultRules(), saved.rules);
+startGame(usable ? saved : sim.newGame({ seed:Math.floor(Math.random() * 1e6) }));
 </script>
 </body>
 </html>

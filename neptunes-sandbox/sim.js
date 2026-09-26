@@ -7,6 +7,7 @@
 "use strict";
 
 const RULE_LIST = root.NP_RULES || (typeof require !== "undefined" ? require("./rules.js") : []);
+if (!RULE_LIST.length) throw new Error("rules.js must load before sim.js");
 
 const TECHS = ["scanning", "range", "terraforming", "experimentation", "weapons", "banking", "manufacturing"];
 const TECH_LABEL = { scanning:"Scanning", range:"Hyperspace range", terraforming:"Terraforming",
@@ -275,10 +276,10 @@ function resolveStar(S, star) {
       P(S, lead).credits += cash;
       log(S, "combat", `${aName} captured ${star.name} from ${dName} (${attShips} vs ${defShips} ships, ${r.att} left${cash ? `, +$${cash}` : ""}).`, [lead, owner]);
       star.owner = lead; star.econ = 0; star.ships = 0; star.frac = 0;
-      S.rel[owner][lead] = clamp(S.rel[owner][lead] - 30, -100, 100);
+      S.rel[owner][lead] = clamp(S.rel[owner][lead] - 12, -100, 100);
     } else {
       log(S, "combat", `${dName} held ${star.name} against ${aName} (${attShips} vs ${defShips} ships, ${r.def} left).`, [lead, owner]);
-      S.rel[owner][lead] = clamp(S.rel[owner][lead] - 15, -100, 100);
+      S.rel[owner][lead] = clamp(S.rel[owner][lead] - 4, -100, 100);
     }
   }
 }
@@ -397,7 +398,7 @@ function updateOpinions(S) {
     if (allied(S, a.id, b.id)) d += 3;
     if (alive.some(c => c !== a && c !== b && S.rel[a.id][c.id] < -25 && S.rel[b.id][c.id] < -25)) d += 3;
     if (counts[alive.indexOf(b)] > leadLine) d -= 4;
-    S.rel[a.id][b.id] = clamp(Math.round(S.rel[a.id][b.id] * .97 + d), -100, 100);
+    S.rel[a.id][b.id] = clamp(Math.round(S.rel[a.id][b.id] * .92 + d), -100, 100);
   }
 }
 function borders(S, a, b) {
@@ -668,7 +669,7 @@ const admin = {
   setOpinion(S, a, b, v) { S.rel[a][b] = clamp(v, -100, 100); },
 };
 
-const API = { RULE_LIST, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
+const API = { RULE_LIST, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
   defaultRules, newGame, nextTurn, tick, admin,
   range, resources, infraCost, researchCost, shipsPerCycle, totals, starsOf, winTarget,
   alliance, allied, alliesOf, carrierPos, eta, fight, shipsToWin, pairKey, dist };
