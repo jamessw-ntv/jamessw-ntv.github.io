@@ -110,6 +110,34 @@
   .grid2 .box + .box{margin-top:0}
   label.chk{display:flex;gap:8px;align-items:center;font-size:13px;cursor:pointer}
   .rules td input{width:92px}
+
+  /* ---- player sheet ---- */
+  .plink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;
+    text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:text-decoration-color .15s}
+  .plink:hover,.plink:focus-visible{text-decoration-color:currentColor}
+  .map .emp{cursor:pointer}
+  .scrim{position:fixed;inset:0;z-index:20;background:rgba(5,8,15,.6)}
+  .sheet{position:fixed;top:0;right:0;bottom:0;z-index:21;width:min(560px,100%);overflow-y:auto;
+    background:var(--bg);border-left:1px solid var(--line);box-shadow:var(--shadow);padding:0 16px 24px}
+  .sheet .shead{position:sticky;top:0;z-index:1;display:flex;align-items:center;gap:10px;margin:0 -16px 12px;
+    padding:12px 16px;background:var(--panel);border-bottom:4px solid var(--pc)}
+  .sheet .shead h2{margin:0;font-size:19px;flex:1;min-width:0}
+  .sheet .shead .sub2{display:block;font-size:12px;font-weight:400;color:var(--muted)}
+  .sheet .box{padding:12px 14px}
+  .sheet .box + .box{margin-top:12px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+  @media (max-width:480px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+  .stat b{display:block;font-size:20px;font-variant-numeric:tabular-nums;line-height:1.2}
+  .stat span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  .stat em{display:block;font-style:normal;font-size:11px;color:var(--muted)}
+  .bar{height:6px;border-radius:3px;background:var(--panel2);overflow:hidden;margin-top:4px}
+  .bar i{display:block;height:100%;background:var(--pc,var(--accent))}
+  .tech td{padding:5px 6px}
+  .tech tr.on td{color:var(--text);font-weight:600}
+  .tech .barcell{width:40%}
+  .spark{width:100%;height:auto;display:block}
+  .up{color:#7ee2b8}.down{color:#ffb4b4}
 </style>
 </head>
 <body>
@@ -283,6 +311,10 @@
   </section>
 </div>
 
+<!-- PLAYER DETAIL (opens from any empire name) -->
+<div class="scrim hidden" id="scrim"></div>
+<aside class="sheet hidden" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle"></aside>
+
 <footer class="site">Part of the <a href="../">projects hub</a>. A fan sandbox; Neptune's Pride is by Iron Helmet Games.</footer>
 
 <script src="rules.js"></script>
@@ -296,6 +328,7 @@ const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&":"&amp
 const col = p => `var(${p.color})`;
 const sw = p => `<span class="sw" style="background:${col(p)}"></span>`;
 const pname = p => `${sw(p)}${esc(p.name)}`;
+const plink = p => `<button class="plink" data-pid="${p.id}" title="Open ${esc(p.name)}'s details">${pname(p)}</button>`;
 
 /* ---------------- state + history (rewind) ---------------- */
 let S, history = [], sel = null, autoTimer = null;
@@ -610,7 +643,7 @@ function renderInspector() {
     $("inspTitle").textContent = "Inspector";
     box.innerHTML = `<div class="small muted">Click a <b>star</b> to see its infrastructure, defences, incoming fleets and who can reach it.
       Click a <b>carrier</b> (arrow) to see where it's going and how the battle would go.
-      Click an <b>empire</b> above to highlight it.</div>`;
+      Click an <b>empire</b> above to highlight it; click its name anywhere else for full details.</div>`;
     return;
   }
   if (sel.kind === "star") return starInspector(S.stars[sel.id]);
@@ -691,6 +724,7 @@ function empireInspector(p) {
   $("inspect").innerHTML = `
     <div class="insp-h">${sw(p)}${esc(p.name)}</div>
     <div class="insp-sub">${esc(per.label)} bot — ${esc(per.blurb)}${p.alive ? "" : ` · eliminated turn ${p.outTurn}`}</div>
+    <div style="margin:4px 0 8px"><button class="btn small" data-pid="${p.id}">Full details ›</button></div>
     <div class="infra">
       <div><span>Stars</span><b>${t.stars}</b><small>${sim.winTarget(S)} to win</small></div>
       <div><span>Ships</span><b>${t.ships}</b><small>+${shipsDay}/day</small></div>
@@ -726,9 +760,9 @@ function renderWeb() {
   }
   S.players.forEach((p, i) => {
     const t = sim.totals(S, p.id), r = 10 + Math.sqrt(t.stars) * 3;
-    out.push(`<circle cx="${pos[i].x}" cy="${pos[i].y}" r="${r}" fill="${col(p)}" stroke="var(--panel)" stroke-width="3" opacity="${p.alive ? 1 : .25}"/>
+    out.push(`<g class="emp" data-pid="${p.id}"><title>Open ${esc(p.name)}'s details</title><circle cx="${pos[i].x}" cy="${pos[i].y}" r="${r}" fill="${col(p)}" stroke="var(--panel)" stroke-width="3" opacity="${p.alive ? 1 : .25}"/>
       <text x="${pos[i].x}" y="${pos[i].y + (pos[i].y < cy ? -r - 8 : r + 16)}" text-anchor="middle" font-size="13" fill="var(--text)"
-        ${p.alive ? "" : 'text-decoration="line-through" opacity=".5"'}>${esc(p.name)} · ${t.stars}★</text>`);
+        ${p.alive ? "" : 'text-decoration="line-through" opacity=".5"'}>${esc(p.name)} · ${t.stars}★</text></g>`);
   });
   $("web").setAttribute("viewBox", `0 0 ${W} ${H}`);
   $("web").innerHTML = out.join("");
@@ -765,7 +799,7 @@ function renderMatrix() {
     return `<td style="background:${bg}" title="${esc(ps[a].name)} → ${esc(ps[b].name)}: ${v}">${v} ${allyIcon(al)}</td>`;
   };
   $("matrix").innerHTML = `<table class="tbl matrix"><tr><th>thinks of →</th>${ps.map(p => `<th>${pname(p)}</th>`).join("")}</tr>
-    ${ps.map(a => `<tr><th>${pname(a)}</th>${ps.map(b => cell(a.id, b.id)).join("")}</tr>`).join("")}</table>`;
+    ${ps.map(a => `<tr><th>${plink(a)}</th>${ps.map(b => cell(a.id, b.id)).join("")}</tr>`).join("")}</table>`;
 }
 
 function renderAllyHistory() {
@@ -780,7 +814,7 @@ function renderAllyHistory() {
       : al.endReason === "admin" ? "broken by admin" : al.endReason === "eliminated" ? "a member was eliminated"
       : al.warBy != null ? `${pname(S.players[al.warBy])} declared war` : "";
     const days = (((al.ended != null ? al.ended : S.tick) - al.formedTick) / T).toFixed(1);
-    return `<tr><td>${pname(a)} &amp; ${pname(b)}</td><td>${al.by === "admin" ? "admin" : "bots"}</td>
+    return `<tr><td>${plink(a)} &amp; ${plink(b)}</td><td>${al.by === "admin" ? "admin" : "bots"}</td>
       <td class="num">${al.formedTurn}</td><td class="num">${al.endedTurn != null ? al.endedTurn : ""}</td>
       <td class="num">${days}</td><td>${status}</td><td>${how}</td></tr>`;
   });
@@ -798,7 +832,7 @@ function renderBoard() {
     <th class="num">E / I / S</th><th class="num">$</th>${T.map(t => `<th class="num" title="${sim.TECH_LABEL[t]}">${short[t]}</th>`).join("")}
     <th>Researching</th><th>Allies</th></tr>
     ${ps.map(p => { const t = sim.totals(S, p.id);
-      return `<tr style="${p.alive ? "" : "opacity:.45"}"><td>${pname(p)}${p.alive ? "" : ` <span class="tag">out t${p.outTurn}</span>`}</td>
+      return `<tr style="${p.alive ? "" : "opacity:.45"}"><td>${plink(p)}${p.alive ? "" : ` <span class="tag">out t${p.outTurn}</span>`}</td>
       <td>${esc(sim.PERSONAS[p.persona].label)}</td><td class="num">${t.stars}</td><td class="num">${t.ships}</td>
       <td class="num">${t.econ} / ${t.industry} / ${t.science}</td><td class="num">${p.credits}</td>
       ${T.map(k => `<td class="num">${p.tech[k].level}</td>`).join("")}
@@ -969,6 +1003,176 @@ $("rules").addEventListener("change", e => {
 });
 $("rulesReset").onclick = () => { S.rules = sim.defaultRules(); afterChange(); };
 
+/* ---------------- player detail sheet ---------------- */
+/* Inspired by the real game's empire panel: headline numbers, output per cycle,
+   tech progress, how everyone feels about them, their stars and fleets. */
+let selPlayer = null, lastFocus = null;
+function openPlayer(id) {
+  if (selPlayer == null) lastFocus = document.activeElement;
+  selPlayer = id; renderPlayer();
+  $("sheet").scrollTop = 0; $("sheet").querySelector(".shead button").focus();
+}
+function closePlayer() {
+  selPlayer = null;
+  $("sheet").classList.add("hidden"); $("scrim").classList.add("hidden");
+  document.body.style.overflow = "";
+  if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+}
+const signed = v => (v > 0 ? "+" : "") + v;
+const opinion = v => `<span class="${v >= 20 ? "up" : v <= -20 ? "down" : ""}">${signed(v)}</span>`;
+
+function spark(p, key) {
+  const st = S.stats, W = 240, H = 44, maxT = Math.max(1, st[st.length - 1].turn);
+  const maxV = Math.max(1, ...st.flatMap(s => s.p.map(x => x[key])));   // shared scale: compare against the biggest empire
+  const pts = st.map(s => `${(s.turn / maxT * (W - 4) + 2).toFixed(1)},${(H - 2 - s.p[p.id][key] / maxV * (H - 6)).toFixed(1)}`).join(" ");
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="${key} over time">
+    <line x1="0" x2="${W}" y1="${H - 2}" y2="${H - 2}" stroke="var(--line)"/>
+    <polyline points="${pts}" fill="none" stroke="${col(p)}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+}
+
+function renderPlayer() {
+  if (selPlayer == null) return;
+  const p = S.players[selPlayer];
+  if (!p) return closePlayer();
+  const R = S.rules, t = sim.totals(S, p.id), mine = sim.starsOf(S, p.id), persona = sim.PERSONAS[p.persona];
+  const bk = p.tech.banking.level;
+  const income = t.econ * (R.econCredits + bk * R.bankingPerEcon) + bk * R.bankingFlat;
+  const shipsPerCycle = mine.reduce((x, s) => x + sim.shipsPerCycle(S, s), 0);
+  const rpTick = t.science * R.sciencePerTick;
+  const garrison = mine.reduce((x, s) => x + s.ships, 0);
+  const target = sim.winTarget(S);
+  const ranked = S.players.slice().sort((a, b) => sim.totals(S, b.id).stars - sim.totals(S, a.id).stars || sim.totals(S, b.id).ships - sim.totals(S, a.id).ships);
+  const rank = ranked.indexOf(p) + 1;
+  // change over the last 5 turns
+  const then = S.stats.find(s => s.turn >= S.turn - 5) || S.stats[0], now = S.stats[S.stats.length - 1];
+  const delta = k => { const d = now.p[p.id][k] - then.p[p.id][k]; return d ? `<em class="${d > 0 ? "up" : "down"}">${signed(d)} in ${now.turn - then.turn} turns</em>` : `<em>no change</em>`; };
+  const peak = Math.max(...S.stats.map(s => s.p[p.id].stars));
+
+  // status line
+  const won = S.winner && S.winner.ids.includes(p.id);
+  const status = won ? `<span class="tag ok">🏆 winner</span>` : !p.alive ? `<span class="tag bad">eliminated turn ${p.outTurn}</span>` : `<span class="tag">rank ${rank} of ${S.players.length}</span>`;
+
+  // tech
+  const techRows = sim.TECHS.map(k => {
+    const tk = p.tech[k], cost = sim.researchCost(S, p.id, k), on = k === p.researching;
+    const pct = Math.min(100, Math.round(tk.rp / cost * 100));
+    const etaT = on && rpTick > 0 ? Math.ceil((cost - tk.rp) / rpTick) : null;
+    return `<tr class="${on ? "on" : "muted"}"><td>${on ? "▶ " : ""}${esc(sim.TECH_LABEL[k])}</td><td class="num">${tk.level}</td>
+      <td class="barcell"><div class="bar"><i style="width:${pct}%"></i></div></td>
+      <td class="num small" style="white-space:nowrap">${Math.floor(tk.rp)}/${cost}${etaT != null ? ` · ${etaT}t` : ""}</td></tr>`;
+  }).join("");
+
+  // diplomacy: every other empire
+  const bordersWith = q => { const r = sim.range(S, p.id), rq = sim.range(S, q), theirs = sim.starsOf(S, q);
+    return mine.some(s => theirs.some(o => { const d = sim.dist(s, o); return d <= r || d <= rq; })); };
+  const dipRows = S.players.filter(q => q !== p).map(q => {
+    const al = sim.alliance(S, p.id, q.id), banned = S.settings.banned.includes(sim.pairKey(p.id, q.id));
+    const st = al ? (al.warBy != null ? `<span class="tag bad">⚔️ war at tick ${al.endsAt}</span>` : al.locked ? `<span class="tag ok">🔒 locked ally</span>` : `<span class="tag ok">🤝 ally</span>`)
+      : !q.alive ? `<span class="tag">out</span>` : banned ? `<span class="tag">🚫 banned</span>` : "";
+    return `<tr style="${q.alive ? "" : "opacity:.45"}"><td>${plink(q)}</td><td>${st}${q.alive && p.alive && bordersWith(q.id) ? ` <span class="tag warn">border</span>` : ""}</td>
+      <td class="num">${opinion(S.rel[p.id][q.id])}</td><td class="num">${opinion(S.rel[q.id][p.id])}</td></tr>`;
+  }).join("");
+  const mineAl = S.alliances.filter(a => a.a === p.id || a.b === p.id);
+  const betrayed = mineAl.filter(a => a.endReason === "betrayal" && a.warBy === p.id).length;
+  const wasBetrayed = mineAl.filter(a => a.endReason === "betrayal" && a.warBy !== p.id).length;
+
+  // fleets
+  const moving = S.carriers.filter(c => c.owner === p.id && c.at == null).sort((a, b) => sim.eta(S, a) - sim.eta(S, b));
+  const parked = S.carriers.filter(c => c.owner === p.id && c.at != null);
+  const threats = S.carriers.filter(c => c.at == null && c.owner !== p.id && S.stars[c.to].owner === p.id && !sim.allied(S, c.owner, p.id));
+  const goal = c => { const o = S.stars[c.to].owner; return o === p.id ? "reinforce" : o < 0 ? "claim" : sim.allied(S, p.id, o) ? "join ally" : "attack"; };
+  const fleetRows = moving.map(c => `<tr><td>${esc(S.stars[c.to].name)}${S.stars[c.to].owner >= 0 && S.stars[c.to].owner !== p.id ? ` <span class="muted small">(${esc(S.players[S.stars[c.to].owner].name)})</span>` : ""}</td>
+    <td>${goal(c)}</td><td class="num">${c.ships}</td><td class="num">${sim.eta(S, c)}t</td></tr>`).join("");
+  const threatRows = threats.map(c => `<tr><td>${esc(S.stars[c.to].name)}</td><td>${plink(S.players[c.owner])}</td>
+    <td class="num">${c.ships}</td><td class="num">${sim.eta(S, c)}t</td></tr>`).join("");
+
+  // stars
+  const starRows = mine.slice().sort((a, b) => b.industry - a.industry || b.econ - a.econ).map(s => {
+    const here = S.carriers.filter(c => c.at === s.id && c.owner === p.id).reduce((x, c) => x + c.ships, 0);
+    return `<tr><td><button class="plink" data-star="${s.id}">${esc(s.name)}</button>${s.id === p.home ? ` <span class="muted small">home</span>` : ""}</td>
+      <td class="num">${sim.resources(S, s)}</td><td class="num">${s.econ} / ${s.industry} / ${s.science}</td>
+      <td class="num">${s.ships}${here ? ` <span class="muted">+${here}</span>` : ""}</td><td class="num">${sim.shipsPerCycle(S, s)}</td></tr>`;
+  }).join("");
+
+  const events = S.events.filter(e => e.players.includes(p.id)).slice(-10).reverse();
+
+  const sheet = $("sheet");
+  sheet.style.setProperty("--pc", col(p));
+  sheet.innerHTML = `
+    <div class="shead">
+      <span class="sw" style="background:${col(p)};width:16px;height:16px"></span>
+      <h2 id="sheetTitle">${esc(p.name)}<span class="sub2">${esc(persona.label)} bot · ${esc(persona.blurb)}</span></h2>
+      <button class="btn small" data-pnav="-1" aria-label="Previous empire">◀</button>
+      <button class="btn small" data-pnav="1" aria-label="Next empire">▶</button>
+      <button class="btn small" id="sheetClose" aria-label="Close">✕</button>
+    </div>
+    <div class="row" style="margin-bottom:12px">${status}${!p.alive ? "" : ` <span class="small muted">peak ${peak}★ · turn ${S.turn}</span>`}</div>
+
+    <div class="stats">
+      <div class="stat"><span>Stars</span><b>${t.stars}</b>${delta("stars")}
+        <div class="bar" title="${t.stars} of ${target} needed to win"><i style="width:${Math.min(100, t.stars / target * 100)}%"></i></div>
+        <em>${t.stars} of ${target} to win</em></div>
+      <div class="stat"><span>Ships</span><b>${t.ships}</b>${delta("ships")}<em>${garrison} home · ${t.ships - garrison} on carriers</em></div>
+      <div class="stat"><span>Credits</span><b>$${p.credits}</b><em class="up">+$${income} / cycle</em></div>
+      <div class="stat"><span>Carriers</span><b>${t.carriers}</b><em>${moving.length} moving · ${parked.length} parked</em></div>
+    </div>
+
+    <div class="box"><h2>Empire</h2>
+      <dl class="kv">
+        <dt>Economy</dt><dd>${t.econ} <span class="muted">→ $${income} per cycle</span></dd>
+        <dt>Industry</dt><dd>${t.industry} <span class="muted">→ ${shipsPerCycle} ships per cycle</span></dd>
+        <dt>Science</dt><dd>${t.science} <span class="muted">→ ${rpTick * R.productionTicks} research per cycle</span></dd>
+        <dt>Range</dt><dd>${sim.range(S, p.id)} ly</dd>
+        <dt>Weapons</dt><dd>${p.tech.weapons.level} <span class="muted">(${p.tech.weapons.level + R.defenderWeaponBonus} when defending)</span></dd>
+      </dl>
+      <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:10px">
+        <div><div class="small muted">Stars over time</div>${spark(p, "stars")}</div>
+        <div><div class="small muted">Ships over time</div>${spark(p, "ships")}</div>
+      </div>
+    </div>
+
+    <div class="box"><h2>Technology</h2>
+      <div class="scroll"><table class="tbl tech"><tr><th>Tech</th><th class="num">Lvl</th><th>Progress</th><th class="num">RP</th></tr>${techRows}</table></div>
+      <div class="small muted" style="margin-top:6px">▶ researching now${rpTick > 0 ? "; the figure after · is ticks until the next level" : ""}.</div>
+    </div>
+
+    <div class="box"><h2>Diplomacy</h2>
+      <div class="scroll"><table class="tbl"><tr><th>Empire</th><th>Status</th><th class="num" title="What ${esc(p.name)} thinks of them">Our view</th><th class="num" title="What they think of ${esc(p.name)}">Their view</th></tr>${dipRows}</table></div>
+      <div class="small muted" style="margin-top:6px">Our view = what ${esc(p.name)} thinks of them, their view = what they think back (−100 … +100). Alliances made ${mineAl.length} · betrayed an ally ${betrayed}× · was betrayed ${wasBetrayed}×.</div>
+    </div>
+
+    ${threatRows ? `<div class="box"><h2>⚠️ Incoming attacks</h2>
+      <div class="scroll"><table class="tbl nowrap"><tr><th>Target</th><th>From</th><th class="num">Ships</th><th class="num">ETA</th></tr>${threatRows}</table></div></div>` : ""}
+
+    <div class="box"><h2>Carriers in flight</h2>
+      ${fleetRows ? `<div class="scroll"><table class="tbl nowrap"><tr><th>Heading to</th><th>Why</th><th class="num">Ships</th><th class="num">ETA</th></tr>${fleetRows}</table></div>`
+        : `<div class="small muted">None in flight.</div>`}</div>
+
+    <div class="box"><h2>Stars (${mine.length})</h2>
+      ${starRows ? `<div class="scroll"><table class="tbl nowrap"><tr><th>Star</th><th class="num">Res</th><th class="num">E / I / S</th><th class="num">Ships</th><th class="num">+/cycle</th></tr>${starRows}</table></div>
+        <div class="small muted" style="margin-top:6px">Click a star to see it on the map.</div>`
+        : `<div class="small muted">No stars left.</div>`}</div>
+
+    <div class="box"><h2>Recent news</h2>
+      <div class="log" style="max-height:none">${events.map(e => `<div><span class="t">T${e.turn} · ${e.tick}</span>${esc(e.text)}</div>`).join("") || `<div class="muted">Nothing yet.</div>`}</div></div>`;
+  sheet.classList.remove("hidden"); $("scrim").classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+// any empire name anywhere on the page opens its sheet
+document.addEventListener("click", e => {
+  const el = e.target.closest("[data-pid]");
+  if (el) { openPlayer(+el.dataset.pid); return; }
+  const star = e.target.closest("[data-star]");
+  if (star) {
+    closePlayer();
+    tab = "galaxy"; try { localStorage.setItem("npSandbox.tab", tab); } catch (err) {}
+    renderAll(); goto("star", +star.dataset.star, true); $("map").scrollIntoView({ block:"nearest" }); return;
+  }
+  const nav = e.target.closest("[data-pnav]");
+  if (nav) { const n = S.players.length; openPlayer((selPlayer + +nav.dataset.pnav + n) % n); return; }
+  if (e.target.id === "sheetClose" || e.target.id === "scrim") closePlayer();
+});
+
 /* ---------------- wiring ---------------- */
 function renderAll() {
   renderTabs(); renderClock();
@@ -978,6 +1182,7 @@ function renderAll() {
   if (tab === "log") { renderLogFilters(); renderLog(); }
   if (tab === "admin") { renderAdmin(); renderNewGame(); }
   if (tab === "rules") renderRules();
+  renderPlayer();
 }
 $("bNext").onclick = () => step(1);
 $("bFive").onclick = () => step(5);
@@ -985,6 +1190,7 @@ $("bBack").onclick = back;
 $("bAuto").onclick = toggleAuto;
 $("speed").onchange = () => { if (autoTimer) { stopAuto(); toggleAuto(); } };
 document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && selPlayer != null) { closePlayer(); return; }
   if (e.target.matches("input,select,textarea")) return;
   if (e.key === "n" || e.key === "ArrowRight") step(1);
   if (e.key === "b" || e.key === "ArrowLeft") back();
