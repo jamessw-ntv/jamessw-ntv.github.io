@@ -40,13 +40,40 @@
   .row + .row{margin-top:8px}
 
   /* ---- map ---- */
-  .map{width:100%;height:auto;display:block;background:var(--black);border-radius:10px;border:1px solid var(--line);touch-action:manipulation}
-  .map .star{cursor:pointer}
-  .map text{fill:var(--muted);font-size:9px;pointer-events:none}
-  .map .sel{fill:none;stroke:var(--text);stroke-width:1.5}
-  .map .range{fill:none;stroke:var(--muted);stroke-dasharray:3 4;opacity:.6}
+  .mapwrap{position:relative}
+  .map{width:100%;aspect-ratio:1/1;max-height:80vh;display:block;background:var(--black);border-radius:10px;
+    border:1px solid var(--line);touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+  .map.dragging{cursor:grabbing}
+  .map [data-s],.map [data-c]{cursor:pointer}
+  .map text{pointer-events:none}
+  .mapctl{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:6px}
+  .mapctl button{width:34px;height:34px;border-radius:8px;background:var(--panel2);border:1px solid var(--line);
+    color:var(--text);font-size:17px;line-height:1;cursor:pointer}
+  .mapctl button:hover{border-color:var(--accent)}
+  .scalebar{position:absolute;left:12px;bottom:10px;font-size:11px;color:var(--muted);pointer-events:none}
+  .scalebar i{display:block;height:6px;border:1px solid var(--muted);border-top:0;margin-bottom:3px}
+  .mapkey{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:12px;color:var(--muted)}
+  .mapkey svg{vertical-align:middle;margin-right:4px}
+  /* inspector */
+  .insp-h{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:700}
+  .insp-sub{color:var(--muted);font-size:12px;margin:2px 0 10px}
+  .infra{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+  .infra div{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:7px 6px;text-align:center}
+  .infra span{display:block;font-size:11px;color:var(--muted)}
+  .infra b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+  .infra small{display:block;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .sec{margin-top:14px}
+  .sec h4{margin:0 0 5px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:700}
+  .li{display:flex;gap:6px;align-items:center;font-size:13px;padding:3px 0}
+  .li .r{margin-left:auto;font-variant-numeric:tabular-nums;text-align:right}
+  .link{cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+  .link:hover{color:var(--accent)}
+  .bar{height:6px;background:var(--panel2);border-radius:99px;overflow:hidden;margin-top:4px}
+  .bar i{display:block;height:100%;background:var(--accent)}
+  .verdict{font-size:12px} .verdict.win{color:#7ee2b8} .verdict.lose{color:#ffb4b4}
   .sw{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:6px}
-  .legend div{display:flex;align-items:center;gap:6px;font-size:13px;padding:3px 0}
+  .legend div{display:flex;align-items:center;gap:6px;font-size:13px;padding:4px 6px;border-radius:8px;cursor:pointer}
+  .legend div:hover,.legend div.on{background:var(--panel2)}
   .legend .dead{opacity:.45;text-decoration:line-through}
   .kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13px}
   .kv dt{color:var(--muted)} .kv dd{margin:0;font-variant-numeric:tabular-nums}
@@ -146,16 +173,35 @@
   <section class="panel" data-tab="galaxy">
     <div class="cols">
       <div>
-        <svg class="map" id="map"></svg>
+        <div class="mapwrap">
+          <svg class="map" id="map"></svg>
+          <div class="mapctl">
+            <button data-z="in" title="Zoom in">+</button>
+            <button data-z="out" title="Zoom out">−</button>
+            <button data-z="fit" title="Whole galaxy">⤢</button>
+          </div>
+          <div class="scalebar" id="scalebar"></div>
+        </div>
         <div class="row small muted" style="margin-top:8px">
-          <label class="chk"><input type="checkbox" id="optNames"> Star names</label>
+          <label class="small">Labels <select id="optLabels">
+            <option value="auto" selected>by zoom</option><option value="all">always</option><option value="off">off</option></select></label>
           <label class="chk"><input type="checkbox" id="optAlly" checked> Alliance links</label>
           <label class="chk"><input type="checkbox" id="optFleets" checked> Carriers</label>
+          <label class="chk"><input type="checkbox" id="optRange" checked> Jump range</label>
+        </div>
+        <div class="mapkey">
+          <span><svg width="18" height="18"><circle cx="9" cy="9" r="6" fill="none" stroke="var(--blue)" stroke-width="2.5"/><circle cx="9" cy="9" r="2.5" fill="var(--text)"/></svg>owned star</span>
+          <span><svg width="22" height="18"><circle cx="11" cy="9" r="6" fill="none" stroke="var(--blue)" stroke-width="2.5"/><circle cx="11" cy="9" r="8.5" fill="none" stroke="var(--blue)" stroke-width="1"/><circle cx="11" cy="9" r="2.5" fill="var(--text)"/></svg>home star</span>
+          <span><svg width="14" height="14"><circle cx="7" cy="7" r="2.5" fill="var(--muted)"/></svg>unclaimed</span>
+          <span><svg width="14" height="14"><path d="M7 1 L13 7 L7 13 L1 7Z" fill="var(--blue)"/></svg>carriers in orbit</span>
+          <span><svg width="14" height="14"><path d="M2 2 L13 7 L2 12 L5 7Z" fill="var(--blue)"/></svg>carrier in flight</span>
+          <span>Under a star: ships · above: Economy · Industry · Science</span>
+          <span>Scroll/pinch to zoom · drag to pan · click anything</span>
         </div>
       </div>
       <div>
         <div class="box"><h2>Empires</h2><div class="legend" id="legend"></div></div>
-        <div class="box"><h2>Selected star</h2><div id="starInfo" class="small muted">Click a star.</div></div>
+        <div class="box"><h2 id="inspTitle">Inspector</h2><div id="inspect"></div></div>
       </div>
     </div>
   </section>
@@ -285,12 +331,12 @@ const pname = p => `${sw(p)}${esc(p.name)}`;
 const plink = p => `<button class="plink" data-pid="${p.id}" title="Open ${esc(p.name)}'s details">${pname(p)}</button>`;
 
 /* ---------------- state + history (rewind) ---------------- */
-let S, history = [], selStar = null, autoTimer = null;
+let S, history = [], sel = null, autoTimer = null;
 
 function save() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } catch (e) {} }
 function load() { try { return JSON.parse(localStorage.getItem(SAVE_KEY) || "null"); } catch (e) { return null; } }
 function snap() { history[S.turn] = JSON.stringify(S); history.length = S.turn + 1; }
-function startGame(state) { S = state; history = []; snap(); selStar = null; save(); renderAll(); }
+function startGame(state) { S = state; history = []; snap(); sel = null; cam = null; save(); renderAll(); }
 function afterChange() { sim.checkVictory(S); snap(); save(); renderAll(); }   // admin edits become part of this turn
 
 function step(n) {
@@ -342,77 +388,355 @@ function renderClock() {
 }
 
 /* ---------------- render: galaxy ---------------- */
-const K = 46, PAD = 1;   // map units → svg units
+/* The map works in light-years: the SVG viewBox is the camera, so zoom/pan only
+   changes the viewBox. Glyph sizes are given in screen pixels and converted with
+   `u` (light-years per pixel) so stars stay the same size at every zoom. */
+let cam = null;                       // { x, y, w } centre and visible width, in ly
+let mapRaf = 0;
+const TAU = Math.PI * 2;
+
+function fitCam() {
+  const svg = $("map"), ar = (svg.clientHeight || 1) / (svg.clientWidth || 1);
+  const pad = 2.5;
+  cam = { x:S.width / 2, y:S.height / 2, w:Math.max(S.width, S.height / ar) + pad * 2 };
+}
+function camBox() {
+  const svg = $("map"), pxW = svg.clientWidth || 800, pxH = svg.clientHeight || 800;
+  if (!cam) fitCam();
+  const h = cam.w * pxH / pxW;
+  return { x:cam.x - cam.w / 2, y:cam.y - h / 2, w:cam.w, h, u:cam.w / pxW, pxW, pxH };
+}
+function queueMap() { cancelAnimationFrame(mapRaf); mapRaf = requestAnimationFrame(renderMap); }
+
+function capitalOf(id) {
+  const home = S.stars[S.players[id].home];
+  return home && home.owner === id ? home : sim.starsOf(S, id).sort((a, b) => b.industry - a.industry)[0];
+}
+function selectedEmpire() {
+  if (!sel) return null;
+  if (sel.kind === "empire") return sel.id;
+  return null;
+}
+
 function renderMap() {
-  const W = (S.width + PAD * 2) * K, H = (S.height + PAD * 2) * K;
-  const X = x => (x + PAD) * K, Y = y => (y + PAD) * K;
+  if (tab !== "galaxy") return;
+  const svg = $("map"), V = camBox(), ppl = 1 / V.u;
+  // glyph unit: constant screen size, growing gently as you zoom in
+  const u = V.u * clamp(ppl / 16, .85, 1.4);
+  const mode = $("optLabels").value;
+  const showNums = mode === "all" || (mode === "auto" && ppl >= 14);
+  const showNames = mode === "all" || (mode === "auto" && ppl >= 22);
+  const focus = selectedEmpire();
   const out = [];
-  // alliance links between capitals (the owned star with most industry)
-  if ($("optAlly").checked) {
-    const cap = id => sim.starsOf(S, id).sort((a, b) => b.industry - a.industry)[0];
-    for (const al of S.alliances) if (al.ended == null) {
-      const a = cap(al.a), b = cap(al.b); if (!a || !b) continue;
-      out.push(`<line x1="${X(a.x)}" y1="${Y(a.y)}" x2="${X(b.x)}" y2="${Y(b.y)}" stroke="var(--text)"
-        stroke-opacity=".35" stroke-width="${al.locked ? 3 : 1.5}" ${al.warBy != null ? 'stroke-dasharray="6 5"' : ""}/>`);
-    }
+  const f = n => +n.toFixed(3);
+
+  // faint 5-ly grid so distance is readable at a glance
+  const g0x = Math.floor(V.x / 5) * 5, g0y = Math.floor(V.y / 5) * 5;
+  let grid = "";
+  for (let x = g0x; x < V.x + V.w; x += 5) grid += `M${x} ${V.y}V${V.y + V.h}`;
+  for (let y = g0y; y < V.y + V.h; y += 5) grid += `M${V.x} ${y}H${V.x + V.w}`;
+  out.push(`<path d="${grid}" stroke="var(--line)" stroke-opacity=".35" stroke-width="${f(u)}"/>`);
+
+  // alliance links between capitals
+  if ($("optAlly").checked) for (const al of S.alliances) if (al.ended == null) {
+    const a = capitalOf(al.a), b = capitalOf(al.b); if (!a || !b) continue;
+    out.push(`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="var(--text)" stroke-opacity="${al.locked ? .5 : .28}"
+      stroke-width="${f((al.locked ? 3.5 : 1.8) * u)}" ${al.warBy != null ? `stroke-dasharray="${f(8 * u)} ${f(6 * u)}"` : ""}/>`);
   }
-  if (selStar != null) {
-    const s = S.stars[selStar];
-    if (s.owner >= 0) out.push(`<circle class="range" cx="${X(s.x)}" cy="${Y(s.y)}" r="${sim.range(S, s.owner) * K}"/>`);
+
+  // jump range around the selected star (or carrier's origin), and the stars it reaches
+  const selStar = sel && sel.kind === "star" ? S.stars[sel.id] : null;
+  if ($("optRange").checked && selStar && selStar.owner >= 0) {
+    const r = sim.range(S, selStar.owner);
+    out.push(`<circle cx="${selStar.x}" cy="${selStar.y}" r="${r}" fill="${col(S.players[selStar.owner])}" fill-opacity=".05"
+      stroke="${col(S.players[selStar.owner])}" stroke-opacity=".7" stroke-width="${f(1.5 * u)}" stroke-dasharray="${f(5 * u)} ${f(4 * u)}"/>`);
+    for (const t of S.stars) if (t !== selStar && sim.dist(t, selStar) <= r)
+      out.push(`<line x1="${selStar.x}" y1="${selStar.y}" x2="${t.x}" y2="${t.y}" stroke="var(--muted)" stroke-opacity=".35" stroke-width="${f(u)}"/>`);
+    out.push(`<text x="${selStar.x}" y="${f(selStar.y - r - 5 * u)}" text-anchor="middle" font-size="${f(11 * u)}" fill="var(--muted)">jump range ${r} ly</text>`);
   }
-  if ($("optFleets").checked) for (const c of S.carriers) if (c.at == null) {
+
+  // carrier paths
+  const fleets = $("optFleets").checked;
+  const selCarrier = sel && sel.kind === "carrier" ? S.carriers.find(c => c.id === sel.id) : null;
+  if (fleets) for (const c of S.carriers) if (c.at == null) {
     const p = sim.carrierPos(S, c), t = S.stars[c.to], o = S.players[c.owner];
-    out.push(`<line x1="${X(p.x)}" y1="${Y(p.y)}" x2="${X(t.x)}" y2="${Y(t.y)}" stroke="${col(o)}" stroke-width="1.2" stroke-dasharray="3 3" opacity=".8"/>
-      <circle cx="${X(p.x)}" cy="${Y(p.y)}" r="3.5" fill="${col(o)}" stroke="var(--black)" stroke-width="2"><title>${esc(o.name)} carrier · ${c.ships} ships → ${esc(t.name)} (ETA ${sim.eta(S, c)} ticks)</title></circle>`);
+    const dim = focus != null && c.owner !== focus;
+    out.push(`<line x1="${f(p.x)}" y1="${f(p.y)}" x2="${t.x}" y2="${t.y}" stroke="${col(o)}" stroke-opacity="${dim ? .15 : c === selCarrier ? 1 : .6}"
+      stroke-width="${f((c === selCarrier ? 2.2 : 1.3) * u)}" stroke-dasharray="${f(4 * u)} ${f(3 * u)}"/>`);
   }
-  const names = $("optNames").checked;
+
+  // stars
+  const ringR = 7 * u, coreR = 2.6 * u, hit = 13 * u, fs = 10.5 * u;
+  const orbiting = {};
+  for (const c of S.carriers) if (c.at != null) (orbiting[c.at] = orbiting[c.at] || []).push(c);
   for (const s of S.stars) {
     const o = s.owner >= 0 ? S.players[s.owner] : null;
-    const r = 5 + Math.min(7, (s.econ + s.industry + s.science) / 4);
-    const parked = S.carriers.filter(c => c.at === s.id);
-    const tip = `${s.name}${o ? " · " + o.name : " · unclaimed"} · ${s.ships + parked.reduce((t, c) => t + c.ships, 0)} ships · E${s.econ} I${s.industry} S${s.science} · res ${sim.resources(S, s)}`;
-    out.push(`<g class="star" data-s="${s.id}">
-      <circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${r + 6}" fill="transparent"/>
-      <circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${r}" fill="${o ? col(o) : "var(--line)"}" stroke="var(--black)" stroke-width="2"/>
-      ${parked.length ? `<circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${r + 3}" fill="none" stroke="var(--text)" stroke-opacity=".5" stroke-width="1"/>` : ""}
-      <title>${esc(tip)}</title></g>`);
-    if (names) out.push(`<text x="${X(s.x) + r + 7}" y="${Y(s.y) + 3}">${esc(s.name)}</text>`);
-    if (selStar === s.id) out.push(`<circle class="sel" cx="${X(s.x)}" cy="${Y(s.y)}" r="${r + 5}"/>`);
+    const dim = focus != null && s.owner !== focus;
+    const op = dim ? .3 : 1;
+    const isHome = o && o.home === s.id;
+    out.push(`<g data-s="${s.id}" opacity="${op}"><circle cx="${s.x}" cy="${s.y}" r="${f(hit)}" fill="transparent"/>`);
+    if (o) {
+      out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR)}" fill="var(--black)" stroke="${col(o)}" stroke-width="${f(2.6 * u)}"/>`);
+      if (isHome) out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR + 3 * u)}" fill="none" stroke="${col(o)}" stroke-width="${f(1.1 * u)}"/>`);
+      out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(coreR)}" fill="var(--text)"/>`);
+    } else {
+      out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(coreR * .95)}" fill="var(--muted)" fill-opacity=".85"/>`);
+    }
+    // carriers parked here: small diamonds orbiting the ring, one per player
+    const here = fleets ? orbiting[s.id] || [] : [];
+    const byOwner = {};
+    here.forEach(c => byOwner[c.owner] = (byOwner[c.owner] || 0) + c.ships);
+    Object.keys(byOwner).forEach((pid, i) => {
+      const ang = -Math.PI / 4 + i * 0.9, R = ringR + 5 * u, cx = s.x + Math.cos(ang) * R, cy = s.y + Math.sin(ang) * R, d = 3.6 * u;
+      out.push(`<path d="M${f(cx)} ${f(cy - d)}L${f(cx + d)} ${f(cy)}L${f(cx)} ${f(cy + d)}L${f(cx - d)} ${f(cy)}Z" fill="${col(S.players[pid])}" stroke="var(--black)" stroke-width="${f(u)}"/>`);
+    });
+    out.push(`</g>`);
+    // labels (level of detail by zoom)
+    if (!dim || showNames) {
+      const ships = s.ships + here.reduce((t, c) => t + c.ships, 0);
+      let ly = s.y + ringR + fs * 1.15;
+      if (showNames) { out.push(`<text x="${s.x}" y="${f(ly)}" text-anchor="middle" font-size="${f(fs)}" fill="var(--muted)" opacity="${op}">${esc(s.name)}</text>`); ly += fs * 1.1; }
+      if (showNums && (o || ships)) out.push(`<text x="${s.x}" y="${f(ly)}" text-anchor="middle" font-size="${f(fs * 1.05)}" font-weight="700" fill="var(--text)" opacity="${op}">${ships}</text>`);
+      if (showNames && o) out.push(`<text x="${s.x}" y="${f(s.y - ringR - fs * .45)}" text-anchor="middle" font-size="${f(fs * .95)}" fill="var(--text)" opacity="${op * .85}">${s.econ} · ${s.industry} · ${s.science}</text>`);
+    }
   }
-  const map = $("map");
-  map.setAttribute("viewBox", `0 0 ${W} ${H}`);
-  map.innerHTML = out.join("");
-}
-$("map").addEventListener("click", e => {
-  const g = e.target.closest(".star"); if (!g) return;
-  selStar = +g.dataset.s; renderMap(); renderStarInfo();
-});
-["optNames", "optAlly", "optFleets"].forEach(id => $(id).addEventListener("change", renderMap));
 
+  // carriers in flight: arrow pointing at the destination
+  if (fleets) for (const c of S.carriers) if (c.at == null) {
+    const p = sim.carrierPos(S, c), t = S.stars[c.to], o = S.players[c.owner];
+    const ang = Math.atan2(t.y - p.y, t.x - p.x), d = 6.5 * u;
+    const pt = (a, r) => `${f(p.x + Math.cos(ang + a) * r)} ${f(p.y + Math.sin(ang + a) * r)}`;
+    const dim = focus != null && c.owner !== focus;
+    out.push(`<g data-c="${c.id}" opacity="${dim ? .25 : 1}"><circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(11 * u)}" fill="transparent"/>
+      <path d="M${pt(0, d * 1.3)}L${pt(2.4, d)}L${pt(Math.PI, d * .35)}L${pt(-2.4, d)}Z" fill="${col(o)}" stroke="var(--black)" stroke-width="${f(1.2 * u)}"/>
+      ${c === selCarrier ? `<circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(10 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.3 * u)}"/>` : ""}</g>`);
+    if (showNums && !dim) out.push(`<text x="${f(p.x)}" y="${f(p.y + 14 * u)}" text-anchor="middle" font-size="${f(fs)}" font-weight="700" fill="var(--text)">${c.ships}</text>`);
+  }
+
+  // selection ring
+  if (selStar) out.push(`<circle cx="${selStar.x}" cy="${selStar.y}" r="${f(ringR + 7 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.6 * u)}" stroke-dasharray="${f(3 * u)} ${f(3 * u)}"/>`);
+
+  svg.setAttribute("viewBox", `${f(V.x)} ${f(V.y)} ${f(V.w)} ${f(V.h)}`);
+  svg.innerHTML = out.join("");
+
+  // scale bar: pick a round length that is ~80–160 px long
+  const nice = [1, 2, 5, 10, 20, 50].find(n => n * ppl >= 60) || 50;
+  $("scalebar").innerHTML = `<i style="width:${Math.round(nice * ppl)}px"></i>${nice} ly · grid 5 ly`;
+}
+
+/* ---- zoom & pan (mouse wheel, drag, pinch, buttons) ---- */
+function zoomAt(factor, px, py) {
+  const V = camBox(), svg = $("map");
+  if (px == null) { px = V.pxW / 2; py = V.pxH / 2; }
+  const wx = V.x + px * V.u, wy = V.y + py * V.u;              // world point under the cursor
+  const maxW = Math.max(S.width, S.height) * 1.6, minW = 9;
+  const nw = clamp(cam.w * factor, minW, maxW), k = nw / cam.w;
+  cam.x = wx + (cam.x - wx) * k; cam.y = wy + (cam.y - wy) * k; cam.w = nw;
+  queueMap();
+}
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+(function mapInput() {
+  const svg = $("map"), pts = new Map();
+  let moved = 0, pinch0 = null;
+  svg.addEventListener("wheel", e => {
+    e.preventDefault();
+    const r = svg.getBoundingClientRect();
+    zoomAt(Math.exp(clamp(e.deltaY, -120, 120) * 0.0022), e.clientX - r.left, e.clientY - r.top);
+  }, { passive:false });
+  svg.addEventListener("pointerdown", e => {
+    pts.set(e.pointerId, { x:e.clientX, y:e.clientY }); moved = 0;
+    if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch0 = { d:Math.hypot(a.x - b.x, a.y - b.y), w:cam.w }; }
+  });
+  svg.addEventListener("pointermove", e => {
+    const p = pts.get(e.pointerId); if (!p) return;
+    const dx = e.clientX - p.x, dy = e.clientY - p.y;
+    if (pts.size === 1) {
+      moved += Math.abs(dx) + Math.abs(dy);
+      if (moved > 4) {
+        if (!svg.classList.contains("dragging")) { svg.classList.add("dragging"); try { svg.setPointerCapture(e.pointerId); } catch (_) {} }
+        const u = camBox().u; cam.x -= dx * u; cam.y -= dy * u; queueMap();
+      }
+    }
+    p.x = e.clientX; p.y = e.clientY;
+    if (pts.size === 2 && pinch0) {
+      moved = 99;
+      const [a, b] = [...pts.values()], d = Math.hypot(a.x - b.x, a.y - b.y), r = svg.getBoundingClientRect();
+      const target = pinch0.w * pinch0.d / Math.max(d, 1);
+      zoomAt(target / cam.w, (a.x + b.x) / 2 - r.left, (a.y + b.y) / 2 - r.top);
+    }
+  });
+  const end = e => {
+    const wasClick = pts.size === 1 && moved <= 4;
+    pts.delete(e.pointerId); if (pts.size < 2) pinch0 = null;
+    svg.classList.remove("dragging");
+    if (!wasClick || e.type === "pointercancel") return;
+    const hitEl = document.elementFromPoint(e.clientX, e.clientY);
+    const g = hitEl && hitEl.closest("[data-s],[data-c]");
+    if (!g) { sel = null; }
+    else if (g.dataset.c != null) sel = { kind:"carrier", id:+g.dataset.c };
+    else sel = { kind:"star", id:+g.dataset.s };
+    renderMap(); renderLegend(); renderInspector();
+  };
+  svg.addEventListener("pointerup", end);
+  svg.addEventListener("pointercancel", end);
+  document.querySelector(".mapctl").addEventListener("click", e => {
+    const z = e.target.dataset.z; if (!z) return;
+    if (z === "fit") { fitCam(); queueMap(); } else zoomAt(z === "in" ? 1 / 1.5 : 1.5);
+  });
+  window.addEventListener("resize", queueMap);
+})();
+["optLabels", "optAlly", "optFleets", "optRange"].forEach(id => $(id).addEventListener("change", renderMap));
+
+/* ---- empires list (click to focus an empire) ---- */
 function renderLegend() {
+  const focus = selectedEmpire();
   $("legend").innerHTML = S.players.map(p => {
     const t = sim.totals(S, p.id);
-    return `<div class="${p.alive ? "" : "dead"}"><b>${plink(p)}</b>
+    return `<div data-p="${p.id}" class="${p.alive ? "" : "dead"} ${focus === p.id ? "on" : ""}">${sw(p)}<b>${esc(p.name)}</b>
       <span class="muted small">${esc(sim.PERSONAS[p.persona].label)} · ${t.stars}★ · ${t.ships} ships</span></div>`;
   }).join("");
 }
-function renderStarInfo() {
-  if (selStar == null) return;
-  const s = S.stars[selStar], o = s.owner >= 0 ? S.players[s.owner] : null;
-  const parked = S.carriers.filter(c => c.at === s.id);
-  const inbound = S.carriers.filter(c => c.at == null && c.to === s.id);
-  const kv = [
-    ["Owner", o ? pname(o) : "unclaimed"],
-    ["Resources", sim.resources(S, s) + (o && sim.resources(S, s) !== s.res ? ` <span class="muted">(${s.res} natural)</span>` : "")],
-    ["Economy", s.econ + (o ? ` <span class="muted">next $${sim.infraCost(S, s, "econ")}</span>` : "")],
-    ["Industry", s.industry + (o ? ` <span class="muted">next $${sim.infraCost(S, s, "industry")}</span>` : "")],
-    ["Science", s.science + (o ? ` <span class="muted">next $${sim.infraCost(S, s, "science")}</span>` : "")],
-    ["Ships", s.ships + (o ? ` <span class="muted">+${sim.shipsPerCycle(S, s)}/cycle</span>` : "")],
-  ];
-  $("starInfo").innerHTML = `<div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">${esc(s.name)}</div>
-    <dl class="kv">${kv.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
-    ${parked.length ? `<div style="margin-top:8px">Parked: ${parked.map(c => `${pname(S.players[c.owner])} ${c.ships}`).join(", ")}</div>` : ""}
-    ${inbound.length ? `<div style="margin-top:6px">Inbound: ${inbound.map(c => `${pname(S.players[c.owner])} ${c.ships} (ETA ${sim.eta(S, c)})`).join(", ")}</div>` : ""}`;
+$("legend").addEventListener("click", e => {
+  const row = e.target.closest("[data-p]"); if (!row) return;
+  const id = +row.dataset.p;
+  sel = selectedEmpire() === id ? null : { kind:"empire", id };
+  renderMap(); renderLegend(); renderInspector();
+});
+
+/* ---- inspector ---- */
+function goto(kind, id, centre) {
+  sel = { kind, id };
+  if (centre && kind === "star") { cam.x = S.stars[id].x; cam.y = S.stars[id].y; if (cam.w > 24) cam.w = 24; }
+  renderMap(); renderLegend(); renderInspector();
+}
+$("inspect").addEventListener("click", e => {
+  const l = e.target.closest("[data-go]"); if (!l) return;
+  const [kind, id] = l.dataset.go.split(":");
+  goto(kind, +id, true);
+});
+const starLink = s => `<span class="link" data-go="star:${s.id}">${esc(s.name)}</span>`;
+const empLink = p => `${sw(p)}<span class="link" data-go="empire:${p.id}">${esc(p.name)}</span>`;
+const ticksTxt = t => `${t} tick${t === 1 ? "" : "s"} <span class="muted">(~${Math.max(1, Math.ceil(t / S.rules.ticksPerTurn))} turn${Math.ceil(t / S.rules.ticksPerTurn) > 1 ? "s" : ""})</span>`;
+
+function incomeOf(p) {
+  const econ = sim.totals(S, p.id).econ, R = S.rules, b = p.tech.banking.level;
+  return econ * (R.econCredits + b * R.bankingPerEcon) + b * R.bankingFlat;
+}
+/* Who would win if carrier c arrived now-ish: defence grows with production during the trip. */
+function predict(c) {
+  const t = S.stars[c.to];
+  if (t.owner < 0) return { text:"claims an empty star", cls:"win" };
+  if (sim.allied(S, c.owner, t.owner)) return { text:t.owner === c.owner ? "reinforces" : "joins an ally's defence", cls:"" };
+  const ticks = sim.eta(S, c);
+  const guards = S.carriers.filter(x => x.at === t.id && sim.allied(S, x.owner, t.owner));
+  const def = t.ships + guards.reduce((n, x) => n + x.ships, 0) + Math.floor(sim.shipsPerCycle(S, t) * ticks / S.rules.productionTicks);
+  const wd = Math.max(S.players[t.owner].tech.weapons.level, ...guards.map(x => S.players[x.owner].tech.weapons.level)) + S.rules.defenderWeaponBonus;
+  const wa = S.players[c.owner].tech.weapons.level;
+  const r = sim.fight(c.ships, def, wa, wd);
+  return r.def <= 0 ? { text:`would capture it, ${r.att} left (vs ~${def} defending)`, cls:"win" }
+    : { text:`would be destroyed (~${def} defending, ${r.def} survive)`, cls:"lose" };
+}
+
+function renderInspector() {
+  const box = $("inspect");
+  if (!sel) {
+    $("inspTitle").textContent = "Inspector";
+    box.innerHTML = `<div class="small muted">Click a <b>star</b> to see its infrastructure, defences, incoming fleets and who can reach it.
+      Click a <b>carrier</b> (arrow) to see where it's going and how the battle would go.
+      Click an <b>empire</b> above to highlight it; click its name anywhere else for full details.</div>`;
+    return;
+  }
+  if (sel.kind === "star") return starInspector(S.stars[sel.id]);
+  if (sel.kind === "carrier") {
+    const c = S.carriers.find(x => x.id === sel.id);
+    if (!c) { $("inspTitle").textContent = "Carrier"; box.innerHTML = `<div class="small muted">That carrier no longer exists — it landed, merged or was destroyed.</div>`; return; }
+    return carrierInspector(c);
+  }
+  if (sel.kind === "empire") return empireInspector(S.players[sel.id]);
+}
+
+function starInspector(s) {
+  $("inspTitle").textContent = "Star";
+  const o = s.owner >= 0 ? S.players[s.owner] : null, R = S.rules;
+  const res = sim.resources(S, s);
+  const homeOf = S.players.find(p => p.home === s.id);
+  const orbit = S.carriers.filter(c => c.at === s.id);
+  const inbound = S.carriers.filter(c => c.at == null && c.to === s.id).sort((a, b) => sim.eta(S, a) - sim.eta(S, b));
+  const bank = o ? o.tech.banking.level : 0;
+  const infra = o ? `<div class="infra">
+      <div><span>Economy</span><b>${s.econ}</b><small>+$${s.econ * (R.econCredits + bank * R.bankingPerEcon)}/day</small><small>next $${sim.infraCost(S, s, "econ")}</small></div>
+      <div><span>Industry</span><b>${s.industry}</b><small>+${sim.shipsPerCycle(S, s)} ships/day</small><small>next $${sim.infraCost(S, s, "industry")}</small></div>
+      <div><span>Science</span><b>${s.science}</b><small>+${s.science * R.sciencePerTick} RP/tick</small><small>next $${sim.infraCost(S, s, "science")}</small></div>
+    </div>` : `<div class="small muted">Unclaimed — the first carrier to arrive takes it.</div>`;
+
+  const defWeap = o ? o.tech.weapons.level + R.defenderWeaponBonus : 0;
+  const defence = `<div class="li">Garrison<span class="r"><b>${s.ships}</b> ships</span></div>` +
+    orbit.map(c => `<div class="li">${empLink(S.players[c.owner])} carrier<span class="r">${c.ships} ships</span></div>`).join("") +
+    (o ? `<div class="li muted">Defends with weapons<span class="r">${defWeap} <span class="small">(${o.tech.weapons.level} +1)</span></span></div>` : "");
+
+  const incoming = inbound.length ? inbound.map(c => {
+    const pr = predict(c);
+    return `<div class="li" style="flex-wrap:wrap">${empLink(S.players[c.owner])} <span class="link" data-go="carrier:${c.id}">${c.ships} ships</span>
+      <span class="r small">in ${ticksTxt(sim.eta(S, c))}</span>
+      <div class="verdict ${pr.cls}" style="flex-basis:100%">${pr.text}</div></div>`;
+  }).join("") : `<div class="small muted">Nothing on its way.</div>`;
+
+  // which empires can jump here, and how far their nearest star is
+  const reach = S.players.filter(p => p.alive).map(p => {
+    const d = Math.min(...sim.starsOf(S, p.id).map(t => sim.dist(t, s)));
+    return { p, d, ok:d <= sim.range(S, p.id) };
+  }).filter(x => x.ok && x.p.id !== s.owner).sort((a, b) => a.d - b.d);
+  const near = S.stars.filter(t => t !== s).map(t => ({ t, d:sim.dist(t, s) })).sort((a, b) => a.d - b.d).slice(0, 6);
+
+  $("inspect").innerHTML = `
+    <div class="insp-h">${o ? sw(o) : ""}${esc(s.name)}</div>
+    <div class="insp-sub">${o ? `Owned by ${empLink(o)}` : "Unclaimed"}${homeOf ? ` · home star of ${esc(homeOf.name)}` : ""}
+      · resources <b style="color:var(--text)">${res}</b>${res !== s.res ? ` (${s.res} natural)` : ""}</div>
+    ${infra}
+    <div class="sec"><h4>Defence</h4>${defence}</div>
+    <div class="sec"><h4>Incoming</h4>${incoming}</div>
+    <div class="sec"><h4>Within jump range of</h4>${reach.length ? reach.map(x => `<div class="li">${empLink(x.p)}<span class="r">${x.d.toFixed(1)} ly</span></div>`).join("") : `<div class="small muted">No other empire can reach it yet.</div>`}</div>
+    <div class="sec"><h4>Nearest stars</h4>${near.map(x => `<div class="li">${x.t.owner >= 0 ? sw(S.players[x.t.owner]) : `<span class="sw" style="background:var(--muted)"></span>`}${starLink(x.t)}
+      <span class="r">${x.d.toFixed(1)} ly · ${x.t.ships} ships</span></div>`).join("")}</div>`;
+}
+
+function carrierInspector(c) {
+  $("inspTitle").textContent = "Carrier";
+  const o = S.players[c.owner], from = S.stars[c.from], to = S.stars[c.to];
+  const pr = predict(c), left = c.len - c.done;
+  $("inspect").innerHTML = `
+    <div class="insp-h">${sw(o)}${c.ships} ships</div>
+    <div class="insp-sub">${empLink(o)} carrier · weapons ${o.tech.weapons.level}</div>
+    <div class="li">From<span class="r">${starLink(from)}</span></div>
+    <div class="li">To<span class="r">${starLink(to)} ${to.owner >= 0 ? sw(S.players[to.owner]) : ""}</span></div>
+    <div class="li">Distance left<span class="r">${left.toFixed(1)} of ${c.len.toFixed(1)} ly</span></div>
+    <div class="bar"><i style="width:${Math.round(c.done / c.len * 100)}%"></i></div>
+    <div class="li">Arrives in<span class="r">${ticksTxt(sim.eta(S, c))}</span></div>
+    <div class="sec"><h4>On arrival</h4><div class="verdict ${pr.cls}">${pr.text}</div></div>`;
+}
+
+function empireInspector(p) {
+  $("inspTitle").textContent = "Empire";
+  const t = sim.totals(S, p.id), R = S.rules, per = sim.PERSONAS[p.persona];
+  const shipsDay = sim.starsOf(S, p.id).reduce((n, s) => n + sim.shipsPerCycle(S, s), 0);
+  const cur = p.tech[p.researching], cost = sim.researchCost(S, p.id, p.researching);
+  const opinions = S.players.filter(q => q.id !== p.id && q.alive).map(q => ({ q, v:S.rel[p.id][q.id] })).sort((a, b) => b.v - a.v);
+  $("inspect").innerHTML = `
+    <div class="insp-h">${sw(p)}${esc(p.name)}</div>
+    <div class="insp-sub">${esc(per.label)} bot — ${esc(per.blurb)}${p.alive ? "" : ` · eliminated turn ${p.outTurn}`}</div>
+    <div style="margin:4px 0 8px"><button class="btn small" data-pid="${p.id}">Full details ›</button></div>
+    <div class="infra">
+      <div><span>Stars</span><b>${t.stars}</b><small>${sim.winTarget(S)} to win</small></div>
+      <div><span>Ships</span><b>${t.ships}</b><small>+${shipsDay}/day</small></div>
+      <div><span>Cash</span><b>$${p.credits}</b><small>+$${incomeOf(p)}/day</small></div>
+    </div>
+    <div class="sec"><h4>Researching ${esc(sim.TECH_LABEL[p.researching])} ${cur.level + 1}</h4>
+      <div class="bar"><i style="width:${Math.min(100, Math.round(cur.rp / cost * 100))}%"></i></div>
+      <div class="small muted" style="margin-top:3px">${Math.floor(cur.rp)} / ${cost} RP · +${t.science * R.sciencePerTick} RP/tick</div></div>
+    <div class="sec"><h4>Technology</h4>${sim.TECHS.map(k => `<div class="li">${esc(sim.TECH_LABEL[k])}<span class="r">${p.tech[k].level}</span></div>`).join("")}
+      <div class="li muted">Jump range<span class="r">${sim.range(S, p.id)} ly</span></div></div>
+    <div class="sec"><h4>Allies</h4>${sim.alliesOf(S, p.id).map(id => `<div class="li">${allyIcon(sim.alliance(S, p.id, id))} ${empLink(S.players[id])}</div>`).join("") || `<div class="small muted">None.</div>`}</div>
+    <div class="sec"><h4>Feelings</h4>${opinions.map(x => `<div class="li">${empLink(x.q)}<span class="r" style="color:${x.v >= 0 ? "var(--accent)" : "#ffb4b4"}">${x.v > 0 ? "+" : ""}${x.v}</span></div>`).join("")}</div>`;
 }
 
 /* ---------------- render: alliances ---------------- */
@@ -840,9 +1164,9 @@ document.addEventListener("click", e => {
   if (el) { openPlayer(+el.dataset.pid); return; }
   const star = e.target.closest("[data-star]");
   if (star) {
-    selStar = +star.dataset.star; closePlayer();
+    closePlayer();
     tab = "galaxy"; try { localStorage.setItem("npSandbox.tab", tab); } catch (err) {}
-    renderAll(); $("map").scrollIntoView({ block:"nearest" }); return;
+    renderAll(); goto("star", +star.dataset.star, true); $("map").scrollIntoView({ block:"nearest" }); return;
   }
   const nav = e.target.closest("[data-pnav]");
   if (nav) { const n = S.players.length; openPlayer((selPlayer + +nav.dataset.pnav + n) % n); return; }
@@ -852,7 +1176,7 @@ document.addEventListener("click", e => {
 /* ---------------- wiring ---------------- */
 function renderAll() {
   renderTabs(); renderClock();
-  if (tab === "galaxy") { renderMap(); renderLegend(); renderStarInfo(); }
+  if (tab === "galaxy") { renderMap(); renderLegend(); renderInspector(); }
   if (tab === "alliances") { renderWeb(); renderAllySummary(); renderMatrix(); renderAllyHistory(); }
   if (tab === "empires") { renderBoard(); renderChart(); }
   if (tab === "log") { renderLogFilters(); renderLog(); }

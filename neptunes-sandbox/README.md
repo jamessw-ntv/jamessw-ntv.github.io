@@ -7,7 +7,7 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
 - **Turns**: `Next turn` processes every bot's orders, then N ticks (default 6).
   `◀ Back` rewinds; changing anything after a rewind branches history.
   Keys: `N`/→ next, `B`/← back.
-- **Galaxy**: map with ownership, carriers in flight, alliance links; click a star.
+- **Galaxy**: zoomable map at real Triton scale (~2 ly between stars, 5-ly grid, scale bar). Labels appear as you zoom (ships below, E·I·S above). Click a star (infrastructure, defence, incoming fleets with predicted outcome, who can reach it), a carrier (route, ETA, predicted battle) or an empire (economy, research, tech, allies, feelings).
 - **Alliances**: alliance web, opinion matrix (what each bot thinks of each other),
   alliance history (formed, ended, who betrayed whom), treachery stats.
 - **Empires**: leaderboard with tech levels, and charts over time.
