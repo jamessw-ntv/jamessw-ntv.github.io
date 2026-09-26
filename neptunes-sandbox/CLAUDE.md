@@ -8,7 +8,10 @@ analysis. Plain static page; no server.
 - `rules.js` — every rule number, each flagged `confirmed` (checked against the
   Triton Codex / wiki) or placeholder. **Filling a rule gap = edit this file only.**
 - `sim.js` — engine + bots. Pure logic, no DOM; runs under Node for testing.
-- `index.html` — the viewer / dashboard.
+- `index.html` — the viewer / dashboard. Turn playback (`playTurn`, `animateTick`,
+  `fleetList`) and fog of war (`visionSet`, `seesStar`) live here; the engine side is
+  `beginTurn` / `tick` / `endTurn` and `scanSources` / `inScan` in `sim.js`.
+  Playback and view prefs (`PB`) are per-browser, never game state.
 
 ## Intent routing
 1. **"The real rule for X is Y"** → update the value in `rules.js`, set
