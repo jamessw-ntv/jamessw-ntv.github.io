@@ -85,7 +85,7 @@
   .vision .toggle.active{background:var(--accent-soft);color:var(--text);border-color:var(--accent)}
   @media (pointer:coarse){.vision .toggle{min-height:36px}}
   @media (max-width:600px){.map{aspect-ratio:auto;height:64vh;height:64dvh;max-height:none}}
-  @media (max-width:600px){header.page .sub{display:none} header.page h1{font-size:20px;margin-bottom:0}}
+  @media (max-width:600px){header.page .sub{display:none} header.page h1{font-size:17px;margin-bottom:0}}
   .feed{max-height:260px;overflow:auto;font-size:12.5px}
   .feed div{padding:4px 0;border-bottom:1px solid var(--line)}
   .feed .t{color:var(--muted);font-variant-numeric:tabular-nums;display:inline-block;min-width:50px}
@@ -957,6 +957,8 @@ function renderMap() {
     } else {
       out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(coreR * .95)}" fill="var(--muted)" fill-opacity=".85"/>`);
     }
+    if (s.gate && S.rules.gatesOn) out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR + 6 * u)}" fill="none" stroke="#bfe6ff"
+      stroke-width="${f(1.2 * u)}" stroke-dasharray="${f(2.2 * u)} ${f(1.6 * u)}" opacity=".85"/>`);   // warp gate
     // carriers parked here: small diamonds orbiting the ring, one per player
     const here = fleets ? orbiting[s.id] || [] : [];
     // one tappable marker per owner (it selects that owner's first carrier here), with a count when there are several
@@ -1216,10 +1218,35 @@ function incomeOf(p) {
   return econ * (R.econCredits + b * R.bankingPerEcon) + b * R.bankingFlat;
 }
 /* Who would win if carrier c arrived now-ish: defence grows with production during the trip. */
+/* Battle forecast, like NPA's: play the ticks forward on a copy of the game until carrier c lands,
+   so every other arrival, production and route order on the way counts. Bots' orders on later
+   turns can't be known, so it's "if nothing changes". In Player view the copy only holds carriers
+   you can see. Returns null when it can't tell (the carrier would land after a win, say). */
+function forecast(c) {
+  const n = sim.eta(S, c);
+  if (!n || n > 400) return null;
+  const vis = visionSet();
+  const T = JSON.parse(JSON.stringify(Object.assign({}, S, { events:[], stats:[] })));
+  if (vis) T.carriers = T.carriers.filter(x => vis.group.has(x.owner) || sim.inScan(vis, sim.carrierPos(S, x)));
+  if (c.id === -1) {                                   // a launch you're only considering: add it, taking ships from the star
+    const src = T.stars[c.from]; if (src.owner === c.owner) src.ships = Math.max(0, src.ships - c.ships);
+    T.carriers.push(Object.assign({}, c, { route:[] }));
+  }
+  for (let i = 0; i < n && !T.winner; i++) sim.tick(T);
+  if (T.winner && T.tick < S.tick + n) return null;
+  const t = T.stars[c.to], mine = T.carriers.filter(x => x.at === t.id && x.owner === c.owner).reduce((k, x) => k + x.ships, 0);
+  const mineAlive = T.carriers.some(x => x.id === c.id);
+  if (t.owner === c.owner) return { text:`would capture it, ${mine + t.ships} left <span class="muted">(forecast, if nothing changes)</span>`, cls:"win" };
+  if (mineAlive && sim.allied(T, c.owner, t.owner)) return null;
+  const left = t.ships + T.carriers.filter(x => x.at === t.id && t.owner >= 0 && sim.allied(T, x.owner, t.owner)).reduce((k, x) => k + x.ships, 0);
+  const who = t.owner >= 0 ? T.players[t.owner].name : "nobody";
+  return { text:`would be destroyed: ${esc(who)} holds it with ${left} left <span class="muted">(forecast, if nothing changes)</span>`, cls:"lose" };
+}
 function predict(c) {
   const t = S.stars[c.to];
-  if (t.owner < 0) return { text:"claims an empty star", cls:"win" };
-  if (sim.allied(S, c.owner, t.owner)) return { text:t.owner === c.owner ? "reinforces" : "joins an ally's defence", cls:"" };
+  if (t.owner < 0 && !S.carriers.some(x => x !== c && x.at == null && x.to === t.id && x.owner !== c.owner)) return { text:"claims an empty star", cls:"win" };
+  if (t.owner >= 0 && sim.allied(S, c.owner, t.owner)) return { text:t.owner === c.owner ? "reinforces" : "joins an ally's defence", cls:"" };
+  try { const f = forecast(c); if (f) return f; } catch (e) {}
   const ticks = sim.eta(S, c);
   const guards = S.carriers.filter(x => x.at === t.id && sim.allied(S, x.owner, t.owner));
   const def = t.ships + guards.reduce((n, x) => n + x.ships, 0) + Math.floor(sim.shipsPerCycle(S, t) * ticks / S.rules.productionTicks);
@@ -1296,7 +1323,7 @@ function starInspector(s) {
   $("inspect").innerHTML = `
     <div class="insp-h">${o ? sw(o) : ""}${esc(s.name)}</div>
     <div class="insp-sub">${o ? `Owned by ${empLink(o)}` : "Unclaimed"}${homeOf ? ` · home star of ${esc(homeOf.name)}` : ""}
-      · resources <b style="color:var(--text)">${res}</b>${res !== s.res ? ` (${s.res} natural)` : ""}</div>
+      · resources <b style="color:var(--text)">${res}</b>${res !== s.res ? ` (${s.res} natural)` : ""}${s.gate && R.gatesOn ? ` · <b style="color:#bfe6ff">warp gate</b>` : ""}</div>
     ${infra}
     ${starBuy(s)}
     ${ctl != null ? `<div class="sec"><h4>Ships here</h4>${defence}</div>` : ""}
@@ -1319,7 +1346,7 @@ function carrierInspector(c) {
     head = `
     <div class="li">From<span class="r">${starLink(from)}</span></div>
     <div class="li">To<span class="r">${starLink(to)} ${to.owner >= 0 ? sw(S.players[to.owner]) : ""}</span></div>
-    <div class="li">Distance left<span class="r">${left.toFixed(1)} of ${c.len.toFixed(1)} ly</span></div>
+    <div class="li">Distance left<span class="r">${left.toFixed(1)} of ${c.len.toFixed(1)} ly${c.speed > S.rules.carrierSpeed + 1e-9 ? ` · <b style="color:#bfe6ff">warp gate</b>` : ""}</span></div>
     <div class="bar"><i style="width:${Math.round(c.done / c.len * 100)}%"></i></div>
     <div class="li">Arrives in<span class="r">${ticksTxt(sim.eta(S, c))}</span></div>
     <div class="sec"><h4>On arrival</h4><div class="verdict ${pr.cls}">${pr.text}</div></div>`;
@@ -1348,11 +1375,11 @@ const canOrder = c => !playerView() || c.owner === humanId();
 let RE = null;            // { id, stops:[{star, action, n, delay}], loop, pick, msg } while editing
 const actLabel = x => sim.ACTIONS[x.action].label.replace(" X", x.n != null && sim.ACTIONS[x.action].n ? " " + x.n : " X");
 function routeEtas(c, stops) {       // tick count until the carrier reaches each stop (first pass)
-  const sp = S.rules.carrierSpeed, out = [];
+  const out = [];
   let t = c.at == null ? 0 : (c.wait || 0), prev = c.at == null ? null : S.stars[c.at];
   stops.forEach((x, i) => {
     const st = S.stars[x.star];
-    t += prev ? Math.ceil(sim.dist(prev, st) / sp) : sim.eta(S, c);
+    t += prev ? sim.ticksBetween(S, prev, st, c.owner) : sim.eta(S, c);
     out.push(t); t += x.delay || 0; prev = st;
   });
   return out;
@@ -1729,7 +1756,7 @@ function order(fn, done, at = "star") {
   snap(); save(); renderAll();
   return !r;
 }
-const KIND = { econ:"economy", industry:"industry", science:"science" };
+const KIND = { econ:"economy", industry:"industry", science:"science", gate:"a warp gate" };
 /* an order's result shows only in the panel it came from: "you" (empire box) or "star" (inspector) */
 function say(text, ok, at = "star") { youMsg = { text, ok, at }; document.querySelectorAll(".omsg[data-at]").forEach(el => {
   el.textContent = el.dataset.at === at ? text : ""; el.className = "omsg " + (ok ? "ok" : "bad"); }); }
@@ -1820,7 +1847,9 @@ function starBuy(s) {
   const id = humanId(); if (id == null || !S.players[id].alive || s.owner !== id) return "";
   const p = S.players[id], busy = !!playing;
   return `<div class="orders">${[["econ", "Economy"], ["industry", "Industry"], ["science", "Science"]].map(([k, l]) => { const c = sim.infraCost(S, s, k);
-    return `<button class="btn" data-sbuy="${k}" ${busy || c > p.credits ? "disabled" : ""}>+1 ${l}<small>$${c}</small></button>`; }).join("")}</div>`;
+    return `<button class="btn" data-sbuy="${k}" ${busy || c > p.credits ? "disabled" : ""}>+1 ${l}<small>$${c}</small></button>`; }).join("")}</div>
+    ${S.rules.gatesOn && !s.gate ? (c => `<button class="btn small" data-sbuy="gate" style="margin-top:6px" ${busy || c > p.credits ? "disabled" : ""}
+      title="Carriers jumping between two gated stars fly ${Math.sqrt(p.tech.range.level + 3).toFixed(1)}× faster">Build warp gate <small>$${c}</small></button>`)(sim.infraCost(S, s, "gate")) : ""}`;
 }
 /* sending ships from a star you own (or where your carriers wait); shown under "Ships here".
    Defaults to the parked carrier's load (or half the garrison), so one tap never strips a star. */
@@ -1835,7 +1864,7 @@ function starOrders(s) {
   const n = sendN != null && sendN.star === s.id ? Math.min(sendN.n, avail) : Math.min(def, avail);
   const targets = reachable(s);
   if (sendTo != null && !targets.some(t => t.id === sendTo)) sendTo = null;
-  const opt = t => { const o = t.owner >= 0 ? S.players[t.owner] : null, ticks = Math.ceil(sim.dist(s, t) / S.rules.carrierSpeed);
+  const opt = t => { const o = t.owner >= 0 ? S.players[t.owner] : null, ticks = sim.ticksBetween(S, s, t, id);
     const who = !o ? "empty" : o.id === id ? "yours" : sim.allied(S, id, o.id) ? `ally ${o.name}` : o.name;
     return `<option value="${t.id}" ${t.id === sendTo ? "selected" : ""}>${esc(t.name)} · ${esc(who)} · ${ticks} ticks</option>`; };
   const chips = [["½", Math.max(1, Math.floor(avail / 2))], ["All but 1", Math.max(1, avail - 1)], ["All", avail]];
@@ -1852,10 +1881,10 @@ function sendPrediction(s) {
   const el = $("sendPred"); if (!el) return;
   const to = sendTo != null ? S.stars[sendTo] : null, n = +($("sendN") || {}).value || 0;
   if (!to || n < 1) { el.textContent = ""; return; }
-  const ticks = Math.ceil(sim.dist(s, to) / S.rules.carrierSpeed);
-  const fake = { owner:humanId(), to:to.id, ships:n, len:sim.dist(s, to), done:0, at:null };
+  const ticks = sim.ticksBetween(S, s, to, humanId());
+  const fake = { id:-1, owner:humanId(), from:s.id, to:to.id, ships:n, len:sim.dist(s, to), done:0, at:null, speed:sim.speedBetween(S, s, to, humanId()) };
   const pr = seesStar(visionSet(), to) ? predict(fake) : { text:"can't see what's there", cls:"" };
-  el.innerHTML = `arrives in ${ticks} ticks · <span class="verdict ${pr.cls}">${esc(pr.text)}</span>`;
+  el.innerHTML = `arrives in ${ticks} ticks · <span class="verdict ${pr.cls}">${pr.text}</span>`;
 }
 $("inspect").addEventListener("click", e => {
   const id = humanId(); if (id == null || !sel || sel.kind !== "star") return;

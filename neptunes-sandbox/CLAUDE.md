@@ -19,6 +19,9 @@ analysis. Plain static page; no server.
   Carrier waypoint orders: engine side is `c.route` / `c.loop` / `c.wait`, `arrive`,
   `transferFor`, `checkRoute`, `botSupply` and `admin.setRoute` in `sim.js` (semantics copied
   from NPA's timetravel.ts); the editor is `routeEditor` / `pickStop` / `drawRoutes` in index.html.
+  Warp gates: `star.gate`, `speedBetween` / `ticksBetween` (speed fixed at departure in `c.speed`).
+  Battle forecasts: `forecast` in index.html runs `sim.tick` on a JSON copy of the state.
+  Techs in play: `techsOn(S)` (Terraforming and separate Scanning are off by default).
 
 ## Intent routing
 1. **"The real rule for X is Y"** → update the value in `rules.js`, set

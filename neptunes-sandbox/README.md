@@ -79,6 +79,15 @@ Still a placeholder: the alliance fee (real games log a price on alliance offers
 amount isn't in any data we have). Galaxy shapes are modelled on real maps' statistics
 (nearest-star distances, how much is reachable at start range), not the game's own code.
 
+Warp gates: buy one at any of your stars; a jump between two gated stars (whoever owns
+them) flies at carrier speed × √(Hyperspace + 3), as in NP4. The gate price (20000 ÷
+resources) is a guess; bots buy gates once rich, Economists and Expansionists most.
+
+Battle forecasts (star and carrier panels, and before you launch) play the ticks forward on
+a copy of the game, so every other arrival and production on the way counts, like NPA's.
+They can't know orders given on later turns. In Player view the copy holds only carriers
+you can see.
+
 ## Simplifications (for now)
 - Bots see everything (no dark galaxy), so Scanning does nothing yet.
 - No tech trading or cash gifts between players yet (the real game has both).

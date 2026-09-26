@@ -46,10 +46,10 @@ const PERSONAS = {
                   spend:{ econ:.35, industry:.45, science:.20 }, research:["weapons","range","manufacturing"],
                   blurb:"Friendly until you look weak." },
   economist:    { label:"Economist",    aggr:.45, treach:.15, allyAt:10, maxAllies:2, keep:.35,
-                  spend:{ econ:.45, industry:.40, science:.15 }, research:["banking","terraforming","experimentation","manufacturing"],
+                  spend:{ econ:.45, industry:.40, science:.15 }, research:["banking","terraforming","experimentation","manufacturing"], gates:.35,
                   blurb:"Grows the economy first, fights later." },
   expansionist: { label:"Expansionist", aggr:.60, treach:.25, allyAt:15, maxAllies:2, keep:.20,
-                  spend:{ econ:.40, industry:.45, science:.15 }, research:["range","weapons","manufacturing","terraforming"],
+                  spend:{ econ:.40, industry:.45, science:.15 }, research:["range","weapons","manufacturing","terraforming"], gates:.3,
                   blurb:"Grabs empty stars as fast as range allows." },
 };
 /* How many looping supply lines (interior stars → frontier) each persona runs. */
@@ -331,6 +331,7 @@ function techsOn(S) {
 }
 const BASE_KEY = { econ:"econBaseCost", industry:"industryBaseCost", science:"scienceBaseCost" };
 function infraCost(S, star, kind) {       // NP4: floor(base × (level+1) ÷ resources)
+  if (kind === "gate") return Math.floor(S.rules.gateBaseCost / Math.max(1, resources(S, star)));   // one per star
   return Math.floor((star[kind] + 1) * S.rules[BASE_KEY[kind]] / Math.max(1, resources(S, star)));
 }
 function researchCost(S, id, t) { return S.rules.researchCostBase * lvl(S, id, t); }
@@ -489,7 +490,7 @@ function launch(S, pid, from, to, n) {
   S.carriers = S.carriers.filter(c => c === carrier || c.ships > 0 || !parked.includes(c));
   carrier.ships = n;
   carrier.at = null; carrier.from = from.id; carrier.to = to.id;
-  carrier.len = dist(from, to); carrier.done = 0;
+  carrier.len = dist(from, to); carrier.done = 0; carrier.speed = speedBetween(S, from, to, pid);
   return carrier;
 }
 function carrierPos(S, c) {
@@ -497,7 +498,14 @@ function carrierPos(S, c) {
   const a = S.stars[c.from], b = S.stars[c.to], f = c.len ? c.done / c.len : 1;
   return { x:a.x + (b.x - a.x) * f, y:a.y + (b.y - a.y) * f };
 }
-function eta(S, c) { return c.at != null ? 0 : Math.ceil((c.len - c.done) / S.rules.carrierSpeed); }
+function eta(S, c) { return c.at != null ? 0 : Math.ceil((c.len - c.done) / (c.speed || S.rules.carrierSpeed)); }
+/* Warp gates (NPA timetravel.ts calcSpeedBetweenStars, NP4): a jump between two gated stars,
+   whoever owns them, flies at speed × √(Hyperspace + 3). Speed is fixed when the carrier leaves. */
+function speedBetween(S, a, b, pid) {
+  const v = S.rules.carrierSpeed;
+  return S.rules.gatesOn && a && b && a.gate && b.gate ? v * Math.sqrt(lvl(S, pid, "range") + 3) : v;
+}
+function ticksBetween(S, a, b, pid) { return Math.ceil(dist(a, b) / speedBetween(S, a, b, pid)); }
 
 /* ---------------- waypoint orders (routes & patrols) ----------------
    Same model as the real game (NPA's Fleet.o = [delay, star, action, arg] plus
@@ -533,7 +541,7 @@ function transferFor(action, n, carrier, star) {
 }
 function depart(S, c, to) {
   c.from = c.at; c.to = to; c.at = null;
-  c.len = dist(S.stars[c.from], S.stars[to]); c.done = 0;
+  c.len = dist(S.stars[c.from], S.stars[to]); c.done = 0; c.speed = speedBetween(S, S.stars[c.from], S.stars[to], c.owner);
 }
 function arrive(S, c) {
   if (!busy(c) || c.route[0].star !== c.at) return;
@@ -661,7 +669,8 @@ function tick(S) {
   }
   const landed = new Set(), arrived = [];
   for (const c of S.carriers) if (c.at == null) {
-    c.step = Math.min(R.carrierSpeed, c.len - c.done); c.done += R.carrierSpeed;
+    const v = c.speed || R.carrierSpeed;
+    c.step = Math.min(v, c.len - c.done); c.done += v;
     if (c.done >= c.len - 1e-9) { c.at = c.to; landed.add(c.to); arrived.push(c); }
   }
   landed.forEach(id => resolveStar(S, S.stars[id]));
@@ -831,6 +840,14 @@ function botSpend(S, p, persona) {
   const reserve = S.rules.carrierCost * 2 + (alliesOf(S, p.id).length < persona.maxAllies ? S.rules.allianceFee : 0);
   const mine = starsOf(S, p.id);
   if (!mine.length) return;
+  // warp gates, once rich: first the best-producing star, then the ends of supply lines, so ships reach the front fast
+  if (S.rules.gatesOn && rand(S) < (persona.gates || .15)) {
+    const ends = new Set();
+    S.carriers.forEach(c => { if (c.owner === p.id && c.routeBy === "bot" && c.route) c.route.forEach(x => ends.add(x.star)); });
+    const want = mine.filter(s => !s.gate).sort((a, b) => (ends.has(b.id) - ends.has(a.id)) || shipsPerCycle(S, b) - shipsPerCycle(S, a))[0];
+    if (want) { const c = infraCost(S, want, "gate"); if (p.credits >= c * 2 + reserve) { p.credits -= c; want.gate = 1;
+      log(S, "orders", `${p.name} built a warp gate at ${want.name}.`, [p.id]); } }
+  }
   for (let n = 0; n < 40; n++) {
     let r = rand(S), kind = "econ";
     for (const k of ["econ", "industry", "science"]) { if (r < persona.spend[k]) { kind = k; break; } r -= persona.spend[k]; }
@@ -947,7 +964,7 @@ function botMilitary(S, p, persona) {
       if (t.owner === p.id) continue;
       const d = dist(s, t);
       if (d > r) continue;
-      const ticks = Math.ceil(d / R.carrierSpeed);
+      const ticks = ticksBetween(S, s, t, p.id);
       if (!canHit(S, p.id, t.owner, ticks)) continue;
       let need, value;
       if (t.owner < 0) {
@@ -1142,11 +1159,14 @@ const admin = {
 const act = {
   buy(S, pid, starId, kind) {
     const p = P(S, pid), s = S.stars[starId];
-    if (!BASE_KEY[kind]) return "Unknown upgrade.";
+    if (!BASE_KEY[kind] && kind !== "gate") return "Unknown upgrade.";
     if (!s || s.owner !== pid) return "You can only build at your own stars.";
+    if (kind === "gate" && !S.rules.gatesOn) return "Warp gates are off in this game.";
+    if (kind === "gate" && s.gate) return `${s.name} already has a warp gate.`;
     const cost = infraCost(S, s, kind);
     if (p.credits < cost) return `Needs $${cost}, you have $${p.credits}.`;
-    p.credits -= cost; s[kind]++;
+    p.credits -= cost;
+    if (kind === "gate") { s.gate = 1; log(S, "orders", `${p.name} built a warp gate at ${s.name}.`, [pid]); } else s[kind]++;
     return "";
   },
   /* spend up to `budget` on `kind`, cheapest star first, like the real game's bulk upgrade */
@@ -1250,7 +1270,7 @@ const act = {
   },
 };
 
-const API = { techsOn, ACTIONS, transferFor, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
+const API = { techsOn, speedBetween, ticksBetween, ACTIONS, transferFor, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
   defaultRules, newGame, nextTurn, beginTurn, endTurn, tick, admin, act,
   range, resources, infraCost, researchCost, shipsPerCycle, totals, starsOf, winTarget,
   alliance, allied, alliesOf, carrierPos, scanRange, scanSources, inScan, eta, fight, shipsToWin, pairKey, dist };

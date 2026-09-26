@@ -48,6 +48,10 @@ var NP_RULES = [   // `var` so the browser exposes it as window.NP_RULES for sim
     note:"Codex: jumps up to level + 4 ly. Scanning and Range are one tech by default now." },
   { key:"carrierSpeed", value:0.3333, group:"Carriers", label:"Carrier speed (ly per tick)", confirmed:true,
     note:"Game data: 1/24 map unit per tick, and 1 ly = 0.125 map units." },
+  { key:"gatesOn", value:1, group:"Carriers", label:"Warp gates can be built (1 = yes)", confirmed:true,
+    note:"buildGates 1 is the default in both real NP4 configs in NPA's test data." },
+  { key:"gateBaseCost", value:20000, group:"Carriers", label:"Warp gate cost = this ÷ resources ($)", confirmed:false,
+    note:"Guess from the upgrade pattern (Economy 2.5, Industry 5, Science 20 × devCost × 100) with 100 for gates; the real multiplier isn't in any data we have. Speed between two gated stars is confirmed: carrier speed × √(Hyperspace + 3) (NPA timetravel.ts)." },
   { key:"carrierCost", value:25, group:"Carriers", label:"Carrier cost ($)", confirmed:true,
     note:"Real game config: fleetCost 25 (default), no increase per carrier (fleetInc 0)." },
 
