@@ -114,12 +114,13 @@ function newGame(opts) {
   // stars: rejection-sampled so none sit on top of each other
   const perPlayer = clamp(opts.starsPerPlayer || 12, 4, 40);
   const total = n * perPlayer;
-  const side = Math.sqrt(total * 1.9);
+  // real Triton galaxies: ~30 sq ly per star, nearest neighbour ~2 ly (checked on a 1024-star game)
+  const side = Math.sqrt(total * 22);
   const names = new Set();
   let guard = 0;
   while (S.stars.length < total && guard++ < total * 400) {
     const p = { x:rand(S) * side, y:rand(S) * side };
-    if (S.stars.some(s => dist(s, p) < .85)) continue;
+    if (S.stars.some(s => dist(s, p) < 1.2)) continue;
     let name; do { name = pick(S, STAR_A) + pick(S, STAR_B); } while (names.has(name));
     names.add(name);
     S.stars.push({ id:S.stars.length, name, x:+p.x.toFixed(2), y:+p.y.toFixed(2),
