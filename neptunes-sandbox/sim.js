@@ -566,6 +566,50 @@ function checkRoute(S, c, stops, loop) {
   return "";
 }
 
+/* ---------------- ship transfers at a star ----------------
+   Like the real game's transfer screen: at your own star ships move freely between
+   the garrison and your carriers in orbit; anywhere else only carrier to carrier.
+   A carrier holding ships always keeps at least 1 (real carriers are never empty).
+   `from` / `to` are "star" or a carrier id. Each returns "" or the reason it can't. */
+function shipSide(S, pid, starId, k) {
+  if (k === "star") return S.stars[starId].owner === pid ? S.stars[starId] : null;
+  return S.carriers.find(c => c.id === +k && c.owner === pid && c.at === starId) || null;
+}
+function moveShips(S, pid, starId, from, to, n) {
+  if (!S.stars[starId]) return "Unknown star.";
+  const a = shipSide(S, pid, starId, from), b = shipSide(S, pid, starId, to);
+  if (!a || !b) return from === "star" || to === "star" ? "The garrison can only be used at your own star." : "Those carriers aren't both yours and in orbit here.";
+  if (a === b) return "";
+  const spare = a.ships - (from === "star" ? 0 : Math.min(1, a.ships));
+  n = Math.min(Math.floor(n), spare);
+  if (!(n >= 1)) return from === "star" ? "No ships left in the garrison." : "A carrier keeps at least 1 ship.";
+  a.ships -= n; b.ships += n;
+  return "";
+}
+/* buy a carrier at a star and put n ships on it, from the garrison or from another carrier */
+function newCarrier(S, pid, starId, n, from) {
+  const src = shipSide(S, pid, starId, from == null ? "star" : from);
+  if (!src) return from == null ? "You can only build carriers at your own stars." : "That carrier isn't yours or isn't here.";
+  const spare = src.ships - (from == null ? 0 : 1);
+  n = Math.floor(n);
+  if (!(n >= 1) || spare < 1) return from == null ? "A new carrier needs at least 1 ship from the garrison." : "Nothing to split off: a carrier keeps at least 1 ship.";
+  if (P(S, pid).credits < S.rules.carrierCost) return `A new carrier costs $${S.rules.carrierCost}.`;
+  P(S, pid).credits -= S.rules.carrierCost;
+  n = Math.min(n, spare);
+  const c = { id:S.nextId++, owner:pid, ships:n, at:starId };
+  src.ships -= n; S.carriers.push(c);
+  return c;
+}
+/* fold every idle carrier of pid here into the biggest one (carriers with orders are left alone) */
+function mergeCarriers(S, pid, starId) {
+  const here = S.carriers.filter(c => c.owner === pid && c.at === starId && !busy(c)).sort((a, b) => b.ships - a.ships);
+  if (here.length < 2) return "Nothing to merge: only one idle carrier here.";
+  const keep = here[0];
+  here.slice(1).forEach(c => { keep.ships += c.ships; c.ships = 0; });
+  S.carriers = S.carriers.filter(c => !here.includes(c) || c === keep);
+  return "";
+}
+
 /* ---------------- the tick ---------------- */
 function tick(S) {
   if (S.winner) return;
@@ -1128,6 +1172,17 @@ const act = {
     if (c.at != null && !stops.length) c.wait = 0;
     return "";
   },
+  /* the transfer screen: move n ships at a star between "star" (garrison) and carrier ids */
+  shift(S, pid, starId, from, to, n) { return moveShips(S, pid, starId, from, to, n); },
+  /* buy a carrier with n ships from the garrison; returns the carrier or a reason */
+  build(S, pid, starId, n) { return newCarrier(S, pid, starId, n); },
+  /* split n ships off a parked carrier onto a new one ($25); returns the carrier or a reason */
+  split(S, pid, carrierId, n) {
+    const c = S.carriers.find(x => x.id === carrierId && x.owner === pid);
+    if (!c || c.at == null) return "Only a carrier in orbit can split.";
+    return newCarrier(S, pid, c.at, n, c.id);
+  },
+  merge(S, pid, starId) { return mergeCarriers(S, pid, starId); },
   /* move ships between your parked carrier and your star: n > 0 loads the carrier */
   transfer(S, pid, carrierId, n) {
     const c = S.carriers.find(x => x.id === carrierId);
