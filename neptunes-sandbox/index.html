@@ -175,6 +175,23 @@
   .tech .barcell{width:40%}
   .spark{width:100%;height:auto;display:block}
   .up{color:#7ee2b8}.down{color:#ffb4b4}
+
+  /* ---- carrier orders (route editor) ---- */
+  .stops{counter-reset:stop}
+  .stop{display:grid;grid-template-columns:22px 1fr auto;gap:4px 6px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .stop .n{width:20px;height:20px;border-radius:50%;background:var(--panel2);border:1px solid var(--line);font-size:11px;
+    display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+  .stop .opts{grid-column:2 / 4;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .stop .opts select{padding:4px 6px;font-size:12px}
+  .stop .opts input[type=number]{width:58px;padding:4px 6px;font-size:12px}
+  .stop .opts label{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px}
+  .stop .x{background:none;border:0;color:var(--muted);cursor:pointer;font-size:15px;padding:2px 6px}
+  .stop .x:hover{color:#ffb4b4}
+  .re-msg{font-size:12px;color:#ffcf8a;margin-top:6px}
+  .pickbar{position:absolute;left:10px;right:10px;bottom:34px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    background:rgba(11,15,26,.92);border:1px solid var(--accent);border-radius:12px;padding:8px 12px;font-size:12.5px}
+  .pickbar .msg{flex:1;min-width:160px}
+  .mapwrap.full .pickbar{bottom:64px}
 </style>
 </head>
 <body>
@@ -230,6 +247,7 @@
             <button class="btn small" data-fs="auto">Auto</button>
             <button class="btn small" data-fs="exit" title="Leave full screen">✕</button>
           </div>
+          <div class="pickbar hidden" id="pickbar"></div>
         </div>
         <div class="row small muted" style="margin-top:8px">
           <label class="small">Labels <select id="optLabels">
@@ -780,6 +798,8 @@ function renderMap() {
     }
   }
 
+  if (fleets) drawRoutes(out, u, f, fl, selCarrier, vis);
+
   // stars
   const ringR = (tri ? 6.2 : 7) * u, coreR = 2.6 * u, hit = 13 * u, fs = (tri ? 11 : 10.5) * u;
   const orbiting = {};
@@ -973,6 +993,7 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     if (!wasClick || e.type === "pointercancel") return;
     const hitEl = document.elementFromPoint(e.clientX, e.clientY);
     const g = hitEl && hitEl.closest("[data-s],[data-c]");
+    if (RE && RE.pick) { if (g && g.dataset.s != null) pickStop(+g.dataset.s); return; }
     if (!g) { sel = null; }
     else if (g.dataset.c != null) sel = { kind:"carrier", id:+g.dataset.c };
     else sel = { kind:"star", id:+g.dataset.s };
@@ -1038,8 +1059,10 @@ function predict(c) {
     : { text:`would be destroyed (~${def} defending, ${r.def} survive)`, cls:"lose" };
 }
 
-function renderInspector() {
+function renderInspector(force) {
   const box = $("inspect");
+  if (RE && (!sel || sel.kind !== "carrier" || sel.id !== RE.id || !S.carriers.some(c => c.id === RE.id))) { RE = null; renderPickbar(); }
+  if (!force && RE && box.contains(document.activeElement) && document.activeElement.matches("input[type=number]")) return;  // mid-typing
   if (!sel) {
     $("inspTitle").textContent = "Inspector";
     box.innerHTML = `<div class="small muted">Click a <b>star</b> to see its infrastructure, defences, incoming fleets and who can reach it.
@@ -1080,7 +1103,7 @@ function starInspector(s) {
 
   const defWeap = o ? o.tech.weapons.level + R.defenderWeaponBonus : 0;
   const defence = `<div class="li">Garrison<span class="r"><b>${s.ships}</b> ships</span></div>` +
-    orbit.map(c => `<div class="li">${empLink(S.players[c.owner])} carrier<span class="r">${c.ships} ships</span></div>`).join("") +
+    orbit.map(c => `<div class="li">${empLink(S.players[c.owner])} <span class="link" data-go="carrier:${c.id}">carrier${c.route && c.route.length ? (c.loop ? " · on a loop" : " · has orders") : ""}</span><span class="r">${c.ships} ships</span></div>`).join("") +
     (o ? `<div class="li muted">Defends with weapons<span class="r">${defWeap} <span class="small">(${o.tech.weapons.level} +1)</span></span></div>` : "");
 
   const incoming = inbound.length ? inbound.map(c => {
@@ -1102,7 +1125,9 @@ function starInspector(s) {
     <div class="insp-sub">${o ? `Owned by ${empLink(o)}` : "Unclaimed"}${homeOf ? ` · home star of ${esc(homeOf.name)}` : ""}
       · resources <b style="color:var(--text)">${res}</b>${res !== s.res ? ` (${s.res} natural)` : ""}</div>
     ${infra}
-    <div class="sec"><h4>Defence</h4>${defence}</div>
+    <div class="sec"><h4>Defence</h4>${defence}
+      ${o ? `<div class="row" style="margin-top:6px"><button class="btn small" data-act="build" data-bstar="${s.id}" title="Admin: buy a carrier here for ${esc(o.name)} ($${R.carrierCost}); the garrison boards it">＋ Build carrier ($${R.carrierCost})</button>
+        <span class="small muted" id="buildMsg"></span></div>` : ""}</div>
     <div class="sec"><h4>Incoming</h4>${incoming}</div>
     <div class="sec"><h4>Within jump range of</h4>${reach.length ? reach.map(x => `<div class="li">${empLink(x.p)}<span class="r">${x.d.toFixed(1)} ly</span></div>`).join("") : `<div class="small muted">No other empire can reach it yet.</div>`}</div>
     <div class="sec"><h4>Nearest stars</h4>${near.map(x => `<div class="li">${x.t.owner >= 0 ? sw(S.players[x.t.owner]) : `<span class="sw" style="background:var(--muted)"></span>`}${starLink(x.t)}
@@ -1111,17 +1136,178 @@ function starInspector(s) {
 
 function carrierInspector(c) {
   $("inspTitle").textContent = "Carrier";
-  const o = S.players[c.owner], from = S.stars[c.from], to = S.stars[c.to];
-  const pr = predict(c), left = c.len - c.done;
-  $("inspect").innerHTML = `
-    <div class="insp-h">${sw(o)}${c.ships} ships</div>
-    <div class="insp-sub">${empLink(o)} carrier · weapons ${o.tech.weapons.level}</div>
+  const o = S.players[c.owner];
+  if (RE && RE.id !== c.id) RE = null;
+  let head;
+  if (c.at == null) {
+    const from = S.stars[c.from], to = S.stars[c.to], pr = predict(c), left = c.len - c.done;
+    head = `
     <div class="li">From<span class="r">${starLink(from)}</span></div>
     <div class="li">To<span class="r">${starLink(to)} ${to.owner >= 0 ? sw(S.players[to.owner]) : ""}</span></div>
     <div class="li">Distance left<span class="r">${left.toFixed(1)} of ${c.len.toFixed(1)} ly</span></div>
     <div class="bar"><i style="width:${Math.round(c.done / c.len * 100)}%"></i></div>
     <div class="li">Arrives in<span class="r">${ticksTxt(sim.eta(S, c))}</span></div>
     <div class="sec"><h4>On arrival</h4><div class="verdict ${pr.cls}">${pr.text}</div></div>`;
+  } else {
+    const at = S.stars[c.at], own = at.owner === c.owner;
+    head = `
+    <div class="li">In orbit at<span class="r">${starLink(at)} ${at.owner >= 0 ? sw(S.players[at.owner]) : ""}</span></div>
+    ${c.wait > 0 ? `<div class="li">Waits here for<span class="r">${ticksTxt(c.wait)}</span></div>` : ""}
+    ${c.route && c.route.length && c.ships < 1 ? `<div class="small muted">Empty: it waits here until it has at least 1 ship.</div>` : ""}
+    ${own ? `<div class="row" style="margin-top:6px">
+      <button class="btn small" data-act="load" title="Move the star's ${at.ships} ships onto this carrier">Load all (${at.ships})</button>
+      <button class="btn small" data-act="unload" title="Leave all but 1 ship on the star">Unload all but 1</button></div>` : ""}`;
+  }
+  $("inspect").innerHTML = `
+    <div class="insp-h">${sw(o)}${c.ships} ships</div>
+    <div class="insp-sub">${empLink(o)} carrier #${c.id} · weapons ${o.tech.weapons.level} · jump range ${sim.range(S, c.owner)} ly</div>
+    ${head}
+    <div class="sec"><h4>Orders${c.routeBy === "bot" ? ` <span class="tag">bot supply line</span>` : ""}</h4>${RE ? routeEditor(c) : routeView(c)}</div>`;
+}
+
+/* ---- carrier orders: the route list and its editor ----
+   Mirrors the real game's waypoint panel: each stop has an action (Collect all,
+   Drop X, Garrison X…) and a delay; a looping route repeats forever. */
+let RE = null;            // { id, stops:[{star, action, n, delay}], loop, pick, msg } while editing
+const actLabel = x => sim.ACTIONS[x.action].label.replace(" X", x.n != null && sim.ACTIONS[x.action].n ? " " + x.n : " X");
+function routeEtas(c, stops) {       // tick count until the carrier reaches each stop (first pass)
+  const sp = S.rules.carrierSpeed, out = [];
+  let t = c.at == null ? 0 : (c.wait || 0), prev = c.at == null ? null : S.stars[c.at];
+  stops.forEach((x, i) => {
+    const st = S.stars[x.star];
+    t += prev ? Math.ceil(sim.dist(prev, st) / sp) : sim.eta(S, c);
+    out.push(t); t += x.delay || 0; prev = st;
+  });
+  return out;
+}
+function routeView(c) {
+  const stops = c.route || [];
+  if (!stops.length) return `<div class="small muted">${c.at == null ? "Flies to its destination, then waits in orbit." : "Waiting in orbit, no orders."}</div>
+    <div class="row" style="margin-top:6px"><button class="btn small primary" data-act="edit">Plan a route</button></div>`;
+  const etas = routeEtas(c, stops);
+  return `<div class="stops">${stops.map((x, i) => `<div class="stop"><span class="n">${i + 1}</span>
+      <span>${starLink(S.stars[x.star])} · ${esc(actLabel(x))}${x.delay ? ` · wait ${x.delay}` : ""}</span>
+      <span class="small muted">${etas[i]}t</span></div>`).join("")}</div>
+    <div class="small muted" style="margin-top:6px">${c.loop ? "↻ Loops back to stop 1 forever." : "Stops after the last one."}</div>
+    <div class="row" style="margin-top:6px"><button class="btn small" data-act="edit">Edit route</button>
+      <button class="btn small" data-act="clear">Clear orders</button></div>`;
+}
+function routeEditor(c) {
+  const locked = c.at == null;                       // in flight: stop 1 is where it's already going
+  const why = RE.msg || sim.checkRoute(S, c, RE.stops, RE.loop);
+  const opts = x => Object.entries(sim.ACTIONS).map(([k, a]) => `<option value="${k}" ${k === x.action ? "selected" : ""}>${a.label}</option>`).join("");
+  return `<div class="stops">${RE.stops.map((x, i) => `<div class="stop" data-i="${i}"><span class="n">${i + 1}</span>
+      <span>${starLink(S.stars[x.star])}${S.stars[x.star].owner !== c.owner ? ` <span class="small muted">(not ${esc(S.players[c.owner].name)}'s: actions skipped)</span>` : ""}</span>
+      ${locked && i === 0 ? `<span class="small muted" title="Already on its way">en route</span>` : `<button class="x" data-rm="${i}" title="Remove this stop" aria-label="Remove stop ${i + 1}">✕</button>`}
+      <div class="opts"><select data-f="action" aria-label="Action at stop ${i + 1}">${opts(x)}</select>
+        ${sim.ACTIONS[x.action].n ? `<label>X <input type="number" min="0" data-f="n" value="${x.n}"></label>` : ""}
+        <label>wait <input type="number" min="0" max="99" data-f="delay" value="${x.delay}" title="Ticks to wait here before leaving"></label></div>
+    </div>`).join("") || `<div class="small muted">No stops yet.</div>`}</div>
+    <div class="row" style="margin-top:8px">
+      <button class="btn small ${RE.pick ? "primary" : ""}" data-act="pick">${RE.pick ? "Done adding" : "＋ Add stops on map"}</button>
+      <label class="chk"><input type="checkbox" data-act="loop" ${RE.loop ? "checked" : ""}> Loop (patrol)</label></div>
+    ${why ? `<div class="re-msg">${esc(why)}</div>` : ""}
+    <div class="row" style="margin-top:8px"><button class="btn small primary" data-act="save" ${why && !RE.msg ? "disabled" : ""}>Save orders</button>
+      <button class="btn small" data-act="cancel">Cancel</button></div>`;
+}
+function renderPickbar() {
+  const bar = $("pickbar");
+  const c = RE && RE.pick && S.carriers.find(x => x.id === RE.id);
+  if (!c) { bar.classList.add("hidden"); return; }
+  if (bar.classList.contains("hidden")) {                 // phones: the map sits above the inspector, under the sticky turn bar
+    const top = $("map").getBoundingClientRect().top, bar0 = document.querySelector(".ctrl").getBoundingClientRect().height;
+    if (top < bar0 || top > innerHeight * .5) window.scrollBy({ top:top - bar0 - 8, behavior:"smooth" });
+  }
+  const last = RE.stops.length ? S.stars[RE.stops[RE.stops.length - 1].star] : (c.at != null ? S.stars[c.at] : S.stars[c.to]);
+  bar.innerHTML = `<span class="msg">${sw(S.players[c.owner])}Tap stars within <b>${sim.range(S, c.owner)} ly</b> of ${esc(last.name)} to add stops.
+    ${RE.stops.length > 1 ? "Tap stop 1 or the starting star to close the loop." : ""}${RE.msg ? `<br><b style="color:#ffcf8a">${esc(RE.msg)}</b>` : ""}</span>
+    <button class="btn small primary" data-act="pickdone">Done</button>`;
+  bar.classList.remove("hidden");
+}
+function pickStop(id) {
+  const c = S.carriers.find(x => x.id === RE.id); if (!c) { RE = null; renderAll(); return; }
+  const r = sim.range(S, c.owner), st = S.stars[id];
+  const lastId = RE.stops.length ? RE.stops[RE.stops.length - 1].star : (c.at != null ? c.at : c.to);
+  RE.msg = "";
+  const far = sim.dist(S.stars[lastId], st) > r;
+  if (RE.stops.length > 1 && id === RE.stops[0].star && id !== lastId) {        // tapping stop 1 closes the loop
+    if (far) RE.msg = `${S.stars[lastId].name} → ${st.name} is beyond jump range; add a stop in between.`;
+    else { RE.loop = true; RE.pick = false; }
+  } else if (RE.stops.length > 1 && id === c.at && !far) {                       // back where it started: a round trip
+    RE.stops.push({ star:id, action:"none", n:0, delay:0 }); RE.loop = true; RE.pick = false;
+  } else if (id === lastId) RE.msg = `Already at ${st.name}.`;
+  else if (sim.dist(S.stars[lastId], st) > r) RE.msg = `${st.name} is ${sim.dist(S.stars[lastId], st).toFixed(1)} ly from ${S.stars[lastId].name}, beyond jump range ${r} ly.`;
+  else RE.stops.push({ star:id, action:"none", n:0, delay:0 });
+  renderMap(); renderInspector(); renderPickbar();
+}
+function reInput(e) {
+  const row = e.target.closest(".stop[data-i]"), fld = e.target.dataset.f;
+  if (!RE || !row || !fld) return false;
+  const x = RE.stops[+row.dataset.i];
+  x[fld] = fld === "action" ? e.target.value : Math.max(0, Math.floor(+e.target.value || 0));
+  RE.msg = "";
+  return true;
+}
+$("inspect").addEventListener("change", e => {
+  if (e.target.dataset.act === "loop" && RE) { RE.loop = e.target.checked; RE.msg = ""; renderInspector(true); renderMap(); return; }
+  if (reInput(e)) { renderInspector(true); renderMap(); }
+});
+$("inspect").addEventListener("click", e => {
+  const b = e.target.closest("[data-act],[data-rm]"); if (!b || b.tagName === "INPUT") return;
+  const c = sel && sel.kind === "carrier" ? S.carriers.find(x => x.id === sel.id) : null;
+  const act = b.dataset.act;
+  if (act === "build") {
+    const r = sim.admin.buildCarrier(S, +b.dataset.bstar);
+    if (typeof r === "string") { $("buildMsg").textContent = r; return; }
+    sel = { kind:"carrier", id:r.id }; RE = { id:r.id, stops:[], loop:false, pick:true, msg:"" };
+    afterChange(); renderPickbar(); return;
+  }
+  if (!c) return;
+  if (b.dataset.rm != null) { RE.stops.splice(+b.dataset.rm, 1); RE.msg = ""; }
+  else if (act === "edit") RE = { id:c.id, stops:(c.route || []).map(x => Object.assign({}, x)), loop:!!c.loop, pick:false, msg:"" };
+  else if (act === "pick" || act === "pickdone") { RE.pick = !RE.pick; RE.msg = ""; }
+  else if (act === "cancel") RE = null;
+  else if (act === "clear") { sim.admin.setRoute(S, c.id, c.at == null ? [c.route[0]] : [], false); afterChange(); return; }
+  else if (act === "save") {
+    const why = sim.admin.setRoute(S, c.id, RE.stops, RE.loop);
+    if (why) { RE.msg = why; } else { RE = null; afterChange(); renderPickbar(); return; }
+  }
+  else if (act === "load" || act === "unload") {
+    sim.admin.transfer(S, c.id, act === "load" ? S.stars[c.at].ships : -(c.ships - 1)); afterChange(); return;
+  }
+  else return;
+  renderInspector(true); renderMap(); renderPickbar();
+});
+$("pickbar").addEventListener("click", e => { if (e.target.dataset.act === "pickdone" && RE) { RE.pick = false; RE.msg = ""; renderInspector(); renderMap(); renderPickbar(); } });
+
+/* Route lines on the map: the selected carrier's orders (or the draft being edited),
+   plus a faint trace of every looping route in view. The visuals pass can restyle this. */
+function drawRoutes(out, u, f, fl, selCarrier, vis) {
+  const path = (c, stops, loop, strong) => {
+    if (!stops.length) return;
+    const p0 = sim.carrierPos(S, c), pts = [p0, ...stops.map(id => S.stars[id])];
+    if (loop) pts.push(S.stars[stops[0]]);
+    const d = pts.map((p, i) => `${i ? "L" : "M"}${f(p.x)} ${f(p.y)}`).join("");
+    const colr = col(S.players[c.owner]);
+    out.push(`<path d="${d}" fill="none" stroke="${colr}" stroke-opacity="${strong ? .95 : .3}" stroke-width="${f((strong ? 2 : 1.2) * u)}"
+      stroke-dasharray="${f(6 * u)} ${f(4 * u)}" stroke-linejoin="round" pointer-events="none"/>`);
+    if (strong) stops.forEach((id, i) => { const s = S.stars[id];
+      out.push(`<g pointer-events="none"><circle cx="${f(s.x + 9 * u)}" cy="${f(s.y - 9 * u)}" r="${f(6 * u)}" fill="${colr}"/>
+        <text x="${f(s.x + 9 * u)}" y="${f(s.y - 9 * u + 3.4 * u)}" text-anchor="middle" font-size="${f(9 * u)}" font-weight="700" fill="#000">${i + 1}</text></g>`); });
+  };
+  // in-flight routes are drawn with the carrier paths above; these cover carriers waiting in orbit
+  if (PB.trails) for (const v of fl) if (v.c && v.at != null && v.c.loop && v.c !== selCarrier && (!vis || vis.group.has(v.owner))) path(v.c, sim.routePath(S, v.c), true, false);
+  const c = RE ? S.carriers.find(x => x.id === RE.id) : selCarrier;
+  if (!c) return;
+  if (RE) {
+    path(c, RE.stops.map(x => x.star), RE.loop, true);
+    if (RE.pick) {                                             // where the next stop can be
+      const last = RE.stops.length ? S.stars[RE.stops[RE.stops.length - 1].star] : sim.carrierPos(S, c.at != null ? c : { at:c.to });
+      const r = sim.range(S, c.owner);
+      out.push(`<circle cx="${f(last.x)}" cy="${f(last.y)}" r="${r}" fill="${col(S.players[c.owner])}" fill-opacity=".06"
+        stroke="${col(S.players[c.owner])}" stroke-opacity=".8" stroke-width="${f(1.5 * u)}" stroke-dasharray="${f(5 * u)} ${f(4 * u)}" pointer-events="none"/>`);
+    }
+  } else if (c.at != null || !PB.trails) path(c, sim.routePath(S, c), !!c.loop, true);
 }
 
 function empireInspector(p) {
@@ -1297,7 +1483,7 @@ function renderChart() {
 $("metric").addEventListener("change", renderChart);
 
 /* ---------------- render: log ---------------- */
-const LOG_TYPES = [["all","All"],["diplomacy","Diplomacy"],["combat","Combat"],["expansion","Expansion"],["research","Research"],["system","System"]];
+const LOG_TYPES = [["all","All"],["diplomacy","Diplomacy"],["combat","Combat"],["expansion","Expansion"],["orders","Orders"],["research","Research"],["system","System"]];
 let logType = "diplomacy", logWho = "all";
 function renderLogFilters() {
   $("logFilters").innerHTML = LOG_TYPES.map(([k, l]) => `<button class="toggle ${k === logType ? "active" : ""}" data-lt="${k}">${l}</button>`).join("")

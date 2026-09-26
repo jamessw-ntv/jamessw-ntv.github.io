@@ -15,10 +15,19 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
   and other empires' alliances stay secret. Allies share scanning (toggle in Admin).
 - **Galaxy types** (New game): *Hex grid* (the real default: homes on a hex lattice ~12 ly apart, open frontier around it), *Blob* (a real type: one round cloud), and two sandbox shapes, *Islands* (clusters joined by single lanes) and *Scattered*. Every map is checked at starting range: all homes can reach each other, and isolated stars get a thin lane of stars across the narrowest gap, so some places have only one hyperspace route in. The log's first line counts the chokepoint lanes and the stars you can't reach until Range 3.
 - **Galaxy**: zoomable map at real Triton scale (~2 ly between stars, 5-ly grid, scale bar). Labels appear as you zoom (ships below, E·I·S above). Click a star (infrastructure, defence, incoming fleets with predicted outcome, who can reach it), a carrier (route, ETA, predicted battle) or an empire (economy, research, tech, allies, feelings).
+- **Routes & supply lines**: select a carrier (arrows on the map, or the carrier links in a
+  star's Defence list) and *Plan a route*: tap stars on the map to add stops, each with the
+  real game's 8 waypoint orders (Do nothing, Collect all, Drop all, Collect X, Drop X, Collect
+  all but X, Drop all but X, Garrison X) and a wait in ticks. Tick *Loop* (or tap stop 1 / the
+  starting star again) for a patrol that repeats forever. Actions only happen at the carrier
+  owner's own stars and a carrier always keeps 1 ship, as in the real game. *Build carrier*
+  on a star buys one for its owner ($25, the garrison boards). Every bot also runs one looping
+  supply line (the Economist two): collect all at one or two interior stars, drop all at a
+  threatened frontier star; lines wind down when a stop is lost or the frontier goes quiet.
 - **Alliances**: alliance web, opinion matrix (what each bot thinks of each other),
   alliance history (formed, ended, who betrayed whom), treachery stats.
 - **Empires**: leaderboard with tech levels, and charts over time.
-- **Log**: filterable events (diplomacy, combat, expansion, research).
+- **Log**: filterable events (diplomacy, combat, expansion, orders, research).
 - **Admin**: force / lock / unlock / break / ban alliances, "every alliance is
   unbreakable", betrayal slider, change bot personalities, give cash or ships,
   new game (seed, seats), export/import.

@@ -12,6 +12,9 @@ analysis. Plain static page; no server.
   `fleetList`) and fog of war (`visionSet`, `seesStar`) live here; the engine side is
   `beginTurn` / `tick` / `endTurn` and `scanSources` / `inScan` in `sim.js`.
   Playback and view prefs (`PB`) are per-browser, never game state.
+  Carrier waypoint orders: engine side is `c.route` / `c.loop` / `c.wait`, `arrive`,
+  `transferFor`, `checkRoute`, `botSupply` and `admin.setRoute` in `sim.js` (semantics copied
+  from NPA's timetravel.ts); the editor is `routeEditor` / `pickStop` / `drawRoutes` in index.html.
 
 ## Intent routing
 1. **"The real rule for X is Y"** → update the value in `rules.js`, set
