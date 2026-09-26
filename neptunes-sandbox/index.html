@@ -280,7 +280,9 @@
       <div class="box"><h2>New game</h2>
         <div class="row small"><span>Seed</span><input type="number" id="ngSeed" style="width:110px">
           <button class="btn small" id="ngRand">🎲</button></div>
-        <div class="row small"><span>Stars per empire</span><input type="number" id="ngStars" min="4" max="40" value="12">
+        <div class="row small"><span>Galaxy</span><select id="ngGalaxy"></select></div>
+        <div class="small muted" id="ngGalaxyNote" style="margin:2px 0 6px"></div>
+        <div class="row small"><span>Stars per empire</span><input type="number" id="ngStars" min="4" max="40" value="24">
           <span>Max turns</span><input type="number" id="ngMax" min="20" max="2000" value="400"></div>
         <div id="ngSeats" style="margin-top:8px"></div>
         <div class="row" style="margin-top:10px"><button class="btn primary" id="ngGo">Start new game</button></div>
@@ -953,12 +955,16 @@ function renderNewGame() {
     <select data-seat="${i}">${Object.entries(sim.PERSONAS).map(([k, v]) => `<option value="${k}" ${k === (lineup[i] || sim.DEFAULT_LINEUP[i]) ? "selected" : ""}>${v.label}</option>`).join("")}</select></div>`).join("");
 }
 $("ngRand").onclick = () => { $("ngSeed").value = Math.floor(Math.random() * 1e6); };
+$("ngGalaxy").innerHTML = Object.entries(sim.GALAXY_TYPES).map(([k, g]) =>
+  `<option value="${k}" ${k === sim.DEFAULT_GALAXY ? "selected" : ""}>${g.label}${g.real ? "" : " (sandbox)"}</option>`).join("");
+const galaxyNote = () => { $("ngGalaxyNote").textContent = sim.GALAXY_TYPES[$("ngGalaxy").value].blurb; };
+$("ngGalaxy").onchange = galaxyNote; galaxyNote();
 $("ngGo").onclick = () => {
   const lineup = [];
   for (let i = 0; i < sim.SEATS.length; i++) if (document.querySelector(`[data-seat-on="${i}"]`).checked) lineup.push(document.querySelector(`[data-seat="${i}"]`).value);
   if (lineup.length < 2) { alert("Pick at least two empires."); return; }
   stopAuto();
-  startGame(sim.newGame({ seed:+$("ngSeed").value || 1, lineup, starsPerPlayer:+$("ngStars").value || 12,
+  startGame(sim.newGame({ seed:+$("ngSeed").value || 1, lineup, starsPerPlayer:+$("ngStars").value || 24, galaxy:$("ngGalaxy").value,
     rules:S.rules, settings:{ lockAll:S.settings.lockAll, betrayal:S.settings.betrayal, instantBreak:S.settings.instantBreak,
       coalitionWin:S.settings.coalitionWin, maxTurns:+$("ngMax").value || 400 } }));
   $("ngSeed").value = Math.floor(Math.random() * 1e6);
@@ -1199,6 +1205,9 @@ document.addEventListener("keydown", e => {
 const saved = load();
 // only trust a save that has a full rule set; top up any rules added to rules.js since it was made
 const usable = saved && saved.v === 1 && saved.stars && saved.rules && saved.rules.ticksPerTurn > 0;
+if (usable && !("startCarriers" in saved.rules)) {   // saved before real costs/start were confirmed: drop the old placeholders
+  ["econBaseCost", "industryBaseCost", "scienceBaseCost", "startStars", "startEcon", "startIndustry", "startScience"].forEach(k => delete saved.rules[k]);
+}
 if (usable) saved.rules = Object.assign(sim.defaultRules(), saved.rules);
 startGame(usable ? saved : sim.newGame({ seed:Math.floor(Math.random() * 1e6) }));
 </script>
