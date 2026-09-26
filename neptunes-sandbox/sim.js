@@ -52,6 +52,8 @@ const PERSONAS = {
                   spend:{ econ:.30, industry:.50, science:.20 }, research:["range","manufacturing","terraforming"],
                   blurb:"Grabs empty stars as fast as range allows." },
 };
+/* How many looping supply lines (interior stars → frontier) each persona runs. */
+const SUPPLY_LINES = { warlord:1, turtle:1, diplomat:1, opportunist:1, economist:2, expansionist:1 };
 const DEFAULT_LINEUP = ["warlord", "diplomat", "opportunist", "turtle", "economist", "expansionist"];
 
 const DEFAULT_SETTINGS = {
@@ -435,7 +437,7 @@ function resolveStar(S, star) {
     const r = fight(attShips, defShips, wa, wd);
     takeLosses(attackers, attShips - r.att);
     takeLosses(defList, defShips - r.def);
-    S.carriers = S.carriers.filter(c => c.ships > 0 || c.at == null);
+    S.carriers = S.carriers.filter(c => c.ships > 0 || c.at !== star.id);
     const aName = sides.map(id => P(S, id).name).join(" + "), dName = P(S, owner).name;
     sides.forEach(id => S.rel[owner][id] = clamp(S.rel[owner][id] - (r.def <= 0 ? 12 : 4), -100, 100));
     if (r.def <= 0) {
@@ -453,9 +455,12 @@ function resolveStar(S, star) {
 }
 
 /* ---------------- carriers ---------------- */
+/* A carrier with orders is busy: bots don't merge it into other fleets or send it elsewhere. */
+const busy = c => !!(c.route && c.route.length);
+
 /* Pull `n` ships from a star (garrison first, then own parked carriers) into one carrier heading to `to`. */
 function launch(S, pid, from, to, n) {
-  const parked = S.carriers.filter(c => c.at === from.id && c.owner === pid);
+  const parked = S.carriers.filter(c => c.at === from.id && c.owner === pid && !busy(c));
   let carrier = parked[0];
   if (!carrier) {
     if (P(S, pid).credits < S.rules.carrierCost) return null;
@@ -471,7 +476,7 @@ function launch(S, pid, from, to, n) {
   if (need < 0) { if (from.owner === pid) from.ships += -need; else return null; need = 0; }
   if (from.owner === pid) { const k = Math.min(from.ships, need); from.ships -= k; need -= k; }
   for (const c of parked.slice(1)) { if (need <= 0) break; const k = Math.min(c.ships, need); c.ships -= k; need -= k; }
-  S.carriers = S.carriers.filter(c => c === carrier || c.ships > 0);
+  S.carriers = S.carriers.filter(c => c === carrier || c.ships > 0 || !parked.includes(c));
   carrier.ships = n;
   carrier.at = null; carrier.from = from.id; carrier.to = to.id;
   carrier.len = dist(from, to); carrier.done = 0;
@@ -484,19 +489,103 @@ function carrierPos(S, c) {
 }
 function eta(S, c) { return c.at != null ? 0 : Math.ceil((c.len - c.done) / S.rules.carrierSpeed); }
 
+/* ---------------- waypoint orders (routes & patrols) ----------------
+   Same model as the real game (NPA's Fleet.o = [delay, star, action, arg] plus
+   fleet.loop): `c.route` is the list of stops still to visit, each
+   { star, action, n, delay }. In flight, route[0] is the star it's flying to.
+   On arrival at its own star the carrier carries out the action; a carrier
+   always keeps at least 1 ship. With `c.loop` the finished stop goes to the back
+   of the list, so the route repeats forever (a patrol or supply line). `c.wait`
+   counts down the stop's delay before the carrier leaves for the next stop. */
+const ACTIONS = {
+  "none":            { label:"Do nothing",           n:false },
+  "collect-all":     { label:"Collect all",          n:false },
+  "drop-all":        { label:"Drop all",             n:false },
+  "collect":         { label:"Collect X",            n:true  },
+  "drop":            { label:"Drop X",               n:true  },
+  "collect-all-but": { label:"Collect all but X",    n:true  },
+  "drop-all-but":    { label:"Drop all but X",       n:true  },
+  "garrison":        { label:"Garrison X on star",   n:true  },
+};
+/* Ships moved from carrier to star (negative = picked up). NPA timetravel.ts. */
+function transferFor(action, n, carrier, star) {
+  let t = 0;
+  switch (action) {
+    case "collect-all":     t = -star; break;
+    case "collect":         t = -n; break;
+    case "collect-all-but": t = Math.min(0, -star + n); break;
+    case "drop-all":        t = carrier; break;
+    case "drop":            t = n; break;
+    case "drop-all-but":    t = Math.max(0, carrier - n); break;
+    case "garrison":        t = -star + n; break;
+  }
+  return clamp(t, -star, Math.max(0, carrier - 1));
+}
+function depart(S, c, to) {
+  c.from = c.at; c.to = to; c.at = null;
+  c.len = dist(S.stars[c.from], S.stars[to]); c.done = 0;
+}
+function arrive(S, c) {
+  if (!busy(c) || c.route[0].star !== c.at) return;
+  const stop = c.route.shift();
+  if (c.loop) c.route.push(stop);
+  const star = S.stars[c.at];
+  if (star.owner === c.owner && stop.action !== "none") {
+    const t = transferFor(stop.action, Math.max(0, Math.floor(stop.n || 0)), c.ships, star.ships);
+    c.ships -= t; star.ships += t;
+  }
+  c.wait = Math.max(0, Math.floor(stop.delay || 0));
+  if (!c.route.length) c.loop = false;
+}
+/* The stars a carrier will visit, in order, starting with the one it's heading to. */
+function routePath(S, c) {
+  if (busy(c)) return c.route.map(x => x.star);
+  return c.at == null ? [c.to] : [];
+}
+/* Can this carrier fly these stops? Every hop within its owner's jump range, and a
+   loop's last stop within range of its first. In flight, the first stop must be
+   where it's already going. Returns "" when fine, otherwise the reason. */
+function checkRoute(S, c, stops, loop) {
+  if (!stops.length) return "";
+  const r = range(S, c.owner);
+  if (c.at == null && stops[0].star !== c.to) return "A carrier in flight can't change where it's going; edit the stops after it.";
+  let prev = c.at != null ? c.at : c.to;
+  for (let i = c.at == null ? 1 : 0; i < stops.length; i++) {
+    const s = stops[i].star;
+    if (!S.stars[s]) return "Unknown star.";
+    if (s === prev) return `${S.stars[s].name} twice in a row.`;
+    if (dist(S.stars[prev], S.stars[s]) > r + 1e-9) return `${S.stars[prev].name} → ${S.stars[s].name} is ${dist(S.stars[prev], S.stars[s]).toFixed(1)} ly, beyond jump range ${r} ly.`;
+    prev = s;
+  }
+  if (loop) {
+    const a = S.stars[stops[stops.length - 1].star], b = S.stars[stops[0].star];
+    if (stops.length < 2) return "A loop needs at least two stops.";
+    if (a === b) return "A loop can't end where it starts; drop the last stop.";
+    if (dist(a, b) > r + 1e-9) return `Can't loop: ${a.name} → ${b.name} is ${dist(a, b).toFixed(1)} ly, beyond jump range ${r} ly.`;
+  }
+  return "";
+}
+
 /* ---------------- the tick ---------------- */
 function tick(S) {
   if (S.winner) return;
   S.tick++;
   const R = S.rules;
 
-  // 1. movement
-  const landed = new Set();
+  // 1. movement: carriers with orders leave once their stop's delay is up, then everything in flight moves
+  for (const c of S.carriers) if (c.at != null && busy(c)) {
+    if (c.wait > 0) { c.wait--; continue; }
+    if (c.ships < 1) continue;                                  // an empty carrier waits for ships
+    if (c.route[0].star === c.at) { arrive(S, c); continue; }   // already there
+    depart(S, c, c.route[0].star);
+  }
+  const landed = new Set(), arrived = [];
   for (const c of S.carriers) if (c.at == null) {
     c.step = Math.min(R.carrierSpeed, c.len - c.done); c.done += R.carrierSpeed;
-    if (c.done >= c.len - 1e-9) { c.at = c.to; landed.add(c.to); }
+    if (c.done >= c.len - 1e-9) { c.at = c.to; landed.add(c.to); arrived.push(c); }
   }
   landed.forEach(id => resolveStar(S, S.stars[id]));
+  for (const c of arrived) if (S.carriers.includes(c)) arrive(S, c);   // waypoint actions after any fighting
 
   // 2. ship production (fractional, every tick)
   for (const s of S.stars) if (s.owner >= 0) {
@@ -636,6 +725,7 @@ function botTurn(S, p) {
   const persona = PERSONAS[p.persona];
   botDiplomacy(S, p, persona);
   botResearch(S, p, persona);
+  botSupply(S, p);
   botMilitary(S, p, persona);
   botSpend(S, p, persona);
 }
@@ -752,7 +842,7 @@ function botMilitary(S, p, persona) {
   const leadLine = winTarget(S) * .6;
 
   const sources = mine.map(s => {
-    const parked = S.carriers.filter(c => c.at === s.id && c.owner === p.id).reduce((t, c) => t + c.ships, 0);
+    const parked = S.carriers.filter(c => c.at === s.id && c.owner === p.id && !busy(c)).reduce((t, c) => t + c.ships, 0);
     return { s, avail:s.ships + parked };
   }).sort((a, b) => b.avail - a.avail);
 
@@ -804,6 +894,54 @@ function botMilitary(S, p, persona) {
       if (front) launch(S, p.id, s, front, free);
     }
   }
+}
+
+/* Supply lines: a looping carrier that collects every ship at one or two interior
+   stars and drops them all at a frontier star, like players do in the real game.
+   Lines whose stars are lost, or whose frontier has gone quiet, are wound up. */
+function botSupply(S, p) {
+  const want = SUPPLY_LINES[p.persona] || 0;
+  const r = range(S, p.id), mine = starsOf(S, p.id);
+  const enemyNear = s => S.stars.some(t => t.owner >= 0 && !allied(S, p.id, t.owner) && dist(s, t) <= r);
+  const lines = S.carriers.filter(c => c.owner === p.id && c.routeBy === "bot" && busy(c));
+  for (const c of lines) {
+    const stops = c.route.map(x => S.stars[x.star]);
+    const front = stops.find((s, i) => c.route[i].action === "drop-all");
+    if (stops.every(s => s.owner === p.id) && front && enemyNear(front)) continue;
+    c.route = c.at == null ? [Object.assign({}, c.route[0], { action:"drop-all" })] : [];   // finish the hop, unload, stand down
+    c.loop = false; c.routeBy = null;
+  }
+  let have = S.carriers.filter(c => c.owner === p.id && c.routeBy === "bot" && busy(c)).length;
+  if (have >= want || mine.length < 6) return;
+
+  const used = new Set();
+  S.carriers.forEach(c => { if (c.owner === p.id && busy(c)) c.route.forEach(x => used.add(x.star)); });
+  const threat = f => S.stars.reduce((t, s) => t + (s.owner >= 0 && !allied(S, p.id, s.owner) && dist(s, f) <= r ? s.ships + 5 : 0), 0);
+  const inner = mine.filter(s => !enemyNear(s) && !used.has(s.id) && s.industry > 0);
+  const fronts = mine.filter(s => enemyNear(s));
+  let best = null;
+  for (const a of inner) for (const f of fronts) {
+    const d = dist(a, f); if (d > r) continue;
+    const score = shipsPerCycle(S, a) * (1 + threat(f) / 40) / (1 + d / r);
+    if (!best || score > best.score) best = { a, f, score };
+  }
+  if (!best) return;
+  const { a, f } = best;
+  // a second pick-up on the way, if one fits inside jump range at every hop
+  const b = inner.filter(s => s !== a && s.industry > 0 && dist(a, s) <= r && dist(s, f) <= r)
+    .sort((x, y) => shipsPerCycle(S, y) - shipsPerCycle(S, x))[0];
+  let c = S.carriers.find(x => x.at === a.id && x.owner === p.id && !busy(x));
+  if (!c) {
+    if (P(S, p.id).credits < S.rules.carrierCost * 3 || a.ships < 1) return;
+    P(S, p.id).credits -= S.rules.carrierCost;
+    c = { id:S.nextId++, owner:p.id, ships:0, at:a.id };
+    S.carriers.push(c);
+  }
+  c.ships += a.ships; a.ships = 0;                                 // load up before the first run
+  const stop = (s, action) => ({ star:s.id, action, n:0, delay:0 });
+  c.route = b ? [stop(b, "collect-all"), stop(f, "drop-all"), stop(a, "collect-all")] : [stop(f, "drop-all"), stop(a, "collect-all")];
+  c.loop = true; c.routeBy = "bot"; c.wait = 0;
+  log(S, "orders", `${p.name} set up a supply line: ${[a, b, f].filter(Boolean).map(s => s.name).join(" → ")} and back.`, [p.id], f.id);
 }
 
 /* ---------------- turns & stats ---------------- */
@@ -864,6 +1002,38 @@ const admin = {
     const home = starsOf(S, id).sort((a, b) => b.industry - a.industry)[0];
     if (home && ships) home.ships += ships;
     log(S, "system", `Admin gave ${p.name}${credits ? ` $${credits}` : ""}${ships ? ` ${ships} ships` : ""}.`, [id]);
+  },
+  /* give a carrier waypoint orders; returns "" or the reason it can't */
+  setRoute(S, carrierId, stops, loop) {
+    const c = S.carriers.find(x => x.id === carrierId); if (!c) return "That carrier no longer exists.";
+    stops = stops.map(x => ({ star:+x.star, action:ACTIONS[x.action] ? x.action : "none",
+      n:Math.max(0, Math.floor(+x.n || 0)), delay:clamp(Math.floor(+x.delay || 0), 0, 99) }));
+    const why = checkRoute(S, c, stops, !!loop); if (why) return why;
+    c.route = stops; c.loop = !!loop && stops.length > 1; c.routeBy = stops.length ? "admin" : null;
+    if (c.at != null && !stops.length) c.wait = 0;
+    log(S, "orders", stops.length ? `Admin gave ${P(S, c.owner).name}'s carrier ${stops.length} waypoint${stops.length > 1 ? "s" : ""}${c.loop ? " on a loop" : ""}.`
+      : `Admin cleared the orders of a ${P(S, c.owner).name} carrier.`, [c.owner]);
+    return "";
+  },
+  /* move ships between a parked carrier and the star it's at: n > 0 loads the carrier */
+  transfer(S, carrierId, n) {
+    const c = S.carriers.find(x => x.id === carrierId); if (!c || c.at == null) return false;
+    const star = S.stars[c.at]; if (star.owner !== c.owner) return false;
+    const t = clamp(-n, -star.ships, c.ships);
+    c.ships -= t; star.ships += t;
+    return true;
+  },
+  /* buy a carrier at a star for its owner (real cost); returns the carrier or a reason */
+  buildCarrier(S, starId) {
+    const s = S.stars[starId]; if (!s || s.owner < 0) return "Only an owned star can build a carrier.";
+    const p = P(S, s.owner);
+    if (p.credits < S.rules.carrierCost) return `${p.name} needs $${S.rules.carrierCost} for a carrier.`;
+    p.credits -= S.rules.carrierCost;
+    const c = { id:S.nextId++, owner:s.owner, ships:0, at:s.id };
+    S.carriers.push(c);
+    c.ships = s.ships; s.ships = 0;                               // the garrison boards, like the real game's default
+    log(S, "orders", `Admin built a carrier for ${p.name} at ${s.name}.`, [s.owner], s.id);
+    return c;
   },
   setPersona(S, id, persona) { if (PERSONAS[persona]) P(S, id).persona = persona; },
   /* who the person plays (null = nobody; every seat is a bot) */
@@ -947,6 +1117,25 @@ const act = {
     log(S, "diplomacy", `${P(S, pid).name} turned down an alliance with ${P(S, other).name}.`, [pid, other]);
     return "";
   },
+  /* waypoint orders on your own carrier (same rules as the admin route editor) */
+  route(S, pid, carrierId, stops, loop) {
+    const c = S.carriers.find(x => x.id === carrierId);
+    if (!c || c.owner !== pid) return "That isn't your carrier.";
+    stops = stops.map(x => ({ star:+x.star, action:ACTIONS[x.action] ? x.action : "none",
+      n:Math.max(0, Math.floor(+x.n || 0)), delay:clamp(Math.floor(+x.delay || 0), 0, 99) }));
+    const why = checkRoute(S, c, stops, !!loop); if (why) return why;
+    c.route = stops; c.loop = !!loop && stops.length > 1; c.routeBy = stops.length ? "player" : null;
+    if (c.at != null && !stops.length) c.wait = 0;
+    return "";
+  },
+  /* move ships between your parked carrier and your star: n > 0 loads the carrier */
+  transfer(S, pid, carrierId, n) {
+    const c = S.carriers.find(x => x.id === carrierId);
+    if (!c || c.owner !== pid || c.at == null || S.stars[c.at].owner !== pid) return "Only at your own star.";
+    const star = S.stars[c.at], t = clamp(-n, -star.ships, c.ships);
+    c.ships -= t; star.ships += t;
+    return "";
+  },
   war(S, pid, other) {
     const al = alliance(S, pid, other);
     if (!al) return "You aren't allied.";
@@ -956,7 +1145,7 @@ const act = {
   },
 };
 
-const API = { RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
+const API = { ACTIONS, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
   defaultRules, newGame, nextTurn, beginTurn, endTurn, tick, admin, act,
   range, resources, infraCost, researchCost, shipsPerCycle, totals, starsOf, winTarget,
   alliance, allied, alliesOf, carrierPos, scanRange, scanSources, inScan, eta, fight, shipsToWin, pairKey, dist };
