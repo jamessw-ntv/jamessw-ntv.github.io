@@ -61,6 +61,7 @@ const DEFAULT_SETTINGS = {
   coalitionWin: true,    // a locked bloc holding the win % of stars wins together
   maxTurns: 400,         // hard stop; most stars wins
   banned: [],            // "a-b" pairs the bots may never ally
+  allyVision: true,      // formal allies share scanning (fog of war)
 };
 
 const STAR_A = ["Al","Be","Ca","De","Ep","Fo","Ga","He","Io","Ka","Le","Mi","No","Or","Pa","Qu","Ri","Sa","Te","Ul","Ve","Wo","Xe","Ya","Ze"];
@@ -80,8 +81,10 @@ const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 const pairKey = (a, b) => a < b ? a + "-" + b : b + "-" + a;
 const turnOf = S => S.turn;
 
-function log(S, type, text, players) {
-  S.events.push({ tick:S.tick, turn:S.turn, type, text, players:players || [] });
+function log(S, type, text, players, star) {
+  const e = { tick:S.tick, turn:S.turn, type, text, players:players || [] };
+  if (star != null) e.star = star;                    // where it happened, for map effects
+  S.events.push(e);
   if (S.events.length > 3000) S.events.splice(0, S.events.length - 3000);
 }
 
@@ -256,7 +259,7 @@ function resolveStar(S, star) {
       if (!here.length) return;
       const claimer = here.slice().sort((a, b) => (a.step || 0) - (b.step || 0) || b.ships - a.ships)[0].owner;
       star.owner = claimer; star.ships = 0; star.frac = 0;
-      log(S, "expansion", `${P(S, claimer).name} claimed ${star.name}.`, [claimer]);
+      log(S, "expansion", `${P(S, claimer).name} claimed ${star.name}.`, [claimer], star.id);
       continue;
     }
     const owner = star.owner;
@@ -281,10 +284,10 @@ function resolveStar(S, star) {
       const winner = +Object.keys(inOrbit).sort((a, b) => inOrbit[b] - inOrbit[a])[0];
       const cash = star.econ * S.rules.captureCashPerEcon;
       P(S, winner).credits += cash;
-      log(S, "combat", `${P(S, winner).name} captured ${star.name} from ${dName} (${attShips} vs ${defShips} ships${sides.length > 1 ? `, attackers ${aName}` : ""}, ${r.att} left${cash ? `, +$${cash}` : ""}).`, [...sides, owner]);
+      log(S, "combat", `${P(S, winner).name} captured ${star.name} from ${dName} (${attShips} vs ${defShips} ships${sides.length > 1 ? `, attackers ${aName}` : ""}, ${r.att} left${cash ? `, +$${cash}` : ""}).`, [...sides, owner], star.id);
       star.owner = winner; star.econ = 0; star.ships = 0; star.frac = 0;
     } else {
-      log(S, "combat", `${dName} held ${star.name} against ${aName} (${attShips} vs ${defShips} ships, ${r.def} left).`, [...sides, owner]);
+      log(S, "combat", `${dName} held ${star.name} against ${aName} (${attShips} vs ${defShips} ships, ${r.def} left).`, [...sides, owner], star.id);
     }
   }
 }
@@ -411,6 +414,22 @@ function borders(S, a, b) {
   const mine = starsOf(S, a), theirs = starsOf(S, b);
   return mine.some(s => theirs.some(t => dist(s, t) <= r));
 }
+
+/* ---------------- scanning (fog of war) ---------------- */
+function scanRange(S, id) { return lvl(S, id, S.rules.scanShared ? "range" : "scanning") + S.rules.scanBase; }
+/* Who a group of viewers can see through: themselves, plus formal allies when
+   allies share scanning. Returns [{x, y, r}] scan circles. */
+function scanSources(S, viewers) {
+  const group = new Set(viewers);
+  if (S.settings.allyVision !== false) viewers.forEach(v => alliesOf(S, v).forEach(a => group.add(a)));
+  const out = [];
+  for (const s of S.stars) if (group.has(s.owner)) out.push({ x:s.x, y:s.y, r:scanRange(S, s.owner), owner:s.owner });
+  if (S.rules.carriersScan) for (const c of S.carriers) if (group.has(c.owner)) {
+    const p = carrierPos(S, c); out.push({ x:p.x, y:p.y, r:scanRange(S, c.owner), owner:c.owner });
+  }
+  return { group, sources:out };
+}
+function inScan(vis, p) { return vis.sources.some(o => (o.x - p.x) ** 2 + (o.y - p.y) ** 2 <= o.r * o.r + 1e-9); }
 
 /* ---------------- victory ---------------- */
 function checkVictory(S) {
@@ -621,15 +640,22 @@ function botMilitary(S, p, persona) {
 }
 
 /* ---------------- turns & stats ---------------- */
-function nextTurn(S) {
-  if (S.winner) return;
+/* A turn is split in three so the viewer can play the ticks back one at a time:
+   beginTurn (every bot submits orders), the ticks, then endTurn. nextTurn runs
+   all three at once; the RNG sequence is identical either way. */
+function beginTurn(S) {
+  if (S.winner) return false;
   const order = S.players.filter(p => p.alive).map(p => p.id);
   for (let i = order.length - 1; i > 0; i--) { const j = Math.floor(rand(S) * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
   order.forEach(id => botTurn(S, P(S, id)));
   S.turn++;
+  return true;
+}
+function endTurn(S) { recordStats(S); checkVictory(S); }
+function nextTurn(S) {
+  if (!beginTurn(S)) return;
   for (let i = 0; i < S.rules.ticksPerTurn && !S.winner; i++) tick(S);
-  recordStats(S);
-  checkVictory(S);
+  endTurn(S);
 }
 function recordStats(S) {
   S.stats.push({ turn:S.turn, tick:S.tick, p:S.players.map(p => {
@@ -675,8 +701,8 @@ const admin = {
 };
 
 const API = { RULE_LIST, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
-  defaultRules, newGame, nextTurn, tick, admin,
+  defaultRules, newGame, nextTurn, beginTurn, endTurn, tick, admin,
   range, resources, infraCost, researchCost, shipsPerCycle, totals, starsOf, winTarget,
-  alliance, allied, alliesOf, carrierPos, eta, fight, shipsToWin, pairKey, dist };
+  alliance, allied, alliesOf, carrierPos, scanRange, scanSources, inScan, eta, fight, shipsToWin, pairKey, dist };
 if (typeof module !== "undefined") module.exports = API; else root.NPSim = API;
 })(typeof window !== "undefined" ? window : globalThis);

@@ -47,6 +47,13 @@ var NP_RULES = [   // `var` so the browser exposes it as window.NP_RULES for sim
   { key:"carrierCost", value:25, group:"Carriers", label:"Carrier cost ($)", confirmed:false,
     note:"$25 in the original NP." },
 
+  // ---- scanning ----
+  { key:"scanBase", value:3, group:"Scanning", label:"Scanning range = Scanning level + this (ly)", confirmed:false,
+    note:"Placeholder until checked against the Codex." },
+  { key:"scanShared", value:0, group:"Scanning", label:"Scanning uses the Hyperspace level (1 = yes)", confirmed:false,
+    note:"Some current games merge Scanning and Range into one tech." },
+  { key:"carriersScan", value:0, group:"Scanning", label:"Carriers scan too (1 = yes)", confirmed:false },
+
   // ---- combat ----
   { key:"defenderWeaponBonus", value:1, group:"Combat", label:"Defender weapons bonus", confirmed:true,
     note:"Defender shoots first. Everyone not allied with the owner attacks as one team, using the team's best weapons." },
