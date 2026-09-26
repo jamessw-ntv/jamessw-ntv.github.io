@@ -1089,6 +1089,11 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     if (!wasClick || e.type === "pointercancel") return;
     const hitEl = document.elementFromPoint(e.clientX, e.clientY);
     let g = hitEl && hitEl.closest("[data-s],[data-c]"), far = false;
+    if (g && g.dataset.s != null) {             // big hit circles overlap on dense maps: take the star nearest the tap
+      const V = camBox(), r = svg.getBoundingClientRect(), wx = V.x + (e.clientX - r.left) * V.u, wy = V.y + (e.clientY - r.top) * V.u;
+      const best = S.stars.reduce((b, st) => Math.hypot(st.x - wx, st.y - wy) < Math.hypot(b.x - wx, b.y - wy) ? st : b, S.stars[+g.dataset.s]);
+      g = { dataset:{ s:String(best.id) } };
+    }
     if (!g) {                                   // near miss: snap to the closest star within ~24px; ignore misses near stars
       const V = camBox(), r = svg.getBoundingClientRect(), wx = V.x + (e.clientX - r.left) * V.u, wy = V.y + (e.clientY - r.top) * V.u;
       let best = null, bd = Infinity;
