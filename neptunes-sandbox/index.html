@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Neptune's Pride — Bot Sandbox</title>
+<link rel="stylesheet" href="../assets/hub.css" />
+<style>
+  /* ---- turn controls ---- */
+  .ctrl{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+    margin:14px 0 0;padding:10px 12px;background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:var(--shadow)}
+  .ctrl .clock{font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted);margin-right:auto}
+  .ctrl .clock b{color:var(--text);font-size:15px}
+  .btn{background:var(--panel2);color:var(--text);border:1px solid var(--line);padding:7px 13px;
+    border-radius:999px;cursor:pointer;font:inherit;font-size:13px;transition:border-color .15s}
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:700}
+  .btn:disabled{opacity:.4;cursor:default}
+  .btn.small{padding:4px 10px;font-size:12px}
+  select,input[type=number],input[type=text]{background:var(--panel2);color:var(--text);border:1px solid var(--line);
+    border-radius:8px;padding:6px 8px;font:inherit;font-size:13px}
+  input[type=number]{width:84px}
+  .winner{margin:12px 0 0;padding:12px 16px;border-radius:var(--radius);border:1px solid var(--accent);
+    background:var(--accent-soft);font-weight:700}
+
+  /* ---- tabs ---- */
+  .tabs{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 14px}
+  .panel{display:none}.panel.on{display:block}
+
+  /* ---- layout ---- */
+  .cols{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px}
+  @media (max-width:860px){.cols{grid-template-columns:1fr}}
+  .box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)}
+  .box h2{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+  .box + .box{margin-top:14px}
+  .muted{color:var(--muted)} .small{font-size:12px}
+  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .row + .row{margin-top:8px}
+
+  /* ---- map ---- */
+  .map{width:100%;height:auto;display:block;background:var(--black);border-radius:10px;border:1px solid var(--line);touch-action:manipulation}
+  .map .star{cursor:pointer}
+  .map text{fill:var(--muted);font-size:9px;pointer-events:none}
+  .map .sel{fill:none;stroke:var(--text);stroke-width:1.5}
+  .map .range{fill:none;stroke:var(--muted);stroke-dasharray:3 4;opacity:.6}
+  .sw{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:6px}
+  .legend div{display:flex;align-items:center;gap:6px;font-size:13px;padding:3px 0}
+  .legend .dead{opacity:.45;text-decoration:line-through}
+  .kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13px}
+  .kv dt{color:var(--muted)} .kv dd{margin:0;font-variant-numeric:tabular-nums}
+
+  /* ---- tables ---- */
+  .tbl{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+  .tbl th{color:var(--muted);font-weight:600;text-align:left;border-bottom:1px solid var(--line);padding:6px 8px;white-space:nowrap}
+  .tbl td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}
+  .tbl td.num,.tbl th.num{text-align:right}
+  .scroll{overflow-x:auto}
+  .matrix td{text-align:center;min-width:54px}
+  .tag{font-size:11px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);white-space:nowrap}
+  .tag.ok{color:#7ee2b8;border-color:#1d5742;background:#103226}
+  .tag.warn{color:#ffcf8a;border-color:#5a4012;background:#3a2a11}
+  .tag.bad{color:#ffb4b4;border-color:#6b2020;background:#3a1414}
+
+  /* ---- chart ---- */
+  .chartwrap{position:relative}
+  .chart{width:100%;height:auto;display:block}
+  .chart .grid line{stroke:var(--line)} .chart .axis text{fill:var(--muted);font-size:11px}
+  .chart .lbl{font-size:11px;fill:var(--text)}
+  .tip{position:absolute;pointer-events:none;background:var(--panel2);border:1px solid var(--line);border-radius:8px;
+    padding:8px 10px;font-size:12px;box-shadow:var(--shadow);white-space:nowrap}
+  .tip div{display:flex;align-items:center;gap:6px}
+
+  /* ---- log ---- */
+  .log{max-height:560px;overflow:auto;font-size:13px}
+  .log div{padding:5px 2px;border-bottom:1px solid var(--line)}
+  .log .t{color:var(--muted);font-variant-numeric:tabular-nums;display:inline-block;min-width:74px}
+
+  /* ---- admin / rules ---- */
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+  .grid2 .box + .box{margin-top:0}
+  label.chk{display:flex;gap:8px;align-items:center;font-size:13px;cursor:pointer}
+  .rules td input{width:92px}
+</style>
+</head>
+<body>
+<div class="hubbar">
+  <a class="backlink" href="../">← Hub</a>
+  <span class="crumb"><b>Neptune's Pride — Bot Sandbox</b></span>
+</div>
+
+<header class="page">
+  <div class="wrap" style="padding-bottom:0">
+    <h1>Neptune's Pride — Bot Sandbox</h1>
+    <div class="sub">A copy of <b>Neptune's Pride II: Triton</b> where bots play each other. Step through it turn by turn,
+      watch the alliances form and break, or lock them so they never can.</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="ctrl">
+    <div class="clock" id="clock"></div>
+    <button class="btn" id="bBack" title="Rewind one turn">◀ Back</button>
+    <button class="btn primary" id="bNext" title="Process the next turn (N)">Next turn ▶</button>
+    <button class="btn" id="bFive">+5 turns</button>
+    <button class="btn" id="bAuto">▶ Auto</button>
+    <select id="speed" title="Auto-play speed">
+      <option value="900">Slow</option><option value="350" selected>Normal</option><option value="80">Fast</option>
+    </select>
+  </div>
+  <div id="winner"></div>
+
+  <nav class="tabs" id="tabs"></nav>
+
+  <!-- GALAXY -->
+  <section class="panel" data-tab="galaxy">
+    <div class="cols">
+      <div>
+        <svg class="map" id="map"></svg>
+        <div class="row small muted" style="margin-top:8px">
+          <label class="chk"><input type="checkbox" id="optNames"> Star names</label>
+          <label class="chk"><input type="checkbox" id="optAlly" checked> Alliance links</label>
+          <label class="chk"><input type="checkbox" id="optFleets" checked> Carriers</label>
+        </div>
+      </div>
+      <div>
+        <div class="box"><h2>Empires</h2><div class="legend" id="legend"></div></div>
+        <div class="box"><h2>Selected star</h2><div id="starInfo" class="small muted">Click a star.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALLIANCES -->
+  <section class="panel" data-tab="alliances">
+    <div class="cols">
+      <div class="box"><h2>Alliance web</h2><svg id="web" class="chart"></svg>
+        <div class="small muted" id="webKey"></div></div>
+      <div class="box"><h2>At a glance</h2><div id="allySummary"></div></div>
+    </div>
+    <div class="box"><h2>What each empire thinks of the others</h2>
+      <div class="small muted" style="margin-bottom:8px">Row = the empire doing the thinking. −100 hatred … +100 trust.
+        🤝 allied · 🔒 locked · ⚔️ war declared, counting down.</div>
+      <div class="scroll" id="matrix"></div></div>
+    <div class="box"><h2>Alliance history</h2><div class="scroll" id="allyHistory"></div></div>
+  </section>
+
+  <!-- EMPIRES -->
+  <section class="panel" data-tab="empires">
+    <div class="box"><h2>Leaderboard</h2><div class="scroll" id="board"></div></div>
+    <div class="box"><h2>Over time</h2>
+      <div class="row" style="margin-bottom:8px"><select id="metric">
+        <option value="stars">Stars</option><option value="ships">Ships</option>
+        <option value="industry">Industry</option><option value="econ">Economy</option><option value="science">Science</option>
+      </select></div>
+      <div class="chartwrap"><svg id="chart" class="chart"></svg><div class="tip hidden" id="tip"></div></div>
+    </div>
+  </section>
+
+  <!-- LOG -->
+  <section class="panel" data-tab="log">
+    <div class="box">
+      <div class="row" style="margin-bottom:10px" id="logFilters"></div>
+      <div class="log" id="log"></div>
+    </div>
+  </section>
+
+  <!-- ADMIN -->
+  <section class="panel" data-tab="admin">
+    <div class="grid2">
+      <div class="box"><h2>Diplomacy controls</h2>
+        <div class="row"><select id="pA"></select><span class="muted">&amp;</span><select id="pB"></select></div>
+        <div class="row small muted" id="pairState"></div>
+        <div class="row">
+          <button class="btn small" data-dip="ally">Force alliance</button>
+          <button class="btn small" data-dip="allyLocked">Force locked alliance</button>
+          <button class="btn small" data-dip="lock">🔒 Lock</button>
+          <button class="btn small" data-dip="unlock">Unlock</button>
+        </div>
+        <div class="row">
+          <button class="btn small" data-dip="war">Break (with notice)</button>
+          <button class="btn small" data-dip="breakNow">Break now</button>
+          <button class="btn small" data-dip="ban">Ban this pair</button>
+          <button class="btn small" data-dip="unban">Unban</button>
+        </div>
+        <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+        <label class="chk"><input type="checkbox" id="setLockAll"> Every new alliance is unbreakable</label>
+        <div class="row"><button class="btn small" id="lockAllNow">🔒 Lock all current alliances</button></div>
+        <label class="chk" style="margin-top:8px"><input type="checkbox" id="setInstant"> Skip the 24-tick notice when alliances break</label>
+        <label class="chk" style="margin-top:8px"><input type="checkbox" id="setCoalition"> Locked blocs can win together</label>
+        <div class="row" style="margin-top:10px"><span class="small">Betrayal</span>
+          <input type="range" id="setBetrayal" min="0" max="3" step="0.25" style="flex:1">
+          <span class="small muted" id="betrayalVal"></span></div>
+      </div>
+
+      <div class="box"><h2>Bots</h2>
+        <div id="botRows"></div>
+        <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+        <div class="row small"><span>Give</span><select id="giveP"></select>
+          <input type="number" id="giveCash" value="500" min="0"> $
+          <input type="number" id="giveShips" value="0" min="0"> ships
+          <button class="btn small" id="giveBtn">Give</button></div>
+      </div>
+
+      <div class="box"><h2>New game</h2>
+        <div class="row small"><span>Seed</span><input type="number" id="ngSeed" style="width:110px">
+          <button class="btn small" id="ngRand">🎲</button></div>
+        <div class="row small"><span>Stars per empire</span><input type="number" id="ngStars" min="4" max="40" value="12">
+          <span>Max turns</span><input type="number" id="ngMax" min="20" max="2000" value="400"></div>
+        <div id="ngSeats" style="margin-top:8px"></div>
+        <div class="row" style="margin-top:10px"><button class="btn primary" id="ngGo">Start new game</button></div>
+        <div class="small muted" style="margin-top:6px">Uses the rules currently set on the Rules tab.</div>
+      </div>
+
+      <div class="box"><h2>Save &amp; share</h2>
+        <div class="small muted" style="margin-bottom:8px">The current game auto-saves in this browser. Rewind history lasts until you close the page.</div>
+        <div class="row">
+          <button class="btn small" id="exportBtn">Export game (.json)</button>
+          <label class="btn small">Import… <input type="file" id="importFile" accept=".json" class="hidden"></label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section class="panel" data-tab="rules">
+    <div class="box">
+      <h2>Rules</h2>
+      <div class="small muted" style="margin-bottom:10px">
+        <span class="tag ok">confirmed</span> = checked against the Triton Codex / wiki.
+        <span class="tag warn">placeholder</span> = a best guess until we have the real number.
+        Edits apply to the current game immediately. To change the defaults for good, edit <code>rules.js</code>.</div>
+      <div class="scroll" id="rules"></div>
+      <div class="row" style="margin-top:10px"><button class="btn small" id="rulesReset">Reset to rules.js defaults</button></div>
+    </div>
+  </section>
+</div>
+
+<footer class="site">Part of the <a href="../">projects hub</a>. A fan sandbox; Neptune's Pride is by Iron Helmet Games.</footer>
+
+<script src="rules.js"></script>
+<script src="sim.js"></script>
+<script>
+"use strict";
+const sim = window.NPSim;
+const SAVE_KEY = "npSandbox.v1";
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+const col = p => `var(${p.color})`;
+const sw = p => `<span class="sw" style="background:${col(p)}"></span>`;
+const pname = p => `${sw(p)}${esc(p.name)}`;
+
+/* ---------------- state + history (rewind) ---------------- */
+let S, history = [], selStar = null, autoTimer = null;
+
+function save() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } catch (e) {} }
+function load() { try { return JSON.parse(localStorage.getItem(SAVE_KEY) || "null"); } catch (e) { return null; } }
+function snap() { history[S.turn] = JSON.stringify(S); history.length = S.turn + 1; }
+function startGame(state) { S = state; history = []; snap(); selStar = null; save(); renderAll(); }
+function afterChange() { snap(); save(); renderAll(); }   // admin edits become part of this turn
+
+function step(n) {
+  for (let i = 0; i < n && !S.winner; i++) { sim.nextTurn(S); snap(); }
+  save(); renderAll();
+  if (S.winner) stopAuto();
+}
+function back() {
+  if (S.turn === 0 || !history[S.turn - 1]) return;
+  S = JSON.parse(history[S.turn - 1]);
+  history.length = S.turn + 1;
+  save(); renderAll();
+}
+function stopAuto() { clearInterval(autoTimer); autoTimer = null; $("bAuto").textContent = "▶ Auto"; }
+function toggleAuto() {
+  if (autoTimer) return stopAuto();
+  autoTimer = setInterval(() => step(1), +$("speed").value);
+  $("bAuto").textContent = "⏸ Pause";
+}
+
+/* ---------------- tabs ---------------- */
+const TABS = [["galaxy","Galaxy"],["alliances","Alliances"],["empires","Empires"],["log","Log"],["admin","Admin"],["rules","Rules"]];
+let tab = "galaxy";
+try { tab = localStorage.getItem("npSandbox.tab") || "galaxy"; } catch (e) {}
+function renderTabs() {
+  $("tabs").innerHTML = TABS.map(([k, l]) => `<button class="toggle ${k === tab ? "active" : ""}" data-t="${k}">${l}</button>`).join("");
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("on", p.dataset.tab === tab));
+}
+$("tabs").addEventListener("click", e => {
+  const t = e.target.dataset.t; if (!t) return;
+  tab = t; try { localStorage.setItem("npSandbox.tab", t); } catch (e) {}
+  renderAll();
+});
+
+/* ---------------- render: controls ---------------- */
+function renderClock() {
+  const R = S.rules, day = Math.floor(S.tick / R.productionTicks) + 1;
+  const toProd = R.productionTicks - (S.tick % R.productionTicks);
+  $("clock").innerHTML = `<b>Turn ${S.turn}</b> · tick ${S.tick} · day ${day} · production in ${toProd} ticks · ${R.ticksPerTurn} ticks/turn`;
+  $("bBack").disabled = S.turn === 0 || !history[S.turn - 1];
+  $("bNext").disabled = $("bFive").disabled = !!S.winner;
+  if (S.winner) {
+    const w = S.winner, names = w.ids.map(id => pname(S.players[id])).join(" + ");
+    const how = { solo:"holds enough stars to win", last:"is the last empire standing",
+      coalition:"win together as a locked alliance", time:"leads when time runs out" }[w.how];
+    $("winner").innerHTML = `<div class="winner">🏆 ${names} ${how} — turn ${w.turn}.</div>`;
+  } else $("winner").innerHTML = "";
+}
+
+/* ---------------- render: galaxy ---------------- */
+const K = 46, PAD = 1;   // map units → svg units
+function renderMap() {
+  const W = (S.width + PAD * 2) * K, H = (S.height + PAD * 2) * K;
+  const X = x => (x + PAD) * K, Y = y => (y + PAD) * K;
+  const out = [];
+  // alliance links between capitals (the owned star with most industry)
+  if ($("optAlly").checked) {
+    const cap = id => sim.starsOf(S, id).sort((a, b) => b.industry - a.industry)[0];
+    for (const al of S.alliances) if (al.ended == null) {
+      const a = cap(al.a), b = cap(al.b); if (!a || !b) continue;
+      out.push(`<line x1="${X(a.x)}" y1="${Y(a.y)}" x2="${X(b.x)}" y2="${Y(b.y)}" stroke="var(--text)"
+        stroke-opacity=".35" stroke-width="${al.locked ? 3 : 1.5}" ${al.warBy != null ? 'stroke-dasharray="6 5"' : ""}/>`);
+    }
+  }
+  if (selStar != null) {
+    const s = S.stars[selStar];
+    if (s.owner >= 0) out.push(`<circle class="range" cx="${X(s.x)}" cy="${Y(s.y)}" r="${sim.range(S, s.owner) * K}"/>`);
+  }
+  if ($("optFleets").checked) for (const c of S.carriers) if (c.at == null) {
+    const p = sim.carrierPos(S, c), t = S.stars[c.to], o = S.players[c.owner];
+    out.push(`<line x1="${X(p.x)}" y1="${Y(p.y)}" x2="${X(t.x)}" y2="${Y(t.y)}" stroke="${col(o)}" stroke-width="1.2" stroke-dasharray="3 3" opacity=".8"/>
+      <circle cx="${X(p.x)}" cy="${Y(p.y)}" r="3.5" fill="${col(o)}" stroke="var(--black)" stroke-width="2"><title>${esc(o.name)} carrier · ${c.ships} ships → ${esc(t.name)} (ETA ${sim.eta(S, c)} ticks)</title></circle>`);
+  }
+  const names = $("optNames").checked;
+  for (const s of S.stars) {
+    const o = s.owner >= 0 ? S.players[s.owner] : null;
+    const r = 5 + Math.min(7, (s.econ + s.industry + s.science) / 4);
+    const parked = S.carriers.filter(c => c.at === s.id);
+    const tip = `${s.name}${o ? " · " + o.name : " · unclaimed"} · ${s.ships + parked.reduce((t, c) => t + c.ships, 0)} ships · E${s.econ} I${s.industry} S${s.science} · res ${sim.resources(S, s)}`;
+    out.push(`<g class="star" data-s="${s.id}">
+      <circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${r + 6}" fill="transparent"/>
+      <circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${r}" fill="${o ? col(o) : "var(--line)"}" stroke="var(--black)" stroke-width="2"/>
+      ${parked.length ? `<circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${r + 3}" fill="none" stroke="var(--text)" stroke-opacity=".5" stroke-width="1"/>` : ""}
+      <title>${esc(tip)}</title></g>`);
+    if (names) out.push(`<text x="${X(s.x) + r + 3}" y="${Y(s.y) + 3}">${esc(s.name)}</text>`);
+    if (selStar === s.id) out.push(`<circle class="sel" cx="${X(s.x)}" cy="${Y(s.y)}" r="${r + 5}"/>`);
+  }
+  const map = $("map");
+  map.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  map.innerHTML = out.join("");
+}
+$("map").addEventListener("click", e => {
+  const g = e.target.closest(".star"); if (!g) return;
+  selStar = +g.dataset.s; renderMap(); renderStarInfo();
+});
+["optNames", "optAlly", "optFleets"].forEach(id => $(id).addEventListener("change", renderMap));
+
+function renderLegend() {
+  $("legend").innerHTML = S.players.map(p => {
+    const t = sim.totals(S, p.id);
+    return `<div class="${p.alive ? "" : "dead"}">${sw(p)}<b>${esc(p.name)}</b>
+      <span class="muted small">${esc(sim.PERSONAS[p.persona].label)} · ${t.stars}★ · ${t.ships} ships</span></div>`;
+  }).join("");
+}
+function renderStarInfo() {
+  if (selStar == null) return;
+  const s = S.stars[selStar], o = s.owner >= 0 ? S.players[s.owner] : null;
+  const parked = S.carriers.filter(c => c.at === s.id);
+  const inbound = S.carriers.filter(c => c.at == null && c.to === s.id);
+  const kv = [
+    ["Owner", o ? pname(o) : "unclaimed"],
+    ["Resources", sim.resources(S, s) + (o && sim.resources(S, s) !== s.res ? ` <span class="muted">(${s.res} natural)</span>` : "")],
+    ["Economy", s.econ + (o ? ` <span class="muted">next $${sim.infraCost(S, s, "econ")}</span>` : "")],
+    ["Industry", s.industry + (o ? ` <span class="muted">next $${sim.infraCost(S, s, "industry")}</span>` : "")],
+    ["Science", s.science + (o ? ` <span class="muted">next $${sim.infraCost(S, s, "science")}</span>` : "")],
+    ["Ships", s.ships + (o ? ` <span class="muted">+${sim.shipsPerCycle(S, s)}/cycle</span>` : "")],
+  ];
+  $("starInfo").innerHTML = `<div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">${esc(s.name)}</div>
+    <dl class="kv">${kv.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
+    ${parked.length ? `<div style="margin-top:8px">Parked: ${parked.map(c => `${pname(S.players[c.owner])} ${c.ships}`).join(", ")}</div>` : ""}
+    ${inbound.length ? `<div style="margin-top:6px">Inbound: ${inbound.map(c => `${pname(S.players[c.owner])} ${c.ships} (ETA ${sim.eta(S, c)})`).join(", ")}</div>` : ""}`;
+}
+
+/* ---------------- render: alliances ---------------- */
+function allyIcon(al) { return !al ? "" : al.warBy != null ? "⚔️" : al.locked ? "🔒" : "🤝"; }
+
+function renderWeb() {
+  const n = S.players.length, W = 420, H = 380, cx = W / 2, cy = H / 2 + 4, R = 140;
+  const pos = S.players.map((p, i) => ({ x:cx + Math.cos(-Math.PI / 2 + i * 2 * Math.PI / n) * R, y:cy + Math.sin(-Math.PI / 2 + i * 2 * Math.PI / n) * R }));
+  const out = [];
+  // hostility: mutual opinion below −40
+  for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) {
+    if (!S.players[a].alive || !S.players[b].alive || sim.alliance(S, a, b)) continue;
+    if (S.rel[a][b] < -40 && S.rel[b][a] < -40)
+      out.push(`<line x1="${pos[a].x}" y1="${pos[a].y}" x2="${pos[b].x}" y2="${pos[b].y}" stroke="var(--muted)" stroke-width="1" stroke-dasharray="1 5" stroke-linecap="round"/>`);
+  }
+  for (const al of S.alliances) if (al.ended == null) {
+    const a = pos[al.a], b = pos[al.b], mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+    out.push(`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="var(--text)" stroke-width="${al.locked ? 4 : 2}"
+      ${al.warBy != null ? 'stroke-dasharray="8 6"' : ""} stroke-opacity="${al.locked ? .9 : .6}"/>
+      <text x="${mx}" y="${my + 4}" text-anchor="middle" font-size="13">${allyIcon(al)}</text>`);
+  }
+  S.players.forEach((p, i) => {
+    const t = sim.totals(S, p.id), r = 10 + Math.sqrt(t.stars) * 3;
+    out.push(`<circle cx="${pos[i].x}" cy="${pos[i].y}" r="${r}" fill="${col(p)}" stroke="var(--panel)" stroke-width="3" opacity="${p.alive ? 1 : .25}"/>
+      <text x="${pos[i].x}" y="${pos[i].y + (pos[i].y < cy ? -r - 8 : r + 16)}" text-anchor="middle" font-size="13" fill="var(--text)"
+        ${p.alive ? "" : 'text-decoration="line-through" opacity=".5"'}>${esc(p.name)} · ${t.stars}★</text>`);
+  });
+  $("web").setAttribute("viewBox", `0 0 ${W} ${H}`);
+  $("web").innerHTML = out.join("");
+  $("webKey").innerHTML = "Thick line 🔒 = locked · solid 🤝 = allied · dashed ⚔️ = war declared, alliance ending · dotted = mutual hatred (both below −40). Circle size = stars held.";
+}
+
+function renderAllySummary() {
+  const all = S.alliances, n = S.players.length;
+  const betrayals = all.filter(a => a.endReason === "betrayal");
+  const ended = all.filter(a => a.ended != null);
+  const dur = a => ((a.ended != null ? a.ended : S.tick) - a.formedTick) / S.rules.productionTicks;
+  const avg = ended.length ? (ended.reduce((t, a) => t + dur(a), 0) / ended.length).toFixed(1) : "—";
+  const traitors = S.players.map(p => ({ p, k:betrayals.filter(a => a.warBy === p.id).length })).filter(x => x.k).sort((a, b) => b.k - a.k);
+  const loyal = S.players.map(p => ({ p, d:all.filter(a => a.a === p.id || a.b === p.id).reduce((t, a) => t + dur(a), 0),
+    k:betrayals.filter(a => a.warBy === p.id).length })).filter(x => x.d > 0 && !x.k).sort((a, b) => b.d - a.d);
+  $("allySummary").innerHTML = `<dl class="kv">
+    <dt>Alliances made</dt><dd>${all.length}</dd>
+    <dt>Active now</dt><dd>${all.filter(a => a.ended == null).length} (${all.filter(a => a.ended == null && a.locked).length} locked)</dd>
+    <dt>Betrayals</dt><dd>${betrayals.length}</dd>
+    <dt>Avg. length</dt><dd>${avg} days</dd>
+    <dt>Most treacherous</dt><dd>${traitors.length ? traitors.slice(0, 2).map(x => `${pname(x.p)} ×${x.k}`).join(", ") : "nobody yet"}</dd>
+    <dt>Most loyal</dt><dd>${loyal.length ? pname(loyal[0].p) + ` <span class="muted">${loyal[0].d.toFixed(1)} ally-days</span>` : "—"}</dd>
+    <dt>Banned pairs</dt><dd>${S.settings.banned.length ? S.settings.banned.map(k => k.split("-").map(id => esc(S.players[id].name)).join("–")).join(", ") : "none"}</dd>
+  </dl>`;
+}
+
+function renderMatrix() {
+  const ps = S.players;
+  const cell = (a, b) => {
+    if (a === b) return `<td class="muted">—</td>`;
+    const v = S.rel[a][b], al = sim.alliance(S, a, b);
+    const pct = Math.round(Math.abs(v) * .55);
+    const bg = v >= 0 ? `color-mix(in srgb, var(--accent) ${pct}%, var(--panel))` : `color-mix(in srgb, var(--red) ${pct}%, var(--panel))`;
+    return `<td style="background:${bg}" title="${esc(ps[a].name)} → ${esc(ps[b].name)}: ${v}">${v} ${allyIcon(al)}</td>`;
+  };
+  $("matrix").innerHTML = `<table class="tbl matrix"><tr><th>thinks of →</th>${ps.map(p => `<th>${pname(p)}</th>`).join("")}</tr>
+    ${ps.map(a => `<tr><th>${pname(a)}</th>${ps.map(b => cell(a.id, b.id)).join("")}</tr>`).join("")}</table>`;
+}
+
+function renderAllyHistory() {
+  const T = S.rules.productionTicks;
+  const rows = S.alliances.slice().reverse().map(al => {
+    const a = S.players[al.a], b = S.players[al.b];
+    let status;
+    if (al.ended == null) status = al.warBy != null ? `<span class="tag bad">⚔️ ends tick ${al.endsAt}</span>`
+      : al.locked ? `<span class="tag ok">🔒 locked</span>` : `<span class="tag">🤝 active${al.secret ? " · secret" : ""}</span>`;
+    else status = `<span class="tag">ended</span>`;
+    const how = al.endReason === "betrayal" ? `betrayed by ${pname(S.players[al.warBy])}`
+      : al.endReason === "admin" ? "broken by admin" : al.endReason === "eliminated" ? "a member was eliminated"
+      : al.warBy != null ? `${pname(S.players[al.warBy])} declared war` : "";
+    const days = (((al.ended != null ? al.ended : S.tick) - al.formedTick) / T).toFixed(1);
+    return `<tr><td>${pname(a)} &amp; ${pname(b)}</td><td>${al.by === "admin" ? "admin" : "bots"}</td>
+      <td class="num">${al.formedTurn}</td><td class="num">${al.endedTurn != null ? al.endedTurn : ""}</td>
+      <td class="num">${days}</td><td>${status}</td><td>${how}</td></tr>`;
+  });
+  $("allyHistory").innerHTML = rows.length
+    ? `<table class="tbl"><tr><th>Pair</th><th>Made by</th><th class="num">Formed (turn)</th><th class="num">Ended</th><th class="num">Days</th><th>Status</th><th>How it ended</th></tr>${rows.join("")}</table>`
+    : `<div class="muted small">No alliances yet — step a few turns.</div>`;
+}
+
+/* ---------------- render: empires ---------------- */
+function renderBoard() {
+  const T = sim.TECHS;
+  const short = { scanning:"Sc", range:"Rg", terraforming:"Tf", experimentation:"Ex", weapons:"Wp", banking:"Bk", manufacturing:"Mf" };
+  const ps = S.players.slice().sort((a, b) => sim.totals(S, b.id).stars - sim.totals(S, a.id).stars);
+  $("board").innerHTML = `<table class="tbl"><tr><th>Empire</th><th>Bot</th><th class="num">Stars</th><th class="num">Ships</th>
+    <th class="num">E / I / S</th><th class="num">$</th>${T.map(t => `<th class="num" title="${sim.TECH_LABEL[t]}">${short[t]}</th>`).join("")}
+    <th>Researching</th><th>Allies</th></tr>
+    ${ps.map(p => { const t = sim.totals(S, p.id);
+      return `<tr style="${p.alive ? "" : "opacity:.45"}"><td>${pname(p)}${p.alive ? "" : ` <span class="tag">out t${p.outTurn}</span>`}</td>
+      <td>${esc(sim.PERSONAS[p.persona].label)}</td><td class="num">${t.stars}</td><td class="num">${t.ships}</td>
+      <td class="num">${t.econ} / ${t.industry} / ${t.science}</td><td class="num">${p.credits}</td>
+      ${T.map(k => `<td class="num">${p.tech[k].level}</td>`).join("")}
+      <td>${esc(sim.TECH_LABEL[p.researching])}</td>
+      <td>${sim.alliesOf(S, p.id).map(id => { const al = sim.alliance(S, p.id, id); return allyIcon(al) + esc(S.players[id].name); }).join(", ") || '<span class="muted">—</span>'}</td></tr>`; }).join("")}
+  </table>`;
+}
+
+/* Line chart: one 2px line per empire, legend via direct end labels + the table above. */
+function renderChart() {
+  const m = $("metric").value, st = S.stats, ps = S.players;
+  const W = 760, H = 300, L = 44, Rp = 86, Tp = 12, B = 26;
+  const maxV = Math.max(1, ...st.flatMap(s => s.p.map(x => x[m])));
+  const maxT = Math.max(1, st[st.length - 1].turn);
+  const x = t => L + (t / maxT) * (W - L - Rp), y = v => Tp + (1 - v / maxV) * (H - Tp - B);
+  const ticks = 4, out = [`<g class="grid">`];
+  for (let i = 0; i <= ticks; i++) { const v = maxV * i / ticks; out.push(`<line x1="${L}" x2="${W - Rp}" y1="${y(v)}" y2="${y(v)}"/>`); }
+  out.push(`</g><g class="axis">`);
+  for (let i = 0; i <= ticks; i++) { const v = maxV * i / ticks; out.push(`<text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${Math.round(v)}</text>`); }
+  out.push(`<text x="${L}" y="${H - 6}">turn 0</text><text x="${W - Rp}" y="${H - 6}" text-anchor="end">turn ${maxT}</text></g>`);
+  const ends = [];
+  ps.forEach((p, i) => {
+    const pts = st.map(s => `${x(s.turn).toFixed(1)},${y(s.p[i][m]).toFixed(1)}`).join(" ");
+    out.push(`<polyline points="${pts}" fill="none" stroke="${col(p)}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`);
+    const last = st[st.length - 1].p[i][m];
+    ends.push({ p, y:y(last), v:last });
+  });
+  // end labels, nudged apart so they don't collide
+  ends.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 13) ends[i].y = ends[i - 1].y + 13;
+  ends.forEach(e => out.push(`<circle cx="${W - Rp + 6}" cy="${e.y}" r="4" fill="${col(e.p)}"/><text class="lbl" x="${W - Rp + 14}" y="${e.y + 4}">${esc(e.p.name)} ${e.v}</text>`));
+  out.push(`<line id="cross" x1="0" x2="0" y1="${Tp}" y2="${H - B}" stroke="var(--muted)" stroke-width="1" visibility="hidden"/>`);
+  out.push(`<rect id="hit" x="${L}" y="${Tp}" width="${W - L - Rp}" height="${H - Tp - B}" fill="transparent"/>`);
+  const svg = $("chart");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.innerHTML = out.join("");
+  const tip = $("tip"), cross = svg.querySelector("#cross");
+  svg.querySelector("#hit").onmousemove = e => {
+    const r = svg.getBoundingClientRect(), sx = (e.clientX - r.left) * W / r.width;
+    const t = Math.round((sx - L) / (W - L - Rp) * maxT);
+    const s = st.reduce((best, s) => Math.abs(s.turn - t) < Math.abs(best.turn - t) ? s : best, st[0]);
+    cross.setAttribute("x1", x(s.turn)); cross.setAttribute("x2", x(s.turn)); cross.setAttribute("visibility", "visible");
+    tip.innerHTML = `<b>Turn ${s.turn}</b>` + ps.map((p, i) => ({ p, v:s.p[i][m] })).sort((a, b) => b.v - a.v)
+      .map(o => `<div>${sw(o.p)}${esc(o.p.name)} <b style="margin-left:auto;padding-left:10px">${o.v}</b></div>`).join("");
+    tip.classList.remove("hidden");
+    const px = x(s.turn) * r.width / W;
+    tip.style.left = (px > r.width / 2 ? px - tip.offsetWidth - 12 : px + 12) + "px";
+    tip.style.top = "8px";
+  };
+  svg.querySelector("#hit").onmouseleave = () => { tip.classList.add("hidden"); cross.setAttribute("visibility", "hidden"); };
+}
+$("metric").addEventListener("change", renderChart);
+
+/* ---------------- render: log ---------------- */
+const LOG_TYPES = [["all","All"],["diplomacy","Diplomacy"],["combat","Combat"],["expansion","Expansion"],["research","Research"],["system","System"]];
+let logType = "diplomacy", logWho = "all";
+function renderLogFilters() {
+  $("logFilters").innerHTML = LOG_TYPES.map(([k, l]) => `<button class="toggle ${k === logType ? "active" : ""}" data-lt="${k}">${l}</button>`).join("")
+    + `<select id="logWho"><option value="all">Everyone</option>${S.players.map(p => `<option value="${p.id}" ${String(p.id) === logWho ? "selected" : ""}>${esc(p.name)}</option>`).join("")}</select>`;
+  $("logWho").onchange = e => { logWho = e.target.value; renderLog(); };
+}
+$("logFilters").addEventListener("click", e => { const k = e.target.dataset.lt; if (k) { logType = k; renderLogFilters(); renderLog(); } });
+function renderLog() {
+  const list = S.events.filter(e => (logType === "all" || e.type === logType) && (logWho === "all" || e.players.includes(+logWho)));
+  $("log").innerHTML = list.slice(-500).reverse().map(e => `<div><span class="t">T${e.turn} · ${e.tick}</span>${esc(e.text)}</div>`).join("")
+    || `<div class="muted">Nothing yet.</div>`;
+}
+
+/* ---------------- admin ---------------- */
+function playerOptions(sel) { return S.players.map(p => `<option value="${p.id}" ${p.id === sel ? "selected" : ""}>${esc(p.name)}</option>`).join(""); }
+function renderAdmin() {
+  const a = +($("pA").value || 0), b = +($("pB").value || 1);
+  $("pA").innerHTML = playerOptions(a); $("pB").innerHTML = playerOptions(b < S.players.length ? b : 1);
+  $("giveP").innerHTML = playerOptions(+($("giveP").value || 0));
+  renderPairState();
+  const st = S.settings;
+  $("setLockAll").checked = st.lockAll; $("setInstant").checked = st.instantBreak; $("setCoalition").checked = st.coalitionWin;
+  $("setBetrayal").value = st.betrayal; $("betrayalVal").textContent = st.betrayal === 0 ? "never" : "×" + st.betrayal;
+  $("botRows").innerHTML = S.players.map(p => `<div class="row small" style="${p.alive ? "" : "opacity:.45"}">
+    <span style="min-width:90px">${pname(p)}</span>
+    <select data-persona="${p.id}">${Object.entries(sim.PERSONAS).map(([k, v]) => `<option value="${k}" ${k === p.persona ? "selected" : ""}>${v.label}</option>`).join("")}</select>
+    <span class="muted">${esc(sim.PERSONAS[p.persona].blurb)}</span></div>`).join("");
+}
+function renderPairState() {
+  const a = +$("pA").value, b = +$("pB").value;
+  if (a === b) { $("pairState").textContent = "Pick two different empires."; return; }
+  const al = sim.alliance(S, a, b), banned = S.settings.banned.includes(sim.pairKey(a, b));
+  $("pairState").innerHTML = (al ? `${allyIcon(al)} ${al.warBy != null ? `war declared — alliance ends at tick ${al.endsAt}` : al.locked ? "locked alliance" : "allied"}` : "not allied")
+    + ` · opinions ${S.rel[a][b]} / ${S.rel[b][a]}${banned ? " · 🚫 banned" : ""}`;
+}
+["pA", "pB"].forEach(id => $(id).addEventListener("change", renderPairState));
+document.querySelectorAll("[data-dip]").forEach(btn => btn.addEventListener("click", () => {
+  const a = +$("pA").value, b = +$("pB").value;
+  if (a === b) return;
+  const A = sim.admin;
+  ({ ally:() => A.forceAlliance(S, a, b, false), allyLocked:() => A.forceAlliance(S, a, b, true),
+     lock:() => A.setLocked(S, a, b, true), unlock:() => A.setLocked(S, a, b, false),
+     war:() => A.breakAlliance(S, a, b, false), breakNow:() => A.breakAlliance(S, a, b, true),
+     ban:() => A.setBanned(S, a, b, true), unban:() => A.setBanned(S, a, b, false) })[btn.dataset.dip]();
+  afterChange();
+}));
+$("setLockAll").onchange = e => { S.settings.lockAll = e.target.checked; afterChange(); };
+$("setInstant").onchange = e => { S.settings.instantBreak = e.target.checked; afterChange(); };
+$("setCoalition").onchange = e => { S.settings.coalitionWin = e.target.checked; afterChange(); };
+$("setBetrayal").oninput = e => { S.settings.betrayal = +e.target.value; afterChange(); };
+$("lockAllNow").onclick = () => { sim.admin.lockAllNow(S); afterChange(); };
+$("botRows").addEventListener("change", e => { const id = e.target.dataset.persona; if (id != null) { sim.admin.setPersona(S, +id, e.target.value); afterChange(); } });
+$("giveBtn").onclick = () => { sim.admin.give(S, +$("giveP").value, +$("giveCash").value || 0, +$("giveShips").value || 0); afterChange(); };
+
+/* new game */
+function renderNewGame() {
+  if (!$("ngSeed").value) $("ngSeed").value = Math.floor(Math.random() * 1e6);
+  const lineup = S.players.map(p => p.persona);
+  $("ngSeats").innerHTML = sim.SEATS.map((seat, i) => `<div class="row small">
+    <label class="chk" style="min-width:110px"><input type="checkbox" data-seat-on="${i}" ${i < lineup.length ? "checked" : ""}>
+      <span class="sw" style="background:var(${seat.color})"></span>${seat.name}</label>
+    <select data-seat="${i}">${Object.entries(sim.PERSONAS).map(([k, v]) => `<option value="${k}" ${k === (lineup[i] || sim.DEFAULT_LINEUP[i]) ? "selected" : ""}>${v.label}</option>`).join("")}</select></div>`).join("");
+}
+$("ngRand").onclick = () => { $("ngSeed").value = Math.floor(Math.random() * 1e6); };
+$("ngGo").onclick = () => {
+  const lineup = [];
+  for (let i = 0; i < sim.SEATS.length; i++) if (document.querySelector(`[data-seat-on="${i}"]`).checked) lineup.push(document.querySelector(`[data-seat="${i}"]`).value);
+  if (lineup.length < 2) { alert("Pick at least two empires."); return; }
+  stopAuto();
+  startGame(sim.newGame({ seed:+$("ngSeed").value || 1, lineup, starsPerPlayer:+$("ngStars").value || 12,
+    rules:S.rules, settings:{ lockAll:S.settings.lockAll, betrayal:S.settings.betrayal, instantBreak:S.settings.instantBreak,
+      coalitionWin:S.settings.coalitionWin, maxTurns:+$("ngMax").value || 400 } }));
+  $("ngSeed").value = Math.floor(Math.random() * 1e6);
+  tab = "galaxy"; renderAll();
+};
+
+/* export / import */
+$("exportBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(S)], { type:"application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = `np-sandbox-seed${S.seed}-turn${S.turn}.json`; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+$("importFile").onchange = async e => {
+  const f = e.target.files[0]; if (!f) return;
+  try { const st = JSON.parse(await f.text()); if (!st.stars || !st.players) throw 0; stopAuto(); startGame(st); }
+  catch (err) { alert("That file isn't a sandbox save."); }
+  e.target.value = "";
+};
+
+/* ---------------- rules ---------------- */
+function renderRules() {
+  let group = "";
+  $("rules").innerHTML = `<table class="tbl rules"><tr><th>Rule</th><th>Value</th><th>Default</th><th>Status</th><th>Notes</th></tr>` +
+    sim.RULE_LIST.map(r => {
+      const head = r.group !== group ? `<tr><th colspan="5" style="padding-top:14px;color:var(--text)">${esc(group = r.group)}</th></tr>` : "";
+      const changed = S.rules[r.key] !== r.value;
+      return head + `<tr><td>${esc(r.label)}</td>
+        <td><input type="number" step="any" data-rule="${r.key}" value="${S.rules[r.key]}"></td>
+        <td class="num ${changed ? "" : "muted"}">${r.value}${changed ? " ✎" : ""}</td>
+        <td><span class="tag ${r.confirmed ? "ok" : "warn"}">${r.confirmed ? "confirmed" : "placeholder"}</span></td>
+        <td class="small muted">${esc(r.note || "")}</td></tr>`;
+    }).join("") + `</table>`;
+}
+$("rules").addEventListener("change", e => {
+  const k = e.target.dataset.rule; if (!k) return;
+  const v = parseFloat(e.target.value);
+  if (!isFinite(v) || (k === "carrierSpeed" && v <= 0) || (["productionTicks", "ticksPerTurn"].includes(k) && v < 1)) { renderRules(); return; }
+  S.rules[k] = v; afterChange();
+});
+$("rulesReset").onclick = () => { S.rules = sim.defaultRules(); afterChange(); };
+
+/* ---------------- wiring ---------------- */
+function renderAll() {
+  renderTabs(); renderClock();
+  if (tab === "galaxy") { renderMap(); renderLegend(); renderStarInfo(); }
+  if (tab === "alliances") { renderWeb(); renderAllySummary(); renderMatrix(); renderAllyHistory(); }
+  if (tab === "empires") { renderBoard(); renderChart(); }
+  if (tab === "log") { renderLogFilters(); renderLog(); }
+  if (tab === "admin") { renderAdmin(); renderNewGame(); }
+  if (tab === "rules") renderRules();
+}
+$("bNext").onclick = () => step(1);
+$("bFive").onclick = () => step(5);
+$("bBack").onclick = back;
+$("bAuto").onclick = toggleAuto;
+$("speed").onchange = () => { if (autoTimer) { stopAuto(); toggleAuto(); } };
+document.addEventListener("keydown", e => {
+  if (e.target.matches("input,select,textarea")) return;
+  if (e.key === "n" || e.key === "ArrowRight") step(1);
+  if (e.key === "b" || e.key === "ArrowLeft") back();
+});
+
+const saved = load();
+startGame(saved && saved.stars && saved.v === 1 ? saved : sim.newGame({ seed:Math.floor(Math.random() * 1e6) }));
+</script>
+</body>
+</html>
