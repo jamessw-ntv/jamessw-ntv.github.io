@@ -41,9 +41,26 @@
 
   /* ---- map ---- */
   .mapwrap{position:relative}
-  .map{width:100%;aspect-ratio:1/1;max-height:80vh;display:block;background:#000;border-radius:10px;
+  .map{width:100%;aspect-ratio:1/1;max-height:80vh;display:block;background-color:#000;border-radius:10px;
     border:1px solid var(--line);touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
   .map.dragging{cursor:grabbing}
+  /* Triton look: black space with a faint dust of background stars (CSS, so it never scales with zoom) */
+  .map.triton{background-image:radial-gradient(1px 1px at 12% 18%,rgba(255,255,255,.28),transparent 60%),radial-gradient(1px 1px at 67% 32%,rgba(255,255,255,.2),transparent 60%),
+      radial-gradient(1px 1px at 38% 74%,rgba(210,225,255,.24),transparent 60%),radial-gradient(1px 1px at 85% 83%,rgba(255,255,255,.16),transparent 60%),
+      radial-gradient(1.5px 1.5px at 52% 51%,rgba(255,240,220,.22),transparent 60%),radial-gradient(1px 1px at 23% 92%,rgba(255,255,255,.18),transparent 60%),
+      radial-gradient(1px 1px at 91% 8%,rgba(200,220,255,.2),transparent 60%);background-size:173px 173px}
+  .map.triton text{font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif}
+  .hud{position:absolute;right:56px;top:10px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;pointer-events:none;
+    font-size:12px;font-variant-numeric:tabular-nums}
+  .hud > span{background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:3px 9px;color:#fff}
+  .hud b{color:#ffd66b}
+  .fsbar{display:none}
+  .mapwrap.full{position:fixed;inset:0;z-index:50;background:#000;margin:0}
+  .mapwrap.full .map{width:100vw;height:100vh;height:100dvh;max-height:none;aspect-ratio:auto;border:0;border-radius:0}
+  .mapwrap.full .fsbar{display:flex;position:absolute;left:50%;bottom:14px;transform:translateX(-50%);gap:6px;
+    background:rgba(0,0,0,.75);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px}
+  .mapwrap.full .scalebar{bottom:70px}
+  body.fullmap{overflow:hidden}
   .map [data-s],.map [data-c]{cursor:pointer}
   .map text{pointer-events:none}
   .mapctl{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:6px}
@@ -197,8 +214,17 @@
             <button data-z="in" title="Zoom in">+</button>
             <button data-z="out" title="Zoom out">−</button>
             <button data-z="fit" title="Whole galaxy">⤢</button>
+            <button id="bFull" title="Full-screen map (F)">⛶</button>
           </div>
+          <div class="hud" id="hud"></div>
           <div class="scalebar" id="scalebar"></div>
+          <div class="fsbar">
+            <button class="btn small" data-fs="back">◀</button>
+            <button class="btn small primary" data-fs="next">Next turn ▶</button>
+            <button class="btn small" data-fs="skip">Skip ⏭</button>
+            <button class="btn small" data-fs="auto">Auto</button>
+            <button class="btn small" data-fs="exit">Exit ✕</button>
+          </div>
         </div>
         <div class="row small muted" style="margin-top:8px">
           <label class="small">Labels <select id="optLabels">
@@ -303,6 +329,8 @@
         <label class="chk"><input type="checkbox" data-pb="trails"> Carrier routes</label>
         <label class="chk"><input type="checkbox" data-pb="follow"> Pan to the fighting during playback</label>
         <label class="chk"><input type="checkbox" data-pb="territory"> Territory haze (like the NP Agent)</label>
+        <div class="row small"><span>Map style</span><select id="admStyle">
+          <option value="triton">Triton (glowing stars, nebulae, no grid)</option><option value="clean">Clean (flat, 5 ly grid)</option></select></div>
         <div class="row small"><span>Colours</span><select id="admPalette">
           <option value="triton">Triton (the real game's)</option><option value="hub">Hub swatches</option></select></div>
         <div class="small muted" style="margin:10px 0 4px">Fog of war</div>
@@ -383,7 +411,7 @@ let S, history = [], sel = null;
 /* ---------------- playback prefs (this browser only, not game state) ---------------- */
 const PB_KEY = "npSandbox.pb";
 const PB = Object.assign({ speed:700, pauseCapture:false, pauseWar:true, pauseAlly:false, pauseElim:true,
-  fx:true, trails:true, follow:false, territory:false, palette:"triton", vision:[] },
+  fx:true, trails:true, follow:false, territory:false, palette:"triton", style:"triton", vision:[] },
   (() => { try { return JSON.parse(localStorage.getItem(PB_KEY)) || {}; } catch (e) { return {}; } })());
 function savePB() { try { localStorage.setItem(PB_KEY, JSON.stringify(PB)); } catch (e) {} }
 
@@ -664,13 +692,27 @@ function renderMap() {
   const pre = anim && !anim.post ? anim.before.stars : null;          // stars update once carriers have arrived
   const ownerOf = s => pre ? pre[s.id].owner : s.owner, garrison = s => pre ? pre[s.id].ships : s.ships;
   const fl = fleetList().filter(v => !vis || vis.group.has(v.owner) || sim.inScan(vis, v));
+  const tri = PB.style !== "clean";
+  svg.classList.toggle("triton", tri);
 
-  // faint 5-ly grid so distance is readable at a glance
-  const g0x = Math.floor(V.x / 5) * 5, g0y = Math.floor(V.y / 5) * 5;
-  let grid = "";
-  for (let x = g0x; x < V.x + V.w; x += 5) grid += `M${x} ${V.y}V${V.y + V.h}`;
-  for (let y = g0y; y < V.y + V.h; y += 5) grid += `M${V.x} ${y}H${V.x + V.w}`;
-  out.push(`<path d="${grid}" stroke="var(--line)" stroke-opacity=".35" stroke-width="${f(u)}"/>`);
+  if (tri) {
+    // Triton look: soft nebulae behind everything, then glowing star sprites (defs shared by every star)
+    out.push(`<defs>
+      <radialGradient id="gStar"><stop offset="0" stop-color="#fff"/><stop offset=".18" stop-color="#fff8e6" stop-opacity=".95"/>
+        <stop offset=".45" stop-color="#ffe7b0" stop-opacity=".28"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient>
+      <radialGradient id="gStarDim"><stop offset="0" stop-color="#c9d3e6"/><stop offset=".25" stop-color="#9aa6c0" stop-opacity=".6"/>
+        <stop offset="1" stop-color="#7a86a0" stop-opacity="0"/></radialGradient>
+      <filter id="fGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="${f(2.2 * u)}"/></filter>
+    </defs>`);
+    out.push(nebulae());
+  } else {
+    // faint 5-ly grid so distance is readable at a glance
+    const g0x = Math.floor(V.x / 5) * 5, g0y = Math.floor(V.y / 5) * 5;
+    let grid = "";
+    for (let x = g0x; x < V.x + V.w; x += 5) grid += `M${x} ${V.y}V${V.y + V.h}`;
+    for (let y = g0y; y < V.y + V.h; y += 5) grid += `M${V.x} ${y}H${V.x + V.w}`;
+    out.push(`<path d="${grid}" stroke="var(--line)" stroke-opacity=".35" stroke-width="${f(u)}"/>`);
+  }
 
   // territory haze (like the NP Agent): each owned star's neighbourhood, softly shaded
   if (PB.territory) {
@@ -715,19 +757,50 @@ function renderMap() {
     const dim = focus != null && v.owner !== focus;
     out.push(`<line x1="${f(v.x)}" y1="${f(v.y)}" x2="${t.x}" y2="${t.y}" stroke="${col(o)}" stroke-opacity="${dim ? .15 : isSel ? 1 : .5}"
       stroke-width="${f((isSel ? 2.2 : 1.4) * u)}" stroke-linecap="round"/>`);
+    // multi-stop routes (waypoints / patrol loops from the carrier orders): the legs after this one
+    const wp = v.c && Array.isArray(v.c.waypoints) ? v.c.waypoints.filter(id => S.stars[id]) : [];
+    if (wp.length) {
+      const pts = [t, ...wp.map(id => S.stars[id])];
+      if (v.c.loop) pts.push(pts[0]);
+      out.push(`<polyline points="${pts.map(q => `${q.x},${q.y}`).join(" ")}" fill="none" stroke="${col(o)}" stroke-opacity="${dim ? .1 : isSel ? .85 : .3}"
+        stroke-width="${f((isSel ? 1.8 : 1.1) * u)}" stroke-dasharray="${f(5 * u)} ${f(3 * u)}" stroke-linejoin="round"/>`);
+      if (isSel && Array.isArray(v.c.orders)) v.c.orders.forEach(od => {
+        const q = S.stars[od.star]; if (!q) return;
+        const lbl = { collect:`+${od.n}`, "collect-all":"+all", drop:`−${od.n}`, "drop-all":"−all", garrison:`keep ${od.n}` }[od.action] || od.action;
+        out.push(`<text x="${f(q.x + 9 * u)}" y="${f(q.y - 9 * u)}" font-size="${f(9.5 * u)}" font-weight="700" fill="${col(o)}"
+          paint-order="stroke" stroke="#000" stroke-width="${f(2.4 * u)}">${esc(lbl)}</text>`);
+      });
+    }
   }
 
   // stars
   const ringR = 7 * u, coreR = 2.6 * u, hit = 13 * u, fs = 10.5 * u;
   const orbiting = {};
   for (const v of fl) if (v.at != null) (orbiting[v.at] = orbiting[v.at] || []).push(v);
+  // Triton: a blurred copy of every owner ring underneath gives the rings their bright neon glow
+  if (tri) {
+    const glow = [];
+    for (const s of S.stars) { const ow = ownerOf(s); if (ow < 0) continue;
+      const dim = focus != null && ow !== focus;
+      glow.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR)}" fill="none" stroke="${col(S.players[ow])}" stroke-width="${f(3.4 * u)}" opacity="${dim ? .15 : .9}"/>`); }
+    out.push(`<g filter="url(#fGlow)">${glow.join("")}</g>`);
+  }
   for (const s of S.stars) {
     const ow = ownerOf(s), o = ow >= 0 ? S.players[ow] : null, seen = seesStar(vis, s);
     const dim = focus != null && ow !== focus;
     const op = dim ? .3 : 1;
     const isHome = o && o.home === s.id;
     out.push(`<g data-s="${s.id}" opacity="${op}"><circle cx="${s.x}" cy="${s.y}" r="${f(hit)}" fill="transparent"/>`);
-    if (o) {
+    if (tri) {
+      // star sprite: its glow grows with natural resources, like the bigger stars in the real game
+      const glowR = (4.5 + Math.min(5, Math.sqrt(sim.resources(S, s)) * .75)) * u;
+      out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(glowR)}" fill="url(#${seen ? "gStar" : "gStarDim"})"/>`);
+      if (o) {
+        out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR)}" fill="none" stroke="${col(o)}" stroke-width="${f(2.6 * u)}"/>`);
+        if (isHome) out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR + 3.2 * u)}" fill="none" stroke="${col(o)}" stroke-width="${f(1.1 * u)}"/>`);
+      }
+      out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(coreR * (o ? .8 : .6))}" fill="${seen ? "#fff" : "#9aa3b6"}"/>`);
+    } else if (o) {
       out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR)}" fill="var(--black)" stroke="${col(o)}" stroke-width="${f(2.6 * u)}"/>`);
       if (isHome) out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR + 3 * u)}" fill="none" stroke="${col(o)}" stroke-width="${f(1.1 * u)}"/>`);
       out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(coreR)}" fill="${seen ? "var(--text)" : "#6f788c"}"/>`);
@@ -747,8 +820,9 @@ function renderMap() {
     if (!dim || showNames) {
       const ships = garrison(s) + here.reduce((t, c) => t + c.ships, 0);
       let ly = s.y + ringR + fs * 1.15;
-      if (showNames) { out.push(`<text x="${s.x}" y="${f(ly)}" text-anchor="middle" font-size="${f(fs)}" fill="var(--muted)" opacity="${op}">${esc(s.name)}</text>`); ly += fs * 1.1; }
-      if (showNums && seen && (o || ships)) out.push(`<text x="${s.x}" y="${f(ly)}" text-anchor="middle" font-size="${f(fs * 1.05)}" font-weight="700" fill="var(--text)" opacity="${op}">${ships}</text>`);
+      const halo = tri ? `paint-order="stroke" stroke="#000" stroke-width="${f(2.6 * u)}" stroke-linejoin="round"` : "";
+      if (showNames) { out.push(`<text x="${s.x}" y="${f(ly)}" text-anchor="middle" font-size="${f(fs)}" fill="${tri ? "#b9c0cf" : "var(--muted)"}" ${halo} opacity="${op}">${esc(s.name)}</text>`); ly += fs * 1.1; }
+      if (showNums && seen && (o || ships)) out.push(`<text x="${s.x}" y="${f(ly)}" text-anchor="middle" font-size="${f(fs * 1.05)}" font-weight="700" fill="${tri ? "#fff" : "var(--text)"}" ${halo} opacity="${op}">${ships}</text>`);
       if (showNames && o && seen) out.push(`<text x="${s.x}" y="${f(s.y - ringR - fs * .45)}" text-anchor="middle" font-size="${f(fs * .95)}" fill="var(--text)" opacity="${op * .85}">${s.econ} · ${s.industry} · ${s.science}</text>`);
     }
   }
@@ -762,7 +836,8 @@ function renderMap() {
     out.push(`<g ${v.c ? `data-c="${v.id}"` : ""} opacity="${dim ? .25 : 1}"><circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(11 * u)}" fill="transparent"/>
       <path d="M${pt(0, d * 1.3)}L${pt(2.4, d)}L${pt(Math.PI, d * .35)}L${pt(-2.4, d)}Z" fill="${col(o)}" stroke="#000" stroke-width="${f(1.2 * u)}"/>
       ${isSel ? `<circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(10 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.3 * u)}"/>` : ""}</g>`);
-    if (showNums && !dim) out.push(`<text x="${f(p.x)}" y="${f(p.y + 14 * u)}" text-anchor="middle" font-size="${f(fs)}" font-weight="700" fill="var(--text)">${v.ships}</text>`);
+    if (showNums && !dim) out.push(`<text x="${f(p.x)}" y="${f(p.y + 14 * u)}" text-anchor="middle" font-size="${f(fs)}" font-weight="700"
+      fill="${tri ? `color-mix(in srgb, ${col(o)} 45%, #fff)` : "var(--text)"}" ${tri ? `paint-order="stroke" stroke="#000" stroke-width="${f(2.6 * u)}"` : ""}>${v.ships}</text>`);
   }
 
   // battle / capture / claim bursts while a tick plays back
@@ -781,7 +856,7 @@ function renderMap() {
   if (vis) out.push(`<defs><mask id="fogMask" maskUnits="userSpaceOnUse" x="${f(V.x)}" y="${f(V.y)}" width="${f(V.w)}" height="${f(V.h)}">
       <rect x="${f(V.x)}" y="${f(V.y)}" width="${f(V.w)}" height="${f(V.h)}" fill="#fff"/>
       ${vis.sources.map(o => `<circle cx="${f(o.x)}" cy="${f(o.y)}" r="${o.r}" fill="#000"/>`).join("")}</mask></defs>
-    <rect x="${f(V.x)}" y="${f(V.y)}" width="${f(V.w)}" height="${f(V.h)}" fill="#1a2238" opacity=".42" mask="url(#fogMask)" pointer-events="none"/>`);
+    <rect x="${f(V.x)}" y="${f(V.y)}" width="${f(V.w)}" height="${f(V.h)}" fill="${tri ? "#000" : "#1a2238"}" opacity="${tri ? .62 : .42}" mask="url(#fogMask)" pointer-events="none"/>`);
 
   // selection ring
   if (selStar) out.push(`<circle cx="${selStar.x}" cy="${selStar.y}" r="${f(ringR + 7 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.6 * u)}" stroke-dasharray="${f(3 * u)} ${f(3 * u)}"/>`);
@@ -791,7 +866,37 @@ function renderMap() {
 
   // scale bar: pick a round length that is ~80–160 px long
   const nice = [1, 2, 5, 10, 20, 50].find(n => n * ppl >= 60) || 50;
-  $("scalebar").innerHTML = `<i style="width:${Math.round(nice * ppl)}px"></i>${nice} ly · grid 5 ly`;
+  $("scalebar").innerHTML = `<i style="width:${Math.round(nice * ppl)}px"></i>${nice} ly${tri ? "" : " · grid 5 ly"}`;
+  renderHud();
+}
+
+/* A few soft nebulae, fixed per galaxy (seeded from the game seed, not the game RNG). */
+let nebCache = null;
+function nebulae() {
+  if (nebCache && nebCache.seed === S.seed && nebCache.w === S.width) return nebCache.svg;
+  let t = (S.seed * 2654435761) >>> 0; const r = () => ((t = (t * 1664525 + 1013904223) >>> 0) / 4294967296);
+  const hues = ["#1d3f8f", "#4a1f7a", "#0f5a6b", "#6b1f4f", "#23306e"], out = [];
+  const n = 5 + Math.round(S.width * S.height / 900);
+  for (let i = 0; i < n; i++) {
+    const x = (r() * S.width).toFixed(1), y = (r() * S.height).toFixed(1), rx = 6 + r() * 16, ry = rx * (.45 + r() * .5), rot = (r() * 180).toFixed(0);
+    const c = hues[i % hues.length];
+    out.push(`<radialGradient id="gN${i}"><stop offset="0" stop-color="${c}" stop-opacity=".55"/><stop offset=".6" stop-color="${c}" stop-opacity=".18"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></radialGradient>
+      <ellipse cx="${x}" cy="${y}" rx="${rx.toFixed(1)}" ry="${ry.toFixed(1)}" transform="rotate(${rot} ${x} ${y})" fill="url(#gN${i})"/>`);
+  }
+  const svg = `<g opacity=".6">${out.join("")}</g>`;
+  nebCache = { seed:S.seed, w:S.width, svg };
+  return svg;
+}
+
+/* In-map status, like the real game's top bar: the clock, and the viewed empire's purse. */
+function renderHud() {
+  const R = S.rules, toProd = R.productionTicks - (S.tick % R.productionTicks), bits = [];
+  bits.push(`<span>Tick <b>${S.tick}</b> · production in <b>${toProd}</b></span>`);
+  if (PB.vision.length === 1 && S.players[PB.vision[0]]) {
+    const p = S.players[PB.vision[0]], t = sim.totals(S, p.id);
+    bits.push(`<span>${sw(p)}${esc(p.name)} · <b>$${p.credits}</b> · ${t.stars}★ · ${t.ships} ships</span>`);
+  }
+  $("hud").innerHTML = bits.join("");
 }
 
 /* ---- zoom & pan (mouse wheel, drag, pinch, buttons) ---- */
@@ -1471,6 +1576,22 @@ $("bFive").onclick = () => step(5);
 $("bBack").onclick = back;
 $("bAuto").onclick = toggleAuto;
 $("bSkip").onclick = () => playing && playing.hold ? continueTurn() : skipTurn();
+
+/* full-screen map: the whole window is the galaxy, like the real client */
+function setFull(on) {
+  const w = document.querySelector(".mapwrap");
+  if (on == null) on = !w.classList.contains("full");
+  if (on && tab !== "galaxy") { tab = "galaxy"; renderAll(); }
+  w.classList.toggle("full", on); document.body.classList.toggle("fullmap", on);
+  $("bFull").textContent = on ? "✕" : "⛶"; $("bFull").title = on ? "Leave full screen (Esc)" : "Full-screen map (F)";
+  fitCam(); renderMap();
+}
+$("bFull").onclick = () => setFull();
+document.querySelector(".fsbar").addEventListener("click", e => {
+  const a = e.target.dataset.fs; if (!a) return;
+  ({ back, next:() => playing ? (playing.hold ? continueTurn() : skipTurn()) : step(1),
+     skip:() => playing && playing.hold ? continueTurn() : skipTurn(), auto:toggleAuto, exit:() => setFull(false) })[a]();
+});
 function setSpeed(v) { PB.speed = +v; savePB(); $("speed").value = String(PB.speed); $("admSpeed").value = String(PB.speed); }
 $("speed").onchange = e => setSpeed(e.target.value);
 $("admSpeed").onchange = e => setSpeed(e.target.value);
@@ -1479,12 +1600,13 @@ setSpeed(PB.speed);
 /* playback & vision admin */
 function renderPlaybackAdmin() {
   document.querySelectorAll("[data-pb]").forEach(el => el.checked = !!PB[el.dataset.pb]);
-  $("admPalette").value = PB.palette;
+  $("admPalette").value = PB.palette; $("admStyle").value = PB.style;
   $("setAllyVision").checked = S.settings.allyVision !== false;
   $("tptBtns").innerHTML = [6, 8, 12, 24].map(n => `<button class="toggle ${S.rules.ticksPerTurn === n ? "active" : ""}" data-tpt="${n}" style="padding:4px 10px;font-size:12px">${n}</button>`).join(" ");
 }
 document.querySelectorAll("[data-pb]").forEach(el => el.addEventListener("change", () => { PB[el.dataset.pb] = el.checked; savePB(); renderAll(); }));
 $("admPalette").onchange = e => { PB.palette = e.target.value; savePB(); renderAll(); };
+$("admStyle").onchange = e => { PB.style = e.target.value; savePB(); renderAll(); };
 $("setAllyVision").onchange = e => { S.settings.allyVision = e.target.checked; afterChange(); };
 $("tptBtns").addEventListener("click", e => { const n = +e.target.dataset.tpt; if (n) { if (playing) skipTurn(); S.rules.ticksPerTurn = n; afterChange(); } });
 $("optScan").addEventListener("change", renderMap);
@@ -1493,6 +1615,8 @@ document.addEventListener("keydown", e => {
   if (e.target.matches("input,select,textarea")) return;
   if (e.key === "n" || e.key === "ArrowRight") { if (playing) { playing.hold ? continueTurn() : skipTurn(); } else step(1); }
   if (e.key === "b" || e.key === "ArrowLeft") back();
+  if (e.key === "f") setFull();
+  if (e.key === "Escape" && document.querySelector(".mapwrap.full")) setFull(false);
   if (e.key === " ") { e.preventDefault(); if (playing && playing.hold) continueTurn(); else toggleAuto(); }
 });
 
