@@ -82,7 +82,9 @@ amount isn't in any data we have). Galaxy shapes are modelled on real maps' stat
 ## Simplifications (for now)
 - Bots see everything (no dark galaxy), so Scanning does nothing yet.
 - No tech trading or cash gifts between players yet (the real game has both).
-- Terraforming is on (it's off by default in current real games); Scanning is merged into Range.
+- Terraforming and a separate Scanning tech are off, like a default real game (`terraformOn`
+  and `scanShared` in the Rules tab turn them back on). Players (and bots) can queue a
+  "research next" tech, which takes over when the current level completes.
 - Allied carriers parked at an ally's star stay there as guards.
 - Up to 6 empires (one per hub colour).
 
@@ -90,5 +92,8 @@ amount isn't in any data we have). Galaxy shapes are modelled on real maps' stat
 Warlord, Turtle, Diplomat, Opportunist, Economist, Expansionist. Each has
 aggression, treachery, how much it needs to like you before allying, how many
 allies it wants, how it spends, and what it researches (`PERSONAS` in `sim.js`).
+In a hexgrid galaxy 3–6 empires start evenly round a ring (a centre seat is surrounded and
+almost never won). Over 60 games with personas rotated through the seats, every persona
+wins some: Turtle 14, Warlord 12, Opportunist 12, Economist 9, Expansionist 7, Diplomat 6.
 Opinions drift each production: shared borders breed tension, shared enemies and
 alliances breed trust, and everyone turns on a runaway leader.

@@ -200,6 +200,7 @@
   .ribbon{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 8px;font-size:12px;color:var(--muted)}
   .ribbon b{color:var(--text)}
   .map.targeting{cursor:crosshair}
+  @media (max-width:1440px){.ctrl:has(#viewSw:not(:empty)) .clock .cx{display:none}}   /* keep the bar to one row */
   /* the side column is a stack; whatever you just selected rises to the top of it */
   .side{display:flex;flex-direction:column;gap:14px}
   .side > .box{margin-top:0 !important}
@@ -1681,9 +1682,11 @@ function empireInspector(p) {
         : `<div><span>Cash</span><b>$${p.credits}</b><small>+$${incomeOf(p)}/day</small></div>`}
     </div>
     ${playerView() && !isMe(p) ? "" : `<div class="sec"><h4>Researching ${esc(sim.TECH_LABEL[p.researching])} ${cur.level + 1}</h4>
+      <label class="small muted" style="display:flex;gap:6px;align-items:center;margin-top:6px">Then
+        <select id="resNext" style="flex:1" ${busy ? "disabled" : ""}><option value="">keep going</option>${sim.techsOn(S).map(k => `<option value="${k}" ${k === p.researchingNext ? "selected" : ""}>${esc(sim.TECH_LABEL[k])}</option>`).join("")}</select></label>
       <div class="bar"><i style="width:${Math.min(100, Math.round(cur.rp / cost * 100))}%"></i></div>
       <div class="small muted" style="margin-top:3px">${Math.floor(cur.rp)} / ${cost} RP · +${t.science * R.sciencePerTick} RP/tick</div></div>`}
-    <div class="sec"><h4>Technology</h4>${sim.TECHS.map(k => `<div class="li">${esc(sim.TECH_LABEL[k])}<span class="r">${p.tech[k].level}</span></div>`).join("")}
+    <div class="sec"><h4>Technology</h4>${sim.techsOn(S).map(k => `<div class="li">${esc(sim.TECH_LABEL[k])}<span class="r">${p.tech[k].level}</span></div>`).join("")}
       <div class="li muted">Jump range<span class="r">${sim.range(S, p.id)} ly</span></div></div>
     <div class="sec"><h4>Allies</h4>${playerView() && !isMe(p) ? `<div class="small muted">Other empires' alliances are secret.</div>` : sim.alliesOf(S, p.id).map(id => `<div class="li">${allyIcon(sim.alliance(S, p.id, id))} ${empLink(S.players[id])}</div>`).join("") || `<div class="small muted">None.</div>`}</div>
     ${playerView() ? "" : `<div class="sec"><h4>Feelings</h4>${opinions.map(x => `<div class="li">${empLink(x.q)}<span class="r" style="color:${x.v >= 0 ? "var(--accent)" : "#ffb4b4"}">${x.v > 0 ? "+" : ""}${x.v}</span></div>`).join("")}</div>`}`;
@@ -1763,7 +1766,9 @@ function renderYou() {
         <select id="bulkKind">${kinds.map(([k, l]) => `<option value="${k}">${l}</option>`).join("")}</select>
         <button class="btn small" id="bulkGo" ${busy ? "disabled" : ""}>Buy</button></div></div>
     <div class="sec"><h4>Research</h4>
-      <select id="resSel" style="width:100%" ${busy ? "disabled" : ""}>${sim.TECHS.map(k => `<option value="${k}" ${k === p.researching ? "selected" : ""}>${esc(sim.TECH_LABEL[k])} ${p.tech[k].level} → ${p.tech[k].level + 1}</option>`).join("")}</select>
+      <select id="resSel" style="width:100%" ${busy ? "disabled" : ""}>${sim.techsOn(S).map(k => `<option value="${k}" ${k === p.researching ? "selected" : ""}>${esc(sim.TECH_LABEL[k])} ${p.tech[k].level} → ${p.tech[k].level + 1}</option>`).join("")}</select>
+      <label class="small muted" style="display:flex;gap:6px;align-items:center;margin-top:6px">Then
+        <select id="resNext" style="flex:1" ${busy ? "disabled" : ""}><option value="">keep going</option>${sim.techsOn(S).map(k => `<option value="${k}" ${k === p.researchingNext ? "selected" : ""}>${esc(sim.TECH_LABEL[k])}</option>`).join("")}</select></label>
       <div class="bar"><i style="width:${Math.min(100, Math.round(cur.rp / cost * 100))}%"></i></div>
       <div class="small muted" style="margin-top:3px">${Math.floor(cur.rp)} / ${cost} RP · +${t.science * R.sciencePerTick} RP/tick</div></div>
     <div class="sec"><h4>Diplomacy</h4>
@@ -1795,6 +1800,8 @@ $("you").addEventListener("click", e => {
   if (b.id === "propGo") { const q = S.players[+$("propSel").value]; order(() => sim.act.propose(S, id, q.id), `${q.name} accepted. You're allies.`, "you"); }
 });
 $("you").addEventListener("change", e => {
+  if (e.target.id === "resNext") order(() => { if (!e.target.value) { me().researchingNext = null; return ""; } return sim.act.researchNext(S, humanId(), e.target.value); },
+    e.target.value ? `Next up: ${sim.TECH_LABEL[e.target.value]}.` : "Research stays on the current tech.", "you");
   if (e.target.id === "resSel") order(() => sim.act.research(S, humanId(), e.target.value), `Now researching ${sim.TECH_LABEL[e.target.value]}.`, "you");
 });
 
@@ -1958,18 +1965,19 @@ function renderAllyHistory() {
 /* ---------------- render: empires ---------------- */
 const hide = p => playerView() && !isMe(p);          // a rival's private numbers, in player view
 function renderBoard() {
-  const T = sim.TECHS;
+  const T = sim.techsOn(S);
   const short = { scanning:"Sc", range:"Rg", terraforming:"Tf", experimentation:"Ex", weapons:"Wp", banking:"Bk", manufacturing:"Mf" };
   const ps = S.players.slice().sort((a, b) => sim.totals(S, b.id).stars - sim.totals(S, a.id).stars);
-  $("board").innerHTML = `<table class="tbl nowrap"><tr><th>Empire</th><th>${playerView() ? "" : "Bot"}</th><th class="num">Stars</th><th class="num">Ships</th>
-    <th class="num">E / I / S</th><th class="num">$</th>${T.map(t => `<th class="num" title="${sim.TECH_LABEL[t]}">${short[t]}</th>`).join("")}
+  $("board").innerHTML = `<table class="tbl nowrap"><tr><th>Empire</th><th>${playerView() ? "" : "Bot"}</th><th class="num">Stars</th><th class="num">Ships</th><th class="num" title="Carriers">Carr.</th>
+    <th class="num">E / I / S</th><th class="num" title="Income per production cycle">$/day</th><th class="num" title="Ships built per production cycle">Ships/day</th><th class="num">$</th>${T.map(t => `<th class="num" title="${sim.TECH_LABEL[t]}">${short[t]}</th>`).join("")}
     <th>Researching</th><th>Allies</th></tr>
     ${ps.map(p => { const t = sim.totals(S, p.id);
       return `<tr style="${p.alive ? "" : "opacity:.45"}"><td>${plink(p)}${p.alive ? "" : ` <span class="tag">out t${p.outTurn}</span>`}</td>
-      <td>${esc(botLabel(p))}</td><td class="num">${t.stars}</td><td class="num">${t.ships}</td>
-      <td class="num">${t.econ} / ${t.industry} / ${t.science}</td><td class="num">${hide(p) ? '<span class="muted">?</span>' : p.credits}</td>
+      <td>${esc(botLabel(p))}</td><td class="num">${t.stars}</td><td class="num">${t.ships}</td><td class="num">${t.carriers}</td>
+      <td class="num">${t.econ} / ${t.industry} / ${t.science}</td><td class="num">${incomeOf(p)}</td>
+      <td class="num">${sim.starsOf(S, p.id).reduce((n, st) => n + sim.shipsPerCycle(S, st), 0)}</td><td class="num">${hide(p) ? '<span class="muted">?</span>' : p.credits}</td>
       ${T.map(k => `<td class="num">${p.tech[k].level}</td>`).join("")}
-      <td>${hide(p) ? '<span class="muted">?</span>' : esc(sim.TECH_LABEL[p.researching])}</td>
+      <td>${hide(p) ? '<span class="muted">?</span>' : esc(sim.TECH_LABEL[p.researching]) + (p.researchingNext && p.researchingNext !== p.researching ? ` <span class="muted">then ${esc(sim.TECH_LABEL[p.researchingNext])}</span>` : "")}</td>
       <td>${hide(p) ? (sim.allied(S, p.id, humanId()) ? "🤝" + esc(me().name) : '<span class="muted">secret</span>') : sim.alliesOf(S, p.id).map(id => { const al = sim.alliance(S, p.id, id); return allyIcon(al) + esc(S.players[id].name); }).join(", ") || '<span class="muted">—</span>'}</td></tr>`; }).join("")}
   </table>`;
 }
@@ -2211,7 +2219,7 @@ function renderPlayer() {
   const status = won ? `<span class="tag ok">🏆 winner</span>` : !p.alive ? `<span class="tag bad">eliminated turn ${p.outTurn}</span>` : `<span class="tag">rank ${rank} of ${S.players.length}</span>`;
 
   // tech
-  const techRows = sim.TECHS.map(k => {
+  const techRows = sim.techsOn(S).map(k => {
     const tk = p.tech[k], cost = sim.researchCost(S, p.id, k), on = k === p.researching && !pub;
     const pct = Math.min(100, Math.round(tk.rp / cost * 100));
     const etaT = on && rpTick > 0 ? Math.ceil((cost - tk.rp) / rpTick) : null;

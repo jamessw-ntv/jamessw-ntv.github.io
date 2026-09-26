@@ -22,6 +22,8 @@ var NP_RULES = [   // `var` so the browser exposes it as window.NP_RULES for sim
     note:"0 in current games. Set 75 (and the line above to 0) for classic banking." },
   { key:"manufacturingBase", value:4, group:"Economy", label:"Ship formula constant", confirmed:true,
     note:"Codex: ships per cycle at a star = Industry × (Manufacturing + 4)." },
+  { key:"terraformOn", value:0, group:"Economy", label:"Terraforming tech in the game (1 = yes)", confirmed:true,
+    note:"Off by default in NP4: both real game configs in NPA's test data have noTer 1 without listing it as a changed setting, and players' tech lists have no Terraforming." },
   { key:"terraformBonus", value:5, group:"Economy", label:"Resources per Terraforming level", confirmed:true,
     note:"Codex: resources become 5 × level + natural. Terraforming is off by default in current games." },
   { key:"econBaseCost", value:500, group:"Economy", label:"Economy base cost", confirmed:true,

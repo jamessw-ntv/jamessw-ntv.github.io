@@ -34,13 +34,13 @@ const SEATS = [
    research  tech priorities, first = favourite */
 const PERSONAS = {
   warlord:      { label:"Warlord",      aggr:.90, treach:.50, allyAt:35, maxAllies:1, keep:.15,
-                  spend:{ econ:.35, industry:.50, science:.15 }, research:["weapons","manufacturing","range"],
+                  spend:{ econ:.30, industry:.55, science:.15 }, research:["weapons","manufacturing","range"],
                   blurb:"Builds ships, attacks early, allies only for convenience." },
-  turtle:       { label:"Turtle",       aggr:.25, treach:.05, allyAt:15, maxAllies:2, keep:.50,
+  turtle:       { label:"Turtle",       aggr:.20, treach:.05, allyAt:15, maxAllies:2, keep:.55,
                   spend:{ econ:.45, industry:.35, science:.20 }, research:["weapons","banking","terraforming"],
                   blurb:"Defends what it has, rarely strikes first, very loyal." },
-  diplomat:     { label:"Diplomat",     aggr:.50, treach:.02, allyAt:5,  maxAllies:3, keep:.30,
-                  spend:{ econ:.40, industry:.35, science:.25 }, research:["range","banking","weapons"],
+  diplomat:     { label:"Diplomat",     aggr:.55, treach:.02, allyAt:5,  maxAllies:3, keep:.30,
+                  spend:{ econ:.40, industry:.40, science:.20 }, research:["weapons","range","banking"],
                   blurb:"Collects allies and keeps its word." },
   opportunist:  { label:"Opportunist",  aggr:.65, treach:.45, allyAt:10, maxAllies:2, keep:.25,
                   spend:{ econ:.35, industry:.45, science:.20 }, research:["weapons","range","manufacturing"],
@@ -48,8 +48,8 @@ const PERSONAS = {
   economist:    { label:"Economist",    aggr:.45, treach:.15, allyAt:10, maxAllies:2, keep:.35,
                   spend:{ econ:.45, industry:.40, science:.15 }, research:["banking","terraforming","experimentation","manufacturing"],
                   blurb:"Grows the economy first, fights later." },
-  expansionist: { label:"Expansionist", aggr:.55, treach:.25, allyAt:20, maxAllies:1, keep:.20,
-                  spend:{ econ:.30, industry:.50, science:.20 }, research:["range","manufacturing","terraforming"],
+  expansionist: { label:"Expansionist", aggr:.60, treach:.25, allyAt:15, maxAllies:2, keep:.20,
+                  spend:{ econ:.40, industry:.45, science:.15 }, research:["range","weapons","manufacturing","terraforming"],
                   blurb:"Grabs empty stars as fast as range allows." },
 };
 /* How many looping supply lines (interior stars → frontier) each persona runs. */
@@ -171,7 +171,13 @@ function buildGalaxy(S, n, perPlayer, type) {
       lat.push({ x:(q + r / 2) * HOME_SPACING, y:r * HOME_SPACING * Math.sqrt(3) / 2 });
     const off = { x:(rand(S) - .5) * .1, y:(rand(S) - .5) * .1 };   // break ties differently per seed
     lat.sort((a, b) => dist(a, off) - dist(b, off));
-    homePts = lat.slice(0, n).map(p => tryAdd(p.x + gauss() * .8, p.y + gauss() * .8));
+    // 3–6 empires sit evenly round the first ring: whoever got the centre point was surrounded and almost never won
+    let chosen = lat.slice(0, n);
+    if (n >= 3 && n <= 6) {
+      const ring = lat.slice(1, 7).sort((a, b) => Math.atan2(a.y, a.x) - Math.atan2(b.y, b.x));
+      chosen = Array.from({ length:n }, (_, i) => ring[Math.round(i * 6 / n) % 6]);
+    }
+    homePts = chosen.map(p => tryAdd(p.x + gauss() * .8, p.y + gauss() * .8));
     const spread = Math.sqrt(perPlayer * 22 / Math.PI) * .58;
     fill(total, () => { const h = pick(S, homePts); return { x:h.x + gauss() * spread, y:h.y + gauss() * spread }; });
   } else if (type === "mega_blob") {
@@ -317,7 +323,11 @@ const P = (S, id) => S.players[id];
 const lvl = (S, id, t) => S.players[id].tech[t].level;
 function range(S, id) { return lvl(S, id, "range") + S.rules.rangeBase; }
 function resources(S, star) {
-  return star.res + (star.owner >= 0 ? lvl(S, star.owner, "terraforming") * S.rules.terraformBonus : 0);
+  return star.res + (star.owner >= 0 && S.rules.terraformOn ? lvl(S, star.owner, "terraforming") * S.rules.terraformBonus : 0);
+}
+/* the techs this game has: real games default to no Terraforming (noTer) and no separate Scanning (noScn) */
+function techsOn(S) {
+  return TECHS.filter(t => !(t === "terraforming" && !S.rules.terraformOn) && !(t === "scanning" && S.rules.scanShared));
 }
 const BASE_KEY = { econ:"econBaseCost", industry:"industryBaseCost", science:"scienceBaseCost" };
 function infraCost(S, star, kind) {       // NP4: floor(base × (level+1) ÷ resources)
@@ -667,7 +677,7 @@ function tick(S) {
   // 3. research (every tick)
   for (const p of S.players) if (p.alive) {
     const sci = S.stars.reduce((t, s) => t + (s.owner === p.id ? s.science : 0), 0);
-    addResearch(S, p, p.researching, sci * R.sciencePerTick);
+    addResearch(S, p, p.researching, sci * R.sciencePerTick, true);
   }
 
   // 4. production cycle
@@ -690,13 +700,21 @@ function tick(S) {
   checkVictory(S);
 }
 
-function addResearch(S, p, t, rp) {
+/* `main`: the player's own research, which moves on to "research next" when a level completes
+   (real game: researching = researchingNext). Experimentation's random points never switch it. */
+function addResearch(S, p, t, rp, main) {
   const tech = p.tech[t];
   tech.rp += rp;
   let cost;
   while (tech.rp >= (cost = researchCost(S, p.id, t))) {
     tech.rp -= cost; tech.level++;
     log(S, "research", `${p.name} reached ${TECH_LABEL[t]} ${tech.level}.`, [p.id]);
+    if (main && p.researchingNext && p.researchingNext !== t) {
+      const left = tech.rp; tech.rp = 0;                 // the overflow carries into the next tech
+      p.researching = p.researchingNext;
+      addResearch(S, p, p.researching, left, true);
+      return;
+    }
   }
 }
 
@@ -706,7 +724,7 @@ function production(S) {
     const econ = S.stars.reduce((t, s) => t + (s.owner === p.id ? s.econ : 0), 0);
     p.credits += econ * (R.econCredits + p.tech.banking.level * R.bankingPerEcon) + p.tech.banking.level * R.bankingFlat;
     const x = p.tech.experimentation.level;
-    if (x > 0) addResearch(S, p, pick(S, TECHS), x * R.experimentationRP);
+    if (x > 0) addResearch(S, p, pick(S, techsOn(S)), x * R.experimentationRP);
   }
   updateOpinions(S);
   log(S, "system", `Production cycle ${S.tick / R.productionTicks} paid out.`);
@@ -801,10 +819,12 @@ function botTurn(S, p) {
 }
 
 function botResearch(S, p, persona) {
-  const order = persona.research;
-  let best = order[0];
-  order.forEach((t, i) => { if (p.tech[t].level + i * .5 < p.tech[best].level + order.indexOf(best) * .5) best = t; });
-  p.researching = best;
+  const on = techsOn(S), order = persona.research.filter(t => on.includes(t));
+  if (!order.length) order.push("weapons");
+  const score = t => p.tech[t].level + order.indexOf(t) * .5;
+  const ranked = order.slice().sort((a, b) => score(a) - score(b));
+  p.researching = ranked[0];
+  p.researchingNext = ranked[1] || ranked[0];
 }
 
 function botSpend(S, p, persona) {
@@ -1140,7 +1160,8 @@ const act = {
     }
     return { spent, n };
   },
-  research(S, pid, tech) { if (!TECHS.includes(tech)) return "Unknown tech."; P(S, pid).researching = tech; return ""; },
+  research(S, pid, tech) { if (!techsOn(S).includes(tech)) return "Unknown tech."; P(S, pid).researching = tech; return ""; },
+  researchNext(S, pid, tech) { if (!techsOn(S).includes(tech)) return "Unknown tech."; P(S, pid).researchingNext = tech; return ""; },
   /* send n ships from a star (garrison + own parked carriers) to a star within jump range;
      builds a carrier there first if none is parked */
   send(S, pid, fromId, toId, n) {
@@ -1229,7 +1250,7 @@ const act = {
   },
 };
 
-const API = { ACTIONS, transferFor, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
+const API = { techsOn, ACTIONS, transferFor, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
   defaultRules, newGame, nextTurn, beginTurn, endTurn, tick, admin, act,
   range, resources, infraCost, researchCost, shipsPerCycle, totals, starsOf, winTarget,
   alliance, allied, alliesOf, carrierPos, scanRange, scanSources, inScan, eta, fight, shipsToWin, pairKey, dist };
