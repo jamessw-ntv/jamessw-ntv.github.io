@@ -665,14 +665,15 @@ function fleetList() {
   for (const [id, b] of Object.entries(anim.before.carriers)) {
     const c = now[id];
     if (c) { const p = pos(c); out.push({ c, id:c.id, x:lerp(b.x, p.x), y:lerp(b.y, p.y), owner:c.owner,
-      ships:anim.post ? c.ships : b.ships, to:b.to, from:b.from, at:anim.post ? c.at : b.at }); }
+      ships:anim.post ? c.ships : b.ships, to:c.to != null ? c.to : b.to, from:c.from != null ? c.from : b.from,
+      at:anim.post || b.at == null ? c.at : b.at }); }                  // a carrier can leave orbit mid-tick (route orders)
     else if (!anim.post) {
       const d = b.at == null ? S.stars[b.to] : b;
       out.push({ id:+id, x:lerp(b.x, d.x), y:lerp(b.y, d.y), owner:b.owner, ships:b.ships, to:b.to, from:b.from, at:b.at });
     }
   }
   S.carriers.forEach(c => { if (!anim.before.carriers[c.id]) { const p = pos(c); out.push({ c, id:c.id, x:p.x, y:p.y, owner:c.owner, ships:c.ships, to:c.to, from:c.from, at:c.at }); } });
-  return out;
+  return out.filter(v => v.at != null || S.stars[v.to]);
 }
 function snapshotMotion() {
   const m = { carriers:{}, stars:S.stars.map(s => ({ owner:s.owner, ships:s.ships })) };
@@ -695,7 +696,7 @@ function animateTick(before, evs) {
       const t = Math.min(1, (now - t0) / dur);
       anim.t = t; anim.move = Math.min(1, t / moveEnd);
       if (t >= moveEnd && !anim.post) { anim.post = true; }
-      renderMap();
+      try { renderMap(); } catch (err) { console.error(err); anim = null; return res(); }   // never leave a turn stuck
       if (t < 1) requestAnimationFrame(frame); else { anim = null; res(); }
     };
     requestAnimationFrame(frame);
