@@ -42,13 +42,17 @@
   /* ---- map (drawn to look like the Triton client: black space, white star
      cores, owner rings with a shape per player, counts under stars) ---- */
   .mapwrap{position:relative}
-  .map{width:100%;height:auto;aspect-ratio:1/1;display:block;background:#000;border-radius:10px;border:1px solid var(--line);
+  .map{width:100%;height:auto;aspect-ratio:1/1;display:block;background-color:#000;
+    background-image:radial-gradient(1px 1px at 12% 18%,rgba(255,255,255,.14),transparent 60%),radial-gradient(1px 1px at 67% 32%,rgba(255,255,255,.1),transparent 60%),
+      radial-gradient(1px 1px at 38% 74%,rgba(255,255,255,.12),transparent 60%),radial-gradient(1px 1px at 85% 83%,rgba(255,255,255,.08),transparent 60%),
+      radial-gradient(1px 1px at 52% 51%,rgba(255,255,255,.06),transparent 60%),radial-gradient(1px 1px at 23% 92%,rgba(255,255,255,.09),transparent 60%);
+    background-size:137px 137px;border-radius:10px;border:1px solid var(--line);
     touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
   .map.drag{cursor:grabbing}
   .map .star{cursor:pointer}
   .map text{pointer-events:none;font-family:var(--font);font-weight:600}
   .map .lblShips{fill:#fff;paint-order:stroke;stroke:#000;stroke-width:3px}
-  .map .lblName{fill:#9aa6c2;paint-order:stroke;stroke:#000;stroke-width:3px;font-weight:500}
+  .map .lblName{fill:#c8c8c8;font-weight:500}
   .map .lblFleet{paint-order:stroke;stroke:#000;stroke-width:3px}
   .mapbtns{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:4px}
   .mapbtns button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:rgba(22,29,47,.85);
@@ -67,6 +71,7 @@
   .feed div{padding:4px 0;border-bottom:1px solid var(--line)}
   .feed .t{color:var(--muted);font-variant-numeric:tabular-nums;display:inline-block;min-width:44px}
   .feed .new{animation:flash 1.2s ease-out}
+  .feed .go{cursor:pointer} .feed .go:hover{color:var(--accent)}
   @keyframes flash{from{background:var(--accent-soft)}to{background:transparent}}
   .sw{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:6px}
   .legend div{display:flex;align-items:center;gap:6px;font-size:13px;padding:3px 0}
@@ -126,10 +131,10 @@
   <div class="ctrl">
     <div class="clock" id="clock"></div>
     <button class="btn" id="bBack" title="Rewind one turn">◀ Back</button>
-    <button class="btn primary" id="bNext" title="Process the next turn (N)">Next turn ▶</button>
+    <button class="btn primary" id="bNext" title="Play the next turn (N or →)">Next turn ▶</button>
     <button class="btn" id="bFive">+5 turns</button>
     <button class="btn" id="bAuto">▶ Auto</button>
-    <button class="btn hidden" id="bSkip" title="Finish this turn's ticks instantly">Skip ⏭</button>
+    <button class="btn" id="bSkip" disabled title="Finish this turn's ticks instantly">Skip ⏭</button>
     <select id="speed" title="How fast each tick plays back">
       <option value="1400">Slow ticks</option><option value="700">Normal ticks</option><option value="300">Fast ticks</option><option value="0">Instant</option>
     </select>
@@ -155,7 +160,7 @@
           <label class="chk"><input type="checkbox" id="optAlly" checked> Alliance links</label>
           <label class="chk"><input type="checkbox" id="optFleets" checked> Carriers</label>
           <label class="chk"><input type="checkbox" id="optScan"> Scanning ranges</label>
-          <span style="margin-left:auto">Scroll or pinch to zoom · drag to pan</span>
+          <span style="margin-left:auto">Scroll or pinch to zoom · drag to pan · keys: N next, B back, Space auto</span>
         </div>
       </div>
       <div>
@@ -242,6 +247,7 @@
         <label class="chk"><input type="checkbox" data-pb="fx"> Combat and capture flashes</label>
         <label class="chk"><input type="checkbox" data-pb="trails"> Carrier routes</label>
         <label class="chk"><input type="checkbox" data-pb="follow"> Pan to the fighting during playback</label>
+        <label class="chk"><input type="checkbox" data-pb="territory"> Territory haze (like the NP Agent)</label>
         <label class="chk"><input type="checkbox" data-pb="shapes"> A different ring shape per empire</label>
         <div class="row small"><span>Colours</span><select id="admPalette">
           <option value="triton">Triton (the real game's)</option><option value="hub">Hub swatches</option></select></div>
@@ -316,9 +322,12 @@ let S, history = [], selStar = null;
 function save() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } catch (e) {} }
 function load() { try { return JSON.parse(localStorage.getItem(SAVE_KEY) || "null"); } catch (e) { return null; } }
 function snap() { history[S.turn] = JSON.stringify(S); history.length = S.turn + 1; }
-function startGame(state) { S = state; history = []; snap(); selStar = null; cam = null; feedReset();
+function startGame(state) { S = state; history = []; snap(); selStar = null; cam = null; feedRebuild();
   PB.vision = PB.vision.filter(id => id < S.players.length); save(); renderAll(); }
-function afterChange() { sim.checkVictory(S); snap(); save(); renderAll(); }   // admin edits become part of this turn
+function afterChange() {                    // admin edits become part of this turn
+  if (playing) { skipTurn(); }              // finish the turn first so a half-played turn is never saved
+  sim.checkVictory(S); if (!playing) { snap(); save(); } renderAll();
+}
 
 /* ---------------- playback prefs (this browser only, not game state) ---------------- */
 const PB_KEY = "npSandbox.pb";
@@ -333,24 +342,38 @@ function savePB() { try { localStorage.setItem(PB_KEY, JSON.stringify(PB)); } ca
 let playing = null;          // { tick, of, skip, hold } while a turn is playing back
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
+const evMark = () => S.events[S.events.length - 1];
+const evSince = m => S.events.slice(m ? S.events.lastIndexOf(m) + 1 : 0);
+async function holdFor(why) {
+  const p = new Promise(r => playing.hold = r);   // Continue / Skip resolves it
+  playing.why = why; renderAll(); renderPlaying();
+  await p;
+  playing.hold = null; playing.why = "";
+  renderPlaying();
+}
 async function playTurn() {
-  if (playing || S.winner || !sim.beginTurn(S)) return;
+  if (playing || S.winner) return;
+  let mark = evMark();
+  if (!sim.beginTurn(S)) return;
   const of = S.rules.ticksPerTurn;
-  playing = { tick:0, of, skip:PB.speed <= 0, hold:null };
-  renderClock(); renderPlaying(); renderAll();
+  playing = { tick:0, of, skip:PB.speed <= 0, hold:null, why:"" };
+  const orders = evSince(mark).map(e => Object.assign({}, e, { orders:true }));   // diplomacy from the bots' orders
+  feedPush(orders);
+  renderAll();
+  const w0 = !playing.skip && pauseReason(orders);
+  if (w0) await holdFor(w0);
   for (let i = 0; i < of && !S.winner; i++) {
     const before = snapshotMotion();
+    mark = evMark();
     sim.tick(S);
     playing.tick = i + 1;
-    const evs = S.events.filter(e => e.tick === S.tick);
+    const evs = evSince(mark);
     if (!playing.skip && tab === "galaxy") await animateTick(before, evs);
     feedPush(evs);
+    renderClock(); renderPlaying();
+    if (tab === "galaxy") { renderFeed(); renderLegend(); renderStarInfo(); if (playing.skip) renderMap(); }
     const why = !playing.skip && pauseReason(evs);
-    if (why && i < of - 1) {
-      renderAll(); renderPlaying(why);
-      await new Promise(r => playing.hold = r);   // Continue / Skip resolves it
-      playing.hold = null;
-    }
+    if (why && i < of - 1) await holdFor(why);
   }
   sim.endTurn(S);
   playing = null;
@@ -360,7 +383,7 @@ async function playTurn() {
 function pauseReason(evs) {
   for (const e of evs) {
     if (PB.pauseCapture && e.type === "combat" && / captured /.test(e.text)) return "Star captured";
-    if (PB.pauseWar && e.type === "diplomacy" && /declared war|at war/.test(e.text)) return "Betrayal";
+    if (PB.pauseWar && e.type === "diplomacy" && /declared war on ally/.test(e.text)) return "Betrayal";
     if (PB.pauseAlly && e.type === "diplomacy" && /formed an alliance/.test(e.text)) return "New alliance";
     if (PB.pauseElim && /eliminated/.test(e.text)) return "Empire eliminated";
   }
@@ -370,17 +393,19 @@ function skipTurn() { if (!playing) return; playing.skip = true; if (playing.hol
 function continueTurn() { if (playing && playing.hold) playing.hold(); }
 
 async function step(n) {
+  if (playing) return;
   for (let i = 0; i < n && !S.winner; i++) {
-    if (n > 1 && PB.speed > 0 && i < n - 1) { sim.nextTurn(S); snap(); feedReset(); continue; }   // +5 only animates the last
+    if (n > 1 && PB.speed > 0 && i < n - 1) { sim.nextTurn(S); snap(); continue; }   // +5 only animates the last
     feedReset();
     await playTurn();
   }
 }
 function back() {
+  if (autoOn) stopAuto();
   if (playing || S.turn === 0 || !history[S.turn - 1]) return;
   S = JSON.parse(history[S.turn - 1]);
   history.length = S.turn + 1;
-  feedReset(); save(); renderAll();
+  feedRebuild(); save(); renderAll();
 }
 let autoOn = false;
 function stopAuto() { autoOn = false; $("bAuto").textContent = "▶ Auto"; }
@@ -391,23 +416,35 @@ async function toggleAuto() {
   while (autoOn && !S.winner) {
     if (!playing) { feedReset(); await playTurn(); }
     await wait(PB.speed > 0 ? 400 : 120);
-    if (playing && playing.hold) stopAuto();      // a pause-on-event stops auto-play too
   }
 }
 
 /* ---------------- "This turn" feed ---------------- */
 let feed = [];
 function feedReset() { feed = []; }
+function feedRebuild() {                     // after a rewind or reload: the last turn's events
+  const from = S.tick - S.rules.ticksPerTurn;
+  feed = S.turn ? S.events.filter(e => e.tick > from || (e.tick === from && e.type === "diplomacy"))
+    .map(e => Object.assign({}, e, { orders:e.tick === from })) : [];
+}
 function feedPush(evs) { evs.forEach(e => feed.push(Object.assign({ fresh:true }, e))); }
 function renderFeed() {
   const vis = visionSet();
   const list = feed.filter(e => e.type !== "system" || /🏆/.test(e.text))
     .filter(e => !vis || e.players.some(id => vis.group.has(id)) || (e.star != null && sim.inScan(vis, S.stars[e.star])));
   $("feed").innerHTML = list.slice().reverse().map(e => {
-    const html = `<div class="${e.fresh ? "new" : ""}"><span class="t">tick ${e.tick}</span>${esc(e.text)}</div>`;
+    const html = `<div class="${e.fresh ? "new" : ""}${e.star != null ? " go" : ""}" ${e.star != null ? `data-star="${e.star}" title="Show ${esc(S.stars[e.star].name)} on the map"` : ""}>
+      <span class="t">${e.orders ? "orders" : "tick " + e.tick}</span>${esc(e.text)}</div>`;
     e.fresh = false; return html;
   }).join("") || `<div class="muted">${S.turn === 0 ? "Press Next turn to start." : "Quiet so far."}</div>`;
 }
+
+$("feed").addEventListener("click", e => {
+  const row = e.target.closest("[data-star]"); if (!row) return;
+  const st = S.stars[+row.dataset.star]; selStar = st.id;
+  if (cam && (st.x < cam.x || st.x > cam.x + cam.w || st.y < cam.y || st.y > cam.y + cam.h)) { cam.x = st.x - cam.w / 2; cam.y = st.y - cam.h / 2; }
+  renderMap(); renderStarInfo();
+});
 
 /* ---------------- vision (fog of war) ---------------- */
 function visionSet() {
@@ -448,7 +485,11 @@ function renderClock() {
   const toProd = R.productionTicks - (S.tick % R.productionTicks);
   $("clock").innerHTML = `<b>Turn ${S.turn}</b> · tick ${S.tick} · day ${day} · production in ${toProd} ticks · ${R.ticksPerTurn} ticks/turn`;
   $("bBack").disabled = S.turn === 0 || !history[S.turn - 1];
-  $("bNext").disabled = $("bFive").disabled = $("bAuto").disabled = !!S.winner;
+  $("bNext").disabled = $("bFive").disabled = !!S.winner || !!playing;
+  $("bAuto").disabled = !!S.winner;
+  renderPlaying();
+  if (playing && tab !== "galaxy") $("clock").innerHTML += ` · <b style="color:var(--accent)">playing tick ${Math.min(playing.of, playing.tick + (playing.hold ? 0 : 1))}/${playing.of}</b>`
+    + (playing.why ? ` · <b style="color:#ffd479">paused: ${esc(playing.why)}</b>` : "");
   if (S.winner) {
     const w = S.winner, names = w.ids.map(id => pname(S.players[id])).join(" + ");
     const how = { solo:"holds enough stars to win", last:"is the last empire standing",
@@ -487,9 +528,13 @@ const K = 46, PAD = 1;
 let cam = null;
 function fitCam() { cam = { x:-PAD, y:-PAD, w:S.width + PAD * 2, h:S.height + PAD * 2 }; }
 function pxPerLy() { const r = $("map").getBoundingClientRect(); return (r.width || 600) / cam.w; }
-function applyCam() { $("map").setAttribute("viewBox", `${cam.x * K} ${cam.y * K} ${cam.w * K} ${cam.h * K}`); }
+function clampCam() {                      // keep at least part of the galaxy on screen
+  const lo = -PAD - cam.w * .6, hiX = S.width + PAD - cam.w * .4, hiY = S.height + PAD - cam.h * .4;
+  cam.x = Math.min(Math.max(cam.x, lo), hiX); cam.y = Math.min(Math.max(cam.y, -PAD - cam.h * .6), hiY);
+}
+function applyCam() { clampCam(); $("map").setAttribute("viewBox", `${cam.x * K} ${cam.y * K} ${cam.w * K} ${cam.h * K}`); }
 function zoomAt(f, cx, cy) {             // f > 1 zooms in, about galaxy point (cx, cy)
-  const full = S.width + PAD * 2, w = Math.min(full * 1.2, Math.max(2.5, cam.w / f)), k = w / cam.w;
+  const full = S.width + PAD * 2, w = Math.min(full, Math.max(2.5, cam.w / f)), k = w / cam.w;
   cam = { x:cx - (cx - cam.x) * k, y:cy - (cy - cam.y) * k, w, h:w };
   applyCam(); drawStatic(); drawFleets();
 }
@@ -500,7 +545,10 @@ function toGalaxy(ev) {
 (function wireCamera() {
   const map = $("map"), pts = new Map();
   let drag = null, moved = false, pinch = null;
-  map.addEventListener("wheel", e => { e.preventDefault(); const g = toGalaxy(e); zoomAt(e.deltaY < 0 ? 1.2 : 1 / 1.2, g.x, g.y); }, { passive:false });
+  map.addEventListener("wheel", e => {
+    if (e.deltaY > 0 && cam.w >= S.width + PAD * 2 - 1e-6) return;       // fully zoomed out: let the page scroll
+    e.preventDefault(); const g = toGalaxy(e); zoomAt(e.deltaY < 0 ? 1.2 : 1 / 1.2, g.x, g.y);
+  }, { passive:false });
   map.addEventListener("pointerdown", e => {
     pts.set(e.pointerId, e); map.setPointerCapture(e.pointerId); moved = false;
     if (pts.size === 1) drag = { x:e.clientX, y:e.clientY, cam:Object.assign({}, cam) };
@@ -542,16 +590,6 @@ function toGalaxy(ev) {
   $("zFit").onclick = () => { fitCam(); applyCam(); drawStatic(); drawFleets(); };
 })();
 
-/* A faint, fixed starfield behind everything (seeded from the game seed, not the game RNG). */
-function starfield() {
-  let t = S.seed * 7919 >>> 0; const r = () => ((t = (t * 1664525 + 1013904223) >>> 0) / 4294967296);
-  const out = [], W = S.width + PAD * 2;
-  for (let i = 0; i < W * W * 5; i++) {
-    out.push(`<circle cx="${((r() * W - PAD) * K).toFixed(1)}" cy="${((r() * W - PAD) * K).toFixed(1)}" r="${(r() * .9 + .3).toFixed(2)}" fill="#fff" opacity="${(r() * .25 + .05).toFixed(2)}"/>`);
-  }
-  return out.join("");
-}
-
 /* Motion snapshot before a tick, so the next frames can glide carriers between ticks. */
 function snapshotMotion() {
   const m = { carriers:{}, stars:S.stars.map(s => ({ owner:s.owner, ships:s.ships })) };
@@ -574,7 +612,7 @@ function animateTick(before, evs) {
   return new Promise(res => {
     const t0 = performance.now(), moveEnd = .72;
     let staticPost = false;
-    anim = { before, t:0, fx, staticPost:false };
+    anim = { before, t:0, move:0, fx, staticPost:false };
     drawStatic(before.stars);
     const frame = now => {
       if (!playing || playing.skip) { anim = null; drawStatic(); drawFleets(); return res(); }
@@ -603,8 +641,9 @@ function drawStatic(pre) {
   if (selStar != null) {
     const s = S.stars[selStar], o = starOwner(s);
     if (o >= 0) {
-      out.push(`<circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${sim.scanRange(S, o) * K}" fill="none" stroke="#9ec5ff" stroke-opacity=".55" stroke-width="${px(1.2)}"/>`);
-      out.push(`<circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${sim.range(S, o) * K}" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="${px(1.2)}" stroke-dasharray="${px(5)} ${px(5)}"/>`);
+      const c = col(S.players[o]);   // hyperspace range = faint disc, scanning range = thin ring
+      out.push(`<circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${sim.range(S, o) * K}" fill="${c}" fill-opacity=".07" stroke="none"/>`);
+      out.push(`<circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${sim.scanRange(S, o) * K}" fill="none" stroke="${c}" stroke-opacity=".6" stroke-width="${px(1.2)}"/>`);
     }
   }
   if ($("optAlly").checked) {
@@ -612,26 +651,36 @@ function drawStatic(pre) {
     for (const al of S.alliances) if (al.ended == null) {
       if (vis && !(vis.group.has(al.a) || vis.group.has(al.b))) continue;     // secret alliances stay secret
       const a = cap(al.a), b = cap(al.b); if (!a || !b) continue;
-      out.push(`<line x1="${X(a.x)}" y1="${Y(a.y)}" x2="${X(b.x)}" y2="${Y(b.y)}" stroke="#fff" stroke-opacity=".3"
-        stroke-width="${px(al.locked ? 3 : 1.5)}" ${al.warBy != null ? `stroke-dasharray="${px(6)} ${px(5)}"` : ""}/>`);
+      const gid = `ag${al.id}`;          // not in the real game: a sandbox overlay, dotted so it never reads as a route
+      out.push(`<defs><linearGradient id="${gid}" gradientUnits="userSpaceOnUse" x1="${X(a.x)}" y1="${Y(a.y)}" x2="${X(b.x)}" y2="${Y(b.y)}">
+        <stop offset="0" stop-color="${col(S.players[al.a])}"/><stop offset="1" stop-color="${col(S.players[al.b])}"/></linearGradient></defs>
+        <line x1="${X(a.x)}" y1="${Y(a.y)}" x2="${X(b.x)}" y2="${Y(b.y)}" stroke="url(#${gid})" stroke-opacity="${al.warBy != null ? .3 : .55}"
+        stroke-width="${px(al.locked ? 2.5 : 1.5)}" stroke-dasharray="${al.warBy != null ? `${px(8)} ${px(6)}` : `${px(1)} ${px(5)}`}" stroke-linecap="round"/>`);
     }
+  }
+  // territory haze (NP Agent style): each empire's reach, softly shaded
+  if (PB.territory) {
+    out.push(`<g style="mix-blend-mode:screen">`);
+    for (const s of S.stars) { const ow = starOwner(s); if (ow < 0) continue;
+      out.push(`<circle cx="${X(s.x)}" cy="${Y(s.y)}" r="${K * 1.6}" fill="${col(S.players[ow])}" fill-opacity=".09"/>`); }
+    out.push(`</g>`);
   }
   // carrier routes
   if ($("optFleets").checked && PB.trails) for (const c of S.carriers) if (c.at == null) {
     const p = sim.carrierPos(S, c), t = S.stars[c.to];
     if (vis && !vis.group.has(c.owner) && !sim.inScan(vis, p)) continue;
     out.push(`<line x1="${X(S.stars[c.from].x)}" y1="${Y(S.stars[c.from].y)}" x2="${X(t.x)}" y2="${Y(t.y)}" stroke="${col(S.players[c.owner])}"
-      stroke-opacity=".55" stroke-width="${px(1.3)}" stroke-dasharray="${px(2)} ${px(4)}" stroke-linecap="round"/>`);
+      stroke-opacity=".45" stroke-width="${px(1.5)}" stroke-linecap="round"/>`);
   }
   // stars
-  const labels = [], showNames = $("optNames").checked && ppl * 1.1 > 34;
+  const labels = [], showNames = $("optNames").checked && ppl > 40;
   for (const s of S.stars) {
     const ow = starOwner(s), o = ow >= 0 ? S.players[ow] : null;
     const seen = !vis || vis.group.has(ow) || sim.inScan(vis, s);
-    const core = px(1.6 + Math.sqrt(sim.resources(S, s)) * .42);
-    const ring = px(8.5);
-    out.push(`<g class="star" transform="translate(${X(s.x)} ${Y(s.y)})" opacity="${seen ? 1 : .55}">
-      ${o ? `<g fill="none" stroke="${col(o)}" stroke-width="${px(2.4)}">${shapePath(shapeOf(o), ring)}</g>` : ""}
+    const core = px(1.8 + Math.min(1.4, Math.sqrt(sim.resources(S, s)) * .2));
+    const ring = px(7.5);
+    out.push(`<g class="star" transform="translate(${X(s.x)} ${Y(s.y)})">
+      ${o ? `<g fill="none" stroke="${col(o)}" stroke-width="${px(3)}">${shapePath(shapeOf(o), ring)}</g>` : ""}
       <circle r="${core}" fill="${seen ? "#fff" : "#8a93a8"}"/>
       ${selStar === s.id ? `<circle r="${ring + px(5)}" fill="none" stroke="#fff" stroke-width="${px(1.5)}"/>` : ""}</g>`);
     if (seen) {
@@ -639,7 +688,7 @@ function drawStatic(pre) {
       const ships = (s.owner >= 0 || parked ? starShips(s) + parked : 0);
       if (ships > 0) labels.push(`<text class="lblShips" x="${X(s.x)}" y="${Y(s.y) + ring + px(12)}" text-anchor="middle" font-size="${px(11)}" stroke-width="${px(3)}">${ships}</text>`);
     }
-    if (showNames) labels.push(`<text class="lblName" x="${X(s.x)}" y="${Y(s.y) - ring - px(5)}" text-anchor="middle" font-size="${px(10)}" stroke-width="${px(3)}">${esc(s.name)}</text>`);
+    if (showNames) labels.push(`<text class="lblName" x="${X(s.x)}" y="${Y(s.y) - ring - px(5)}" text-anchor="middle" font-size="${px(9)}">${esc(s.name)}</text>`);
   }
   // fog: darken everything outside the viewers' scanning
   let fog = "";
@@ -648,12 +697,11 @@ function drawStatic(pre) {
     fog = `<defs><mask id="fogMask" maskUnits="userSpaceOnUse" x="${-PAD * 2 * K}" y="${-PAD * 2 * K}" width="${W}" height="${W}">
       <rect x="${-PAD * 2 * K}" y="${-PAD * 2 * K}" width="${W}" height="${W}" fill="#fff"/>
       ${vis.sources.map(o => `<circle cx="${X(o.x)}" cy="${Y(o.y)}" r="${o.r * K}" fill="#000"/>`).join("")}</mask></defs>
-      <rect x="${-PAD * 2 * K}" y="${-PAD * 2 * K}" width="${W}" height="${W}" fill="#000" opacity=".55" mask="url(#fogMask)" pointer-events="none"/>`;
+      <rect x="${-PAD * 2 * K}" y="${-PAD * 2 * K}" width="${W}" height="${W}" fill="#1a2238" opacity=".45" mask="url(#fogMask)" pointer-events="none"/>`;
   }
   const map = $("map");
   if (!map.dataset.seed || map.dataset.seed !== String(S.seed)) {
-    map.innerHTML = `<g id="lyField"></g><g id="lyStatic"></g><g id="lyFog"></g><g id="lyFleets"></g><g id="lyFx"></g><g id="lyLabels"></g>`;
-    map.querySelector("#lyField").innerHTML = starfield();
+    map.innerHTML = `<g id="lyStatic"></g><g id="lyFog"></g><g id="lyFleets"></g><g id="lyFx"></g><g id="lyLabels"></g>`;
     map.dataset.seed = S.seed;
   }
   map.querySelector("#lyStatic").innerHTML = out.join("");
@@ -690,12 +738,19 @@ function drawFleets() {
     let x = v.x * K, y = v.y * K, ang;
     if (v.at != null) {
       const k = orbitN[v.at] = (orbitN[v.at] || 0) + 1;
-      ang = -Math.PI / 4 + (k - 1) * Math.PI / 3; x += Math.cos(ang) * px(13); y += Math.sin(ang) * px(13);
+      ang = -Math.PI / 4 + (k - 1) * Math.PI / 3;
     } else { const t = S.stars[v.to]; ang = Math.atan2(t.y - v.y, t.x - v.x); }
-    const deg = ang * 180 / Math.PI, s = px(6);
+    if (v.at != null) {                                   // parked: a small dot tucked inside the ring
+      out.push(`<circle cx="${(v.x * K + Math.cos(ang) * px(4.5)).toFixed(1)}" cy="${(v.y * K + Math.sin(ang) * px(4.5)).toFixed(1)}" r="${px(2.2)}" fill="${color}" stroke="#000" stroke-width="${px(.8)}"/>`);
+      continue;
+    }
+    // in flight: a filled disc with a small chevron for its heading, count to the right
+    const deg = ang * 180 / Math.PI, r = px(4);
+    const nearStar = S.stars.some(st => (st.x - v.x) ** 2 + (st.y - v.y) ** 2 < (px(18) / K) ** 2);
     out.push(`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})">
-      <polygon points="${s},0 ${-s * .8},${-s * .75} ${-s * .35},0 ${-s * .8},${s * .75}" transform="rotate(${deg.toFixed(1)})" fill="${color}" stroke="#000" stroke-width="${px(1.2)}"/>
-      ${v.at == null ? `<text class="lblFleet" y="${-px(8)}" text-anchor="middle" font-size="${px(10)}" stroke-width="${px(3)}" fill="color-mix(in srgb, ${color} 55%, #fff)">${v.ships}</text>` : ""}</g>`);
+      <polygon points="${r * 1.9},0 ${r * .9},${-r * .8} ${r * .9},${r * .8}" transform="rotate(${deg.toFixed(1)})" fill="${color}"/>
+      <circle r="${r}" fill="${color}" stroke="#000" stroke-width="${px(1)}"/>
+      ${nearStar ? "" : `<text class="lblFleet" x="${px(7)}" y="${px(4)}" font-size="${px(10)}" stroke-width="${px(3)}" fill="color-mix(in srgb, ${color} 55%, #fff)">${v.ships}</text>`}</g>`);
   }
   lay.innerHTML = out.join("");
 }
@@ -717,14 +772,18 @@ function renderMap() { drawStatic(); drawFleets(); }
 ["optNames", "optAlly", "optFleets", "optScan"].forEach(id => $(id).addEventListener("change", renderMap));
 
 /* The tick progress strip over the map while a turn plays back. */
-function renderPlaying(why) {
-  $("bSkip").classList.toggle("hidden", !playing);
-  $("bSkip").textContent = playing && playing.hold ? "Continue ▶" : "Skip ⏭";
-  ["bNext", "bFive", "bBack"].forEach(id => $(id).disabled = !!playing || (id !== "bBack" && !!S.winner) || (id === "bBack" && (S.turn === 0 || !history[S.turn - 1])));
+function renderPlaying() {
+  const sk = $("bSkip");
+  sk.disabled = !playing;
+  sk.textContent = playing && playing.hold ? "Continue ▶" : "Skip ⏭";
+  sk.classList.toggle("primary", !!(playing && playing.hold));
+  ["bNext", "bFive"].forEach(id => $(id).disabled = !!playing || !!S.winner);
+  $("bBack").disabled = !!playing || S.turn === 0 || !history[S.turn - 1];
   if (!playing) { $("tickbar").innerHTML = ""; return; }
-  const pips = Array.from({ length:playing.of }, (_, i) => `<i class="${i < playing.tick ? "on" : ""}"></i>`).join("");
-  $("tickbar").innerHTML = `<span class="pill">Turn ${S.turn} · tick ${playing.tick}/${playing.of}</span><span class="pips">${pips}</span>
-    ${why ? `<span class="pill" style="border-color:var(--yellow);color:#ffd479">⏸ ${esc(why)} — press Continue</span>` : ""}`;
+  const cur = Math.min(playing.of, playing.tick + (playing.hold || !anim ? 0 : 1));
+  const pips = Array.from({ length:playing.of }, (_, i) => `<i class="${i < cur ? "on" : ""}"></i>`).join("");
+  $("tickbar").innerHTML = `<span class="pill">Turn ${S.turn} · tick ${cur}/${playing.of}</span><span class="pips">${pips}</span>
+    ${playing.why ? `<span class="pill" style="border-color:var(--yellow);color:#ffd479">Paused: ${esc(playing.why)} · press Continue</span>` : ""}`;
 }
 
 function renderLegend() {
@@ -737,8 +796,15 @@ function renderLegend() {
 function renderStarInfo() {
   if (selStar == null) return;
   const s = S.stars[selStar], o = s.owner >= 0 ? S.players[s.owner] : null;
+  const vis = visionSet();
+  if (vis && !vis.group.has(s.owner) && !sim.inScan(vis, s)) {           // fog: only the owner is known
+    $("starInfo").innerHTML = `<div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">${esc(s.name)}</div>
+      <dl class="kv"><dt>Owner</dt><dd>${o ? pname(o) : "unclaimed"}</dd></dl>
+      <div style="margin-top:8px">Outside the scanning range of ${[...vis.group].map(id => esc(S.players[id].name)).join(", ")}: ships and infrastructure unknown.</div>`;
+    return;
+  }
   const parked = S.carriers.filter(c => c.at === s.id);
-  const inbound = S.carriers.filter(c => c.at == null && c.to === s.id);
+  const inbound = S.carriers.filter(c => c.at == null && c.to === s.id && (!vis || vis.group.has(c.owner) || sim.inScan(vis, sim.carrierPos(S, c))));
   const kv = [
     ["Owner", o ? pname(o) : "unclaimed"],
     ["Resources", sim.resources(S, s) + (o && sim.resources(S, s) !== s.res ? ` <span class="muted">(${s.res} natural)</span>` : "")],
@@ -959,7 +1025,7 @@ function renderPlaybackAdmin() {
 document.querySelectorAll("[data-pb]").forEach(el => el.addEventListener("change", () => { PB[el.dataset.pb] = el.checked; savePB(); renderAll(); }));
 $("admPalette").onchange = e => { PB.palette = e.target.value; savePB(); renderAll(); };
 $("setAllyVision").onchange = e => { S.settings.allyVision = e.target.checked; afterChange(); };
-$("tptBtns").addEventListener("click", e => { const n = +e.target.dataset.tpt; if (n && !playing) { S.rules.ticksPerTurn = n; afterChange(); } });
+$("tptBtns").addEventListener("click", e => { const n = +e.target.dataset.tpt; if (n) { if (playing) skipTurn(); S.rules.ticksPerTurn = n; afterChange(); } });
 $("setLockAll").onchange = e => { S.settings.lockAll = e.target.checked; afterChange(); };
 $("setInstant").onchange = e => { S.settings.instantBreak = e.target.checked; afterChange(); };
 $("setCoalition").onchange = e => { S.settings.coalitionWin = e.target.checked; afterChange(); };
@@ -1051,7 +1117,7 @@ document.addEventListener("keydown", e => {
   if (e.target.matches("input,select,textarea")) return;
   if (e.key === "n" || e.key === "ArrowRight") { if (playing) { playing.hold ? continueTurn() : skipTurn(); } else step(1); }
   if (e.key === "b" || e.key === "ArrowLeft") back();
-  if (e.key === " " && playing) { e.preventDefault(); playing.hold ? continueTurn() : skipTurn(); }
+  if (e.key === " ") { e.preventDefault(); if (playing && playing.hold) continueTurn(); else toggleAuto(); }
 });
 
 const saved = load();
