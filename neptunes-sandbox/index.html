@@ -869,7 +869,13 @@ function renderMap() {
   if (fleets) drawRoutes(out, u, f, fl, selCarrier, vis);
 
   // stars
-  const ringR = (tri ? 6.2 : 7) * u, coreR = 2.6 * u, hit = 13 * u, fs = (tri ? 11 : 10.5) * u;
+  const ringR = (tri ? 6.2 : 7) * u, coreR = 2.6 * u, hit = Math.max(13 * u, 20 * V.u), fs = (tri ? 11 : 10.5) * u;   // hit ≥ 40px across
+  // while picking route stops: light up the stars the carrier can jump to next, dim the rest
+  let pickFrom = null, pickRange = 0;
+  if (typeof RE !== "undefined" && RE && RE.pick) {
+    const pc = S.carriers.find(x => x.id === RE.id);
+    if (pc) { pickFrom = RE.stops.length ? S.stars[RE.stops[RE.stops.length - 1].star] : S.stars[pc.at != null ? pc.at : pc.to]; pickRange = sim.range(S, pc.owner); }
+  }
   const orbiting = {};
   for (const v of fl) if (v.at != null) (orbiting[v.at] = orbiting[v.at] || []).push(v);
   // Triton: a blurred copy of every owner ring underneath gives the rings their bright neon glow
@@ -883,7 +889,7 @@ function renderMap() {
   for (const s of S.stars) {
     const ow = ownerOf(s), o = ow >= 0 ? S.players[ow] : null, seen = seesStar(vis, s);
     const dim = focus != null && ow !== focus;
-    const op = dim ? .3 : 1;
+    const op = pickFrom ? (s === pickFrom || sim.dist(pickFrom, s) <= pickRange ? 1 : .22) : dim ? .3 : 1;
     const isHome = o && o.home === s.id;
     out.push(`<g data-s="${s.id}" opacity="${op}"><circle cx="${s.x}" cy="${s.y}" r="${f(hit)}" fill="transparent"/>`);
     if (tri) {
@@ -904,12 +910,20 @@ function renderMap() {
     }
     // carriers parked here: small diamonds orbiting the ring, one per player
     const here = fleets ? orbiting[s.id] || [] : [];
+    // one tappable marker per owner (it selects that owner's first carrier here), with a count when there are several
     const byOwner = {};
-    here.forEach(c => byOwner[c.owner] = (byOwner[c.owner] || 0) + c.ships);
+    here.forEach(c => (byOwner[c.owner] = byOwner[c.owner] || []).push(c));
     Object.keys(byOwner).forEach((pid, i) => {
+      const list = byOwner[pid], first = list.find(v => v.c) || list[0];
       const ang = -Math.PI / 4 + i * 0.9, R = ringR + 5 * u, cx = s.x + Math.cos(ang) * R, cy = s.y + Math.sin(ang) * R, d = 3.6 * u;
+      out.push(`<g ${first.c ? `data-c="${first.id}"` : ""}><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(Math.max(7 * u, 12 * V.u))}" fill="transparent"/>`);
       out.push(tri ? `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(2.8 * u)}" fill="${col(S.players[pid])}" stroke="#000" stroke-width="${f(.9 * u)}"/>`
         : `<path d="M${f(cx)} ${f(cy - d)}L${f(cx + d)} ${f(cy)}L${f(cx)} ${f(cy + d)}L${f(cx - d)} ${f(cy)}Z" fill="${col(S.players[pid])}" stroke="var(--black)" stroke-width="${f(u)}"/>`);
+      if (list.length > 1) out.push(`<text x="${f(cx + 3.6 * u)}" y="${f(cy - 2.6 * u)}" font-size="${f(8 * u)}" font-weight="700" fill="#fff"
+        paint-order="stroke" stroke="#000" stroke-width="${f(2 * u)}">×${list.length}</text>`);
+      if (sel && sel.kind === "carrier" && list.some(v => v.id === sel.id))
+        out.push(`<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(5 * u)}" fill="none" stroke="#fff" stroke-width="${f(1.2 * u)}"/>`);
+      out.push(`</g>`);
     });
     out.push(`</g>`);
     // labels (level of detail by zoom)
@@ -934,7 +948,7 @@ function renderMap() {
       ? `<circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(4 * u)}" fill="${col(o)}" stroke="#000" stroke-width="${f(u)}"/>
          <path d="M${pt(0, 2.6 * u)}L${pt(2.5, 2.2 * u)}L${pt(Math.PI, .6 * u)}L${pt(-2.5, 2.2 * u)}Z" fill="#fff"/>`
       : `<path d="M${pt(0, d * 1.3)}L${pt(2.4, d)}L${pt(Math.PI, d * .35)}L${pt(-2.4, d)}Z" fill="${col(o)}" stroke="#000" stroke-width="${f(1.2 * u)}"/>`;
-    out.push(`<g ${v.c ? `data-c="${v.id}"` : ""} opacity="${dim ? .25 : 1}"><circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(11 * u)}" fill="transparent"/>
+    out.push(`<g ${v.c ? `data-c="${v.id}"` : ""} opacity="${dim ? .25 : 1}"><circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(Math.max(11 * u, 16 * V.u))}" fill="transparent"/>
       ${glyph}
       ${isSel ? `<circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(10 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.3 * u)}"/>` : ""}</g>`);
     if (showNums && !dim) out.push(`<text x="${f(p.x + (tri ? 6.5 * u : 0))}" y="${f(p.y + (tri ? 3.8 * u : 14 * u))}" text-anchor="${tri ? "start" : "middle"}" font-size="${f(fs * (tri ? .9 : 1))}" font-weight="700"
@@ -1071,7 +1085,14 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     svg.classList.remove("dragging");
     if (!wasClick || e.type === "pointercancel") return;
     const hitEl = document.elementFromPoint(e.clientX, e.clientY);
-    const g = hitEl && hitEl.closest("[data-s],[data-c]");
+    let g = hitEl && hitEl.closest("[data-s],[data-c]"), far = false;
+    if (!g) {                                   // near miss: snap to the closest star within ~24px; ignore misses near stars
+      const V = camBox(), r = svg.getBoundingClientRect(), wx = V.x + (e.clientX - r.left) * V.u, wy = V.y + (e.clientY - r.top) * V.u;
+      let best = null, bd = Infinity;
+      for (const st of S.stars) { const d = Math.hypot(st.x - wx, st.y - wy); if (d < bd) { bd = d; best = st; } }
+      if (best && bd <= 24 * V.u) g = { dataset:{ s:String(best.id) } };
+      else far = !best || bd > 60 * V.u;
+    }
     if (RE && RE.pick) { if (g && g.dataset.s != null) pickStop(+g.dataset.s); return; }
     if (targeting && sel && sel.kind === "star") {       // choosing where to send ships
       const to = g && g.dataset.s != null ? +g.dataset.s : null, from = S.stars[sel.id];
@@ -1082,7 +1103,7 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
       } else targeting = false;
       renderMap(); renderInspector(); return;
     }
-    if (!g) { sel = null; }
+    if (!g) { if (!far) return; sel = null; }
     else if (g.dataset.c != null) sel = { kind:"carrier", id:+g.dataset.c };
     else sel = { kind:"star", id:+g.dataset.s };
     if (!sel || sel.kind !== "star") { sendTo = null; targeting = false; }
