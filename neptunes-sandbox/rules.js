@@ -50,11 +50,12 @@ var NP_RULES = [   // `var` so the browser exposes it as window.NP_RULES for sim
     note:"Real game config: fleetCost 25 (default), no increase per carrier (fleetInc 0)." },
 
   // ---- scanning ----
-  { key:"scanBase", value:3, group:"Scanning", label:"Scanning range = Scanning level + this (ly)", confirmed:false,
-    note:"Placeholder until checked against the Codex." },
-  { key:"scanShared", value:0, group:"Scanning", label:"Scanning uses the Hyperspace level (1 = yes)", confirmed:false,
-    note:"Some current games merge Scanning and Range into one tech." },
-  { key:"carriersScan", value:0, group:"Scanning", label:"Carriers scan too (1 = yes)", confirmed:false },
+  { key:"scanBase", value:4, group:"Scanning", label:"Scanning range = Scanning level + this (ly)", confirmed:true,
+    note:"Real game data: at Hyperspace 12 a player saw every star up to 15.9 ly from their stars and none beyond 16.1 ly, so level + 4, the same as jump range." },
+  { key:"scanShared", value:1, group:"Scanning", label:"Scanning uses the Hyperspace level (1 = yes)", confirmed:true,
+    note:"Default in NP4 (noScn = 1): games have no separate Scanning tech, and NPA reads scanning from the Hyperspace level." },
+  { key:"carriersScan", value:0, group:"Scanning", label:"Carriers scan too (1 = yes)", confirmed:true,
+    note:"Real game data: an unscanned star sat 1.2 ly from the player's own carrier." },
 
   // ---- combat ----
   { key:"defenderWeaponBonus", value:1, group:"Combat", label:"Defender weapons bonus", confirmed:true,
