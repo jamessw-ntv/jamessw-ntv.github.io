@@ -194,6 +194,20 @@
   .ribbon{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 8px;font-size:12px;color:var(--muted)}
   .ribbon b{color:var(--text)}
   .map.targeting{cursor:crosshair}
+  /* phones: the turn bar is one scrollable row, and the inspector sits right under the map */
+  @media (max-width:860px){
+    .side{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+    .side > .box{margin-top:0}
+    .side > .insp{order:-1}
+  }
+  @media (max-width:600px){
+    .ctrl{flex-wrap:nowrap;overflow-x:auto;gap:6px;padding:6px 8px;scrollbar-width:none}
+    .ctrl::-webkit-scrollbar{display:none}
+    .ctrl .clock{margin-right:0;white-space:nowrap}
+    .ctrl .clock .cx{display:none}
+    .ctrl .btn,.ctrl select,.viewsw button{white-space:nowrap;flex-shrink:0}
+    .ctrl .btn{padding:6px 10px}
+  }
   /* ---- carrier orders (route editor) ---- */
   .stops{counter-reset:stop}
   .stop{display:grid;grid-template-columns:22px 1fr auto;gap:4px 6px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px}
@@ -293,13 +307,13 @@
           <span><svg width="14" height="14"><path d="M2 2 L13 7 L2 12 L5 7Z" fill="var(--blue)"/></svg>carrier in flight</span>
           <span>Under a star: ships · above: Economy · Industry · Science</span>
           <span>Scroll/pinch to zoom · drag to pan · click anything</span>
-          <span>Keys: N next turn · B back · Space auto / continue · V player/admin view</span>
+          <span>Keys: N next turn · B back · Space auto / continue · V player/admin view · T pick a target · Enter launch</span>
         </div>
       </div>
-      <div>
+      <div class="side">
         <div class="box youbox hidden" id="youBox"><h2 id="youTitle">Your empire</h2><div id="you"></div></div>
         <div class="box"><h2>Empires</h2><div class="legend" id="legend"></div></div>
-        <div class="box"><h2 id="inspTitle">Inspector</h2><div id="inspect"></div></div>
+        <div class="box insp"><h2 id="inspTitle">Inspector</h2><div id="inspect"></div></div>
         <div class="box"><h2>This turn</h2><div class="feed" id="feed"></div></div>
       </div>
     </div>
@@ -649,7 +663,7 @@ $("tabs").addEventListener("click", e => {
 function renderClock() {
   const R = S.rules, day = Math.floor(S.tick / R.productionTicks) + 1;
   const toProd = R.productionTicks - (S.tick % R.productionTicks);
-  $("clock").innerHTML = `<b>Turn ${S.turn}</b> · tick ${S.tick} · day ${day} · production in ${toProd} ticks · ${R.ticksPerTurn} ticks/turn`;
+  $("clock").innerHTML = `<b>Turn ${S.turn}</b><span class="cx"> · tick ${S.tick} · day ${day} · production in ${toProd} ticks · ${R.ticksPerTurn} ticks/turn</span>`;
   if (playing && tab !== "galaxy") $("clock").innerHTML += ` · <b style="color:var(--accent)">playing tick ${playing.tick}/${playing.of}</b>`
     + (playing.why ? ` · <b style="color:#ffd479">paused: ${esc(playing.why)}</b>` : "");
   $("bBack").disabled = !!playing || S.turn === 0 || !history[S.turn - 1];
@@ -1206,8 +1220,9 @@ function starInspector(s) {
     <div class="insp-sub">${o ? `Owned by ${empLink(o)}` : "Unclaimed"}${homeOf ? ` · home star of ${esc(homeOf.name)}` : ""}
       · resources <b style="color:var(--text)">${res}</b>${res !== s.res ? ` (${s.res} natural)` : ""}</div>
     ${infra}
-    ${starOrders(s)}
+    ${starBuy(s)}
     <div class="sec"><h4>${ctl != null ? "Ships here" : "Defence"}</h4>${defence}</div>
+    ${starOrders(s)}
     <div class="sec"><h4>Incoming</h4>${incoming}</div>
     <div class="sec"><h4>Within jump range of</h4>${reach.length ? reach.map(x => `<div class="li">${empLink(x.p)}<span class="r">${x.d.toFixed(1)} ly</span></div>`).join("") : `<div class="small muted">No other empire can reach it yet.</div>`}</div>
     <div class="sec"><h4>Nearest stars</h4>${near.map(x => `<div class="li">${x.t.owner >= 0 ? sw(S.players[x.t.owner]) : `<span class="sw" style="background:var(--muted)"></span>`}${starLink(x.t)}
@@ -1634,27 +1649,38 @@ function reachable(s) {
   const id = humanId(), r = sim.range(S, id);
   return S.stars.filter(t => t !== s && sim.dist(s, t) <= r + 1e-9).sort((a, b) => sim.dist(s, a) - sim.dist(s, b));
 }
+/* buying at one of your stars; shown right under its infrastructure */
+function starBuy(s) {
+  const id = humanId(); if (id == null || !S.players[id].alive || s.owner !== id) return "";
+  const p = S.players[id], busy = !!playing;
+  return `<div class="orders">${[["econ", "Economy"], ["industry", "Industry"], ["science", "Science"]].map(([k, l]) => { const c = sim.infraCost(S, s, k);
+    return `<button class="btn" data-sbuy="${k}" ${busy || c > p.credits ? "disabled" : ""}>+1 ${l}<small>$${c}</small></button>`; }).join("")}</div>`;
+}
+/* sending ships from a star you own (or where your carriers wait); shown under "Ships here".
+   Defaults to the parked carrier's load (or half the garrison), so one tap never strips a star. */
+let sendN = null;                              // what the player typed, kept across re-renders of the same star
 function starOrders(s) {
   const id = humanId(); if (id == null || !S.players[id].alive) return "";
   const mine = s.owner === id, avail = sendableFrom(s);
-  const hasCarrier = S.carriers.some(c => c.at === s.id && c.owner === id);
-  if (!mine && !hasCarrier) return "";
-  const p = S.players[id], busy = !!playing;
-  const buy = mine ? `<div class="orders">${[["econ", "Economy"], ["industry", "Industry"], ["science", "Science"]].map(([k, l]) => { const c = sim.infraCost(S, s, k);
-    return `<button class="btn" data-sbuy="${k}" ${busy || c > p.credits ? "disabled" : ""}>+1 ${l}<small>$${c}</small></button>`; }).join("")}</div>` : "";
+  const reuse = S.carriers.find(c => c.at === s.id && c.owner === id && !(c.route && c.route.length));   // the one launch() will take
+  if (!mine && !S.carriers.some(c => c.at === s.id && c.owner === id)) return "";
+  const busy = !!playing;
+  const def = reuse && reuse.ships > 0 ? reuse.ships : Math.max(1, Math.floor(avail / 2));
+  const n = sendN != null && sendN.star === s.id ? Math.min(sendN.n, avail) : Math.min(def, avail);
   const targets = reachable(s);
   if (sendTo != null && !targets.some(t => t.id === sendTo)) sendTo = null;
   const opt = t => { const o = t.owner >= 0 ? S.players[t.owner] : null, ticks = Math.ceil(sim.dist(s, t) / S.rules.carrierSpeed);
     const who = !o ? "empty" : o.id === id ? "yours" : sim.allied(S, id, o.id) ? `ally ${o.name}` : o.name;
     return `<option value="${t.id}" ${t.id === sendTo ? "selected" : ""}>${esc(t.name)} · ${esc(who)} · ${ticks} ticks</option>`; };
-  const send = avail ? `<div class="sendrow"><span class="small">Send</span><input type="number" id="sendN" min="1" max="${avail}" value="${avail}">
-      <span class="small">of ${avail} ships to</span></div>
+  const chips = [["½", Math.max(1, Math.floor(avail / 2))], ["All but 1", Math.max(1, avail - 1)], ["All", avail]];
+  const send = avail ? `<div class="sendrow"><span class="small">Send</span><input type="number" id="sendN" min="1" max="${avail}" value="${n}">
+      <span class="small">of ${avail}</span>${chips.map(([l, v]) => `<button class="btn small" data-sn="${v}" title="${v} ships">${l}</button>`).join("")}</div>
     <div class="sendrow"><select id="sendTo"><option value="">choose a star…</option>${targets.map(opt).join("")}</select>
-      <button class="btn small" id="pickMap" aria-pressed="${targeting}" ${busy ? "disabled" : ""}>${targeting ? "Picking… (Esc)" : "Pick on map"}</button></div>
-    <div class="sendrow"><button class="btn small primary" id="sendGo" ${busy ? "disabled" : ""}>${hasCarrier ? "Launch" : `Build carrier ($${S.rules.carrierCost}) and launch`}</button>
+      <button class="btn small" id="pickMap" aria-pressed="${targeting}" ${busy ? "disabled" : ""} title="T">${targeting ? "Picking… (Esc)" : "Pick on map"}</button></div>
+    <div class="sendrow"><button class="btn small primary" id="sendGo" ${busy ? "disabled" : ""} title="Enter">${reuse ? `Launch carrier #${reuse.id}` : `Build carrier ($${S.rules.carrierCost}) and launch`}</button>
       <span class="small muted" id="sendPred"></span></div>`
     : `<div class="small muted">No ships here to send yet.</div>`;
-  return `<div class="sec"><h4>Your orders</h4>${buy}${send}${msgHtml()}</div>`;
+  return `<div class="sec"><h4>Send ships</h4>${send}${msgHtml()}</div>`;
 }
 function sendPrediction(s) {
   const el = $("sendPred"); if (!el) return;
@@ -1670,6 +1696,7 @@ $("inspect").addEventListener("click", e => {
   const s = S.stars[sel.id], b = e.target.closest("button"); if (!b) return;
   if (b.dataset.sbuy) { const k = b.dataset.sbuy, c = sim.infraCost(S, s, k);
     order(() => sim.act.buy(S, id, s.id, k), `Bought ${KIND[k]} at ${s.name} for $${c}.`); }
+  if (b.dataset.sn) { sendN = { star:s.id, n:+b.dataset.sn }; $("sendN").value = b.dataset.sn; sendPrediction(s); return; }
   if (b.id === "pickMap") { targeting = !targeting; renderInspector(); renderMap();
     if (targeting) { $("map").style.scrollMarginTop = document.querySelector(".ctrl").offsetHeight + 8 + "px";   // clear the sticky bar
       $("map").scrollIntoView({ block:"start", behavior:"smooth" }); } }
@@ -1677,13 +1704,13 @@ $("inspect").addEventListener("click", e => {
     const to = sendTo, n = +$("sendN").value;
     if (to == null) { say("Choose a destination first.", false); return; }
     const name = S.stars[to].name;
-    if (order(() => sim.act.send(S, id, s.id, to, n), `${n} ship${n === 1 ? "" : "s"} launched for ${name}.`)) { sendTo = null; targeting = false; renderInspector(); renderMap(); }
+    if (order(() => sim.act.send(S, id, s.id, to, n), `${n} ship${n === 1 ? "" : "s"} launched for ${name}.`)) { sendTo = null; sendN = null; targeting = false; renderInspector(); renderMap(); }
   }
 });
 $("inspect").addEventListener("change", e => {
   if (e.target.id === "sendTo") { sendTo = e.target.value === "" ? null : +e.target.value; sendPrediction(S.stars[sel.id]); renderMap(); }
 });
-$("inspect").addEventListener("input", e => { if (e.target.id === "sendN" && sel && sel.kind === "star") sendPrediction(S.stars[sel.id]); });
+$("inspect").addEventListener("input", e => { if (e.target.id === "sendN" && sel && sel.kind === "star") { sendN = { star:sel.id, n:+e.target.value || 1 }; sendPrediction(S.stars[sel.id]); } });
 
 /* ---------------- render: alliances ---------------- */
 function allyIcon(al) { return !al ? "" : al.warBy != null ? "⚔️" : al.locked ? "🔒" : "🤝"; }
@@ -2204,6 +2231,8 @@ document.addEventListener("keydown", e => {
   if (e.key === "n" || e.key === "ArrowRight") { if (playing) { playing.hold ? continueTurn() : skipTurn(); } else step(1); }
   if (e.key === "b" || e.key === "ArrowLeft") back();
   if ((e.key === "v" || e.key === "V") && humanId() != null) setView(playerView() ? "admin" : "player");
+  if ((e.key === "t" || e.key === "T") && $("pickMap") && !$("pickMap").disabled) $("pickMap").click();       // pick a send target on the map
+  if (e.key === "Enter" && !RE && sendTo != null && $("sendGo") && !$("sendGo").disabled) { e.preventDefault(); $("sendGo").click(); }
   if (e.key === "f") setFull();
   if (e.key === "Escape" && document.querySelector(".mapwrap.full")) setFull(false);
   if (e.key === " ") { e.preventDefault(); if (playing && playing.hold) continueTurn(); else toggleAuto(); }
