@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-26",
-    "fetched": "2026-09-26T19:38:43+00:00",
+    "fetched": "2026-09-26T22:36:13+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
+      "temp": 10,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 13
+      "wind": 12
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119447.0,
-        "pct": -0.1
+        "price": 119845.0,
+        "pct": 0.34
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3815.29,
-        "pct": -0.47
+        "price": 3822.11,
+        "pct": -0.14
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Chuck Varga, Founding Member of Heavy Metal Band Gwar, Dies at 68",
+      "title": "‘SNL U.K.’ Mocks Donald Trump and Andy Burnham’s First Meeting, Harvey Weinstein, Sam Altman and More in Wild Weekend Update",
       "when": "26 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/chuck-varga-dead-gwar-founding-member-1236876474/"
+      "url": "https://variety.com/2026/tv/global/snl-uk-weekend-update-trump-harvey-weinstein-1236876637/"
     },
     {
       "cat": "Film/TV",
-      "title": "How to Watch Henry Cejudo vs. Javon Walton Boxing Live Online",
+      "title": "Emmy Rossum Says Nude ‘Shameless’ Scenes Affected Her Dating Life Because Men Had ‘Preconceived Notions’ of ‘How I Was Sexually’",
       "when": "26 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-henry-cejudo-vs-javon-walton-boxing-live-sept-2026-online-1236872320/"
+      "url": "https://variety.com/2026/tv/news/emmy-rossum-nude-shameless-scenes-1236876622/"
     },
     {
       "cat": "Film/TV",
-      "title": "Melissa Barrera Says She Would Return to ‘Scream’ Franchise If the Rights ‘Were Ever to Leave’ Spyglass: ‘I Had an Amazing Time Making Those Movies’",
+      "title": "‘My Sad Dead’ Review: An Urban Community Gets the Haunting It Deserves in Pablo Larraín’s Superb Modern Gothic",
       "when": "26 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/melissa-barrera-scream-return-spyglass-1236876458/"
+      "url": "https://variety.com/2026/film/reviews/my-sad-dead-review-1236873618/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hayley Kiyoko Wants to Make a Lesbian ‘Pirates of the Caribbean’: ‘Keira Knightley, But Gay’",
+      "title": "‘NAZA’ Co-Director Yuval Abraham Calls Out the U.S. Government for ‘Funding’ Israel’s Destruction of Gaza, Telling NYFF Audience: ‘This Is What Your Country Is Supporting’",
       "when": "26 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/hayley-kiyoko-lesbian-pirates-of-the-caribbean-keira-knightley-gay-queer-1236875611/"
+      "url": "https://variety.com/2026/film/news/naza-yuval-abraham-us-government-funding-israel-gaza-1236876606/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review: ‘The Book Of Boba Fett’ #2 Keeps The Action Moving Like A Hover Train",
+      "when": "26 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/review-the-book-of-boba-fett-2-keeps-the-action-moving-like-a-hover-train.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "26 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/vr-enhanced-version-of-star-wars-a-new-hope-announced-for-meta-vr-glasses.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Domhnall Gleeson Discusses His Unfulfilled Wishes for General Hux in ‘The Rise of Skywalker’",
-      "when": "26 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/domhnall-gleeson-discusses-his-unfulfilled-wishes-for-general-hux-in-the-rise-of-skywalker.html"
     },
     {
       "cat": "Trek/Wars",
