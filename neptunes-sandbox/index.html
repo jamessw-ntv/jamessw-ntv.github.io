@@ -41,7 +41,7 @@
 
   /* ---- map ---- */
   .mapwrap{position:relative}
-  .map{width:100%;aspect-ratio:1/1;max-height:80vh;display:block;background:var(--black);border-radius:10px;
+  .map{width:100%;aspect-ratio:1/1;max-height:80vh;display:block;background:#000;border-radius:10px;
     border:1px solid var(--line);touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
   .map.dragging{cursor:grabbing}
   .map [data-s],.map [data-c]{cursor:pointer}
@@ -52,6 +52,21 @@
   .mapctl button:hover{border-color:var(--accent)}
   .scalebar{position:absolute;left:12px;bottom:10px;font-size:11px;color:var(--muted);pointer-events:none}
   .scalebar i{display:block;height:6px;border:1px solid var(--muted);border-top:0;margin-bottom:3px}
+  .tickbar{position:absolute;left:10px;top:10px;right:56px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;pointer-events:none;
+    font-size:12px;color:var(--text);font-variant-numeric:tabular-nums}
+  .tickbar .pips{display:flex;gap:3px}
+  .tickbar .pips i{width:14px;height:5px;border-radius:3px;background:rgba(255,255,255,.18)}
+  .tickbar .pips i.on{background:var(--accent)}
+  .tickbar .pill{background:rgba(11,15,26,.85);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+  .vision{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 8px}
+  .vision .toggle{padding:5px 11px;font-size:12px;display:inline-flex;align-items:center;gap:6px}
+  .vision .toggle.active{background:var(--accent-soft);color:var(--text);border-color:var(--accent)}
+  .feed{max-height:260px;overflow:auto;font-size:12.5px}
+  .feed div{padding:4px 0;border-bottom:1px solid var(--line)}
+  .feed .t{color:var(--muted);font-variant-numeric:tabular-nums;display:inline-block;min-width:50px}
+  .feed .new{animation:flash 1.2s ease-out}
+  .feed .go{cursor:pointer} .feed .go:hover{color:var(--accent)}
+  @keyframes flash{from{background:var(--accent-soft)}to{background:transparent}}
   .mapkey{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:12px;color:var(--muted)}
   .mapkey svg{vertical-align:middle;margin-right:4px}
   /* inspector */
@@ -158,11 +173,12 @@
   <div class="ctrl">
     <div class="clock" id="clock"></div>
     <button class="btn" id="bBack" title="Rewind one turn">◀ Back</button>
-    <button class="btn primary" id="bNext" title="Process the next turn (N)">Next turn ▶</button>
+    <button class="btn primary" id="bNext" title="Play the next turn (N or →)">Next turn ▶</button>
     <button class="btn" id="bFive">+5 turns</button>
     <button class="btn" id="bAuto">▶ Auto</button>
-    <select id="speed" title="Auto-play speed">
-      <option value="900">Slow</option><option value="350" selected>Normal</option><option value="80">Fast</option>
+    <button class="btn" id="bSkip" disabled title="Finish this turn's ticks now (Space continues after a pause)">Skip ⏭</button>
+    <select id="speed" title="How fast each tick plays back">
+      <option value="1400">Slow ticks</option><option value="700">Normal ticks</option><option value="300">Fast ticks</option><option value="0">Instant</option>
     </select>
   </div>
   <div id="winner"></div>
@@ -173,8 +189,10 @@
   <section class="panel" data-tab="galaxy">
     <div class="cols">
       <div>
+        <div class="vision" id="vision" title="Show the galaxy as these empires see it"></div>
         <div class="mapwrap">
           <svg class="map" id="map"></svg>
+          <div class="tickbar" id="tickbar"></div>
           <div class="mapctl">
             <button data-z="in" title="Zoom in">+</button>
             <button data-z="out" title="Zoom out">−</button>
@@ -188,6 +206,7 @@
           <label class="chk"><input type="checkbox" id="optAlly" checked> Alliance links</label>
           <label class="chk"><input type="checkbox" id="optFleets" checked> Carriers</label>
           <label class="chk"><input type="checkbox" id="optRange" checked> Jump range</label>
+          <label class="chk"><input type="checkbox" id="optScan"> Scanning ranges</label>
         </div>
         <div class="mapkey">
           <span><svg width="18" height="18"><circle cx="9" cy="9" r="6" fill="none" stroke="var(--blue)" stroke-width="2.5"/><circle cx="9" cy="9" r="2.5" fill="var(--text)"/></svg>owned star</span>
@@ -197,11 +216,13 @@
           <span><svg width="14" height="14"><path d="M2 2 L13 7 L2 12 L5 7Z" fill="var(--blue)"/></svg>carrier in flight</span>
           <span>Under a star: ships · above: Economy · Industry · Science</span>
           <span>Scroll/pinch to zoom · drag to pan · click anything</span>
+          <span>Keys: N next turn · B back · Space auto / continue</span>
         </div>
       </div>
       <div>
         <div class="box"><h2>Empires</h2><div class="legend" id="legend"></div></div>
         <div class="box"><h2 id="inspTitle">Inspector</h2><div id="inspect"></div></div>
+        <div class="box"><h2>This turn</h2><div class="feed" id="feed"></div></div>
       </div>
     </div>
   </section>
@@ -268,6 +289,27 @@
           <span class="small muted" id="betrayalVal"></span></div>
       </div>
 
+      <div class="box"><h2>Turn playback &amp; vision</h2>
+        <div class="row small"><span>Ticks per turn</span><span id="tptBtns"></span></div>
+        <div class="row small"><span>Tick speed</span><select id="admSpeed">
+          <option value="1400">Slow</option><option value="700">Normal</option><option value="300">Fast</option><option value="0">Instant (no animation)</option></select></div>
+        <div class="small muted" style="margin:10px 0 4px">Pause the playback when…</div>
+        <label class="chk"><input type="checkbox" data-pb="pauseCapture"> a star is captured</label>
+        <label class="chk"><input type="checkbox" data-pb="pauseWar"> an ally declares war</label>
+        <label class="chk"><input type="checkbox" data-pb="pauseAlly"> an alliance forms</label>
+        <label class="chk"><input type="checkbox" data-pb="pauseElim"> an empire is eliminated</label>
+        <div class="small muted" style="margin:10px 0 4px">Map</div>
+        <label class="chk"><input type="checkbox" data-pb="fx"> Combat and capture flashes</label>
+        <label class="chk"><input type="checkbox" data-pb="trails"> Carrier routes</label>
+        <label class="chk"><input type="checkbox" data-pb="follow"> Pan to the fighting during playback</label>
+        <label class="chk"><input type="checkbox" data-pb="territory"> Territory haze (like the NP Agent)</label>
+        <div class="row small"><span>Colours</span><select id="admPalette">
+          <option value="triton">Triton (the real game's)</option><option value="hub">Hub swatches</option></select></div>
+        <div class="small muted" style="margin:10px 0 4px">Fog of war</div>
+        <label class="chk"><input type="checkbox" id="setAllyVision"> Allies share scanning</label>
+        <div class="small muted" style="margin-top:6px">Pick whose eyes to look through with the "See as" chips above the Galaxy map. Scanning numbers are on the Rules tab.</div>
+      </div>
+
       <div class="box"><h2>Bots</h2>
         <div id="botRows"></div>
         <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
@@ -327,38 +369,162 @@ const sim = window.NPSim;
 const SAVE_KEY = "npSandbox.v2";
 const $ = id => document.getElementById(id);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
-const col = p => `var(${p.color})`;
+/* Player colours. "triton" = the real game's palette (from the Neptune's Pride
+   Agent source), matched to the seat names; "hub" = the site's own swatches. */
+const TRITON = { Azure:"#009fdf", Blaze:"#df5f00", Violet:"#c000c0", Grove:"#40c000", Crimson:"#c00000", Sol:"#ffc000" };
+const col = p => PB.palette !== "hub" && TRITON[p.name] ? TRITON[p.name] : `var(${p.color})`;
 const sw = p => `<span class="sw" style="background:${col(p)}"></span>`;
 const pname = p => `${sw(p)}${esc(p.name)}`;
 const plink = p => `<button class="plink" data-pid="${p.id}" title="Open ${esc(p.name)}'s details">${pname(p)}</button>`;
 
 /* ---------------- state + history (rewind) ---------------- */
-let S, history = [], sel = null, autoTimer = null;
+let S, history = [], sel = null;
+
+/* ---------------- playback prefs (this browser only, not game state) ---------------- */
+const PB_KEY = "npSandbox.pb";
+const PB = Object.assign({ speed:700, pauseCapture:false, pauseWar:true, pauseAlly:false, pauseElim:true,
+  fx:true, trails:true, follow:false, territory:false, palette:"triton", vision:[] },
+  (() => { try { return JSON.parse(localStorage.getItem(PB_KEY)) || {}; } catch (e) { return {}; } })());
+function savePB() { try { localStorage.setItem(PB_KEY, JSON.stringify(PB)); } catch (e) {} }
 
 function save() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } catch (e) {} }
 function load() { try { return JSON.parse(localStorage.getItem(SAVE_KEY) || "null"); } catch (e) { return null; } }
 function snap() { history[S.turn] = JSON.stringify(S); history.length = S.turn + 1; }
-function startGame(state) { S = state; history = []; snap(); sel = null; cam = null; save(); renderAll(); }
-function afterChange() { sim.checkVictory(S); snap(); save(); renderAll(); }   // admin edits become part of this turn
+function startGame(state) { S = state; history = []; snap(); sel = null; cam = null; feedRebuild();
+  PB.vision = PB.vision.filter(id => id < S.players.length); save(); renderAll(); }
+function afterChange() {                    // admin edits become part of this turn
+  if (playing) skipTurn();                  // finish the turn first so a half-played turn is never saved
+  sim.checkVictory(S); if (!playing) { snap(); save(); } renderAll();
+}
 
-function step(n) {
-  for (let i = 0; i < n && !S.winner; i++) { sim.nextTurn(S); snap(); }
-  save(); renderAll();
+/* ---------------- turns: played back tick by tick ----------------
+   beginTurn runs the bots' orders, then each tick is run and animated: carriers
+   glide from where they were to where they are, then stars update and any
+   fighting flashes. Skip (or "Instant") runs the rest without animation. */
+let playing = null;          // { tick, of, skip, hold, why } while a turn plays back
+let anim = null;             // { before, t, move, post, fx } during one tick's animation
+const wait = ms => new Promise(r => setTimeout(r, ms));
+const evMark = () => S.events[S.events.length - 1];
+const evSince = m => S.events.slice(m ? S.events.lastIndexOf(m) + 1 : 0);
+
+async function holdFor(why) {
+  const p = new Promise(r => playing.hold = r);   // Continue / Skip resolves it
+  playing.why = why; renderAll();
+  await p;
+  playing.hold = null; playing.why = "";
+  renderClock();
+}
+async function playTurn() {
+  if (playing || S.winner) return;
+  let mark = evMark();
+  if (!sim.beginTurn(S)) return;
+  const of = S.rules.ticksPerTurn;
+  playing = { tick:0, of, skip:PB.speed <= 0, hold:null, why:"" };
+  feedReset();
+  const orders = evSince(mark).map(e => Object.assign({}, e, { orders:true }));   // diplomacy from the bots' orders
+  feedPush(orders);
+  renderAll();
+  const w0 = !playing.skip && pauseReason(orders);
+  if (w0) await holdFor(w0);
+  for (let i = 0; i < of && !S.winner; i++) {
+    const before = snapshotMotion();
+    mark = evMark();
+    sim.tick(S);
+    const evs = evSince(mark);
+    if (!playing.skip && tab === "galaxy") await animateTick(before, evs);
+    playing.tick = i + 1;
+    feedPush(evs);
+    renderClock();
+    if (tab === "galaxy") { renderMap(); renderFeed(); renderLegend(); renderInspector(); }
+    const why = !playing.skip && pauseReason(evs);
+    if (why && i < of - 1) await holdFor(why);
+  }
+  sim.endTurn(S);
+  playing = null;
+  snap(); save(); renderAll();
+  if (S.winner) stopAuto();
+}
+function pauseReason(evs) {
+  for (const e of evs) {
+    if (PB.pauseCapture && e.type === "combat" && / captured /.test(e.text)) return "Star captured";
+    if (PB.pauseWar && e.type === "diplomacy" && /declared war on ally/.test(e.text)) return "Betrayal";
+    if (PB.pauseAlly && e.type === "diplomacy" && /formed an alliance/.test(e.text)) return "New alliance";
+    if (PB.pauseElim && /eliminated/.test(e.text)) return "Empire eliminated";
+  }
+  return "";
+}
+function skipTurn() { if (!playing) return; playing.skip = true; if (playing.hold) playing.hold(); }
+function continueTurn() { if (playing && playing.hold) playing.hold(); }
+
+async function step(n) {
+  if (playing) return;
+  for (let i = 0; i < n && !S.winner; i++) {
+    if (i < n - 1) { sim.nextTurn(S); snap(); continue; }   // +5 only plays back the last turn
+    await playTurn();
+  }
   if (S.winner) stopAuto();
 }
 function back() {
-  if (S.turn === 0 || !history[S.turn - 1]) return;
+  if (autoOn) stopAuto();
+  if (playing || S.turn === 0 || !history[S.turn - 1]) return;
   S = JSON.parse(history[S.turn - 1]);
   history.length = S.turn + 1;
-  save(); renderAll();
+  feedRebuild(); save(); renderAll();
 }
-function stopAuto() { clearInterval(autoTimer); autoTimer = null; $("bAuto").textContent = "▶ Auto"; }
-function toggleAuto() {
-  if (autoTimer) return stopAuto();
+let autoOn = false;
+function stopAuto() { autoOn = false; $("bAuto").textContent = "▶ Auto"; }
+async function toggleAuto() {
+  if (autoOn) return stopAuto();
   if (S.winner) return;
-  autoTimer = setInterval(() => step(1), +$("speed").value);
-  $("bAuto").textContent = "⏸ Pause";
+  autoOn = true; $("bAuto").textContent = "⏸ Pause";
+  while (autoOn && !S.winner) {
+    if (!playing) await playTurn();
+    await wait(PB.speed > 0 ? 400 : 120);
+  }
 }
+
+/* ---------------- "This turn" feed ---------------- */
+let feed = [];
+function feedReset() { feed = []; }
+function feedPush(evs) { evs.forEach(e => feed.push(Object.assign({ fresh:true }, e))); }
+function feedRebuild() {                     // after a rewind or reload: the last turn's events
+  const from = S.tick - S.rules.ticksPerTurn;
+  feed = S.turn ? S.events.filter(e => e.tick > from || (e.tick === from && e.type === "diplomacy"))
+    .map(e => Object.assign({}, e, { orders:e.tick === from })) : [];
+}
+function renderFeed() {
+  const vis = visionSet();
+  const list = feed.filter(e => e.type !== "system" || /🏆/.test(e.text))
+    .filter(e => !vis || e.players.some(id => vis.group.has(id)) || (e.star != null && sim.inScan(vis, S.stars[e.star])));
+  $("feed").innerHTML = list.slice().reverse().map(e => {
+    const html = `<div class="${e.fresh ? "new" : ""}${e.star != null ? " go" : ""}" ${e.star != null ? `data-star="${e.star}" title="Show ${esc(S.stars[e.star].name)} on the map"` : ""}>
+      <span class="t">${e.orders ? "orders" : "tick " + e.tick}</span>${esc(e.text)}</div>`;
+    e.fresh = false; return html;
+  }).join("") || `<div class="muted">${S.turn === 0 ? "Press Next turn to start." : "Quiet so far."}</div>`;
+}
+$("feed").addEventListener("click", e => {
+  const row = e.target.closest("[data-star]"); if (row) goto("star", +row.dataset.star, true);
+});
+
+/* ---------------- vision (fog of war) ---------------- */
+function visionSet() {
+  const ids = PB.vision.filter(id => S.players[id]);
+  return ids.length ? sim.scanSources(S, ids) : null;
+}
+const seesStar = (vis, s) => !vis || vis.group.has(s.owner) || sim.inScan(vis, s);
+function renderVision() {
+  const on = new Set(PB.vision);
+  $("vision").innerHTML = `<span class="small muted">See as</span>
+    <button class="toggle ${on.size ? "" : "active"}" data-v="all" aria-pressed="${!on.size}">👁 Everything</button>` +
+    S.players.map(p => `<button class="toggle ${on.has(p.id) ? "active" : ""}" data-v="${p.id}" aria-pressed="${on.has(p.id)}"
+      ${p.alive ? "" : 'style="opacity:.5"'}>${sw(p)}${esc(p.name)}</button>`).join("");
+}
+$("vision").addEventListener("click", e => {
+  const b = e.target.closest("[data-v]"); if (!b) return;
+  if (b.dataset.v === "all") PB.vision = [];
+  else { const id = +b.dataset.v; PB.vision = PB.vision.includes(id) ? PB.vision.filter(x => x !== id) : [...PB.vision, id]; }
+  savePB(); renderVision(); renderMap(); renderInspector(); renderFeed();
+});
 
 /* ---------------- tabs ---------------- */
 const TABS = [["galaxy","Galaxy"],["alliances","Alliances"],["empires","Empires"],["log","Log"],["admin","Admin"],["rules","Rules"]];
@@ -379,8 +545,22 @@ function renderClock() {
   const R = S.rules, day = Math.floor(S.tick / R.productionTicks) + 1;
   const toProd = R.productionTicks - (S.tick % R.productionTicks);
   $("clock").innerHTML = `<b>Turn ${S.turn}</b> · tick ${S.tick} · day ${day} · production in ${toProd} ticks · ${R.ticksPerTurn} ticks/turn`;
-  $("bBack").disabled = S.turn === 0 || !history[S.turn - 1];
-  $("bNext").disabled = $("bFive").disabled = $("bAuto").disabled = !!S.winner;
+  if (playing && tab !== "galaxy") $("clock").innerHTML += ` · <b style="color:var(--accent)">playing tick ${playing.tick}/${playing.of}</b>`
+    + (playing.why ? ` · <b style="color:#ffd479">paused: ${esc(playing.why)}</b>` : "");
+  $("bBack").disabled = !!playing || S.turn === 0 || !history[S.turn - 1];
+  $("bNext").disabled = $("bFive").disabled = !!S.winner || !!playing;
+  $("bAuto").disabled = !!S.winner;
+  const sk = $("bSkip");
+  sk.disabled = !playing;
+  sk.textContent = playing && playing.hold ? "Continue ▶" : "Skip ⏭";
+  sk.classList.toggle("primary", !!(playing && playing.hold));
+  if (!playing) $("tickbar").innerHTML = "";
+  else {
+    const cur = Math.min(playing.of, playing.tick + (anim ? 1 : 0));
+    $("tickbar").innerHTML = `<span class="pill">Turn ${S.turn} · tick ${cur}/${playing.of}</span>
+      <span class="pips">${Array.from({ length:playing.of }, (_, i) => `<i class="${i < cur ? "on" : ""}"></i>`).join("")}</span>
+      ${playing.why ? `<span class="pill" style="border-color:var(--yellow);color:#ffd479">Paused: ${esc(playing.why)} · press Continue</span>` : ""}`;
+  }
   if (S.winner) {
     const w = S.winner, names = w.ids.map(id => pname(S.players[id])).join(" + ");
     const how = { solo:"holds enough stars to win", last:"is the last empire standing",
@@ -420,6 +600,55 @@ function selectedEmpire() {
   return null;
 }
 
+/* Where every carrier is right now. During a tick's playback carriers glide from
+   their pre-tick spot (anim.before) to where the engine put them; carriers the
+   tick destroyed keep flying into their target until the stars update. */
+function fleetList() {
+  const out = [];
+  const pos = c => sim.carrierPos(S, c);
+  if (!anim) { for (const c of S.carriers) { const p = pos(c); out.push({ c, id:c.id, x:p.x, y:p.y, owner:c.owner, ships:c.ships, to:c.to, from:c.from, at:c.at }); } return out; }
+  const f = anim.move, lerp = (a, b) => a + (b - a) * f, now = {};
+  S.carriers.forEach(c => now[c.id] = c);
+  for (const [id, b] of Object.entries(anim.before.carriers)) {
+    const c = now[id];
+    if (c) { const p = pos(c); out.push({ c, id:c.id, x:lerp(b.x, p.x), y:lerp(b.y, p.y), owner:c.owner,
+      ships:anim.post ? c.ships : b.ships, to:b.to, from:b.from, at:anim.post ? c.at : b.at }); }
+    else if (!anim.post) {
+      const d = b.at == null ? S.stars[b.to] : b;
+      out.push({ id:+id, x:lerp(b.x, d.x), y:lerp(b.y, d.y), owner:b.owner, ships:b.ships, to:b.to, from:b.from, at:b.at });
+    }
+  }
+  S.carriers.forEach(c => { if (!anim.before.carriers[c.id]) { const p = pos(c); out.push({ c, id:c.id, x:p.x, y:p.y, owner:c.owner, ships:c.ships, to:c.to, from:c.from, at:c.at }); } });
+  return out;
+}
+function snapshotMotion() {
+  const m = { carriers:{}, stars:S.stars.map(s => ({ owner:s.owner, ships:s.ships })) };
+  for (const c of S.carriers) { const p = sim.carrierPos(S, c); m.carriers[c.id] = { x:p.x, y:p.y, owner:c.owner, ships:c.ships, at:c.at, to:c.to, from:c.from }; }
+  return m;
+}
+function animateTick(before, evs) {
+  const fx = PB.fx ? evs.filter(e => e.star != null).map(e => ({ star:e.star,
+    kind:/captured/.test(e.text) ? "capture" : e.type === "combat" ? "battle" : "claim" })) : [];
+  if (PB.follow && cam) {
+    const f = fx.find(x => x.kind !== "claim"), st = f && S.stars[f.star], V = camBox();
+    if (st && (st.x < V.x || st.x > V.x + V.w || st.y < V.y || st.y > V.y + V.h)) { cam.x = st.x; cam.y = st.y; }
+  }
+  return new Promise(res => {
+    const t0 = performance.now(), dur = PB.speed, moveEnd = .72;
+    anim = { before, t:0, move:0, post:false, fx };
+    renderClock();
+    const frame = now => {
+      if (!playing || playing.skip || tab !== "galaxy") { anim = null; return res(); }
+      const t = Math.min(1, (now - t0) / dur);
+      anim.t = t; anim.move = Math.min(1, t / moveEnd);
+      if (t >= moveEnd && !anim.post) { anim.post = true; }
+      renderMap();
+      if (t < 1) requestAnimationFrame(frame); else { anim = null; res(); }
+    };
+    requestAnimationFrame(frame);
+  });
+}
+
 function renderMap() {
   if (tab !== "galaxy") return;
   const svg = $("map"), V = camBox(), ppl = 1 / V.u;
@@ -431,6 +660,10 @@ function renderMap() {
   const focus = selectedEmpire();
   const out = [];
   const f = n => +n.toFixed(3);
+  const vis = visionSet();
+  const pre = anim && !anim.post ? anim.before.stars : null;          // stars update once carriers have arrived
+  const ownerOf = s => pre ? pre[s.id].owner : s.owner, garrison = s => pre ? pre[s.id].ships : s.ships;
+  const fl = fleetList().filter(v => !vis || vis.group.has(v.owner) || sim.inScan(vis, v));
 
   // faint 5-ly grid so distance is readable at a glance
   const g0x = Math.floor(V.x / 5) * 5, g0y = Math.floor(V.y / 5) * 5;
@@ -439,8 +672,23 @@ function renderMap() {
   for (let y = g0y; y < V.y + V.h; y += 5) grid += `M${V.x} ${y}H${V.x + V.w}`;
   out.push(`<path d="${grid}" stroke="var(--line)" stroke-opacity=".35" stroke-width="${f(u)}"/>`);
 
+  // territory haze (like the NP Agent): each owned star's neighbourhood, softly shaded
+  if (PB.territory) {
+    out.push(`<g style="mix-blend-mode:screen">`);
+    for (const s of S.stars) { const ow = ownerOf(s); if (ow >= 0 && seesStar(vis, s))
+      out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(sim.range(S, ow) * .55)}" fill="${col(S.players[ow])}" fill-opacity=".1"/>`); }
+    out.push(`</g>`);
+  }
+  // scanning ranges: of the viewed empires, or of everyone
+  if ($("optScan").checked) {
+    const src = vis ? vis.sources : sim.scanSources(S, S.players.filter(p => p.alive).map(p => p.id)).sources;
+    src.forEach(o => out.push(`<circle cx="${f(o.x)}" cy="${f(o.y)}" r="${o.r}" fill="${col(S.players[o.owner])}" fill-opacity=".04"
+      stroke="${col(S.players[o.owner])}" stroke-opacity=".3" stroke-width="${f(u)}"/>`));
+  }
+
   // alliance links between capitals
   if ($("optAlly").checked) for (const al of S.alliances) if (al.ended == null) {
+    if (vis && !vis.group.has(al.a) && !vis.group.has(al.b)) continue;      // other empires' alliances are secret
     const a = capitalOf(al.a), b = capitalOf(al.b); if (!a || !b) continue;
     out.push(`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="var(--text)" stroke-opacity="${al.locked ? .5 : .28}"
       stroke-width="${f((al.locked ? 3.5 : 1.8) * u)}" ${al.warBy != null ? `stroke-dasharray="${f(8 * u)} ${f(6 * u)}"` : ""}/>`);
@@ -455,32 +703,34 @@ function renderMap() {
     for (const t of S.stars) if (t !== selStar && sim.dist(t, selStar) <= r)
       out.push(`<line x1="${selStar.x}" y1="${selStar.y}" x2="${t.x}" y2="${t.y}" stroke="var(--muted)" stroke-opacity=".35" stroke-width="${f(u)}"/>`);
     out.push(`<text x="${selStar.x}" y="${f(selStar.y - r - 5 * u)}" text-anchor="middle" font-size="${f(11 * u)}" fill="var(--muted)">jump range ${r} ly</text>`);
+    out.push(`<circle cx="${selStar.x}" cy="${selStar.y}" r="${sim.scanRange(S, selStar.owner)}" fill="none"
+      stroke="${col(S.players[selStar.owner])}" stroke-opacity=".45" stroke-width="${f(u)}"/>`);
   }
 
   // carrier paths
   const fleets = $("optFleets").checked;
   const selCarrier = sel && sel.kind === "carrier" ? S.carriers.find(c => c.id === sel.id) : null;
-  if (fleets) for (const c of S.carriers) if (c.at == null) {
-    const p = sim.carrierPos(S, c), t = S.stars[c.to], o = S.players[c.owner];
-    const dim = focus != null && c.owner !== focus;
-    out.push(`<line x1="${f(p.x)}" y1="${f(p.y)}" x2="${t.x}" y2="${t.y}" stroke="${col(o)}" stroke-opacity="${dim ? .15 : c === selCarrier ? 1 : .6}"
-      stroke-width="${f((c === selCarrier ? 2.2 : 1.3) * u)}" stroke-dasharray="${f(4 * u)} ${f(3 * u)}"/>`);
+  if (fleets && PB.trails) for (const v of fl) if (v.at == null) {
+    const t = S.stars[v.to], o = S.players[v.owner], isSel = selCarrier && v.id === selCarrier.id;
+    const dim = focus != null && v.owner !== focus;
+    out.push(`<line x1="${f(v.x)}" y1="${f(v.y)}" x2="${t.x}" y2="${t.y}" stroke="${col(o)}" stroke-opacity="${dim ? .15 : isSel ? 1 : .5}"
+      stroke-width="${f((isSel ? 2.2 : 1.4) * u)}" stroke-linecap="round"/>`);
   }
 
   // stars
   const ringR = 7 * u, coreR = 2.6 * u, hit = 13 * u, fs = 10.5 * u;
   const orbiting = {};
-  for (const c of S.carriers) if (c.at != null) (orbiting[c.at] = orbiting[c.at] || []).push(c);
+  for (const v of fl) if (v.at != null) (orbiting[v.at] = orbiting[v.at] || []).push(v);
   for (const s of S.stars) {
-    const o = s.owner >= 0 ? S.players[s.owner] : null;
-    const dim = focus != null && s.owner !== focus;
+    const ow = ownerOf(s), o = ow >= 0 ? S.players[ow] : null, seen = seesStar(vis, s);
+    const dim = focus != null && ow !== focus;
     const op = dim ? .3 : 1;
     const isHome = o && o.home === s.id;
     out.push(`<g data-s="${s.id}" opacity="${op}"><circle cx="${s.x}" cy="${s.y}" r="${f(hit)}" fill="transparent"/>`);
     if (o) {
       out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR)}" fill="var(--black)" stroke="${col(o)}" stroke-width="${f(2.6 * u)}"/>`);
       if (isHome) out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR + 3 * u)}" fill="none" stroke="${col(o)}" stroke-width="${f(1.1 * u)}"/>`);
-      out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(coreR)}" fill="var(--text)"/>`);
+      out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(coreR)}" fill="${seen ? "var(--text)" : "#6f788c"}"/>`);
     } else {
       out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(coreR * .95)}" fill="var(--muted)" fill-opacity=".85"/>`);
     }
@@ -495,25 +745,43 @@ function renderMap() {
     out.push(`</g>`);
     // labels (level of detail by zoom)
     if (!dim || showNames) {
-      const ships = s.ships + here.reduce((t, c) => t + c.ships, 0);
+      const ships = garrison(s) + here.reduce((t, c) => t + c.ships, 0);
       let ly = s.y + ringR + fs * 1.15;
       if (showNames) { out.push(`<text x="${s.x}" y="${f(ly)}" text-anchor="middle" font-size="${f(fs)}" fill="var(--muted)" opacity="${op}">${esc(s.name)}</text>`); ly += fs * 1.1; }
-      if (showNums && (o || ships)) out.push(`<text x="${s.x}" y="${f(ly)}" text-anchor="middle" font-size="${f(fs * 1.05)}" font-weight="700" fill="var(--text)" opacity="${op}">${ships}</text>`);
-      if (showNames && o) out.push(`<text x="${s.x}" y="${f(s.y - ringR - fs * .45)}" text-anchor="middle" font-size="${f(fs * .95)}" fill="var(--text)" opacity="${op * .85}">${s.econ} · ${s.industry} · ${s.science}</text>`);
+      if (showNums && seen && (o || ships)) out.push(`<text x="${s.x}" y="${f(ly)}" text-anchor="middle" font-size="${f(fs * 1.05)}" font-weight="700" fill="var(--text)" opacity="${op}">${ships}</text>`);
+      if (showNames && o && seen) out.push(`<text x="${s.x}" y="${f(s.y - ringR - fs * .45)}" text-anchor="middle" font-size="${f(fs * .95)}" fill="var(--text)" opacity="${op * .85}">${s.econ} · ${s.industry} · ${s.science}</text>`);
     }
   }
 
   // carriers in flight: arrow pointing at the destination
-  if (fleets) for (const c of S.carriers) if (c.at == null) {
-    const p = sim.carrierPos(S, c), t = S.stars[c.to], o = S.players[c.owner];
+  if (fleets) for (const v of fl) if (v.at == null) {
+    const p = v, t = S.stars[v.to], o = S.players[v.owner], isSel = selCarrier && v.id === selCarrier.id;
     const ang = Math.atan2(t.y - p.y, t.x - p.x), d = 6.5 * u;
     const pt = (a, r) => `${f(p.x + Math.cos(ang + a) * r)} ${f(p.y + Math.sin(ang + a) * r)}`;
-    const dim = focus != null && c.owner !== focus;
-    out.push(`<g data-c="${c.id}" opacity="${dim ? .25 : 1}"><circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(11 * u)}" fill="transparent"/>
-      <path d="M${pt(0, d * 1.3)}L${pt(2.4, d)}L${pt(Math.PI, d * .35)}L${pt(-2.4, d)}Z" fill="${col(o)}" stroke="var(--black)" stroke-width="${f(1.2 * u)}"/>
-      ${c === selCarrier ? `<circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(10 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.3 * u)}"/>` : ""}</g>`);
-    if (showNums && !dim) out.push(`<text x="${f(p.x)}" y="${f(p.y + 14 * u)}" text-anchor="middle" font-size="${f(fs)}" font-weight="700" fill="var(--text)">${c.ships}</text>`);
+    const dim = focus != null && v.owner !== focus;
+    out.push(`<g ${v.c ? `data-c="${v.id}"` : ""} opacity="${dim ? .25 : 1}"><circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(11 * u)}" fill="transparent"/>
+      <path d="M${pt(0, d * 1.3)}L${pt(2.4, d)}L${pt(Math.PI, d * .35)}L${pt(-2.4, d)}Z" fill="${col(o)}" stroke="#000" stroke-width="${f(1.2 * u)}"/>
+      ${isSel ? `<circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(10 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.3 * u)}"/>` : ""}</g>`);
+    if (showNums && !dim) out.push(`<text x="${f(p.x)}" y="${f(p.y + 14 * u)}" text-anchor="middle" font-size="${f(fs)}" font-weight="700" fill="var(--text)">${v.ships}</text>`);
   }
+
+  // battle / capture / claim bursts while a tick plays back
+  if (anim && anim.post) {
+    const k = (anim.t - .72) / .28, op = Math.max(0, 1 - k);
+    for (const e of anim.fx) {
+      const st = S.stars[e.star]; if (!seesStar(vis, st)) continue;
+      const c = e.kind === "battle" ? "#ff5a4f" : st.owner >= 0 ? col(S.players[st.owner]) : "#fff";
+      out.push(`<circle cx="${st.x}" cy="${st.y}" r="${f((10 + k * (e.kind === "claim" ? 14 : 30)) * u)}" fill="none" stroke="${c}"
+        stroke-width="${f((e.kind === "claim" ? 1.5 : 3) * u)}" opacity="${op.toFixed(2)}"/>`);
+      if (e.kind !== "claim") out.push(`<circle cx="${st.x}" cy="${st.y}" r="${f(6 * u * (1 - k * .5))}" fill="${c}" opacity="${(op * .7).toFixed(2)}"/>`);
+    }
+  }
+
+  // fog of war: shade everything outside the viewers' scanning
+  if (vis) out.push(`<defs><mask id="fogMask" maskUnits="userSpaceOnUse" x="${f(V.x)}" y="${f(V.y)}" width="${f(V.w)}" height="${f(V.h)}">
+      <rect x="${f(V.x)}" y="${f(V.y)}" width="${f(V.w)}" height="${f(V.h)}" fill="#fff"/>
+      ${vis.sources.map(o => `<circle cx="${f(o.x)}" cy="${f(o.y)}" r="${o.r}" fill="#000"/>`).join("")}</mask></defs>
+    <rect x="${f(V.x)}" y="${f(V.y)}" width="${f(V.w)}" height="${f(V.h)}" fill="#1a2238" opacity=".42" mask="url(#fogMask)" pointer-events="none"/>`);
 
   // selection ring
   if (selStar) out.push(`<circle cx="${selStar.x}" cy="${selStar.y}" r="${f(ringR + 7 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.6 * u)}" stroke-dasharray="${f(3 * u)} ${f(3 * u)}"/>`);
@@ -660,10 +928,18 @@ function renderInspector() {
 function starInspector(s) {
   $("inspTitle").textContent = "Star";
   const o = s.owner >= 0 ? S.players[s.owner] : null, R = S.rules;
+  const vis = visionSet();
+  if (!seesStar(vis, s)) {                  // fog: only position and owner are known
+    $("inspect").innerHTML = `<div class="insp-h">${o ? sw(o) : ""}${esc(s.name)}</div>
+      <div class="insp-sub">${o ? `Owned by ${empLink(o)}` : "Unclaimed"}</div>
+      <div class="small muted">Outside the scanning range of ${[...vis.group].map(id => esc(S.players[id].name)).join(", ")}:
+        ships, infrastructure and incoming carriers are unknown.</div>`;
+    return;
+  }
   const res = sim.resources(S, s);
   const homeOf = S.players.find(p => p.home === s.id);
   const orbit = S.carriers.filter(c => c.at === s.id);
-  const inbound = S.carriers.filter(c => c.at == null && c.to === s.id).sort((a, b) => sim.eta(S, a) - sim.eta(S, b));
+  const inbound = S.carriers.filter(c => c.at == null && c.to === s.id && (!vis || vis.group.has(c.owner) || sim.inScan(vis, sim.carrierPos(S, c)))).sort((a, b) => sim.eta(S, a) - sim.eta(S, b));
   const bank = o ? o.tech.banking.level : 0;
   const infra = o ? `<div class="infra">
       <div><span>Economy</span><b>${s.econ}</b><small>+$${s.econ * (R.econCredits + bank * R.bankingPerEcon)}/day</small><small>next $${sim.infraCost(S, s, "econ")}</small></div>
@@ -966,7 +1242,7 @@ $("ngGo").onclick = () => {
   stopAuto();
   startGame(sim.newGame({ seed:+$("ngSeed").value || 1, lineup, starsPerPlayer:+$("ngStars").value || 24, galaxy:$("ngGalaxy").value,
     rules:S.rules, settings:{ lockAll:S.settings.lockAll, betrayal:S.settings.betrayal, instantBreak:S.settings.instantBreak,
-      coalitionWin:S.settings.coalitionWin, maxTurns:+$("ngMax").value || 400 } }));
+      coalitionWin:S.settings.coalitionWin, allyVision:S.settings.allyVision, maxTurns:+$("ngMax").value || 400 } }));
   $("ngSeed").value = Math.floor(Math.random() * 1e6);
   tab = "galaxy"; try { localStorage.setItem("npSandbox.tab", tab); } catch (e) {}
   renderAll();
@@ -1182,11 +1458,11 @@ document.addEventListener("click", e => {
 /* ---------------- wiring ---------------- */
 function renderAll() {
   renderTabs(); renderClock();
-  if (tab === "galaxy") { renderMap(); renderLegend(); renderInspector(); }
+  if (tab === "galaxy") { renderVision(); renderMap(); renderLegend(); renderInspector(); renderFeed(); }
   if (tab === "alliances") { renderWeb(); renderAllySummary(); renderMatrix(); renderAllyHistory(); }
   if (tab === "empires") { renderBoard(); renderChart(); }
   if (tab === "log") { renderLogFilters(); renderLog(); }
-  if (tab === "admin") { renderAdmin(); renderNewGame(); }
+  if (tab === "admin") { renderAdmin(); renderPlaybackAdmin(); renderNewGame(); }
   if (tab === "rules") renderRules();
   renderPlayer();
 }
@@ -1194,12 +1470,30 @@ $("bNext").onclick = () => step(1);
 $("bFive").onclick = () => step(5);
 $("bBack").onclick = back;
 $("bAuto").onclick = toggleAuto;
-$("speed").onchange = () => { if (autoTimer) { stopAuto(); toggleAuto(); } };
+$("bSkip").onclick = () => playing && playing.hold ? continueTurn() : skipTurn();
+function setSpeed(v) { PB.speed = +v; savePB(); $("speed").value = String(PB.speed); $("admSpeed").value = String(PB.speed); }
+$("speed").onchange = e => setSpeed(e.target.value);
+$("admSpeed").onchange = e => setSpeed(e.target.value);
+setSpeed(PB.speed);
+
+/* playback & vision admin */
+function renderPlaybackAdmin() {
+  document.querySelectorAll("[data-pb]").forEach(el => el.checked = !!PB[el.dataset.pb]);
+  $("admPalette").value = PB.palette;
+  $("setAllyVision").checked = S.settings.allyVision !== false;
+  $("tptBtns").innerHTML = [6, 8, 12, 24].map(n => `<button class="toggle ${S.rules.ticksPerTurn === n ? "active" : ""}" data-tpt="${n}" style="padding:4px 10px;font-size:12px">${n}</button>`).join(" ");
+}
+document.querySelectorAll("[data-pb]").forEach(el => el.addEventListener("change", () => { PB[el.dataset.pb] = el.checked; savePB(); renderAll(); }));
+$("admPalette").onchange = e => { PB.palette = e.target.value; savePB(); renderAll(); };
+$("setAllyVision").onchange = e => { S.settings.allyVision = e.target.checked; afterChange(); };
+$("tptBtns").addEventListener("click", e => { const n = +e.target.dataset.tpt; if (n) { if (playing) skipTurn(); S.rules.ticksPerTurn = n; afterChange(); } });
+$("optScan").addEventListener("change", renderMap);
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && selPlayer != null) { closePlayer(); return; }
   if (e.target.matches("input,select,textarea")) return;
-  if (e.key === "n" || e.key === "ArrowRight") step(1);
+  if (e.key === "n" || e.key === "ArrowRight") { if (playing) { playing.hold ? continueTurn() : skipTurn(); } else step(1); }
   if (e.key === "b" || e.key === "ArrowLeft") back();
+  if (e.key === " ") { e.preventDefault(); if (playing && playing.hold) continueTurn(); else toggleAuto(); }
 });
 
 const saved = load();
