@@ -187,7 +187,7 @@
         <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
         <label class="chk"><input type="checkbox" id="setLockAll"> Every new alliance is unbreakable</label>
         <div class="row"><button class="btn small" id="lockAllNow">🔒 Lock all current alliances</button></div>
-        <label class="chk" style="margin-top:8px"><input type="checkbox" id="setInstant"> Skip the 24-tick notice when alliances break</label>
+        <label class="chk" style="margin-top:8px"><input type="checkbox" id="setInstant"> Skip any notice period when alliances break</label>
         <label class="chk" style="margin-top:8px"><input type="checkbox" id="setCoalition"> Locked blocs can win together</label>
         <div class="row" style="margin-top:10px"><span class="small">Betrayal</span>
           <input type="range" id="setBetrayal" min="0" max="3" step="0.25" style="flex:1">
@@ -228,7 +228,7 @@
     <div class="box">
       <h2>Rules</h2>
       <div class="small muted" style="margin-bottom:10px">
-        <span class="tag ok">confirmed</span> = checked against the Triton Codex / wiki.
+        <span class="tag ok">confirmed</span> = checked against the Triton Codex or real game data.
         <span class="tag warn">placeholder</span> = a best guess until we have the real number.
         Edits apply to the current game immediately. To change the defaults for good, edit <code>rules.js</code>.</div>
       <div class="scroll" id="rules"></div>

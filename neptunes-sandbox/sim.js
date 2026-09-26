@@ -210,13 +210,13 @@ function declareWar(S, by, other, opts) {
   }
   log(S, "diplomacy", admin
     ? `Admin broke the alliance between ${P(S, by).name} and ${P(S, other).name}${notice ? ` — war in ${notice} ticks` : ""}.`
-    : `${P(S, by).name} declared war on ally ${P(S, other).name}! The alliance ends in ${notice} ticks.`, [by, other]);
+    : `${P(S, by).name} declared war on ally ${P(S, other).name}!${notice ? ` The alliance ends in ${notice} ticks.` : ""}`, [by, other]);
   if (notice === 0) endAlliance(S, al, admin ? "admin" : "betrayal");
   return true;
 }
 function endAlliance(S, al, reason) {
   al.ended = S.tick; al.endedTurn = S.turn; al.endReason = reason;
-  if (reason === "betrayal") log(S, "diplomacy", `The alliance of ${P(S, al.a).name} and ${P(S, al.b).name} is over — they are at war.`, [al.a, al.b]);
+  if (reason === "betrayal" && al.endsAt > al.warAt) log(S, "diplomacy", `The alliance of ${P(S, al.a).name} and ${P(S, al.b).name} is over — they are at war.`, [al.a, al.b]);
   // carriers parked at the other's stars now fight
   S.stars.forEach(s => resolveStar(S, s));
 }
@@ -235,51 +235,56 @@ function shipsToWin(def, wa, wd) {
   if (def <= 0) return 1;
   return Math.ceil(def / wa) * wd + 1;
 }
-function takeLosses(list, n) {   // list of {ships} objects (carriers / star)
-  for (const o of list) { if (n <= 0) break; const k = Math.min(o.ships, n); o.ships -= k; n -= k; }
+/* Spread `n` losses roughly evenly (by size) across a list of {ships} objects. */
+function takeLosses(list, n) {
+  const total = list.reduce((t, o) => t + o.ships, 0);
+  if (n >= total) { list.forEach(o => o.ships = 0); return; }
+  let left = n;
+  for (const o of list) { const k = Math.min(o.ships, Math.floor(n * o.ships / total)); o.ships -= k; left -= k; }
+  for (const o of list) { if (left <= 0) break; if (o.ships > 0) { o.ships--; left--; } }
 }
 
+/* Codex rules: the defenders are the owner and everyone in a formal alliance with
+   the owner (+1 weapons, shoot first). Every other player in orbit attacks as one
+   team, using the team's best weapons. If the attackers win, the star goes to the
+   player with the most ships in orbit, and any fighting left over starts again. */
 function resolveStar(S, star) {
   let guard = 0;
   while (guard++ < 12) {
     const here = S.carriers.filter(c => c.at === star.id && c.ships > 0);
-    if (star.owner < 0) {                              // empty star: biggest arriving force claims it
+    if (star.owner < 0) {                              // unclaimed: the shortest final hop claims it
       if (!here.length) return;
-      const by = {};
-      here.forEach(c => by[c.owner] = (by[c.owner] || 0) + c.ships);
-      const claimer = +Object.keys(by).sort((a, b) => by[b] - by[a])[0];
+      const claimer = here.slice().sort((a, b) => (a.step || 0) - (b.step || 0) || b.ships - a.ships)[0].owner;
       star.owner = claimer; star.ships = 0; star.frac = 0;
       log(S, "expansion", `${P(S, claimer).name} claimed ${star.name}.`, [claimer]);
       continue;
     }
     const owner = star.owner;
-    const hostile = here.filter(c => !allied(S, c.owner, owner));
-    if (!hostile.length) return;
-    // strongest hostile player attacks, with any of its allies who are also hostile to the owner
-    const sums = {};
-    hostile.forEach(c => sums[c.owner] = (sums[c.owner] || 0) + c.ships);
-    const lead = +Object.keys(sums).sort((a, b) => sums[b] - sums[a])[0];
-    const attackers = hostile.filter(c => allied(S, c.owner, lead));
+    const attackers = here.filter(c => !allied(S, c.owner, owner));
+    if (!attackers.length) return;
     const defenders = here.filter(c => allied(S, c.owner, owner));
     const defList = [star, ...defenders];
     const attShips = attackers.reduce((t, c) => t + c.ships, 0);
     const defShips = defList.reduce((t, o) => t + o.ships, 0);
     const wa = Math.max(...attackers.map(c => lvl(S, c.owner, "weapons")));
     const wd = Math.max(lvl(S, owner, "weapons"), ...defenders.map(c => lvl(S, c.owner, "weapons"))) + S.rules.defenderWeaponBonus;
+    const sides = [...new Set(attackers.map(c => c.owner))];
     const r = fight(attShips, defShips, wa, wd);
     takeLosses(attackers, attShips - r.att);
     takeLosses(defList, defShips - r.def);
     S.carriers = S.carriers.filter(c => c.ships > 0 || c.at == null);
-    const aName = P(S, lead).name, dName = P(S, owner).name;
+    const aName = sides.map(id => P(S, id).name).join(" + "), dName = P(S, owner).name;
+    sides.forEach(id => S.rel[owner][id] = clamp(S.rel[owner][id] - (r.def <= 0 ? 12 : 4), -100, 100));
     if (r.def <= 0) {
+      const inOrbit = {};
+      S.carriers.forEach(c => { if (c.at === star.id && c.ships > 0) inOrbit[c.owner] = (inOrbit[c.owner] || 0) + c.ships; });
+      const winner = +Object.keys(inOrbit).sort((a, b) => inOrbit[b] - inOrbit[a])[0];
       const cash = star.econ * S.rules.captureCashPerEcon;
-      P(S, lead).credits += cash;
-      log(S, "combat", `${aName} captured ${star.name} from ${dName} (${attShips} vs ${defShips} ships, ${r.att} left${cash ? `, +$${cash}` : ""}).`, [lead, owner]);
-      star.owner = lead; star.econ = 0; star.ships = 0; star.frac = 0;
-      S.rel[owner][lead] = clamp(S.rel[owner][lead] - 12, -100, 100);
+      P(S, winner).credits += cash;
+      log(S, "combat", `${P(S, winner).name} captured ${star.name} from ${dName} (${attShips} vs ${defShips} ships${sides.length > 1 ? `, attackers ${aName}` : ""}, ${r.att} left${cash ? `, +$${cash}` : ""}).`, [...sides, owner]);
+      star.owner = winner; star.econ = 0; star.ships = 0; star.frac = 0;
     } else {
-      log(S, "combat", `${dName} held ${star.name} against ${aName} (${attShips} vs ${defShips} ships, ${r.def} left).`, [lead, owner]);
-      S.rel[owner][lead] = clamp(S.rel[owner][lead] - 4, -100, 100);
+      log(S, "combat", `${dName} held ${star.name} against ${aName} (${attShips} vs ${defShips} ships, ${r.def} left).`, [...sides, owner]);
     }
   }
 }
@@ -325,7 +330,7 @@ function tick(S) {
   // 1. movement
   const landed = new Set();
   for (const c of S.carriers) if (c.at == null) {
-    c.done += R.carrierSpeed;
+    c.step = Math.min(R.carrierSpeed, c.len - c.done); c.done += R.carrierSpeed;
     if (c.done >= c.len - 1e-9) { c.at = c.to; landed.add(c.to); }
   }
   landed.forEach(id => resolveStar(S, S.stars[id]));
@@ -377,7 +382,7 @@ function production(S) {
   const R = S.rules;
   for (const p of S.players) if (p.alive) {
     const econ = S.stars.reduce((t, s) => t + (s.owner === p.id ? s.econ : 0), 0);
-    p.credits += econ * R.econCredits + p.tech.banking.level * R.bankingCredits;
+    p.credits += econ * (R.econCredits + p.tech.banking.level * R.bankingPerEcon) + p.tech.banking.level * R.bankingFlat;
     const x = p.tech.experimentation.level;
     if (x > 0) addResearch(S, p, pick(S, TECHS), x * R.experimentationRP);
   }
@@ -431,7 +436,7 @@ function checkVictory(S) {
     }
   }
   if (S.turn >= S.settings.maxTurns) {
-    const best = alive.slice().sort((a, b) => count(b.id) - count(a.id))[0];
+    const best = alive.slice().sort((a, b) => count(b.id) - count(a.id) || totals(S, b.id).ships - totals(S, a.id).ships)[0];
     return declareWinner(S, [best.id], "time");
   }
 }

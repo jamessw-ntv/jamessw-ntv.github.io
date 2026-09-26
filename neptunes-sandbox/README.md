@@ -18,20 +18,25 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
 - **Rules**: every number, flagged confirmed or placeholder, editable live.
 
 ## Rules — what's confirmed
-Confirmed from the Triton Codex / wiki: 24-tick production, $10 per Economy,
-$75 × Banking, ships = Industry × (Manufacturing + 5) per cycle, range =
-Hyperspace + 3 ly, Terraforming +5 resources/level, Experimentation 72 RP × level,
-defender +1 weapons and shoots first, capture destroys Economy for $10 each,
-alliances secret until broken and a 24-tick notice to break, win at 50% of stars,
-turn jumps of 6/8/12/24 ticks.
+Checked against the Triton Codex (np.ironhelmet.com/help — the current "NP4"
+server) and real game data from the open-source Neptune's Pride Agent:
+- 24-tick production; income = total Economy × (10 + 2 × Banking)
+- ships per cycle = Industry × (Manufacturing + 4); 1 research point per Science per tick
+- research costs 144 × current level; Experimentation gives 72 × level each production
+- range = Hyperspace + 4 ly; carriers move 1/3 ly per tick
+- combat: defender team (owner + formal allies) gets +1 weapons and shoots first;
+  everyone else attacks as one team with its best weapons; the biggest attacker takes the star
+- capture destroys Economy ($10 salvage each); Industry and Science survive
+- alliances: secret until broken, announced when broken, **no notice by default** (24/48 optional)
+- win at 50% of stars; turn jumps of 6/8/12/24 ticks; tick order move → combat → build → research → production
 
-Placeholders (to fill in): research costs, science output, carrier speed and
-cost, infrastructure cost formula (from the original NP), alliance fee, starting
-position.
+Still placeholders: infrastructure cost formula (from the original NP), carrier
+cost, alliance fee (Codex mentions none), starting position.
 
 ## Simplifications (for now)
 - Bots see everything (no dark galaxy), so Scanning does nothing yet.
-- No tech trading or cash gifts between players yet.
+- No tech trading or cash gifts between players yet (the real game has both).
+- Terraforming is on (it's off by default in current real games); Scanning is merged into Range.
 - Allied carriers parked at an ally's star stay there as guards.
 - Up to 6 empires (one per hub colour).
 

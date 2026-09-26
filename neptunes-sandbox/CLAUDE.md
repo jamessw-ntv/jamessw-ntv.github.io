@@ -20,7 +20,8 @@ analysis. Plain static page; no server.
 
 ## Golden rules
 1. Rules come from the real game. A number is only `confirmed:true` if it was
-   checked against Iron Helmet's Codex or the official wiki.
+   checked against Iron Helmet's Codex (np.ironhelmet.com/help; the page text is
+   served from /html/help/<page>.html) or real game data.
 2. Keep the whole game state plain JSON (rewind, save and export depend on it).
    Randomness only through `rand(S)` so a seed replays exactly.
 3. Sandbox-only rules (locked alliances, coalition wins, betrayal slider) live in
