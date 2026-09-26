@@ -30,21 +30,23 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
   real game's 8 waypoint orders (Do nothing, Collect all, Drop all, Collect X, Drop X, Collect
   all but X, Drop all but X, Garrison X) and a wait in ticks. Tick *Loop* (or tap stop 1 / the
   starting star again) for a patrol that repeats forever. Actions only happen at the carrier
-  owner's own stars and a carrier always keeps 1 ship, as in the real game. *Build carrier*
-  on a star buys one for its owner ($25, the garrison boards). Every bot also runs one looping
+  owner's own stars and a carrier always keeps 1 ship, as in the real game. Every bot also runs one looping
   supply line (the Economist two): collect all at one or two interior stars, drop all at a
   threatened frontier star; lines wind down when a stop is lost or the frontier goes quiet.
 - **Ship transfers**: a star's inspector has the real game's transfer screen under *Ships here*:
-  −10 / −5 / −1 / +1 / +5 / +10 / all steppers move ships between the garrison and each of your
-  carriers in orbit, *Split ½* buys a new carrier with half the ships, *New carrier* buys one with
-  1 ship, and *Merge idle* folds idle carriers into one. *⇄ Supply lane from here* loads a carrier
-  with the garrison and lets you tap the stops; Done turns them into collect all everywhere, drop
-  all at the last stop, back and repeat. The route editor has the same *Supply lane* / *Patrol*
-  presets. At someone else's star only carrier-to-carrier moves work; a carrier keeps 1 ship.
-  Type a number in a carrier's box to set its load; *Route…* on a carrier row jumps straight to
-  tapping stops; a saved route's orders and waits can be changed in place. Keys: `A` add stops,
-  `L` loop, `Backspace` undo last stop, `Enter` save, `Esc` stop picking / cancel, `[` `]` step
-  through the carriers at a star. Buttons grow to 40 px on touch screens.
+  type a number in a carrier's box, or use −10 / −5 / −1 / +1 / +5 / +10 / *Take all* / *Leave 1*,
+  to move ships between the garrison and each of your carriers in orbit. *⚖ Split evenly* shares
+  every ship there evenly between the star and your carriers (the real game's even split, no new
+  carrier); *New carrier* buys one with 1 ship; *Merge idle* folds idle carriers into one. At
+  someone else's star only carrier-to-carrier moves work; a carrier keeps 1 ship.
+- **Routes**: *Route…* on a carrier row (or *➜ Route from here*, or `A`) goes straight to tapping
+  stops on the map; tap the start again to loop, and Done saves it. Every stop then shows the 8
+  real orders as buttons (Nothing, Collect all, Drop all, Leave X on star, Collect X, Drop X,
+  Collect all but X, Drop all but X) with the X amount and a wait, saved as you tap, plus a line
+  saying roughly what it will pick up or drop. New stops at your own stars default to Collect all
+  and the last new one to Drop all. A loop that starts at a stop runs that stop's order straight
+  away. Keys: `A` add stops, `L` loop, `Backspace` undo last stop, `Enter` save, `Esc` stop picking
+  / cancel, `[` `]` step through the carriers at a star. Buttons are 40 px on touch screens.
 - **Alliances**: alliance web, opinion matrix (what each bot thinks of each other),
   alliance history (formed, ended, who betrayed whom), treachery stats.
 - **Empires**: leaderboard with tech levels, and charts over time.
