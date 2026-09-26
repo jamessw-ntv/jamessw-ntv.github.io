@@ -34,6 +34,13 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
   on a star buys one for its owner ($25, the garrison boards). Every bot also runs one looping
   supply line (the Economist two): collect all at one or two interior stars, drop all at a
   threatened frontier star; lines wind down when a stop is lost or the frontier goes quiet.
+- **Ship transfers**: a star's inspector has the real game's transfer screen under *Ships here*:
+  −10 / −5 / −1 / +1 / +5 / +10 / all steppers move ships between the garrison and each of your
+  carriers in orbit, *Split ½* buys a new carrier with half the ships, *New carrier* buys one with
+  1 ship, and *Merge idle* folds idle carriers into one. *⇄ Supply lane from here* loads a carrier
+  with the garrison and lets you tap the stops; Done turns them into collect all everywhere, drop
+  all at the last stop, back and repeat. The route editor has the same *Supply lane* / *Patrol*
+  presets. At someone else's star only carrier-to-carrier moves work; a carrier keeps 1 ship.
 - **Alliances**: alliance web, opinion matrix (what each bot thinks of each other),
   alliance history (formed, ended, who betrayed whom), treachery stats.
 - **Empires**: leaderboard with tech levels, and charts over time.
