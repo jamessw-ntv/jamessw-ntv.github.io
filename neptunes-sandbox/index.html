@@ -220,19 +220,30 @@
   .stop .x{background:none;border:0;color:var(--muted);cursor:pointer;font-size:15px;padding:2px 6px}
   .stop .x:hover{color:#ffb4b4}
   .re-msg{font-size:12px;color:#ffcf8a;margin-top:6px}
-  .pickbar{position:absolute;left:10px;right:10px;bottom:34px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  .pickbar{position:absolute;left:10px;right:56px;top:44px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
     background:rgba(11,15,26,.92);border:1px solid var(--accent);border-radius:12px;padding:8px 12px;font-size:12.5px}
   .pickbar .msg{flex:1;min-width:160px}
-  .mapwrap.full .pickbar{bottom:64px}
+  @media (max-width:600px){.pickbar{top:auto;bottom:8px;right:10px;padding:6px 10px;font-size:12px}}
   /* ship transfer panel */
   .xfer .li{flex-wrap:wrap}
-  .xfer .steps{flex-basis:100%;display:flex;flex-wrap:wrap;gap:4px;margin:3px 0 4px}
+  .xfer .steps{flex-basis:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:3px 0 4px}
+  .xfer .steps .gap{display:none}
+  .xfer .steps [data-xroute],.xfer .steps [data-split]{grid-column:span 2}
   .xfer .steps button{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:7px;
     min-width:36px;padding:4px 6px;font:inherit;font-size:12px;font-variant-numeric:tabular-nums;cursor:pointer}
   .xfer .steps button:hover:not(:disabled){border-color:var(--accent)}
   .xfer .steps button:disabled{opacity:.35;cursor:default}
-  .xfer .steps .gap{flex:1}
   .xfer .cnt{font-variant-numeric:tabular-nums;font-weight:700}
+  .xfer input.xn{width:62px;padding:4px 6px;font-size:13px;text-align:right}
+  .xfer .steps .take{min-width:64px}
+  .kbd{font-size:10.5px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 4px;margin-left:4px}
+  @media (pointer:coarse){
+    .btn.small,.xfer .steps button,.pickbar .btn{min-height:40px;padding-left:12px;padding-right:12px}
+    .xfer input.xn,.stop .opts select,.stop .opts input[type=number]{min-height:40px;font-size:15px}
+    .stop .x{min-width:40px;min-height:40px}
+    label.chk input{width:22px;height:22px}
+    .kbd{display:none}
+  }
 </style>
 </head>
 <body>
@@ -1247,8 +1258,9 @@ function starInspector(s) {
       · resources <b style="color:var(--text)">${res}</b>${res !== s.res ? ` (${s.res} natural)` : ""}</div>
     ${infra}
     ${starBuy(s)}
-    <div class="sec"><h4>${ctl != null ? "Ships here" : "Defence"}</h4>${defence}</div>
+    ${ctl != null ? `<div class="sec"><h4>Ships here</h4>${defence}</div>` : ""}
     ${starOrders(s)}
+    ${ctl != null ? "" : `<div class="sec"><h4>Defence</h4>${defence}</div>`}
     <div class="sec"><h4>Incoming</h4>${incoming}</div>
     <div class="sec"><h4>Within jump range of</h4>${reach.length ? reach.map(x => `<div class="li">${empLink(x.p)}<span class="r">${x.d.toFixed(1)} ly</span></div>`).join("") : `<div class="small muted">No other empire can reach it yet.</div>`}</div>
     <div class="sec"><h4>Nearest stars</h4>${near.map(x => `<div class="li">${x.t.owner >= 0 ? sw(S.players[x.t.owner]) : `<span class="sw" style="background:var(--muted)"></span>`}${starLink(x.t)}
@@ -1307,13 +1319,18 @@ function routeEtas(c, stops) {       // tick count until the carrier reaches eac
 function routeView(c) {
   const stops = c.route || [];
   if (!stops.length) return `<div class="small muted">${c.at == null ? "Flies to its destination, then waits in orbit." : "Waiting in orbit, no orders."}</div>
-    <div class="row" style="margin-top:6px"><button class="btn small primary" data-act="edit">Plan a route</button></div>`;
+    <div class="row" style="margin-top:6px"><button class="btn small primary" data-act="plan">Plan a route<span class="kbd">A</span></button></div>`;
+  // each stop's order and wait can be changed right here; they save as soon as they change
   const etas = routeEtas(c, stops);
-  return `<div class="stops">${stops.map((x, i) => `<div class="stop"><span class="n">${i + 1}</span>
-      <span>${starLink(S.stars[x.star])} · ${esc(actLabel(x))}${x.delay ? ` · wait ${x.delay}` : ""}</span>
-      <span class="small muted">${etas[i]}t</span></div>`).join("")}</div>
-    <div class="small muted" style="margin-top:6px">${c.loop ? "↻ Loops back to stop 1 forever." : "Stops after the last one."}</div>
-    <div class="row" style="margin-top:6px"><button class="btn small" data-act="edit">Edit route</button>
+  const opts = x => Object.entries(sim.ACTIONS).map(([k, a]) => `<option value="${k}" ${k === x.action ? "selected" : ""}>${a.label}</option>`).join("");
+  return `<div class="stops">${stops.map((x, i) => `<div class="stop" data-live="${i}"><span class="n">${i + 1}</span>
+      <span>${starLink(S.stars[x.star])}</span><span class="small muted" title="Ticks until it gets there">${etas[i]}t</span>
+      <div class="opts"><select data-f="action" aria-label="Order at stop ${i + 1}">${opts(x)}</select>
+        ${sim.ACTIONS[x.action].n ? `<label>X <input type="number" min="0" data-f="n" value="${x.n}"></label>` : ""}
+        <label>wait <input type="number" min="0" max="99" data-f="delay" value="${x.delay}" title="Ticks to wait here before leaving"></label></div></div>`).join("")}</div>
+    <div class="small muted" style="margin-top:6px">${c.loop ? "↻ Loops back to stop 1 forever." : "Stops after the last one."} Changes save as you make them.</div>
+    <div class="omsg ${xMsg.ok ? "ok" : "bad"}">${esc(xMsg.text)}</div>
+    <div class="row" style="margin-top:6px"><button class="btn small" data-act="edit">Add or remove stops<span class="kbd">A</span></button>
       <button class="btn small" data-act="clear">Clear orders</button></div>`;
 }
 function routeEditor(c) {
@@ -1328,14 +1345,14 @@ function routeEditor(c) {
         <label>wait <input type="number" min="0" max="99" data-f="delay" value="${x.delay}" title="Ticks to wait here before leaving"></label></div>
     </div>`).join("") || `<div class="small muted">No stops yet.</div>`}</div>
     <div class="row" style="margin-top:8px">
-      <button class="btn small ${RE.pick ? "primary" : ""}" data-act="pick">${RE.pick ? "Done adding" : "＋ Add stops on map"}</button>
+      <button class="btn small ${RE.pick ? "primary" : ""}" data-act="pick">${RE.pick ? "Done adding" : "＋ Add stops on map"}<span class="kbd">A</span></button>
       <label class="chk"><input type="checkbox" data-act="loop" ${RE.loop ? "checked" : ""}> Loop (patrol)</label></div>
     <div class="row" style="margin-top:6px"><span class="small muted">Quick:</span>
       <button class="btn small" data-act="lane" title="Collect all at every stop, drop all at the last, back to the start, repeat">⇄ Supply lane</button>
       <button class="btn small" data-act="patrol" title="No actions, just loop the stops">↻ Patrol</button></div>
     ${why ? `<div class="re-msg">${esc(why)}</div>` : ""}
-    <div class="row" style="margin-top:8px"><button class="btn small primary" data-act="save" ${why && !RE.msg ? "disabled" : ""}>Save orders</button>
-      <button class="btn small" data-act="cancel">Cancel</button></div>`;
+    <div class="row" style="margin-top:8px"><button class="btn small primary" data-act="save" ${why && !RE.msg ? "disabled" : ""}>Save orders<span class="kbd">Enter</span></button>
+      <button class="btn small" data-act="cancel">Cancel<span class="kbd">Esc</span></button></div>`;
 }
 function renderPickbar() {
   const bar = $("pickbar");
@@ -1347,7 +1364,9 @@ function renderPickbar() {
   }
   const last = RE.stops.length ? S.stars[RE.stops[RE.stops.length - 1].star] : (c.at != null ? S.stars[c.at] : S.stars[c.to]);
   bar.innerHTML = `<span class="msg">${sw(S.players[c.owner])}Tap stars within <b>${sim.range(S, c.owner)} ly</b> of ${esc(last.name)} to add stops.
-    ${RE.lane ? "Supply lane: tap each stop; the last one you tap gets everything, then press Done." : RE.stops.length > 1 ? "Tap stop 1 or the starting star to close the loop." : ""}${RE.msg ? `<br><b style="color:#ffcf8a">${esc(RE.msg)}</b>` : ""}</span>
+    ${RE.stops.length ? `<br><b>${RE.stops.length} stop${RE.stops.length > 1 ? "s" : ""}:</b> ${RE.stops.map(x => esc(S.stars[x.star].name)).join(" → ")}` : ""}
+    <br>${RE.lane ? "Supply lane: the last star you tap gets everything. Done saves it." : RE.stops.length > 1 ? "Tap stop 1 or the start to close the loop." : ""}${RE.msg ? `<br><b style="color:#ffcf8a">${esc(RE.msg)}</b>` : ""}</span>
+    ${RE.stops.length ? `<button class="btn small" data-act="pickundo" title="Remove the last stop (Backspace)">Undo</button>` : ""}
     <button class="btn small primary" data-act="pickdone">Done</button>`;
   bar.classList.remove("hidden");
 }
@@ -1365,7 +1384,7 @@ function pickStop(id) {
   } else if (id === lastId) RE.msg = `Already at ${st.name}.`;
   else if (sim.dist(S.stars[lastId], st) > r) RE.msg = `${st.name} is ${sim.dist(S.stars[lastId], st).toFixed(1)} ly from ${S.stars[lastId].name}, beyond jump range ${r} ly.`;
   else RE.stops.push({ star:id, action:"none", n:0, delay:0 });
-  if (RE.lane && !RE.pick) { applyPreset(c, "lane"); RE.lane = false; }
+  if (RE.lane && !RE.pick) { applyPreset(c, "lane"); RE.lane = false; if (saveDraft()) return; }
   renderMap(); renderInspector(); renderPickbar();
 }
 function reInput(e) {
@@ -1377,6 +1396,18 @@ function reInput(e) {
   return true;
 }
 $("inspect").addEventListener("change", e => {
+  const live = e.target.closest(".stop[data-live]");
+  if (live && !RE && sel && sel.kind === "carrier") {             // in-place edit of a saved route
+    const c = S.carriers.find(x => x.id === sel.id); if (!c || !canOrder(c)) return;
+    const stops = c.route.map(x => Object.assign({}, x)), x = stops[+live.dataset.live], fld = e.target.dataset.f;
+    x[fld] = fld === "action" ? e.target.value : Math.max(0, Math.floor(+e.target.value || 0));
+    const mine = c.owner === humanId();
+    const why = mine ? sim.act.route(S, humanId(), c.id, stops, c.loop) : sim.admin.setRoute(S, c.id, stops, c.loop);
+    xMsg = why ? { text:why, ok:false } : { text:`Stop ${+live.dataset.live + 1} updated.`, ok:true };
+    if (!why) { c.routeBy = c.routeBy === "bot" ? (mine ? "player" : "admin") : c.routeBy; if (playerView()) { snap(); save(); renderAll(); } else afterChange(); }
+    else renderInspector(true);
+    return;
+  }
   if (e.target.dataset.act === "loop" && RE) { RE.loop = e.target.checked; RE.msg = ""; renderInspector(true); renderMap(); return; }
   if (reInput(e)) { renderInspector(true); renderMap(); }
 });
@@ -1389,14 +1420,12 @@ $("inspect").addEventListener("click", e => {
   const setRoute = (stops, loop) => mine ? sim.act.route(S, humanId(), c.id, stops, loop) : sim.admin.setRoute(S, c.id, stops, loop);
   if (b.dataset.rm != null) { RE.stops.splice(+b.dataset.rm, 1); RE.msg = ""; }
   else if (act === "edit") RE = { id:c.id, stops:(c.route || []).map(x => Object.assign({}, x)), loop:!!c.loop, pick:false, msg:"" };
+  else if (act === "plan") { startRoute(c.id); return; }
   else if (act === "pick" || act === "pickdone") { RE.pick = !RE.pick; RE.msg = ""; }
   else if (act === "cancel") RE = null;
   else if (act === "lane" || act === "patrol") applyPreset(c, act);
   else if (act === "clear") { setRoute(c.at == null ? [c.route[0]] : [], false); afterChange(); return; }
-  else if (act === "save") {
-    const why = setRoute(RE.stops, RE.loop);
-    if (why) { RE.msg = why; } else { RE = null; afterChange(); renderPickbar(); return; }
-  }
+  else if (act === "save") { saveDraft(); return; }
   else if (act === "load" || act === "unload") {
     const n = act === "load" ? S.stars[c.at].ships : -(c.ships - 1);
     if (mine) sim.act.transfer(S, humanId(), c.id, n); else sim.admin.transfer(S, c.id, n);
@@ -1405,10 +1434,15 @@ $("inspect").addEventListener("click", e => {
   else return;
   renderInspector(true); renderMap(); renderPickbar();
 });
-$("pickbar").addEventListener("click", e => { if (e.target.dataset.act === "pickdone" && RE) {
+$("pickbar").addEventListener("click", e => {
+  if (e.target.dataset.act === "pickundo" && RE) { RE.stops.pop(); RE.loop = false; RE.msg = ""; renderInspector(true); renderMap(); renderPickbar(); return; }
+  if (e.target.dataset.act === "pickdone" && RE) {
   const c = S.carriers.find(x => x.id === RE.id);
-  if (RE.lane && c && RE.stops.length) applyPreset(c, "lane");
-  RE.pick = false; RE.lane = false; RE.msg = RE.msg || ""; renderInspector(true); renderMap(); renderPickbar(); } });
+  const lane = RE.lane && c && RE.stops.length;
+  if (lane) applyPreset(c, "lane");
+  RE.pick = false; RE.lane = false;
+  if (lane && saveDraft()) return;
+  renderInspector(true); renderMap(); renderPickbar(); } });
 
 /* ---- ship transfers (the real game's transfer screen) ----
    Whose ships at this star you may move: yours in Player view; in Admin view the
@@ -1424,13 +1458,16 @@ function transferPanel(s, pid) {
   const dis = x => busyNow || !x ? "disabled" : "";
   const row = c => {
     const tag = c.route && c.route.length ? (c.loop ? " · ↻ loop" : " · orders") : "";
-    const steps = own ? [-10, -5, -1, 1, 5, 10].map(k => `<button data-xf="${c.id}" data-k="${k}" ${dis(k < 0 ? c.ships > 1 : s.ships > 0)}
-        title="${k < 0 ? `Leave ${-k} on the star` : `Take ${k} from the star`}">${k > 0 ? "+" : "−"}${Math.abs(k)}</button>`).join("")
-      + `<button data-xf="${c.id}" data-k="all" ${dis(s.ships > 0)} title="Take the whole garrison">+all</button>
-         <button data-xf="${c.id}" data-k="none" ${dis(c.ships > 1)} title="Leave all but 1 on the star">−all</button>` : "";
+    // only the directions that can move anything: − needs a carrier with 2+, + needs a garrison
+    const minus = c.ships > 1 ? [-10, -5, -1].map(k => `<button data-xf="${c.id}" data-k="${k}" ${dis(true)} title="Leave ${-k} on the star">−${-k}</button>`).join("")
+      + `<button class="take" data-xf="${c.id}" data-k="none" ${dis(true)} title="Put all but 1 back on the star">Leave 1</button>` : "";
+    const plus = s.ships > 0 ? [1, 5, 10].map(k => `<button data-xf="${c.id}" data-k="${k}" ${dis(true)} title="Take ${k} from the star">+${k}</button>`).join("")
+      + `<button class="take" data-xf="${c.id}" data-k="all" ${dis(true)} title="Take the whole garrison">Take all</button>` : "";
     return `<div class="li">${sw(p)}<span class="link" data-go="carrier:${c.id}">Carrier #${c.id}</span><span class="small muted">${tag}</span>
-      <span class="r"><span class="cnt">${c.ships}</span> ships</span>
-      <div class="steps">${steps}<span class="gap"></span>
+      <span class="r">${own ? `<input class="xn" type="number" min="${Math.min(1, c.ships)}" max="${c.ships + s.ships}" value="${c.ships}" data-xn="${c.id}"
+        aria-label="Ships on carrier #${c.id}" title="Type how many ships this carrier should hold" ${dis(true)}>` : `<span class="cnt">${c.ships}</span>`} ships</span>
+      <div class="steps">${own ? minus + plus : ""}<span class="gap"></span>
+        <button data-xroute="${c.id}" ${dis(c.ships > 0)} title="Tap stars on the map to send it">Route…</button>
         <button data-split="${c.id}" ${dis(c.ships > 1 && p.credits >= R.carrierCost)} title="Split half onto a new carrier ($${R.carrierCost})">Split ½</button></div></div>`;
   };
   return `<div class="xfer">
@@ -1439,7 +1476,7 @@ function transferPanel(s, pid) {
     <div class="row" style="margin-top:6px">
       ${own ? `<button class="btn small" data-xnew ${dis(s.ships > 0 && p.credits >= R.carrierCost)} title="Buy a carrier here with 1 ship from the garrison">＋ New carrier ($${R.carrierCost})</button>` : ""}
       ${mine.filter(c => !(c.route && c.route.length)).length > 1 ? `<button class="btn small" data-xmerge ${dis(true)} title="Fold idle carriers here into one">Merge idle</button>` : ""}
-      ${own || mine.length ? `<button class="btn small" data-xlane ${dis(true)} title="Pick stops on the map; collect all here, drop all at the last stop, repeat">⇄ Supply lane from here</button>` : ""}
+      ${own || mine.length ? `<button class="btn small" data-xlane ${dis(true)} title="Pick stops on the map; collect all here, drop all at the last stop, repeat">⇄ Supply lane from here${mine.some(c => !(c.route && c.route.length)) ? "" : ` (new carrier, $${R.carrierCost})`}</button>` : ""}
     </div>
     ${own ? "" : `<div class="small muted" style="margin-top:4px">Not your star: carriers here can only swap ships with each other.</div>`}
     <div class="omsg ${xMsg.ok ? "ok" : "bad"}" id="xMsg">${esc(xMsg.text)}</div></div>`;
@@ -1453,7 +1490,7 @@ function shipOrder(fn, done) {
   return bad ? null : r;
 }
 $("inspect").addEventListener("click", e => {
-  const b = e.target.closest("[data-xf],[data-split],[data-xnew],[data-xmerge],[data-xlane]");
+  const b = e.target.closest("[data-xf],[data-split],[data-xnew],[data-xmerge],[data-xlane],[data-xroute]");
   if (!b || !sel || sel.kind !== "star") return;
   const s = S.stars[sel.id], pid = shipController(s); if (pid == null) return;
   if (playerView() && playing) { xMsg = { text:"Wait for the turn to finish playing.", ok:false }; renderInspector(true); return; }
@@ -1470,7 +1507,25 @@ $("inspect").addEventListener("click", e => {
   } else if (b.dataset.xmerge != null) {
     shipOrder(() => sim.act.merge(S, pid, s.id), "Idle carriers merged.");
   } else if (b.dataset.xlane != null) startLane(s, pid);
+  else if (b.dataset.xroute) startRoute(+b.dataset.xroute);
 });
+$("inspect").addEventListener("change", e => {                // typed a ship count on a carrier row
+  const el = e.target.closest("[data-xn]"); if (!el || !sel || sel.kind !== "star") return;
+  const s = S.stars[sel.id], pid = shipController(s), c = S.carriers.find(x => x.id === +el.dataset.xn);
+  if (pid == null || !c) return;
+  const want = Math.max(0, Math.floor(+el.value || 0)), d = want - c.ships;
+  if (!d) return;
+  shipOrder(() => sim.act.shift(S, pid, s.id, d > 0 ? "star" : c.id, d > 0 ? c.id : "star", Math.abs(d)));
+});
+$("inspect").addEventListener("keydown", e => { if (e.key === "Enter" && e.target.matches("[data-xn]")) e.target.blur(); });
+/* select a carrier and go straight to tapping stops on the map */
+function startRoute(id) {
+  const c = S.carriers.find(x => x.id === id); if (!c) return;
+  sel = { kind:"carrier", id };
+  RE = { id, stops:(c.route || []).map(x => Object.assign({}, x)), loop:!!c.loop, pick:true, msg:"" };
+  xMsg = { text:"", ok:true };
+  renderAll(); renderPickbar();
+}
 /* one tap to a supply lane: an idle carrier here (or a new one with the garrison aboard),
    then pick stops on the map; Done turns them into collect-all … drop-all at the last, looping */
 function startLane(s, pid) {
@@ -1484,6 +1539,17 @@ function startLane(s, pid) {
   RE = { id:c.id, stops:[], loop:false, pick:true, msg:"", lane:true };
   if (playerView()) { snap(); save(); renderAll(); } else afterChange();
   renderPickbar();
+}
+/* save the draft if it's valid; returns true when saved */
+function saveDraft() {
+  const c = RE && S.carriers.find(x => x.id === RE.id); if (!c) return false;
+  const mine = c.owner === humanId();
+  const why = mine ? sim.act.route(S, humanId(), c.id, RE.stops, RE.loop) : sim.admin.setRoute(S, c.id, RE.stops, RE.loop);
+  if (why) { RE.msg = why; renderInspector(true); renderPickbar(); return false; }
+  const n = RE.stops.length; RE = null;
+  xMsg = { text:`Orders saved: ${n} stop${n === 1 ? "" : "s"}.`, ok:true };
+  if (playerView()) { snap(); save(); renderAll(); } else afterChange();
+  renderPickbar(); return true;
 }
 /* presets on a drafted route: a supply lane (collect everywhere, drop all at the last
    picked stop, back to the start, loop) or a plain patrol (no actions, loop) */
@@ -2263,6 +2329,37 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape" && document.querySelector(".mapwrap.full")) setFull(false);
   if (e.key === " ") { e.preventDefault(); if (playing && playing.hold) continueTurn(); else toggleAuto(); }
 });
+
+/* carrier keys: A add stops, L loop, Backspace undo stop, Enter save, Esc leave pick
+   mode then cancel; [ and ] step through your carriers at the selected star */
+document.addEventListener("keydown", e => {
+  const typing = e.target.matches("input,select,textarea");
+  const hit = () => { e.preventDefault(); e.stopImmediatePropagation(); };
+  if (RE) {
+    const c = S.carriers.find(x => x.id === RE.id);
+    if (e.key === "Escape") { hit(); if (RE.pick) RE.pick = false; else RE = null; renderInspector(true); renderMap(); renderPickbar(); return; }
+    if (e.key === "Enter" && !e.target.matches("select,button")) { hit(); if (typing) e.target.dispatchEvent(new Event("change", { bubbles:true })); saveDraft(); return; }
+    if (typing) return;
+    if (e.key === "Backspace" && RE.stops.length && !(c && c.at == null && RE.stops.length === 1)) { hit(); RE.stops.pop(); RE.loop = false; RE.msg = ""; }
+    else if (e.key === "a" || e.key === "A") { hit(); RE.pick = !RE.pick; RE.msg = ""; }
+    else if (e.key === "l" || e.key === "L") { hit(); RE.loop = !RE.loop; RE.msg = ""; }
+    else return;
+    renderInspector(true); renderMap(); renderPickbar(); return;
+  }
+  if (typing || !sel) return;
+  if ((e.key === "a" || e.key === "A") && sel.kind === "carrier") {
+    const c = S.carriers.find(x => x.id === sel.id); if (c && canOrder(c)) { hit(); startRoute(c.id); }
+  }
+  if (e.key === "[" || e.key === "]") {                   // cycle carriers parked at this star
+    const star = sel.kind === "star" ? sel.id : (S.carriers.find(x => x.id === sel.id) || {}).at;
+    if (star == null) return;
+    const list = S.carriers.filter(x => x.at === star && canOrder(x)).sort((a, b) => a.id - b.id); if (!list.length) return;
+    hit();
+    const i = sel.kind === "carrier" ? list.findIndex(x => x.id === sel.id) : -1;
+    const next = list[(i + (e.key === "]" ? 1 : -1) + list.length + (i < 0 && e.key === "[" ? 1 : 0)) % list.length];
+    goto("carrier", next.id);
+  }
+}, true);
 
 const saved = load();
 // only trust a save that has a full rule set; top up any rules added to rules.js since it was made
