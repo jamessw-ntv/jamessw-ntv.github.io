@@ -100,7 +100,7 @@ function newGame(opts) {
     v:1, seed, rs:seed, tick:0, turn:0, rules,
     settings: Object.assign({}, DEFAULT_SETTINGS, opts.settings || {}),
     players:[], stars:[], carriers:[], alliances:[], events:[], stats:[], rel:[],
-    winner:null, nextId:1,
+    winner:null, nextId:1, offers:[],
   };
   S.settings.banned = (S.settings.banned || []).slice();
 
@@ -110,7 +110,7 @@ function newGame(opts) {
     TECHS.forEach(t => tech[t] = { level:rules.startTech, rp:0 });
     S.players.push({ id:i, name:SEATS[i].name, color:SEATS[i].color, persona,
       credits:rules.startCredits, tech, researching:PERSONAS[persona].research[0],
-      alive:true, outTurn:null });
+      alive:true, outTurn:null, human:i === opts.human });
   });
   const n = S.players.length;
   S.rel = S.players.map(a => S.players.map(b => a === b ? 0 :
@@ -781,6 +781,13 @@ function botDiplomacy(S, p, persona) {
     .sort((a, b) => appeal(S, p.id, b.id) - appeal(S, p.id, a.id));
   const q = candidates[0];
   if (!q) return;
+  if (q.human) {                                                    // a person decides; the offer waits for them
+    if ((S.offers || []).some(o => o.from === p.id && o.to === q.id)) return;
+    p.credits -= S.rules.allianceFee;
+    (S.offers = S.offers || []).push({ from:p.id, to:q.id, tick:S.tick, turn:S.turn });
+    log(S, "diplomacy", `${p.name} offered ${q.name} an alliance.`, [p.id, q.id]);
+    return;
+  }
   const qp = PERSONAS[q.persona];
   const accepts = appeal(S, q.id, p.id) >= qp.allyAt - 10 && alliesOf(S, q.id).length < qp.maxAllies;
   p.credits -= S.rules.allianceFee;
@@ -945,7 +952,9 @@ function beginTurn(S) {
   if (S.winner) return false;
   const order = S.players.filter(p => p.alive).map(p => p.id);
   for (let i = order.length - 1; i > 0; i--) { const j = Math.floor(rand(S) * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
-  order.forEach(id => botTurn(S, P(S, id)));
+  order.forEach(id => { if (!P(S, id).human) botTurn(S, P(S, id)); });
+  // offers to the player lapse after a production cycle, or when either side is gone
+  S.offers = (S.offers || []).filter(o => S.tick - o.tick < S.rules.productionTicks && P(S, o.from).alive && P(S, o.to).alive && !allied(S, o.from, o.to));
   S.turn++;
   return true;
 }
@@ -1027,11 +1036,117 @@ const admin = {
     return c;
   },
   setPersona(S, id, persona) { if (PERSONAS[persona]) P(S, id).persona = persona; },
+  /* who the person plays (null = nobody; every seat is a bot) */
+  setHuman(S, id) {
+    S.players.forEach(p => p.human = p.id === id);
+    if (id == null) S.offers = [];
+    log(S, "system", id == null ? "Every empire is a bot again." : `You now play ${P(S, id).name}; the others are bots.`, id == null ? [] : [id]);
+  },
   setOpinion(S, a, b, v) { S.rel[a][b] = clamp(v, -100, 100); },
 };
 
+/* ---------------- a person's orders ----------------
+   The same moves the real game gives a player. Each returns "" on success or a
+   plain-English reason it can't be done, so the viewer can show it. */
+const act = {
+  buy(S, pid, starId, kind) {
+    const p = P(S, pid), s = S.stars[starId];
+    if (!BASE_KEY[kind]) return "Unknown upgrade.";
+    if (!s || s.owner !== pid) return "You can only build at your own stars.";
+    const cost = infraCost(S, s, kind);
+    if (p.credits < cost) return `Needs $${cost}, you have $${p.credits}.`;
+    p.credits -= cost; s[kind]++;
+    return "";
+  },
+  /* spend up to `budget` on `kind`, cheapest star first, like the real game's bulk upgrade */
+  buyBulk(S, pid, kind, budget) {
+    const p = P(S, pid); let spent = 0, n = 0;
+    for (let g = 0; g < 500; g++) {
+      let best = null, cost = Infinity;
+      for (const s of starsOf(S, pid)) { const c = infraCost(S, s, kind); if (c < cost) { cost = c; best = s; } }
+      if (!best || spent + cost > budget || p.credits < cost) break;
+      p.credits -= cost; best[kind]++; spent += cost; n++;
+    }
+    return { spent, n };
+  },
+  research(S, pid, tech) { if (!TECHS.includes(tech)) return "Unknown tech."; P(S, pid).researching = tech; return ""; },
+  /* send n ships from a star (garrison + own parked carriers) to a star within jump range;
+     builds a carrier there first if none is parked */
+  send(S, pid, fromId, toId, n) {
+    const from = S.stars[fromId], to = S.stars[toId];
+    if (!from || !to || from === to) return "Pick a different destination.";
+    const parked = S.carriers.some(c => c.at === fromId && c.owner === pid);
+    if (from.owner !== pid && !parked) return "You have nothing at that star.";
+    if (dist(from, to) > range(S, pid) + 1e-9) return `Out of range: ${dist(from, to).toFixed(1)} ly, your range is ${range(S, pid)} ly.`;
+    if (!parked && P(S, pid).credits < S.rules.carrierCost) return `A new carrier costs $${S.rules.carrierCost}.`;
+    n = Math.floor(n);
+    if (!(n >= 1)) return "Send at least 1 ship.";
+    const c = launch(S, pid, from, to, n);
+    return c ? "" : "Not enough ships there.";
+  },
+  propose(S, pid, other) {
+    const p = P(S, pid), q = P(S, other);
+    if (!q || !q.alive || pid === other) return "Pick another living empire.";
+    if (allied(S, pid, other)) return "Already allies.";
+    if (isBanned(S, pid, other)) return "The admin has banned this pair from allying.";
+    const offer = (S.offers || []).find(o => o.from === other && o.to === pid);
+    if (offer) return act.accept(S, pid, other);
+    if (p.credits < S.rules.allianceFee) return `Proposing costs $${S.rules.allianceFee}.`;
+    p.credits -= S.rules.allianceFee;
+    const qp = PERSONAS[q.persona];
+    if (appeal(S, other, pid) >= qp.allyAt - 10 && alliesOf(S, other).length < qp.maxAllies) {
+      formAlliance(S, pid, other, { by:"player" });
+      S.rel[other][pid] = clamp(S.rel[other][pid] + 10, -100, 100);
+      return "";
+    }
+    S.rel[other][pid] = clamp(S.rel[other][pid] - 2, -100, 100);
+    log(S, "diplomacy", `${q.name} turned down an alliance with ${p.name}.`, [pid, other]);
+    return `${q.name} said no.`;
+  },
+  accept(S, pid, other) {
+    const i = (S.offers || []).findIndex(o => o.from === other && o.to === pid);
+    if (i < 0) return "That offer has lapsed.";
+    S.offers.splice(i, 1);
+    if (!formAlliance(S, other, pid, { by:"bots" })) return "Couldn't form that alliance.";
+    S.rel[other][pid] = clamp(S.rel[other][pid] + 10, -100, 100);
+    return "";
+  },
+  decline(S, pid, other) {
+    S.offers = (S.offers || []).filter(o => !(o.from === other && o.to === pid));
+    S.rel[other][pid] = clamp(S.rel[other][pid] - 5, -100, 100);
+    log(S, "diplomacy", `${P(S, pid).name} turned down an alliance with ${P(S, other).name}.`, [pid, other]);
+    return "";
+  },
+  /* waypoint orders on your own carrier (same rules as the admin route editor) */
+  route(S, pid, carrierId, stops, loop) {
+    const c = S.carriers.find(x => x.id === carrierId);
+    if (!c || c.owner !== pid) return "That isn't your carrier.";
+    stops = stops.map(x => ({ star:+x.star, action:ACTIONS[x.action] ? x.action : "none",
+      n:Math.max(0, Math.floor(+x.n || 0)), delay:clamp(Math.floor(+x.delay || 0), 0, 99) }));
+    const why = checkRoute(S, c, stops, !!loop); if (why) return why;
+    c.route = stops; c.loop = !!loop && stops.length > 1; c.routeBy = stops.length ? "player" : null;
+    if (c.at != null && !stops.length) c.wait = 0;
+    return "";
+  },
+  /* move ships between your parked carrier and your star: n > 0 loads the carrier */
+  transfer(S, pid, carrierId, n) {
+    const c = S.carriers.find(x => x.id === carrierId);
+    if (!c || c.owner !== pid || c.at == null || S.stars[c.at].owner !== pid) return "Only at your own star.";
+    const star = S.stars[c.at], t = clamp(-n, -star.ships, c.ships);
+    c.ships -= t; star.ships += t;
+    return "";
+  },
+  war(S, pid, other) {
+    const al = alliance(S, pid, other);
+    if (!al) return "You aren't allied.";
+    if (al.locked) return "This alliance is locked by the admin.";
+    if (al.warBy != null) return "War is already declared.";
+    return declareWar(S, pid, other) ? "" : "Couldn't declare war.";
+  },
+};
+
 const API = { ACTIONS, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
-  defaultRules, newGame, nextTurn, beginTurn, endTurn, tick, admin,
+  defaultRules, newGame, nextTurn, beginTurn, endTurn, tick, admin, act,
   range, resources, infraCost, researchCost, shipsPerCycle, totals, starsOf, winTarget,
   alliance, allied, alliesOf, carrierPos, scanRange, scanSources, inScan, eta, fight, shipsToWin, pairKey, dist };
 if (typeof module !== "undefined") module.exports = API; else root.NPSim = API;

@@ -12,6 +12,10 @@ analysis. Plain static page; no server.
   `fleetList`) and fog of war (`visionSet`, `seesStar`) live here; the engine side is
   `beginTurn` / `tick` / `endTurn` and `scanSources` / `inScan` in `sim.js`.
   Playback and view prefs (`PB`) are per-browser, never game state.
+  A person can play one seat (`players[i].human`; bots skip it). Their orders go through
+  `sim.act` (buy, buyBulk, research, send, propose/accept/decline, war); bot alliance offers to
+  them wait in `S.offers`. In the viewer, `humanId()` / `playerView()` gate what Player view
+  hides; `PB.view` ("player" | "admin") is a per-browser pref.
   Carrier waypoint orders: engine side is `c.route` / `c.loop` / `c.wait`, `arrive`,
   `transferFor`, `checkRoute`, `botSupply` and `admin.setRoute` in `sim.js` (semantics copied
   from NPA's timetravel.ts); the editor is `routeEditor` / `pickStop` / `drawRoutes` in index.html.
