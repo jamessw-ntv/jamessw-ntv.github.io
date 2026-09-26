@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Neptune's Pride — Bot Sandbox</title>
 <link rel="stylesheet" href="../assets/hub.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" />
 <style>
   /* ---- turn controls ---- */
   .ctrl{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;align-items:center;gap:8px;
@@ -48,28 +49,31 @@
   .map.triton{background-image:radial-gradient(1px 1px at 12% 18%,rgba(255,255,255,.28),transparent 60%),radial-gradient(1px 1px at 67% 32%,rgba(255,255,255,.2),transparent 60%),
       radial-gradient(1px 1px at 38% 74%,rgba(210,225,255,.24),transparent 60%),radial-gradient(1px 1px at 85% 83%,rgba(255,255,255,.16),transparent 60%),
       radial-gradient(1.5px 1.5px at 52% 51%,rgba(255,240,220,.22),transparent 60%),radial-gradient(1px 1px at 23% 92%,rgba(255,255,255,.18),transparent 60%),
-      radial-gradient(1px 1px at 91% 8%,rgba(200,220,255,.2),transparent 60%);background-size:173px 173px}
-  .map.triton text{font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif}
-  .hud{position:absolute;right:56px;top:10px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;pointer-events:none;
-    font-size:12px;font-variant-numeric:tabular-nums}
-  .hud > span{background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:3px 9px;color:#fff}
-  .hud b{color:#ffd66b}
+      radial-gradient(1px 1px at 91% 8%,rgba(200,220,255,.2),transparent 60%),
+      radial-gradient(1px 1px at 30% 40%,rgba(255,255,255,.16),transparent 60%),radial-gradient(1px 1px at 75% 60%,rgba(220,230,255,.14),transparent 60%);
+    background-size:173px 173px,173px 173px,173px 173px,173px 173px,173px 173px,173px 173px,173px 173px,97px 97px,97px 97px}
+  .map.triton text{font-family:"Open Sans","Segoe UI",system-ui,sans-serif}
+  .hud{position:absolute;left:1px;right:1px;top:1px;min-height:34px;display:flex;gap:4px 14px;flex-wrap:wrap;align-items:center;
+    padding:6px 12px;pointer-events:none;background:rgba(0,0,0,.85);border-bottom:1px solid rgba(255,255,255,.1);
+    border-radius:10px 10px 0 0;font:600 13px/1.3 "Open Sans","Segoe UI",system-ui,sans-serif;color:#fff;font-variant-numeric:tabular-nums}
+  .hud b{color:#ffc000} .hud i{font-style:normal;color:#4ec8ff}
+  .mapwrap.full .hud{border-radius:0}
   .fsbar{display:none}
   .mapwrap.full{position:fixed;inset:0;z-index:50;background:#000;margin:0}
   .mapwrap.full .map{width:100vw;height:100vh;height:100dvh;max-height:none;aspect-ratio:auto;border:0;border-radius:0}
-  .mapwrap.full .fsbar{display:flex;position:absolute;left:50%;bottom:14px;transform:translateX(-50%);gap:6px;
+  .mapwrap.full .fsbar{display:flex;white-space:nowrap;position:absolute;left:50%;bottom:14px;transform:translateX(-50%);gap:6px;
     background:rgba(0,0,0,.75);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px}
   .mapwrap.full .scalebar{bottom:70px}
   body.fullmap{overflow:hidden}
   .map [data-s],.map [data-c]{cursor:pointer}
   .map text{pointer-events:none}
-  .mapctl{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:6px}
+  .mapctl{position:absolute;top:46px;right:10px;display:flex;flex-direction:column;gap:6px}
   .mapctl button{width:34px;height:34px;border-radius:8px;background:var(--panel2);border:1px solid var(--line);
     color:var(--text);font-size:17px;line-height:1;cursor:pointer}
   .mapctl button:hover{border-color:var(--accent)}
   .scalebar{position:absolute;left:12px;bottom:10px;font-size:11px;color:var(--muted);pointer-events:none}
   .scalebar i{display:block;height:6px;border:1px solid var(--muted);border-top:0;margin-bottom:3px}
-  .tickbar{position:absolute;left:10px;top:10px;right:56px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;pointer-events:none;
+  .tickbar{position:absolute;left:10px;top:46px;right:56px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;pointer-events:none;
     font-size:12px;color:var(--text);font-variant-numeric:tabular-nums}
   .tickbar .pips{display:flex;gap:3px}
   .tickbar .pips i{width:14px;height:5px;border-radius:3px;background:rgba(255,255,255,.18)}
@@ -220,16 +224,16 @@
           <div class="scalebar" id="scalebar"></div>
           <div class="fsbar">
             <button class="btn small" data-fs="back">◀</button>
-            <button class="btn small primary" data-fs="next">Next turn ▶</button>
+            <button class="btn small primary" data-fs="next" title="Next turn">Next ▶</button>
             <button class="btn small" data-fs="skip">Skip ⏭</button>
             <button class="btn small" data-fs="auto">Auto</button>
-            <button class="btn small" data-fs="exit">Exit ✕</button>
+            <button class="btn small" data-fs="exit" title="Leave full screen">✕</button>
           </div>
         </div>
         <div class="row small muted" style="margin-top:8px">
           <label class="small">Labels <select id="optLabels">
             <option value="auto" selected>by zoom</option><option value="all">always</option><option value="off">off</option></select></label>
-          <label class="chk"><input type="checkbox" id="optAlly" checked> Alliance links</label>
+          <label class="chk"><input type="checkbox" id="optAlly"> Alliance links</label>
           <label class="chk"><input type="checkbox" id="optFleets" checked> Carriers</label>
           <label class="chk"><input type="checkbox" id="optRange" checked> Jump range</label>
           <label class="chk"><input type="checkbox" id="optScan"> Scanning ranges</label>
@@ -607,8 +611,10 @@ const TAU = Math.PI * 2;
 
 function fitCam() {
   const svg = $("map"), ar = (svg.clientHeight || 1) / (svg.clientWidth || 1);
-  const pad = 2.5;
-  cam = { x:S.width / 2, y:S.height / 2, w:Math.max(S.width, S.height / ar) + pad * 2 };
+  const xs = S.stars.map(s => s.x), ys = S.stars.map(s => s.y);          // frame the stars, not the empty edges
+  const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+  const w = Math.max(x1 - x0, (y1 - y0) / ar) * 1.08 + 2;
+  cam = { x:(x0 + x1) / 2, y:(y0 + y1) / 2 - 18 * w / (svg.clientWidth || 800) / 2, w };   // nudge down under the top bar
 }
 function camBox() {
   const svg = $("map"), pxW = svg.clientWidth || 800, pxH = svg.clientHeight || 800;
@@ -698,8 +704,8 @@ function renderMap() {
   if (tri) {
     // Triton look: soft nebulae behind everything, then glowing star sprites (defs shared by every star)
     out.push(`<defs>
-      <radialGradient id="gStar"><stop offset="0" stop-color="#fff"/><stop offset=".18" stop-color="#fff8e6" stop-opacity=".95"/>
-        <stop offset=".45" stop-color="#ffe7b0" stop-opacity=".28"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient>
+      <radialGradient id="gStar"><stop offset="0" stop-color="#fff"/><stop offset=".25" stop-color="#fff" stop-opacity=".9"/>
+        <stop offset=".5" stop-color="#ffe9b8" stop-opacity=".35"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient>
       <radialGradient id="gStarDim"><stop offset="0" stop-color="#c9d3e6"/><stop offset=".25" stop-color="#9aa6c0" stop-opacity=".6"/>
         <stop offset="1" stop-color="#7a86a0" stop-opacity="0"/></radialGradient>
       <filter id="fGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="${f(2.2 * u)}"/></filter>
@@ -740,11 +746,15 @@ function renderMap() {
   const selStar = sel && sel.kind === "star" ? S.stars[sel.id] : null;
   if ($("optRange").checked && selStar && selStar.owner >= 0) {
     const r = sim.range(S, selStar.owner);
-    out.push(`<circle cx="${selStar.x}" cy="${selStar.y}" r="${r}" fill="${col(S.players[selStar.owner])}" fill-opacity=".05"
-      stroke="${col(S.players[selStar.owner])}" stroke-opacity=".7" stroke-width="${f(1.5 * u)}" stroke-dasharray="${f(5 * u)} ${f(4 * u)}"/>`);
-    for (const t of S.stars) if (t !== selStar && sim.dist(t, selStar) <= r)
-      out.push(`<line x1="${selStar.x}" y1="${selStar.y}" x2="${t.x}" y2="${t.y}" stroke="var(--muted)" stroke-opacity=".35" stroke-width="${f(u)}"/>`);
-    out.push(`<text x="${selStar.x}" y="${f(selStar.y - r - 5 * u)}" text-anchor="middle" font-size="${f(11 * u)}" fill="var(--muted)">jump range ${r} ly</text>`);
+    if (tri) out.push(`<circle cx="${selStar.x}" cy="${selStar.y}" r="${r}" fill="none" stroke="${col(S.players[selStar.owner])}" stroke-opacity=".5" stroke-width="${f(1.3 * u)}"/>`);
+    else {
+      out.push(`<circle cx="${selStar.x}" cy="${selStar.y}" r="${r}" fill="${col(S.players[selStar.owner])}" fill-opacity=".05"
+        stroke="${col(S.players[selStar.owner])}" stroke-opacity=".7" stroke-width="${f(1.5 * u)}" stroke-dasharray="${f(5 * u)} ${f(4 * u)}"/>`);
+      for (const t of S.stars) if (t !== selStar && sim.dist(t, selStar) <= r)
+        out.push(`<line x1="${selStar.x}" y1="${selStar.y}" x2="${t.x}" y2="${t.y}" stroke="var(--muted)" stroke-opacity=".35" stroke-width="${f(u)}"/>`);
+    }
+    out.push(`<text x="${selStar.x}" y="${f(selStar.y - r - 5 * u)}" text-anchor="middle" font-size="${f(11 * u)}" fill="#fff"
+      paint-order="stroke" stroke="#000" stroke-width="${f(2.6 * u)}">jump range ${r} ly</text>`);
     out.push(`<circle cx="${selStar.x}" cy="${selStar.y}" r="${sim.scanRange(S, selStar.owner)}" fill="none"
       stroke="${col(S.players[selStar.owner])}" stroke-opacity=".45" stroke-width="${f(u)}"/>`);
   }
@@ -755,34 +765,30 @@ function renderMap() {
   if (fleets && PB.trails) for (const v of fl) if (v.at == null) {
     const t = S.stars[v.to], o = S.players[v.owner], isSel = selCarrier && v.id === selCarrier.id;
     const dim = focus != null && v.owner !== focus;
-    out.push(`<line x1="${f(v.x)}" y1="${f(v.y)}" x2="${t.x}" y2="${t.y}" stroke="${col(o)}" stroke-opacity="${dim ? .15 : isSel ? 1 : .5}"
-      stroke-width="${f((isSel ? 2.2 : 1.4) * u)}" stroke-linecap="round"/>`);
-    // multi-stop routes (waypoints / patrol loops from the carrier orders): the legs after this one
-    const wp = v.c && Array.isArray(v.c.waypoints) ? v.c.waypoints.filter(id => S.stars[id]) : [];
-    if (wp.length) {
-      const pts = [t, ...wp.map(id => S.stars[id])];
-      if (v.c.loop) pts.push(pts[0]);
-      out.push(`<polyline points="${pts.map(q => `${q.x},${q.y}`).join(" ")}" fill="none" stroke="${col(o)}" stroke-opacity="${dim ? .1 : isSel ? .85 : .3}"
+    out.push(`<line x1="${f(v.x)}" y1="${f(v.y)}" x2="${t.x}" y2="${t.y}" stroke="${col(o)}" stroke-opacity="${dim ? .15 : isSel ? 1 : tri ? .38 : .5}"
+      stroke-width="${f((isSel ? 2.2 : tri ? 1.1 : 1.4) * u)}" stroke-linecap="round"/>`);
+    // multi-stop routes (the real game's order list: carrier.route = [{star, action, n, delay}], carrier.loop)
+    const route = v.c && Array.isArray(v.c.route) ? v.c.route.filter(r => S.stars[r.star]) : [];
+    if (route.length) {
+      const stops = route[0].star === v.to ? route.slice(1) : route;
+      const pts = [t, ...stops.map(r => S.stars[r.star])];
+      if (v.c.loop && pts.length > 1) pts.push(pts[0]);
+      if (pts.length > 1) out.push(`<polyline points="${pts.map(q => `${q.x},${q.y}`).join(" ")}" fill="none" stroke="${col(o)}" stroke-opacity="${dim ? .1 : isSel ? .85 : .3}"
         stroke-width="${f((isSel ? 1.8 : 1.1) * u)}" stroke-dasharray="${f(5 * u)} ${f(3 * u)}" stroke-linejoin="round"/>`);
-      if (isSel && Array.isArray(v.c.orders)) v.c.orders.forEach(od => {
-        const q = S.stars[od.star]; if (!q) return;
-        const lbl = { collect:`+${od.n}`, "collect-all":"+all", drop:`−${od.n}`, "drop-all":"−all", garrison:`keep ${od.n}` }[od.action] || od.action;
-        out.push(`<text x="${f(q.x + 9 * u)}" y="${f(q.y - 9 * u)}" font-size="${f(9.5 * u)}" font-weight="700" fill="${col(o)}"
-          paint-order="stroke" stroke="#000" stroke-width="${f(2.4 * u)}">${esc(lbl)}</text>`);
-      });
+      if (isSel) route.forEach(od => out.push(orderLabel(od, o, u, f)));
     }
   }
 
   // stars
-  const ringR = 7 * u, coreR = 2.6 * u, hit = 13 * u, fs = 10.5 * u;
+  const ringR = (tri ? 6.2 : 7) * u, coreR = 2.6 * u, hit = 13 * u, fs = (tri ? 11 : 10.5) * u;
   const orbiting = {};
   for (const v of fl) if (v.at != null) (orbiting[v.at] = orbiting[v.at] || []).push(v);
   // Triton: a blurred copy of every owner ring underneath gives the rings their bright neon glow
   if (tri) {
     const glow = [];
     for (const s of S.stars) { const ow = ownerOf(s); if (ow < 0) continue;
-      const dim = focus != null && ow !== focus;
-      glow.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR)}" fill="none" stroke="${col(S.players[ow])}" stroke-width="${f(3.4 * u)}" opacity="${dim ? .15 : .9}"/>`); }
+      const dim = (focus != null && ow !== focus) || !seesStar(vis, s);
+      glow.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR)}" fill="none" stroke="${col(S.players[ow])}" stroke-width="${f(3.4 * u)}" opacity="${dim ? .12 : .5}"/>`); }
     out.push(`<g filter="url(#fGlow)">${glow.join("")}</g>`);
   }
   for (const s of S.stars) {
@@ -793,13 +799,13 @@ function renderMap() {
     out.push(`<g data-s="${s.id}" opacity="${op}"><circle cx="${s.x}" cy="${s.y}" r="${f(hit)}" fill="transparent"/>`);
     if (tri) {
       // star sprite: its glow grows with natural resources, like the bigger stars in the real game
-      const glowR = (4.5 + Math.min(5, Math.sqrt(sim.resources(S, s)) * .75)) * u;
+      const glowR = (6 + Math.min(5, Math.sqrt(sim.resources(S, s)) * .72)) * u;
       out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(glowR)}" fill="url(#${seen ? "gStar" : "gStarDim"})"/>`);
       if (o) {
-        out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR)}" fill="none" stroke="${col(o)}" stroke-width="${f(2.6 * u)}"/>`);
+        out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR)}" fill="none" stroke="${col(o)}" stroke-width="${f(3 * u)}"/>`);
         if (isHome) out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR + 3.2 * u)}" fill="none" stroke="${col(o)}" stroke-width="${f(1.1 * u)}"/>`);
       }
-      out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(coreR * (o ? .8 : .6))}" fill="${seen ? "#fff" : "#9aa3b6"}"/>`);
+      out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(coreR * .8)}" fill="${seen ? "#fff" : "#9aa3b6"}"/>`);
     } else if (o) {
       out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR)}" fill="var(--black)" stroke="${col(o)}" stroke-width="${f(2.6 * u)}"/>`);
       if (isHome) out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR + 3 * u)}" fill="none" stroke="${col(o)}" stroke-width="${f(1.1 * u)}"/>`);
@@ -813,7 +819,8 @@ function renderMap() {
     here.forEach(c => byOwner[c.owner] = (byOwner[c.owner] || 0) + c.ships);
     Object.keys(byOwner).forEach((pid, i) => {
       const ang = -Math.PI / 4 + i * 0.9, R = ringR + 5 * u, cx = s.x + Math.cos(ang) * R, cy = s.y + Math.sin(ang) * R, d = 3.6 * u;
-      out.push(`<path d="M${f(cx)} ${f(cy - d)}L${f(cx + d)} ${f(cy)}L${f(cx)} ${f(cy + d)}L${f(cx - d)} ${f(cy)}Z" fill="${col(S.players[pid])}" stroke="var(--black)" stroke-width="${f(u)}"/>`);
+      out.push(tri ? `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(2.8 * u)}" fill="${col(S.players[pid])}" stroke="#000" stroke-width="${f(.9 * u)}"/>`
+        : `<path d="M${f(cx)} ${f(cy - d)}L${f(cx + d)} ${f(cy)}L${f(cx)} ${f(cy + d)}L${f(cx - d)} ${f(cy)}Z" fill="${col(S.players[pid])}" stroke="var(--black)" stroke-width="${f(u)}"/>`);
     });
     out.push(`</g>`);
     // labels (level of detail by zoom)
@@ -823,7 +830,8 @@ function renderMap() {
       const halo = tri ? `paint-order="stroke" stroke="#000" stroke-width="${f(2.6 * u)}" stroke-linejoin="round"` : "";
       if (showNames) { out.push(`<text x="${s.x}" y="${f(ly)}" text-anchor="middle" font-size="${f(fs)}" fill="${tri ? "#b9c0cf" : "var(--muted)"}" ${halo} opacity="${op}">${esc(s.name)}</text>`); ly += fs * 1.1; }
       if (showNums && seen && (o || ships)) out.push(`<text x="${s.x}" y="${f(ly)}" text-anchor="middle" font-size="${f(fs * 1.05)}" font-weight="700" fill="${tri ? "#fff" : "var(--text)"}" ${halo} opacity="${op}">${ships}</text>`);
-      if (showNames && o && seen) out.push(`<text x="${s.x}" y="${f(s.y - ringR - fs * .45)}" text-anchor="middle" font-size="${f(fs * .95)}" fill="var(--text)" opacity="${op * .85}">${s.econ} · ${s.industry} · ${s.science}</text>`);
+      if (showNames && o && seen && (!tri || ppl >= 30)) out.push(`<text x="${s.x}" y="${f(s.y - ringR - fs * .45)}" text-anchor="middle" font-size="${f(fs * (tri ? .85 : .95))}"
+        fill="${tri ? col(o) : "var(--text)"}" ${halo} opacity="${op * .9}">${s.econ} · ${s.industry} · ${s.science}</text>`);
     }
   }
 
@@ -833,10 +841,14 @@ function renderMap() {
     const ang = Math.atan2(t.y - p.y, t.x - p.x), d = 6.5 * u;
     const pt = (a, r) => `${f(p.x + Math.cos(ang + a) * r)} ${f(p.y + Math.sin(ang + a) * r)}`;
     const dim = focus != null && v.owner !== focus;
+    const glyph = tri
+      ? `<circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(4 * u)}" fill="${col(o)}" stroke="#000" stroke-width="${f(u)}"/>
+         <path d="M${pt(0, 2.6 * u)}L${pt(2.5, 2.2 * u)}L${pt(Math.PI, .6 * u)}L${pt(-2.5, 2.2 * u)}Z" fill="#fff"/>`
+      : `<path d="M${pt(0, d * 1.3)}L${pt(2.4, d)}L${pt(Math.PI, d * .35)}L${pt(-2.4, d)}Z" fill="${col(o)}" stroke="#000" stroke-width="${f(1.2 * u)}"/>`;
     out.push(`<g ${v.c ? `data-c="${v.id}"` : ""} opacity="${dim ? .25 : 1}"><circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(11 * u)}" fill="transparent"/>
-      <path d="M${pt(0, d * 1.3)}L${pt(2.4, d)}L${pt(Math.PI, d * .35)}L${pt(-2.4, d)}Z" fill="${col(o)}" stroke="#000" stroke-width="${f(1.2 * u)}"/>
+      ${glyph}
       ${isSel ? `<circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(10 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.3 * u)}"/>` : ""}</g>`);
-    if (showNums && !dim) out.push(`<text x="${f(p.x)}" y="${f(p.y + 14 * u)}" text-anchor="middle" font-size="${f(fs)}" font-weight="700"
+    if (showNums && !dim) out.push(`<text x="${f(p.x + (tri ? 6.5 * u : 0))}" y="${f(p.y + (tri ? 3.8 * u : 14 * u))}" text-anchor="${tri ? "start" : "middle"}" font-size="${f(fs * (tri ? .9 : 1))}" font-weight="700"
       fill="${tri ? `color-mix(in srgb, ${col(o)} 45%, #fff)` : "var(--text)"}" ${tri ? `paint-order="stroke" stroke="#000" stroke-width="${f(2.6 * u)}"` : ""}>${v.ships}</text>`);
   }
 
@@ -859,7 +871,10 @@ function renderMap() {
     <rect x="${f(V.x)}" y="${f(V.y)}" width="${f(V.w)}" height="${f(V.h)}" fill="${tri ? "#000" : "#1a2238"}" opacity="${tri ? .62 : .42}" mask="url(#fogMask)" pointer-events="none"/>`);
 
   // selection ring
-  if (selStar) out.push(`<circle cx="${selStar.x}" cy="${selStar.y}" r="${f(ringR + 7 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.6 * u)}" stroke-dasharray="${f(3 * u)} ${f(3 * u)}"/>`);
+  if (selStar) out.push(tri
+    ? `<circle cx="${selStar.x}" cy="${selStar.y}" r="${f(ringR + 4.5 * u)}" fill="none" stroke="#fff" stroke-width="${f(1.5 * u)}"/>
+       <path d="M${f(selStar.x)} ${f(selStar.y - ringR - 7 * u)}l${f(-4 * u)} ${f(-6 * u)}h${f(8 * u)}z" fill="#fff"/>`
+    : `<circle cx="${selStar.x}" cy="${selStar.y}" r="${f(ringR + 7 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.6 * u)}" stroke-dasharray="${f(3 * u)} ${f(3 * u)}"/>`);
 
   svg.setAttribute("viewBox", `${f(V.x)} ${f(V.y)} ${f(V.w)} ${f(V.h)}`);
   svg.innerHTML = out.join("");
@@ -870,20 +885,30 @@ function renderMap() {
   renderHud();
 }
 
+/* The action a carrier takes at a stop, as a small label beside that star. */
+function orderLabel(od, o, u, f) {
+  const q = S.stars[od.star], n = od.n;
+  const lbl = { "collect-all":"+all", "drop-all":"−all", collect:`+${n}`, drop:`−${n}`, "collect-all-but":`+all but ${n}`,
+    "drop-all-but":`−all but ${n}`, garrison:`keep ${n}` }[od.action];
+  if (!q || !lbl) return "";
+  return `<text x="${f(q.x + 9 * u)}" y="${f(q.y - 9 * u)}" font-size="${f(9.5 * u)}" font-weight="700" fill="${col(o)}"
+    paint-order="stroke" stroke="#000" stroke-width="${f(2.4 * u)}">${esc(lbl)}${od.delay ? ` ⏱${od.delay}` : ""}</text>`;
+}
+
 /* A few soft nebulae, fixed per galaxy (seeded from the game seed, not the game RNG). */
 let nebCache = null;
 function nebulae() {
   if (nebCache && nebCache.seed === S.seed && nebCache.w === S.width) return nebCache.svg;
   let t = (S.seed * 2654435761) >>> 0; const r = () => ((t = (t * 1664525 + 1013904223) >>> 0) / 4294967296);
-  const hues = ["#1d3f8f", "#4a1f7a", "#0f5a6b", "#6b1f4f", "#23306e"], out = [];
+  const hues = ["#1d3f8f", "#4a1f7a", "#1a6b7a", "#7a2a6b", "#23306e", "#0f5a6b"], out = [];
   const n = 5 + Math.round(S.width * S.height / 900);
   for (let i = 0; i < n; i++) {
     const x = (r() * S.width).toFixed(1), y = (r() * S.height).toFixed(1), rx = 6 + r() * 16, ry = rx * (.45 + r() * .5), rot = (r() * 180).toFixed(0);
     const c = hues[i % hues.length];
-    out.push(`<radialGradient id="gN${i}"><stop offset="0" stop-color="${c}" stop-opacity=".55"/><stop offset=".6" stop-color="${c}" stop-opacity=".18"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></radialGradient>
+    out.push(`<radialGradient id="gN${i}"><stop offset="0" stop-color="${c}" stop-opacity=".7"/><stop offset=".6" stop-color="${c}" stop-opacity=".18"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></radialGradient>
       <ellipse cx="${x}" cy="${y}" rx="${rx.toFixed(1)}" ry="${ry.toFixed(1)}" transform="rotate(${rot} ${x} ${y})" fill="url(#gN${i})"/>`);
   }
-  const svg = `<g opacity=".6">${out.join("")}</g>`;
+  const svg = `<g opacity=".85">${out.join("")}</g>`;
   nebCache = { seed:S.seed, w:S.width, svg };
   return svg;
 }
@@ -891,11 +916,11 @@ function nebulae() {
 /* In-map status, like the real game's top bar: the clock, and the viewed empire's purse. */
 function renderHud() {
   const R = S.rules, toProd = R.productionTicks - (S.tick % R.productionTicks), bits = [];
-  bits.push(`<span>Tick <b>${S.tick}</b> · production in <b>${toProd}</b></span>`);
   if (PB.vision.length === 1 && S.players[PB.vision[0]]) {
     const p = S.players[PB.vision[0]], t = sim.totals(S, p.id);
-    bits.push(`<span>${sw(p)}${esc(p.name)} · <b>$${p.credits}</b> · ${t.stars}★ · ${t.ships} ships</span>`);
-  }
+    bits.push(`<span style="color:${col(p)}">${esc(p.name)}</span>`, `<span><b>$${p.credits}</b></span>`, `<span>${t.stars} stars · ${t.ships} ships</span>`);
+  } else bits.push(`<span>Galaxy · ${S.players.filter(p => p.alive).length} empires</span>`);
+  bits.push(`<span>Production: <i>${toProd} ticks</i></span>`, `<span>Tick <i>${S.tick}</i> · Turn <i>${S.turn}</i></span>`);
   $("hud").innerHTML = bits.join("");
 }
 
