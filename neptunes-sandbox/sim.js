@@ -111,41 +111,200 @@ function newGame(opts) {
   S.rel = S.players.map(a => S.players.map(b => a === b ? 0 :
     Math.round((rand(S) - .5) * 10 + (a.persona === "diplomat" ? 10 : 0) + (a.persona === "warlord" ? -5 : 0))));
 
-  // stars: rejection-sampled so none sit on top of each other
-  const perPlayer = clamp(opts.starsPerPlayer || 12, 4, 40);
-  const total = n * perPlayer;
-  // real Triton galaxies: ~30 sq ly per star, nearest neighbour ~2 ly (checked on a 1024-star game)
-  const side = Math.sqrt(total * 22);
-  const names = new Set();
-  let guard = 0;
-  while (S.stars.length < total && guard++ < total * 400) {
-    const p = { x:rand(S) * side, y:rand(S) * side };
-    if (S.stars.some(s => dist(s, p) < 1.2)) continue;
-    let name; do { name = pick(S, STAR_A) + pick(S, STAR_B); } while (names.has(name));
-    names.add(name);
-    S.stars.push({ id:S.stars.length, name, x:+p.x.toFixed(2), y:+p.y.toFixed(2),
-      res: 5 + Math.floor(rand(S) * rand(S) * 45),
-      owner:-1, econ:0, industry:0, science:0, ships:0, frac:0 });
-  }
-  S.width = side; S.height = side;
-
-  // homes evenly spaced on a ring, so no seat starts boxed in the middle
-  const homes = [], spin = rand(S) * Math.PI * 2, c = side / 2;
-  for (let i = 0; i < n; i++) {
-    const ang = spin + i * Math.PI * 2 / n, target = { x:c + Math.cos(ang) * side * .36, y:c + Math.sin(ang) * side * .36 };
-    homes.push(S.stars.filter(s => !homes.includes(s)).sort((a, b) => dist(a, target) - dist(b, target))[0]);
-  }
+  // stars, homes and starting empires (see "galaxy generation" below)
+  const perPlayer = clamp(Math.round(opts.starsPerPlayer || rules.starsPerPlayer), 4, 40);
+  const homes = buildGalaxy(S, n, perPlayer, GALAXY_TYPES[opts.galaxy] ? opts.galaxy : DEFAULT_GALAXY);
   homes.forEach((h, i) => {
     Object.assign(h, { owner:i, res:rules.homeResources, econ:rules.startEcon,
       industry:rules.startIndustry, science:rules.startScience, ships:rules.startShips });
     S.players[i].home = h.id;
     const near = S.stars.filter(s => s.owner < 0).sort((a, b) => dist(a, h) - dist(b, h));
     near.slice(0, Math.max(0, rules.startStars - 1)).forEach(s => { s.owner = i; s.ships = rules.startShips; });
+    for (let k = 0; k < rules.startCarriers; k++) S.carriers.push({ id:S.nextId++, owner:i, ships:0, at:h.id });
   });
 
-  log(S, "system", `New galaxy: ${S.stars.length} stars, ${n} empires, seed ${seed}.`);
+  const G = S.galaxy, pl = (k, w) => `${k} ${w}${k === 1 ? "" : "s"}`;
+  log(S, "system", `New ${GALAXY_TYPES[G.type].label.toLowerCase()} galaxy: ${S.stars.length} stars, ${n} empires, seed ${seed}. ` +
+    `${pl(G.chokepoints, "chokepoint lane")}` + (G.pocketStars ? `, ${pl(G.pocketStars, "star")} out of reach until Range ${G.pocketRange}.` : "."));
   recordStats(S);
   return S;
+}
+
+/* ---------------- galaxy generation ----------------
+   Real NP4 games pick a "starfield". Two are seen in real game data (NPA test fixtures):
+   `hexgrid` (the default: homes on a hex lattice ~12 ly apart, stars scattered around them,
+   thinning into a sparse frontier) and `mega_blob` (one big disc). `islands` and `scattered`
+   are sandbox inventions. Whatever the shape, the map is then checked at starting range:
+   every home must reach every other home, and far-off stars are joined by thin lanes,
+   so there are still places where one hyperspace jump is the only way in. */
+const DEFAULT_GALAXY = "hexgrid";
+const GALAXY_TYPES = {
+  hexgrid:   { label:"Hex grid",  real:true,  blurb:"Real default. Homes on a hex lattice ~12 ly apart; open frontier around the edge." },
+  mega_blob: { label:"Blob",      real:true,  blurb:"Real type. One round cloud of stars, homes spread through it." },
+  islands:   { label:"Islands",   real:false, blurb:"Sandbox. Star clusters joined by single hyperspace lanes: lots of chokepoints." },
+  scattered: { label:"Scattered", real:false, blurb:"Sandbox. Stars dropped evenly in a square (the old sandbox map)." },
+};
+const MIN_GAP = 1;            // ly; closest pair of stars (real games: ~0.6)
+const HOME_SPACING = 12;      // ly between neighbouring homes (hexgrid, homeStarDistance 3)
+
+function buildGalaxy(S, n, perPlayer, type) {
+  const total = n * perPlayer, R = S.rules;
+  const startRange = R.rangeBase + R.startTech;
+  const gauss = () => { let u = 0; for (let i = 0; i < 4; i++) u += rand(S); return (u - 2) / .577; };
+  const pts = [];
+  const tryAdd = (x, y) => {
+    if (!isFinite(x) || pts.some(p => Math.abs(p.x - x) < MIN_GAP && dist(p, { x, y }) < MIN_GAP)) return null;
+    const p = { x, y }; pts.push(p); return p;
+  };
+  const fill = (count, sampler) => { let g = 0; while (pts.length < count && g++ < count * 300) { const q = sampler(); tryAdd(q.x, q.y); } };
+  let homePts = [];
+
+  if (type === "hexgrid") {
+    // the n lattice points closest to the centre, then stars scattered around random homes
+    const lat = [];
+    for (let r = -4; r <= 4; r++) for (let q = -4; q <= 4; q++)
+      lat.push({ x:(q + r / 2) * HOME_SPACING, y:r * HOME_SPACING * Math.sqrt(3) / 2 });
+    const off = { x:(rand(S) - .5) * .1, y:(rand(S) - .5) * .1 };   // break ties differently per seed
+    lat.sort((a, b) => dist(a, off) - dist(b, off));
+    homePts = lat.slice(0, n).map(p => tryAdd(p.x + gauss() * .8, p.y + gauss() * .8));
+    const spread = Math.sqrt(perPlayer * 22 / Math.PI) * .58;
+    fill(total, () => { const h = pick(S, homePts); return { x:h.x + gauss() * spread, y:h.y + gauss() * spread }; });
+  } else if (type === "mega_blob") {
+    const rad = Math.sqrt(total * 20 / Math.PI);
+    fill(total, () => { const a = rand(S) * Math.PI * 2, r = rad * Math.pow(rand(S), .6); return { x:Math.cos(a) * r, y:Math.sin(a) * r }; });
+    homePts = spreadOut(S, pts.filter(p => Math.hypot(p.x, p.y) < rad * .75), n);
+  } else if (type === "islands") {
+    // one island per empire on a ring, one neutral island in the middle, 7+ ly of empty space between
+    const isl = Math.max(3.2, Math.sqrt(perPlayer * 6 / Math.PI));
+    const ringR = Math.max((2 * isl + 7) / (2 * Math.sin(Math.PI / n)), 2 * isl + 7);
+    const spin = rand(S) * Math.PI * 2;
+    const centres = [];
+    for (let i = 0; i < n; i++) centres.push({ x:Math.cos(spin + i * 2 * Math.PI / n) * ringR, y:Math.sin(spin + i * 2 * Math.PI / n) * ringR });
+    homePts = centres.map(c => tryAdd(c.x, c.y));
+    const each = Math.floor(total * .82 / n);
+    centres.forEach((c, i) => fill(n + (i + 1) * each, () => { const a = rand(S) * Math.PI * 2, r = isl * Math.sqrt(rand(S)); return { x:c.x + Math.cos(a) * r, y:c.y + Math.sin(a) * r }; }));
+    const hub = isl * 1.2;
+    fill(total, () => { const a = rand(S) * Math.PI * 2, r = hub * Math.sqrt(rand(S)); return { x:Math.cos(a) * r, y:Math.sin(a) * r }; });
+    // no lanes drawn here: the connectivity pass below bridges each gap once, at its narrowest point
+  } else {                                                          // scattered
+    const side = Math.sqrt(total * 22);
+    fill(total, () => ({ x:rand(S) * side, y:rand(S) * side }));
+    homePts = spreadOut(S, pts.filter(p => p.x > side * .12 && p.x < side * .88 && p.y > side * .12 && p.y < side * .88), n);
+  }
+
+  // a chain of stars from a to b, each hop within `hop` ly: the "one hyperspace line"
+  function lane(a, b, hop) {
+    const d = dist(a, b), steps = Math.ceil(d / (hop * .85));
+    for (let k = 1; k < steps; k++) {
+      const f = k / steps, j = hop * .12;
+      tryAdd(a.x + (b.x - a.x) * f + (rand(S) - .5) * j, a.y + (b.y - a.y) * f + (rand(S) - .5) * j);
+    }
+  }
+
+  // every home needs room to grow: at least startStars - 1 stars within start range
+  homePts.forEach(h => {
+    let g = 0;
+    while (pts.filter(p => p !== h && dist(p, h) <= startRange).length < R.startStars + 1 && g++ < 200) {
+      const a = rand(S) * Math.PI * 2, r = 1.5 + rand(S) * (startRange - 1.8);
+      tryAdd(h.x + Math.cos(a) * r, h.y + Math.sin(a) * r);
+    }
+  });
+
+  // connectivity: every home must reach the others at starting range, and nothing may be
+  // further than Range 3 from the rest. Gaps get a lane of stars across the narrowest point.
+  // everything joins the component at the middle of the map, so no seat becomes the crossroads
+  const cx = pts.reduce((t, p) => t + p.x, 0) / pts.length, cy = pts.reduce((t, p) => t + p.y, 0) / pts.length;
+  const centre = pts.reduce((b, p) => Math.hypot(p.x - cx, p.y - cy) < Math.hypot(b.x - cx, b.y - cy) ? p : b);
+  const joinAt = (hop, mustJoin) => {
+    for (let guard = 0; guard < 40; guard++) {
+      const comp = components(pts, hop);
+      const main = comp[pts.indexOf(centre)];
+      const cut = pts.map((p, i) => i).filter(i => comp[i] !== main && mustJoin(i, comp));
+      if (!cut.length) return;
+      const target = comp[cut[0]];
+      let best = null, bd = Infinity;
+      pts.forEach((p, i) => { if (comp[i] !== target) return;
+        pts.forEach((q, j) => { if (comp[j] === main) { const d = dist(p, q); if (d < bd) { bd = d; best = [p, q]; } } }); });
+      lane(best[0], best[1], hop);
+    }
+  };
+  joinAt(startRange, (i, comp) => homePts.some(h => comp[pts.indexOf(h)] === comp[i]));
+  const pocketRange = R.startTech + 2;
+  joinAt(R.rangeBase + pocketRange, () => true);
+
+  // shift onto the map canvas, name the stars, give them resources
+  const pad = 3, minX = Math.min(...pts.map(p => p.x)), minY = Math.min(...pts.map(p => p.y));
+  const names = new Set();
+  pts.forEach((p, i) => {
+    let name; do { name = pick(S, STAR_A) + pick(S, STAR_B); } while (names.has(name) && names.size < STAR_A.length * STAR_B.length);
+    names.add(name);
+    S.stars.push({ id:i, name, x:+(p.x - minX + pad).toFixed(2), y:+(p.y - minY + pad).toFixed(2),
+      res: R.minResources + Math.floor(rand(S) * (R.maxResources - R.minResources + 1)),
+      owner:-1, econ:0, industry:0, science:0, ships:0, frac:0 });
+  });
+  S.width = Math.max(...S.stars.map(s => s.x)) + pad;
+  S.height = Math.max(...S.stars.map(s => s.y)) + pad;
+
+  // stats the log and the map can use: chokepoints = start-range hops whose loss cuts off 3+ stars
+  const chokes = chokeLanes(S.stars, startRange, 3);
+  const startComp = components(S.stars, startRange), mainC = startComp[pts.indexOf(homePts[0])];
+  S.galaxy = { type, chokepoints:chokes.length, chokeLanes:chokes,
+    pocketStars:startComp.filter(c => c !== mainC).length, pocketRange };
+  return homePts.map(h => S.stars[pts.indexOf(h)]);
+}
+
+/* farthest-point picks: n points from `cands` as far from each other as possible */
+function spreadOut(S, cands, n) {
+  const out = [pick(S, cands)];
+  while (out.length < n) {
+    let best = null, bd = -1;
+    for (const c of cands) { const d = Math.min(...out.map(o => dist(o, c))); if (d > bd) { bd = d; best = c; } }
+    out.push(best);
+  }
+  return out;
+}
+function neighbours(pts, hop) {
+  const adj = pts.map(() => []);
+  for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++)
+    if (dist(pts[i], pts[j]) <= hop) { adj[i].push(j); adj[j].push(i); }
+  return adj;
+}
+function components(pts, hop) {
+  const adj = neighbours(pts, hop), comp = pts.map(() => -1);
+  let c = 0;
+  for (let i = 0; i < pts.length; i++) if (comp[i] < 0) {
+    const stack = [i]; comp[i] = c;
+    while (stack.length) { const u = stack.pop(); for (const v of adj[u]) if (comp[v] < 0) { comp[v] = c; stack.push(v); } }
+    c++;
+  }
+  return comp;
+}
+/* bridges in the hop graph (Tarjan) whose smaller side holds at least `minSide` stars */
+function chokeLanes(stars, hop, minSide) {
+  const adj = neighbours(stars, hop), n = stars.length;
+  const disc = Array(n).fill(-1), low = Array(n).fill(0), size = Array(n).fill(1), out = [];
+  const compSize = {}; const comp = components(stars, hop); comp.forEach(c => compSize[c] = (compSize[c] || 0) + 1);
+  let t = 0;
+  for (let r = 0; r < n; r++) if (disc[r] < 0) {
+    const stack = [[r, -1, 0]]; disc[r] = low[r] = t++;
+    while (stack.length) {
+      const top = stack[stack.length - 1], [u, parent] = top;
+      if (top[2] < adj[u].length) {
+        const v = adj[u][top[2]++];
+        if (v === parent) continue;
+        if (disc[v] < 0) { disc[v] = low[v] = t++; stack.push([v, u, 0]); }
+        else low[u] = Math.min(low[u], disc[v]);
+      } else {
+        stack.pop();
+        if (parent >= 0) {
+          low[parent] = Math.min(low[parent], low[u]); size[parent] += size[u];
+          const side = Math.min(size[u], compSize[comp[u]] - size[u]);
+          if (low[u] > disc[parent] && side >= minSide) out.push([stars[parent].id, stars[u].id]);
+        }
+      }
+    }
+  }
+  return out;
 }
 
 /* ---------------- derived values ---------------- */
@@ -156,8 +315,8 @@ function resources(S, star) {
   return star.res + (star.owner >= 0 ? lvl(S, star.owner, "terraforming") * S.rules.terraformBonus : 0);
 }
 const BASE_KEY = { econ:"econBaseCost", industry:"industryBaseCost", science:"scienceBaseCost" };
-function infraCost(S, star, kind) {
-  return Math.floor((star[kind] + 1) * S.rules[BASE_KEY[kind]] / (resources(S, star) + 5));
+function infraCost(S, star, kind) {       // NP4: floor(base × (level+1) ÷ resources)
+  return Math.floor((star[kind] + 1) * S.rules[BASE_KEY[kind]] / Math.max(1, resources(S, star)));
 }
 function researchCost(S, id, t) { return S.rules.researchCostBase * lvl(S, id, t); }
 function shipsPerCycle(S, star) {
@@ -675,7 +834,7 @@ const admin = {
   setOpinion(S, a, b, v) { S.rel[a][b] = clamp(v, -100, 100); },
 };
 
-const API = { RULE_LIST, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
+const API = { RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
   defaultRules, newGame, nextTurn, tick, admin,
   range, resources, infraCost, researchCost, shipsPerCycle, totals, starsOf, winTarget,
   alliance, allied, alliesOf, carrierPos, eta, fight, shipsToWin, pairKey, dist };
