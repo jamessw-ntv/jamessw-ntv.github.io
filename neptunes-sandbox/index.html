@@ -228,7 +228,18 @@
   .xfer .li{flex-wrap:wrap}
   .xfer .steps{flex-basis:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:3px 0 4px}
   .xfer .steps .gap{display:none}
-  .xfer .steps [data-xroute],.xfer .steps [data-split]{grid-column:span 2}
+  .xfer .steps [data-xroute]{grid-column:span 4}
+  .stop .chips{grid-column:1 / 4;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:4px}
+  .stop .chips button,.stop .amt button{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:7px;
+    padding:5px 4px;font:inherit;font-size:11.5px;line-height:1.15;cursor:pointer}
+  .stop .chips button:hover{border-color:var(--accent)}
+  .stop .chips button.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:700}
+  .stop .opts{grid-column:1 / 4}
+  .stop .amt{display:flex;align-items:center;gap:4px}
+  .stop .amt button{min-width:38px}
+  .stop .fc{grid-column:2 / 4;font-size:12px;color:#7ee2b8}
+  .stop .fc.idle{color:#ffcf8a}
+  @media (pointer:coarse){.stop .chips button,.stop .amt button{min-height:40px}}
   .xfer .steps button{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:7px;
     min-width:36px;padding:4px 6px;font:inherit;font-size:12px;font-variant-numeric:tabular-nums;cursor:pointer}
   .xfer .steps button:hover:not(:disabled){border-color:var(--accent)}
@@ -1316,40 +1327,66 @@ function routeEtas(c, stops) {       // tick count until the carrier reaches eac
   });
   return out;
 }
+/* One stop's row: the star, then its order as a row of chips (the real game's 8
+   waypoint actions), the X amount with ± buttons when the order needs one, and
+   the wait. `live` rows edit the saved route and save at once; draft rows edit RE. */
+const ORDER_CHIPS = [["none","Nothing"],["collect-all","Collect all"],["drop-all","Drop all"],["garrison","Leave X on star"],
+  ["collect","Collect X"],["drop","Drop X"],["collect-all-but","Collect all but X"],["drop-all-but","Drop all but X"]];
+/* what each stop should do to the ship count, walking the route once from now
+   (stars' current garrisons; a rough guide, production and fights aside) */
+function routeForecast(c, stops) {
+  let ships = c.ships; const garr = {};
+  return stops.map(x => {
+    const st = S.stars[x.star];
+    if (st.owner !== c.owner) return { text:st.owner < 0 ? "Claims it if empty · no orders there" : `Not yours · no orders run`, ships, idle:true };
+    if (x.action === "none") return { text:`Passes through with ~${ships}`, ships, idle:true };
+    const g = garr[x.star] != null ? garr[x.star] : st.ships;
+    const t = sim.transferFor(x.action, x.n || 0, ships, g);
+    ships -= t; garr[x.star] = g + t;
+    return { text:t < 0 ? `Picks up ~${-t} → carries ~${ships}` : t > 0 ? `Drops ~${t} → carries ~${ships}` : `Nothing to move right now · carries ~${ships}`, ships };
+  });
+}
+function stopRow(c, x, i, live, eta, fc) {
+  const st = S.stars[x.star], lockFirst = c.at == null && i === 0;
+  const foreign = st.owner !== c.owner ? `<div class="small muted" style="grid-column:2/4">Not ${esc(S.players[c.owner].name)}'s star now: orders only work at your own stars.</div>` : "";
+  return `<div class="stop" ${live ? `data-live="${i}"` : `data-i="${i}"`}><span class="n">${i + 1}</span>
+    <span>${starLink(st)}${eta != null ? ` <span class="small muted">· in ${eta} tick${eta === 1 ? "" : "s"}</span>` : ""}</span>
+    ${lockFirst && live ? `<span class="small muted" title="Already on its way">en route</span>` : lockFirst ? "" : `<button class="x" data-rm="${i}" title="Remove this stop" aria-label="Remove stop ${i + 1}">✕</button>`}
+    ${fc ? `<div class="fc ${fc.idle ? "idle" : ""}">${esc(fc.text)}</div>` : ""}
+    <div class="chips" role="group" aria-label="Order at stop ${i + 1}">${ORDER_CHIPS.map(([k, l]) =>
+      `<button data-order="${k}" class="${k === x.action ? "on" : ""}" aria-pressed="${k === x.action}">${l}</button>`).join("")}</div>
+    <div class="opts">${sim.ACTIONS[x.action].n ? `<span class="amt"><b>X</b>
+        <button data-nstep="-10">−10</button><button data-nstep="-1">−1</button>
+        <input type="number" min="0" data-f="n" value="${x.n}" aria-label="Amount X at stop ${i + 1}">
+        <button data-nstep="1">+1</button><button data-nstep="10">+10</button></span>` : ""}
+      <label>wait <input type="number" min="0" max="99" data-f="delay" value="${x.delay}" title="Ticks to wait here before leaving"> ticks</label></div>
+  </div>`;
+}
 function routeView(c) {
   const stops = c.route || [];
   if (!stops.length) return `<div class="small muted">${c.at == null ? "Flies to its destination, then waits in orbit." : "Waiting in orbit, no orders."}</div>
-    <div class="row" style="margin-top:6px"><button class="btn small primary" data-act="plan">Plan a route<span class="kbd">A</span></button></div>`;
-  // each stop's order and wait can be changed right here; they save as soon as they change
+    <div class="row" style="margin-top:6px"><button class="btn small primary" data-act="plan">＋ Add stops on map<span class="kbd">A</span></button></div>`;
   const etas = routeEtas(c, stops);
-  const opts = x => Object.entries(sim.ACTIONS).map(([k, a]) => `<option value="${k}" ${k === x.action ? "selected" : ""}>${a.label}</option>`).join("");
-  return `<div class="stops">${stops.map((x, i) => `<div class="stop" data-live="${i}"><span class="n">${i + 1}</span>
-      <span>${starLink(S.stars[x.star])}</span><span class="small muted" title="Ticks until it gets there">${etas[i]}t</span>
-      <div class="opts"><select data-f="action" aria-label="Order at stop ${i + 1}">${opts(x)}</select>
-        ${sim.ACTIONS[x.action].n ? `<label>X <input type="number" min="0" data-f="n" value="${x.n}"></label>` : ""}
-        <label>wait <input type="number" min="0" max="99" data-f="delay" value="${x.delay}" title="Ticks to wait here before leaving"></label></div></div>`).join("")}</div>
-    <div class="small muted" style="margin-top:6px">${c.loop ? "↻ Loops back to stop 1 forever." : "Stops after the last one."} Changes save as you make them.</div>
-    <div class="omsg ${xMsg.ok ? "ok" : "bad"}">${esc(xMsg.text)}</div>
-    <div class="row" style="margin-top:6px"><button class="btn small" data-act="edit">Add or remove stops<span class="kbd">A</span></button>
-      <button class="btn small" data-act="clear">Clear orders</button></div>`;
+  const fc = routeForecast(c, stops);
+  const empty = c.at != null && c.ships < 1 && S.stars[c.at].owner === c.owner;
+  return `${empty ? `<div class="re-msg" style="margin:0 0 6px">This carrier has 0 ships, so it won't leave.
+      <button class="btn small" data-act="load">Load all (${S.stars[c.at].ships})</button></div>` : ""}
+    <div class="stops">${stops.map((x, i) => stopRow(c, x, i, true, etas[i], fc[i])).join("")}</div>
+    <div class="row" style="margin-top:8px">
+      <button class="btn small" data-act="plan">＋ Add stops<span class="kbd">A</span></button>
+      <button class="btn small ${c.loop ? "primary" : ""}" data-act="liveloop" aria-pressed="${!!c.loop}" ${stops.length < 2 ? "disabled" : ""}
+        title="Repeat the stops forever">↻ Loop ${c.loop ? "on" : "off"}<span class="kbd">L</span></button>
+      <button class="btn small" data-act="clear">Clear orders</button></div>
+    <div class="small muted" style="margin-top:4px">Changes save as you make them.</div>
+    <div class="omsg ${xMsg.ok ? "ok" : "bad"}">${esc(xMsg.text)}</div>`;
 }
 function routeEditor(c) {
-  const locked = c.at == null;                       // in flight: stop 1 is where it's already going
   const why = RE.msg || sim.checkRoute(S, c, RE.stops, RE.loop);
-  const opts = x => Object.entries(sim.ACTIONS).map(([k, a]) => `<option value="${k}" ${k === x.action ? "selected" : ""}>${a.label}</option>`).join("");
-  return `<div class="stops">${RE.stops.map((x, i) => `<div class="stop" data-i="${i}"><span class="n">${i + 1}</span>
-      <span>${starLink(S.stars[x.star])}${S.stars[x.star].owner !== c.owner ? ` <span class="small muted">(not ${esc(S.players[c.owner].name)}'s: actions skipped)</span>` : ""}</span>
-      ${locked && i === 0 ? `<span class="small muted" title="Already on its way">en route</span>` : `<button class="x" data-rm="${i}" title="Remove this stop" aria-label="Remove stop ${i + 1}">✕</button>`}
-      <div class="opts"><select data-f="action" aria-label="Action at stop ${i + 1}">${opts(x)}</select>
-        ${sim.ACTIONS[x.action].n ? `<label>X <input type="number" min="0" data-f="n" value="${x.n}"></label>` : ""}
-        <label>wait <input type="number" min="0" max="99" data-f="delay" value="${x.delay}" title="Ticks to wait here before leaving"></label></div>
-    </div>`).join("") || `<div class="small muted">No stops yet.</div>`}</div>
+  const fc = routeForecast(c, RE.stops);
+  return `<div class="stops">${RE.stops.map((x, i) => stopRow(c, x, i, false, null, fc[i])).join("") || `<div class="small muted">No stops yet: tap stars on the map.</div>`}</div>
     <div class="row" style="margin-top:8px">
       <button class="btn small ${RE.pick ? "primary" : ""}" data-act="pick">${RE.pick ? "Done adding" : "＋ Add stops on map"}<span class="kbd">A</span></button>
-      <label class="chk"><input type="checkbox" data-act="loop" ${RE.loop ? "checked" : ""}> Loop (patrol)</label></div>
-    <div class="row" style="margin-top:6px"><span class="small muted">Quick:</span>
-      <button class="btn small" data-act="lane" title="Collect all at every stop, drop all at the last, back to the start, repeat">⇄ Supply lane</button>
-      <button class="btn small" data-act="patrol" title="No actions, just loop the stops">↻ Patrol</button></div>
+      <button class="btn small ${RE.loop ? "primary" : ""}" data-act="loop" aria-pressed="${RE.loop}">↻ Loop ${RE.loop ? "on" : "off"}<span class="kbd">L</span></button></div>
     ${why ? `<div class="re-msg">${esc(why)}</div>` : ""}
     <div class="row" style="margin-top:8px"><button class="btn small primary" data-act="save" ${why && !RE.msg ? "disabled" : ""}>Save orders<span class="kbd">Enter</span></button>
       <button class="btn small" data-act="cancel">Cancel<span class="kbd">Esc</span></button></div>`;
@@ -1363,9 +1400,9 @@ function renderPickbar() {
     if (top < bar0 || top > innerHeight * .5) window.scrollBy({ top:top - bar0 - 8, behavior:"smooth" });
   }
   const last = RE.stops.length ? S.stars[RE.stops[RE.stops.length - 1].star] : (c.at != null ? S.stars[c.at] : S.stars[c.to]);
-  bar.innerHTML = `<span class="msg">${sw(S.players[c.owner])}Tap stars within <b>${sim.range(S, c.owner)} ly</b> of ${esc(last.name)} to add stops.
-    ${RE.stops.length ? `<br><b>${RE.stops.length} stop${RE.stops.length > 1 ? "s" : ""}:</b> ${RE.stops.map(x => esc(S.stars[x.star].name)).join(" → ")}` : ""}
-    <br>${RE.lane ? "Supply lane: the last star you tap gets everything. Done saves it." : RE.stops.length > 1 ? "Tap stop 1 or the start to close the loop." : ""}${RE.msg ? `<br><b style="color:#ffcf8a">${esc(RE.msg)}</b>` : ""}</span>
+  bar.innerHTML = `<span class="msg">${sw(S.players[c.owner])}${RE.msg ? `<b style="color:#ffcf8a">${esc(RE.msg)}</b>`
+      : RE.stops.length ? `<b>${RE.stops.length} stop${RE.stops.length > 1 ? "s" : ""}</b> · ${RE.stops.length > 1 ? "tap the start to loop" : `next within ${sim.range(S, c.owner)} ly`}`
+      : `Tap stars within <b>${sim.range(S, c.owner)} ly</b> of ${esc(last.name)}`}</span>
     ${RE.stops.length ? `<button class="btn small" data-act="pickundo" title="Remove the last stop (Backspace)">Undo</button>` : ""}
     <button class="btn small primary" data-act="pickdone">Done</button>`;
   bar.classList.remove("hidden");
@@ -1380,36 +1417,50 @@ function pickStop(id) {
     if (far) RE.msg = `${S.stars[lastId].name} → ${st.name} is beyond jump range; add a stop in between.`;
     else { RE.loop = true; RE.pick = false; }
   } else if (RE.stops.length > 1 && id === c.at && !far) {                       // back where it started: a round trip
-    RE.stops.push({ star:id, action:"none", n:0, delay:0 }); RE.loop = true; RE.pick = false;
+    RE.stops.push({ star:id, action:st.owner === c.owner ? "collect-all" : "none", n:0, delay:0, auto:true }); RE.loop = true; RE.pick = false;
   } else if (id === lastId) RE.msg = `Already at ${st.name}.`;
   else if (sim.dist(S.stars[lastId], st) > r) RE.msg = `${st.name} is ${sim.dist(S.stars[lastId], st).toFixed(1)} ly from ${S.stars[lastId].name}, beyond jump range ${r} ly.`;
-  else RE.stops.push({ star:id, action:"none", n:0, delay:0 });
-  if (RE.lane && !RE.pick) { applyPreset(c, "lane"); RE.lane = false; if (saveDraft()) return; }
+  else RE.stops.push({ star:id, action:st.owner === c.owner ? "collect-all" : "none", n:0, delay:0, auto:true });
+  if (!RE.pick && saveDraft()) return;                      // closed the loop: save it
   renderMap(); renderInspector(); renderPickbar();
 }
-function reInput(e) {
-  const row = e.target.closest(".stop[data-i]"), fld = e.target.dataset.f;
-  if (!RE || !row || !fld) return false;
-  const x = RE.stops[+row.dataset.i];
-  x[fld] = fld === "action" ? e.target.value : Math.max(0, Math.floor(+e.target.value || 0));
-  RE.msg = "";
-  return true;
+/* Change one field of stop i (or remove it with fld "rm"). Draft rows edit RE; live
+   rows rewrite the saved route straight away. */
+function editStop(row, fld, val) {
+  const c = sel && sel.kind === "carrier" && S.carriers.find(x => x.id === sel.id);
+  if (!c || !canOrder(c)) return;
+  const set = (stops, i) => {
+    if (fld === "rm") { stops.splice(i, 1); return; }
+    const x = stops[i];
+    if (fld === "action") { x.action = val; if (sim.ACTIONS[val].n && !x.n) x.n = 10; }
+    else x[fld] = Math.max(0, Math.floor(+val || 0));
+  };
+  if (row.dataset.i != null && RE) { set(RE.stops, +row.dataset.i); if (RE.stops.length < 2) RE.loop = false; RE.msg = ""; renderInspector(true); renderMap(); renderPickbar(); return; }
+  if (row.dataset.live == null) return;
+  const stops = c.route.map(x => Object.assign({}, x)), i = +row.dataset.live;
+  set(stops, i);
+  liveSave(c, stops, c.loop && stops.length > 1, fld === "rm" ? `Stop ${i + 1} removed.` : `Stop ${i + 1} updated.`);
+}
+function liveSave(c, stops, loop, done) {
+  const a = document.activeElement, row = a && a.closest && a.closest(".stop[data-live]");
+  const refocus = row && a.dataset.order ? `.stop[data-live="${row.dataset.live}"] [data-order="${a.dataset.order}"]`
+    : row && a.dataset.nstep ? `.stop[data-live="${row.dataset.live}"] [data-nstep="${a.dataset.nstep}"]` : null;
+  setTimeout(() => { const el = refocus && document.querySelector(refocus); if (el) el.focus({ preventScroll:true }); });
+  const mine = c.owner === humanId();
+  const why = mine ? sim.act.route(S, humanId(), c.id, stops, loop) : sim.admin.setRoute(S, c.id, stops, loop);
+  xMsg = why ? { text:why, ok:false } : { text:done, ok:true };
+  if (why) { renderInspector(true); return; }
+  if (playerView()) { snap(); save(); renderAll(); } else afterChange();
 }
 $("inspect").addEventListener("change", e => {
-  const live = e.target.closest(".stop[data-live]");
-  if (live && !RE && sel && sel.kind === "carrier") {             // in-place edit of a saved route
-    const c = S.carriers.find(x => x.id === sel.id); if (!c || !canOrder(c)) return;
-    const stops = c.route.map(x => Object.assign({}, x)), x = stops[+live.dataset.live], fld = e.target.dataset.f;
-    x[fld] = fld === "action" ? e.target.value : Math.max(0, Math.floor(+e.target.value || 0));
-    const mine = c.owner === humanId();
-    const why = mine ? sim.act.route(S, humanId(), c.id, stops, c.loop) : sim.admin.setRoute(S, c.id, stops, c.loop);
-    xMsg = why ? { text:why, ok:false } : { text:`Stop ${+live.dataset.live + 1} updated.`, ok:true };
-    if (!why) { c.routeBy = c.routeBy === "bot" ? (mine ? "player" : "admin") : c.routeBy; if (playerView()) { snap(); save(); renderAll(); } else afterChange(); }
-    else renderInspector(true);
-    return;
-  }
-  if (e.target.dataset.act === "loop" && RE) { RE.loop = e.target.checked; RE.msg = ""; renderInspector(true); renderMap(); return; }
-  if (reInput(e)) { renderInspector(true); renderMap(); }
+  const row = e.target.closest(".stop[data-live],.stop[data-i]");
+  if (row && e.target.dataset.f) editStop(row, e.target.dataset.f, e.target.value);
+});
+$("inspect").addEventListener("click", e => {                     // order chips, X steppers
+  const b = e.target.closest("[data-order],[data-nstep]"); if (!b) return;
+  const row = b.closest(".stop"); if (!row) return;
+  if (b.dataset.order) editStop(row, "action", b.dataset.order);
+  else { const inp = row.querySelector('[data-f="n"]'); editStop(row, "n", Math.max(0, (+inp.value || 0) + +b.dataset.nstep)); }
 });
 $("inspect").addEventListener("click", e => {
   const b = e.target.closest("[data-act],[data-rm]"); if (!b || b.tagName === "INPUT") return;
@@ -1418,12 +1469,13 @@ $("inspect").addEventListener("click", e => {
   if (!c || !canOrder(c)) return;
   const mine = c.owner === humanId();          // your own carrier: your orders, not the admin's
   const setRoute = (stops, loop) => mine ? sim.act.route(S, humanId(), c.id, stops, loop) : sim.admin.setRoute(S, c.id, stops, loop);
-  if (b.dataset.rm != null) { RE.stops.splice(+b.dataset.rm, 1); RE.msg = ""; }
+  if (b.dataset.rm != null) { editStop(b.closest(".stop"), "rm"); return; }
   else if (act === "edit") RE = { id:c.id, stops:(c.route || []).map(x => Object.assign({}, x)), loop:!!c.loop, pick:false, msg:"" };
   else if (act === "plan") { startRoute(c.id); return; }
-  else if (act === "pick" || act === "pickdone") { RE.pick = !RE.pick; RE.msg = ""; }
+  else if (act === "pick" || act === "pickdone") { RE.pick = !RE.pick; RE.msg = ""; if (!RE.pick && RE.stops.length && saveDraft()) return; }
   else if (act === "cancel") RE = null;
-  else if (act === "lane" || act === "patrol") applyPreset(c, act);
+  else if (act === "loop") { RE.loop = !RE.loop; RE.msg = ""; }
+  else if (act === "liveloop") { liveSave(c, c.route.map(x => Object.assign({}, x)), !c.loop, c.loop ? "Loop off: it stops after the last stop." : "Loop on: it repeats forever."); return; }
   else if (act === "clear") { setRoute(c.at == null ? [c.route[0]] : [], false); afterChange(); return; }
   else if (act === "save") { saveDraft(); return; }
   else if (act === "load" || act === "unload") {
@@ -1437,11 +1489,8 @@ $("inspect").addEventListener("click", e => {
 $("pickbar").addEventListener("click", e => {
   if (e.target.dataset.act === "pickundo" && RE) { RE.stops.pop(); RE.loop = false; RE.msg = ""; renderInspector(true); renderMap(); renderPickbar(); return; }
   if (e.target.dataset.act === "pickdone" && RE) {
-  const c = S.carriers.find(x => x.id === RE.id);
-  const lane = RE.lane && c && RE.stops.length;
-  if (lane) applyPreset(c, "lane");
-  RE.pick = false; RE.lane = false;
-  if (lane && saveDraft()) return;
+  RE.pick = false;
+  if (RE.stops.length && saveDraft()) return;               // valid: saved; set each stop's order in the list
   renderInspector(true); renderMap(); renderPickbar(); } });
 
 /* ---- ship transfers (the real game's transfer screen) ----
@@ -1467,16 +1516,16 @@ function transferPanel(s, pid) {
       <span class="r">${own ? `<input class="xn" type="number" min="${Math.min(1, c.ships)}" max="${c.ships + s.ships}" value="${c.ships}" data-xn="${c.id}"
         aria-label="Ships on carrier #${c.id}" title="Type how many ships this carrier should hold" ${dis(true)}>` : `<span class="cnt">${c.ships}</span>`} ships</span>
       <div class="steps">${own ? minus + plus : ""}<span class="gap"></span>
-        <button data-xroute="${c.id}" ${dis(c.ships > 0)} title="Tap stars on the map to send it">Route…</button>
-        <button data-split="${c.id}" ${dis(c.ships > 1 && p.credits >= R.carrierCost)} title="Split half onto a new carrier ($${R.carrierCost})">Split ½</button></div></div>`;
+        <button data-xroute="${c.id}" ${dis(c.ships > 0)} title="Tap stars on the map to send it">Route…</button></div></div>`;
   };
   return `<div class="xfer">
     ${own ? `<div class="li">Garrison<span class="r"><span class="cnt">${s.ships}</span> ships</span></div>` : ""}
     ${mine.map(row).join("")}
     <div class="row" style="margin-top:6px">
+      ${mine.length + (own ? 1 : 0) > 1 ? `<button class="btn small" data-xeven ${dis(true)} title="Share every ship here evenly between ${own ? "the star and " : ""}your carriers">⚖ Split evenly</button>` : ""}
       ${own ? `<button class="btn small" data-xnew ${dis(s.ships > 0 && p.credits >= R.carrierCost)} title="Buy a carrier here with 1 ship from the garrison">＋ New carrier ($${R.carrierCost})</button>` : ""}
       ${mine.filter(c => !(c.route && c.route.length)).length > 1 ? `<button class="btn small" data-xmerge ${dis(true)} title="Fold idle carriers here into one">Merge idle</button>` : ""}
-      ${own || mine.length ? `<button class="btn small" data-xlane ${dis(true)} title="Pick stops on the map; collect all here, drop all at the last stop, repeat">⇄ Supply lane from here${mine.some(c => !(c.route && c.route.length)) ? "" : ` (new carrier, $${R.carrierCost})`}</button>` : ""}
+      ${own || mine.length ? `<button class="btn small" data-xlane ${dis(true)} title="Tap stops on the map, then pick each stop's order">➜ Route from here${mine.some(c => !(c.route && c.route.length)) ? "" : ` (new carrier, $${R.carrierCost})`}</button>` : ""}
     </div>
     ${own ? "" : `<div class="small muted" style="margin-top:4px">Not your star: carriers here can only swap ships with each other.</div>`}
     <div class="omsg ${xMsg.ok ? "ok" : "bad"}" id="xMsg">${esc(xMsg.text)}</div></div>`;
@@ -1490,7 +1539,7 @@ function shipOrder(fn, done) {
   return bad ? null : r;
 }
 $("inspect").addEventListener("click", e => {
-  const b = e.target.closest("[data-xf],[data-split],[data-xnew],[data-xmerge],[data-xlane],[data-xroute]");
+  const b = e.target.closest("[data-xf],[data-xeven],[data-xnew],[data-xmerge],[data-xlane],[data-xroute]");
   if (!b || !sel || sel.kind !== "star") return;
   const s = S.stars[sel.id], pid = shipController(s); if (pid == null) return;
   if (playerView() && playing) { xMsg = { text:"Wait for the turn to finish playing.", ok:false }; renderInspector(true); return; }
@@ -1499,9 +1548,8 @@ $("inspect").addEventListener("click", e => {
     const n = k === "all" ? s.ships : k === "none" ? c.ships - 1 : Math.abs(+k);
     const load = k === "all" || +k > 0;
     shipOrder(() => sim.act.shift(S, pid, s.id, load ? "star" : c.id, load ? c.id : "star", n));
-  } else if (b.dataset.split) {
-    const c = S.carriers.find(x => x.id === +b.dataset.split);
-    shipOrder(() => sim.act.split(S, pid, c.id, Math.floor(c.ships / 2)), `Split ${Math.floor(c.ships / 2)} ships onto a new carrier.`);
+  } else if (b.dataset.xeven != null) {
+    shipOrder(() => sim.act.even(S, pid, s.id), "Ships shared out evenly.");
   } else if (b.dataset.xnew != null) {
     shipOrder(() => sim.act.build(S, pid, s.id, 1), "New carrier built with 1 ship. Use + to load more.");
   } else if (b.dataset.xmerge != null) {
@@ -1526,47 +1574,32 @@ function startRoute(id) {
   xMsg = { text:"", ok:true };
   renderAll(); renderPickbar();
 }
-/* one tap to a supply lane: an idle carrier here (or a new one with the garrison aboard),
-   then pick stops on the map; Done turns them into collect-all … drop-all at the last, looping */
+/* "Route from here": an idle carrier here (or a new one with 1 ship), then straight
+   to tapping stops on the map */
 function startLane(s, pid) {
-  let c = S.carriers.find(x => x.at === s.id && x.owner === pid && !(x.route && x.route.length));
-  if (!c) {
-    c = shipOrder(() => sim.act.build(S, pid, s.id, Math.max(1, s.ships)));
-    if (!c) return;
-  } else if (s.owner === pid && s.ships > 0) sim.act.shift(S, pid, s.id, "star", c.id, s.ships);
-  xMsg = { text:"", ok:true };
-  sel = { kind:"carrier", id:c.id };
-  RE = { id:c.id, stops:[], loop:false, pick:true, msg:"", lane:true };
-  if (playerView()) { snap(); save(); renderAll(); } else afterChange();
-  renderPickbar();
+  let c = S.carriers.filter(x => x.at === s.id && x.owner === pid && !(x.route && x.route.length)).sort((a, b) => b.ships - a.ships)[0];
+  if (!c) { c = shipOrder(() => sim.act.build(S, pid, s.id, 1)); if (!c) return; }
+  startRoute(c.id);
 }
 /* save the draft if it's valid; returns true when saved */
 function saveDraft() {
   const c = RE && S.carriers.find(x => x.id === RE.id); if (!c) return false;
+  // sensible defaults for stops just tapped: the last new stop that isn't where it started drops everything
+  const fresh = RE.stops.filter(x => x.auto);
+  const dropAt = fresh.filter(x => x.star !== c.at && S.stars[x.star].owner === c.owner).pop();
+  if (dropAt) dropAt.action = "drop-all";
+  RE.stops.forEach(x => delete x.auto);
   const mine = c.owner === humanId();
   const why = mine ? sim.act.route(S, humanId(), c.id, RE.stops, RE.loop) : sim.admin.setRoute(S, c.id, RE.stops, RE.loop);
   if (why) { RE.msg = why; renderInspector(true); renderPickbar(); return false; }
   const n = RE.stops.length; RE = null;
-  xMsg = { text:`Orders saved: ${n} stop${n === 1 ? "" : "s"}.`, ok:true };
+  xMsg = { text:`Orders saved: ${n} stop${n === 1 ? "" : "s"}. Tap an order on any stop to change it.`, ok:true };
   if (playerView()) { snap(); save(); renderAll(); } else afterChange();
-  renderPickbar(); return true;
+  renderPickbar();
+  const first = document.querySelector("#inspect .stop");            // bring the orders into view
+  if (first) { const r = first.getBoundingClientRect(); if (r.top < 0 || r.bottom > innerHeight) first.scrollIntoView({ block:"center", behavior:"smooth" }); }
+  return true;
 }
-/* presets on a drafted route: a supply lane (collect everywhere, drop all at the last
-   picked stop, back to the start, loop) or a plain patrol (no actions, loop) */
-function applyPreset(c, kind) {
-  if (!RE.stops.length) { RE.msg = "Pick at least one stop on the map first."; return; }
-  const start = c.at != null ? c.at : null;
-  if (kind === "patrol") { RE.stops.forEach(x => { x.action = "none"; }); if (RE.stops.length > 1) RE.loop = true; }
-  else {
-    let stops = RE.stops.filter((x, i) => !(i === RE.stops.length - 1 && x.star === start));   // drop a trailing return, re-added below
-    const drop = stops[stops.length - 1];
-    stops.forEach(x => { x.action = x === drop ? "drop-all" : "collect-all"; x.n = 0; });
-    if (start != null && stops[0].star !== start) stops.push({ star:start, action:"collect-all", n:0, delay:0 });
-    RE.stops = stops; RE.loop = RE.stops.length > 1;
-  }
-  RE.pick = false; RE.msg = "";
-}
-
 /* Route lines on the map: the selected carrier's orders (or the draft being edited),
    plus a faint trace of every looping route in view. The visuals pass can restyle this. */
 function drawRoutes(out, u, f, fl, selCarrier, vis) {
@@ -2349,6 +2382,10 @@ document.addEventListener("keydown", e => {
   if (typing || !sel) return;
   if ((e.key === "a" || e.key === "A") && sel.kind === "carrier") {
     const c = S.carriers.find(x => x.id === sel.id); if (c && canOrder(c)) { hit(); startRoute(c.id); }
+  }
+  if ((e.key === "l" || e.key === "L") && sel.kind === "carrier") {
+    const c = S.carriers.find(x => x.id === sel.id);
+    if (c && canOrder(c) && c.route && c.route.length > 1) { hit(); liveSave(c, c.route.map(x => Object.assign({}, x)), !c.loop, c.loop ? "Loop off." : "Loop on."); }
   }
   if (e.key === "[" || e.key === "]") {                   // cycle carriers parked at this star
     const star = sel.kind === "star" ? sel.id : (S.carriers.find(x => x.id === sel.id) || {}).at;

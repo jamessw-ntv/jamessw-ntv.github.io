@@ -537,6 +537,16 @@ function arrive(S, c) {
   c.wait = Math.max(0, Math.floor(stop.delay || 0));
   if (!c.route.length) c.loop = false;
 }
+/* A new route on a carrier sitting at one of its own looped stops: that stop's order
+   runs now, as if it had just arrived, so a lane starting at home loads up before the
+   first trip instead of only after a full lap. */
+function runHere(S, c) {
+  if (c.at == null || !c.loop || !busy(c)) return;
+  const stop = c.route[c.route.length - 1], star = S.stars[c.at];
+  if (stop.star !== c.at || star.owner !== c.owner || stop.action === "none") return;
+  const t = transferFor(stop.action, Math.max(0, Math.floor(stop.n || 0)), c.ships, star.ships);
+  c.ships -= t; star.ships += t;
+}
 /* The stars a carrier will visit, in order, starting with the one it's heading to. */
 function routePath(S, c) {
   if (busy(c)) return c.route.map(x => x.star);
@@ -599,6 +609,22 @@ function newCarrier(S, pid, starId, n, from) {
   const c = { id:S.nextId++, owner:pid, ships:n, at:starId };
   src.ships -= n; S.carriers.push(c);
   return c;
+}
+/* even split, like the real game's: every ship pid has here (garrison, if it's pid's
+   star, plus all pid's carriers in orbit) shared out as evenly as possible; carriers
+   get the whole shares and the garrison takes the remainder */
+function evenSplit(S, pid, starId) {
+  const star = S.stars[starId], own = star.owner === pid;
+  const cs = S.carriers.filter(c => c.owner === pid && c.at === starId);
+  const slots = cs.length + (own ? 1 : 0);
+  if (!cs.length || slots < 2) return "Needs at least two places to share between (a carrier and your star, or two carriers).";
+  const total = cs.reduce((t, c) => t + c.ships, 0) + (own ? star.ships : 0);
+  const each = Math.floor(total / slots);
+  if (each < 1) return "Not enough ships to go round.";
+  cs.forEach(c => c.ships = each);
+  if (own) star.ships = total - each * cs.length;
+  else cs[0].ships += total - each * cs.length;
+  return "";
 }
 /* fold every idle carrier of pid here into the biggest one (carriers with orders are left alone) */
 function mergeCarriers(S, pid, starId) {
@@ -1054,6 +1080,7 @@ const admin = {
       n:Math.max(0, Math.floor(+x.n || 0)), delay:clamp(Math.floor(+x.delay || 0), 0, 99) }));
     const why = checkRoute(S, c, stops, !!loop); if (why) return why;
     c.route = stops; c.loop = !!loop && stops.length > 1; c.routeBy = stops.length ? "admin" : null;
+    runHere(S, c);
     if (c.at != null && !stops.length) c.wait = 0;
     log(S, "orders", stops.length ? `Admin gave ${P(S, c.owner).name}'s carrier ${stops.length} waypoint${stops.length > 1 ? "s" : ""}${c.loop ? " on a loop" : ""}.`
       : `Admin cleared the orders of a ${P(S, c.owner).name} carrier.`, [c.owner]);
@@ -1169,6 +1196,7 @@ const act = {
       n:Math.max(0, Math.floor(+x.n || 0)), delay:clamp(Math.floor(+x.delay || 0), 0, 99) }));
     const why = checkRoute(S, c, stops, !!loop); if (why) return why;
     c.route = stops; c.loop = !!loop && stops.length > 1; c.routeBy = stops.length ? "player" : null;
+    runHere(S, c);
     if (c.at != null && !stops.length) c.wait = 0;
     return "";
   },
@@ -1183,6 +1211,7 @@ const act = {
     return newCarrier(S, pid, c.at, n, c.id);
   },
   merge(S, pid, starId) { return mergeCarriers(S, pid, starId); },
+  even(S, pid, starId) { return evenSplit(S, pid, starId); },
   /* move ships between your parked carrier and your star: n > 0 loads the carrier */
   transfer(S, pid, carrierId, n) {
     const c = S.carriers.find(x => x.id === carrierId);
@@ -1200,7 +1229,7 @@ const act = {
   },
 };
 
-const API = { ACTIONS, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
+const API = { ACTIONS, transferFor, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
   defaultRules, newGame, nextTurn, beginTurn, endTurn, tick, admin, act,
   range, resources, infraCost, researchCost, shipsPerCycle, totals, starsOf, winTarget,
   alliance, allied, alliesOf, carrierPos, scanRange, scanSources, inScan, eta, fight, shipsToWin, pairKey, dist };
