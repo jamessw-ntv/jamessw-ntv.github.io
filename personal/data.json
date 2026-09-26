@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-25",
-    "fetched": "2026-09-25T22:09:22+00:00",
+    "updated": "2026-09-26",
+    "fetched": "2026-09-26T01:22:19+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
+      "temp": 12,
       "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 10
+      "desc": "Drizzle",
+      "wind": 11
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 97
+        "rain": 100
       },
       {
         "day": "Sun",
@@ -29,12 +29,12 @@
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 25
+        "rain": 0
       },
       {
         "day": "Mon",
-        "min": 4,
-        "max": 18,
+        "min": 3,
+        "max": 17,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 2
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119256.0,
-        "pct": -0.79
+        "price": 119366.0,
+        "pct": -1.07
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3816.55,
-        "pct": -0.28
+        "price": 3825.58,
+        "pct": -0.36
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Paramount Says Timing for Warner Bros. Deal Close ‘If Any’ Is ‘Not Yet Certain’ but Pencils In Oct. 5 Date to Issue PSKY Shareholders Warrants Tied to WBD Merger",
-      "when": "25 Sep",
+      "title": "Scarlett Johansson Takes Break From Filming Overseas for ‘Paper Tiger’ NYFF Premiere After Skipping Cannes: ‘I’m Hallucinating’",
+      "when": "26 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-warner-bros-deal-close-not-yet-certain-warrants-issue-date-1236876018/"
+      "url": "https://variety.com/2026/film/festivals/scarlett-johansson-paper-tiger-new-york-film-festival-premiere-adam-driver-1236872284/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jodie Turner-Smith Sued for Allegedly Enabling Brother’s Sexual Misconduct and Drug Dealing",
-      "when": "25 Sep",
+      "title": "‘Love Hypothesis’ Director Claire Scanlon Breaks Down the Biggest ‘Star Wars’ Easter Eggs, From Gracie Abrams’ Song to Color-Coded Wardrobes",
+      "when": "26 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jodie-turner-smith-sued-brother-sexual-misconduct-drugs-1236875978/"
+      "url": "https://variety.com/2026/film/features/the-love-hypothesis-star-wars-easter-eggs-1236875151/"
     },
     {
       "cat": "Film/TV",
-      "title": "White House Has Spent More Than $440,000 on Pro-Trump TV Ads Paid for by U.S. Government; Administration Defends ‘Unapologetically American’ Spots and Denies They’re Campaign Ads",
-      "when": "25 Sep",
+      "title": "Isaac Mizrahi on the ‘Unzipped’ Restoration, the John Galliano Met Gala Fiasco and Why the ‘Devil Wears Prada’ Cerulean Blue Speech ‘Makes Me Want to Kill Somebody’",
+      "when": "26 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/white-house-defends-pro-trump-tv-ads-paid-by-us-taxpayers-1236875952/"
+      "url": "https://variety.com/2026/film/columns/isaac-mizrahi-unzipped-restoration-john-galliano-met-gala-devil-wears-prada-cerulean-blue-1236876106/"
     },
     {
       "cat": "Film/TV",
-      "title": "Margaret Qualley and Sabrina Carpenter Join Tom Holland in Fred Astaire Biopic as Adele Astaire, Ginger Rogers",
-      "when": "25 Sep",
+      "title": "Olivia Rodrigo’s ‘Unraveled’ Tour Setlist: Every Song Played on Opening Night in Connecticut",
+      "when": "26 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/margaret-qualley-sabrina-carpenter-tom-holland-fred-astaire-biopic-1236850613/"
+      "url": "https://variety.com/2026/music/news/olivia-rodrigo-unraveled-tour-setlist-opening-connecticut-1236875900/"
     },
     {
       "cat": "Trek/Wars",
