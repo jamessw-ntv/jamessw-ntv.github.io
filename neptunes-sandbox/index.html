@@ -83,6 +83,9 @@
   .vision{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 8px}
   .vision .toggle{padding:5px 11px;font-size:12px;display:inline-flex;align-items:center;gap:6px}
   .vision .toggle.active{background:var(--accent-soft);color:var(--text);border-color:var(--accent)}
+  @media (pointer:coarse){.vision .toggle{min-height:36px}}
+  @media (max-width:600px){.map{aspect-ratio:auto;height:64vh;height:64dvh;max-height:none}}
+  @media (max-width:600px){header.page .sub{display:none} header.page h1{font-size:20px;margin-bottom:0}}
   .feed{max-height:260px;overflow:auto;font-size:12.5px}
   .feed div{padding:4px 0;border-bottom:1px solid var(--line)}
   .feed .t{color:var(--muted);font-variant-numeric:tabular-nums;display:inline-block;min-width:50px}
@@ -91,6 +94,9 @@
   @keyframes flash{from{background:var(--accent-soft)}to{background:transparent}}
   .mapkey{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:12px;color:var(--muted)}
   .mapkey svg{vertical-align:middle;margin-right:4px}
+  .keywrap{margin-top:6px}
+  .keywrap summary{cursor:pointer;padding:6px 0;list-style-position:inside}
+  @media (pointer:coarse){.keyhint{display:none}}
   /* inspector */
   .insp-h{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:700}
   .insp-sub{color:var(--muted);font-size:12px;margin:2px 0 10px}
@@ -194,6 +200,15 @@
   .ribbon{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 8px;font-size:12px;color:var(--muted)}
   .ribbon b{color:var(--text)}
   .map.targeting{cursor:crosshair}
+  /* the side column is a stack; whatever you just selected rises to the top of it */
+  .side{display:flex;flex-direction:column;gap:14px}
+  .side > .box{margin-top:0 !important}
+  .side.picked > .insp{order:-1}
+  /* desktop: the map stays in view while the side column scrolls */
+  @media (min-width:861px){
+    .cols > .mapcol{position:sticky;top:calc(var(--ctrlH, 64px) + 12px);align-self:start}
+    .mapcol .map{max-height:calc(100vh - var(--ctrlH, 64px) - 130px)}
+  }
   /* phones: the turn bar is one scrollable row, and the inspector sits right under the map */
   @media (max-width:860px){
     .side{display:flex;flex-direction:column;gap:14px;margin-top:14px}
@@ -281,7 +296,7 @@
     <button class="btn" id="bAuto">▶ Auto</button>
     <button class="btn" id="bSkip" disabled title="Finish this turn's ticks now (Space continues after a pause)">Skip ⏭</button>
     <select id="speed" title="How fast each tick plays back">
-      <option value="1400">Slow ticks</option><option value="700">Normal ticks</option><option value="300">Fast ticks</option><option value="0">Instant</option>
+      <option value="1400">Slow</option><option value="700">Normal</option><option value="300">Fast</option><option value="0">Instant</option>
     </select>
   </div>
   <div id="winner"></div>
@@ -291,7 +306,7 @@
   <!-- GALAXY -->
   <section class="panel" data-tab="galaxy">
     <div class="cols">
-      <div>
+      <div class="mapcol">
         <div class="vision" id="vision" title="Show the galaxy as these empires see it"></div>
         <div class="mapwrap">
           <svg class="map" id="map"></svg>
@@ -321,7 +336,7 @@
           <label class="chk"><input type="checkbox" id="optRange" checked> Jump range</label>
           <label class="chk"><input type="checkbox" id="optScan"> Scanning ranges</label>
         </div>
-        <div class="mapkey">
+        <details class="keywrap"><summary class="small muted">Map key and controls</summary><div class="mapkey">
           <span><svg width="18" height="18"><circle cx="9" cy="9" r="6" fill="none" stroke="var(--blue)" stroke-width="2.5"/><circle cx="9" cy="9" r="2.5" fill="var(--text)"/></svg>owned star</span>
           <span><svg width="22" height="18"><circle cx="11" cy="9" r="6" fill="none" stroke="var(--blue)" stroke-width="2.5"/><circle cx="11" cy="9" r="8.5" fill="none" stroke="var(--blue)" stroke-width="1"/><circle cx="11" cy="9" r="2.5" fill="var(--text)"/></svg>home star</span>
           <span><svg width="14" height="14"><circle cx="7" cy="7" r="2.5" fill="var(--muted)"/></svg>unclaimed</span>
@@ -329,8 +344,8 @@
           <span><svg width="14" height="14"><path d="M2 2 L13 7 L2 12 L5 7Z" fill="var(--blue)"/></svg>carrier in flight</span>
           <span>Under a star: ships · above: Economy · Industry · Science</span>
           <span>Scroll/pinch to zoom · drag to pan · click anything</span>
-          <span>Keys: N next turn · B back · Space auto / continue · V player/admin view · T pick a target · Enter launch</span>
-        </div>
+          <span class="keyhint">Keys: N next turn · B back · Space auto / continue · V player/admin view · T pick a target · Enter launch</span>
+        </div></details>
       </div>
       <div class="side">
         <div class="box youbox hidden" id="youBox"><h2 id="youTitle">Your empire</h2><div id="you"></div></div>
@@ -685,7 +700,8 @@ $("tabs").addEventListener("click", e => {
 function renderClock() {
   const R = S.rules, day = Math.floor(S.tick / R.productionTicks) + 1;
   const toProd = R.productionTicks - (S.tick % R.productionTicks);
-  $("clock").innerHTML = `<b>Turn ${S.turn}</b><span class="cx"> · tick ${S.tick} · day ${day} · production in ${toProd} ticks · ${R.ticksPerTurn} ticks/turn</span>`;
+  $("clock").innerHTML = `<b>Turn ${S.turn}</b><span class="cx"> · tick ${S.tick} · day ${day} · production in ${toProd}</span>`;
+  $("clock").title = `${R.ticksPerTurn} ticks per turn, ${R.productionTicks} ticks per day (production)`;
   if (playing && tab !== "galaxy") $("clock").innerHTML += ` · <b style="color:var(--accent)">playing tick ${playing.tick}/${playing.of}</b>`
     + (playing.why ? ` · <b style="color:#ffd479">paused: ${esc(playing.why)}</b>` : "");
   $("bBack").disabled = !!playing || S.turn === 0 || !history[S.turn - 1];
@@ -726,6 +742,13 @@ function fitCam() {
   const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
   const w = Math.max(x1 - x0, (y1 - y0) / ar) * 1.08 + 2;
   cam = { x:(x0 + x1) / 2, y:(y0 + y1) / 2 - 18 * w / (svg.clientWidth || 800) / 2, w };   // nudge down under the top bar
+}
+/* like the real game opening on your home star: centre on `at`, zoomed to a few jumps of `pid`'s range */
+function focusOn(at, pid) {
+  if (!at) return;
+  if (!cam) fitCam();
+  const w = Math.min(cam.w, Math.max(20, sim.range(S, pid) * 6));
+  cam = { x:at.x, y:at.y, w };
 }
 function camBox() {
   const svg = $("map"), pxW = svg.clientWidth || 800, pxH = svg.clientHeight || 800;
@@ -1057,7 +1080,7 @@ function renderHud() {
   const R = S.rules, toProd = R.productionTicks - (S.tick % R.productionTicks), bits = [];
   if (PB.vision.length === 1 && S.players[PB.vision[0]]) {
     const p = S.players[PB.vision[0]], t = sim.totals(S, p.id);
-    bits.push(`<span style="color:${col(p)}">${esc(p.name)}</span>`, `<span><b>$${p.credits}</b></span>`, `<span>${t.stars} stars · ${t.ships} ships</span>`);
+    bits.push(`<span style="color:${col(p)}">${esc(p.name)}</span>`, `<span><b>$${p.credits}</b></span>`, `<span>${t.stars} stars · ${nShips(t.ships)}</span>`);
   } else bits.push(`<span>Galaxy · ${S.players.filter(p => p.alive).length} empires</span>`);
   bits.push(`<span>Production: <i>${toProd} ticks</i></span>`, `<span>Tick <i>${S.tick}</i> · Turn <i>${S.turn}</i></span>`);
   $("hud").innerHTML = bits.join("");
@@ -1109,17 +1132,19 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     pts.delete(e.pointerId); if (pts.size < 2) pinch0 = null;
     svg.classList.remove("dragging");
     if (!wasClick || e.type === "pointercancel") return;
-    const hitEl = document.elementFromPoint(e.clientX, e.clientY);
-    let g = hitEl && hitEl.closest("[data-s],[data-c]"), far = false;
-    if (g && g.dataset.s != null) {             // big hit circles overlap on dense maps: take the star nearest the tap
-      const V = camBox(), r = svg.getBoundingClientRect(), wx = V.x + (e.clientX - r.left) * V.u, wy = V.y + (e.clientY - r.top) * V.u;
-      const best = S.stars.reduce((b, st) => Math.hypot(st.x - wx, st.y - wy) < Math.hypot(b.x - wx, b.y - wy) ? st : b, S.stars[+g.dataset.s]);
-      g = { dataset:{ s:String(best.id) } };
-    }
+    const hits = document.elementsFromPoint(e.clientX, e.clientY).filter(el => svg.contains(el));
+    let g = hits.length ? hits[0].closest("[data-s],[data-c]") : null, far = false;
+    const V = camBox(), r = svg.getBoundingClientRect(), wx = V.x + (e.clientX - r.left) * V.u, wy = V.y + (e.clientY - r.top) * V.u;
+    let best = null, bd = Infinity;                // the star nearest the tap, in ly
+    for (const st of S.stars) { const d = Math.hypot(st.x - wx, st.y - wy); if (d < bd) { bd = d; best = st; } }
+    // hit areas overlap: a carrier (anywhere under the finger) wins only when the tap is nearer its marker than any
+    // star's centre; picking stops or a target always means a star
+    const cg = hits.map(el => el.closest("[data-c]")).find(Boolean);
+    if (cg && !(RE && RE.pick) && !targeting) {
+      const cb = cg.firstElementChild.getBoundingClientRect(), cd = Math.hypot(cb.x + cb.width / 2 - e.clientX, cb.y + cb.height / 2 - e.clientY);
+      g = !best || cd <= bd / V.u ? cg : { dataset:{ s:String(best.id) } };
+    } else if (g) g = { dataset:{ s:String(best.id) } };
     if (!g) {                                   // near miss: snap to the closest star within ~24px; ignore misses near stars
-      const V = camBox(), r = svg.getBoundingClientRect(), wx = V.x + (e.clientX - r.left) * V.u, wy = V.y + (e.clientY - r.top) * V.u;
-      let best = null, bd = Infinity;
-      for (const st of S.stars) { const d = Math.hypot(st.x - wx, st.y - wy); if (d < bd) { bd = d; best = st; } }
       if (best && bd <= 24 * V.u) g = { dataset:{ s:String(best.id) } };
       else far = !best || bd > 60 * V.u;
     }
@@ -1148,6 +1173,8 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     if (z === "fit") { fitCam(); queueMap(); } else zoomAt(z === "in" ? 1 / 1.5 : 1.5);
   });
   window.addEventListener("resize", queueMap);
+  const ctl = document.querySelector(".ctrl");           // the sticky map sits just under the sticky turn bar
+  if (window.ResizeObserver) new ResizeObserver(() => document.documentElement.style.setProperty("--ctrlH", ctl.offsetHeight + "px")).observe(ctl);
 })();
 ["optLabels", "optAlly", "optFleets", "optRange"].forEach(id => $(id).addEventListener("change", renderMap));
 
@@ -1157,7 +1184,7 @@ function renderLegend() {
   $("legend").innerHTML = S.players.map(p => {
     const t = sim.totals(S, p.id);
     return `<div data-p="${p.id}" class="${p.alive ? "" : "dead"} ${focus === p.id ? "on" : ""}">${sw(p)}<b>${esc(p.name)}</b>
-      <span class="muted small">${esc(botLabel(p))} · ${t.stars}★ · ${t.ships} ships</span></div>`;
+      <span class="muted small">${esc(botLabel(p))} · ${t.stars}★ · ${nShips(t.ships)}</span></div>`;
   }).join("");
 }
 $("legend").addEventListener("click", e => {
@@ -1180,6 +1207,7 @@ $("inspect").addEventListener("click", e => {
 });
 const starLink = s => `<span class="link" data-go="star:${s.id}">${esc(s.name)}</span>`;
 const empLink = p => `${sw(p)}<span class="link" data-go="empire:${p.id}">${esc(p.name)}</span>`;
+const nShips = n => `${n} ship${n === 1 ? "" : "s"}`;
 const ticksTxt = t => `${t} tick${t === 1 ? "" : "s"} <span class="muted">(~${Math.max(1, Math.ceil(t / S.rules.ticksPerTurn))} turn${Math.ceil(t / S.rules.ticksPerTurn) > 1 ? "s" : ""})</span>`;
 
 function incomeOf(p) {
@@ -1203,6 +1231,7 @@ function predict(c) {
 
 function renderInspector(force) {
   const box = $("inspect");
+  document.querySelector(".side").classList.toggle("picked", !!sel && sel.kind !== "empire");
   if (RE && (!sel || sel.kind !== "carrier" || sel.id !== RE.id || !S.carriers.some(c => c.id === RE.id))) { RE = null; renderPickbar(); }
   if (!force && RE && box.contains(document.activeElement) && document.activeElement.matches("input[type=number]")) return;  // mid-typing
   if (!sel) {
@@ -1246,12 +1275,12 @@ function starInspector(s) {
   const defWeap = o ? o.tech.weapons.level + R.defenderWeaponBonus : 0;
   const ctl = shipController(s);
   const defence = (ctl != null ? transferPanel(s, ctl) : `<div class="li">Garrison<span class="r"><b>${s.ships}</b> ships</span></div>`) +
-    orbit.filter(c => c.owner !== ctl).map(c => `<div class="li">${empLink(S.players[c.owner])} <span class="link" data-go="carrier:${c.id}">carrier${c.route && c.route.length ? (c.loop ? " · on a loop" : " · has orders") : ""}</span><span class="r">${c.ships} ships</span></div>`).join("") +
+    orbit.filter(c => c.owner !== ctl).map(c => `<div class="li">${empLink(S.players[c.owner])} <span class="link" data-go="carrier:${c.id}">carrier${c.route && c.route.length ? (c.loop ? " · on a loop" : " · has orders") : ""}</span><span class="r">${nShips(c.ships)}</span></div>`).join("") +
     (o ? `<div class="li muted">Defends with weapons<span class="r">${defWeap} <span class="small">(${o.tech.weapons.level} +1)</span></span></div>` : "");
 
   const incoming = inbound.length ? inbound.map(c => {
     const pr = predict(c);
-    return `<div class="li" style="flex-wrap:wrap">${empLink(S.players[c.owner])} <span class="link" data-go="carrier:${c.id}">${c.ships} ships</span>
+    return `<div class="li" style="flex-wrap:wrap">${empLink(S.players[c.owner])} <span class="link" data-go="carrier:${c.id}">${nShips(c.ships)}</span>
       <span class="r small">in ${ticksTxt(sim.eta(S, c))}</span>
       <div class="verdict ${pr.cls}" style="flex-basis:100%">${pr.text}</div></div>`;
   }).join("") : `<div class="small muted">Nothing on its way.</div>`;
@@ -1275,7 +1304,7 @@ function starInspector(s) {
     <div class="sec"><h4>Incoming</h4>${incoming}</div>
     <div class="sec"><h4>Within jump range of</h4>${reach.length ? reach.map(x => `<div class="li">${empLink(x.p)}<span class="r">${x.d.toFixed(1)} ly</span></div>`).join("") : `<div class="small muted">No other empire can reach it yet.</div>`}</div>
     <div class="sec"><h4>Nearest stars</h4>${near.map(x => `<div class="li">${x.t.owner >= 0 ? sw(S.players[x.t.owner]) : `<span class="sw" style="background:var(--muted)"></span>`}${starLink(x.t)}
-      <span class="r">${x.d.toFixed(1)} ly${seesStar(vis, x.t) ? ` · ${x.t.ships} ships` : ""}</span></div>`).join("")}</div>`;
+      <span class="r">${x.d.toFixed(1)} ly${seesStar(vis, x.t) ? ` · ${nShips(x.t.ships)}` : ""}</span></div>`).join("")}</div>`;
   sendPrediction(s);
 }
 
@@ -1304,7 +1333,7 @@ function carrierInspector(c) {
       <button class="btn small" data-act="unload" title="Leave all but 1 ship on the star">Unload all but 1</button></div>` : ""}`;
   }
   $("inspect").innerHTML = `
-    <div class="insp-h">${sw(o)}${c.ships} ships</div>
+    <div class="insp-h">${sw(o)}${nShips(c.ships)}</div>
     <div class="insp-sub">${empLink(o)} carrier #${c.id} · weapons ${o.tech.weapons.level} · jump range ${sim.range(S, c.owner)} ly</div>
     ${head}
     ${!canOrder(c) ? "" : `<div class="sec"><h4>Orders${c.routeBy === "bot" ? ` <span class="tag">bot supply line</span>` : ""}</h4>${RE ? routeEditor(c) : routeView(c)}</div>`}`;
@@ -1525,7 +1554,7 @@ function transferPanel(s, pid) {
       ${mine.length + (own ? 1 : 0) > 1 ? `<button class="btn small" data-xeven ${dis(true)} title="Share every ship here evenly between ${own ? "the star and " : ""}your carriers">⚖ Split evenly</button>` : ""}
       ${own ? `<button class="btn small" data-xnew ${dis(s.ships > 0 && p.credits >= R.carrierCost)} title="Buy a carrier here with 1 ship from the garrison">＋ New carrier ($${R.carrierCost})</button>` : ""}
       ${mine.filter(c => !(c.route && c.route.length)).length > 1 ? `<button class="btn small" data-xmerge ${dis(true)} title="Fold idle carriers here into one">Merge idle</button>` : ""}
-      ${own || mine.length ? `<button class="btn small" data-xlane ${dis(true)} title="Tap stops on the map, then pick each stop's order">➜ Route from here${mine.some(c => !(c.route && c.route.length)) ? "" : ` (new carrier, $${R.carrierCost})`}</button>` : ""}
+      ${own || mine.length ? `<button class="btn small" data-xlane ${dis(true)} title="Tap stops on the map, then pick each stop's order">➜ Route from here${mine.some(c => !(c.route && c.route.length)) ? "" : ` (new carrier with ${Math.max(1, s.ships - 1)}, $${R.carrierCost})`}</button>` : ""}
     </div>
     ${own ? "" : `<div class="small muted" style="margin-top:4px">Not your star: carriers here can only swap ships with each other.</div>`}
     <div class="omsg ${xMsg.ok ? "ok" : "bad"}" id="xMsg">${esc(xMsg.text)}</div></div>`;
@@ -1571,14 +1600,16 @@ function startRoute(id) {
   const c = S.carriers.find(x => x.id === id); if (!c) return;
   sel = { kind:"carrier", id };
   RE = { id, stops:(c.route || []).map(x => Object.assign({}, x)), loop:!!c.loop, pick:true, msg:"" };
+  const at = sim.carrierPos(S, c);                                   // zoom in if the map is too far out to tap stops
+  if (at && camBox().w > sim.range(S, c.owner) * 10) focusOn(at, c.owner);
   xMsg = { text:"", ok:true };
   renderAll(); renderPickbar();
 }
-/* "Route from here": an idle carrier here (or a new one with 1 ship), then straight
+/* "Route from here": an idle carrier here (or a new one holding all but 1 of the garrison), then straight
    to tapping stops on the map */
 function startLane(s, pid) {
   let c = S.carriers.filter(x => x.at === s.id && x.owner === pid && !(x.route && x.route.length)).sort((a, b) => b.ships - a.ships)[0];
-  if (!c) { c = shipOrder(() => sim.act.build(S, pid, s.id, 1)); if (!c) return; }
+  if (!c) { c = shipOrder(() => sim.act.build(S, pid, s.id, Math.max(1, s.ships - 1))); if (!c) return; }   // load all but 1
   startRoute(c.id);
 }
 /* save the draft if it's valid; returns true when saved */
@@ -1680,23 +1711,26 @@ $("viewSw").addEventListener("change", e => {
 function playAs(id) {
   if (playing) skipTurn();
   sim.admin.setHuman(S, id);
-  if (id != null) { PB.view = "player"; PB.vision = []; savePB(); sel = { kind:"star", id:S.players[id].home }; if (S.stars[S.players[id].home].owner !== id) sel = null; }
+  if (id != null) { PB.view = "player"; PB.vision = []; savePB(); sel = { kind:"star", id:S.players[id].home }; if (S.stars[S.players[id].home].owner !== id) sel = null;
+    focusOn(sel ? S.stars[sel.id] : null, id); }
   afterChange();
 }
 
 /* orders: only between turns, and they become part of this turn (rewind undoes them) */
 let youMsg = { text:"", ok:true }, sendTo = null, targeting = false;
 /* fn returns "" on success or the reason it failed; `done` is what to say on success */
-function order(fn, done) {
-  if (playing) { say("Wait for the turn to finish playing.", false); return false; }
+function order(fn, done, at = "star") {
+  if (playing) { say("Wait for the turn to finish playing.", false, at); return false; }
   const r = fn();
-  youMsg = r ? { text:r, ok:false } : { text:typeof done === "function" ? done() : done || "", ok:true };
+  youMsg = r ? { text:r, ok:false, at } : { text:typeof done === "function" ? done() : done || "", ok:true, at };
   snap(); save(); renderAll();
   return !r;
 }
 const KIND = { econ:"economy", industry:"industry", science:"science" };
-function say(text, ok) { youMsg = { text, ok }; document.querySelectorAll(".omsg").forEach(el => { el.textContent = text; el.className = "omsg " + (ok ? "ok" : "bad"); }); }
-const msgHtml = () => `<div class="omsg ${youMsg.ok ? "ok" : "bad"}">${esc(youMsg.text)}</div>`;
+/* an order's result shows only in the panel it came from: "you" (empire box) or "star" (inspector) */
+function say(text, ok, at = "star") { youMsg = { text, ok, at }; document.querySelectorAll(".omsg[data-at]").forEach(el => {
+  el.textContent = el.dataset.at === at ? text : ""; el.className = "omsg " + (ok ? "ok" : "bad"); }); }
+const msgHtml = at => `<div class="omsg ${youMsg.ok ? "ok" : "bad"}" data-at="${at}" role="status">${youMsg.at === at ? esc(youMsg.text) : ""}</div>`;
 
 function cheapest(p, kind) {
   let best = null;
@@ -1743,25 +1777,25 @@ function renderYou() {
         <button class="btn small" id="propGo" ${busy ? "disabled" : ""}>Propose alliance${R.allianceFee ? ` ($${R.allianceFee})` : ""}</button></div>` : ""}
       ${!offers.length && !allies.length && !others.length ? `<div class="small muted">Nobody left to talk to.</div>` : ""}</div>
     <div class="small muted" style="margin-top:10px">Click one of your stars on the map to build there or send ships. ${busy ? "<b>Orders open again when this turn finishes.</b>" : ""}</div>
-    ${msgHtml()}`;
+    ${msgHtml("you")}`;
 }
 $("you").addEventListener("click", e => {
   const id = humanId(); if (id == null) return;
   const b = e.target.closest("button"); if (!b) return;
   if (b.dataset.buy) { const k = b.dataset.buy, c = cheapest(me(), k);
-    if (c) order(() => sim.act.buy(S, id, c.s.id, k), `Bought ${KIND[k]} at ${c.s.name} for $${c.c}.`); }
+    if (c) order(() => sim.act.buy(S, id, c.s.id, k), `Bought ${KIND[k]} at ${c.s.name} for $${c.c}.`, "you"); }
   if (b.id === "bulkGo") { const k = $("bulkKind").value; let r;
     order(() => { r = sim.act.buyBulk(S, id, k, +$("bulkAmt").value || 0); return r.n ? "" : "Not enough cash for even one."; },
-      () => `Bought ${r.n} ${KIND[k]} for $${r.spent}.`); }
-  if (b.dataset.accept) { const q = S.players[+b.dataset.accept]; order(() => sim.act.accept(S, id, q.id), `You and ${q.name} are now allies.`); }
-  if (b.dataset.decline) { const q = S.players[+b.dataset.decline]; order(() => sim.act.decline(S, id, q.id), `You turned ${q.name} down.`); }
+      () => `Bought ${r.n} ${KIND[k]} for $${r.spent}.`, "you"); }
+  if (b.dataset.accept) { const q = S.players[+b.dataset.accept]; order(() => sim.act.accept(S, id, q.id), `You and ${q.name} are now allies.`, "you"); }
+  if (b.dataset.decline) { const q = S.players[+b.dataset.decline]; order(() => sim.act.decline(S, id, q.id), `You turned ${q.name} down.`, "you"); }
   if (b.dataset.war) { const q = S.players[+b.dataset.war];
     if (confirm(`Declare war on ${q.name}? Your alliance ends after the notice period, and everyone will know.`))
-      order(() => sim.act.war(S, id, q.id), `War declared on ${q.name}.`); }
-  if (b.id === "propGo") { const q = S.players[+$("propSel").value]; order(() => sim.act.propose(S, id, q.id), `${q.name} accepted. You're allies.`); }
+      order(() => sim.act.war(S, id, q.id), `War declared on ${q.name}.`, "you"); }
+  if (b.id === "propGo") { const q = S.players[+$("propSel").value]; order(() => sim.act.propose(S, id, q.id), `${q.name} accepted. You're allies.`, "you"); }
 });
 $("you").addEventListener("change", e => {
-  if (e.target.id === "resSel") order(() => sim.act.research(S, humanId(), e.target.value), `Now researching ${sim.TECH_LABEL[e.target.value]}.`);
+  if (e.target.id === "resSel") order(() => sim.act.research(S, humanId(), e.target.value), `Now researching ${sim.TECH_LABEL[e.target.value]}.`, "you");
 });
 
 /* orders on a star you own (or where your carriers are parked) */
@@ -1805,7 +1839,7 @@ function starOrders(s) {
     <div class="sendrow"><button class="btn small primary" id="sendGo" ${busy ? "disabled" : ""} title="Enter">${reuse ? `Launch carrier #${reuse.id}` : `Build carrier ($${S.rules.carrierCost}) and launch`}</button>
       <span class="small muted" id="sendPred"></span></div>`
     : `<div class="small muted">No ships here to send yet.</div>`;
-  return `<div class="sec"><h4>Send ships</h4>${send}${msgHtml()}</div>`;
+  return `<div class="sec"><h4>Send ships</h4>${send}${msgHtml("star")}</div>`;
 }
 function sendPrediction(s) {
   const el = $("sendPred"); if (!el) return;
