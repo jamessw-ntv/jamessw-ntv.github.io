@@ -10,6 +10,16 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
   turn instantly; tick speed is Slow / Normal / Fast / Instant. Playback can pause itself on a
   capture, betrayal, new alliance or elimination (Admin). `◀ Back` rewinds a whole turn.
   Keys: `N`/→ next, `B`/← back, `Space` auto-play (or Continue after a pause).
+- **Play an empire**: pick a seat under *You play* in New game, or take over any empire
+  mid-game with `🎮 Play as…` in the header (or Admin → Bots). The others stay bots. Your orders
+  are the real game's: buy Economy / Industry / Science at a star (or bulk-buy at your cheapest
+  stars), choose research, build carriers and send ships to any star in jump range (pick it from
+  the list or click it on the map), and accept, decline or propose alliances or declare war on
+  an ally. Orders are given between turns; `◀ Back` undoes them with the turn.
+- **Player / Admin view** (header switch, key `V`): *Player* shows only what your empire can
+  scan, hides the bots' personalities, feelings, cash, research and other empires' secret
+  alliances, and drops the Admin and Alliances tabs (Rules become read-only). *Admin* shows
+  everything with all the god powers, while you keep playing.
 - **See as (fog of war)**: chips above the map show the galaxy through one or more empires'
   scanning. Outside it you see who owns a star but not its ships, infrastructure or carriers,
   and other empires' alliances stay secret. Allies share scanning (toggle in Admin).

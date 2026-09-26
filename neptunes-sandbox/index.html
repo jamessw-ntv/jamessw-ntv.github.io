@@ -153,6 +153,25 @@
   .tech .barcell{width:40%}
   .spark{width:100%;height:auto;display:block}
   .up{color:#7ee2b8}.down{color:#ffb4b4}
+
+  /* ---- playing an empire ---- */
+  .viewsw{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .viewsw button{background:var(--panel2);color:var(--muted);border:0;padding:7px 12px;font:inherit;font-size:13px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:6px}
+  .viewsw button + button{border-left:1px solid var(--line)}
+  .viewsw button.on{background:var(--accent-soft);color:var(--text);font-weight:700}
+  .youbox{border-color:var(--pc,var(--accent));border-top-width:4px}
+  .orders{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+  .orders .btn{padding:6px 4px;font-size:12px;border-radius:8px;text-align:center}
+  .orders .btn small{display:block;color:var(--muted);font-size:11px}
+  .msg{font-size:12px;margin-top:8px;min-height:1em}
+  .msg.bad{color:#ffb4b4} .msg.ok{color:#7ee2b8}
+  .sendrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}
+  .sendrow select{flex:1;min-width:150px}
+  .sendrow input[type=number]{width:70px}
+  .ribbon{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 8px;font-size:12px;color:var(--muted)}
+  .ribbon b{color:var(--text)}
+  .map.targeting{cursor:crosshair}
 </style>
 </head>
 <body>
@@ -172,6 +191,7 @@
 <div class="wrap">
   <div class="ctrl">
     <div class="clock" id="clock"></div>
+    <span id="viewSw"></span>
     <button class="btn" id="bBack" title="Rewind one turn">◀ Back</button>
     <button class="btn primary" id="bNext" title="Play the next turn (N or →)">Next turn ▶</button>
     <button class="btn" id="bFive">+5 turns</button>
@@ -216,10 +236,11 @@
           <span><svg width="14" height="14"><path d="M2 2 L13 7 L2 12 L5 7Z" fill="var(--blue)"/></svg>carrier in flight</span>
           <span>Under a star: ships · above: Economy · Industry · Science</span>
           <span>Scroll/pinch to zoom · drag to pan · click anything</span>
-          <span>Keys: N next turn · B back · Space auto / continue</span>
+          <span>Keys: N next turn · B back · Space auto / continue · V player/admin view</span>
         </div>
       </div>
       <div>
+        <div class="box youbox hidden" id="youBox"><h2 id="youTitle">Your empire</h2><div id="you"></div></div>
         <div class="box"><h2>Empires</h2><div class="legend" id="legend"></div></div>
         <div class="box"><h2 id="inspTitle">Inspector</h2><div id="inspect"></div></div>
         <div class="box"><h2>This turn</h2><div class="feed" id="feed"></div></div>
@@ -311,6 +332,8 @@
       </div>
 
       <div class="box"><h2>Bots</h2>
+        <div class="row small" style="margin-bottom:8px"><span>You play</span><select id="playAs"></select>
+          <span class="muted">Take over any empire mid-game, or hand it back to its bot.</span></div>
         <div id="botRows"></div>
         <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
         <div class="row small"><span>Give</span><select id="giveP"></select>
@@ -327,6 +350,7 @@
         <div class="row small"><span>Stars per empire</span><input type="number" id="ngStars" min="4" max="40" value="24">
           <span>Max turns</span><input type="number" id="ngMax" min="20" max="2000" value="400"></div>
         <div id="ngSeats" style="margin-top:8px"></div>
+        <div class="row small" style="margin-top:8px"><span>You play</span><select id="ngHuman"></select></div>
         <div class="row" style="margin-top:10px"><button class="btn primary" id="ngGo">Start new game</button></div>
         <div class="small muted" style="margin-top:6px">Uses the rules currently set on the Rules tab.</div>
       </div>
@@ -350,7 +374,8 @@
         <span class="tag warn">placeholder</span> = a best guess until we have the real number.
         Edits apply to the current game immediately. To change the defaults for good, edit <code>rules.js</code>.</div>
       <div class="scroll" id="rules"></div>
-      <div class="row" style="margin-top:10px"><button class="btn small" id="rulesReset">Reset to rules.js defaults</button></div>
+      <div class="row" style="margin-top:10px"><button class="btn small" id="rulesReset">Reset to rules.js defaults</button>
+        <span class="small muted" id="rulesRO"></span></div>
     </div>
   </section>
 </div>
@@ -383,9 +408,20 @@ let S, history = [], sel = null;
 /* ---------------- playback prefs (this browser only, not game state) ---------------- */
 const PB_KEY = "npSandbox.pb";
 const PB = Object.assign({ speed:700, pauseCapture:false, pauseWar:true, pauseAlly:false, pauseElim:true,
-  fx:true, trails:true, follow:false, territory:false, palette:"triton", vision:[] },
+  fx:true, trails:true, follow:false, territory:false, palette:"triton", vision:[], view:"player" },
   (() => { try { return JSON.parse(localStorage.getItem(PB_KEY)) || {}; } catch (e) { return {}; } })());
 function savePB() { try { localStorage.setItem(PB_KEY, JSON.stringify(PB)); } catch (e) {} }
+
+/* ---------------- playing an empire ----------------
+   One seat can be played by a person (players[i].human); the bots skip it.
+   Player view shows only what that empire could see in the real game: its own
+   scanning, its own diplomacy, public numbers for everyone else, no admin tools.
+   Admin view is the full sandbox (see everything, god powers) while still playing. */
+const humanId = () => { const p = S && S.players.find(q => q.human); return p ? p.id : null; };
+const me = () => { const id = humanId(); return id == null ? null : S.players[id]; };
+const playerView = () => humanId() != null && PB.view !== "admin";
+const isMe = p => p && p.human;
+const botLabel = p => isMe(p) ? "You" : playerView() ? "Empire" : sim.PERSONAS[p.persona].label;
 
 function save() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } catch (e) {} }
 function load() { try { return JSON.parse(localStorage.getItem(SAVE_KEY) || "null"); } catch (e) { return null; } }
@@ -420,6 +456,7 @@ async function playTurn() {
   if (!sim.beginTurn(S)) return;
   const of = S.rules.ticksPerTurn;
   playing = { tick:0, of, skip:PB.speed <= 0, hold:null, why:"" };
+  youMsg = { text:"", ok:true }; targeting = false;
   feedReset();
   const orders = evSince(mark).map(e => Object.assign({}, e, { orders:true }));   // diplomacy from the bots' orders
   feedPush(orders);
@@ -435,7 +472,7 @@ async function playTurn() {
     playing.tick = i + 1;
     feedPush(evs);
     renderClock();
-    if (tab === "galaxy") { renderMap(); renderFeed(); renderLegend(); renderInspector(); }
+    if (tab === "galaxy") { renderMap(); renderFeed(); renderLegend(); renderInspector(); renderYou(); }
     const why = !playing.skip && pauseReason(evs);
     if (why && i < of - 1) await holdFor(why);
   }
@@ -508,11 +545,18 @@ $("feed").addEventListener("click", e => {
 
 /* ---------------- vision (fog of war) ---------------- */
 function visionSet() {
+  if (playerView()) return sim.scanSources(S, [humanId()]);
   const ids = PB.vision.filter(id => S.players[id]);
   return ids.length ? sim.scanSources(S, ids) : null;
 }
 const seesStar = (vis, s) => !vis || vis.group.has(s.owner) || sim.inScan(vis, s);
 function renderVision() {
+  if (playerView()) {
+    const p = me();
+    $("vision").innerHTML = `<span class="small muted">You see what ${sw(p)}<b style="color:var(--text)">${esc(p.name)}</b> can scan${S.settings.allyVision !== false && sim.alliesOf(S, p.id).length ? ", plus your allies" : ""}.
+      Switch to <b style="color:var(--text)">Admin view</b> to see everything.</span>`;
+    return;
+  }
   const on = new Set(PB.vision);
   $("vision").innerHTML = `<span class="small muted">See as</span>
     <button class="toggle ${on.size ? "" : "active"}" data-v="all" aria-pressed="${!on.size}">👁 Everything</button>` +
@@ -530,8 +574,10 @@ $("vision").addEventListener("click", e => {
 const TABS = [["galaxy","Galaxy"],["alliances","Alliances"],["empires","Empires"],["log","Log"],["admin","Admin"],["rules","Rules"]];
 let tab = "galaxy";
 try { tab = localStorage.getItem("npSandbox.tab") || "galaxy"; } catch (e) {}
+const visibleTabs = () => playerView() ? TABS.filter(([k]) => k !== "admin" && k !== "alliances") : TABS;
 function renderTabs() {
-  $("tabs").innerHTML = TABS.map(([k, l]) => `<button class="toggle ${k === tab ? "active" : ""}" data-t="${k}">${l}</button>`).join("");
+  if (!visibleTabs().some(([k]) => k === tab)) tab = "galaxy";
+  $("tabs").innerHTML = visibleTabs().map(([k, l]) => `<button class="toggle ${k === tab ? "active" : ""}" data-t="${k}">${l}</button>`).join("");
   document.querySelectorAll(".panel").forEach(p => p.classList.toggle("on", p.dataset.tab === tab));
 }
 $("tabs").addEventListener("click", e => {
@@ -565,8 +611,10 @@ function renderClock() {
     const w = S.winner, names = w.ids.map(id => pname(S.players[id])).join(" + ");
     const how = { solo:"holds enough stars to win", last:"is the last empire standing",
       coalition:"win together as a locked alliance", time:"leads when time runs out" }[w.how];
-    $("winner").innerHTML = `<div class="winner">🏆 ${names} ${how} — turn ${w.turn}.</div>`;
-  } else $("winner").innerHTML = "";
+    const you = humanId() != null ? (w.ids.includes(humanId()) ? " You win!" : " You lost this one.") : "";
+    $("winner").innerHTML = `<div class="winner">🏆 ${names} ${how} — turn ${w.turn}.${you}</div>`;
+  } else if (me() && !me().alive) $("winner").innerHTML = `<div class="winner" style="border-color:var(--red);background:transparent">${pname(me())} was eliminated on turn ${me().outTurn}. Switch to Admin view to keep watching.</div>`;
+  else $("winner").innerHTML = "";
 }
 
 /* ---------------- render: galaxy ---------------- */
@@ -783,6 +831,17 @@ function renderMap() {
       ${vis.sources.map(o => `<circle cx="${f(o.x)}" cy="${f(o.y)}" r="${o.r}" fill="#000"/>`).join("")}</mask></defs>
     <rect x="${f(V.x)}" y="${f(V.y)}" width="${f(V.w)}" height="${f(V.h)}" fill="#1a2238" opacity=".42" mask="url(#fogMask)" pointer-events="none"/>`);
 
+  // your send order: reachable stars while picking, and the planned hop
+  if (selStar && humanId() != null && (targeting || sendTo != null) && sendableFrom(selStar)) {
+    const pc = col(me());
+    if (targeting) for (const t of reachable(selStar))
+      out.push(`<circle cx="${t.x}" cy="${t.y}" r="${f(ringR + 4 * u)}" fill="none" stroke="${pc}" stroke-width="${f(1.4 * u)}" stroke-opacity=".8"/>`);
+    if (sendTo != null) { const t = S.stars[sendTo];
+      out.push(`<line x1="${selStar.x}" y1="${selStar.y}" x2="${t.x}" y2="${t.y}" stroke="${pc}" stroke-width="${f(2.4 * u)}" stroke-dasharray="${f(6 * u)} ${f(4 * u)}" stroke-linecap="round"/>`,
+        `<circle cx="${t.x}" cy="${t.y}" r="${f(ringR + 5 * u)}" fill="none" stroke="${pc}" stroke-width="${f(2 * u)}"/>`); }
+  }
+  svg.classList.toggle("targeting", targeting);
+
   // selection ring
   if (selStar) out.push(`<circle cx="${selStar.x}" cy="${selStar.y}" r="${f(ringR + 7 * u)}" fill="none" stroke="var(--text)" stroke-width="${f(1.6 * u)}" stroke-dasharray="${f(3 * u)} ${f(3 * u)}"/>`);
 
@@ -842,9 +901,21 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     if (!wasClick || e.type === "pointercancel") return;
     const hitEl = document.elementFromPoint(e.clientX, e.clientY);
     const g = hitEl && hitEl.closest("[data-s],[data-c]");
+    if (targeting && sel && sel.kind === "star") {       // choosing where to send ships
+      const to = g && g.dataset.s != null ? +g.dataset.s : null, from = S.stars[sel.id];
+      if (to != null && to !== from.id) {
+        if (reachable(from).some(t => t.id === to)) { sendTo = to; targeting = false; youMsg = { text:"", ok:true };
+          renderMap(); renderInspector(); const go = $("sendGo"); if (go) go.scrollIntoView({ block:"nearest", behavior:"smooth" }); return; }
+        else say(`${S.stars[to].name} is out of range (${sim.dist(from, S.stars[to]).toFixed(1)} ly, your range is ${sim.range(S, humanId())} ly).`, false);
+      } else targeting = false;
+      renderMap(); renderInspector(); return;
+    }
     if (!g) { sel = null; }
     else if (g.dataset.c != null) sel = { kind:"carrier", id:+g.dataset.c };
     else sel = { kind:"star", id:+g.dataset.s };
+    if (!sel || sel.kind !== "star") { sendTo = null; targeting = false; }
+    else if (sendTo != null && !reachable(S.stars[sel.id]).some(t => t.id === sendTo)) sendTo = null;
+    youMsg = { text:"", ok:true };
     renderMap(); renderLegend(); renderInspector();
   };
   svg.addEventListener("pointerup", end);
@@ -863,7 +934,7 @@ function renderLegend() {
   $("legend").innerHTML = S.players.map(p => {
     const t = sim.totals(S, p.id);
     return `<div data-p="${p.id}" class="${p.alive ? "" : "dead"} ${focus === p.id ? "on" : ""}">${sw(p)}<b>${esc(p.name)}</b>
-      <span class="muted small">${esc(sim.PERSONAS[p.persona].label)} · ${t.stars}★ · ${t.ships} ships</span></div>`;
+      <span class="muted small">${esc(botLabel(p))} · ${t.stars}★ · ${t.ships} ships</span></div>`;
   }).join("");
 }
 $("legend").addEventListener("click", e => {
@@ -971,11 +1042,13 @@ function starInspector(s) {
     <div class="insp-sub">${o ? `Owned by ${empLink(o)}` : "Unclaimed"}${homeOf ? ` · home star of ${esc(homeOf.name)}` : ""}
       · resources <b style="color:var(--text)">${res}</b>${res !== s.res ? ` (${s.res} natural)` : ""}</div>
     ${infra}
+    ${starOrders(s)}
     <div class="sec"><h4>Defence</h4>${defence}</div>
     <div class="sec"><h4>Incoming</h4>${incoming}</div>
     <div class="sec"><h4>Within jump range of</h4>${reach.length ? reach.map(x => `<div class="li">${empLink(x.p)}<span class="r">${x.d.toFixed(1)} ly</span></div>`).join("") : `<div class="small muted">No other empire can reach it yet.</div>`}</div>
     <div class="sec"><h4>Nearest stars</h4>${near.map(x => `<div class="li">${x.t.owner >= 0 ? sw(S.players[x.t.owner]) : `<span class="sw" style="background:var(--muted)"></span>`}${starLink(x.t)}
-      <span class="r">${x.d.toFixed(1)} ly · ${x.t.ships} ships</span></div>`).join("")}</div>`;
+      <span class="r">${x.d.toFixed(1)} ly${seesStar(vis, x.t) ? ` · ${x.t.ships} ships` : ""}</span></div>`).join("")}</div>`;
+  sendPrediction(s);
 }
 
 function carrierInspector(c) {
@@ -1001,21 +1074,189 @@ function empireInspector(p) {
   const opinions = S.players.filter(q => q.id !== p.id && q.alive).map(q => ({ q, v:S.rel[p.id][q.id] })).sort((a, b) => b.v - a.v);
   $("inspect").innerHTML = `
     <div class="insp-h">${sw(p)}${esc(p.name)}</div>
-    <div class="insp-sub">${esc(per.label)} bot — ${esc(per.blurb)}${p.alive ? "" : ` · eliminated turn ${p.outTurn}`}</div>
+    <div class="insp-sub">${isMe(p) ? "You" : playerView() ? "Rival empire" : `${esc(per.label)} bot — ${esc(per.blurb)}`}${p.alive ? "" : ` · eliminated turn ${p.outTurn}`}</div>
     <div style="margin:4px 0 8px"><button class="btn small" data-pid="${p.id}">Full details ›</button></div>
     <div class="infra">
       <div><span>Stars</span><b>${t.stars}</b><small>${sim.winTarget(S)} to win</small></div>
       <div><span>Ships</span><b>${t.ships}</b><small>+${shipsDay}/day</small></div>
-      <div><span>Cash</span><b>$${p.credits}</b><small>+$${incomeOf(p)}/day</small></div>
+      ${playerView() && !isMe(p) ? `<div><span>Economy</span><b>${t.econ}</b><small>cash is private</small></div>`
+        : `<div><span>Cash</span><b>$${p.credits}</b><small>+$${incomeOf(p)}/day</small></div>`}
     </div>
-    <div class="sec"><h4>Researching ${esc(sim.TECH_LABEL[p.researching])} ${cur.level + 1}</h4>
+    ${playerView() && !isMe(p) ? "" : `<div class="sec"><h4>Researching ${esc(sim.TECH_LABEL[p.researching])} ${cur.level + 1}</h4>
       <div class="bar"><i style="width:${Math.min(100, Math.round(cur.rp / cost * 100))}%"></i></div>
-      <div class="small muted" style="margin-top:3px">${Math.floor(cur.rp)} / ${cost} RP · +${t.science * R.sciencePerTick} RP/tick</div></div>
+      <div class="small muted" style="margin-top:3px">${Math.floor(cur.rp)} / ${cost} RP · +${t.science * R.sciencePerTick} RP/tick</div></div>`}
     <div class="sec"><h4>Technology</h4>${sim.TECHS.map(k => `<div class="li">${esc(sim.TECH_LABEL[k])}<span class="r">${p.tech[k].level}</span></div>`).join("")}
       <div class="li muted">Jump range<span class="r">${sim.range(S, p.id)} ly</span></div></div>
-    <div class="sec"><h4>Allies</h4>${sim.alliesOf(S, p.id).map(id => `<div class="li">${allyIcon(sim.alliance(S, p.id, id))} ${empLink(S.players[id])}</div>`).join("") || `<div class="small muted">None.</div>`}</div>
-    <div class="sec"><h4>Feelings</h4>${opinions.map(x => `<div class="li">${empLink(x.q)}<span class="r" style="color:${x.v >= 0 ? "var(--accent)" : "#ffb4b4"}">${x.v > 0 ? "+" : ""}${x.v}</span></div>`).join("")}</div>`;
+    <div class="sec"><h4>Allies</h4>${playerView() && !isMe(p) ? `<div class="small muted">Other empires' alliances are secret.</div>` : sim.alliesOf(S, p.id).map(id => `<div class="li">${allyIcon(sim.alliance(S, p.id, id))} ${empLink(S.players[id])}</div>`).join("") || `<div class="small muted">None.</div>`}</div>
+    ${playerView() ? "" : `<div class="sec"><h4>Feelings</h4>${opinions.map(x => `<div class="li">${empLink(x.q)}<span class="r" style="color:${x.v >= 0 ? "var(--accent)" : "#ffb4b4"}">${x.v > 0 ? "+" : ""}${x.v}</span></div>`).join("")}</div>`}`;
 }
+
+/* ---------------- your empire: view switch, orders, diplomacy ---------------- */
+function renderViewSw() {
+  const p = me();
+  if (!p) {
+    $("viewSw").innerHTML = `<select id="quickPlay" title="Take over an empire; the others stay bots">
+      <option value="">🎮 Play as…</option>${S.players.filter(q => q.alive).map(q => `<option value="${q.id}">${esc(q.name)}</option>`).join("")}</select>`;
+    return;
+  }
+  const pv = playerView();
+  $("viewSw").innerHTML = `<span class="viewsw" role="group" aria-label="View">
+    <button data-view="player" class="${pv ? "on" : ""}" aria-pressed="${pv}" title="Only what ${esc(p.name)} can see (V)">${sw(p)}Player</button>
+    <button data-view="admin" class="${pv ? "" : "on"}" aria-pressed="${!pv}" title="See everything, with admin powers (V)">👁 Admin</button></span>`;
+}
+function setView(v) { PB.view = v; savePB(); if (v === "player") PB.vision = []; renderAll(); }
+$("viewSw").addEventListener("click", e => { const b = e.target.closest("[data-view]"); if (b) setView(b.dataset.view); });
+$("viewSw").addEventListener("change", e => {
+  if (e.target.id !== "quickPlay" || e.target.value === "") return;
+  playAs(+e.target.value);
+});
+function playAs(id) {
+  if (playing) skipTurn();
+  sim.admin.setHuman(S, id);
+  if (id != null) { PB.view = "player"; PB.vision = []; savePB(); sel = { kind:"star", id:S.players[id].home }; if (S.stars[S.players[id].home].owner !== id) sel = null; }
+  afterChange();
+}
+
+/* orders: only between turns, and they become part of this turn (rewind undoes them) */
+let youMsg = { text:"", ok:true }, sendTo = null, targeting = false;
+/* fn returns "" on success or the reason it failed; `done` is what to say on success */
+function order(fn, done) {
+  if (playing) { say("Wait for the turn to finish playing.", false); return false; }
+  const r = fn();
+  youMsg = r ? { text:r, ok:false } : { text:typeof done === "function" ? done() : done || "", ok:true };
+  snap(); save(); renderAll();
+  return !r;
+}
+const KIND = { econ:"economy", industry:"industry", science:"science" };
+function say(text, ok) { youMsg = { text, ok }; const m = document.querySelectorAll(".msg"); m.forEach(el => { el.textContent = text; el.className = "msg " + (ok ? "ok" : "bad"); }); }
+const msgHtml = () => `<div class="msg ${youMsg.ok ? "ok" : "bad"}">${esc(youMsg.text)}</div>`;
+
+function cheapest(p, kind) {
+  let best = null;
+  for (const st of sim.starsOf(S, p.id)) { const c = sim.infraCost(S, st, kind); if (!best || c < best.c) best = { c, s:st }; }
+  return best;
+}
+function renderYou() {
+  const p = me(), box = $("youBox");
+  box.classList.toggle("hidden", !p);
+  if (!p) return;
+  box.style.setProperty("--pc", col(p));
+  $("youTitle").innerHTML = `${sw(p)}You are ${esc(p.name)}`;
+  if (!p.alive) { $("you").innerHTML = `<div class="small muted">Your empire was eliminated on turn ${p.outTurn}. Switch to Admin view to watch the rest, or take over another empire from the Admin tab.</div>`; return; }
+  const t = sim.totals(S, p.id), R = S.rules, cur = p.tech[p.researching], cost = sim.researchCost(S, p.id, p.researching);
+  const busy = !!playing;
+  const kinds = [["econ", "Economy"], ["industry", "Industry"], ["science", "Science"]];
+  const offers = (S.offers || []).filter(o => o.to === p.id);
+  const allies = sim.alliesOf(S, p.id);
+  const others = S.players.filter(q => q.alive && q.id !== p.id && !sim.allied(S, p.id, q.id));
+  $("you").innerHTML = `
+    <div class="infra">
+      <div><span>Cash</span><b>$${p.credits}</b><small>+$${incomeOf(p)}/day</small></div>
+      <div><span>Stars</span><b>${t.stars}</b><small>${sim.winTarget(S)} to win</small></div>
+      <div><span>Ships</span><b>${t.ships}</b><small>${t.carriers} carriers</small></div>
+    </div>
+    <div class="sec"><h4>Buy at your cheapest star</h4>
+      <div class="orders">${kinds.map(([k, l]) => { const c = cheapest(p, k);
+        return `<button class="btn" data-buy="${k}" ${busy || !c || c.c > p.credits ? "disabled" : ""} title="${c ? `${esc(l)} at ${esc(c.s.name)}` : ""}">${l}<small>${c ? "$" + c.c : "—"}</small></button>`; }).join("")}</div>
+      <div class="sendrow small"><span>Or spend up to $</span><input type="number" id="bulkAmt" min="0" value="${Math.max(0, Math.floor(p.credits / 2))}">
+        <select id="bulkKind">${kinds.map(([k, l]) => `<option value="${k}">${l}</option>`).join("")}</select>
+        <button class="btn small" id="bulkGo" ${busy ? "disabled" : ""}>Buy</button></div></div>
+    <div class="sec"><h4>Research</h4>
+      <select id="resSel" style="width:100%" ${busy ? "disabled" : ""}>${sim.TECHS.map(k => `<option value="${k}" ${k === p.researching ? "selected" : ""}>${esc(sim.TECH_LABEL[k])} ${p.tech[k].level} → ${p.tech[k].level + 1}</option>`).join("")}</select>
+      <div class="bar"><i style="width:${Math.min(100, Math.round(cur.rp / cost * 100))}%"></i></div>
+      <div class="small muted" style="margin-top:3px">${Math.floor(cur.rp)} / ${cost} RP · +${t.science * R.sciencePerTick} RP/tick</div></div>
+    <div class="sec"><h4>Diplomacy</h4>
+      ${offers.map(o => `<div class="li" style="flex-wrap:wrap">${empLink(S.players[o.from])} offers an alliance
+        <span class="r"><button class="btn small primary" data-accept="${o.from}" ${busy ? "disabled" : ""}>Accept</button>
+        <button class="btn small" data-decline="${o.from}" ${busy ? "disabled" : ""}>Decline</button></span></div>`).join("")}
+      ${allies.map(id => { const al = sim.alliance(S, p.id, id);
+        return `<div class="li">${allyIcon(al)} ${empLink(S.players[id])}<span class="r">${al.warBy != null ? `<span class="small muted">war at tick ${al.endsAt}</span>`
+          : al.locked ? `<span class="small muted">locked</span>` : `<button class="btn small" data-war="${id}" ${busy ? "disabled" : ""}>Declare war</button>`}</span></div>`; }).join("")}
+      ${others.length ? `<div class="sendrow"><select id="propSel">${others.map(q => `<option value="${q.id}">${esc(q.name)}</option>`).join("")}</select>
+        <button class="btn small" id="propGo" ${busy ? "disabled" : ""}>Propose alliance${R.allianceFee ? ` ($${R.allianceFee})` : ""}</button></div>` : ""}
+      ${!offers.length && !allies.length && !others.length ? `<div class="small muted">Nobody left to talk to.</div>` : ""}</div>
+    <div class="small muted" style="margin-top:10px">Click one of your stars on the map to build there or send ships. ${busy ? "<b>Orders open again when this turn finishes.</b>" : ""}</div>
+    ${msgHtml()}`;
+}
+$("you").addEventListener("click", e => {
+  const id = humanId(); if (id == null) return;
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.buy) { const k = b.dataset.buy, c = cheapest(me(), k);
+    if (c) order(() => sim.act.buy(S, id, c.s.id, k), `Bought ${KIND[k]} at ${c.s.name} for $${c.c}.`); }
+  if (b.id === "bulkGo") { const k = $("bulkKind").value; let r;
+    order(() => { r = sim.act.buyBulk(S, id, k, +$("bulkAmt").value || 0); return r.n ? "" : "Not enough cash for even one."; },
+      () => `Bought ${r.n} ${KIND[k]} for $${r.spent}.`); }
+  if (b.dataset.accept) { const q = S.players[+b.dataset.accept]; order(() => sim.act.accept(S, id, q.id), `You and ${q.name} are now allies.`); }
+  if (b.dataset.decline) { const q = S.players[+b.dataset.decline]; order(() => sim.act.decline(S, id, q.id), `You turned ${q.name} down.`); }
+  if (b.dataset.war) { const q = S.players[+b.dataset.war];
+    if (confirm(`Declare war on ${q.name}? Your alliance ends after the notice period, and everyone will know.`))
+      order(() => sim.act.war(S, id, q.id), `War declared on ${q.name}.`); }
+  if (b.id === "propGo") { const q = S.players[+$("propSel").value]; order(() => sim.act.propose(S, id, q.id), `${q.name} accepted. You're allies.`); }
+});
+$("you").addEventListener("change", e => {
+  if (e.target.id === "resSel") order(() => sim.act.research(S, humanId(), e.target.value), `Now researching ${sim.TECH_LABEL[e.target.value]}.`);
+});
+
+/* orders on a star you own (or where your carriers are parked) */
+function sendableFrom(s) {
+  const id = humanId(); if (id == null) return 0;
+  const parked = S.carriers.filter(c => c.at === s.id && c.owner === id).reduce((n, c) => n + c.ships, 0);
+  return parked + (s.owner === id ? s.ships : 0);
+}
+function reachable(s) {
+  const id = humanId(), r = sim.range(S, id);
+  return S.stars.filter(t => t !== s && sim.dist(s, t) <= r + 1e-9).sort((a, b) => sim.dist(s, a) - sim.dist(s, b));
+}
+function starOrders(s) {
+  const id = humanId(); if (id == null || !S.players[id].alive) return "";
+  const mine = s.owner === id, avail = sendableFrom(s);
+  const hasCarrier = S.carriers.some(c => c.at === s.id && c.owner === id);
+  if (!mine && !hasCarrier) return "";
+  const p = S.players[id], busy = !!playing;
+  const buy = mine ? `<div class="orders">${[["econ", "Economy"], ["industry", "Industry"], ["science", "Science"]].map(([k, l]) => { const c = sim.infraCost(S, s, k);
+    return `<button class="btn" data-sbuy="${k}" ${busy || c > p.credits ? "disabled" : ""}>+1 ${l}<small>$${c}</small></button>`; }).join("")}</div>` : "";
+  const targets = reachable(s);
+  if (sendTo != null && !targets.some(t => t.id === sendTo)) sendTo = null;
+  const opt = t => { const o = t.owner >= 0 ? S.players[t.owner] : null, ticks = Math.ceil(sim.dist(s, t) / S.rules.carrierSpeed);
+    const who = !o ? "empty" : o.id === id ? "yours" : sim.allied(S, id, o.id) ? `ally ${o.name}` : o.name;
+    return `<option value="${t.id}" ${t.id === sendTo ? "selected" : ""}>${esc(t.name)} · ${esc(who)} · ${ticks} ticks</option>`; };
+  const send = avail ? `<div class="sendrow"><span class="small">Send</span><input type="number" id="sendN" min="1" max="${avail}" value="${avail}">
+      <span class="small">of ${avail} ships to</span></div>
+    <div class="sendrow"><select id="sendTo"><option value="">choose a star…</option>${targets.map(opt).join("")}</select>
+      <button class="btn small" id="pickMap" aria-pressed="${targeting}" ${busy ? "disabled" : ""}>${targeting ? "Picking… (Esc)" : "Pick on map"}</button></div>
+    <div class="sendrow"><button class="btn small primary" id="sendGo" ${busy ? "disabled" : ""}>${hasCarrier ? "Launch" : `Build carrier ($${S.rules.carrierCost}) and launch`}</button>
+      <span class="small muted" id="sendPred"></span></div>`
+    : `<div class="small muted">No ships here to send yet.</div>`;
+  return `<div class="sec"><h4>Your orders</h4>${buy}${send}${msgHtml()}</div>`;
+}
+function sendPrediction(s) {
+  const el = $("sendPred"); if (!el) return;
+  const to = sendTo != null ? S.stars[sendTo] : null, n = +($("sendN") || {}).value || 0;
+  if (!to || n < 1) { el.textContent = ""; return; }
+  const ticks = Math.ceil(sim.dist(s, to) / S.rules.carrierSpeed);
+  const fake = { owner:humanId(), to:to.id, ships:n, len:sim.dist(s, to), done:0, at:null };
+  const pr = seesStar(visionSet(), to) ? predict(fake) : { text:"can't see what's there", cls:"" };
+  el.innerHTML = `arrives in ${ticks} ticks · <span class="verdict ${pr.cls}">${esc(pr.text)}</span>`;
+}
+$("inspect").addEventListener("click", e => {
+  const id = humanId(); if (id == null || !sel || sel.kind !== "star") return;
+  const s = S.stars[sel.id], b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.sbuy) { const k = b.dataset.sbuy, c = sim.infraCost(S, s, k);
+    order(() => sim.act.buy(S, id, s.id, k), `Bought ${KIND[k]} at ${s.name} for $${c}.`); }
+  if (b.id === "pickMap") { targeting = !targeting; renderInspector(); renderMap();
+    if (targeting) { $("map").style.scrollMarginTop = document.querySelector(".ctrl").offsetHeight + 8 + "px";   // clear the sticky bar
+      $("map").scrollIntoView({ block:"start", behavior:"smooth" }); } }
+  if (b.id === "sendGo") {
+    const to = sendTo, n = +$("sendN").value;
+    if (to == null) { say("Choose a destination first.", false); return; }
+    const name = S.stars[to].name;
+    if (order(() => sim.act.send(S, id, s.id, to, n), `${n} ship${n === 1 ? "" : "s"} launched for ${name}.`)) { sendTo = null; targeting = false; renderInspector(); renderMap(); }
+  }
+});
+$("inspect").addEventListener("change", e => {
+  if (e.target.id === "sendTo") { sendTo = e.target.value === "" ? null : +e.target.value; sendPrediction(S.stars[sel.id]); renderMap(); }
+});
+$("inspect").addEventListener("input", e => { if (e.target.id === "sendN" && sel && sel.kind === "star") sendPrediction(S.stars[sel.id]); });
 
 /* ---------------- render: alliances ---------------- */
 function allyIcon(al) { return !al ? "" : al.warBy != null ? "⚔️" : al.locked ? "🔒" : "🤝"; }
@@ -1092,7 +1333,7 @@ function renderAllyHistory() {
       : al.endReason === "admin" ? "broken by admin" : al.endReason === "eliminated" ? "a member was eliminated"
       : al.warBy != null ? `${pname(S.players[al.warBy])} declared war` : "";
     const days = (((al.ended != null ? al.ended : S.tick) - al.formedTick) / T).toFixed(1);
-    return `<tr><td>${plink(a)} &amp; ${plink(b)}</td><td>${al.by === "admin" ? "admin" : "bots"}</td>
+    return `<tr><td>${plink(a)} &amp; ${plink(b)}</td><td>${al.by === "admin" ? "admin" : al.by === "player" ? "you" : "bots"}</td>
       <td class="num">${al.formedTurn}</td><td class="num">${al.endedTurn != null ? al.endedTurn : ""}</td>
       <td class="num">${days}</td><td>${status}</td><td>${how}</td></tr>`;
   });
@@ -1102,20 +1343,21 @@ function renderAllyHistory() {
 }
 
 /* ---------------- render: empires ---------------- */
+const hide = p => playerView() && !isMe(p);          // a rival's private numbers, in player view
 function renderBoard() {
   const T = sim.TECHS;
   const short = { scanning:"Sc", range:"Rg", terraforming:"Tf", experimentation:"Ex", weapons:"Wp", banking:"Bk", manufacturing:"Mf" };
   const ps = S.players.slice().sort((a, b) => sim.totals(S, b.id).stars - sim.totals(S, a.id).stars);
-  $("board").innerHTML = `<table class="tbl nowrap"><tr><th>Empire</th><th>Bot</th><th class="num">Stars</th><th class="num">Ships</th>
+  $("board").innerHTML = `<table class="tbl nowrap"><tr><th>Empire</th><th>${playerView() ? "" : "Bot"}</th><th class="num">Stars</th><th class="num">Ships</th>
     <th class="num">E / I / S</th><th class="num">$</th>${T.map(t => `<th class="num" title="${sim.TECH_LABEL[t]}">${short[t]}</th>`).join("")}
     <th>Researching</th><th>Allies</th></tr>
     ${ps.map(p => { const t = sim.totals(S, p.id);
       return `<tr style="${p.alive ? "" : "opacity:.45"}"><td>${plink(p)}${p.alive ? "" : ` <span class="tag">out t${p.outTurn}</span>`}</td>
-      <td>${esc(sim.PERSONAS[p.persona].label)}</td><td class="num">${t.stars}</td><td class="num">${t.ships}</td>
-      <td class="num">${t.econ} / ${t.industry} / ${t.science}</td><td class="num">${p.credits}</td>
+      <td>${esc(botLabel(p))}</td><td class="num">${t.stars}</td><td class="num">${t.ships}</td>
+      <td class="num">${t.econ} / ${t.industry} / ${t.science}</td><td class="num">${hide(p) ? '<span class="muted">?</span>' : p.credits}</td>
       ${T.map(k => `<td class="num">${p.tech[k].level}</td>`).join("")}
-      <td>${esc(sim.TECH_LABEL[p.researching])}</td>
-      <td>${sim.alliesOf(S, p.id).map(id => { const al = sim.alliance(S, p.id, id); return allyIcon(al) + esc(S.players[id].name); }).join(", ") || '<span class="muted">—</span>'}</td></tr>`; }).join("")}
+      <td>${hide(p) ? '<span class="muted">?</span>' : esc(sim.TECH_LABEL[p.researching])}</td>
+      <td>${hide(p) ? (sim.allied(S, p.id, humanId()) ? "🤝" + esc(me().name) : '<span class="muted">secret</span>') : sim.alliesOf(S, p.id).map(id => { const al = sim.alliance(S, p.id, id); return allyIcon(al) + esc(S.players[id].name); }).join(", ") || '<span class="muted">—</span>'}</td></tr>`; }).join("")}
   </table>`;
 }
 
@@ -1175,7 +1417,9 @@ function renderLogFilters() {
 }
 $("logFilters").addEventListener("click", e => { const k = e.target.dataset.lt; if (k) { logType = k; renderLogFilters(); renderLog(); } });
 function renderLog() {
-  const list = S.events.filter(e => (logType === "all" || e.type === logType) && (logWho === "all" || e.players.includes(+logWho)));
+  const vis = playerView() ? visionSet() : null;
+  const list = S.events.filter(e => (logType === "all" || e.type === logType) && (logWho === "all" || e.players.includes(+logWho))
+    && (!vis || e.players.some(id => vis.group.has(id)) || (e.star != null && sim.inScan(vis, S.stars[e.star])) || (e.type === "system" && !e.players.length)));
   $("log").innerHTML = list.slice(-500).reverse().map(e => `<div><span class="t">T${e.turn} · ${e.tick}</span>${esc(e.text)}</div>`).join("")
     || `<div class="muted">Nothing yet.</div>`;
 }
@@ -1186,6 +1430,7 @@ function renderAdmin() {
   const a = +($("pA").value || 0), b = +($("pB").value || 1);
   $("pA").innerHTML = playerOptions(a); $("pB").innerHTML = playerOptions(b < S.players.length ? b : 1);
   $("giveP").innerHTML = playerOptions(+($("giveP").value || 0));
+  $("playAs").innerHTML = `<option value="">nobody (all bots)</option>` + S.players.map(p => `<option value="${p.id}" ${p.human ? "selected" : ""} ${p.alive ? "" : "disabled"}>${esc(p.name)}</option>`).join("");
   renderPairState();
   const st = S.settings;
   $("setLockAll").checked = st.lockAll; $("setInstant").checked = st.instantBreak; $("setCoalition").checked = st.coalitionWin;
@@ -1193,7 +1438,7 @@ function renderAdmin() {
   $("botRows").innerHTML = S.players.map(p => `<div class="row small" style="${p.alive ? "" : "opacity:.45"}">
     <span style="min-width:90px">${pname(p)}</span>
     <select data-persona="${p.id}">${Object.entries(sim.PERSONAS).map(([k, v]) => `<option value="${k}" ${k === p.persona ? "selected" : ""}>${v.label}</option>`).join("")}</select>
-    <span class="muted">${esc(sim.PERSONAS[p.persona].blurb)}</span></div>`).join("");
+    <span class="muted">${p.human ? "<b>You play this empire</b>; its bot is on hold." : esc(sim.PERSONAS[p.persona].blurb)}</span></div>`).join("");
 }
 function renderPairState() {
   const a = +$("pA").value, b = +$("pB").value;
@@ -1219,6 +1464,7 @@ $("setCoalition").onchange = e => { S.settings.coalitionWin = e.target.checked; 
 $("setBetrayal").oninput = e => { S.settings.betrayal = +e.target.value; afterChange(); };
 $("lockAllNow").onclick = () => { sim.admin.lockAllNow(S); afterChange(); };
 $("botRows").addEventListener("change", e => { const id = e.target.dataset.persona; if (id != null) { sim.admin.setPersona(S, +id, e.target.value); afterChange(); } });
+$("playAs").onchange = e => playAs(e.target.value === "" ? null : +e.target.value);
 $("giveBtn").onclick = () => { sim.admin.give(S, +$("giveP").value, +$("giveCash").value || 0, +$("giveShips").value || 0); afterChange(); };
 
 /* new game */
@@ -1229,18 +1475,32 @@ function renderNewGame() {
     <label class="chk" style="min-width:110px"><input type="checkbox" data-seat-on="${i}" ${i < lineup.length ? "checked" : ""}>
       <span class="sw" style="background:var(${seat.color})"></span>${seat.name}</label>
     <select data-seat="${i}">${Object.entries(sim.PERSONAS).map(([k, v]) => `<option value="${k}" ${k === (lineup[i] || sim.DEFAULT_LINEUP[i]) ? "selected" : ""}>${v.label}</option>`).join("")}</select></div>`).join("");
+  renderNgHuman();
 }
+function renderNgHuman() {
+  // the engine names empires by lineup position, so the k-th ticked seat plays as SEATS[k]
+  const cur = $("ngHuman").value, n = [...document.querySelectorAll("[data-seat-on]")].filter(x => x.checked).length;
+  const keep = cur !== "" && +cur < n ? cur : humanId() != null && humanId() < n ? String(humanId()) : "";
+  $("ngHuman").innerHTML = `<option value="">nobody, just watch the bots</option>` +
+    Array.from({ length:n }, (_, k) => `<option value="${k}" ${String(k) === keep ? "selected" : ""}>${sim.SEATS[k].name}</option>`).join("");
+}
+$("ngSeats").addEventListener("change", e => { if (e.target.dataset.seatOn != null) renderNgHuman(); });
 $("ngRand").onclick = () => { $("ngSeed").value = Math.floor(Math.random() * 1e6); };
 $("ngGalaxy").innerHTML = Object.entries(sim.GALAXY_TYPES).map(([k, g]) =>
   `<option value="${k}" ${k === sim.DEFAULT_GALAXY ? "selected" : ""}>${g.label}${g.real ? "" : " (sandbox)"}</option>`).join("");
 const galaxyNote = () => { $("ngGalaxyNote").textContent = sim.GALAXY_TYPES[$("ngGalaxy").value].blurb; };
 $("ngGalaxy").onchange = galaxyNote; galaxyNote();
 $("ngGo").onclick = () => {
-  const lineup = [];
-  for (let i = 0; i < sim.SEATS.length; i++) if (document.querySelector(`[data-seat-on="${i}"]`).checked) lineup.push(document.querySelector(`[data-seat="${i}"]`).value);
+  const lineup = [], hs = $("ngHuman").value;
+  let human;
+  for (let i = 0; i < sim.SEATS.length; i++) if (document.querySelector(`[data-seat-on="${i}"]`).checked) {
+    lineup.push(document.querySelector(`[data-seat="${i}"]`).value);
+  }
   if (lineup.length < 2) { alert("Pick at least two empires."); return; }
   stopAuto();
-  startGame(sim.newGame({ seed:+$("ngSeed").value || 1, lineup, starsPerPlayer:+$("ngStars").value || 24, galaxy:$("ngGalaxy").value,
+  if (hs !== "" && +hs < lineup.length) human = +hs;
+  if (human != null) { PB.view = "player"; PB.vision = []; savePB(); }
+  startGame(sim.newGame({ seed:+$("ngSeed").value || 1, lineup, human, starsPerPlayer:+$("ngStars").value || 24, galaxy:$("ngGalaxy").value,
     rules:S.rules, settings:{ lockAll:S.settings.lockAll, betrayal:S.settings.betrayal, instantBreak:S.settings.instantBreak,
       coalitionWin:S.settings.coalitionWin, allyVision:S.settings.allyVision, maxTurns:+$("ngMax").value || 400 } }));
   $("ngSeed").value = Math.floor(Math.random() * 1e6);
@@ -1266,12 +1526,14 @@ $("importFile").onchange = async e => {
 /* ---------------- rules ---------------- */
 function renderRules() {
   let group = "";
+  $("rulesReset").disabled = playerView();
+  $("rulesRO").textContent = playerView() ? "Read-only in Player view. Switch to Admin view to change the rules." : "";
   $("rules").innerHTML = `<table class="tbl rules"><tr><th>Rule</th><th>Value</th><th>Default</th><th>Status</th><th>Notes</th></tr>` +
     sim.RULE_LIST.map(r => {
       const head = r.group !== group ? `<tr><th colspan="5" style="padding-top:14px;color:var(--text)">${esc(group = r.group)}</th></tr>` : "";
       const changed = S.rules[r.key] !== r.value;
       return head + `<tr><td>${esc(r.label)}</td>
-        <td><input type="number" step="any" data-rule="${r.key}" value="${S.rules[r.key]}"></td>
+        <td><input type="number" step="any" data-rule="${r.key}" value="${S.rules[r.key]}" ${playerView() ? "disabled" : ""}></td>
         <td class="num ${changed ? "" : "muted"}">${r.value}${changed ? " ✎" : ""}</td>
         <td><span class="tag ${r.confirmed ? "ok" : "warn"}">${r.confirmed ? "confirmed" : "placeholder"}</span></td>
         <td class="small muted">${esc(r.note || "")}</td></tr>`;
@@ -1283,7 +1545,7 @@ $("rules").addEventListener("change", e => {
   if (!isFinite(v) || (k === "carrierSpeed" && v <= 0) || (["productionTicks", "ticksPerTurn"].includes(k) && v < 1)) { renderRules(); return; }
   S.rules[k] = v; afterChange();
 });
-$("rulesReset").onclick = () => { S.rules = sim.defaultRules(); afterChange(); };
+$("rulesReset").onclick = () => { if (playerView()) return; S.rules = sim.defaultRules(); afterChange(); };
 
 /* ---------------- player detail sheet ---------------- */
 /* Inspired by the real game's empire panel: headline numbers, output per cycle,
@@ -1317,6 +1579,7 @@ function renderPlayer() {
   const p = S.players[selPlayer];
   if (!p) return closePlayer();
   const R = S.rules, t = sim.totals(S, p.id), mine = sim.starsOf(S, p.id), persona = sim.PERSONAS[p.persona];
+  const pub = hide(p);                                  // a rival seen from the player's seat: public numbers only
   const bk = p.tech.banking.level;
   const income = t.econ * (R.econCredits + bk * R.bankingPerEcon) + bk * R.bankingFlat;
   const shipsPerCycle = mine.reduce((x, s) => x + sim.shipsPerCycle(S, s), 0);
@@ -1336,9 +1599,10 @@ function renderPlayer() {
 
   // tech
   const techRows = sim.TECHS.map(k => {
-    const tk = p.tech[k], cost = sim.researchCost(S, p.id, k), on = k === p.researching;
+    const tk = p.tech[k], cost = sim.researchCost(S, p.id, k), on = k === p.researching && !pub;
     const pct = Math.min(100, Math.round(tk.rp / cost * 100));
     const etaT = on && rpTick > 0 ? Math.ceil((cost - tk.rp) / rpTick) : null;
+    if (pub) return `<tr><td>${esc(sim.TECH_LABEL[k])}</td><td class="num">${tk.level}</td></tr>`;   // rivals: levels only, like the real game
     return `<tr class="${on ? "on" : "muted"}"><td>${on ? "▶ " : ""}${esc(sim.TECH_LABEL[k])}</td><td class="num">${tk.level}</td>
       <td class="barcell"><div class="bar"><i style="width:${pct}%"></i></div></td>
       <td class="num small" style="white-space:nowrap">${Math.floor(tk.rp)}/${cost}${etaT != null ? ` · ${etaT}t` : ""}</td></tr>`;
@@ -1383,7 +1647,7 @@ function renderPlayer() {
   sheet.innerHTML = `
     <div class="shead">
       <span class="sw" style="background:${col(p)};width:16px;height:16px"></span>
-      <h2 id="sheetTitle">${esc(p.name)}<span class="sub2">${esc(persona.label)} bot · ${esc(persona.blurb)}</span></h2>
+      <h2 id="sheetTitle">${esc(p.name)}<span class="sub2">${isMe(p) ? "You" : pub ? "Rival empire · you only see what the real game shows" : `${esc(persona.label)} bot · ${esc(persona.blurb)}`}</span></h2>
       <button class="btn small" data-pnav="-1" aria-label="Previous empire">◀</button>
       <button class="btn small" data-pnav="1" aria-label="Next empire">▶</button>
       <button class="btn small" id="sheetClose" aria-label="Close">✕</button>
@@ -1395,7 +1659,8 @@ function renderPlayer() {
         <div class="bar" title="${t.stars} of ${target} needed to win"><i style="width:${Math.min(100, t.stars / target * 100)}%"></i></div>
         <em>${t.stars} of ${target} to win</em></div>
       <div class="stat"><span>Ships</span><b>${t.ships}</b>${delta("ships")}<em>${garrison} home · ${t.ships - garrison} on carriers</em></div>
-      <div class="stat"><span>Credits</span><b>$${p.credits}</b><em class="up">+$${income} / cycle</em></div>
+      ${pub ? `<div class="stat"><span>Economy</span><b>${t.econ}</b><em>cash is private</em></div>`
+        : `<div class="stat"><span>Credits</span><b>$${p.credits}</b><em class="up">+$${income} / cycle</em></div>`}
       <div class="stat"><span>Carriers</span><b>${t.carriers}</b><em>${moving.length} moving · ${parked.length} parked</em></div>
     </div>
 
@@ -1414,16 +1679,16 @@ function renderPlayer() {
     </div>
 
     <div class="box"><h2>Technology</h2>
-      <div class="scroll"><table class="tbl tech"><tr><th>Tech</th><th class="num">Lvl</th><th>Progress</th><th class="num">RP</th></tr>${techRows}</table></div>
-      <div class="small muted" style="margin-top:6px">▶ researching now${rpTick > 0 ? "; the figure after · is ticks until the next level" : ""}.</div>
+      <div class="scroll"><table class="tbl tech"><tr><th>Tech</th><th class="num">Lvl</th>${pub ? "" : `<th>Progress</th><th class="num">RP</th>`}</tr>${techRows}</table></div>
+      ${pub ? "" : `<div class="small muted" style="margin-top:6px">▶ researching now${rpTick > 0 ? "; the figure after · is ticks until the next level" : ""}.</div>`}
     </div>
 
-    <div class="box"><h2>Diplomacy</h2>
+    ${pub ? "" : `<div class="box"><h2>Diplomacy</h2>
       <div class="scroll"><table class="tbl"><tr><th>Empire</th><th>Status</th><th class="num" title="What ${esc(p.name)} thinks of them">Our view</th><th class="num" title="What they think of ${esc(p.name)}">Their view</th></tr>${dipRows}</table></div>
       <div class="small muted" style="margin-top:6px">Our view = what ${esc(p.name)} thinks of them, their view = what they think back (−100 … +100). Alliances made ${mineAl.length} · betrayed an ally ${betrayed}× · was betrayed ${wasBetrayed}×.</div>
-    </div>
+    </div>`}
 
-    ${threatRows ? `<div class="box"><h2>⚠️ Incoming attacks</h2>
+    ${pub ? "" : `${threatRows ? `<div class="box"><h2>⚠️ Incoming attacks</h2>
       <div class="scroll"><table class="tbl nowrap"><tr><th>Target</th><th>From</th><th class="num">Ships</th><th class="num">ETA</th></tr>${threatRows}</table></div></div>` : ""}
 
     <div class="box"><h2>Carriers in flight</h2>
@@ -1436,7 +1701,7 @@ function renderPlayer() {
         : `<div class="small muted">No stars left.</div>`}</div>
 
     <div class="box"><h2>Recent news</h2>
-      <div class="log" style="max-height:none">${events.map(e => `<div><span class="t">T${e.turn} · ${e.tick}</span>${esc(e.text)}</div>`).join("") || `<div class="muted">Nothing yet.</div>`}</div></div>`;
+      <div class="log" style="max-height:none">${events.map(e => `<div><span class="t">T${e.turn} · ${e.tick}</span>${esc(e.text)}</div>`).join("") || `<div class="muted">Nothing yet.</div>`}</div></div>`}`;
   sheet.classList.remove("hidden"); $("scrim").classList.remove("hidden");
   document.body.style.overflow = "hidden";
 }
@@ -1457,8 +1722,8 @@ document.addEventListener("click", e => {
 
 /* ---------------- wiring ---------------- */
 function renderAll() {
-  renderTabs(); renderClock();
-  if (tab === "galaxy") { renderVision(); renderMap(); renderLegend(); renderInspector(); renderFeed(); }
+  renderTabs(); renderClock(); renderViewSw();
+  if (tab === "galaxy") { renderVision(); renderYou(); renderMap(); renderLegend(); renderInspector(); renderFeed(); }
   if (tab === "alliances") { renderWeb(); renderAllySummary(); renderMatrix(); renderAllyHistory(); }
   if (tab === "empires") { renderBoard(); renderChart(); }
   if (tab === "log") { renderLogFilters(); renderLog(); }
@@ -1490,9 +1755,11 @@ $("tptBtns").addEventListener("click", e => { const n = +e.target.dataset.tpt; i
 $("optScan").addEventListener("change", renderMap);
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && selPlayer != null) { closePlayer(); return; }
+  if (e.key === "Escape" && targeting) { targeting = false; renderMap(); renderInspector(); return; }
   if (e.target.matches("input,select,textarea")) return;
   if (e.key === "n" || e.key === "ArrowRight") { if (playing) { playing.hold ? continueTurn() : skipTurn(); } else step(1); }
   if (e.key === "b" || e.key === "ArrowLeft") back();
+  if ((e.key === "v" || e.key === "V") && humanId() != null) setView(playerView() ? "admin" : "player");
   if (e.key === " ") { e.preventDefault(); if (playing && playing.hold) continueTurn(); else toggleAuto(); }
 });
 
