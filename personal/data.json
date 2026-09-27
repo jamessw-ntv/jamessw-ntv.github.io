@@ -2,42 +2,42 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-26",
-    "fetched": "2026-09-26T22:36:13+00:00",
+    "updated": "2026-09-27",
+    "fetched": "2026-09-27T01:16:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 12
+      "temp": 13,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 19
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
-        "max": 15,
+        "max": 16,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
         "day": "Mon",
-        "min": 3,
-        "max": 18,
+        "min": 4,
+        "max": 17,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 0
       },
       {
         "day": "Tue",
         "min": 9,
-        "max": 21,
+        "max": 22,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 0
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119845.0,
-        "pct": 0.34
+        "price": 119953.0,
+        "pct": 0.52
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3822.11,
-        "pct": -0.14
+        "price": 3831.61,
+        "pct": 0.2
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘SNL U.K.’ Mocks Donald Trump and Andy Burnham’s First Meeting, Harvey Weinstein, Sam Altman and More in Wild Weekend Update",
-      "when": "26 Sep",
+      "title": "‘Godzilla Minus Zero’ Director Champions Franchise’s First R Rating as Sequel Rocks NYFF at World Premiere: ‘Censoring’ the Action ‘Was Not an Option’",
+      "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/snl-uk-weekend-update-trump-harvey-weinstein-1236876637/"
+      "url": "https://variety.com/2026/film/news/godzilla-minus-zero-r-rated-takashi-yamazaki-nyff-1236876643/"
     },
     {
       "cat": "Film/TV",
-      "title": "Emmy Rossum Says Nude ‘Shameless’ Scenes Affected Her Dating Life Because Men Had ‘Preconceived Notions’ of ‘How I Was Sexually’",
-      "when": "26 Sep",
+      "title": "‘Godzilla Minus Zero’ Review: Godzilla and King Ghidorah Battle to the Death in the Even Grander Follow-Up to ‘Godzilla Minus One’",
+      "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/emmy-rossum-nude-shameless-scenes-1236876622/"
+      "url": "https://variety.com/2026/film/reviews/godzilla-minus-zero-review-takashi-yamazaki-nyff-1236876075/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘My Sad Dead’ Review: An Urban Community Gets the Haunting It Deserves in Pablo Larraín’s Superb Modern Gothic",
-      "when": "26 Sep",
+      "title": "Robert Pattinson Says It Would Be ‘Tough’ for His Batman to Exist Within James Gunn’s DCU",
+      "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/my-sad-dead-review-1236873618/"
+      "url": "https://variety.com/2026/film/news/robert-pattinson-batman-superman-james-gunn-1236876674/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘NAZA’ Co-Director Yuval Abraham Calls Out the U.S. Government for ‘Funding’ Israel’s Destruction of Gaza, Telling NYFF Audience: ‘This Is What Your Country Is Supporting’",
+      "title": "‘Jack & Christine’ Trailer: John Hawkes Turns A Dinner Party Into A Night of Chaos – Film News in Brief",
       "when": "26 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/naza-yuval-abraham-us-government-funding-israel-gaza-1236876606/"
+      "url": "https://variety.com/2026/film/news/film-news-in-brief-sept-21-2026-1236867385/"
     },
     {
       "cat": "Trek/Wars",
