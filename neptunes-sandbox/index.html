@@ -221,32 +221,6 @@
   .gmenu .keys{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:12px;color:var(--muted)}
   .gmenu kbd{justify-self:start;font:inherit;font-size:11px;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
   @media (max-width:1440px){.ctrl:has(#viewSw:not(:empty)) .clock .cx{display:none}}   /* keep the bar to one row */
-  /* Galaxy tab: overall data on the left, the map in the centre, the selection on the right.
-     Mid-width screens stack both side columns to the right; phones put the selection straight under the map. */
-  .gal{grid-template-areas:"m r" "m l";grid-template-rows:auto 1fr}
-  .gal > .mapcol{grid-area:m} .gal > .sideR{grid-area:r} .gal > .sideL{grid-area:l}
-  @media (min-width:1200px){
-    body[data-tab=galaxy] .wrap{max-width:1720px}
-    .gal{grid-template-columns:290px minmax(0,1fr) 330px;grid-template-areas:"l m r";grid-template-rows:auto}
-    .gal > .side{position:sticky;top:calc(var(--ctrlH, 64px) + 12px);align-self:start;max-height:calc(100vh - var(--ctrlH, 64px) - 24px);overflow:auto;scrollbar-width:thin}
-    .gal .feed{max-height:none}
-  }
-  @media (max-width:860px){.gal{grid-template-areas:"m" "r" "l";grid-template-rows:auto}.gal > .side{margin-top:14px}}
-  /* the side column is a stack; whatever you just selected rises to the top of it */
-  .side{display:flex;flex-direction:column;gap:14px}
-  .side > .box{margin-top:0 !important}
-  .side.picked > .insp{order:-1}
-  /* desktop: the map stays in view while the side column scrolls */
-  @media (min-width:861px){
-    .cols > .mapcol{position:sticky;top:calc(var(--ctrlH, 64px) + 12px);align-self:start}
-    .mapcol .map{max-height:calc(100vh - var(--ctrlH, 64px) - 130px)}
-  }
-  /* phones: the turn bar is one scrollable row, and the inspector sits right under the map */
-  @media (max-width:860px){
-    .side{display:flex;flex-direction:column;gap:14px;margin-top:14px}
-    .side > .box{margin-top:0}
-    .side > .insp{order:-1}
-  }
   @media (max-width:600px){
     .ctrl{flex-wrap:nowrap;overflow-x:auto;gap:6px;padding:6px 8px;scrollbar-width:none}
     .ctrl::-webkit-scrollbar{display:none}
@@ -302,24 +276,80 @@
     label.chk input{width:22px;height:22px}
     .kbd{display:none}
   }
+
+  /* ================= galaxy-only layout (like the real client) =================
+     The map is the whole page under a 48px top bar. Everything else is a "screen":
+     a 480px panel that slides in from the left over the map, with a title bar and ✕
+     (sizes from the real client's npui.Screen). Phones: screens are full width. */
+  body.np{overflow:hidden;height:100vh;height:100dvh}
+  body.np .wrap{max-width:none;padding:0}
+  body.np .ctrl{position:fixed;top:0;left:0;right:0;height:48px;margin:0;padding:0 10px;border:0;border-bottom:1px solid var(--line);
+    border-radius:0;box-shadow:none;background:#0b0f1a;flex-wrap:nowrap;overflow-x:auto;gap:6px;z-index:40;scrollbar-width:none}
+  body.np .ctrl::-webkit-scrollbar{display:none}
+  body.np .ctrl .clock{white-space:nowrap;margin-right:auto}
+  body.np .ctrl .btn,body.np .ctrl select{white-space:nowrap;flex-shrink:0}
+  body.np .ctrl .btn{padding:6px 11px}
+  .navbtn{font-size:17px;line-height:1;padding:5px 12px !important;position:sticky;left:0;z-index:1;box-shadow:-10px 0 0 6px #0b0f1a}   /* ☰ stays put when the bar scrolls on phones */
+  body.np .hud{padding-left:calc(var(--scrW, 0px) + 12px);transition:padding-left .22s ease}
+  body.np .tickbar,body.np .pickbar{left:calc(var(--scrW, 0px) + 10px)} body.np .scalebar{left:calc(var(--scrW, 0px) + 12px)}   /* the map's status line clears an open screen */
+  .navbtn[aria-expanded=true]{border-color:var(--accent);color:var(--accent)}
+  .navmenu{position:fixed;top:48px;left:0;width:260px;max-width:100vw;z-index:60;background:var(--panel);
+    border:1px solid var(--line);border-top:0;border-radius:0 0 12px 0;box-shadow:0 18px 40px rgba(0,0,0,.6);padding:0 0 6px}
+  .navmenu[hidden]{display:none}
+  .navmenu .hubbar{padding:10px 12px;gap:8px;flex-wrap:wrap}
+  .navlist{display:flex;flex-direction:column}
+  .navlist button{display:flex;align-items:center;gap:10px;height:40px;padding:0 16px;background:none;border:0;border-left:3px solid transparent;
+    color:var(--text);font:inherit;font-size:14px;text-align:left;cursor:pointer}
+  .navlist button:hover,.navlist button:focus-visible{background:var(--panel2)}
+  .navlist button.active{border-left-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+  .navlist button .kbd{margin-left:auto}
+  .navlist hr{border:0;border-top:1px solid var(--line);margin:4px 0}
+  .panel[data-tab=galaxy]{display:block}
+  .panel[data-tab=galaxy] .mapwrap{position:fixed;top:48px;left:0;right:0;bottom:0;margin:0;border-radius:0}
+  .panel[data-tab=galaxy] .map{width:100%;height:100%;max-height:none;aspect-ratio:auto;border:0;border-radius:0}
+  .panel[data-tab=galaxy] .mapwrap.full{top:0;z-index:50}
+  body.np .sky{border-radius:0}
+  .scr,.panel.scr{position:fixed;top:48px;left:0;bottom:0;width:min(480px,100vw);z-index:55;display:block;box-sizing:border-box;
+    background:var(--bg);border-right:1px solid var(--line);box-shadow:10px 0 30px rgba(0,0,0,.55);
+    overflow-y:auto;overscroll-behavior:contain;padding:0 14px 40px;
+    visibility:hidden;transform:translateX(-102%);transition:transform .22s ease,visibility 0s linear .22s}
+  .scr.wide{width:min(780px,100vw)}
+  .scr.on{visibility:visible;transform:none;transition:transform .22s ease}
+  .scr .box{margin-top:12px}
+  .scr .box + .box{margin-top:12px}
+  .scrh{position:sticky;top:0;z-index:3;display:flex;align-items:center;gap:8px;height:48px;margin:0 -14px;padding:0 6px 0 16px;
+    background:var(--panel);border-bottom:4px solid #000}
+  .scrh h2{margin:0 auto 0 0;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .scrx{width:40px;height:40px;border:0;border-radius:8px;background:none;color:var(--muted);font-size:18px;cursor:pointer}
+  .scrx:hover{color:var(--text);background:var(--panel2)}
+  .scr .insp{padding-top:12px}
+  .scr .feed{max-height:none}
+  body.np #winner{position:fixed;top:58px;left:50%;transform:translateX(-50%);z-index:45;width:max-content;max-width:calc(100vw - 32px)}
+  body.np #winner .winner{margin:0;box-shadow:var(--shadow)}
+  /* phones: the selection is a bottom sheet so the galaxy stays visible and tappable above it;
+     it steps aside entirely while you pick stops on the map */
+  @media (max-width:700px){
+    .scr[data-scr=inspect]{top:auto;height:56vh;height:56dvh;width:100vw;border-right:0;border-top:1px solid var(--line);
+      border-radius:14px 14px 0 0;box-shadow:0 -12px 30px rgba(0,0,0,.6);transform:translateY(102%)}
+    .scr[data-scr=inspect] .scrh{border-radius:14px 14px 0 0}
+    .scr[data-scr=inspect].on{transform:none}
+    .scr.peek,.scr[data-scr=inspect].peek{visibility:hidden;transform:translateY(102%)}
+  }
+  @media (prefers-reduced-motion:reduce){.scr,.scr.on{transition:none}}
+  /* dialogs (player sheet, ⚙ Game menu) sit above the top bar and any open screen */
+  body.np .scrim{z-index:70}
+  body.np .sheet{z-index:71}
+  body.np .gmenu{z-index:71;top:56px;max-height:calc(100% - 68px)}
+  .scr:focus{outline:none}
+  .scr .box{min-width:0;overflow-x:auto}
+  /* phones: the turn and tick stay pinned beside ☰ while the rest of the bar scrolls */
+  @media (max-width:700px){body.np .ctrl .clock{position:sticky;left:50px;z-index:1;background:#0b0f1a;padding-right:6px;box-shadow:6px 0 0 #0b0f1a}}
 </style>
 </head>
-<body>
-<div class="hubbar">
-  <a class="backlink" href="../">← Hub</a>
-  <span class="crumb"><b>Neptune's Pride — Bot Sandbox</b></span>
-</div>
-
-<header class="page">
-  <div class="wrap" style="padding-bottom:0">
-    <h1>Neptune's Pride — Bot Sandbox</h1>
-    <div class="sub">A copy of <b>Neptune's Pride II: Triton</b> where bots play each other. Step through it turn by turn,
-      watch the alliances form and break, or lock them so they never can.</div>
-  </div>
-</header>
-
+<body class="np">
 <div class="wrap">
   <div class="ctrl">
+    <button class="btn navbtn" id="bNav" title="Screens: overview, empires, alliances, log, admin, rules (M)" aria-haspopup="true" aria-expanded="false" aria-controls="navmenu">☰</button>
     <div class="clock" id="clock"></div>
     <span id="viewSw"></span>
     <button class="btn" id="bMenu" title="Game menu: restart, new game, settings (G)" aria-haspopup="dialog">⚙ Game</button>
@@ -332,15 +362,18 @@
       <option value="1400">Slow</option><option value="700">Normal</option><option value="300">Fast</option><option value="0">Instant</option>
     </select>
   </div>
+  <!-- the ☰ menu: every screen opens over the map, like the real client's side menu -->
+  <nav class="navmenu" id="navmenu" hidden>
+    <div class="hubbar">
+      <a class="backlink" href="../">← Hub</a>
+      <span class="crumb"><b>Neptune's Pride — Bot Sandbox</b></span>
+    </div>
+    <div class="navlist" id="tabs"></div>
+  </nav>
   <div id="winner"></div>
 
-  <nav class="tabs" id="tabs"></nav>
-
-  <!-- GALAXY -->
-  <section class="panel" data-tab="galaxy">
-    <div class="cols gal">
-      <div class="mapcol">
-        <div class="vision" id="vision" title="Show the galaxy as these empires see it"></div>
+  <!-- GALAXY: the map is the whole page; everything else is a screen that slides over it -->
+  <section class="panel on" data-tab="galaxy">
         <div class="mapwrap">
           <canvas class="sky" id="sky" aria-hidden="true"></canvas>
           <svg class="map" id="map"></svg>
@@ -362,7 +395,23 @@
           </div>
           <div class="pickbar hidden" id="pickbar"></div>
         </div>
-        <div class="row small muted" style="margin-top:8px">
+  </section>
+
+  <!-- the selected star / carrier / empire -->
+  <aside class="scr" tabindex="-1" data-scr="inspect" aria-labelledby="inspTitle">
+    <div class="scrh"><h2 id="inspTitle">Inspector</h2><button class="scrx" data-close="inspect" title="Close (Esc)" aria-label="Close">✕</button></div>
+    <div class="insp" id="inspect"></div>
+  </aside>
+
+  <!-- the whole game at a glance, plus map options -->
+  <aside class="scr" tabindex="-1" data-scr="overview" aria-label="Galaxy overview">
+    <div class="scrh"><h2>Overview</h2><button class="scrx" data-close="screen" title="Close (Esc)" aria-label="Close">✕</button></div>
+    <div class="box youbox hidden" id="youBox"><h2 id="youTitle">Your empire</h2><div id="you"></div></div>
+    <div class="box"><h2>This turn</h2><div class="feed" id="feed"></div></div>
+    <div class="box"><h2>Empires</h2><div class="legend" id="legend"></div></div>
+    <div class="box"><h2>Map</h2>
+      <div class="vision" id="vision" title="Show the galaxy as these empires see it"></div>
+        <div class="row small muted" >
           <label class="small">Labels <select id="optLabels">
             <option value="auto" selected>by zoom</option><option value="all">always</option><option value="off">off</option></select></label>
           <label class="chk"><input type="checkbox" id="optAlly"> Alliance links</label>
@@ -380,22 +429,11 @@
           <span>Scroll/pinch to zoom · drag to pan · click anything</span>
           <span class="keyhint">Keys: N next turn · B back · Space auto / continue · V player/admin view · T pick a target · Enter launch</span>
         </div></details>
-      </div>
-      <!-- right: whatever is selected -->
-      <div class="side sideR">
-        <div class="box insp"><h2 id="inspTitle">Inspector</h2><div id="inspect"></div></div>
-      </div>
-      <!-- left: the whole game at a glance -->
-      <div class="side sideL">
-        <div class="box youbox hidden" id="youBox"><h2 id="youTitle">Your empire</h2><div id="you"></div></div>
-        <div class="box"><h2>Empires</h2><div class="legend" id="legend"></div></div>
-        <div class="box"><h2>This turn</h2><div class="feed" id="feed"></div></div>
-      </div>
     </div>
-  </section>
+  </aside>
 
   <!-- ALLIANCES -->
-  <section class="panel" data-tab="alliances">
+  <section class="panel scr wide" data-tab="alliances">
     <div class="cols">
       <div class="box"><h2>Alliance web</h2><svg id="web" class="chart"></svg>
         <div class="small muted" id="webKey"></div></div>
@@ -409,7 +447,7 @@
   </section>
 
   <!-- EMPIRES -->
-  <section class="panel" data-tab="empires">
+  <section class="panel scr wide" data-tab="empires">
     <div class="box"><h2>Leaderboard</h2><div class="scroll" id="board"></div></div>
     <div class="box"><h2>Over time</h2>
       <div class="row" style="margin-bottom:8px"><select id="metric">
@@ -421,7 +459,7 @@
   </section>
 
   <!-- LOG -->
-  <section class="panel" data-tab="log">
+  <section class="panel scr wide" data-tab="log">
     <div class="box">
       <div class="row" style="margin-bottom:10px" id="logFilters"></div>
       <div class="log" id="log"></div>
@@ -429,7 +467,7 @@
   </section>
 
   <!-- ADMIN -->
-  <section class="panel" data-tab="admin">
+  <section class="panel scr wide" data-tab="admin">
     <div class="grid2">
       <div class="box"><h2>Diplomacy controls</h2>
         <div class="row"><select id="pA"></select><span class="muted">&amp;</span><select id="pB"></select></div>
@@ -518,7 +556,7 @@
   </section>
 
   <!-- RULES -->
-  <section class="panel" data-tab="rules">
+  <section class="panel scr wide" data-tab="rules">
     <div class="box">
       <h2>Rules</h2>
       <div class="small muted" style="margin-bottom:10px">
@@ -624,11 +662,11 @@ async function playTurn() {
     mark = evMark();
     sim.tick(S);
     const evs = evSince(mark);
-    if (!playing.skip && tab === "galaxy") await animateTick(before, evs);
+    if (!playing.skip) await animateTick(before, evs);
     playing.tick = i + 1;
     feedPush(evs);
     renderClock();
-    if (tab === "galaxy") { renderMap(); renderFeed(); renderLegend(); renderInspector(); renderYou(); }
+    renderMap(); renderFeed(); renderLegend(); renderInspector(); renderYou();
     const why = !playing.skip && pauseReason(evs);
     if (why && i < of - 1) await holdFor(why);
   }
@@ -727,20 +765,71 @@ $("vision").addEventListener("click", e => {
 });
 
 /* ---------------- tabs ---------------- */
-const TABS = [["galaxy","Galaxy"],["alliances","Alliances"],["empires","Empires"],["log","Log"],["admin","Admin"],["rules","Rules"]];
+// "galaxy" = no screen open, just the map. Every other entry is a screen that slides over it.
+const TABS = [["galaxy","Galaxy map"],["overview","Overview"],["empires","Empires"],["alliances","Alliances"],["log","Log"],["admin","Admin"],["rules","Rules"]];
+const TAB_ICON = { galaxy:"✦", overview:"☰", empires:"🏆", alliances:"🤝", log:"📜", admin:"🛠", rules:"📘" };
 let tab = "galaxy";
 try { tab = localStorage.getItem("npSandbox.tab") || "galaxy"; } catch (e) {}
 const visibleTabs = () => playerView() ? TABS.filter(([k]) => k !== "admin" && k !== "alliances") : TABS;
 function renderTabs() {
   if (!visibleTabs().some(([k]) => k === tab)) tab = "galaxy";
-  $("tabs").innerHTML = visibleTabs().map(([k, l]) => `<button class="toggle ${k === tab ? "active" : ""}" data-t="${k}">${l}</button>`).join("");
-  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("on", p.dataset.tab === tab));
-  document.body.dataset.tab = tab;   // lets the Galaxy tab widen the page
+  $("tabs").innerHTML = visibleTabs().map(([k, l]) => `<button class="${k === tab ? "active" : ""}" data-t="${k}">${TAB_ICON[k]} ${l}</button>`).join("")
+    + `<hr><button data-act="game">⚙ Game menu <span class="kbd">G</span></button>`;
+  document.querySelectorAll(".panel.scr").forEach(p => p.classList.toggle("on", p.dataset.tab === tab));
+  syncScreens();
 }
-$("tabs").addEventListener("click", e => {
-  const t = e.target.dataset.t; if (!t) return;
+/* One screen at a time, like the real client: a menu screen, or the selection's screen when no menu screen is open. */
+function syncScreens() {
+  document.querySelector('[data-scr="overview"]').classList.toggle("on", tab === "overview");
+  const ins = document.querySelector('[data-scr="inspect"]');
+  ins.classList.toggle("on", tab === "galaxy" && !!sel);
+  ins.classList.toggle("peek", !!((RE && RE.pick) || targeting));
+  document.body.style.setProperty("--scrW", scrW() + "px");
+  renderPickbar();
+  // move focus into a screen as it opens, and back to ☰ when it closes (only when the open screen changes)
+  const open = document.querySelector(".scr.on");
+  if (open !== lastScr) {
+    if (open) open.focus({ preventScroll:true });
+    else if (lastScr && (lastScr.contains(document.activeElement) || document.activeElement === document.body)) $("bNav").focus({ preventScroll:true });
+    lastScr = open;
+  }
+}
+let lastScr = null;
+/* phones: how much of the map the selection's bottom sheet covers */
+function sheetH() {
+  const o = document.querySelector('.scr.on[data-scr="inspect"]'); if (!o || innerWidth > 700) return 0;
+  return Math.round(o.getBoundingClientRect().height);
+}
+/* how much of the map an open screen covers on the left (0 on phones, where it covers everything until closed) */
+function scrW() {
+  const o = document.querySelector(".scr.on"); if (!o) return 0;
+  const w = o.getBoundingClientRect().width; return w >= innerWidth - 40 ? 0 : Math.round(w);
+}
+function setTab(t) {
   tab = t; try { localStorage.setItem("npSandbox.tab", t); } catch (e) {}
-  renderAll();
+  closeNav(); renderAll();
+}
+/* a new selection on the map takes over from whatever screen was open */
+function showSel() { if (sel && tab !== "galaxy") { tab = "galaxy"; try { localStorage.setItem("npSandbox.tab", tab); } catch (e) {} renderTabs(); } }
+function closeInspector() { sel = null; sendTo = null; targeting = false; RE = null; renderMap(); renderLegend(); renderInspector(true); renderPickbar(); }
+const navOpen = () => !$("navmenu").hidden;
+function closeNav() { $("navmenu").hidden = true; $("bNav").setAttribute("aria-expanded", "false"); }
+function openNav() { $("navmenu").hidden = false; $("bNav").setAttribute("aria-expanded", "true"); const b = $("tabs").querySelector(".active") || $("tabs").querySelector("button"); b && b.focus(); }
+$("bNav").onclick = e => { e.stopPropagation(); navOpen() ? closeNav() : openNav(); };
+$("tabs").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.act === "game") { closeNav(); $("bMenu").click(); return; }
+  if (b.dataset.t) setTab(b.dataset.t === tab && tab !== "galaxy" ? "galaxy" : b.dataset.t);
+});
+document.addEventListener("pointerdown", e => { if (navOpen() && !e.target.closest("#navmenu,#bNav")) closeNav(); });
+document.addEventListener("click", e => {
+  const x = e.target.closest("[data-close]"); if (!x) return;
+  if (x.dataset.close === "inspect") closeInspector(); else setTab("galaxy");
+});
+// every screen gets the real client's title bar with a close button
+document.querySelectorAll(".panel.scr").forEach(p => {
+  const l = (TABS.find(([k]) => k === p.dataset.tab) || [])[1] || p.dataset.tab;
+  p.insertAdjacentHTML("afterbegin", `<div class="scrh"><h2>${l}</h2><button class="scrx" data-close="screen" title="Close (Esc)" aria-label="Close">✕</button></div>`);
 });
 
 /* ---------------- render: controls ---------------- */
@@ -749,7 +838,7 @@ function renderClock() {
   const toProd = R.productionTicks - (S.tick % R.productionTicks);
   $("clock").innerHTML = `<b>Turn ${S.turn}</b><span class="cx"> · tick ${S.tick} · day ${day} · production in ${toProd}</span>`;
   $("clock").title = `${R.ticksPerTurn} ticks per turn, ${R.productionTicks} ticks per day (production)`;
-  if (playing && tab !== "galaxy") $("clock").innerHTML += ` · <b style="color:var(--accent)">playing tick ${playing.tick}/${playing.of}</b>`
+  if (playing && tab !== "galaxy") $("clock").innerHTML += ` · <b style="color:var(--accent)">playing tick ${Math.min(playing.of, playing.tick + (anim ? 1 : 0))}/${playing.of}</b>`
     + (playing.why ? ` · <b style="color:#ffd479">paused: ${esc(playing.why)}</b>` : "");
   $("bBack").disabled = !!playing || S.turn === 0 || !history[S.turn - 1];
   $("bNext").disabled = $("bFive").disabled = !!S.winner || !!playing;
@@ -854,7 +943,7 @@ function animateTick(before, evs) {
     anim = { before, t:0, move:0, post:false, fx };
     renderClock();
     const frame = now => {
-      if (!playing || playing.skip || tab !== "galaxy") { anim = null; return res(); }
+      if (!playing || playing.skip) { anim = null; return res(); }
       const t = Math.min(1, (now - t0) / dur);
       anim.t = t; anim.move = Math.min(1, t / moveEnd);
       if (t >= moveEnd && !anim.post) { anim.post = true; }
@@ -866,7 +955,6 @@ function animateTick(before, evs) {
 }
 
 function renderMap() {
-  if (tab !== "galaxy") return;
   const svg = $("map"), V = camBox(), ppl = 1 / V.u;
   // glyph unit: constant screen size, growing gently as you zoom in
   const u = V.u * clamp(ppl / 16, .85, 1.4);
@@ -1152,7 +1240,7 @@ function drawSky(now) {
 (function skyLoop() {                          // twinkle ticker
   const tick = now => {
     skyRaf = requestAnimationFrame(tick);
-    if (document.hidden || tab !== "galaxy" || PB.style === "clean" || calmMotion.matches || !S) return;
+    if (document.hidden || PB.style === "clean" || calmMotion.matches || !S) return;
     if (now - skyLast < 50) return;
     skyLast = now; drawSky(now);
   };
@@ -1276,7 +1364,7 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     if (!sel || sel.kind !== "star") { sendTo = null; targeting = false; }
     else if (sendTo != null && !reachable(S.stars[sel.id]).some(t => t.id === sendTo)) sendTo = null;
     youMsg = { text:"", ok:true };
-    renderMap(); renderLegend(); renderInspector();
+    showSel(); renderMap(); renderLegend(); renderInspector();
   };
   svg.addEventListener("pointerup", end);
   svg.addEventListener("pointercancel", end);
@@ -1303,13 +1391,13 @@ $("legend").addEventListener("click", e => {
   const row = e.target.closest("[data-p]"); if (!row) return;
   const id = +row.dataset.p;
   sel = selectedEmpire() === id ? null : { kind:"empire", id };
-  renderMap(); renderLegend(); renderInspector();
+  showSel(); renderMap(); renderLegend(); renderInspector();
 });
 
 /* ---- inspector ---- */
 function goto(kind, id, centre) {
-  sel = { kind, id };
-  if (centre && kind === "star") { cam.x = S.stars[id].x; cam.y = S.stars[id].y; if (cam.w > 24) cam.w = 24; }
+  sel = { kind, id }; showSel(); syncScreens();
+  if (centre && kind === "star") { if (cam.w > 24) cam.w = 24; cam.x = S.stars[id].x - scrW() / 2 * camBox().u; cam.y = S.stars[id].y + sheetH() / 2 * camBox().u; }   // centre it in the part of the map you can see
   renderMap(); renderLegend(); renderInspector();
 }
 $("inspect").addEventListener("click", e => {
@@ -1368,7 +1456,7 @@ function predict(c) {
 
 function renderInspector(force) {
   const box = $("inspect");
-  document.querySelector(".side").classList.toggle("picked", !!sel && sel.kind !== "empire");
+  syncScreens();
   if (RE && (!sel || sel.kind !== "carrier" || sel.id !== RE.id || !S.carriers.some(c => c.id === RE.id))) { RE = null; renderPickbar(); }
   if (!force && RE && box.contains(document.activeElement) && document.activeElement.matches("input[type=number]")) return;  // mid-typing
   if (!sel) {
@@ -1560,11 +1648,12 @@ function routeEditor(c) {
 function renderPickbar() {
   const bar = $("pickbar");
   const c = RE && RE.pick && S.carriers.find(x => x.id === RE.id);
-  if (!c) { bar.classList.add("hidden"); return; }
-  if (bar.classList.contains("hidden")) {                 // phones: the map sits above the inspector, under the sticky turn bar
-    const top = $("map").getBoundingClientRect().top, bar0 = document.querySelector(".ctrl").getBoundingClientRect().height;
-    if (top < bar0 || top > innerHeight * .5) window.scrollBy({ top:top - bar0 - 8, behavior:"smooth" });
+  if (!c && typeof targeting !== "undefined" && targeting && sel && sel.kind === "star") {     // choosing where to send ships
+    bar.innerHTML = `<span class="msg">Tap a star within <b>${sim.range(S, S.stars[sel.id].owner)} ly</b> of ${esc(S.stars[sel.id].name)} to send ships</span>
+      <button class="btn small" data-act="tgtcancel" title="Stop picking (Esc)">Cancel</button>`;
+    bar.classList.remove("hidden"); return;
   }
+  if (!c) { bar.classList.add("hidden"); return; }
   const last = RE.stops.length ? S.stars[RE.stops[RE.stops.length - 1].star] : (c.at != null ? S.stars[c.at] : S.stars[c.to]);
   bar.innerHTML = `<span class="msg">${sw(S.players[c.owner])}${RE.msg ? `<b style="color:#ffcf8a">${esc(RE.msg)}</b>`
       : RE.stops.length ? `<b>${RE.stops.length} stop${RE.stops.length > 1 ? "s" : ""}</b> · ${RE.stops.length > 1 ? "tap the start to loop" : `next within ${sim.range(S, c.owner)} ly`}`
@@ -1653,6 +1742,7 @@ $("inspect").addEventListener("click", e => {
   renderInspector(true); renderMap(); renderPickbar();
 });
 $("pickbar").addEventListener("click", e => {
+  if (e.target.dataset.act === "tgtcancel") { targeting = false; renderMap(); renderInspector(); return; }
   if (e.target.dataset.act === "pickundo" && RE) { RE.stops.pop(); RE.loop = false; RE.msg = ""; renderInspector(true); renderMap(); renderPickbar(); return; }
   if (e.target.dataset.act === "pickdone" && RE) {
   RE.pick = false;
@@ -2616,7 +2706,7 @@ document.addEventListener("click", e => {
 /* ---------------- wiring ---------------- */
 function renderAll() {
   renderTabs(); renderClock(); renderViewSw();
-  if (tab === "galaxy") { renderVision(); renderYou(); renderMap(); renderLegend(); renderInspector(); renderFeed(); }
+  renderVision(); renderYou(); renderMap(); renderLegend(); renderInspector(); renderFeed();   // the map is always on screen
   if (tab === "alliances") { renderWeb(); renderAllySummary(); renderMatrix(); renderAllyHistory(); }
   if (tab === "empires") { renderBoard(); renderChart(); }
   if (tab === "log") { renderLogFilters(); renderLog(); }
@@ -2667,6 +2757,12 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape" && menuOpen) { closeMenu(); return; }
   if (e.key === "Escape" && selPlayer != null) { closePlayer(); return; }
   if (e.key === "Escape" && targeting) { targeting = false; renderMap(); renderInspector(); return; }
+  if (e.key === "Escape" && navOpen()) { closeNav(); $("bNav").focus(); return; }
+  if (e.key === "Escape" && !RE && !document.querySelector(".mapwrap.full")) {
+    if (tab !== "galaxy") { setTab("galaxy"); return; }
+    if (sel) { closeInspector(); return; }
+  }
+  if ((e.key === "m" || e.key === "M") && !e.ctrlKey && !e.metaKey && !e.target.matches("input,select,textarea") && !menuOpen) { navOpen() ? closeNav() : openNav(); return; }
   if (e.target.matches("input,select,textarea")) return;
   if ((e.key === "g" || e.key === "G") && !e.ctrlKey && !e.metaKey) { menuOpen ? closeMenu() : openMenu(); return; }
   if (menuOpen) return;                       // other keys wait until the menu is closed
