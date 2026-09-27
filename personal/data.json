@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-27",
-    "fetched": "2026-09-27T07:55:38+00:00",
+    "fetched": "2026-09-27T13:46:25+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 16
+      "temp": 7,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 10
     },
     "days": [
       {
@@ -25,19 +25,19 @@
       },
       {
         "day": "Mon",
-        "min": 4,
-        "max": 18,
+        "min": 3,
+        "max": 17,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
       },
       {
         "day": "Tue",
-        "min": 9,
-        "max": 22,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 4
+        "min": 8,
+        "max": 21,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 0
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 120184.0,
-        "pct": 0.57
+        "price": 120212.0,
+        "pct": 0.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3852.39,
-        "pct": 0.76
+        "price": 3832.03,
+        "pct": 0.45
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Tucker Carlson Returns to ‘SNL’ to Review ‘The Odyssey,’ Gender-Neutral ‘Spider-Man’ and Left-Wing ‘Obsession’",
+      "title": "Naomi Watts Talks Menopause – ‘I Was Crying in the Bathroom, Trying to Scratch Off My Estrogen Patch’ – Recalls Being Told She ‘Freaked People Out’ Early in Her Career: ‘Yeah, No Shit. I Was Desperate, Behind on My Rent and Getting Evicted’",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/snl-tucker-carlson-weekend-update-summer-movies-1236876744/"
+      "url": "https://variety.com/2026/film/awards/naomi-watts-mullholland-drive-early-career-menopause-1236876797/"
     },
     {
       "cat": "Film/TV",
-      "title": "Here’s Where to Livestream Takuma Inoue vs. Tenshin Nasukawa 2 Boxing Online",
+      "title": "Martin McDonagh Jokes About His Past – as a Hitman – and Calls ‘Wild Horse Nine’ His Most Political Film: ‘There’s Too Much Artistic Neutrality and Too Much Saying Nothing’",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-takuma-inoue-vs-tenshin-nasukawa-2-boxing-live-sept-2026-online-1236873487/"
+      "url": "https://variety.com/2026/film/awards/martin-mcdonagh-wild-horse-nine-political-john-malkovich-1236876794/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘SNL’ Opens Season With Mamdani Hanging Out With BFF Trump, Natalie Harp Going ‘Obsession’ Over President",
+      "title": "Beyond Frontman Doc ‘Because of You Ka Kui’ to Open U.K.’s Odyssey Film Festival, Lands Local Distribution (EXCLUSIVE)",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/snl-mamdani-trump-natalie-harp-obsession-1236876725/"
+      "url": "https://variety.com/2026/film/news/beyond-frontman-doc-because-of-you-ka-kui-odyssey-fest-1236876790/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jalen Brunson’s ‘SNL’ Monologue Sees Knicks Starting 5 Roasting Each Other",
+      "title": "Jia Zhangke Readies Zhao Tao Road Movie ‘Mamma Dunhuang,’ Rules Out AI in Production (EXCLUSIVE)",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jalen-brunson-snl-monologue-knicks-starting-5-1236876727/"
+      "url": "https://variety.com/2026/film/festivals/jia-zhangke-mamma-dunhuang-ai-production-1236876776/"
     },
     {
       "cat": "Trek/Wars",
