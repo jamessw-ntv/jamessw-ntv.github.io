@@ -218,6 +218,17 @@
   .gmenu .keys{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:12px;color:var(--muted)}
   .gmenu kbd{justify-self:start;font:inherit;font-size:11px;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
   @media (max-width:1440px){.ctrl:has(#viewSw:not(:empty)) .clock .cx{display:none}}   /* keep the bar to one row */
+  /* Galaxy tab: overall data on the left, the map in the centre, the selection on the right.
+     Mid-width screens stack both side columns to the right; phones put the selection straight under the map. */
+  .gal{grid-template-areas:"m r" "m l";grid-template-rows:auto 1fr}
+  .gal > .mapcol{grid-area:m} .gal > .sideR{grid-area:r} .gal > .sideL{grid-area:l}
+  @media (min-width:1200px){
+    body[data-tab=galaxy] .wrap{max-width:1720px}
+    .gal{grid-template-columns:290px minmax(0,1fr) 330px;grid-template-areas:"l m r";grid-template-rows:auto}
+    .gal > .side{position:sticky;top:calc(var(--ctrlH, 64px) + 12px);align-self:start;max-height:calc(100vh - var(--ctrlH, 64px) - 24px);overflow:auto;scrollbar-width:thin}
+    .gal .feed{max-height:none}
+  }
+  @media (max-width:860px){.gal{grid-template-areas:"m" "r" "l";grid-template-rows:auto}.gal > .side{margin-top:14px}}
   /* the side column is a stack; whatever you just selected rises to the top of it */
   .side{display:flex;flex-direction:column;gap:14px}
   .side > .box{margin-top:0 !important}
@@ -324,7 +335,7 @@
 
   <!-- GALAXY -->
   <section class="panel" data-tab="galaxy">
-    <div class="cols">
+    <div class="cols gal">
       <div class="mapcol">
         <div class="vision" id="vision" title="Show the galaxy as these empires see it"></div>
         <div class="mapwrap">
@@ -367,10 +378,14 @@
           <span class="keyhint">Keys: N next turn · B back · Space auto / continue · V player/admin view · T pick a target · Enter launch</span>
         </div></details>
       </div>
-      <div class="side">
+      <!-- right: whatever is selected -->
+      <div class="side sideR">
+        <div class="box insp"><h2 id="inspTitle">Inspector</h2><div id="inspect"></div></div>
+      </div>
+      <!-- left: the whole game at a glance -->
+      <div class="side sideL">
         <div class="box youbox hidden" id="youBox"><h2 id="youTitle">Your empire</h2><div id="you"></div></div>
         <div class="box"><h2>Empires</h2><div class="legend" id="legend"></div></div>
-        <div class="box insp"><h2 id="inspTitle">Inspector</h2><div id="inspect"></div></div>
         <div class="box"><h2>This turn</h2><div class="feed" id="feed"></div></div>
       </div>
     </div>
@@ -713,6 +728,7 @@ function renderTabs() {
   if (!visibleTabs().some(([k]) => k === tab)) tab = "galaxy";
   $("tabs").innerHTML = visibleTabs().map(([k, l]) => `<button class="toggle ${k === tab ? "active" : ""}" data-t="${k}">${l}</button>`).join("");
   document.querySelectorAll(".panel").forEach(p => p.classList.toggle("on", p.dataset.tab === tab));
+  document.body.dataset.tab = tab;   // lets the Galaxy tab widen the page
 }
 $("tabs").addEventListener("click", e => {
   const t = e.target.dataset.t; if (!t) return;
