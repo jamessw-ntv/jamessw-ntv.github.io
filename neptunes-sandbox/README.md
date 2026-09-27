@@ -105,8 +105,16 @@ you can see.
 Warlord, Turtle, Diplomat, Opportunist, Economist, Expansionist. Each has
 aggression, treachery, how much it needs to like you before allying, how many
 allies it wants, how it spends, and what it researches (`PERSONAS` in `sim.js`).
-In a hexgrid galaxy 3–6 empires start evenly round a ring (a centre seat is surrounded and
-almost never won). Over 60 games with personas rotated through the seats, every persona
-wins some: Turtle 14, Warlord 12, Opportunist 12, Economist 9, Expansionist 7, Diplomat 6.
+**Personalities off:** untick *Bot personalities* in ⚙ Game → New game (or press
+*Personalities off* in Admin) and every bot plays **Standard**, one balanced all-rounder.
+With the box ticked you can also choose which of the six may appear.
+
+**Fairness.** In every galaxy type the homes sit evenly round a ring, so no seat starts in
+the middle or on an edge (Blob and Scattered used to hand the first seat the centre).
+`node neptunes-sandbox/tools/balance.js` plays ~1,400 bot games on all CPU cores and prints
+win share by seat, personality, empire count and galaxy (×1.00 = a fair share). On
+2026-09-27, 1,440 games (3/4/6 empires × 4 galaxies, personalities rotated and shuffled):
+every seat ×0.91–1.12, every personality ×0.95–1.10. Galaxy types still have flavour:
+Islands favours Economist and Turtle, open maps favour Warlord.
 Opinions drift each production: shared borders breed tension, shared enemies and
 alliances breed trust, and everyone turns on a runaway leader.

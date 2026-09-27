@@ -37,10 +37,10 @@ const PERSONAS = {
                   spend:{ econ:.35, industry:.51, science:.14 }, research:["weapons","manufacturing","range"],
                   blurb:"Builds ships, attacks early, allies only for convenience." },
   turtle:       { label:"Turtle",       aggr:.20, treach:.05, allyAt:15, maxAllies:2, keep:.55,
-                  spend:{ econ:.40, industry:.45, science:.15 }, research:["weapons","banking","terraforming"],
+                  spend:{ econ:.42, industry:.42, science:.16 }, research:["weapons","banking","terraforming"],
                   blurb:"Defends what it has, rarely strikes first, very loyal." },
   diplomat:     { label:"Diplomat",     aggr:.55, treach:.02, allyAt:5,  maxAllies:3, keep:.30,
-                  spend:{ econ:.42, industry:.41, science:.17 }, research:["weapons","range","banking"],
+                  spend:{ econ:.40, industry:.40, science:.20 }, research:["weapons","range","banking"],
                   blurb:"Collects allies and keeps its word." },
   opportunist:  { label:"Opportunist",  aggr:.65, treach:.45, allyAt:10, maxAllies:2, keep:.25,
                   spend:{ econ:.35, industry:.45, science:.20 }, research:["weapons","range","manufacturing"],
@@ -51,14 +51,30 @@ const PERSONAS = {
   expansionist: { label:"Expansionist", aggr:.60, treach:.25, allyAt:15, maxAllies:2, keep:.20,
                   spend:{ econ:.45, industry:.42, science:.13 }, research:["range","weapons","banking","manufacturing"], gates:.3,
                   blurb:"Grabs empty stars as fast as range allows." },
-  // "Personalities off": every bot plays this middle-of-the-road AI (the average of the six above)
-  standard:     { label:"Standard",     aggr:.55, treach:.20, allyAt:15, maxAllies:2, keep:.30,
+  // "Personalities off": every bot plays this middle-of-the-road AI (roughly the average of the six above,
+  // but loyal: at the average treachery of .20 it won only 0.7× its share against them)
+  standard:     { label:"Standard",     aggr:.55, treach:.10, allyAt:15, maxAllies:2, keep:.30,
                   spend:{ econ:.40, industry:.43, science:.17 }, research:["weapons","range","banking","manufacturing"], gates:.2,
                   blurb:"No personality: a balanced all-rounder.", plain:true },
 };
 /* How many looping supply lines (interior stars → frontier) each persona runs. */
 const SUPPLY_LINES = { warlord:1, turtle:1, diplomat:1, opportunist:1, economist:2, expansionist:1, standard:1 };
 const DEFAULT_LINEUP = ["warlord", "diplomat", "opportunist", "turtle", "economist", "expansionist"];
+const ARCHETYPES = Object.keys(PERSONAS).filter(k => !PERSONAS[k].plain);   // the six with a personality
+/* A lineup of n bots drawn from `pool` (archetype keys). An empty pool turns personalities off:
+   every bot is Standard. `keep` (old lineup) stays where its seat is still allowed; `rnd` shuffles the rest. */
+function lineupFrom(n, pool, keep, rnd) {
+  pool = (pool || []).filter(k => ARCHETYPES.includes(k));
+  if (!pool.length) return Array(n).fill("standard");
+  const deck = pool.slice(), r = rnd || Math.random;
+  for (let i = deck.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [deck[i], deck[j]] = [deck[j], deck[i]]; }
+  const out = [], used = new Set();
+  for (let i = 0; i < n; i++) if (keep && pool.includes(keep[i]) && !used.has(keep[i])) { out[i] = keep[i]; used.add(keep[i]); }
+  const rest = deck.filter(k => !used.has(k)).concat(deck.filter(k => used.has(k)));   // unused archetypes first, then repeats
+  let c = 0;
+  for (let i = 0; i < n; i++) if (!out[i]) out[i] = rest[c++ % rest.length];
+  return out;
+}
 
 const DEFAULT_SETTINGS = {
   lockAll: false,        // every new alliance is born locked (unbreakable)
@@ -1283,7 +1299,7 @@ const act = {
   },
 };
 
-const API = { techsOn, speedBetween, ticksBetween, ACTIONS, transferFor, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
+const API = { ARCHETYPES, lineupFrom, techsOn, speedBetween, ticksBetween, ACTIONS, transferFor, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
   defaultRules, newGame, nextTurn, beginTurn, endTurn, tick, admin, act,
   range, resources, infraCost, researchCost, shipsPerCycle, totals, starsOf, winTarget,
   alliance, allied, alliesOf, carrierPos, scanRange, scanSources, inScan, eta, fight, shipsToWin, pairKey, dist };

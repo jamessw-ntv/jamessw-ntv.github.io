@@ -215,6 +215,9 @@
   .gmenu .gsec:last-child{border-bottom:0}
   .gmenu h4{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
   .gmenu .row + .row,.gmenu label.chk + label.chk{margin-top:8px}
+  .gmenu .pchips{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px 12px;margin:8px 0 10px 30px}
+  .gmenu .pchips label.chk + label.chk{margin-top:0}
+  .gmenu .pchips[hidden]{display:none}
   .gmenu .keys{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:12px;color:var(--muted)}
   .gmenu kbd{justify-self:start;font:inherit;font-size:11px;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
   @media (max-width:1440px){.ctrl:has(#viewSw:not(:empty)) .clock .cx{display:none}}   /* keep the bar to one row */
@@ -480,6 +483,8 @@
         <div class="row small" style="margin-bottom:8px"><span>You play</span><select id="playAs"></select>
           <span class="muted">Take over any empire mid-game, or hand it back to its bot.</span></div>
         <div id="botRows"></div>
+        <div class="row small" style="margin-top:8px"><button class="btn small" id="botsPlain" title="Every bot in this game switches to the balanced Standard AI">Personalities off</button>
+          <span class="muted">Switches every bot in this game to Standard. Pick one per seat above to turn them back on.</span></div>
         <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
         <div class="row small"><span>Give</span><select id="giveP"></select>
           <input type="number" id="giveCash" value="500" min="0"> $
@@ -495,6 +500,8 @@
         <div class="row small"><span>Stars per empire</span><input type="number" id="ngStars" min="4" max="40" value="24">
           <span>Max turns</span><input type="number" id="ngMax" min="20" max="2000" value="400"></div>
         <div id="ngSeats" style="margin-top:8px"></div>
+        <div class="row small" style="margin-top:6px"><button class="btn small" id="ngPlain" title="Every bot plays the same balanced AI">Personalities off</button>
+          <button class="btn small" id="ngShuffle" title="A random personality in every seat, no repeats while there are enough">🎲 Shuffle personalities</button></div>
         <div class="row small" style="margin-top:8px"><span>You play</span><select id="ngHuman"></select></div>
         <div class="row" style="margin-top:10px"><button class="btn primary" id="ngGo">Start new game</button></div>
         <div class="small muted" style="margin-top:6px">Uses the rules currently set on the Rules tab.</div>
@@ -557,7 +564,7 @@ let S, history = [], sel = null;
 /* ---------------- playback prefs (this browser only, not game state) ---------------- */
 const PB_KEY = "npSandbox.pb";
 const PB = Object.assign({ speed:700, pauseCapture:false, pauseWar:true, pauseAlly:false, pauseElim:true,
-  fx:true, trails:true, follow:false, territory:false, palette:"triton", style:"triton", vision:[], view:"player" },
+  fx:true, trails:true, follow:false, territory:false, palette:"triton", style:"triton", vision:[], view:"player", personas:true, pool:null },
   (() => { try { return JSON.parse(localStorage.getItem(PB_KEY)) || {}; } catch (e) { return {}; } })());
 function savePB() { try { localStorage.setItem(PB_KEY, JSON.stringify(PB)); } catch (e) {} }
 
@@ -2023,6 +2030,8 @@ function closeMenu() {
   menuOpen = false; $("gmenu").classList.add("hidden"); $("gscrim").classList.add("hidden");
   if (menuFocus && document.contains(menuFocus)) menuFocus.focus();
 }
+/* Which personalities a new galaxy may use (per-browser pref; null = all six). */
+function poolOf() { return (PB.pool || sim.ARCHETYPES).filter(k => sim.ARCHETYPES.includes(k)); }
 function setupOf() {                              // older saves predate S.setup: rebuild what we can
   return S.setup || { seed:S.seed, lineup:S.players.map(p => p.persona), starsPerPlayer:Math.round(S.stars.length / S.players.length),
     galaxy:(S.galaxy && S.galaxy.type) || sim.DEFAULT_GALAXY, human:humanId() };
@@ -2052,8 +2061,13 @@ function renderMenu() {
         <span>Stars each</span><input type="number" id="gmStars" min="4" max="40" value="${su.starsPerPlayer}" style="width:64px"></div>
       <div class="row small"><span>Empires</span><select id="gmCount">${[2, 3, 4, 5, 6].map(n => `<option ${n === S.players.length ? "selected" : ""}>${n}</option>`).join("")}</select>
         <span>You play</span><select id="gmSeat">${seatOpts(h != null ? h : null, S.players.length)}</select></div>
+      <label class="chk" style="margin-top:10px"><input type="checkbox" id="gmPersonas" ${PB.personas ? "checked" : ""}> Bot personalities</label>
+      <div class="small muted" style="margin:2px 0 0 30px">${PB.personas ? "Tick which ones may appear. Untick the box for every bot to play one balanced Standard AI."
+        : "Off: every bot plays the same balanced Standard AI."}</div>
+      <div class="pchips" id="gmPool" ${PB.personas ? "" : "hidden"}>${sim.ARCHETYPES.map(k =>
+        `<label class="chk"><input type="checkbox" data-gpool="${k}" ${poolOf().includes(k) ? "checked" : ""}> ${esc(sim.PERSONAS[k].label)}</label>`).join("")}</div>
       <div class="row"><button class="btn small primary" id="gmNew">★ Start a new galaxy</button>
-        <span class="small muted">New random seed. Bot personalities, seats and seed: Admin → New game.</span></div>
+        <span class="small muted">New random seed. Pick each seat's bot and the seed: Admin → New game.</span></div>
     </div>
 
     <div class="gsec"><h4>Playback</h4>
@@ -2105,8 +2119,8 @@ $("gmenu").addEventListener("click", e => {
   }
   if (b.id === "gmNew") {
     if (S.turn > 0 && !S.winner && !confirm("Start a new galaxy? The current game is thrown away (export it first to keep it).")) return;
-    const n = +$("gmCount").value, seat = $("gmSeat").value, lineup = sim.DEFAULT_LINEUP.slice(0, n);
-    S.players.forEach((p, i) => { if (i < n) lineup[i] = p.persona; });            // keep the bots you had
+    const n = +$("gmCount").value, seat = $("gmSeat").value;
+    const lineup = sim.lineupFrom(n, PB.personas ? poolOf() : [], S.players.map(p => p.persona));   // keeps the bots you had where still allowed
     freshGame({ seed:Math.floor(Math.random() * 1e6), lineup, starsPerPlayer:+$("gmStars").value || 24, galaxy:$("gmGalaxy").value,
       human:seat !== "" && +seat < n ? +seat : undefined });
   }
@@ -2120,6 +2134,12 @@ $("gmenu").addEventListener("change", e => {
   if (t.id === "gmCount") { const cur = $("gmSeat").value; $("gmSeat").innerHTML = `<option value="">nobody (watch the bots)</option>` +
     Array.from({ length:+t.value }, (_, k) => `<option value="${k}" ${String(k) === cur ? "selected" : ""}>${esc(sim.SEATS[k].name)}</option>`).join(""); }
   if (t.dataset.gpb) { PB[t.dataset.gpb] = t.checked; savePB(); }
+  if (t.id === "gmPersonas") { PB.personas = t.checked; savePB(); renderMenu(); }
+  if (t.dataset.gpool) {
+    const pool = [...$("gmenu").querySelectorAll("[data-gpool]")].filter(x => x.checked).map(x => x.dataset.gpool);
+    if (!pool.length) { PB.personas = false; PB.pool = null; } else PB.pool = pool.length === sim.ARCHETYPES.length ? null : pool;
+    savePB(); if (!pool.length) renderMenu();
+  }
   if (t.dataset.gset) { S.settings[t.dataset.gset] = t.checked; afterChange(); }
 });
 $("gmenu").addEventListener("input", e => {
@@ -2332,6 +2352,7 @@ $("setInstant").onchange = e => { S.settings.instantBreak = e.target.checked; af
 $("setCoalition").onchange = e => { S.settings.coalitionWin = e.target.checked; afterChange(); };
 $("setBetrayal").oninput = e => { S.settings.betrayal = +e.target.value; afterChange(); };
 $("lockAllNow").onclick = () => { sim.admin.lockAllNow(S); afterChange(); };
+$("botsPlain").onclick = () => { S.players.forEach(p => sim.admin.setPersona(S, p.id, "standard")); afterChange(); };
 $("botRows").addEventListener("change", e => { const id = e.target.dataset.persona; if (id != null) { sim.admin.setPersona(S, +id, e.target.value); afterChange(); } });
 $("playAs").onchange = e => playAs(e.target.value === "" ? null : +e.target.value);
 $("giveBtn").onclick = () => { sim.admin.give(S, +$("giveP").value, +$("giveCash").value || 0, +$("giveShips").value || 0); afterChange(); };
@@ -2355,6 +2376,9 @@ function renderNgHuman() {
 }
 $("ngSeats").addEventListener("change", e => { if (e.target.dataset.seatOn != null) renderNgHuman(); });
 $("ngRand").onclick = () => { $("ngSeed").value = Math.floor(Math.random() * 1e6); };
+const setSeats = lineup => document.querySelectorAll("[data-seat]").forEach((x, i) => { x.value = lineup[i]; });
+$("ngPlain").onclick = () => setSeats(sim.lineupFrom(sim.SEATS.length, []));
+$("ngShuffle").onclick = () => setSeats(sim.lineupFrom(sim.SEATS.length, sim.ARCHETYPES));
 $("ngGalaxy").innerHTML = Object.entries(sim.GALAXY_TYPES).map(([k, g]) =>
   `<option value="${k}" ${k === sim.DEFAULT_GALAXY ? "selected" : ""}>${g.label}${g.real ? "" : " (sandbox)"}</option>`).join("");
 const galaxyNote = () => { $("ngGalaxyNote").textContent = sim.GALAXY_TYPES[$("ngGalaxy").value].blurb; };

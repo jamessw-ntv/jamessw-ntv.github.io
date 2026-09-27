@@ -45,6 +45,12 @@ analysis. Plain static page; no server.
    `S.settings`, never in `rules.js`.
 4. Hub design system applies: `../assets/hub.css` tokens, relative links.
 
+## Balance check (after persona or galaxy changes)
+`node neptunes-sandbox/tools/balance.js` (~4 min, all cores): win share by seat, persona, empire
+count and galaxy. `--mirror standard` tests seat fairness alone; `--tweak '{"turtle":{"keep":0.4}}'`
+tries a persona change without editing sim.js. Aim for every row within about ×0.85–1.15.
+Personalities off = every seat `standard` (`sim.lineupFrom(n, [])`); the allowed pool is `PB.pool`.
+
 ## Headless check (run after engine/bot changes)
 ```
 node -e "const sim=require('./neptunes-sandbox/sim.js');for(let seed=1;seed<=20;seed++){const S=sim.newGame({seed});while(!S.winner)sim.nextTurn(S);console.log(seed,S.winner.how,S.winner.turn,S.alliances.length)}"

@@ -38,21 +38,21 @@ const mirror = arg("mirror", null);
 const pool = arg("pool", sim.DEFAULT_LINEUP.join(",")).split(",");
 const cores = +arg("cores", require("os").cpus().length);
 
-// every k-subset of the pool, each rotated through all k seats
+// every k-subset of the pool; each game batch shuffles the subset (so neighbours vary) and then
+// rotates it through all k seats (so every personality sits in every seat equally often)
 function subsets(arr, k) { if (!k) return [[]]; if (arr.length < k) return [];
   return subsets(arr.slice(1), k - 1).map(s => [arr[0], ...s]).concat(subsets(arr.slice(1), k)); }
-function lineups(k) {
-  if (mirror) return [Array(k).fill(mirror)];
-  const out = [];
-  for (const sub of subsets(pool, k)) for (let r = 0; r < k; r++) out.push(sub.map((_, i) => sub[(i + r) % k]));
-  return out;
-}
-const jobs = [];
+function shuffled(arr, seed) { const a = arr.slice(); let x = seed;
+  for (let i = a.length - 1; i > 0; i--) { x = (Math.imul(x, 1103515245) + 12345) >>> 0; const j = x % (i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+const jobs = [], base = +arg("base", 1000);
 for (const galaxy of galaxies) for (const k of sizes) {
-  const ls = lineups(k);
-  // keep the game count per size similar: the 6-empire square has 6 lineups, 3-of-6 has 60
-  const per = Math.max(1, Math.round(seeds * 6 / ls.length));
-  ls.forEach((lineup, li) => { for (let s = 0; s < per; s++) jobs.push({ galaxy, k, lineup, opts:{ seed:(+arg("base", 1000)) + li * 97 + s * 7919 + k, lineup, galaxy } }); });
+  const groups = mirror ? [Array(k).fill(mirror)] : subsets(pool, k);
+  // keep the game count per size similar: 6 of 6 is one group, 3 of 6 is twenty
+  const per = Math.max(1, Math.round(seeds * 6 / (groups.length * k)));
+  groups.forEach((sub, gi) => { for (let s = 0; s < per; s++) {
+    const perm = shuffled(sub, base + gi * 131 + s * 17 + k);
+    for (let r = 0; r < k; r++) { const lineup = perm.map((_, i) => perm[(i + r) % k]);
+      jobs.push({ galaxy, k, lineup, opts:{ seed:base + gi * 97 + s * 7919 + r * 613 + k, lineup, galaxy } }); } } });
 }
 
 const t0 = Date.now(), results = [];
@@ -66,7 +66,7 @@ Promise.all(chunks.map(c => new Promise((res, rej) => {
 
 function report() {
   const tally = () => ({ games:0, wins:0, fair:0 });
-  const bySeat = {}, byPersona = {}, byGalaxy = {}, byGalaxySeat = {}, byCentre = {}, how = {}, turns = [];
+  const bySeat = {}, byPersona = {}, bySize = {}, byGalaxy = {}, byGalaxySeat = {}, byCentre = {}, how = {}, turns = [];
   const add = (m, key, n, won) => { const t = m[key] = m[key] || tally(); t.games++; t.wins += won; t.fair += 1 / n; };
   for (const r of results) {
     const { k, lineup, galaxy } = r.job;
@@ -76,6 +76,7 @@ function report() {
       const won = r.ids.includes(i) ? 1 / r.ids.length : 0;
       add(bySeat, `${k}p seat ${i}`, k, won);
       add(byPersona, lineup[i], k, won);
+      add(bySize, `${k}p ${lineup[i]}`, k, won);
       add(byGalaxy, `${galaxy} ${lineup[i]}`, k, won);
       add(byGalaxySeat, `${galaxy} ${k}p seat ${i}`, k, won);
       add(byCentre, `${k}p ${["inner", "middle", "outer"][Math.min(2, Math.floor(rank.indexOf(i) * 3 / k))]}`, k, won);
@@ -90,6 +91,7 @@ function report() {
   table("By seat", bySeat);
   table("By home position (distance from galaxy centre)", byCentre);
   table("By personality", byPersona);
+  if (sizes.length > 1 && !mirror) table("By empires × personality", bySize);
   if (galaxies.length > 1 && !mirror) table("By galaxy × personality", byGalaxy);
   if (process.argv.includes("--detail")) table("By galaxy × seat", byGalaxySeat);
 }
