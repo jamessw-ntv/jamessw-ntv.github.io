@@ -205,6 +205,18 @@
   .ribbon{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 8px;font-size:12px;color:var(--muted)}
   .ribbon b{color:var(--text)}
   .map.targeting{cursor:crosshair}
+  /* game menu */
+  .gmenu{position:fixed;z-index:21;top:12px;right:12px;width:min(420px,calc(100% - 24px));max-height:calc(100% - 24px);overflow-y:auto;
+    background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:0 16px 16px}
+  .gmenu .ghead{position:sticky;top:0;display:flex;align-items:center;gap:10px;margin:0 -16px 10px;padding:12px 16px;
+    background:var(--panel);border-bottom:1px solid var(--line)}
+  .gmenu .ghead h2{margin:0;font-size:17px;flex:1}
+  .gmenu .gsec{padding:10px 0;border-bottom:1px solid var(--line)}
+  .gmenu .gsec:last-child{border-bottom:0}
+  .gmenu h4{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+  .gmenu .row + .row,.gmenu label.chk + label.chk{margin-top:8px}
+  .gmenu .keys{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:12px;color:var(--muted)}
+  .gmenu kbd{justify-self:start;font:inherit;font-size:11px;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
   @media (max-width:1440px){.ctrl:has(#viewSw:not(:empty)) .clock .cx{display:none}}   /* keep the bar to one row */
   /* the side column is a stack; whatever you just selected rises to the top of it */
   .side{display:flex;flex-direction:column;gap:14px}
@@ -296,6 +308,7 @@
   <div class="ctrl">
     <div class="clock" id="clock"></div>
     <span id="viewSw"></span>
+    <button class="btn" id="bMenu" title="Game menu: restart, new game, settings (G)" aria-haspopup="dialog">⚙ Game</button>
     <button class="btn" id="bBack" title="Rewind one turn">◀ Back</button>
     <button class="btn primary" id="bNext" title="Play the next turn (N or →)">Next turn ▶</button>
     <button class="btn" id="bFive">+5 turns</button>
@@ -496,6 +509,10 @@
     </div>
   </section>
 </div>
+
+<!-- GAME MENU (⚙ / G): the admin things you want while playing, without leaving Player view -->
+<div class="scrim hidden" id="gscrim"></div>
+<aside class="gmenu hidden" id="gmenu" role="dialog" aria-modal="true" aria-labelledby="gmTitle"></aside>
 
 <!-- PLAYER DETAIL (opens from any empire name) -->
 <div class="scrim hidden" id="scrim"></div>
@@ -1976,6 +1993,123 @@ $("inspect").addEventListener("change", e => {
 });
 $("inspect").addEventListener("input", e => { if (e.target.id === "sendN" && sel && sel.kind === "star") { sendN = { star:sel.id, n:+e.target.value || 1 }; sendPrediction(S.stars[sel.id]); } });
 
+/* ---------------- game menu (⚙ / G) ----------------
+   Restart, new game, speed and the sandbox's house rules, reachable while playing.
+   Nothing here reveals what Player view hides (no bot personas, feelings or secret alliances). */
+let menuOpen = false, menuFocus = null;
+function openMenu() {
+  if (!menuOpen) menuFocus = document.activeElement;
+  menuOpen = true; renderMenu();
+  $("gmenu").classList.remove("hidden"); $("gscrim").classList.remove("hidden");
+  const f = $("gmenu").querySelector("#gmRestart"); if (f) f.focus();
+}
+function closeMenu() {
+  menuOpen = false; $("gmenu").classList.add("hidden"); $("gscrim").classList.add("hidden");
+  if (menuFocus && document.contains(menuFocus)) menuFocus.focus();
+}
+function setupOf() {                              // older saves predate S.setup: rebuild what we can
+  return S.setup || { seed:S.seed, lineup:S.players.map(p => p.persona), starsPerPlayer:Math.round(S.stars.length / S.players.length),
+    galaxy:(S.galaxy && S.galaxy.type) || sim.DEFAULT_GALAXY, human:humanId() };
+}
+function renderMenu() {
+  if (!menuOpen) return;
+  const st = S.settings, su = setupOf(), h = humanId();
+  const seatOpts = (cur, n) => `<option value="">nobody (watch the bots)</option>` +
+    Array.from({ length:n }, (_, k) => `<option value="${k}" ${k === cur ? "selected" : ""}>${esc(sim.SEATS[k].name)}</option>`).join("");
+  $("gmenu").innerHTML = `
+    <div class="ghead"><h2 id="gmTitle">⚙ Game</h2>
+      ${h != null ? `<button class="btn small" id="gmAdmin" title="See everything, with all the admin tools (V)">${playerView() ? "👁 Admin view" : `${sw(me())}Player view`}</button>` : ""}
+      <button class="btn small" id="gmClose" aria-label="Close">✕</button></div>
+
+    <div class="gsec"><h4>This game</h4>
+      <div class="small muted" style="margin-bottom:8px">Turn ${S.turn} · seed ${su.seed} · ${esc(sim.GALAXY_TYPES[su.galaxy] ? sim.GALAXY_TYPES[su.galaxy].label : su.galaxy)} galaxy · ${S.players.length} empires</div>
+      <div class="row"><button class="btn small primary" id="gmRestart" ${S.turn === 0 && !S.winner ? "disabled" : ""}>↺ Restart from turn 0</button>
+        <span class="small muted">Same galaxy and empires${h != null ? `, you as ${esc(S.players[h].name)}` : ""}.</span></div>
+      <div class="row"><span class="small">You play</span><select id="gmPlayAs">
+        <option value="">nobody (all bots)</option>${S.players.map(p => `<option value="${p.id}" ${p.human ? "selected" : ""} ${p.alive ? "" : "disabled"}>${esc(p.name)}</option>`).join("")}</select>
+        <span class="small muted">switch seats mid-game</span></div>
+    </div>
+
+    <div class="gsec"><h4>New game</h4>
+      <div class="row small"><span>Galaxy</span><select id="gmGalaxy">${Object.entries(sim.GALAXY_TYPES).map(([k, g]) =>
+        `<option value="${k}" ${k === su.galaxy ? "selected" : ""}>${g.label}${g.real ? "" : " (sandbox)"}</option>`).join("")}</select>
+        <span>Stars each</span><input type="number" id="gmStars" min="4" max="40" value="${su.starsPerPlayer}" style="width:64px"></div>
+      <div class="row small"><span>Empires</span><select id="gmCount">${[2, 3, 4, 5, 6].map(n => `<option ${n === S.players.length ? "selected" : ""}>${n}</option>`).join("")}</select>
+        <span>You play</span><select id="gmSeat">${seatOpts(h != null ? h : null, S.players.length)}</select></div>
+      <div class="row"><button class="btn small primary" id="gmNew">★ Start a new galaxy</button>
+        <span class="small muted">New random seed. Bot personalities, seats and seed: Admin → New game.</span></div>
+    </div>
+
+    <div class="gsec"><h4>Playback</h4>
+      <div class="row small"><span>Tick speed</span><select id="gmSpeed">
+        ${[[1400, "Slow"], [700, "Normal"], [300, "Fast"], [0, "Instant"]].map(([v, l]) => `<option value="${v}" ${PB.speed === v ? "selected" : ""}>${l}</option>`).join("")}</select>
+        <span>Ticks per turn</span>${[6, 8, 12, 24].map(n => `<button class="toggle ${S.rules.ticksPerTurn === n ? "active" : ""}" data-gtpt="${n}" style="padding:4px 10px;font-size:12px">${n}</button>`).join("")}</div>
+      <label class="chk" style="margin-top:8px"><input type="checkbox" data-gpb="pauseWar" ${PB.pauseWar ? "checked" : ""}> Pause when an ally declares war</label>
+      <label class="chk"><input type="checkbox" data-gpb="pauseCapture" ${PB.pauseCapture ? "checked" : ""}> Pause when a star is captured</label>
+    </div>
+
+    <div class="gsec"><h4>House rules</h4>
+      <label class="chk"><input type="checkbox" data-gset="lockAll" ${st.lockAll ? "checked" : ""}> Every new alliance is unbreakable</label>
+      <label class="chk"><input type="checkbox" data-gset="instantBreak" ${st.instantBreak ? "checked" : ""}> No notice period when an alliance breaks</label>
+      <label class="chk"><input type="checkbox" data-gset="coalitionWin" ${st.coalitionWin ? "checked" : ""}> Locked alliances can win together</label>
+      <label class="chk"><input type="checkbox" data-gset="allyVision" ${st.allyVision !== false ? "checked" : ""}> Allies share scanning</label>
+      <div class="row small"><span>Bot betrayal</span><input type="range" id="gmBetrayal" min="0" max="3" step="0.25" value="${st.betrayal}" style="flex:1">
+        <span class="muted" id="gmBetrayalVal">${st.betrayal === 0 ? "never" : "×" + st.betrayal}</span></div>
+    </div>
+
+    <div class="gsec"><h4>Save</h4>
+      <div class="row"><button class="btn small" id="gmExport">Export game (.json)</button>
+        <span class="small muted">The game also auto-saves in this browser.</span></div>
+    </div>
+
+    <div class="gsec"><h4>Keys</h4>
+      <div class="keys"><kbd>G</kbd><span>this menu</span><kbd>N</kbd> <span>next turn (→)</span><kbd>B</kbd><span>back a turn (←)</span>
+        <kbd>Space</kbd><span>auto-play / continue</span><kbd>V</kbd><span>Player ⇄ Admin view</span><kbd>F</kbd><span>full-screen map</span>
+        <kbd>T</kbd><span>pick a send target on the map</span><kbd>Enter</kbd><span>launch / save route</span>
+        <kbd>A</kbd><span>add route stops</span><kbd>L</kbd><span>loop route</span><kbd>[ ]</kbd><span>cycle carriers at a star</span>
+        <kbd>Esc</kbd><span>close / cancel</span></div>
+    </div>`;
+}
+function freshGame(opts) {
+  stopAuto(); if (playing) skipTurn();
+  if (opts.human != null) { PB.view = "player"; PB.vision = []; savePB(); }
+  startGame(sim.newGame(Object.assign({ rules:S.rules, settings:Object.assign({}, S.settings, { banned:[] }) }, opts)));
+  tab = "galaxy"; try { localStorage.setItem("npSandbox.tab", tab); } catch (e) {}
+  closeMenu(); renderAll();
+}
+$("bMenu").onclick = () => menuOpen ? closeMenu() : openMenu();
+$("gscrim").onclick = closeMenu;
+$("gmenu").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.id === "gmClose") return closeMenu();
+  if (b.id === "gmAdmin") { setView(playerView() ? "admin" : "player"); return renderMenu(); }
+  if (b.id === "gmRestart") {
+    if (!confirm(`Restart from turn 0? This game's ${S.turn} turns are thrown away.`)) return;
+    const su = setupOf(); freshGame({ seed:su.seed, lineup:su.lineup, starsPerPlayer:su.starsPerPlayer, galaxy:su.galaxy, human:humanId() });
+  }
+  if (b.id === "gmNew") {
+    if (S.turn > 0 && !S.winner && !confirm("Start a new galaxy? The current game is thrown away (export it first to keep it).")) return;
+    const n = +$("gmCount").value, seat = $("gmSeat").value, lineup = sim.DEFAULT_LINEUP.slice(0, n);
+    S.players.forEach((p, i) => { if (i < n) lineup[i] = p.persona; });            // keep the bots you had
+    freshGame({ seed:Math.floor(Math.random() * 1e6), lineup, starsPerPlayer:+$("gmStars").value || 24, galaxy:$("gmGalaxy").value,
+      human:seat !== "" && +seat < n ? +seat : undefined });
+  }
+  if (b.dataset.gtpt) { if (playing) skipTurn(); S.rules.ticksPerTurn = +b.dataset.gtpt; afterChange(); renderMenu(); }
+  if (b.id === "gmExport") $("exportBtn").click();
+});
+$("gmenu").addEventListener("change", e => {
+  const t = e.target;
+  if (t.id === "gmPlayAs") { playAs(t.value === "" ? null : +t.value); renderMenu(); }
+  if (t.id === "gmSpeed") setSpeed(t.value);
+  if (t.id === "gmCount") { const cur = $("gmSeat").value; $("gmSeat").innerHTML = `<option value="">nobody (watch the bots)</option>` +
+    Array.from({ length:+t.value }, (_, k) => `<option value="${k}" ${String(k) === cur ? "selected" : ""}>${esc(sim.SEATS[k].name)}</option>`).join(""); }
+  if (t.dataset.gpb) { PB[t.dataset.gpb] = t.checked; savePB(); }
+  if (t.dataset.gset) { S.settings[t.dataset.gset] = t.checked; afterChange(); }
+});
+$("gmenu").addEventListener("input", e => {
+  if (e.target.id === "gmBetrayal") { S.settings.betrayal = +e.target.value; $("gmBetrayalVal").textContent = S.settings.betrayal === 0 ? "never" : "×" + S.settings.betrayal; afterChange(); }
+});
+
 /* ---------------- render: alliances ---------------- */
 function allyIcon(al) { return !al ? "" : al.warBy != null ? "⚔️" : al.locked ? "🔒" : "🤝"; }
 
@@ -2490,9 +2624,12 @@ $("setAllyVision").onchange = e => { S.settings.allyVision = e.target.checked; a
 $("tptBtns").addEventListener("click", e => { const n = +e.target.dataset.tpt; if (n) { if (playing) skipTurn(); S.rules.ticksPerTurn = n; afterChange(); } });
 $("optScan").addEventListener("change", renderMap);
 document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && menuOpen) { closeMenu(); return; }
   if (e.key === "Escape" && selPlayer != null) { closePlayer(); return; }
   if (e.key === "Escape" && targeting) { targeting = false; renderMap(); renderInspector(); return; }
   if (e.target.matches("input,select,textarea")) return;
+  if ((e.key === "g" || e.key === "G") && !e.ctrlKey && !e.metaKey) { menuOpen ? closeMenu() : openMenu(); return; }
+  if (menuOpen) return;                       // other keys wait until the menu is closed
   if (e.key === "n" || e.key === "ArrowRight") { if (playing) { playing.hold ? continueTurn() : skipTurn(); } else step(1); }
   if (e.key === "b" || e.key === "ArrowLeft") back();
   if ((e.key === "v" || e.key === "V") && humanId() != null) setView(playerView() ? "admin" : "player");
@@ -2506,6 +2643,7 @@ document.addEventListener("keydown", e => {
 /* carrier keys: A add stops, L loop, Backspace undo stop, Enter save, Esc leave pick
    mode then cancel; [ and ] step through your carriers at the selected star */
 document.addEventListener("keydown", e => {
+  if (menuOpen) return;
   const typing = e.target.matches("input,select,textarea");
   const hit = () => { e.preventDefault(); e.stopImmediatePropagation(); };
   if (RE) {
