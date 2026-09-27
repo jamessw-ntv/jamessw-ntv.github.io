@@ -16,6 +16,10 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
   stars), choose research, build carriers and send ships to any star in jump range (pick it from
   the list or click it on the map), and accept, decline or propose alliances or declare war on
   an ally. Orders are given between turns; `◀ Back` undoes them with the turn.
+- **⚙ Game menu** (top bar, key `G`), usable in Player view: restart from turn 0 on the same
+  galaxy, start a new galaxy (type, size, empire count, your seat), switch seats, tick speed and
+  ticks per turn, pause rules, house rules (unbreakable alliances, no notice, coalition wins,
+  shared scanning, betrayal), export, and a list of every key. It reveals nothing Player view hides.
 - **Player / Admin view** (header switch, key `V`): *Player* shows only what your empire can
   scan, hides the bots' personalities, feelings, cash, research and other empires' secret
   alliances, and drops the Admin and Alliances tabs (Rules become read-only). *Admin* shows

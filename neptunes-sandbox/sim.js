@@ -119,6 +119,8 @@ function newGame(opts) {
   // stars, homes and starting empires (see "galaxy generation" below)
   const perPlayer = clamp(Math.round(opts.starsPerPlayer || rules.starsPerPlayer), 4, 40);
   const homes = buildGalaxy(S, n, perPlayer, GALAXY_TYPES[opts.galaxy] ? opts.galaxy : DEFAULT_GALAXY);
+  // how this game was made, so it can be restarted exactly
+  S.setup = { seed, lineup:lineup.slice(), starsPerPlayer:perPlayer, galaxy:S.galaxy.type, human:opts.human != null ? opts.human : null };
   homes.forEach((h, i) => {
     Object.assign(h, { owner:i, res:rules.homeResources, econ:rules.startEcon,
       industry:rules.startIndustry, science:rules.startScience, ships:rules.startShips });
