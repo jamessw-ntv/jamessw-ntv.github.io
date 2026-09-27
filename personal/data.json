@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-27",
-    "fetched": "2026-09-27T13:46:25+00:00",
+    "fetched": "2026-09-27T18:13:00+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 4,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 10
+      "wind": 4
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
-        "max": 15,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Mon",
         "min": 3,
         "max": 17,
         "icon": "☁️",
@@ -37,7 +29,15 @@
         "max": 21,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 0
+        "rain": 2
+      },
+      {
+        "day": "Wed",
+        "min": 15,
+        "max": 20,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 37
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 120212.0,
-        "pct": 0.75
+        "price": 119847.0,
+        "pct": 0.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3832.03,
-        "pct": 0.45
+        "price": 3813.2,
+        "pct": -0.25
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Naomi Watts Talks Menopause – ‘I Was Crying in the Bathroom, Trying to Scratch Off My Estrogen Patch’ – Recalls Being Told She ‘Freaked People Out’ Early in Her Career: ‘Yeah, No Shit. I Was Desperate, Behind on My Rent and Getting Evicted’",
+      "title": "Asian Games 2026 Livestream: Where to Watch the Event In the U.S. Online",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/naomi-watts-mullholland-drive-early-career-menopause-1236876797/"
+      "url": "https://variety.com/2026/shopping/news/where-to-watch-asian-games-2026-usa-livestream-online-free-1236876889/"
     },
     {
       "cat": "Film/TV",
-      "title": "Martin McDonagh Jokes About His Past – as a Hitman – and Calls ‘Wild Horse Nine’ His Most Political Film: ‘There’s Too Much Artistic Neutrality and Too Much Saying Nothing’",
+      "title": "Chris Rock Says Infidelity and Struggling to ‘Make It’ Aren’t Just Hollywood Problems: ‘If You Got No Love, You’re Broke as F—k’",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/martin-mcdonagh-wild-horse-nine-political-john-malkovich-1236876794/"
+      "url": "https://variety.com/2026/film/news/chris-rock-infidelity-hollywood-misty-green-nyff-1236876867/"
     },
     {
       "cat": "Film/TV",
-      "title": "Beyond Frontman Doc ‘Because of You Ka Kui’ to Open U.K.’s Odyssey Film Festival, Lands Local Distribution (EXCLUSIVE)",
+      "title": "Adam Brody Calls for a ‘Free Palestine,’ Says He’s Never ‘Ducked’ Politics: ‘I Just Answer the Questions I’m Asked’",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/beyond-frontman-doc-because-of-you-ka-kui-odyssey-fest-1236876790/"
+      "url": "https://variety.com/2026/tv/news/adam-brody-calls-for-free-palestine-political-question-1236876872/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jia Zhangke Readies Zhao Tao Road Movie ‘Mamma Dunhuang,’ Rules Out AI in Production (EXCLUSIVE)",
+      "title": "‘Avengers: Endgame Encore’ Scores Massive $86 Million Globally, Brad Pitt’s ‘Heart of the Beast’ Launches to $50 Million Worldwide",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/jia-zhangke-mamma-dunhuang-ai-production-1236876776/"
+      "url": "https://variety.com/2026/film/box-office/avengers-endgame-encore-box-office-rerelease-huge-86-million-globally-1236876861/"
     },
     {
       "cat": "Trek/Wars",
