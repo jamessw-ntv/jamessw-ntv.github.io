@@ -34,13 +34,13 @@ const SEATS = [
    research  tech priorities, first = favourite */
 const PERSONAS = {
   warlord:      { label:"Warlord",      aggr:.90, treach:.50, allyAt:35, maxAllies:1, keep:.15,
-                  spend:{ econ:.30, industry:.55, science:.15 }, research:["weapons","manufacturing","range"],
+                  spend:{ econ:.35, industry:.51, science:.14 }, research:["weapons","manufacturing","range"],
                   blurb:"Builds ships, attacks early, allies only for convenience." },
   turtle:       { label:"Turtle",       aggr:.20, treach:.05, allyAt:15, maxAllies:2, keep:.55,
-                  spend:{ econ:.45, industry:.35, science:.20 }, research:["weapons","banking","terraforming"],
+                  spend:{ econ:.40, industry:.45, science:.15 }, research:["weapons","banking","terraforming"],
                   blurb:"Defends what it has, rarely strikes first, very loyal." },
   diplomat:     { label:"Diplomat",     aggr:.55, treach:.02, allyAt:5,  maxAllies:3, keep:.30,
-                  spend:{ econ:.40, industry:.40, science:.20 }, research:["weapons","range","banking"],
+                  spend:{ econ:.42, industry:.41, science:.17 }, research:["weapons","range","banking"],
                   blurb:"Collects allies and keeps its word." },
   opportunist:  { label:"Opportunist",  aggr:.65, treach:.45, allyAt:10, maxAllies:2, keep:.25,
                   spend:{ econ:.35, industry:.45, science:.20 }, research:["weapons","range","manufacturing"],
@@ -49,11 +49,15 @@ const PERSONAS = {
                   spend:{ econ:.45, industry:.40, science:.15 }, research:["banking","terraforming","experimentation","manufacturing"], gates:.35,
                   blurb:"Grows the economy first, fights later." },
   expansionist: { label:"Expansionist", aggr:.60, treach:.25, allyAt:15, maxAllies:2, keep:.20,
-                  spend:{ econ:.40, industry:.45, science:.15 }, research:["range","weapons","manufacturing","terraforming"], gates:.3,
+                  spend:{ econ:.45, industry:.42, science:.13 }, research:["range","weapons","banking","manufacturing"], gates:.3,
                   blurb:"Grabs empty stars as fast as range allows." },
+  // "Personalities off": every bot plays this middle-of-the-road AI (the average of the six above)
+  standard:     { label:"Standard",     aggr:.55, treach:.20, allyAt:15, maxAllies:2, keep:.30,
+                  spend:{ econ:.40, industry:.43, science:.17 }, research:["weapons","range","banking","manufacturing"], gates:.2,
+                  blurb:"No personality: a balanced all-rounder.", plain:true },
 };
 /* How many looping supply lines (interior stars → frontier) each persona runs. */
-const SUPPLY_LINES = { warlord:1, turtle:1, diplomat:1, opportunist:1, economist:2, expansionist:1 };
+const SUPPLY_LINES = { warlord:1, turtle:1, diplomat:1, opportunist:1, economist:2, expansionist:1, standard:1 };
 const DEFAULT_LINEUP = ["warlord", "diplomat", "opportunist", "turtle", "economist", "expansionist"];
 
 const DEFAULT_SETTINGS = {
@@ -185,7 +189,7 @@ function buildGalaxy(S, n, perPlayer, type) {
   } else if (type === "mega_blob") {
     const rad = Math.sqrt(total * 20 / Math.PI);
     fill(total, () => { const a = rand(S) * Math.PI * 2, r = rad * Math.pow(rand(S), .6); return { x:Math.cos(a) * r, y:Math.sin(a) * r }; });
-    homePts = spreadOut(S, pts.filter(p => Math.hypot(p.x, p.y) < rad * .75), n);
+    homePts = ringOut(S, pts, n, { x:0, y:0 }, rad * .5);
   } else if (type === "islands") {
     // one island per empire on a ring, one neutral island in the middle, 7+ ly of empty space between
     const isl = Math.max(3.2, Math.sqrt(perPlayer * 6 / Math.PI));
@@ -197,12 +201,18 @@ function buildGalaxy(S, n, perPlayer, type) {
     const each = Math.floor(total * .82 / n);
     centres.forEach((c, i) => fill(n + (i + 1) * each, () => { const a = rand(S) * Math.PI * 2, r = isl * Math.sqrt(rand(S)); return { x:c.x + Math.cos(a) * r, y:c.y + Math.sin(a) * r }; }));
     const hub = isl * 1.2;
+    const hubPts = [];
     fill(total, () => { const a = rand(S) * Math.PI * 2, r = hub * Math.sqrt(rand(S)); return { x:Math.cos(a) * r, y:Math.sin(a) * r }; });
-    // no lanes drawn here: the connectivity pass below bridges each gap once, at its narrowest point
+    pts.forEach(p => { if (Math.hypot(p.x, p.y) <= hub + .01) hubPts.push(p); });
+    // one lane from every island to the hub, each at its own narrowest point. Letting the connectivity
+    // pass join them in seat order chained some islands through their neighbours (seat 4 of 6 won half its share)
+    const near = (list, t) => list.reduce((b, p) => dist(p, t) < dist(b, t) ? p : b);
+    centres.forEach(c => { const own = pts.filter(p => dist(p, c) <= isl + .01);
+      const a = near(own, { x:0, y:0 }), b = near(hubPts, a); lane(a, b, startRange); });
   } else {                                                          // scattered
     const side = Math.sqrt(total * 22);
     fill(total, () => ({ x:rand(S) * side, y:rand(S) * side }));
-    homePts = spreadOut(S, pts.filter(p => p.x > side * .12 && p.x < side * .88 && p.y > side * .12 && p.y < side * .88), n);
+    homePts = ringOut(S, pts, n, { x:side / 2, y:side / 2 }, side * .3);
   }
 
   // a chain of stars from a to b, each hop within `hop` ly: the "one hyperspace line"
@@ -266,13 +276,14 @@ function buildGalaxy(S, n, perPlayer, type) {
   return homePts.map(h => S.stars[pts.indexOf(h)]);
 }
 
-/* farthest-point picks: n points from `cands` as far from each other as possible */
-function spreadOut(S, cands, n) {
-  const out = [pick(S, cands)];
-  while (out.length < n) {
-    let best = null, bd = -1;
-    for (const c of cands) { const d = Math.min(...out.map(o => dist(o, c))); if (d > bd) { bd = d; best = c; } }
-    out.push(best);
+/* n homes evenly round a ring (random spin), each snapped to the nearest star. Every seat is the same
+   distance from the middle, so nobody starts surrounded. (Farthest-point picks gave the first seat the
+   middle of the map and the last seat an edge: 29 vs 16 nearest free stars.) */
+function ringOut(S, cands, n, c, radius) {
+  const spin = rand(S) * Math.PI * 2, out = [];
+  for (let i = 0; i < n; i++) {
+    const t = { x:c.x + Math.cos(spin + i * 2 * Math.PI / n) * radius, y:c.y + Math.sin(spin + i * 2 * Math.PI / n) * radius };
+    out.push(cands.filter(p => !out.includes(p)).reduce((b, p) => dist(p, t) < dist(b, t) ? p : b));
   }
   return out;
 }
