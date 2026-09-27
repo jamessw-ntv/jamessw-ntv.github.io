@@ -284,12 +284,12 @@
   body.np{overflow:hidden;height:100vh;height:100dvh}
   body.np .wrap{max-width:none;padding:0}
   body.np .ctrl{position:fixed;top:0;left:0;right:0;height:48px;margin:0;padding:0 10px;border:0;border-bottom:1px solid var(--line);
-    border-radius:0;box-shadow:none;background:rgba(11,15,26,.97);flex-wrap:nowrap;overflow-x:auto;gap:6px;z-index:40;scrollbar-width:none}
+    border-radius:0;box-shadow:none;background:#0b0f1a;flex-wrap:nowrap;overflow-x:auto;gap:6px;z-index:40;scrollbar-width:none}
   body.np .ctrl::-webkit-scrollbar{display:none}
   body.np .ctrl .clock{white-space:nowrap;margin-right:auto}
   body.np .ctrl .btn,body.np .ctrl select{white-space:nowrap;flex-shrink:0}
   body.np .ctrl .btn{padding:6px 11px}
-  .navbtn{font-size:17px;line-height:1;padding:5px 12px !important;position:sticky;left:0;z-index:1;box-shadow:-10px 0 0 6px rgba(11,15,26,.97)}   /* ☰ stays put when the bar scrolls on phones */
+  .navbtn{font-size:17px;line-height:1;padding:5px 12px !important;position:sticky;left:0;z-index:1;box-shadow:-10px 0 0 6px #0b0f1a}   /* ☰ stays put when the bar scrolls on phones */
   body.np .hud{padding-left:calc(var(--scrW, 0px) + 12px);transition:padding-left .22s ease}
   body.np .tickbar,body.np .pickbar{left:calc(var(--scrW, 0px) + 10px)} body.np .scalebar{left:calc(var(--scrW, 0px) + 12px)}   /* the map's status line clears an open screen */
   .navbtn[aria-expanded=true]{border-color:var(--accent);color:var(--accent)}
@@ -336,6 +336,14 @@
     .scr.peek,.scr[data-scr=inspect].peek{visibility:hidden;transform:translateY(102%)}
   }
   @media (prefers-reduced-motion:reduce){.scr,.scr.on{transition:none}}
+  /* dialogs (player sheet, ⚙ Game menu) sit above the top bar and any open screen */
+  body.np .scrim{z-index:70}
+  body.np .sheet{z-index:71}
+  body.np .gmenu{z-index:71;top:56px;max-height:calc(100% - 68px)}
+  .scr:focus{outline:none}
+  .scr .box{min-width:0;overflow-x:auto}
+  /* phones: the turn and tick stay pinned beside ☰ while the rest of the bar scrolls */
+  @media (max-width:700px){body.np .ctrl .clock{position:sticky;left:50px;z-index:1;background:#0b0f1a;padding-right:6px;box-shadow:6px 0 0 #0b0f1a}}
 </style>
 </head>
 <body class="np">
@@ -390,14 +398,14 @@
   </section>
 
   <!-- the selected star / carrier / empire -->
-  <aside class="scr" data-scr="inspect" aria-labelledby="inspTitle">
+  <aside class="scr" tabindex="-1" data-scr="inspect" aria-labelledby="inspTitle">
     <div class="scrh"><h2 id="inspTitle">Inspector</h2><button class="scrx" data-close="inspect" title="Close (Esc)" aria-label="Close">✕</button></div>
     <div class="insp" id="inspect"></div>
   </aside>
 
   <!-- the whole game at a glance, plus map options -->
-  <aside class="scr" data-scr="overview" aria-label="Galaxy overview">
-    <div class="scrh"><h2>Galaxy</h2><button class="scrx" data-close="screen" title="Close (Esc)" aria-label="Close">✕</button></div>
+  <aside class="scr" tabindex="-1" data-scr="overview" aria-label="Galaxy overview">
+    <div class="scrh"><h2>Overview</h2><button class="scrx" data-close="screen" title="Close (Esc)" aria-label="Close">✕</button></div>
     <div class="box youbox hidden" id="youBox"><h2 id="youTitle">Your empire</h2><div id="you"></div></div>
     <div class="box"><h2>This turn</h2><div class="feed" id="feed"></div></div>
     <div class="box"><h2>Empires</h2><div class="legend" id="legend"></div></div>
@@ -777,7 +785,16 @@ function syncScreens() {
   ins.classList.toggle("on", tab === "galaxy" && !!sel);
   ins.classList.toggle("peek", !!((RE && RE.pick) || targeting));
   document.body.style.setProperty("--scrW", scrW() + "px");
+  renderPickbar();
+  // move focus into a screen as it opens, and back to ☰ when it closes (only when the open screen changes)
+  const open = document.querySelector(".scr.on");
+  if (open !== lastScr) {
+    if (open) open.focus({ preventScroll:true });
+    else if (lastScr && (lastScr.contains(document.activeElement) || document.activeElement === document.body)) $("bNav").focus({ preventScroll:true });
+    lastScr = open;
+  }
 }
+let lastScr = null;
 /* phones: how much of the map the selection's bottom sheet covers */
 function sheetH() {
   const o = document.querySelector('.scr.on[data-scr="inspect"]'); if (!o || innerWidth > 700) return 0;
@@ -821,7 +838,7 @@ function renderClock() {
   const toProd = R.productionTicks - (S.tick % R.productionTicks);
   $("clock").innerHTML = `<b>Turn ${S.turn}</b><span class="cx"> · tick ${S.tick} · day ${day} · production in ${toProd}</span>`;
   $("clock").title = `${R.ticksPerTurn} ticks per turn, ${R.productionTicks} ticks per day (production)`;
-  if (playing && tab !== "galaxy") $("clock").innerHTML += ` · <b style="color:var(--accent)">playing tick ${playing.tick}/${playing.of}</b>`
+  if (playing && tab !== "galaxy") $("clock").innerHTML += ` · <b style="color:var(--accent)">playing tick ${Math.min(playing.of, playing.tick + (anim ? 1 : 0))}/${playing.of}</b>`
     + (playing.why ? ` · <b style="color:#ffd479">paused: ${esc(playing.why)}</b>` : "");
   $("bBack").disabled = !!playing || S.turn === 0 || !history[S.turn - 1];
   $("bNext").disabled = $("bFive").disabled = !!S.winner || !!playing;
@@ -1631,11 +1648,12 @@ function routeEditor(c) {
 function renderPickbar() {
   const bar = $("pickbar");
   const c = RE && RE.pick && S.carriers.find(x => x.id === RE.id);
-  if (!c) { bar.classList.add("hidden"); return; }
-  if (bar.classList.contains("hidden")) {                 // phones: the map sits above the inspector, under the sticky turn bar
-    const top = $("map").getBoundingClientRect().top, bar0 = document.querySelector(".ctrl").getBoundingClientRect().height;
-    if (top < bar0 || top > innerHeight * .5) window.scrollBy({ top:top - bar0 - 8, behavior:"smooth" });
+  if (!c && typeof targeting !== "undefined" && targeting && sel && sel.kind === "star") {     // choosing where to send ships
+    bar.innerHTML = `<span class="msg">Tap a star within <b>${sim.range(S, S.stars[sel.id].owner)} ly</b> of ${esc(S.stars[sel.id].name)} to send ships</span>
+      <button class="btn small" data-act="tgtcancel" title="Stop picking (Esc)">Cancel</button>`;
+    bar.classList.remove("hidden"); return;
   }
+  if (!c) { bar.classList.add("hidden"); return; }
   const last = RE.stops.length ? S.stars[RE.stops[RE.stops.length - 1].star] : (c.at != null ? S.stars[c.at] : S.stars[c.to]);
   bar.innerHTML = `<span class="msg">${sw(S.players[c.owner])}${RE.msg ? `<b style="color:#ffcf8a">${esc(RE.msg)}</b>`
       : RE.stops.length ? `<b>${RE.stops.length} stop${RE.stops.length > 1 ? "s" : ""}</b> · ${RE.stops.length > 1 ? "tap the start to loop" : `next within ${sim.range(S, c.owner)} ly`}`
@@ -1724,6 +1742,7 @@ $("inspect").addEventListener("click", e => {
   renderInspector(true); renderMap(); renderPickbar();
 });
 $("pickbar").addEventListener("click", e => {
+  if (e.target.dataset.act === "tgtcancel") { targeting = false; renderMap(); renderInspector(); return; }
   if (e.target.dataset.act === "pickundo" && RE) { RE.stops.pop(); RE.loop = false; RE.msg = ""; renderInspector(true); renderMap(); renderPickbar(); return; }
   if (e.target.dataset.act === "pickdone" && RE) {
   RE.pick = false;
