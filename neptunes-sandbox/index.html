@@ -42,16 +42,20 @@
 
   /* ---- map ---- */
   .mapwrap{position:relative}
-  .map{width:100%;aspect-ratio:1/1;max-height:80vh;display:block;background-color:#000;border-radius:10px;
+  .map{position:relative;width:100%;aspect-ratio:1/1;max-height:80vh;display:block;background-color:#000;border-radius:10px;
     border:1px solid var(--line);touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
   .map.dragging{cursor:grabbing}
-  /* Triton look: black space with a faint dust of background stars (CSS, so it never scales with zoom) */
-  .map.triton{background-image:radial-gradient(1px 1px at 12% 18%,rgba(255,255,255,.28),transparent 60%),radial-gradient(1px 1px at 67% 32%,rgba(255,255,255,.2),transparent 60%),
-      radial-gradient(1px 1px at 38% 74%,rgba(210,225,255,.24),transparent 60%),radial-gradient(1px 1px at 85% 83%,rgba(255,255,255,.16),transparent 60%),
-      radial-gradient(1.5px 1.5px at 52% 51%,rgba(255,240,220,.22),transparent 60%),radial-gradient(1px 1px at 23% 92%,rgba(255,255,255,.18),transparent 60%),
-      radial-gradient(1px 1px at 91% 8%,rgba(200,220,255,.2),transparent 60%),
-      radial-gradient(1px 1px at 30% 40%,rgba(255,255,255,.16),transparent 60%),radial-gradient(1px 1px at 75% 60%,rgba(220,230,255,.14),transparent 60%);
-    background-size:173px 173px,173px 173px,173px 173px,173px 173px,173px 173px,173px 173px,173px 173px,97px 97px,97px 97px}
+  /* Triton look: the SVG is transparent over a canvas starfield (#sky) drawn in three parallax layers */
+  .mapwrap.sky-on{background:#000;border-radius:10px}
+  .map.triton{background:transparent}
+  .sky{position:absolute;left:0;top:0;width:100%;height:100%;border-radius:10px;pointer-events:none;display:none}
+  .mapwrap.sky-on .sky{display:block}
+  .mapwrap.full .sky{border-radius:0}
+  /* carriers circling their star; the phase is set per draw so a redraw never makes them jump */
+  .orbit{animation:orbit 40s linear infinite;transform-box:view-box}
+  .orbit.ccw{animation-direction:reverse}
+  @keyframes orbit{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.orbit{animation:none}}
   .map.triton text{font-family:"Open Sans","Segoe UI",system-ui,sans-serif}
   .hud{position:absolute;left:1px;right:1px;top:1px;min-height:34px;display:flex;gap:4px 14px;flex-wrap:wrap;align-items:center;
     padding:6px 12px;pointer-events:none;background:rgba(0,0,0,.85);border-bottom:1px solid rgba(255,255,255,.1);
@@ -66,6 +70,7 @@
     background:rgba(0,0,0,.75);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px}
   .mapwrap.full .scalebar{bottom:70px}
   body.fullmap{overflow:hidden}
+  body.fullmap .ctrl{visibility:hidden}
   .map [data-s],.map [data-c]{cursor:pointer}
   .map text{pointer-events:none}
   .mapctl{position:absolute;top:46px;right:10px;display:flex;flex-direction:column;gap:6px}
@@ -213,6 +218,17 @@
   .gmenu .keys{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:12px;color:var(--muted)}
   .gmenu kbd{justify-self:start;font:inherit;font-size:11px;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
   @media (max-width:1440px){.ctrl:has(#viewSw:not(:empty)) .clock .cx{display:none}}   /* keep the bar to one row */
+  /* Galaxy tab: overall data on the left, the map in the centre, the selection on the right.
+     Mid-width screens stack both side columns to the right; phones put the selection straight under the map. */
+  .gal{grid-template-areas:"m r" "m l";grid-template-rows:auto 1fr}
+  .gal > .mapcol{grid-area:m} .gal > .sideR{grid-area:r} .gal > .sideL{grid-area:l}
+  @media (min-width:1200px){
+    body[data-tab=galaxy] .wrap{max-width:1720px}
+    .gal{grid-template-columns:290px minmax(0,1fr) 330px;grid-template-areas:"l m r";grid-template-rows:auto}
+    .gal > .side{position:sticky;top:calc(var(--ctrlH, 64px) + 12px);align-self:start;max-height:calc(100vh - var(--ctrlH, 64px) - 24px);overflow:auto;scrollbar-width:thin}
+    .gal .feed{max-height:none}
+  }
+  @media (max-width:860px){.gal{grid-template-areas:"m" "r" "l";grid-template-rows:auto}.gal > .side{margin-top:14px}}
   /* the side column is a stack; whatever you just selected rises to the top of it */
   .side{display:flex;flex-direction:column;gap:14px}
   .side > .box{margin-top:0 !important}
@@ -319,10 +335,11 @@
 
   <!-- GALAXY -->
   <section class="panel" data-tab="galaxy">
-    <div class="cols">
+    <div class="cols gal">
       <div class="mapcol">
         <div class="vision" id="vision" title="Show the galaxy as these empires see it"></div>
         <div class="mapwrap">
+          <canvas class="sky" id="sky" aria-hidden="true"></canvas>
           <svg class="map" id="map"></svg>
           <div class="tickbar" id="tickbar"></div>
           <div class="mapctl">
@@ -361,10 +378,14 @@
           <span class="keyhint">Keys: N next turn · B back · Space auto / continue · V player/admin view · T pick a target · Enter launch</span>
         </div></details>
       </div>
-      <div class="side">
+      <!-- right: whatever is selected -->
+      <div class="side sideR">
+        <div class="box insp"><h2 id="inspTitle">Inspector</h2><div id="inspect"></div></div>
+      </div>
+      <!-- left: the whole game at a glance -->
+      <div class="side sideL">
         <div class="box youbox hidden" id="youBox"><h2 id="youTitle">Your empire</h2><div id="you"></div></div>
         <div class="box"><h2>Empires</h2><div class="legend" id="legend"></div></div>
-        <div class="box insp"><h2 id="inspTitle">Inspector</h2><div id="inspect"></div></div>
         <div class="box"><h2>This turn</h2><div class="feed" id="feed"></div></div>
       </div>
     </div>
@@ -707,6 +728,7 @@ function renderTabs() {
   if (!visibleTabs().some(([k]) => k === tab)) tab = "galaxy";
   $("tabs").innerHTML = visibleTabs().map(([k, l]) => `<button class="toggle ${k === tab ? "active" : ""}" data-t="${k}">${l}</button>`).join("");
   document.querySelectorAll(".panel").forEach(p => p.classList.toggle("on", p.dataset.tab === tab));
+  document.body.dataset.tab = tab;   // lets the Galaxy tab widen the page
 }
 $("tabs").addEventListener("click", e => {
   const t = e.target.dataset.t; if (!t) return;
@@ -853,6 +875,7 @@ function renderMap() {
   const fl = fleetList().filter(v => !vis || vis.group.has(v.owner) || sim.inScan(vis, v));
   const tri = PB.style !== "clean";
   svg.classList.toggle("triton", tri);
+  svg.parentNode.classList.toggle("sky-on", tri);
 
   if (tri) {
     // Triton look: soft nebulae behind everything, then glowing star sprites (defs shared by every star)
@@ -863,7 +886,7 @@ function renderMap() {
         <stop offset="1" stop-color="#7a86a0" stop-opacity="0"/></radialGradient>
       <filter id="fGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="${f(2.2 * u)}"/></filter>
     </defs>`);
-    out.push(nebulae());
+    out.push(`<g opacity="${f(clamp(V.w / S.width * 1.6, .35, 1))}">${nebulae()}</g>`);   // fade as you zoom in, so no hard blobs up close
   } else {
     // faint 5-ly grid so distance is readable at a glance
     const g0x = Math.floor(V.x / 5) * 5, g0y = Math.floor(V.y / 5) * 5;
@@ -976,23 +999,36 @@ function renderMap() {
     }
     if (s.gate && S.rules.gatesOn) out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR + 6 * u)}" fill="none" stroke="#bfe6ff"
       stroke-width="${f(1.2 * u)}" stroke-dasharray="${f(2.2 * u)} ${f(1.6 * u)}" opacity=".85"/>`);   // warp gate
-    // carriers parked here: small diamonds orbiting the ring, one per player
     const here = fleets ? orbiting[s.id] || [] : [];
-    // one tappable marker per owner (it selects that owner's first carrier here), with a count when there are several
-    const byOwner = {};
-    here.forEach(c => (byOwner[c.owner] = byOwner[c.owner] || []).push(c));
-    Object.keys(byOwner).forEach((pid, i) => {
-      const list = byOwner[pid], first = list.find(v => v.c) || list[0];
-      const ang = -Math.PI / 4 + i * 0.9, R = ringR + 5 * u, cx = s.x + Math.cos(ang) * R, cy = s.y + Math.sin(ang) * R, d = 3.6 * u;
-      out.push(`<g ${first.c ? `data-c="${first.id}"` : ""}><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(Math.max(7 * u, 12 * V.u))}" fill="transparent"/>`);
-      out.push(tri ? `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(2.8 * u)}" fill="${col(S.players[pid])}" stroke="#000" stroke-width="${f(.9 * u)}"/>`
-        : `<path d="M${f(cx)} ${f(cy - d)}L${f(cx + d)} ${f(cy)}L${f(cx)} ${f(cy + d)}L${f(cx - d)} ${f(cy)}Z" fill="${col(S.players[pid])}" stroke="var(--black)" stroke-width="${f(u)}"/>`);
-      if (list.length > 1) out.push(`<text x="${f(cx + 3.6 * u)}" y="${f(cy - 2.6 * u)}" font-size="${f(8 * u)}" font-weight="700" fill="#fff"
-        paint-order="stroke" stroke="#000" stroke-width="${f(2 * u)}">×${list.length}</text>`);
-      if (sel && sel.kind === "carrier" && list.some(v => v.id === sel.id))
-        out.push(`<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(5 * u)}" fill="none" stroke="#fff" stroke-width="${f(1.2 * u)}"/>`);
+    // carriers in orbit: one small ship per carrier (up to 8) circling the star, each tappable,
+    // plus a count badge per empire so you can read how many carriers sit here at a glance
+    if (here.length) {
+      const R = ringR + 6 * u, show = here.slice(0, 8), period = 40, spin = s.id % 2 ? " ccw" : "";
+      const phase = ((performance.now() / 1000) % period).toFixed(2);
+      out.push(`<g class="orbit${spin}" style="transform-origin:${s.x}px ${s.y}px;animation-delay:-${phase}s">`);
+      show.forEach((v, i) => {
+        const ang = -Math.PI / 2 + i * 2 * Math.PI / show.length, cx = s.x + Math.cos(ang) * R, cy = s.y + Math.sin(ang) * R;
+        const dir = ang + (spin ? -Math.PI / 2 : Math.PI / 2), k = 3.2 * u;
+        const pt = (a2, rr) => `${f(cx + Math.cos(dir + a2) * rr)} ${f(cy + Math.sin(dir + a2) * rr)}`;
+        const isSelC = sel && sel.kind === "carrier" && sel.id === v.id;
+        out.push(`<g ${v.c ? `data-c="${v.id}"` : ""}><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(Math.max(6 * u, 11 * V.u))}" fill="transparent"/>
+          <path d="M${pt(0, k * 1.3)}L${pt(2.5, k)}L${pt(Math.PI, k * .3)}L${pt(-2.5, k)}Z" fill="${col(S.players[v.owner])}" stroke="#000" stroke-width="${f(.8 * u)}"/>
+          ${isSelC ? `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(5.5 * u)}" fill="none" stroke="#fff" stroke-width="${f(1.2 * u)}"/>` : ""}</g>`);
+      });
       out.push(`</g>`);
-    });
+      const byOwner = {};
+      here.forEach(v => byOwner[v.owner] = (byOwner[v.owner] || 0) + 1);
+      const bu = Math.max(u, 1.45 * V.u);   // badges stay readable (about 12px tall) even at full zoom-out
+      // zoomed out, a lone carrier is just its orbiting ship; badges only where two or more stack up
+      Object.keys(byOwner).filter(pid => ppl >= 14 || byOwner[pid] > 1).forEach((pid, i) => {
+        const bx = s.x + R + 2 * bu, by = s.y - R * .55 + i * 9 * bu, n = byOwner[pid];
+        out.push(`<g ${(here.find(v => v.owner === +pid && v.c) || {}).c ? `data-c="${here.find(v => v.owner === +pid && v.c).id}"` : ""}>
+          <rect x="${f(bx)}" y="${f(by - 5 * bu)}" width="${f((n > 9 ? 17 : 13) * bu)}" height="${f(8.5 * bu)}" rx="${f(4.2 * bu)}" fill="#000" fill-opacity=".8"
+            stroke="${col(S.players[pid])}" stroke-width="${f(.9 * bu)}"/>
+          <path d="M${f(bx + 2.2 * bu)} ${f(by + 1.8 * bu)}l${f(1.6 * bu)} ${f(-4.6 * bu)}l${f(1.6 * bu)} ${f(4.6 * bu)}z" fill="${col(S.players[pid])}"/>
+          <text x="${f(bx + 6.3 * bu)}" y="${f(by + 1.9 * bu)}" font-size="${f(7 * bu)}" font-weight="700" fill="#fff">${n}</text></g>`);
+      });
+    }
     out.push(`</g>`);
     // labels (level of detail by zoom)
     if (!dim || showNames) {
@@ -1065,7 +1101,56 @@ function renderMap() {
   const nice = [1, 2, 5, 10, 20, 50].find(n => n * ppl >= 60) || 50;
   $("scalebar").innerHTML = `<i style="width:${Math.round(nice * ppl)}px"></i>${nice} ly${tri ? "" : " · grid 5 ly"}`;
   renderHud();
+  if (tri) drawSky();
 }
+
+/* ---- starfield: three layers of background stars on a canvas behind the map.
+   Far stars barely move when you pan, near ones move more (parallax), and a
+   share of them twinkle. Cheap: ~500 dots, redrawn ~20 times a second at most,
+   and not at all when the page is hidden, off the Galaxy tab, or the viewer
+   prefers reduced motion. ---- */
+const SKY_LAYERS = [{ d:3.2, r:[.35, .8], a:[.25, .6], par:.04, tw:.15 }, { d:1.1, r:[.6, 1.1], a:[.4, .8], par:.12, tw:.35 },
+                    { d:.22, r:[1, 1.7], a:[.6, 1], par:.3, tw:.6 }];
+const SKY_TINTS = ["255,255,255", "255,244,224", "214,228,255", "255,230,200", "200,220,255"];
+let sky = null, skyRaf = 0, skyLast = 0;
+const calmMotion = matchMedia("(prefers-reduced-motion: reduce)");
+function buildSky(w, h) {
+  let t = 1234567; const r = () => ((t = (t * 1664525 + 1013904223) >>> 0) / 4294967296);
+  const lerp = (a, k) => a[0] + (a[1] - a[0]) * k, area = w * h / 10000;
+  sky = { w, h, stars:SKY_LAYERS.map(L => Array.from({ length:Math.max(12, Math.round(area * L.d)) }, () => ({
+    x:r() * w, y:r() * h, r:lerp(L.r, r()), a:lerp(L.a, r()), tint:SKY_TINTS[Math.floor(r() * SKY_TINTS.length)],
+    tw:r() < L.tw, ph:r() * 6.28, sp:.6 + r() * 1.8 }))) };
+}
+function drawSky(now) {
+  const cv = $("sky"); if (!cv || !cam) return;
+  const dpr = Math.min(2, window.devicePixelRatio || 1), W = cv.clientWidth, H = cv.clientHeight;
+  if (!W || !H) return;
+  if (cv.width !== Math.round(W * dpr) || cv.height !== Math.round(H * dpr)) { cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); }
+  if (!sky || sky.w !== W || sky.h !== H) buildSky(W, H);
+  const g = cv.getContext("2d"), time = (now || performance.now()) / 1000;
+  g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
+  const span = Math.max(S.width, S.height) || 1, zoom = Math.log2(span * 1.2 / cam.w);   // 0 at fit, grows as you zoom in
+  SKY_LAYERS.forEach((L, i) => {
+    const ox = -(cam.x / span) * W * L.par * 4, oy = -(cam.y / span) * H * L.par * 4, grow = 1 + Math.max(0, zoom) * L.par * .5;
+    for (const st of sky.stars[i]) {
+      const x = ((st.x + ox) % W + W) % W, y = ((st.y + oy) % H + H) % H;
+      const a = st.tw && !calmMotion.matches ? st.a * (.55 + .45 * Math.sin(time * st.sp + st.ph)) : st.a;
+      g.fillStyle = `rgba(${st.tint},${a.toFixed(3)})`;
+      const rr = st.r * grow;
+      if (rr < 1) g.fillRect(x - rr, y - rr, rr * 2, rr * 2);
+      else { g.beginPath(); g.arc(x, y, rr, 0, 6.2832); g.fill(); }
+    }
+  });
+}
+(function skyLoop() {                          // twinkle ticker
+  const tick = now => {
+    skyRaf = requestAnimationFrame(tick);
+    if (document.hidden || tab !== "galaxy" || PB.style === "clean" || calmMotion.matches || !S) return;
+    if (now - skyLast < 50) return;
+    skyLast = now; drawSky(now);
+  };
+  skyRaf = requestAnimationFrame(tick);
+})();
 
 /* The action a carrier takes at a stop, as a small label beside that star. */
 function orderLabel(od, o, u, f) {
