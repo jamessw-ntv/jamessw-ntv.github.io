@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-27",
-    "fetched": "2026-09-27T18:13:00+00:00",
+    "fetched": "2026-09-27T21:58:25+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 4,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 4
+      "temp": 6,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
         "min": 3,
-        "max": 17,
+        "max": 18,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -27,16 +27,16 @@
         "day": "Tue",
         "min": 8,
         "max": 21,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 2
       },
       {
         "day": "Wed",
         "min": 15,
-        "max": 20,
+        "max": 21,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 37
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119847.0,
-        "pct": 0.23
+        "price": 120694.0,
+        "pct": 0.92
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3813.2,
-        "pct": -0.25
+        "price": 3826.32,
+        "pct": 0.25
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Asian Games 2026 Livestream: Where to Watch the Event In the U.S. Online",
+      "title": "‘Avengers: Doomsday’ Co-Director Explains It’s ‘Very Difficult’ to Evolve Marvel Characters, but ‘We Need to Surprise Ourselves’ and ‘Audiences’",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/where-to-watch-asian-games-2026-usa-livestream-online-free-1236876889/"
+      "url": "https://variety.com/2026/film/news/avengers-doomsday-director-very-difficult-mcu-characters-1236876967/"
     },
     {
       "cat": "Film/TV",
-      "title": "Chris Rock Says Infidelity and Struggling to ‘Make It’ Aren’t Just Hollywood Problems: ‘If You Got No Love, You’re Broke as F—k’",
+      "title": "Neil Patrick Harris to Star in ‘Damn Yankees’ Broadway Revival",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/chris-rock-infidelity-hollywood-misty-green-nyff-1236876867/"
+      "url": "https://variety.com/2026/legit/news/damn-yankees-broadway-revival-neil-patrick-harris-1236876661/"
     },
     {
       "cat": "Film/TV",
-      "title": "Adam Brody Calls for a ‘Free Palestine,’ Says He’s Never ‘Ducked’ Politics: ‘I Just Answer the Questions I’m Asked’",
+      "title": "Nat Geo Kicks Off New Multi-Year Doc Franchise With ‘Africa Earth’s Wild Home’",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/adam-brody-calls-for-free-palestine-political-question-1236876872/"
+      "url": "https://variety.com/2026/tv/news/nat-geo-new-doc-franchise-africa-earths-wild-home-1236876900/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Avengers: Endgame Encore’ Scores Massive $86 Million Globally, Brad Pitt’s ‘Heart of the Beast’ Launches to $50 Million Worldwide",
+      "title": "Anthony Mackie Says Chris Evans Gave Him the ‘Avengers: Endgame’ Script Early, Revealing How He’d Become Captain America: ‘It Was Really Great and Really Emotional’",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/avengers-endgame-encore-box-office-rerelease-huge-86-million-globally-1236876861/"
+      "url": "https://variety.com/2026/film/news/chris-evans-anthony-mackie-avengers-endgame-script-early-1236876896/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
