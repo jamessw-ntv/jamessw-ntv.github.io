@@ -12,8 +12,11 @@ analysis. Plain static page; no server.
   `fleetList`) and fog of war (`visionSet`, `seesStar`) live here; the engine side is
   `beginTurn` / `tick` / `endTurn` and `scanSources` / `inScan` in `sim.js`.
   Playback and view prefs (`PB`) are per-browser, never game state.
-  Galaxy tab layout: `.gal` grid, overall data in `.sideL` (left), map in `.mapcol` (centre),
-  the selection in `.sideR` (right); under 1200px the sides stack right, on phones below the map.
+  Layout: the map is the whole page (`.panel[data-tab=galaxy]`, always on) under a 48px top bar
+  (`.ctrl`, with the ☰ `#navmenu`). Everything else is a screen (`.scr`) that slides over the map from
+  the left, like the real client's 480px npui.Screen: `tab` names the open one ("galaxy" = none),
+  the selection's screen is `[data-scr=inspect]` (a bottom sheet on phones), `syncScreens()` shows
+  and hides them, `showSel()` brings the selection forward.
   A person can play one seat (`players[i].human`; bots skip it). Their orders go through
   `sim.act` (buy, buyBulk, research, send, propose/accept/decline, war); bot alliance offers to
   them wait in `S.offers`. In the viewer, `humanId()` / `playerView()` gate what Player view
