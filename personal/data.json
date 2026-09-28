@@ -2,23 +2,23 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-27",
-    "fetched": "2026-09-27T21:58:25+00:00",
+    "updated": "2026-09-28",
+    "fetched": "2026-09-28T00:28:08+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 6,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 6
+      "temp": 12,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 1
     },
     "days": [
       {
         "day": "Today",
         "min": 3,
-        "max": 18,
+        "max": 17,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -33,11 +33,11 @@
       },
       {
         "day": "Wed",
-        "min": 15,
-        "max": 21,
+        "min": 14,
+        "max": 22,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 37
+        "rain": 14
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 120694.0,
-        "pct": 0.92
+        "price": 120939.0,
+        "pct": 0.95
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3826.32,
-        "pct": 0.25
+        "price": 3841.63,
+        "pct": 0.41
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Avengers: Doomsday’ Co-Director Explains It’s ‘Very Difficult’ to Evolve Marvel Characters, but ‘We Need to Surprise Ourselves’ and ‘Audiences’",
-      "when": "27 Sep",
+      "title": "Madonna Opens MTV Video Music Awards With Sabrina Carpenter and Charli xcx, Plus Sombr, Debi Mazar and More",
+      "when": "28 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/avengers-doomsday-director-very-difficult-mcu-characters-1236876967/"
+      "url": "https://variety.com/2026/music/awards/madonna-sabrina-carpenter-charli-xcx-mtv-vmas-performance-1236876448/"
     },
     {
       "cat": "Film/TV",
-      "title": "Neil Patrick Harris to Star in ‘Damn Yankees’ Broadway Revival",
-      "when": "27 Sep",
+      "title": "‘Roseanne’ Star Michael Fishman Apologizes to Fans for the ‘Chaos’ of Roseanne Barr Feud: ‘I’m Gonna Keep Pushing Out Love’",
+      "when": "28 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/legit/news/damn-yankees-broadway-revival-neil-patrick-harris-1236876661/"
+      "url": "https://variety.com/2026/tv/news/roseanne-barr-michael-fishman-apologizes-for-feud-1236877099/"
     },
     {
       "cat": "Film/TV",
-      "title": "Nat Geo Kicks Off New Multi-Year Doc Franchise With ‘Africa Earth’s Wild Home’",
+      "title": "VMAs 2026 Winners List: Lisa Awarded Best Pop and More",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/nat-geo-new-doc-franchise-africa-earths-wild-home-1236876900/"
+      "url": "https://variety.com/2026/music/news/vmas-winners-list-mtv-awards-2026-show-1236876862/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: Jon Watts Possibly Directing ‘Star Wars’ Episode X, Mortis Gods Confirmed for ‘Ahsoka’ Season 2, and More",
+      "when": "27 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-jon-watts-possibly-directing-star-wars-episode-x-mortis-gods-confirmed-for-ahsoka-season-2-and-more.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Anthony Mackie Says Chris Evans Gave Him the ‘Avengers: Endgame’ Script Early, Revealing How He’d Become Captain America: ‘It Was Really Great and Really Emotional’",
+      "title": "Jeff Probst Says ‘Survivor’ Needs Diversity Despite Paramount’s DEI Rollbacks: ‘All Those Differences Matter in the Story’",
       "when": "27 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/chris-evans-anthony-mackie-avengers-endgame-script-early-1236876896/"
+      "url": "https://variety.com/2026/tv/news/jeff-probst-survivor-casting-hasnt-changed-paramount-dei-1236876965/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "26 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/review-the-book-of-boba-fett-2-keeps-the-action-moving-like-a-hover-train.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "King Lee-Char – ‘Star Wars’ Character Spotlight",
-      "when": "26 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/king-lee-char-star-wars-character-spotlight.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
