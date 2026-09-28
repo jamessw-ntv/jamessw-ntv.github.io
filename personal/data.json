@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-28",
-    "fetched": "2026-09-28T15:14:13+00:00",
+    "fetched": "2026-09-28T21:46:34+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 14,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 5
+      "wind": 17
     },
     "days": [
       {
@@ -25,18 +25,18 @@
       },
       {
         "day": "Wed",
-        "min": 15,
-        "max": 21,
+        "min": 14,
+        "max": 20,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 25
+        "rain": 22
       },
       {
         "day": "Thu",
-        "min": 12,
-        "max": 24,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "min": 13,
+        "max": 23,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
         "rain": 96
       }
     ]
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118357.0,
-        "pct": -1.16
+        "price": 118824.0,
+        "pct": -1.44
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3802.81,
-        "pct": -0.16
+        "price": 3818.3,
+        "pct": -0.14
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Elsinore’ Trailer: Andrew Scott Plays AIDS-Afflicted ‘Hamlet’ Actor Ian Charleson in Heartbreaking Biographical Drama",
+      "title": "After a Booming Year, Horror Insiders Debate the Genre’s Future at Fantastic Fest: ‘You Can Take Big Swings and You’re Mitigating Your Risk’",
       "when": "28 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/elsinore-trailer-andrew-scott-ian-charleson-1236877193/"
+      "url": "https://variety.com/2026/film/festivals/horror-movies-future-filmmakers-shudder-debate-1236875312/"
     },
     {
       "cat": "Film/TV",
-      "title": "Margot Robbie’s ‘Neighbours’ Episodes to Be Recut Into a Microdrama by RoseBerry for Its Epis Platform (EXCLUSIVE)",
+      "title": "‘Avengers: Doomsday’ Star Alan Cumming Says ‘I Don’t Fully Understand the Plot’ and Only Acted With Florence Pugh’s Stunt Double",
       "when": "28 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/margot-robbie-neighbours-microdrama-episodes-roseberry-1236876975/"
+      "url": "https://variety.com/2026/film/news/alan-cumming-plot-avengers-doomsday-1236877644/"
     },
     {
       "cat": "Film/TV",
-      "title": "NBC Taps 100th Anniversary to Hook More Advertisers With Tentpole Events",
+      "title": "James H. Rosenfield, Sr., Former Executive VP of CBS Broadcast Group, Dies at 97",
       "when": "28 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/nbc-100th-anniversary-special-advertisers-commercials-event-1236877111/"
+      "url": "https://variety.com/2026/tv/news/james-rosenfield-dead-cbs-1236877582/"
     },
     {
       "cat": "Film/TV",
-      "title": "OBB Studios Expands Global Reach With Opening of London Office",
+      "title": "Paramount and States Defend Antitrust Settlement From Sen. Booker’s Criticisms",
       "when": "28 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/obb-studios-london-office-daisy-domenghini-ratner-michael-1236877011/"
+      "url": "https://variety.com/2026/film/news/paramount-settlement-cory-booker-response-1236877590/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars’ December 2026 Comics Preview: ‘The Fall of Kylo Ren’ Finale, State of ‘Star Wars’ Comics, and More",
+      "when": "28 Sep",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/09/star-wars-december-2026-comics-preview-the-fall-of-kylo-ren-finale-state-of-star-wars-comics-and-more.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "27 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/star-wars-skeleton-crew-showrunner-jon-watts-to-direct-the-star-wars-movie-written-by-simon-kinberg.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review: ‘The Book Of Boba Fett’ #2 Keeps The Action Moving Like A Hover Train",
-      "when": "26 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/review-the-book-of-boba-fett-2-keeps-the-action-moving-like-a-hover-train.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "8h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
