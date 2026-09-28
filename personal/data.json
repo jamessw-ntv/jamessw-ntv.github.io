@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-28",
-    "fetched": "2026-09-28T00:28:08+00:00",
+    "fetched": "2026-09-28T06:34:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 1
+      "temp": 17,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 7
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 21,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 0
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 22,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 14
+        "rain": 41
       }
     ]
   },
@@ -72,38 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 120939.0,
-        "pct": 0.95
+        "price": 118391.0,
+        "pct": -1.49
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3841.63,
-        "pct": 0.41
+        "price": 3773.18,
+        "pct": -1.94
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Madonna Opens MTV Video Music Awards With Sabrina Carpenter and Charli xcx, Plus Sombr, Debi Mazar and More",
+      "title": "China Box Office: ‘Avengers: Endgame Encore’ Tops Pre-Holiday Weekend",
       "when": "28 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/awards/madonna-sabrina-carpenter-charli-xcx-mtv-vmas-performance-1236876448/"
+      "url": "https://variety.com/2026/film/box-office/china-box-office-avengers-endgame-encore-1236877185/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Roseanne’ Star Michael Fishman Apologizes to Fans for the ‘Chaos’ of Roseanne Barr Feud: ‘I’m Gonna Keep Pushing Out Love’",
+      "title": "Taylor Swift Premieres ‘Patient Zero’ Music Video at VMAs, Turning Her New ‘Showgirl: Encore’ Single Into a Dramatic Ghost Story",
       "when": "28 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/roseanne-barr-michael-fishman-apologizes-for-feud-1236877099/"
+      "url": "https://variety.com/2026/music/news/taylor-swift-vmas-patient-zero-music-video-premiere-1236876944/"
     },
     {
       "cat": "Film/TV",
-      "title": "VMAs 2026 Winners List: Lisa Awarded Best Pop and More",
-      "when": "27 Sep",
+      "title": "Korea Box Office: ‘The Assassin(s)’ and ‘Tazza 4’ Dominate Chuseok Holiday Weekend Surge",
+      "when": "28 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/vmas-winners-list-mtv-awards-2026-show-1236876862/"
+      "url": "https://variety.com/2026/film/box-office/korea-box-office-the-assassins-tazza-4-chuseok-holiday-weekend-1236877125/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Kacey Musgraves Pays Heartfelt Tribute to Dolly Parton With ‘I Will Always Love You’ Performance at MTV Video Music Awards",
+      "when": "28 Sep",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/awards/kacey-musgraves-dolly-parton-tribute-mtv-vmas-performance-1236876461/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "27 Sep",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/09/this-week-in-a-galaxy-far-far-away-jon-watts-possibly-directing-star-wars-episode-x-mortis-gods-confirmed-for-ahsoka-season-2-and-more.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jeff Probst Says ‘Survivor’ Needs Diversity Despite Paramount’s DEI Rollbacks: ‘All Those Differences Matter in the Story’",
-      "when": "27 Sep",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jeff-probst-survivor-casting-hasnt-changed-paramount-dei-1236876965/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
