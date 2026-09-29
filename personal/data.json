@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-29",
-    "fetched": "2026-09-29T08:14:56+00:00",
+    "fetched": "2026-09-29T15:36:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 18,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 17
+      "temp": 15,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 15
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 22,
+        "min": 15,
+        "max": 23,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
-      },
-      {
-        "day": "Wed",
-        "min": 14,
-        "max": 22,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 16
+        "rain": 19
       },
       {
         "day": "Thu",
-        "min": 13,
-        "max": 22,
+        "min": 12,
+        "max": 24,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 98
+        "rain": 99
+      },
+      {
+        "day": "Fri",
+        "min": 11,
+        "max": 16,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 92
       }
     ]
   },
@@ -86,31 +86,31 @@
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Platform’ Co-Producer David Matamoros of Doce Entertainment Spain Boards Matías Rojas’ ‘Dog Legs’ (EXCLUSIVE)",
+      "title": "JioStar’s Kevin Vaz Urges Indian Government to Restore BARC TV Audience Ratings as Media Sector Hits $28.9 Billion",
       "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/the-platform-david-matamoros-spain-matias-rojas-dog-legs-1236876315/"
+      "url": "https://variety.com/2026/tv/news/jiostar-kevin-vaz-india-restore-barc-tv-ratings-1236878098/"
     },
     {
       "cat": "Film/TV",
-      "title": "Madrid Audiovisual Cluster Dives Deeper into New Business Models, AI and Emerging Technologies at Iberseries & Platino Industria",
+      "title": "Sylvester Stallone Says Superhero Movie Bodies Aren’t ‘Natural’ and Taking Steroids to Bulk Up Is Like ‘Putting on Part of a Costume’",
       "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/ai-new-tech-biz-models-madrid-audiovisual-cluster-1236877481/"
+      "url": "https://variety.com/2026/film/news/sylvester-stallone-superhero-bodies-steroids-1236878101/"
     },
     {
       "cat": "Film/TV",
-      "title": "Mayor Zohran Mamdani Refuses Jimmy Kimmel’s Request to Text Trump a Selfie of Them",
+      "title": "Steven Knight on Making the Leap From ‘Who Wants to Be a Millionaire?’ to ‘Dirty Pretty Things’ to, Eventually, James Bond",
       "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/zohran-mamdani-jimmy-kimmel-live-donald-trump-selfie-text-1236877861/"
+      "url": "https://variety.com/2026/tv/global/steven-knight-who-wants-to-be-a-millionaire-james-bond-1236878069/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jon Stewart Takes Aim at Trump’s Meeting With China’s President: ‘How Does America Even Stay on the Map?’",
+      "title": "How Britney Spears and the ‘Cannibal Cop’ Left Erin Lee Carr Forever Changed",
       "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jon-stewart-donald-trump-xi-jinping-1236877851/"
+      "url": "https://variety.com/2026/tv/news/erin-lee-carr-britney-spears-cannibal-cop-the-swan-stormy-daniels-1236877664/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     }
