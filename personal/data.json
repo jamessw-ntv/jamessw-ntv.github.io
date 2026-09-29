@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-29",
-    "fetched": "2026-09-29T01:42:28+00:00",
+    "fetched": "2026-09-29T08:14:56+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 21
+      "temp": 18,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 17
     },
     "days": [
       {
         "day": "Today",
         "min": 8,
-        "max": 21,
+        "max": 22,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 2
@@ -26,17 +26,17 @@
       {
         "day": "Wed",
         "min": 14,
-        "max": 21,
+        "max": 22,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 20
+        "rain": 16
       },
       {
         "day": "Thu",
-        "min": 12,
+        "min": 13,
         "max": 22,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
         "rain": 98
       }
     ]
@@ -86,31 +86,31 @@
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘School Girls; or, the African Mean Girls Play’ Broadway Review: An Exceptional Portrait of Black Girlhood",
+      "title": "‘The Platform’ Co-Producer David Matamoros of Doce Entertainment Spain Boards Matías Rojas’ ‘Dog Legs’ (EXCLUSIVE)",
       "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/legit/reviews/school-girls-or-the-african-mean-girls-play-broadway-review-1236877325/"
+      "url": "https://variety.com/2026/film/global/the-platform-david-matamoros-spain-matias-rojas-dog-legs-1236876315/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Hirayasumi’ Anime Unveils Footage, Key Visual and Lead Voice Cast Ahead of NHK Debut",
+      "title": "Madrid Audiovisual Cluster Dives Deeper into New Business Models, AI and Emerging Technologies at Iberseries & Platino Industria",
       "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hirayasumi-anime-footage-voice-cast-nhk-debut-1236877801/"
+      "url": "https://variety.com/2026/film/global/ai-new-tech-biz-models-madrid-audiovisual-cluster-1236877481/"
     },
     {
       "cat": "Film/TV",
-      "title": "Rob Lowe Says ‘St. Elmo’s Fire’ Sequel Is Still ‘In the Works,’ Confirms There’s a Script: ‘All of Us Actors Want to Do It’",
-      "when": "28 Sep",
+      "title": "Mayor Zohran Mamdani Refuses Jimmy Kimmel’s Request to Text Trump a Selfie of Them",
+      "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/rob-lowe-st-elmos-fire-sequel-in-the-works-1236877779/"
+      "url": "https://variety.com/2026/tv/news/zohran-mamdani-jimmy-kimmel-live-donald-trump-selfie-text-1236877861/"
     },
     {
       "cat": "Film/TV",
-      "title": "Former ‘South Park’ Writer Launches Site to Expose Information About Cornell University Sexual Assault Case: ‘There Will Be Accountability’",
-      "when": "28 Sep",
+      "title": "Jon Stewart Takes Aim at Trump’s Meeting With China’s President: ‘How Does America Even Stay on the Map?’",
+      "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/south-park-writer-cornell-university-sexual-assault-case-1236877772/"
+      "url": "https://variety.com/2026/tv/news/jon-stewart-donald-trump-xi-jinping-1236877851/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
