@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-28",
-    "fetched": "2026-09-28T21:46:34+00:00",
+    "updated": "2026-09-29",
+    "fetched": "2026-09-29T01:42:28+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 17
+      "temp": 20,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 21
     },
     "days": [
       {
@@ -21,23 +21,23 @@
         "max": 21,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 0
+        "rain": 2
       },
       {
         "day": "Wed",
         "min": 14,
-        "max": 20,
+        "max": 21,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 22
+        "rain": 20
       },
       {
         "day": "Thu",
-        "min": 13,
-        "max": 23,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
-        "rain": 96
+        "min": 12,
+        "max": 22,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 98
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118824.0,
-        "pct": -1.44
+        "price": 118128.0,
+        "pct": -1.22
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3818.3,
-        "pct": -0.14
+        "price": 3791.7,
+        "pct": -0.29
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "After a Booming Year, Horror Insiders Debate the Genre’s Future at Fantastic Fest: ‘You Can Take Big Swings and You’re Mitigating Your Risk’",
-      "when": "28 Sep",
+      "title": "‘School Girls; or, the African Mean Girls Play’ Broadway Review: An Exceptional Portrait of Black Girlhood",
+      "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/horror-movies-future-filmmakers-shudder-debate-1236875312/"
+      "url": "https://variety.com/2026/legit/reviews/school-girls-or-the-african-mean-girls-play-broadway-review-1236877325/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Avengers: Doomsday’ Star Alan Cumming Says ‘I Don’t Fully Understand the Plot’ and Only Acted With Florence Pugh’s Stunt Double",
-      "when": "28 Sep",
+      "title": "‘Hirayasumi’ Anime Unveils Footage, Key Visual and Lead Voice Cast Ahead of NHK Debut",
+      "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/alan-cumming-plot-avengers-doomsday-1236877644/"
+      "url": "https://variety.com/2026/tv/news/hirayasumi-anime-footage-voice-cast-nhk-debut-1236877801/"
     },
     {
       "cat": "Film/TV",
-      "title": "James H. Rosenfield, Sr., Former Executive VP of CBS Broadcast Group, Dies at 97",
+      "title": "Rob Lowe Says ‘St. Elmo’s Fire’ Sequel Is Still ‘In the Works,’ Confirms There’s a Script: ‘All of Us Actors Want to Do It’",
       "when": "28 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/james-rosenfield-dead-cbs-1236877582/"
+      "url": "https://variety.com/2026/film/news/rob-lowe-st-elmos-fire-sequel-in-the-works-1236877779/"
     },
     {
       "cat": "Film/TV",
-      "title": "Paramount and States Defend Antitrust Settlement From Sen. Booker’s Criticisms",
+      "title": "Former ‘South Park’ Writer Launches Site to Expose Information About Cornell University Sexual Assault Case: ‘There Will Be Accountability’",
       "when": "28 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paramount-settlement-cory-booker-response-1236877590/"
+      "url": "https://variety.com/2026/tv/news/south-park-writer-cornell-university-sexual-assault-case-1236877772/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
