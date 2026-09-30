@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-09-29",
-    "fetched": "2026-09-29T20:37:13+00:00",
+    "updated": "2026-09-30",
+    "fetched": "2026-09-30T00:15:24+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 17,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 20
+      "temp": 21,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 22
     },
     "days": [
       {
@@ -86,31 +86,38 @@
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Ex-‘American Idol’ Contestant Caleb Flynn Found Guilty of Murdering Wife",
+      "title": "What’s New on Netflix in October 2026",
       "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/caleb-flynn-guilty-murder-wife-american-idol-1236878491/"
+      "url": "https://variety.com/feature/whats-on-netflix-movies-shows-1203517873/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ringo Starr, David Byrne, Joan Baez Donate Unqiue Items for Housing Works Auction",
+      "title": "What to Watch on Disney+ in October 2026",
       "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/ringo-starr-david-byrne-housing-works-auction-1236878384/"
+      "url": "https://variety.com/feature/whats-on-disney-plus-new-shows-movies-1203517920/"
     },
     {
       "cat": "Film/TV",
-      "title": "Curry Barker’s ‘Obsession’ Follow-Up ‘Anything But Ghosts’ Sets May 2027 Release Date From Focus Features, Blumhouse",
+      "title": "Lady A’s Charles Kelley Shares Blood Cancer Diagnosis: ‘I’m Confident That We’re Going to Get Through It’",
       "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/curry-barker-obsession-anything-but-ghosts-release-date-1236878462/"
+      "url": "https://variety.com/2026/music/news/lady-a-charles-kelley-shares-blood-cancer-diagnosis-1236878685/"
     },
     {
       "cat": "Film/TV",
-      "title": "Prime ‘Big Deal Days’ 2026: What to Know About Amazon’s October Prime Day Sale",
+      "title": "Casey Bloys Poised to Run HBO and Paramount+ as Cindy Holland Confirms Her Exit From Studio on Eve of Merger Closing",
       "when": "29 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/amazon-prime-big-deal-days-october-2026-date-best-deals-1236877781/"
+      "url": "https://variety.com/2026/tv/news/casey-bloys-cindy-holland-paramount-hbo-streaming-merger-1236878666/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Interview: Terry Matalas Ready For More Star Trek, Sees ‘The Next Generation’ As Model For Franchise Future",
+      "when": "29 Sep",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/09/29/interview-terry-matalas-ready-for-more-star-trek-sees-the-next-generation-as-model-for-franchise-future/"
     },
     {
       "cat": "Games",
@@ -155,13 +162,6 @@
       "url": "https://trekmovie.com/2026/09/24/recap-review-star-trek-strange-new-worlds-season-4-finale-is-right-on-time-with-tomorrows-enterprise/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Starfleet Academy’ Cast And William Shatner Set For NYCC Star Trek Panel",
-      "when": "23 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/23/starfleet-academy-cast-and-william-shatner-set-for-nycc-star-trek-panel/"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory - September News",
       "when": "22 Sep",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
