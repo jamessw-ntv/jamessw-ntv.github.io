@@ -3,29 +3,29 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-09-30",
-    "fetched": "2026-09-30T00:15:24+00:00",
+    "fetched": "2026-09-30T06:31:15+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 21,
+      "temp": 19,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 22
+      "wind": 18
     },
     "days": [
       {
         "day": "Today",
         "min": 15,
-        "max": 22,
+        "max": 21,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 16
+        "rain": 28
       },
       {
         "day": "Thu",
-        "min": 10,
+        "min": 11,
         "max": 21,
         "icon": "🌦️",
         "desc": "Showers",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 96
+        "rain": 94
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118128.0,
-        "pct": -1.22
+        "price": 119128.0,
+        "pct": -0.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3791.7,
-        "pct": -0.29
+        "price": 3820.19,
+        "pct": -0.94
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "What’s New on Netflix in October 2026",
-      "when": "29 Sep",
+      "title": "Karan Johar to End ‘Koffee With Karan’ After 22 Years With Final Season on JioHotstar: ‘The Decision Is Emotional and Personal’ (EXCLUSIVE)",
+      "when": "30 Sep",
       "source": "Variety",
-      "url": "https://variety.com/feature/whats-on-netflix-movies-shows-1203517873/"
+      "url": "https://variety.com/2026/tv/news/karan-johar-end-koffee-with-karan-22-years-final-season-jiohotstar-1236876708/"
     },
     {
       "cat": "Film/TV",
-      "title": "What to Watch on Disney+ in October 2026",
-      "when": "29 Sep",
+      "title": "Greta Thunberg Makes Surprise Appearance at Zurich Premiere of ‘My Home of Wind and Sand,’ Denounces Occupation of Western Sahara",
+      "when": "30 Sep",
       "source": "Variety",
-      "url": "https://variety.com/feature/whats-on-disney-plus-new-shows-movies-1203517920/"
+      "url": "https://variety.com/2026/film/global/greta-thunberg-zurich-occupied-western-sahara-1236878436/"
     },
     {
       "cat": "Film/TV",
-      "title": "Lady A’s Charles Kelley Shares Blood Cancer Diagnosis: ‘I’m Confident That We’re Going to Get Through It’",
-      "when": "29 Sep",
+      "title": "Anton Studios Joins The Creatives as Partner and Investor as Producer-Led European Company Enters Jointly Owned Holding Structure (EXCLUSIVE)",
+      "when": "30 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/lady-a-charles-kelley-shares-blood-cancer-diagnosis-1236878685/"
+      "url": "https://variety.com/2026/film/global/anton-studios-the-creatives-partners-investors-1236877944/"
     },
     {
       "cat": "Film/TV",
-      "title": "Casey Bloys Poised to Run HBO and Paramount+ as Cindy Holland Confirms Her Exit From Studio on Eve of Merger Closing",
-      "when": "29 Sep",
+      "title": "Florence Pugh Credits Tom Holland for ‘Spider-Man: Brand New Day’ Role: ‘This All Happened Because of Tom’",
+      "when": "30 Sep",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/casey-bloys-cindy-holland-paramount-hbo-streaming-merger-1236878666/"
+      "url": "https://variety.com/2026/film/news/florence-pugh-credits-tom-holland-spider-man-brand-new-day-1236887794/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
