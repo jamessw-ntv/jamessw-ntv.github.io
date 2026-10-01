@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-01",
-    "fetched": "2026-10-01T01:56:23+00:00",
+    "fetched": "2026-10-01T08:39:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 22,
+      "temp": 12,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 13
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
-        "min": 12,
-        "max": 22,
+        "min": 11,
+        "max": 20,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 100
+      },
+      {
+        "day": "Fri",
+        "min": 10,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 100
       },
       {
-        "day": "Fri",
-        "min": 11,
-        "max": 15,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 96
-      },
-      {
         "day": "Sat",
         "min": 11,
-        "max": 16,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 93
+        "max": 20,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 98
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 120253.0,
-        "pct": 0.42
+        "price": 120049.0,
+        "pct": 0.85
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3872.74,
-        "pct": 1.0
+        "price": 3858.92,
+        "pct": 1.01
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Laura Benanti on Her Journey From Broadway to Stand-Up With a Riotous One-Woman Show, ‘Nobody Cares,’ and Why Melania Remains One of Her Proudest Roles",
+      "title": "Ballet Star Tiler Peck to Make London West End Debut in Susan Stroman’s ‘Little Dancer’ (EXCLUSIVE)",
       "when": "1 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/legit/news/laura-benanti-nobody-cares-broadway-comedy-melania-interview-1236894247/"
+      "url": "https://variety.com/2026/theater/news/tiler-peck-west-end-debut-little-dancer-musical-1236893451/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Scrubs’ Showrunner Dissects Season 2 Premiere: Is Dr. Cox Going to Live, and Will We Finally See J.D. and Elliott’s Kid?",
+      "title": "Mediapro Studio Companies Bet on Big Ideas, Local Voices and Cross Border Muscle",
       "when": "1 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/scrubs-season-2-premiere-will-cox-live-see-jd-elliott-kid-1236894058/"
+      "url": "https://variety.com/2026/film/global/mediapro-studio-globomedia-cimarron-cine-el-terrat-1236893936/"
     },
     {
       "cat": "Film/TV",
-      "title": "Mark Ruffalo Says Paramount-Warner Bros. Merger Will ‘Stifle Creativity’ and ‘Weaken Free Speech’: It ‘Should Never Have Been Approved’",
+      "title": "Banijay Entertainment’s Scripted Secret: Find the Talent, Then Back the Ideas",
       "when": "1 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/mark-ruffalo-speaks-out-paramount-warner-bros-merger-1236894262/"
+      "url": "https://variety.com/2026/film/global/banijay-scripted-secret-groenlandia-pokeepsie-a-fabrica-1236894116/"
     },
     {
       "cat": "Film/TV",
-      "title": "Satyajit Ray Film by Srijit Mukherji, New Feluda and Eken Mysteries Lead Bengali Streamer Hoichoi’s 10th Anniversary Slate",
-      "when": "30 Sep",
+      "title": "International Oscar Submissions: Cuba, Denmark, Vietnam, Italy, France and More Join the List",
+      "when": "1 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/srijit-mukherji-satyajit-ray-film-hoichoi-25-title-slate-1236886519/"
+      "url": "https://variety.com/lists/international-oscar-submissions-2027/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
