@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-01",
-    "fetched": "2026-10-01T16:13:44+00:00",
+    "fetched": "2026-10-01T21:43:43+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -18,26 +18,26 @@
       {
         "day": "Today",
         "min": 10,
-        "max": 15,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 100
       },
       {
         "day": "Sat",
-        "min": 11,
-        "max": 18,
+        "min": 10,
+        "max": 16,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 98
+        "rain": 100
       },
       {
         "day": "Sun",
-        "min": 7,
-        "max": 15,
+        "min": 8,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 66
+        "rain": 72
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 121683.0,
-        "pct": 0.36
+        "price": 121931.0,
+        "pct": 1.19
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3880.81,
-        "pct": 0.42
+        "price": 3882.67,
+        "pct": 0.52
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Kevin Feige Hails Theatrical Experience as ‘the Real Movie Magic’ at Will Rogers Motion Picture Pioneers Tribute",
+      "title": "Venom Frontman Conrad ‘Cronos’ Lant Dies at 63",
       "when": "1 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/kevin-feige-theatrical-movie-magic-will-rogers-1236894472/"
+      "url": "https://variety.com/2026/music/news/venom-cronos-dead-lant-1236897114/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Giveaway: Win Tickets To The New York City Premiere Of ‘The Sixty-Year Mission’",
+      "when": "1 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/01/giveaway-tickets-to-the-new-york-city-premiere-of-the-sixty-year-mission/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jackie Chan, Anil Kapoor Films Among 335 National Winners at Asian Academy Creative Awards",
+      "title": "Ynon Kreiz, as Co-CEO of Paramount, to Receive Pay Package Worth More Than $46.5 Million",
       "when": "1 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/jackie-chan-anil-kapoor-asian-academy-national-awards-1236894892/"
+      "url": "https://variety.com/2026/film/news/ynon-kreiz-co-ceo-paramount-warner-bros-pay-package-salary-1236896994/"
     },
     {
       "cat": "Film/TV",
-      "title": "UTA Streamlines Film, TV and Talent Leadership; Matt Rice Rises to President of Filmed Entertainment Unit",
+      "title": "‘Bachelor’ Producers Send Legal Threat to Chris Harrison’s New Dating Show ‘The Vow’; Fox Nation Fights Back ‘Malicious and Vindictive’ Claims",
       "when": "1 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/uta-matt-rice-talent-filmed-entertainment-kramer-1236894551/"
+      "url": "https://variety.com/2026/tv/news/bachelor-producers-legal-threat-chris-harrison-dating-show-1236896854/"
     },
     {
       "cat": "Film/TV",
-      "title": "Amelia Dimoldenberg to Bring ‘Chicken Shop Date’ Final Season to Netflix and YouTube (EXCLUSIVE)",
+      "title": "Chris Hansen Confronts ‘Primetime’: The Tragic Ending, Seeing His Love Life Onscreen and Considering Legal Action Against A24 Because ‘They Exploited Me’",
       "when": "1 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/chicken-shop-date-final-season-netflix-youtube-1236877528/"
+      "url": "https://variety.com/2026/film/features/chris-hansen-primetime-ending-a24-legal-action-1236894822/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Connecting the Dots: The Various Iterations of ‘Rogue Squadron’ Over the Years",
+      "when": "1 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/connecting-the-dots-the-various-iterations-of-rogue-squadron-over-the-years.html"
     },
     {
       "cat": "Trek/Wars",
@@ -118,6 +132,13 @@
       "when": "1 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/kathleen-kennedy-admits-her-relief-in-leaving-lucasfilm-addresses-successes-and-challenges.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Galactic Racer’ Introduces Voice Cast in New Video Series",
+      "when": "1 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-galactic-racer-introduces-voice-cast-in-new-video-series.html"
     },
     {
       "cat": "Trek/Wars",
@@ -132,27 +153,6 @@
       "when": "30 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/30/new-star-trek-movie-directors-talk-darker-tone-sort-of-different-timeline/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Watch Replay Of TrekMovie/SyFy Sistas Live Star Trek News Show",
-      "when": "30 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/30/watch-replay-of-trekmovie-syfy-sistas-live-star-trek-news-show/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Galactic Racer’ Introduces Voice Cast in New Video Series",
-      "when": "30 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/star-wars-galactic-racer-introduces-voice-cast-in-new-video-series.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Shawn Levy Scored Overall TV At Disney After Executives Saw ‘Star Wars: Starfighter’ Cut",
-      "when": "30 Sep",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/09/shawn-levy-scored-overall-tv-at-disney-after-executives-saw-star-wars-starfighter-cut.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
