@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-02",
-    "fetched": "2026-10-02T08:16:37+00:00",
+    "fetched": "2026-10-02T15:38:03+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 18
+      "temp": 12,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 22
     },
     "days": [
       {
         "day": "Today",
-        "min": 11,
-        "max": 16,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "min": 10,
+        "max": 14,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
         "rain": 100
       },
       {
-        "day": "Sat",
-        "min": 10,
-        "max": 15,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
-        "rain": 94
+        "day": "Sun",
+        "min": 8,
+        "max": 14,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 34
       },
       {
-        "day": "Sun",
-        "min": 7,
-        "max": 14,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 29
+        "day": "Mon",
+        "min": 5,
+        "max": 17,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 2
       }
     ]
   },
@@ -72,45 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 124239.0,
-        "pct": 3.39
+        "price": 122842.0,
+        "pct": 1.2
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3946.95,
-        "pct": 2.31
+        "price": 3878.93,
+        "pct": 0.19
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Michael De Luca and Pamela Abdy to Depart at Warner Bros. Following Paramount Close",
+      "title": "Eminem Teams With NERDS Clothing for Original Video Game, New Streetwear Collab Out of New York Comic Con (EXCLUSIVE)",
       "when": "2 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/michael-de-luca-pamela-abdy-exit-warner-bros-paramount-merger-close-1236897365/"
+      "url": "https://variety.com/2026/gaming/news/eminem-nerds-clothing-merch-marshalls-massacre-video-game-1236897557/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Podcast Interview: Chris Fisher Talks ‘Strange New Worlds’ Season 4, “Tomorrow’s Enterprise,” And Star Trek’s Future",
+      "when": "2 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/02/podcast-interview-chris-fisher-talks-strange-new-worlds-season-4-tomorrows-enterprise-and-star-treks-future/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Cameron Winter at Carnegie Hall’ Review: Paul Thomas Anderson Directs a Rapturous Solo Concert Movie Built Around the Songs — and Haunting Sound — of Cameron Winter",
+      "title": "How Elizabeth Holmes Was Secretly Filmed for ‘You Can See Everything’ Doc: 7-Person Crew, 16-Hour Shoots and Cameras Covering the ‘Whole House’",
       "when": "2 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/cameron-winter-at-carnegie-hall-review-paul-thomas-anderson-1236897129/"
+      "url": "https://variety.com/2026/film/features/elizabeth-holmes-you-can-see-everything-secret-filming-1236894969/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ben Affleck’s ‘Animals’ Cast Wants Him to Run for Office: ‘Maybe They Hate Me’",
+      "title": "Amy Goodman Documentary ‘Steal This Story, Please!’ Acquired by Music Box in North America, Home Entertainment Release Set for Oct. 20 (EXCLUSIVE)",
       "when": "2 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/columns/ben-afflecks-why-wont-run-poiltical-office-animals-1236897296/"
+      "url": "https://variety.com/2026/film/global/amy-goodman-steal-this-story-please-music-box-1236897519/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ken Urker, Gypsy-Rose Blanchard’s Partner, Dies at 34",
+      "title": "Disney Licenses Slew of Titles to Netflix, Including All Five ‘Ice Age’ Movies, ‘Percy Jackson and the Olympians,’ ‘Felicity,’ ‘Will Trent,’ ‘Elio’ and More (EXCLUSIVE)",
       "when": "2 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ken-urker-dead-gypsy-rose-blanchard-partner-1236897303/"
+      "url": "https://variety.com/2026/tv/news/disney-licenses-titles-netflix-ice-age-movies-will-trent-percy-jackson-and-the-olympians-felicity-1236897256/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Zuckuss – ‘Star Wars’ Character Spotlight",
+      "when": "2 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/zuckuss-star-wars-character-spotlight.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Galactic Racer’ Review – The Definitive ‘Star Wars’ Racing Game With Endless Potential for High-Speed Fun",
+      "when": "2 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-galactic-racer-review-the-definitive-star-wars-racing-game-with-endless-potential-for-high-speed-fun.html"
     },
     {
       "cat": "Trek/Wars",
@@ -134,27 +155,6 @@
       "url": "https://trekmovie.com/2026/10/01/giveaway-tickets-to-the-new-york-city-premiere-of-the-sixty-year-mission/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Connecting the Dots: The Various Iterations of ‘Rogue Squadron’ Over the Years",
-      "when": "1 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/connecting-the-dots-the-various-iterations-of-rogue-squadron-over-the-years.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Kathleen Kennedy Admits Her Relief in Leaving Lucasfilm, Addresses Successes and Challenges",
-      "when": "1 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/kathleen-kennedy-admits-her-relief-in-leaving-lucasfilm-addresses-successes-and-challenges.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Star Trek Inducted As First Franchise In Broadcast Hall Of Fame",
-      "when": "30 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/30/star-trek-inducted-as-first-franchise-in-broadcast-hall-of-fame/"
-    },
-    {
       "cat": "Games",
       "title": "Another Satisfactory Announcement",
       "when": "29 Sep",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     }
