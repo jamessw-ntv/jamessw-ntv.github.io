@@ -2,38 +2,38 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-01",
-    "fetched": "2026-10-01T21:43:43+00:00",
+    "updated": "2026-10-02",
+    "fetched": "2026-10-02T01:29:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
+      "temp": 13,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 14
+      "wind": 18
     },
     "days": [
       {
         "day": "Today",
-        "min": 10,
-        "max": 13,
+        "min": 11,
+        "max": 15,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 100
       },
       {
         "day": "Sat",
-        "min": 10,
+        "min": 11,
         "max": 16,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
         "rain": 100
       },
       {
         "day": "Sun",
-        "min": 8,
+        "min": 7,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,52 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 121931.0,
-        "pct": 1.19
+        "price": 122235.0,
+        "pct": 1.57
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3882.67,
-        "pct": 0.52
+        "price": 3901.3,
+        "pct": 0.74
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Venom Frontman Conrad ‘Cronos’ Lant Dies at 63",
+      "title": "Oscars: Pakistan Selects Documentary ‘Hanging by a Wire’ for International Feature Race (EXCLUSIVE)",
+      "when": "2 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/oscars-pakistan-hanging-by-a-wire-international-feature-1236897231/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Donna Langley Says the Key to Stealing Taylor Sheridan Away From Paramount Was a Better Film Deal: ‘I Saw an Opportunity’",
+      "when": "2 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/donna-langley-taylor-sheridan-paramount-universal-1236897194/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Eddie Murphy to Star in Peacock Drama Series ‘The Chairman’ From ‘Mad Men’ Creator Matthew Weiner",
       "when": "1 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/venom-cronos-dead-lant-1236897114/"
+      "url": "https://variety.com/2026/tv/news/eddie-murphy-peacock-drama-matthew-weiner-1236897144/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Halle Berry Accused of Child Abuse by Ex Olivier Martinez, Who Is Seeking a Restraining Order",
+      "when": "1 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/halle-berry-accused-child-abuse-restraining-order-1236897135/"
     },
     {
       "cat": "Trek/Wars",
-      "title": "Giveaway: Win Tickets To The New York City Premiere Of ‘The Sixty-Year Mission’",
+      "title": "Fanhome Bringing Golden Enterprise Exclusive And ‘Star Trek: Starfleet Academy’ Star To NYCC",
+      "when": "1 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/01/fanhome-bringing-golden-enterprise-exclusive-and-star-trek-starfleet-academy-star-to-nycc/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Zero Company’ Among Top-Selling PC Games of August As It Sells Over 1 Million Copies",
+      "when": "1 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-zero-company-among-top-selling-pc-games-of-august-as-it-sells-over-1-million-copies.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Giveaway: Win Tickets To NYC Premiere Of ‘The Sixty-Year Mission’ Star Trek Documentary",
       "when": "1 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/01/giveaway-tickets-to-the-new-york-city-premiere-of-the-sixty-year-mission/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ynon Kreiz, as Co-CEO of Paramount, to Receive Pay Package Worth More Than $46.5 Million",
-      "when": "1 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ynon-kreiz-co-ceo-paramount-warner-bros-pay-package-salary-1236896994/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Bachelor’ Producers Send Legal Threat to Chris Harrison’s New Dating Show ‘The Vow’; Fox Nation Fights Back ‘Malicious and Vindictive’ Claims",
-      "when": "1 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/bachelor-producers-legal-threat-chris-harrison-dating-show-1236896854/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Chris Hansen Confronts ‘Primetime’: The Tragic Ending, Seeing His Love Life Onscreen and Considering Legal Action Against A24 Because ‘They Exploited Me’",
-      "when": "1 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/features/chris-hansen-primetime-ending-a24-legal-action-1236894822/"
     },
     {
       "cat": "Trek/Wars",
@@ -135,24 +149,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "‘Star Wars: Galactic Racer’ Introduces Voice Cast in New Video Series",
-      "when": "1 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-galactic-racer-introduces-voice-cast-in-new-video-series.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Star Trek Inducted As First Franchise In Broadcast Hall Of Fame",
       "when": "30 Sep",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/09/30/star-trek-inducted-as-first-franchise-in-broadcast-hall-of-fame/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "New Star Trek Movie Directors Talk Darker Tone, “Sort Of Different” Timeline",
-      "when": "30 Sep",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/09/30/new-star-trek-movie-directors-talk-darker-tone-sort-of-different-timeline/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
