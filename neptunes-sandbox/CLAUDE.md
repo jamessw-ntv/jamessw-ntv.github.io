@@ -29,6 +29,9 @@ analysis. Plain static page; no server.
   Warp gates: `star.gate`, `speedBetween` / `ticksBetween` (speed fixed at departure in `c.speed`).
   Battle forecasts: `forecast` in index.html runs `sim.tick` on a JSON copy of the state.
   Trading: `shareTech` / `sendCash` / `botTrade` in sim.js (`act.shareTech`, `act.sendCash`); UI is `tradeHtml`.
+  Talking with the bots (Inbox, key I): `botTalk` / `ask` / `answer` / `pactView` in sim.js (`act.ask`, `act.answer`),
+  phrasebook `TALK` per persona; state is `S.chat`, `S.pacts`, `S.talk`, `S.chatRead`. Only runs with a human seat, so
+  bot-only games (balance.js) are unchanged. UI is `renderInbox` / `composer` / `bubble` in index.html.
   Turn history: `replay` / `openReplay` / `replayGo` / `branchHere` in index.html swap S for a `history[]` snapshot;
   `snap()` and `save()` are guarded so a look-back never overwrites the live game.
   Techs in play: `techsOn(S)` (Terraforming and separate Scanning are off by default).

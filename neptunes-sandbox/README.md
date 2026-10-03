@@ -57,6 +57,17 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
   time for their new level × $25 (the real game's share_tech), or send any amount of cash. Gifts warm
   the receiver's opinion of you. Bots now and then share a tech with a smaller ally they like
   (house rule *Bots share techs with allies* in ⚙ Game).
+- **Inbox: talking with the bots** (✉ on the map, key `I`, or ✉ Message on an empire's card), when you
+  play an empire. No free text and no AI service: you pick a request (a truce for 1–4 days, leave one of
+  your stars alone, attack a third empire with me, trade a tech for a tech and/or cash, what do you think
+  of X or of me, an alliance) and the bot answers at once in its persona's voice, from what it really
+  thinks of you, your relative strength, its allies and your record. Bots write first too: alliance
+  offers, warnings when they see your carriers coming, threats or truce pleas after you attack, asks to
+  join a war on an empire they hate, asks for a tech you lead in, thanks for gifts, and how a joint war
+  went. Ask cards have Yes / No buttons and lapse after a day. Promises bind the bot's war plans (no
+  attacking a truce partner or a spared star; a joint-war target is fair game), and each turn a bot may
+  break one by its treachery: honest ones say so, treacherous ones break it quietly and you find out when
+  they attack (Admin view shows it at once). Break a truce yourself and that bot trusts your next one less.
 - **Turn history** (🕘 on the map, key `H`): look back at any earlier turn this session with a
   slider; ← → step. Look-only: *Play from here* (or editing anything) throws the later turns away.
 - **Battles** flash sparks and float each side's losses (−N ⚔ −M) during playback.
@@ -108,6 +119,9 @@ you can see.
   "research next" tech, which takes over when the current level completes.
 - Allied carriers parked at an ally's star stay there as guards.
 - Up to 6 empires (one per hub colour).
+- Messages are structured requests, not free text, and only between you and the bots (bots don't
+  message each other; their bot-to-bot diplomacy is the existing alliance logic). The acceptance
+  formulas and promise lengths are sandbox inventions, not the real game's.
 
 ## Personalities
 Warlord, Turtle, Diplomat, Opportunist, Economist, Expansionist. Each has

@@ -442,6 +442,36 @@
   .dmsg{min-height:1.2em;font-size:12.5px;margin:0 0 6px}
   .dmsg.ok{color:#7ee2b8} .dmsg.bad{color:#ffb4b4}
   @media (max-width:420px){.dir td.nm{max-width:104px}.dir .up{min-width:46px}}
+  /* inbox: talking with the bots */
+  .chatlist{display:flex;flex-direction:column;gap:4px;margin-top:12px}
+  .chatlist button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:var(--panel);color:var(--text);
+    border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;cursor:pointer;min-height:48px}
+  .chatlist button:hover,.chatlist button:focus-visible{border-color:var(--accent)}
+  .chatlist .cw{flex:1;min-width:0}
+  .chatlist .cw b{display:flex;gap:6px;align-items:center;font-size:14px}
+  .chatlist .cw span{display:block;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ubadge{background:var(--accent);color:#000;border-radius:99px;font-size:11px;font-weight:700;padding:1px 7px;line-height:1.4}
+  .chath{display:flex;align-items:center;gap:8px;margin:12px 0 8px;flex-wrap:wrap}
+  .chath h3{margin:0;font-size:15px;display:flex;gap:6px;align-items:center}
+  .pacts{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+  .pacts .tag{color:var(--text)}
+  .msgs{display:flex;flex-direction:column;gap:8px;padding:10px 2px;max-height:calc(100dvh - 360px);min-height:120px;overflow-y:auto;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .bub{max-width:86%;padding:8px 11px;border-radius:12px;font-size:13.5px;line-height:1.4;background:var(--panel2);border:1px solid var(--line);overflow-wrap:anywhere}
+  .bub.me{align-self:flex-end;background:var(--accent-soft);border-color:var(--accent);border-bottom-right-radius:4px}
+  .bub.them{align-self:flex-start;border-left:3px solid var(--pc);border-bottom-left-radius:4px}
+  .bub.note{align-self:center;background:transparent;border:0;color:#ffd479;font-size:12.5px;text-align:center}
+  .bub .when{display:block;font-size:11px;color:var(--muted);margin-top:3px}
+  .bub .ans{display:flex;gap:6px;margin-top:7px}
+  .compose{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+  .compose .sendrow{margin-top:0}
+  .compose select{min-width:0}
+  .mapctl button{position:relative}
+  .mapctl .dot{position:absolute;top:-5px;right:-5px;background:var(--accent);color:#000;border-radius:99px;font-size:10px;font-weight:700;
+    min-width:16px;height:16px;line-height:16px;padding:0 3px;box-sizing:border-box}
+  .mapctl [data-z=inbox][hidden]{display:none}
+  .navbtn{position:relative}
+  .navbtn .dot{position:absolute;top:2px;right:2px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
 </style>
 </head>
 <body class="np">
@@ -482,6 +512,7 @@
         <dt><kbd>G</kbd></dt><dd>Game menu: restart, new game, house rules</dd>
         <dt><kbd>V</kbd></dt><dd>Switch Player / Admin view (when playing an empire)</dd>
         <dt><kbd>S</kbd> <kbd>C</kbd></dt><dd>Your stars / your carriers</dd>
+        <dt><kbd>I</kbd></dt><dd>Inbox: talk with the other empires</dd>
         <dt><kbd>F</kbd></dt><dd>Full-screen map</dd>
         <dt><kbd>Esc</kbd></dt><dd>Close the top screen or selection</dd>
         <dt><kbd>?</kbd></dt><dd>This list</dd></dl></section>
@@ -507,6 +538,7 @@
             <button data-z="out" title="Zoom out">−</button>
             <button data-z="fit" title="Whole galaxy">⤢</button>
             <button data-z="hist" title="Look back at earlier turns (H)" aria-label="Turn history">🕘</button>
+            <button data-z="inbox" title="Inbox: talk with the other empires (I)" aria-label="Inbox" hidden>✉</button>
             <button id="bFull" title="Full-screen map (F)">⛶</button>
           </div>
           <div class="hud" id="hud"></div>
@@ -557,6 +589,9 @@
         </div></details>
     </details></div>
   </aside>
+
+  <!-- INBOX: talking with the bots -->
+  <section class="panel scr" data-tab="inbox"><div id="inbox"></div></section>
 
   <!-- ALLIANCES -->
   <section class="panel scr wide" data-tab="alliances">
@@ -965,15 +1000,17 @@ $("vision").addEventListener("click", e => {
 
 /* ---------------- tabs ---------------- */
 // "galaxy" = no screen open, just the map. Every other entry is a screen that slides over it.
-const TABS = [["galaxy","Galaxy map"],["overview","Overview"],["stars","Stars"],["carriers","Carriers"],["empires","Empires"],["alliances","Alliances"],["log","Log"],["admin","Admin"],["rules","Rules"]];
-const TAB_ICON = { galaxy:"✦", overview:"☰", stars:"★", carriers:"🚀", empires:"🏆", alliances:"🤝", log:"📜", admin:"🛠", rules:"📘" };
-const TAB_KEY = { stars:"S", carriers:"C" };
+const TABS = [["galaxy","Galaxy map"],["overview","Overview"],["inbox","Inbox"],["stars","Stars"],["carriers","Carriers"],["empires","Empires"],["alliances","Alliances"],["log","Log"],["admin","Admin"],["rules","Rules"]];
+const TAB_ICON = { galaxy:"✦", overview:"☰", inbox:"✉", stars:"★", carriers:"🚀", empires:"🏆", alliances:"🤝", log:"📜", admin:"🛠", rules:"📘" };
+const TAB_KEY = { stars:"S", carriers:"C", inbox:"I" };
 let tab = "galaxy";
 try { tab = localStorage.getItem("npSandbox.tab") || "galaxy"; } catch (e) {}
 const visibleTabs = () => playerView() ? TABS.filter(([k]) => k !== "admin" && k !== "alliances") : TABS;
 function renderTabs() {
   if (!visibleTabs().some(([k]) => k === tab)) tab = "galaxy";
-  $("tabs").innerHTML = visibleTabs().map(([k, l]) => `<button class="${k === tab ? "active" : ""}" data-t="${k}">${TAB_ICON[k]} ${l}${TAB_KEY[k] ? `<span class="kbd">${TAB_KEY[k]}</span>` : ""}</button>`).join("")
+  markRead();
+  const un = unread();
+  $("tabs").innerHTML = visibleTabs().map(([k, l]) => `<button class="${k === tab ? "active" : ""}" data-t="${k}">${TAB_ICON[k]} ${l}${k === "inbox" && un ? ` <span class="ubadge">${un}</span>` : ""}${TAB_KEY[k] ? `<span class="kbd">${TAB_KEY[k]}</span>` : ""}</button>`).join("")
     + `<hr><button data-act="game">⚙ Game menu <span class="kbd">G</span></button>`;
   document.querySelectorAll(".panel.scr").forEach(p => p.classList.toggle("on", p.dataset.tab === tab));
   syncScreens();
@@ -1619,6 +1656,7 @@ function keepClear() {
   document.querySelector(".mapctl").addEventListener("click", e => {
     const z = e.target.dataset.z; if (!z) return;
     if (z === "hist") { replay ? leaveReplay() : openReplay(); return; }
+    if (z === "inbox") { setTab(tab === "inbox" ? "galaxy" : "inbox"); return; }
     if (z === "fit") { fitCam(); queueMap(); } else zoomAt(z === "in" ? 1 / 1.5 : 1.5);
   });
   window.addEventListener("resize", queueMap);
@@ -2282,7 +2320,8 @@ function renderYou() {
           : al.locked ? `<span class="small muted">locked</span>` : `<button class="btn small" data-war="${id}" ${busy ? "disabled" : ""}>Declare war</button>`}</span></div>`; }).join("")}
       ${others.length ? `<div class="sendrow"><select id="propSel">${others.map(q => `<option value="${q.id}">${esc(q.name)}</option>`).join("")}</select>
         <button class="btn small" id="propGo" ${busy ? "disabled" : ""}>Propose alliance${R.allianceFee ? ` ($${R.allianceFee})` : ""}</button></div>` : ""}
-      ${!offers.length && !allies.length && !others.length ? `<div class="small muted">Nobody left to talk to.</div>` : ""}`,
+      ${!offers.length && !allies.length && !others.length ? `<div class="small muted">Nobody left to talk to.</div>` : ""}
+      <div class="row" style="margin-top:6px"><button class="btn small" data-tab-go="inbox">✉ Inbox: truces, joint wars, tech deals${unread() ? ` <span class="ubadge">${unread()}</span>` : ""}<span class="kbd">I</span></button></div>`,
       offers.length ? `<b style="color:#ffd479">🔔 ${offers.length} offer${offers.length > 1 ? "s" : ""}</b>` : allies.length ? `${allies.length} all${allies.length > 1 ? "ies" : "y"}` : "no allies", offers.length > 0)}
     ${tradeHtml(p, busy)}
     <div class="small muted" style="margin-top:10px">Click one of your stars on the map to build there or send ships. ${busy ? "<b>Orders open again when this turn finishes.</b>" : ""}</div>
@@ -3045,7 +3084,8 @@ function renderPlayer() {
       <button class="btn small" data-pnav="1" aria-label="Next empire">▶</button>
       <button class="btn small" id="sheetClose" aria-label="Close">✕</button>
     </div>
-    <div class="row" style="margin-bottom:12px">${status}${!p.alive ? "" : ` <span class="small muted">peak ${peak}★ · turn ${S.turn}</span>`}</div>
+    <div class="row" style="margin-bottom:12px">${status}${!p.alive ? "" : ` <span class="small muted">peak ${peak}★ · turn ${S.turn}</span>`}
+      ${me() && !isMe(p) && p.alive ? `<button class="btn small" data-msg="${p.id}" style="margin-left:auto">✉ Message</button>` : ""}</div>
 
     <div class="stats">
       <div class="stat"><span>Stars</span><b>${t.stars}</b>${delta("stars")}
@@ -3113,6 +3153,121 @@ document.addEventListener("click", e => {
   if (e.target.id === "sheetClose" || e.target.id === "scrim") closePlayer();
 });
 
+/* ---------------- inbox: talking with the bots ----------------
+   The real game's messages, without free text: you pick a request, the bot answers at once
+   in its own voice (sim.act.ask), and its own asks carry Yes / No buttons (sim.act.answer).
+   Promises (truce, a spared star, a joint war) show as chips; a bot that quietly broke one
+   still shows it as kept in Player view until it attacks you. Read marks live in S.chatRead. */
+let chatWith = null, askType = "truce";
+const chatOf = (h, id) => (S.chat || []).filter(m => (m.from === id && m.to === h) || (m.from === h && m.to === id) || (m.from === -1 && m.about === id && m.to === h));
+function unreadWith(h, id) { const seen = (S.chatRead || {})[id] || 0; return chatOf(h, id).filter(m => m.from !== h && m.id > seen).length; }
+function unread() { const h = humanId(); return h == null ? 0 : S.players.reduce((t, q) => t + (q.id === h ? 0 : unreadWith(h, q.id)), 0); }
+function openChat(id) { chatWith = id; setTab("inbox"); }
+const PACT_TXT = { truce:"🕊 Truce", spare:"🛡 Leaving {star} alone", war:"⚔ Joint war on {x}" };
+function pactChips(h, id) {
+  return sim.livePacts(S, id, h).filter(x => !x.done && (!x.broken || !x.revealed || !playerView())).map(x => {
+    const left = Math.max(0, Math.ceil((x.until - S.tick) / S.rules.ticksPerTurn));
+    const txt = PACT_TXT[x.type].replace("{star}", x.star != null ? esc(S.stars[x.star].name) : "").replace("{x}", x.target != null ? esc(S.players[x.target].name) : "");
+    const secret = x.broken && !playerView() ? ` <b class="down">secretly broken</b>` : x.broken && x.revealed ? ` <b class="down">broken</b>` : "";
+    return `<span class="tag" title="Until tick ${x.until}">${txt} · ${left} turn${left === 1 ? "" : "s"} left${secret}</span>`;
+  }).join("");
+}
+function renderInbox() {
+  markRead();
+  const h = humanId(), btn = document.querySelector('.mapctl [data-z="inbox"]'), un = unread();
+  btn.hidden = h == null;
+  btn.innerHTML = `✉${un ? `<span class="dot">${un}</span>` : ""}`;
+  btn.classList.toggle("on", tab === "inbox");
+  $("bNav").innerHTML = `☰${un && tab !== "inbox" ? `<span class="dot" aria-label="${un} unread"></span>` : ""}`;
+  if (tab !== "inbox") return;
+  const box = $("inbox");
+  if (h == null) {
+    box.innerHTML = `<div class="box"><p class="small">Messages are between empires, so first take a seat. Pick an empire to play; the bots will talk to you, and you can ask them for truces, help and trades.</p>
+      <div class="orders">${S.players.filter(p => p.alive).map(p => `<button class="btn" data-playas="${p.id}">${sw(p)}${esc(p.name)}</button>`).join("")}</div></div>`;
+    return;
+  }
+  const others = S.players.filter(q => q.id !== h && (q.alive || chatOf(h, q.id).length));
+  if (chatWith == null || !S.players[chatWith] || chatWith === h) {
+    chatWith = null;
+    box.innerHTML = `<div class="chatlist">${others.map(q => {
+      const list = chatOf(h, q.id), last = list[list.length - 1], n = unreadWith(h, q.id);
+      return `<button data-chat="${q.id}" style="--pc:${col(q)}${q.alive ? "" : ";opacity:.5"}">${sw(q)}<span class="cw"><b>${esc(q.name)}${sim.allied(S, h, q.id) ? ` <span class="tag">ally</span>` : ""}${q.alive ? "" : ` <span class="tag">out</span>`}</b>
+        <span>${last ? (last.from === h ? "You: " : "") + esc(last.text) : "No messages yet"}</span></span>${n ? `<span class="ubadge">${n}</span>` : ""}</button>`; }).join("")}</div>
+      <p class="small muted" style="margin-top:12px">Bots answer in their own voice, from what they really think of you. They keep their promises, or break them, by their personality.</p>`;
+    return;
+  }
+  const q = S.players[chatWith], list = chatOf(h, q.id), p = me();
+  const can = !playing && !replay && p.alive && q.alive;
+  const persona = sim.PERSONAS[q.persona];
+  box.style.setProperty("--pc", col(q));
+  box.innerHTML = `<div class="chath"><button class="btn small" data-chat="list">← All</button>
+      <h3>${sw(q)}${esc(q.name)}</h3>${playerView() ? "" : `<span class="small muted">${esc(persona.label)} · thinks ${opinion(S.rel[q.id][h])} of you</span>`}</div>
+    <div class="pacts">${pactChips(h, q.id)}</div>
+    <div class="msgs" id="msgs">${list.length ? list.map(m => bubble(m, h, can)).join("") : `<div class="bub note">No messages yet. Ask ${esc(q.name)} something below.</div>`}</div>
+    ${q.alive ? composer(p, q, can) : `<p class="small muted">${esc(q.name)} has been eliminated.</p>`}
+    ${msgHtml("chat")}`;
+  const ms = $("msgs"); ms.scrollTop = ms.scrollHeight;
+}
+/* an open thread is read: called before any badge is drawn */
+function markRead() {
+  const h = humanId();
+  if (h == null || tab !== "inbox" || chatWith == null || replay || !S.players[chatWith]) return;
+  const list = chatOf(h, chatWith), last = list[list.length - 1];
+  S.chatRead = S.chatRead || {};
+  if (last && S.chatRead[chatWith] !== last.id) { S.chatRead[chatWith] = last.id; save(); }
+}
+function bubble(m, h, can) {
+  const when = `<span class="when">turn ${m.turn}</span>`;
+  if (m.from === -1) return `<div class="bub note">${esc(m.text)}${when}</div>`;
+  let ans = "";
+  if (m.ask && m.from !== h) ans = m.ask.status === "open"
+    ? `<div class="ans"><button class="btn small primary" data-ans="${m.id}" data-yes="1" ${can ? "" : "disabled"}>Yes</button><button class="btn small" data-ans="${m.id}" data-yes="0" ${can ? "" : "disabled"}>No</button></div>`
+    : `<div class="ans"><span class="tag">${{ yes:"You said yes", no:"You said no", lapsed:"Lapsed" }[m.ask.status]}</span></div>`;
+  return `<div class="bub ${m.from === h ? "me" : "them"}">${esc(m.text)}${ans}${when}</div>`;
+}
+const DAYS_SEL = id => `<select id="${id}" aria-label="How long">${[1, 2, 4].map(d => `<option value="${d}" ${d === 2 ? "selected" : ""}>${d} day${d > 1 ? "s" : ""}</option>`).join("")}</select>`;
+function composer(p, q, can) {
+  const h = p.id, techs = sim.techsOn(S), T = sim.TECH_LABEL;
+  const thirds = S.players.filter(x => x.alive && x.id !== h && x.id !== q.id);
+  const nearQ = s => Math.min(...sim.starsOf(S, q.id).map(t => sim.dist(s, t)), 1e9);
+  const myStars = sim.starsOf(S, h).sort((a, b) => nearQ(a) - nearQ(b));
+  const want = techs.filter(t => q.tech[t].level > p.tech[t].level), give = techs.filter(t => p.tech[t].level > q.tech[t].level);
+  const types = [["truce", "Truce: no attacks on each other"], ["spare", "Leave one of my stars alone"], ["war", "Attack an empire with me"],
+    ["trade", "Trade for a tech"], ["intel", "What do you think of…"], ...(sim.allied(S, h, q.id) ? [] : [["ally", "Propose an alliance"]])];
+  if (!types.some(([k]) => k === askType)) askType = "truce";
+  const fields = {
+    truce: `<span class="small">for</span>${DAYS_SEL("askDays")}`,
+    spare: myStars.length ? `<select id="askStar" aria-label="Your star">${myStars.map(s => `<option value="${s.id}">${esc(s.name)} (${s.ships} ships)</option>`).join("")}</select>${DAYS_SEL("askDays")}` : `<span class="small muted">You have no stars.</span>`,
+    war: thirds.length ? `<select id="askTarget" aria-label="Target">${thirds.map(x => `<option value="${x.id}">${esc(x.name)}</option>`).join("")}</select>${DAYS_SEL("askDays")}` : `<span class="small muted">Nobody else is left.</span>`,
+    trade: want.length ? `<span class="small">Their</span><select id="askWant" aria-label="The tech you want">${want.map(t => `<option value="${t}">${esc(T[t])} ${p.tech[t].level}→${p.tech[t].level + 1}</option>`).join("")}</select>
+      <span class="small">for</span><select id="askGive" aria-label="What you give">${give.map(t => `<option value="${t}">my ${esc(T[t])} ${q.tech[t].level + 1} ($${sim.tradeCost(S, h, q.id, t)})</option>`).join("")}<option value="">no tech</option></select>
+      <span class="small">+ $</span><input type="number" id="askCash" min="0" value="0" aria-label="Cash you add">`
+      : `<span class="small muted">${esc(q.name)} isn't ahead of you in any tech.</span>`,
+    intel: `<select id="askAbout" aria-label="About"><option value="${h}">me</option>${thirds.map(x => `<option value="${x.id}">${esc(x.name)}</option>`).join("")}</select>`,
+    ally: S.rules.allianceFee ? `<span class="small muted">Costs $${S.rules.allianceFee}.</span>` : "",
+  };
+  const ready = !(askType === "spare" && !myStars.length || askType === "war" && !thirds.length || askType === "trade" && !want.length);
+  return `<div class="compose"><select id="askType" aria-label="Request">${types.map(([k, l]) => `<option value="${k}" ${k === askType ? "selected" : ""}>${l}</option>`).join("")}</select>
+    <div class="sendrow">${fields[askType]}<button class="btn small primary" id="askGo" style="margin-left:auto" ${can && ready ? "" : "disabled"}>Send</button></div>
+    ${askType === "trade" && want.length ? `<div class="small muted">Each side pays its own sharing cost, like the real game. Leave both empty to ask for a favour.</div>` : ""}
+    ${can ? "" : `<div class="small muted">${playing ? "You can send messages when this turn finishes." : replay ? "You're looking at an old turn." : ""}</div>`}</div>`;
+}
+$("inbox").addEventListener("change", e => { if (e.target.id === "askType") { askType = e.target.value; renderInbox(); } });
+$("inbox").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.playas) { playAs(+b.dataset.playas); setTab("inbox"); return; }
+  if (b.dataset.chat) { chatWith = b.dataset.chat === "list" ? null : +b.dataset.chat; youMsg = { text:"", ok:true }; renderAll(); return; }
+  const h = humanId(); if (h == null) return;
+  if (b.dataset.ans) { order(() => sim.act.answer(S, h, +b.dataset.ans, b.dataset.yes === "1"), "", "chat"); return; }
+  if (b.id === "askGo") {
+    const v = id => $(id) ? $(id).value : null;
+    const req = { type:askType, days:+v("askDays") || 2, star:v("askStar"), target:v("askTarget"), about:v("askAbout"),
+      want:v("askWant"), give:v("askGive") || null, cash:+v("askCash") || 0 };
+    order(() => sim.act.ask(S, h, chatWith, req), "", "chat");
+  }
+});
+document.addEventListener("click", e => { const b = e.target.closest("[data-msg]"); if (b) { closePlayer(); openChat(+b.dataset.msg); } });
+
 /* ---------------- wiring ---------------- */
 function renderAll() {
   renderReplay(); renderTabs(); renderClock(); renderViewSw();
@@ -3124,6 +3279,7 @@ function renderAll() {
   if (tab === "log") { renderLogFilters(); renderLog(); }
   if (tab === "admin") { renderAdmin(); renderPlaybackAdmin(); renderNewGame(); }
   if (tab === "rules") renderRules();
+  renderInbox();
   renderPlayer();
 }
 $("bNext").onclick = () => step(1);
@@ -3180,6 +3336,7 @@ document.addEventListener("keydown", e => {
   if ((e.key === "g" || e.key === "G") && !e.ctrlKey && !e.metaKey) { menuOpen ? closeMenu() : openMenu(); return; }
   if (menuOpen) return;                       // other keys wait until the menu is closed
   if (e.key === "?") { openKeys(); return; }
+  if (e.key === "i" || e.key === "I") { setTab(tab === "inbox" ? "galaxy" : "inbox"); return; }
   if (e.key === "h" || e.key === "H") { replay ? leaveReplay() : openReplay(); return; }
   if (e.key === "Escape" && replay) { leaveReplay(); return; }
   if (e.key === "n" || e.key === "ArrowRight") { if (playing) { playing.hold ? continueTurn() : skipTurn(); } else step(1); }

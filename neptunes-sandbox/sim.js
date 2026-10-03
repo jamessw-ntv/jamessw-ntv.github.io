@@ -418,6 +418,8 @@ function declareWar(S, by, other, opts) {
   log(S, "diplomacy", admin
     ? `Admin broke the alliance between ${P(S, by).name} and ${P(S, other).name}${notice ? ` — war in ${notice} ticks` : ""}.`
     : `${P(S, by).name} declared war on ally ${P(S, other).name}!${notice ? ` The alliance ends in ${notice} ticks.` : ""}`, [by, other]);
+  if (!admin && P(S, other).human && !P(S, by).human) botSays(S, by, other, "betray");      // a bot turns on the person
+  if (!admin && P(S, by).human && !P(S, other).human) botSays(S, other, by, "betrayed");
   if (notice === 0) endAlliance(S, al, admin ? "admin" : "betrayal");
   return true;
 }
@@ -852,6 +854,7 @@ function declareWinner(S, ids, how) {
 function botTurn(S, p) {
   if (!p.alive) return;
   const persona = PERSONAS[p.persona];
+  botTalk(S, p, persona);
   botDiplomacy(S, p, persona);
   botResearch(S, p, persona);
   botTrade(S, p, persona);
@@ -926,6 +929,7 @@ function botDiplomacy(S, p, persona) {
     p.credits -= S.rules.allianceFee;
     (S.offers = S.offers || []).push({ from:p.id, to:q.id, tick:S.tick, turn:S.turn });
     log(S, "diplomacy", `${p.name} offered ${q.name} an alliance.`, [p.id, q.id]);
+    botSays(S, p.id, q.id, "ally_offer", {}, { type:"ally" });
     return;
   }
   const qp = PERSONAS[q.persona];
@@ -980,6 +984,7 @@ function botMilitary(S, p, persona) {
   }
   const wa = lvl(S, p.id, "weapons");
   const leadLine = winTarget(S) * .6;
+  const pacts = pactView(S, p.id);
 
   const sources = mine.map(s => {
     const parked = S.carriers.filter(c => c.at === s.id && c.owner === p.id && !busy(c)).reduce((t, c) => t + c.ships, 0);
@@ -1006,13 +1011,16 @@ function botMilitary(S, p, persona) {
         value = (resources(S, t) + 10) / 10;
       } else {
         const opinion = S.rel[p.id][t.owner];
-        if (opinion > 60 - persona.aggr * 40) continue;              // too friendly to attack
+        if (pacts && (pacts.truce.has(t.owner) || pacts.spare.has(t.id))) continue;   // a promise to the person
+        const joint = pacts && pacts.war.has(t.owner);
+        if (opinion > 60 - persona.aggr * 40 && !joint) continue;      // too friendly to attack
         const guard = S.carriers.filter(c => c.at === t.id && allied(S, c.owner, t.owner)).reduce((x, c) => x + c.ships, 0);
         const def = t.ships + guard + Math.ceil(shipsPerCycle(S, t) * ticks / R.productionTicks);
         const wd = lvl(S, t.owner, "weapons") + R.defenderWeaponBonus;
         need = Math.ceil(shipsToWin(def, wa, wd) * 1.25) - (targeted[t.id] || 0);
         let hate = 1 + Math.max(0, -opinion) / 40;
         if (starsOf(S, t.owner).length > leadLine) hate += .8;
+        if (joint) hate += 1.5;
         value = (resources(S, t) + t.econ * 2 + t.industry * 4 + 10) / 10 * persona.aggr * hate;
       }
       if (need < 1 || need > free) continue;
@@ -1095,6 +1103,7 @@ function beginTurn(S) {
   order.forEach(id => { if (!P(S, id).human) botTurn(S, P(S, id)); });
   // offers to the player lapse after a production cycle, or when either side is gone
   S.offers = (S.offers || []).filter(o => S.tick - o.tick < S.rules.productionTicks && P(S, o.from).alive && P(S, o.to).alive && !allied(S, o.from, o.to));
+  if (S.chat) lapseAsks(S);
   S.turn++;
   return true;
 }
@@ -1228,6 +1237,378 @@ function botTrade(S, p, persona) {
   if (t && tradeCost(S, p.id, q, t) <= spare * .25) shareTech(S, p.id, q, t, "bot");
 }
 
+/* ---------------- talking with the bots ----------------
+   The real game has in-game messages between players. Here a person talks to the bots
+   through a set of structured requests (truce, leave a star alone, attack an empire with
+   me, trade a tech, what do you think of…, alliance). Each bot answers in its persona's
+   voice from its real state and feelings, and keeps its word or breaks it by its
+   treachery. Bots also write first: warnings, threats, pleas, offers and requests.
+   S.chat    [{ id, tick, turn, from, to, text, ask? }]   from/to are empire ids; from -1 = a game note
+   S.pacts   [{ id, type:"truce"|"spare"|"war", bot, human, start, until, grace, target?, star?, by,
+                broken?, revealed?, done? }]
+   S.talk    { [botId]: { last, angry, seen, warned:[carrierIds], burned } }   a bot's memory of the person
+   Nothing here runs without a human seat, so bot-only games (and the balance check) are untouched. */
+const DAY = S => S.rules.productionTicks;
+const TALK = {
+  standard: {
+    ally_offer:["We'd make good allies, {you}. Shall we make it official?", "I'd like an alliance with you. Interested?"],
+    ally_yes:["Agreed. We're allies.", "Done. Glad to have you on side."],
+    ally_no:["Not now.", "I don't think that works for me."],
+    truce_yes:["Fine. No attacks on you for {days}.", "Agreed: a truce for {days}."],
+    truce_no:["No truce.", "I'd rather keep my options open."],
+    truce_have:["We already have a truce, until tick {n}."],
+    truce_ally:["We're allies. You don't need a truce with me."],
+    spare_yes:["Very well. I'll leave {star} alone for {days}."],
+    spare_no:["I'm not making promises about {star}."],
+    spare_busy:["Too late. My ships are already on their way to {star}."],
+    war_yes:["{x}? Agreed. I'll hit them over the next {days}."],
+    war_have:["We're already fighting {x} together, until tick {n}."],
+    war_no:["I'm not going to war with {x} for you."],
+    war_cant:["I can't reach {x} from where I am."],
+    war_allied:["{x} is my ally. Ask me something else."],
+    war_betray:["Funny you should ask. I've been looking for a reason to turn on {x}. Consider it done."],
+    trade_yes:["Deal. {tech} is on its way."],
+    trade_no:["That's not worth it to me."],
+    trade_poor:["I can't afford my side of that right now."],
+    gift_yes:["For a friend? Here, take {tech}."],
+    gift_no:["Nothing's free, {you}. Offer something."],
+    warn:["Your carrier is heading for {star}. Turn back.", "I see your ships coming for {star}. Think carefully."],
+    warn_truce:["Your ships are heading for {star}. That would break our truce."],
+    attacked_threat:["You attacked {star}. You'll pay for that."],
+    attacked_plea:["Enough fighting. A truce for {days}?"],
+    ask_war:["{x} is a problem for both of us. Join me against them for {days}?"],
+    ask_tech:["Could you spare {tech}? I'm behind, and it would help us both."],
+    ask_yes:["Good. I won't forget it."],
+    ask_no:["Noted."],
+    thanks_tech:["Thanks for {tech}. I won't forget it."],
+    thanks_cash:["${n}? Much appreciated."],
+    truce_end:["Our truce has run its course."],
+    truce_cancel:["Fair warning: our truce is over."],
+    spare_cancel:["Fair warning: I'm no longer keeping away from {star}."],
+    you_broke:["You attacked {star} during our truce. Don't expect another."],
+    war_report_good:["Our war on {x} is done. I hit them {n} times, you hit them {m}. Good work."],
+    war_report_solo:["Our war on {x} is done. I hit them {n} times. Where were you?"],
+    war_report_lazy:["You promised to fight {x} and did nothing. I'll remember that."],
+    war_report_mine:["Our campaign against {x} is over. I didn't get much done, I'm afraid."],
+    betray:["Our alliance is over, {you}. Nothing personal."],
+    betrayed:["You'd declare war on me? You'll regret it."],
+  },
+  warlord: {
+    ally_offer:["You're strong, {you}. I respect that. Alliance?"], ally_yes:["Good. Point your guns where I point mine."],
+    ally_no:["I don't need you."], truce_yes:["{days} of peace. Then we'll see."], truce_no:["A truce? Ha. No."],
+    war_yes:["Finally, someone with sense. {x} burns."], war_no:["{x} isn't worth my ships right now."],
+    trade_no:["Weak offer."], gift_no:["Earn it."], warn:["Turn that carrier around, or I take it as war."],
+    attacked_threat:["You hit {star}. I'll take three of yours for it."], attacked_plea:["You've made your point. Truce for {days}?"],
+    ask_war:["{x} is soft. Hit them with me for {days}."], betray:["I'm done with you, {you}. Prepare yourself."],
+    thanks_tech:["{tech}. Useful."], you_broke:["You broke the truce at {star}. Now you'll see what I'm like when I'm angry."],
+  },
+  turtle: {
+    ally_offer:["I'd sleep better with a friend next door. Ally?"], ally_no:["I'm sorry, I'm not ready for that."],
+    truce_yes:["Yes, please. A truce for {days}."], truce_no:["I don't trust that yet."], war_no:["I don't start wars, {you}."],
+    war_yes:["If {x} is a threat, I'll do my part."], warn:["Those ships are heading for {star}. We're ready for you."],
+    attacked_plea:["Please stop. A truce for {days}?"], attacked_threat:["{star} will be better defended next time."],
+    spare_yes:["Of course. {star} is safe from me for {days}."],
+  },
+  diplomat: {
+    ally_offer:["Friends are worth more than stars, {you}. Will you ally with me?"], ally_yes:["Wonderful. Welcome, friend."],
+    ally_no:["Perhaps another time."], truce_yes:["Of course. Peace for {days}."], war_no:["I'd rather talk to {x} than fight them."],
+    trade_yes:["Happy to help. {tech} is yours."], attacked_threat:["That attack on {star} was a mistake, {you}. Let's not make a habit of it."], gift_yes:["Friends share. Take {tech}."], thanks_tech:["How kind. I'll return the favour."],
+    truce_cancel:["I'm sorry, but our truce has to end. Please take this as fair warning."], betray:["It pains me, but our alliance has to end."],
+    warn:["Friend, your ships seem to be heading for {star}. Surely a mistake?"],
+  },
+  opportunist: {
+    ally_offer:["You and me, {you}? Could be very profitable."], truce_yes:["Sure, {days} of peace. Why not."],
+    trade_no:["Sweeten it a little and we'll talk."], war_yes:["{x} has been looking weak. I'm in."],
+    warn:["Heading for {star}? Bad idea."], gift_no:["Nothing's free. What's in it for me?"],
+    betray:["No hard feelings, {you}. Business is business."], thanks_cash:["${n}! Now we're talking."],
+  },
+  economist: {
+    ally_offer:["An alliance would be good for both our economies. Shall we?"], truce_yes:["War is bad for business. Truce for {days}."],
+    trade_yes:["A fair deal. {tech} is on its way."], trade_no:["The numbers don't work for me."], war_no:["A war with {x} isn't worth the cost."],
+    attacked_plea:["This war costs us both. A truce for {days}?"], attacked_threat:["You hit {star}. That will cost you more than it cost me."], thanks_cash:["${n}. A sound investment."],
+    ask_tech:["Would you share {tech}? It would pay off for both of us."],
+  },
+  expansionist: {
+    ally_offer:["There's plenty of galaxy to go around. Ally with me?"], war_yes:["{x} has stars I want. Count me in."],
+    truce_no:["I need room to grow. No promises."], spare_no:["I need room, and {star} is in it. No promises."],
+    warn:["I'm expanding toward {star}, and so are you, it seems. Back off."], ask_war:["{x} is sitting on stars we both want. Split them with me?"],
+  },
+};
+const OPINION = [[40, "I trust {x}.", "I trust you."], [10, "{x} is fine by me.", "You're alright."],
+  [-10, "I don't think much about {x} either way.", "I haven't made up my mind about you."],
+  [-40, "I don't like {x}.", "I don't trust you."], [-101, "I hate {x}.", "Frankly, I despise you."]];
+function hashText(...xs) { let h = 2166136261; for (const c of xs.join("|")) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+/* flavour text never touches rand(S), so talking can't shift the game's dice */
+function line(S, bot, kind, v) {
+  const p = P(S, bot), set = (TALK[p.persona] || {})[kind] || TALK.standard[kind];
+  const t = set[hashText(S.tick, bot, kind, (S.chat || []).length) % set.length];
+  return t.replace(/\{(\w+)\}/g, (_, k) => v && v[k] != null ? v[k] : "");
+}
+const days = (S, n) => { const d = Math.round(n / DAY(S)); return d === 1 ? "a day" : `${d} days`; };
+function chat(S, from, to, text, ask) {
+  S.chat = S.chat || [];
+  const m = { id:S.nextId++, tick:S.tick, turn:S.turn, from, to, text };
+  if (ask) m.ask = Object.assign({ status:"open" }, ask);
+  S.chat.push(m);
+  if (S.chat.length > 600) S.chat.splice(0, S.chat.length - 600);
+  return m;
+}
+function botSays(S, bot, human, kind, v, ask) {
+  return chat(S, bot, human, line(S, bot, kind, Object.assign({ you:P(S, human).name }, v)), ask);
+}
+const talkOf = (S, bot) => { S.talk = S.talk || {}; return S.talk[bot] = S.talk[bot] || { last:-99, angry:-99, seen:S.tick, warned:[], burned:0 }; };
+const livePacts = (S, bot, human) => (S.pacts || []).filter(x => !x.done && x.bot === bot && (human == null || x.human === human));
+const keeps = (S, bot, type) => (S.pacts || []).filter(x => !x.done && !x.broken && x.bot === bot && x.type === type);
+/* attacks landed by `att` on `def` after tick t (combat events carry who fought) */
+function hits(S, att, def, t) {
+  return S.events.filter(e => e.type === "combat" && e.fight && e.tick > t && e.fight.def === def && e.fight.att.includes(att)).length;
+}
+/* attacks from ships already in flight when a pact starts don't count against it */
+function graceFor(S, a, b) {
+  let g = 0;
+  for (const c of S.carriers) if (c.at == null && ((c.owner === a && S.stars[c.to].owner === b) || (c.owner === b && S.stars[c.to].owner === a))) g = Math.max(g, eta(S, c));
+  return g;
+}
+function addPact(S, type, bot, human, len, extra, by) {
+  (S.pacts = S.pacts || []).push(Object.assign({ id:S.nextId++, type, bot, human, start:S.tick, until:S.tick + len,
+    grace:S.tick + graceFor(S, bot, human), by }, extra));
+}
+function weakerThan(S, a, b, k) { return totals(S, a).ships < totals(S, b).ships * k; }
+function leads(S, id) { return starsOf(S, id).length > winTarget(S) * .6; }
+
+/* Once a turn, before its orders: a bot reviews its promises to the person and decides whether to write. */
+function botTalk(S, p, persona) {
+  const human = S.players.find(q => q.human && q.alive);
+  if (!human || human.id === p.id) return;
+  const h = human.id, T = talkOf(S, p.id), R = S.rules, rel = S.rel[p.id][h];
+  const since = T.seen; T.seen = S.tick;
+
+  // --- promises ---
+  for (const x of livePacts(S, p.id, h)) {
+    if (x.type === "truce" && !x.broken && hits(S, h, p.id, x.grace)) {       // the person broke it
+      const e = S.events.filter(e => e.type === "combat" && e.fight && e.tick > x.grace && e.fight.def === p.id && e.fight.att.includes(h)).pop();
+      x.done = S.tick; x.brokenBy = h; T.burned++; T.angry = S.tick;
+      S.rel[p.id][h] = clamp(S.rel[p.id][h] - 25, -100, 100);
+      botSays(S, p.id, h, "you_broke", { star:e ? S.stars[e.star].name : "my star" });
+      continue;
+    }
+    if (x.broken && !x.revealed && hits(S, p.id, h, x.broken)) {                                    // a quiet betrayal comes out
+      x.revealed = S.tick;
+      chat(S, -1, h, `⚠ ${p.name} broke its ${x.type === "spare" ? `promise about ${S.stars[x.star].name}` : "truce"} and attacked you.`).about = p.id;
+    }
+    if (S.tick >= x.until) {
+      x.done = S.tick;
+      if (x.type === "truce" && !x.broken) botSays(S, p.id, h, "truce_end");
+      if (x.type === "war") {
+        const mine = hits(S, p.id, x.target, x.start), theirs = hits(S, h, x.target, x.start), X = P(S, x.target).name;
+        if (x.by === "bot" && !theirs) { S.rel[p.id][h] = clamp(rel - 12, -100, 100); botSays(S, p.id, h, "war_report_lazy", { x:X }); }
+        else if (!mine) botSays(S, p.id, h, "war_report_mine", { x:X });
+        else { if (theirs) S.rel[p.id][h] = clamp(rel + 8, -100, 100); botSays(S, p.id, h, theirs ? "war_report_good" : "war_report_solo", { x:X, n:mine, m:theirs }); }
+      }
+      continue;
+    }
+    if (!x.broken) {                                                                                // tempted to break it?
+      let pressure = 1;
+      if (rel < 0) pressure += -rel / 25;
+      if (x.type !== "war" && totals(S, p.id).ships > totals(S, h).ships * 1.5) pressure += 1.5;
+      if (x.type !== "war" && leads(S, h)) pressure += 2;
+      if (rand(S) < persona.treach * S.settings.betrayal * .06 * pressure) {
+        x.broken = S.tick;
+        if (persona.treach < .3 && x.type !== "war") {                                              // honest bots say so
+          x.revealed = S.tick; botSays(S, p.id, h, x.type === "spare" ? "spare_cancel" : "truce_cancel", { star:x.type === "spare" ? S.stars[x.star].name : "" });
+        }
+      }
+    }
+  }
+  S.pacts = (S.pacts || []).filter(x => !x.done || S.tick - x.done < DAY(S) * 4);
+
+  // --- warnings: the person's carriers inbound to my stars, if I can see them ---
+  if (!allied(S, p.id, h)) {
+    const vis = scanSources(S, [p.id]);
+    const c = S.carriers.find(c => c.owner === h && c.at == null && S.stars[c.to].owner === p.id && !T.warned.includes(c.id) && inScan(vis, carrierPos(S, c)));
+    if (c) {
+      T.warned.push(c.id); if (T.warned.length > 30) T.warned.shift();
+      const truce = keeps(S, p.id, "truce").some(x => x.human === h);
+      botSays(S, p.id, h, truce ? "warn_truce" : "warn", { star:S.stars[c.to].name });
+      return;
+    }
+  }
+  // --- I was attacked since my last turn ---
+  const struck = S.events.filter(e => e.type === "combat" && e.fight && e.tick > since && e.fight.def === p.id && e.fight.att.includes(h)).pop();
+  if (struck && S.tick - T.angry >= DAY(S) && !allied(S, p.id, h)) {
+    T.angry = T.last = S.tick;
+    if (weakerThan(S, p.id, h, .9) && persona.aggr < .8 && !openAsk(S, p.id, h)) botSays(S, p.id, h, "attacked_plea", { days:days(S, DAY(S) * 2) }, { type:"truce", len:DAY(S) * 2 });
+    else botSays(S, p.id, h, "attacked_threat", { star:S.stars[struck.star].name });
+    return;
+  }
+  if (S.tick - T.last < DAY(S) / 2 || openAsk(S, p.id, h)) return;
+  // --- asks of my own ---
+  const foe = S.players.filter(q => q.alive && q.id !== p.id && q.id !== h && S.rel[p.id][q.id] < -25 && !allied(S, h, q.id) && !allied(S, p.id, q.id)
+    && borders(S, h, q.id)).sort((a, b) => S.rel[p.id][a.id] - S.rel[p.id][b.id])[0];
+  if (foe && rel >= 10 && !livePacts(S, p.id, h).some(x => x.type === "war") && rand(S) < .2) {
+    T.last = S.tick;
+    botSays(S, p.id, h, "ask_war", { x:foe.name, days:days(S, DAY(S) * 2) }, { type:"war", target:foe.id, len:DAY(S) * 2 });
+    return;
+  }
+  if (allied(S, p.id, h) && rel >= 0 && rand(S) < .1) {
+    const t = techsOn(S).filter(t => lvl(S, h, t) > lvl(S, p.id, t)).sort((a, b) => persona.research.indexOf(b) - persona.research.indexOf(a)).pop();
+    if (t) { T.last = S.tick; botSays(S, p.id, h, "ask_tech", { tech:TECH_LABEL[t] }, { type:"tech", tech:t }); }
+  }
+}
+const openAsk = (S, from, to) => (S.chat || []).some(m => m.from === from && m.to === to && m.ask && m.ask.status === "open");
+/* asks lapse after a day; an alliance ask goes with its offer */
+function lapseAsks(S) {
+  for (const m of S.chat || []) if (m.ask && m.ask.status === "open") {
+    const gone = m.ask.type === "ally" ? !(S.offers || []).some(o => o.from === m.from && o.to === m.to)
+      : S.tick - m.tick >= DAY(S) || !P(S, m.from).alive;
+    if (gone) m.ask.status = "lapsed";
+  }
+}
+/* what a bot's promises do to its war plans: no hitting a truce partner or a spared star; a joint war makes the target fair game */
+function pactView(S, id) {
+  const live = (S.pacts || []).filter(x => !x.done && !x.broken && x.bot === id);
+  if (!live.length) return null;
+  return { truce:new Set(live.filter(x => x.type === "truce").map(x => x.human)),
+    spare:new Set(live.filter(x => x.type === "spare").map(x => x.star)),
+    war:new Set(live.filter(x => x.type === "war").map(x => x.target)) };
+}
+
+/* A person's request to a bot. The bot answers at once (a chat line) and the reply is the result. */
+function ask(S, h, bot, req) {
+  const p = P(S, bot), me = P(S, h);
+  if (!p || !p.alive || bot === h) return "Pick another living empire.";
+  if (p.human) return "That's you.";
+  const persona = PERSONAS[p.persona], rel = S.rel[bot][h], T = talkOf(S, bot), R = S.rules;
+  const say = (kind, v) => { botSays(S, bot, h, kind, v); return ""; };
+  const len = clamp(Math.round(+req.days || 2), 1, 4) * DAY(S);
+  const strong = totals(S, h).ships, theirs = totals(S, bot).ships;
+  switch (req.type) {
+    case "ally": {
+      chat(S, h, bot, "Will you ally with me?");
+      const r = act.propose(S, h, bot);
+      if (r === "" ) return say("ally_yes");
+      if (/said no/.test(r)) return say("ally_no");
+      S.chat.pop(); return r;
+    }
+    case "truce": {
+      chat(S, h, bot, `A truce for ${days(S, len)}? No attacks on each other.`);
+      if (allied(S, bot, h)) return say("truce_ally");
+      const have = keeps(S, bot, "truce").find(x => x.human === h);
+      if (have) return say("truce_have", { n:have.until });
+      let score = rel + 10 - persona.aggr * 30 - (len / DAY(S)) * 3 - T.burned * 20;
+      if (strong > theirs * 1.2) score += 20;
+      if (theirs > strong * 1.5) score -= 20;
+      if (!borders(S, bot, h)) score += 10;
+      if (leads(S, h)) score -= 25;
+      if (score < 0) { S.rel[bot][h] = clamp(rel - 1, -100, 100); return say("truce_no"); }
+      addPact(S, "truce", bot, h, len, {}, "you");
+      return say("truce_yes", { days:days(S, len) });
+    }
+    case "spare": {
+      const s = S.stars[+req.star];
+      if (!s || s.owner !== h) return "Pick one of your own stars.";
+      chat(S, h, bot, `Please leave ${s.name} alone for ${days(S, len)}.`);
+      if (allied(S, bot, h)) return say("truce_ally");
+      if (S.carriers.some(c => c.owner === bot && c.at == null && c.to === s.id)) return say("spare_busy", { star:s.name });
+      const score = rel + 20 - persona.aggr * 25 - T.burned * 15 - (leads(S, h) ? 20 : 0) + (strong > theirs ? 10 : 0);
+      if (score < 0) return say("spare_no", { star:s.name });
+      addPact(S, "spare", bot, h, len, { star:s.id }, "you");
+      return say("spare_yes", { star:s.name, days:days(S, len) });
+    }
+    case "war": {
+      const x = P(S, +req.target);
+      if (!x || !x.alive || x.id === bot || x.id === h) return "Pick a third empire.";
+      chat(S, h, bot, `Attack ${x.name} with me for the next ${days(S, len)}?`);
+      const on = livePacts(S, bot, h).find(k => k.type === "war" && k.target === x.id && !k.broken);
+      if (on) return say("war_have", { x:x.name, n:on.until });
+      const al = alliance(S, bot, x.id);
+      if (al) {
+        if (!al.locked && al.warBy == null && persona.treach * S.settings.betrayal >= .4 && rel - S.rel[bot][x.id] >= 40) {
+          declareWar(S, bot, x.id);
+          addPact(S, "war", bot, h, len, { target:x.id }, "you");
+          return say("war_betray", { x:x.name });
+        }
+        return say("war_allied", { x:x.name });
+      }
+      if (!borders(S, bot, x.id)) return say("war_cant", { x:x.name });
+      const score = rel / 2 - S.rel[bot][x.id] + persona.aggr * 30 + (leads(S, x.id) ? 20 : 0) - (leads(S, h) ? 20 : 0);
+      if (score < 25) return say("war_no", { x:x.name });
+      addPact(S, "war", bot, h, len, { target:x.id }, "you");
+      S.rel[bot][x.id] = clamp(S.rel[bot][x.id] - 10, -100, 100);
+      return say("war_yes", { x:x.name, days:days(S, len) });
+    }
+    case "trade": {
+      const want = req.want, give = req.give || null, cash = Math.max(0, Math.floor(+req.cash || 0));
+      if (!techsOn(S).includes(want) || lvl(S, bot, want) <= lvl(S, h, want)) return `${p.name} isn't ahead of you in that.`;
+      if (give && (!techsOn(S).includes(give) || lvl(S, h, give) <= lvl(S, bot, give))) return `You aren't ahead of ${p.name} in that.`;
+      const costMine = give ? tradeCost(S, h, bot, give) : 0;
+      if (me.credits < costMine + cash) return `That needs $${costMine + cash}, you have $${me.credits}.`;
+      const W = `${TECH_LABEL[want]} ${lvl(S, h, want) + 1}`;
+      chat(S, h, bot, give || cash ? `I'll give you ${[give && `${TECH_LABEL[give]} ${lvl(S, bot, give) + 1}`, cash && `$${cash}`].filter(Boolean).join(" and ")} for ${W}.`
+        : `Could you spare ${W}?`);
+      const costTheirs = tradeCost(S, bot, h, want);
+      if (!give && !cash) {                                                   // asking for a gift
+        if (!allied(S, bot, h) || rel < 40 || rand(S) > .5 * (1 - persona.treach) || p.credits < costTheirs) return say("gift_no");
+        shareTech(S, bot, h, want, "bot");
+        return say("gift_yes", { tech:W });
+      }
+      const got = costMine + cash;
+      const greed = .9 + persona.aggr * .4 + (rel < 0 ? .5 : 0) - Math.max(0, rel) / 200 + (leads(S, h) ? .6 : 0);
+      if (got < costTheirs * greed) return say("trade_no");
+      if (p.credits + cash < costTheirs) return say("trade_poor");
+      if (cash) sendCash(S, h, bot, cash);
+      if (give) shareTech(S, h, bot, give, "player");
+      shareTech(S, bot, h, want, "bot");
+      return say("trade_yes", { tech:W });
+    }
+    case "intel": {
+      const x = P(S, +req.about);
+      if (!x || x.id === bot) return "Pick someone else.";
+      const self = x.id === h;
+      chat(S, h, bot, self ? "How do you feel about me?" : `What do you think of ${x.name}?`);
+      let v = S.rel[bot][x.id];
+      if (!self && persona.treach * S.settings.betrayal >= .4 && rel < 20 && rand(S) < .5) v = -v;      // a liar's answer
+      const band = OPINION.find(o => v >= o[0]);
+      let text = (self ? band[2] : band[1]).replace("{x}", x.name);
+      if (!self && allied(S, bot, x.id) && rel >= 30 && persona.treach < .4) text += ` Between you and me, ${x.name} and I are allies.`;
+      chat(S, bot, h, text);
+      return "";
+    }
+  }
+  return "Unknown request.";
+}
+/* The person answers a bot's ask (yes / no). */
+function answer(S, h, msgId, yes) {
+  const m = (S.chat || []).find(x => x.id === msgId && x.to === h && x.ask);
+  if (!m || m.ask.status !== "open") return "That has lapsed.";
+  const bot = m.from, a = m.ask, p = P(S, bot);
+  if (!p.alive) { a.status = "lapsed"; return "They're gone."; }
+  if (a.type === "ally") {
+    const r = yes ? act.accept(S, h, bot) : act.decline(S, h, bot);
+    if (r) { a.status = "lapsed"; return r; }
+    a.status = yes ? "yes" : "no";
+    chat(S, h, bot, yes ? "Yes, let's be allies." : "No, thank you.");
+    botSays(S, bot, h, yes ? "ally_yes" : "ask_no");
+    return "";
+  }
+  if (yes && a.type === "tech") {
+    const r = shareTech(S, h, bot, a.tech, "player");
+    if (r) return r;
+  }
+  a.status = yes ? "yes" : "no";
+  chat(S, h, bot, !yes ? "No." : a.type === "truce" ? "Agreed, a truce." : a.type === "war" ? `Agreed. ${P(S, a.target).name} it is.` : `Here's ${TECH_LABEL[a.tech]}.`);
+  if (yes) {
+    if (a.type === "truce") addPact(S, "truce", bot, h, a.len, {}, "bot");
+    if (a.type === "war") addPact(S, "war", bot, h, a.len, { target:a.target }, "bot");
+    S.rel[bot][h] = clamp(S.rel[bot][h] + 5, -100, 100);
+    botSays(S, bot, h, a.type === "tech" ? "thanks_tech" : "ask_yes", { tech:TECH_LABEL[a.tech] });
+  } else {
+    S.rel[bot][h] = clamp(S.rel[bot][h] - 3, -100, 100);
+    botSays(S, bot, h, "ask_no");
+  }
+  return "";
+}
+
 /* ---------------- a person's orders ----------------
    The same moves the real game gives a player. Each returns "" on success or a
    plain-English reason it can't be done, so the viewer can show it. */
@@ -1336,8 +1717,19 @@ const act = {
     c.ships -= t; star.ships += t;
     return "";
   },
-  shareTech(S, pid, other, tech) { return shareTech(S, pid, other, tech, "player"); },
-  sendCash(S, pid, other, amount) { return sendCash(S, pid, other, amount); },
+  shareTech(S, pid, other, tech) {
+    const r = shareTech(S, pid, other, tech, "player");
+    if (!r && !P(S, other).human) botSays(S, other, pid, "thanks_tech", { tech:`${TECH_LABEL[tech]} ${lvl(S, other, tech)}` });
+    return r;
+  },
+  sendCash(S, pid, other, amount) {
+    const r = sendCash(S, pid, other, amount);
+    if (!r && !P(S, other).human) botSays(S, other, pid, "thanks_cash", { n:Math.floor(+amount) });
+    return r;
+  },
+  /* talking: a request to a bot (see ask) and an answer to a bot's own ask */
+  ask(S, pid, bot, req) { return ask(S, pid, bot, req); },
+  answer(S, pid, msgId, yes) { return answer(S, pid, msgId, yes); },
   war(S, pid, other) {
     const al = alliance(S, pid, other);
     if (!al) return "You aren't allied.";
@@ -1347,7 +1739,7 @@ const act = {
   },
 };
 
-const API = { tradeCost, ARCHETYPES, lineupFrom, techsOn, speedBetween, ticksBetween, ACTIONS, transferFor, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
+const API = { tradeCost, TALK, pactView, livePacts, ARCHETYPES, lineupFrom, techsOn, speedBetween, ticksBetween, ACTIONS, transferFor, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
   defaultRules, newGame, nextTurn, beginTurn, endTurn, tick, admin, act,
   range, resources, infraCost, researchCost, shipsPerCycle, totals, starsOf, winTarget,
   alliance, allied, alliesOf, carrierPos, scanRange, scanSources, inScan, eta, fight, shipsToWin, pairKey, dist };
