@@ -2,41 +2,41 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-02",
-    "fetched": "2026-10-02T20:34:39+00:00",
+    "updated": "2026-10-03",
+    "fetched": "2026-10-03T00:19:58+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 25
+      "temp": 15,
+      "icon": "🌦️",
+      "desc": "Showers",
+      "wind": 18
     },
     "days": [
       {
         "day": "Today",
-        "min": 10,
-        "max": 14,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
+        "min": 11,
+        "max": 15,
+        "icon": "🌦️",
+        "desc": "Showers",
         "rain": 100
       },
       {
         "day": "Sun",
-        "min": 7,
-        "max": 14,
+        "min": 8,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 34
       },
       {
         "day": "Mon",
-        "min": 5,
-        "max": 18,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "min": 6,
+        "max": 19,
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 1
       }
     ]
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 121298.0,
-        "pct": -0.76
+        "price": 121739.0,
+        "pct": -0.72
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3835.25,
-        "pct": -1.55
+        "price": 3844.2,
+        "pct": -1.66
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Sony in Talks to Land ‘Battlefield’ Video Game Movie From Christopher McQuarrie and Michael B. Jordan",
-      "when": "2 Oct",
+      "title": "‘Behemoth!’ Review: Pedro Pascal Is a Classical Cellist Skating Through a Midlife Crisis in Tony Gilroy’s Elevated Bauble of a Music Drama",
+      "when": "3 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/michael-b-jordan-battlefield-video-game-movie-sony-1236731771/"
+      "url": "https://variety.com/2026/film/reviews/behemoth-review-pedro-pascal-tony-gilroy-1236897613/"
     },
     {
       "cat": "Film/TV",
-      "title": "Mary Louise Weller, Who Played Sorority Girl in ‘Animal House,’ Dies at 79",
+      "title": "George Cheeks May Be Poised for Expanded TV Role at Skydance Post Paramount-Warner Bros. Merger",
       "when": "2 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/people-news/mary-louise-weller-dead-animal-house-actress-1236897729/"
+      "url": "https://variety.com/2026/tv/news/george-cheeks-tv-role-skydance-paramount-warner-bros-merger-1236897948/"
     },
     {
       "cat": "Film/TV",
-      "title": "Starz Executive Vice President of Original Programming Karen Bailey to Exit (EXCLUSIVE)",
+      "title": "‘Digger’: How Its Big Twist Saves the Movie From Being a Complete Disaster (Opinion)",
       "when": "2 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/starz-original-programming-karen-bailey-exits-1236897728/"
+      "url": "https://variety.com/2026/film/opinion/digger-twist-tom-cruise-movie-climate-crisis-1236897583/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Interview: Rod Roddenberry On How New Paramount Wants “To Do Right By Star Trek”",
+      "when": "2 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/02/interview-rod-roddenberry-on-how-new-paramount-wants-to-do-right-by-star-trek/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jessica Lange to Receive Lifetime Achievement Award at SCAD Savannah Film Festival",
+      "title": "John Leguizamo Has a Message for David Ellison: ‘Think of What Americans Need and What the Industry Needs’",
       "when": "2 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jessica-lange-scad-savannah-film-festival-1236897722/"
+      "url": "https://variety.com/2026/film/news/john-leguizamo-message-david-ellison-what-americans-need-1236897710/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "2 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/02/watch-broadcast-hall-of-fame-star-studded-star-trek-tribute-and-acceptance-speeches/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Podcast Interview: Chris Fisher Talks ‘Strange New Worlds’ Season 4, “Tomorrow’s Enterprise,” And Star Trek’s Future",
-      "when": "2 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/02/podcast-interview-chris-fisher-talks-strange-new-worlds-season-4-tomorrows-enterprise-and-star-treks-future/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
