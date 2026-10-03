@@ -80,6 +80,20 @@
   .replaybar{position:absolute;left:calc(var(--scrW, 0px) + (100% - var(--scrW, 0px)) / 2);bottom:12px;transform:translateX(-50%);z-index:6;display:flex;align-items:center;gap:8px;
     background:rgba(11,15,26,.92);border:1px solid var(--accent);border-radius:999px;padding:6px 8px 6px 10px;box-shadow:var(--shadow);max-width:calc(100% - 24px)}
   .replaybar[hidden]{display:none}
+  .logibox{position:absolute;right:10px;bottom:32px;z-index:5;width:260px;max-width:calc(100% - 70px);max-height:46%;overflow:auto;
+    background:rgba(11,15,26,.93);border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:12px;color:var(--text);box-shadow:var(--shadow);}
+  .logibox[hidden]{display:none}
+  .logibox .lbh{display:flex;align-items:center;gap:8px;margin-bottom:4px}.logibox .lbh .muted{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .logibox .scrx{width:28px;height:28px;flex:none}
+  .logibox .lbt{background:none;border:0;color:var(--text);font:inherit;padding:2px 0;cursor:pointer;white-space:nowrap}
+  .logibox .lbk span{display:inline-flex;align-items:center;gap:4px} .logibox .lbody[hidden]{display:none}
+  .logibox .lbk{display:flex;flex-wrap:wrap;gap:2px 10px;color:var(--muted);margin-bottom:5px}.logibox .lbk i{font-style:normal}
+  .logibox .warn{color:#ffb4b4;margin-top:4px}
+  .logibox .lbs{margin-top:6px;border-top:1px solid var(--line);padding-top:5px}
+  .logibox button.li{display:flex;width:100%;align-items:center;gap:6px;background:none;border:0;color:var(--text);font:inherit;padding:4px 2px;cursor:pointer;text-align:left;border-radius:6px;min-height:28px}
+  .logibox button.li:hover{background:var(--panel2)} .logibox .li .r{margin-left:auto;color:var(--muted)}
+  .mapwrap.full .logibox{bottom:96px}
+  @media (max-width:600px){.logibox{left:10px;right:auto;bottom:30px;max-height:32%;width:calc(100% - 20px);max-width:none;font-size:11.5px}}
   .replaybar label{display:flex;flex-direction:column;align-items:center;font-size:12px;color:var(--muted);min-width:0;flex:1}
   .replaybar label b{color:var(--text)} .replaybar input{width:min(260px,40vw);accent-color:var(--accent)}
   @media (max-width:600px){.replaybar{bottom:auto;top:58px;left:10px;transform:none;gap:5px;padding:5px 6px;width:calc(100% - 64px);border-radius:14px;flex-wrap:wrap;justify-content:center}
@@ -205,6 +219,15 @@
   .viewsw button + button{border-left:1px solid var(--line)}
   .viewsw button.on{background:var(--accent-soft);color:var(--text);font-weight:700}
   .youbox{border-color:var(--pc,var(--accent));border-top-width:4px}
+  /* Admin view acting on another empire's star or carrier: frame the window in that empire's colour */
+  body.acting::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;border:4px solid var(--ac);box-shadow:inset 0 0 24px -6px var(--ac)}
+  .actban{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 10px;padding:8px 10px;border-radius:10px;
+    border:2px solid var(--ac);background:color-mix(in srgb,var(--ac) 14%,var(--panel));font-size:13px;line-height:1.35}
+  .actban[hidden]{display:none}
+  .actban .t{flex:1;min-width:180px}
+  #seatNote{position:fixed;top:58px;left:50%;transform:translateX(-50%);z-index:46;width:max-content;max-width:calc(100vw - 32px)}
+  #winner:not(:empty) ~ #seatNote{top:124px}
+  #seatNote .actban{margin:0;box-shadow:var(--shadow)}
   .orders{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
   .orders .btn{padding:6px 4px;font-size:12px;border-radius:8px;text-align:center}
   .orders .btn small{display:block;color:var(--muted);font-size:11px}
@@ -514,6 +537,7 @@
         <dt><kbd>S</kbd> <kbd>C</kbd></dt><dd>Your stars / your carriers</dd>
         <dt><kbd>I</kbd></dt><dd>Inbox: talk with the other empires</dd>
         <dt><kbd>F</kbd></dt><dd>Full-screen map</dd>
+        <dt><kbd>O</kbd></dt><dd>Logistics view: supply routes, pick-ups, drop-offs, stars off every loop</dd>
         <dt><kbd>Esc</kbd></dt><dd>Close the top screen or selection</dd>
         <dt><kbd>?</kbd></dt><dd>This list</dd></dl></section>
       <section><h4>Your orders</h4><dl>
@@ -526,6 +550,7 @@
     </div>
   </dialog>
   <div id="winner"></div>
+  <div id="seatNote" role="status" aria-live="polite"></div>
 
   <!-- GALAXY: the map is the whole page; everything else is a screen that slides over it -->
   <section class="panel on" data-tab="galaxy">
@@ -538,6 +563,7 @@
             <button data-z="out" title="Zoom out">−</button>
             <button data-z="fit" title="Whole galaxy">⤢</button>
             <button data-z="hist" title="Look back at earlier turns (H)" aria-label="Turn history">🕘</button>
+            <button data-z="logi" title="Logistics view: supply routes, pick-ups, drop-offs (O)" aria-label="Logistics view" aria-pressed="false">⇄</button>
             <button data-z="inbox" title="Inbox: talk with the other empires (I)" aria-label="Inbox" hidden>✉</button>
             <button id="bFull" title="Full-screen map (F)">⛶</button>
           </div>
@@ -552,12 +578,14 @@
           </div>
           <div class="pickbar hidden" id="pickbar"></div>
           <div class="replaybar" id="replaybar" hidden role="group" aria-label="Turn history"></div>
+          <div class="logibox" id="logibox" hidden role="region" aria-label="Logistics"></div>
         </div>
   </section>
 
   <!-- the selected star / carrier / empire -->
   <aside class="scr" tabindex="-1" data-scr="inspect" aria-labelledby="inspTitle">
     <div class="scrh"><span class="grab" aria-hidden="true"></span><h2 id="inspTitle">Inspector</h2><button class="scrx" data-close="inspect" title="Close (Esc)" aria-label="Close">✕</button></div>
+    <div class="actban" id="actBan" role="note" hidden></div>
     <div class="insp" id="inspect"></div>
   </aside>
 
@@ -585,7 +613,7 @@
           <span><svg width="14" height="14"><path d="M2 2 L13 7 L2 12 L5 7Z" fill="var(--blue)"/></svg>carrier in flight</span>
           <span>Under a star: ships · above: Economy · Industry · Science</span>
           <span>Scroll/pinch to zoom · drag to pan · click anything</span>
-          <span class="keyhint">Keys: N next turn · B back · Space auto / continue · V player/admin view · T pick a target · Enter launch · S stars · C carriers · M menu</span>
+          <span class="keyhint">Keys: N next turn · B back · Space auto / continue · V player/admin view · T pick a target · Enter launch · O logistics · S stars · C carriers · M menu</span>
         </div></details>
     </details></div>
   </aside>
@@ -767,7 +795,7 @@ let S, history = [], sel = null;
 /* ---------------- playback prefs (this browser only, not game state) ---------------- */
 const PB_KEY = "npSandbox.pb";
 const PB = Object.assign({ speed:700, pauseCapture:false, pauseWar:true, pauseAlly:false, pauseElim:true,
-  fx:true, trails:true, follow:false, territory:false, palette:"triton", style:"triton", vision:[], view:"player", personas:true, pool:null },
+  fx:true, trails:true, follow:false, territory:false, logi:false, palette:"triton", style:"triton", vision:[], view:"player", personas:true, pool:null },
   (() => { try { return JSON.parse(localStorage.getItem(PB_KEY)) || {}; } catch (e) { return {}; } })());
 function savePB() { try { localStorage.setItem(PB_KEY, JSON.stringify(PB)); } catch (e) {} }
 
@@ -1298,7 +1326,7 @@ function renderMap() {
       stroke-width="${f((isSel ? 2.2 : tri ? 1.1 : 1.4) * u)}" stroke-linecap="round"/>`);
     // multi-stop routes (the real game's order list: carrier.route = [{star, action, n, delay}], carrier.loop)
     const route = v.c && Array.isArray(v.c.route) ? v.c.route.filter(r => S.stars[r.star]) : [];
-    if (route.length) {
+    if (route.length && !(PB.logi && !isSel)) {
       const stops = route[0].star === v.to ? route.slice(1) : route;
       const pts = [t, ...stops.map(r => S.stars[r.star])];
       if (v.c.loop && pts.length > 1) pts.push(pts[0]);
@@ -1309,6 +1337,8 @@ function renderMap() {
   }
 
   if (fleets) drawRoutes(out, u, f, fl, selCarrier, vis);
+  const L = PB.logi ? logistics() : null;
+  if (L) drawLogiLanes(out, u, f, L, ppl);
 
   // stars
   const ringR = (tri ? 6.2 : 7) * u, coreR = 2.6 * u, hit = Math.max(13 * u, 20 * V.u), fs = (tri ? 11 : 10.5) * u;   // hit ≥ 40px across
@@ -1442,6 +1472,9 @@ function renderMap() {
       <rect x="${f(V.x)}" y="${f(V.y)}" width="${f(V.w)}" height="${f(V.h)}" fill="#fff"/>
       ${vis.sources.map(o => `<circle cx="${f(o.x)}" cy="${f(o.y)}" r="${o.r}" fill="#000"/>`).join("")}</mask></defs>
     <rect x="${f(V.x)}" y="${f(V.y)}" width="${f(V.w)}" height="${f(V.h)}" fill="${tri ? "#000" : "#1a2238"}" opacity="${tri ? .62 : .42}" mask="url(#fogMask)" pointer-events="none"/>`);
+
+  if (L) drawLogiMarks(out, u, f, L, (tri ? 6.2 : 7) * u, ppl);
+  if (!anim) renderLogiBox(L);
 
   // your send order: reachable stars while picking, and the planned hop
   if (selStar && humanId() != null && (targeting || sendTo != null) && sendableFrom(selStar)) {
@@ -1654,8 +1687,9 @@ function keepClear() {
   svg.addEventListener("pointerup", end);
   svg.addEventListener("pointercancel", end);
   document.querySelector(".mapctl").addEventListener("click", e => {
-    const z = e.target.dataset.z; if (!z) return;
+    const zb = e.target.closest("[data-z]"), z = zb && zb.dataset.z; if (!z) return;
     if (z === "hist") { replay ? leaveReplay() : openReplay(); return; }
+    if (z === "logi") { toggleLogi(); return; }
     if (z === "inbox") { setTab(tab === "inbox" ? "galaxy" : "inbox"); return; }
     if (z === "fit") { fitCam(); queueMap(); } else zoomAt(z === "in" ? 1 / 1.5 : 1.5);
   });
@@ -1755,7 +1789,7 @@ function predict(c) {
 
 function renderInspector(force) {
   const box = $("inspect");
-  syncScreens();
+  syncScreens(); renderActing();
   if (RE && (!sel || sel.kind !== "carrier" || sel.id !== RE.id || !S.carriers.some(c => c.id === RE.id))) { RE = null; renderPickbar(); }
   if (!force && RE && box.contains(document.activeElement) && document.activeElement.matches("input[type=number]")) return;  // mid-typing
   if (!sel) {
@@ -2183,7 +2217,7 @@ function drawRoutes(out, u, f, fl, selCarrier, vis) {
         <text x="${f(s.x + 9 * u)}" y="${f(s.y - 9 * u + 3.4 * u)}" text-anchor="middle" font-size="${f(9 * u)}" font-weight="700" fill="#000">${i + 1}</text></g>`); });
   };
   // in-flight routes are drawn with the carrier paths above; these cover carriers waiting in orbit
-  if (PB.trails) for (const v of fl) if (v.c && v.at != null && v.c.loop && v.c !== selCarrier && (!vis || vis.group.has(v.owner))) path(v.c, sim.routePath(S, v.c), true, false);
+  if (PB.trails && !PB.logi) for (const v of fl) if (v.c && v.at != null && v.c.loop && v.c !== selCarrier && (!vis || vis.group.has(v.owner))) path(v.c, sim.routePath(S, v.c), true, false);
   const c = RE ? S.carriers.find(x => x.id === RE.id) : selCarrier;
   if (!c) return;
   if (RE) {
@@ -2199,6 +2233,125 @@ function drawRoutes(out, u, f, fl, selCarrier, vis) {
     else if (c.at == null) path(c, [c.to], false, true);        // a rival's orders: only where it's heading, like the real game
   }
 }
+
+/* ---------------- logistics view (O) ----------------
+   Every carrier route drawn as one-way lanes (looping routes solid, one-way trips dashed;
+   A→B and B→A sit side by side, like lanes of a road), what each stop picks up (▲) or
+   drops off (▼), and the owned stars that no looping route touches. Player view shows
+   only your own routes, since rivals' orders are secret. */
+const PICK_ACTS = new Set(["collect-all", "collect", "collect-all-but"]), DROP_ACTS = new Set(["drop-all", "drop", "drop-all-but"]);
+const LOGI = { pick:"#4ec8ff", drop:"#ffc000", keep:"#e6e9f0", off:"#ff7a59" };
+function toggleLogi() { PB.logi = !PB.logi; savePB(); renderMap(); }
+function logiScope() {
+  if (playerView()) return [humanId()];
+  const f = selectedEmpire(); if (f != null) return [f];
+  const v = PB.vision.filter(id => S.players[id]);
+  return v.length ? v : S.players.filter(p => p.alive).map(p => p.id);
+}
+function logistics() {
+  const scope = logiScope(), inScope = new Set(scope), lanes = {}, stops = {}, looped = new Set(), routes = [];
+  for (const c of S.carriers) {
+    if (!inScope.has(c.owner) || !Array.isArray(c.route)) continue;
+    const r = c.route.filter(x => S.stars[x.star]); if (!r.length) continue;
+    const seq = r.map(x => x.star), legs = [];
+    if (c.loop) { seq.forEach((s, i) => legs.push([s, seq[(i + 1) % seq.length]])); seq.forEach(s => looped.add(s)); }
+    else { let p = c.at != null ? c.at : c.from; for (const s of seq) { if (p != null) legs.push([p, s]); p = s; } }
+    for (const [a, b] of legs) if (a !== b) {
+      const k = `${c.owner}:${a}:${b}`, l = lanes[k] = lanes[k] || { owner:c.owner, a, b, n:0, loop:false };
+      l.n++; if (c.loop) l.loop = true;
+    }
+    let picks = 0, drops = 0;
+    for (const x of r) {
+      const kind = PICK_ACTS.has(x.action) ? "pick" : DROP_ACTS.has(x.action) ? "drop" : x.action === "garrison" ? "keep" : null;
+      if (!kind) continue;
+      if (kind === "pick") picks++; if (kind === "drop") drops++;
+      const st = stops[x.star] = stops[x.star] || { pick:[], drop:[], keep:[] };
+      st[kind].push({ c, x, live:S.stars[x.star].owner === c.owner });     // orders only run at the carrier's own stars
+    }
+    routes.push({ c, loop:!!c.loop, picks, drops });
+  }
+  const offLoop = S.stars.filter(s => inScope.has(s.owner) && !looped.has(s.id)).sort((a, b) => b.ships - a.ships || b.industry - a.industry);
+  return { scope, lanes, stops, offLoop, routes, owned:S.stars.filter(s => inScope.has(s.owner)).length };
+}
+function drawLogiLanes(out, u, f, L, ppl) {
+  for (const l of Object.values(L.lanes)) {
+    const A = S.stars[l.a], B = S.stars[l.b], dx = B.x - A.x, dy = B.y - A.y, d = Math.hypot(dx, dy), trim = 9 * u;
+    if (d < trim * 2.2) continue;
+    const ux = dx / d, uy = dy / d, off = 2.4 * u, nx = -uy * off, ny = ux * off;      // keep right, so return trips run alongside
+    const x1 = A.x + ux * trim + nx, y1 = A.y + uy * trim + ny, x2 = B.x - ux * trim + nx, y2 = B.y - uy * trim + ny;
+    const w = (1.6 + Math.min(3, l.n - 1) * .8) * u, c = col(S.players[l.owner]);
+    out.push(`<line x1="${f(x1)}" y1="${f(y1)}" x2="${f(x2)}" y2="${f(y2)}" stroke="#000" stroke-opacity=".55" stroke-width="${f(w + 2 * u)}" stroke-linecap="round" pointer-events="none"/>
+      <line x1="${f(x1)}" y1="${f(y1)}" x2="${f(x2)}" y2="${f(y2)}" stroke="${c}" stroke-opacity=".9" stroke-width="${f(w)}" stroke-linecap="round"
+        ${l.loop ? "" : `stroke-dasharray="${f(4 * u)} ${f(3 * u)}"`} pointer-events="none"/>`);
+    // arrowheads along the lane, pointing the way the ships flow
+    const heads = d > 60 * u ? [.35, .7] : [.55], k = 3.8 * u + w;
+    for (const t of heads) {
+      const mx = x1 + (x2 - x1) * t, my = y1 + (y2 - y1) * t, P = (a, r) => `${f(mx + Math.cos(Math.atan2(dy, dx) + a) * r)} ${f(my + Math.sin(Math.atan2(dy, dx) + a) * r)}`;
+      out.push(`<path d="M${P(0, k)}L${P(2.5, k)}L${P(-2.5, k)}Z" fill="${c}" stroke="#000" stroke-width="${f(.7 * u)}" pointer-events="none"/>`);
+    }
+    if (l.n > 1 && ppl >= 14) out.push(`<text x="${f((x1 + x2) / 2 + nx * 2.6)}" y="${f((y1 + y2) / 2 + ny * 2.6 + 3 * u)}" text-anchor="middle" font-size="${f(8.5 * u)}" font-weight="700"
+      fill="${c}" paint-order="stroke" stroke="#000" stroke-width="${f(2.4 * u)}">×${l.n}</text>`);
+  }
+}
+function drawLogiMarks(out, u, f, L, ringR, ppl) {
+  const offOp = L.scope.length > 1 ? .55 : .9;           // with every empire shown the rings are many, so keep them quieter
+  for (const s of L.offLoop) out.push(`<circle cx="${s.x}" cy="${s.y}" r="${f(ringR + 4.5 * u)}" fill="none" stroke="${LOGI.off}" stroke-width="${f(1.5 * u)}" stroke-opacity="${offOp}"
+    stroke-dasharray="${f(2.6 * u)} ${f(2 * u)}" pointer-events="none"/>`);
+  const short = x => ({ "collect-all":"all", "drop-all":"all", collect:x.n, drop:x.n, "collect-all-but":`all but ${x.n}`, "drop-all-but":`all but ${x.n}`, garrison:`keep ${x.n}` })[x.action];
+  for (const [id, st] of Object.entries(L.stops)) {
+    const s = S.stars[id], kinds = ["pick", "drop", "keep"].filter(k => st[k].length), g = 3.4 * u, labels = [];
+    let x = s.x - ringR - 9 * u;
+    const y = s.y;
+    for (const k of kinds.reverse()) {          // drawn right to left, so pick-up sits leftmost
+      const live = st[k].some(o => o.live), c = LOGI[k];
+      out.push(`<g pointer-events="none">${logiChip(k, x, y, g, live, f)}</g>`);
+      labels.unshift(`<tspan fill="${c}">${k === "pick" ? "+" : k === "drop" ? "−" : ""}${esc(String(short(st[k][0].x)))}${st[k].length > 1 ? ` ×${st[k].length}` : ""}</tspan>`);
+      x -= g * 2.5;
+    }
+    if (ppl >= 22) out.push(`<text x="${f(x + g * .7)}" y="${f(y + 3 * u)}" text-anchor="end" font-size="${f(8.5 * u)}" font-weight="700"
+      paint-order="stroke" stroke="#000" stroke-width="${f(2.4 * u)}" pointer-events="none">${labels.join(" ")}</text>`);
+  }
+}
+/* A stop marker: a round chip with an arrow up (pick up), down (drop off) or a bar (keep X).
+   Hollow when the order can't run because the star isn't the carrier owner's any more. */
+function logiChip(k, x, y, g, live, f) {
+  const c = LOGI[k], a = g * .55, ink = live ? "#000" : c;
+  const mark = k === "pick" ? `M${f(x)} ${f(y + a)}V${f(y - a)}M${f(x - a * .7)} ${f(y - a * .25)}L${f(x)} ${f(y - a)}L${f(x + a * .7)} ${f(y - a * .25)}`
+    : k === "drop" ? `M${f(x)} ${f(y - a)}V${f(y + a)}M${f(x - a * .7)} ${f(y + a * .25)}L${f(x)} ${f(y + a)}L${f(x + a * .7)} ${f(y + a * .25)}`
+    : `M${f(x - a)} ${f(y)}H${f(x + a)}`;
+  return `<circle cx="${f(x)}" cy="${f(y)}" r="${f(g)}" fill="${live ? c : "#000"}" stroke="${live ? "#000" : c}" stroke-width="${f(g * .22)}"/>
+    <path d="${mark}" fill="none" stroke="${ink}" stroke-width="${f(g * .3)}" stroke-linecap="round" stroke-linejoin="round"/>`;
+}
+const logiKey = k => `<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">${logiChip(k, 7, 7, 6, true, n => +n.toFixed(2))}</svg>`;
+let logiSig = "";
+function renderLogiBox(L) {
+  const box = $("logibox"), btn = document.querySelector('.mapctl [data-z="logi"]');
+  if (btn) { btn.classList.toggle("on", !!L); btn.setAttribute("aria-pressed", !!L); }
+  if (!L) { box.hidden = true; logiSig = ""; return; }
+  const one = L.scope.length === 1, who = playerView() ? "Your empire" : one ? pname(S.players[L.scope[0]]) : L.scope.length === S.players.filter(p => p.alive).length ? "All empires" : `${L.scope.length} empires`;
+  const loops = L.routes.filter(r => r.loop), oneWay = L.routes.length - loops.length;
+  const idle = loops.filter(r => !r.picks || !r.drops);
+  const stopN = k => Object.values(L.stops).filter(st => st[k].length).length;
+  const list = L.offLoop.slice(0, 8).map(s => `<button class="li" data-go="star:${s.id}">${one ? "" : sw(S.players[s.owner])}${esc(s.name)}<span class="r">${nShips(s.ships)}</span></button>`).join("");
+  const html = `<div class="lbh"><button class="lbt" data-logimin aria-expanded="${!PB.logiMin}" title="${PB.logiMin ? "Show" : "Hide"} the details">${PB.logiMin ? "▸" : "▾"} <b>⇄ Logistics</b></button>
+      <span class="muted">${who}</span><button class="scrx" data-logix title="Close logistics view (O)" aria-label="Close">✕</button></div>
+    <div class="lbk"><span>${logiKey("pick")} pick up</span><span>${logiKey("drop")} drop off</span><span>${logiKey("keep")} keep X</span>
+      <span><svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="5.5" fill="none" stroke="${LOGI.off}" stroke-width="1.5" stroke-dasharray="2.4 1.8"/></svg> off every loop</span></div>
+    <div class="lbody" ${PB.logiMin ? "hidden" : ""}>
+    ${L.routes.length ? `<div class="small">${loops.length} supply loop${loops.length === 1 ? "" : "s"}${oneWay ? ` · ${oneWay} one-way trip${oneWay === 1 ? "" : "s"}` : ""} · ${stopN("pick")} pick-up star${stopN("pick") === 1 ? "" : "s"} · ${stopN("drop")} drop-off star${stopN("drop") === 1 ? "" : "s"}</div>`
+      : `<div class="small muted">No carrier has waypoints yet. Select one of ${playerView() ? "your" : "the"} carriers and press A to add stops.</div>`}
+    ${idle.length ? `<div class="small warn">⚠ ${idle.map(r => `<span class="link" data-go="carrier:${r.c.id}">#${r.c.id}</span>`).join(", ")} ${idle.length === 1 ? "loops" : "loop"} without both a pick-up and a drop-off, so ${idle.length === 1 ? "it moves" : "they move"} nothing.</div>` : ""}
+    <div class="lbs"><div class="small"><b>${L.offLoop.length}</b> of ${L.owned} owned star${L.owned === 1 ? "" : "s"} off every loop${L.offLoop.length ? ", most ships first:" : "."}</div>${list}
+      ${L.offLoop.length > 8 ? `<div class="small muted">and ${L.offLoop.length - 8} more</div>` : ""}</div></div>`;
+  if (html === logiSig) return;
+  logiSig = html; box.innerHTML = html; box.hidden = false;
+}
+$("logibox").addEventListener("click", e => {
+  if (e.target.closest("[data-logix]")) { toggleLogi(); return; }
+  if (e.target.closest("[data-logimin]")) { PB.logiMin = !PB.logiMin; savePB(); renderLogiBox(logistics()); return; }
+  const g = e.target.closest("[data-go]"); if (!g) return;
+  const [kind, id] = g.dataset.go.split(":"); goto(kind, +id, true);
+});
 
 function empireInspector(p) {
   $("inspTitle").textContent = "Empire";
@@ -2246,7 +2399,19 @@ $("viewSw").addEventListener("change", e => {
   if (e.target.id !== "quickPlay" || e.target.value === "") return;
   playAs(+e.target.value);
 });
+/* Switching seats mid-game hands your empire to its bot, so it always asks first and then
+   leaves a notice with a one-tap way back (a stray keypress on a "You play" list once did it silently). */
+let seatNote = null;                          // { from, to } after a switch, until dismissed
 function playAs(id) {
+  const was = humanId();
+  if (id === was) return;
+  if (was != null && !confirm(id == null
+      ? `Stop playing ${S.players[was].name}? Its bot takes over and every empire is a bot.`
+      : `Play as ${S.players[id].name} instead of ${S.players[was].name}?\n\n${S.players[was].name} goes back to its bot. You'll have ${S.players[id].name}'s stars, ships and cash, not your own.`)) {
+    renderAll(); return;                      // puts every "You play" list back on your seat
+  }
+  if (document.activeElement && document.activeElement.matches("select")) document.activeElement.blur();   // no lingering focus on a seat list
+  seatNote = was != null && id != null ? { from:was, to:id } : null;
   if (playing) skipTurn();
   sim.admin.setHuman(S, id);
   if (id != null) { PB.view = "player"; PB.vision = []; savePB(); sel = { kind:"star", id:S.players[id].home }; if (S.stars[S.players[id].home].owner !== id) sel = null;
@@ -3269,6 +3434,48 @@ $("inbox").addEventListener("click", e => {
 document.addEventListener("click", e => { const b = e.target.closest("[data-msg]"); if (b) { closePlayer(); openChat(+b.dataset.msg); } });
 
 /* ---------------- wiring ---------------- */
+/* make acting for another empire impossible to miss: in Admin view, a star or carrier that isn't
+   yours frames the window in its owner's colour and the inspector says whose orders you're giving */
+function selOwner() {
+  if (!sel) return null;
+  if (sel.kind === "star") return S.stars[sel.id] ? S.stars[sel.id].owner : null;
+  if (sel.kind === "carrier") { const c = S.carriers.find(x => x.id === sel.id); return c ? c.owner : null; }
+  return null;
+}
+function renderActing() {
+  const h = humanId(), o = selOwner(), ban = $("actBan");
+  const acting = h != null && !playerView() && o != null && o >= 0 && o !== h && S.players[o];
+  document.body.classList.toggle("acting", !!acting);
+  if (acting) {
+    const q = S.players[o], p = S.players[h], what = sel.kind === "star" ? "star" : "carrier";
+    document.body.style.setProperty("--ac", col(q));
+    ban.style.setProperty("--ac", col(q));
+    ban.innerHTML = `<span class="t">🛠 <b>Admin:</b> this is ${sw(q)}<b>${esc(q.name)}</b>'s ${what}. Orders here are given for ${esc(q.name)}, not for you (${esc(p.name)}).</span>
+      <button class="btn small" data-mine>${sw(p)}Back to ${esc(p.name)}</button>`;
+  }
+  ban.hidden = !acting;
+  const n = seatNote, note = $("seatNote");
+  if (n && S.players[n.from] && S.players[n.to] && S.players[n.to].human) {
+    const a = S.players[n.from], b = S.players[n.to];
+    note.innerHTML = `<div class="actban" style="--ac:${col(b)}"><span class="t">You now play ${sw(b)}<b>${esc(b.name)}</b>. ${esc(a.name)} is a bot again.</span>
+      <button class="btn small" data-seatback>${sw(a)}Back to ${esc(a.name)}</button><button class="btn small" data-seatok aria-label="Dismiss">✕</button></div>`;
+  } else { seatNote = null; note.innerHTML = ""; }
+}
+/* back to your own empire: Player view, your home star selected */
+function backToMine() {
+  const p = me(); if (!p) return;
+  PB.view = "player"; PB.vision = []; savePB();
+  const home = S.stars[p.home];
+  sel = home && home.owner === p.id ? { kind:"star", id:home.id } : null;
+  if (sel) focusOn(home, p.id);
+  renderAll();
+}
+$("actBan").addEventListener("click", e => { if (e.target.closest("[data-mine]")) backToMine(); });
+$("seatNote").addEventListener("click", e => {
+  if (e.target.closest("[data-seatok]")) { seatNote = null; renderActing(); }
+  if (e.target.closest("[data-seatback]")) { const n = seatNote; seatNote = null; if (playing) skipTurn(); sim.admin.setHuman(S, n.from); backToMine(); afterChange(); }
+});
+
 function renderAll() {
   renderReplay(); renderTabs(); renderClock(); renderViewSw();
   renderVision(); renderYou(); renderMap(); renderLegend(); renderInspector(); renderFeed();   // the map is always on screen
@@ -3331,8 +3538,8 @@ document.addEventListener("keydown", e => {
     if (tab !== "galaxy") { setTab("galaxy"); return; }
     if (sel) { closeInspector(); return; }
   }
-  if ((e.key === "m" || e.key === "M") && !e.ctrlKey && !e.metaKey && !e.target.matches("input,select,textarea") && !menuOpen) { navOpen() ? closeNav() : openNav(); return; }
-  if (e.target.matches("input,select,textarea")) return;
+  if ((e.key === "m" || e.key === "M") && !e.ctrlKey && !e.metaKey && !typingIn(e) && !menuOpen) { navOpen() ? closeNav() : openNav(); return; }
+  if (typingIn(e)) return;
   if ((e.key === "g" || e.key === "G") && !e.ctrlKey && !e.metaKey) { menuOpen ? closeMenu() : openMenu(); return; }
   if (menuOpen) return;                       // other keys wait until the menu is closed
   if (e.key === "?") { openKeys(); return; }
@@ -3345,17 +3552,28 @@ document.addEventListener("keydown", e => {
   if ((e.key === "t" || e.key === "T") && $("pickMap") && !$("pickMap").disabled) $("pickMap").click();       // pick a send target on the map
   if (e.key === "Enter" && !RE && sendTo != null && $("sendGo") && !$("sendGo").disabled) { e.preventDefault(); $("sendGo").click(); }
   if (e.key === "f") setFull();
+  if ((e.key === "o" || e.key === "O") && !e.ctrlKey && !e.metaKey && !e.altKey) toggleLogi();
   if ((e.key === "s" || e.key === "S" || e.key === "c" || e.key === "C") && !e.ctrlKey && !e.metaKey && !e.altKey) {
     const t = /s/i.test(e.key) ? "stars" : "carriers"; setTab(tab === t ? "galaxy" : t); }
   if (e.key === "Escape" && document.querySelector(".mapwrap.full")) setFull(false);
   if (e.key === " ") { e.preventDefault(); if (playing && playing.hold) continueTurn(); else toggleAuto(); }
 });
 
+/* A focused list (select) takes letters as type-ahead and ← → as "next option", so pressing A
+   (add stops) or ← (back a turn) while a "You play" list still had focus could quietly swap your
+   empire. Letters and ← → are game keys here: the list lets go of focus and the shortcut runs.
+   ↑ ↓ still change a focused list. */
+const typingIn = e => e.target.matches("input,textarea") || (e.target.matches("select") && !e.npKey);
+document.addEventListener("keydown", e => {
+  if (!e.target.matches("select") || e.ctrlKey || e.metaKey || e.altKey || !/^([a-z?]|ArrowLeft|ArrowRight)$/i.test(e.key)) return;
+  e.preventDefault(); e.npKey = true; e.target.blur();
+}, true);
+
 /* carrier keys: A add stops, L loop, Backspace undo stop, Enter save, Esc leave pick
    mode then cancel; [ and ] step through your carriers at the selected star */
 document.addEventListener("keydown", e => {
   if (menuOpen || $("keys").open) return;
-  const typing = e.target.matches("input,select,textarea");
+  const typing = typingIn(e);
   const hit = () => { e.preventDefault(); e.stopImmediatePropagation(); };
   if (RE) {
     const c = S.carriers.find(x => x.id === RE.id);

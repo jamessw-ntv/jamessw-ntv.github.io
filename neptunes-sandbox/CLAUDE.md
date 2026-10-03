@@ -34,6 +34,8 @@ analysis. Plain static page; no server.
   bot-only games (balance.js) are unchanged. UI is `renderInbox` / `composer` / `bubble` in index.html.
   Turn history: `replay` / `openReplay` / `replayGo` / `branchHere` in index.html swap S for a `history[]` snapshot;
   `snap()` and `save()` are guarded so a look-back never overwrites the live game.
+  Logistics view (key O, `PB.logi`): `logistics()` / `drawLogiLanes` / `drawLogiMarks` / `renderLogiBox` in index.html;
+  scope is `logiScope()` (Player view = your own routes only).
   Techs in play: `techsOn(S)` (Terraforming and separate Scanning are off by default).
 
 ## Intent routing
