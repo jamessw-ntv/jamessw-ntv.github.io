@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-03",
-    "fetched": "2026-10-03T00:19:58+00:00",
+    "fetched": "2026-10-03T06:17:22+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
+      "temp": 12,
       "icon": "🌦️",
       "desc": "Showers",
-      "wind": 18
+      "wind": 19
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 34
+        "rain": 12
       },
       {
         "day": "Mon",
@@ -37,7 +37,7 @@
         "max": 19,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 1
+        "rain": 2
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 121739.0,
-        "pct": -0.72
+        "price": 121872.0,
+        "pct": -1.69
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3844.2,
-        "pct": -1.66
+        "price": 3853.63,
+        "pct": -1.93
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "New York’s Inaugural Muslim Film Festival Aims to Move Past Counter-Narratives, Unveils Lineup, Jury (EXCLUSIVE)",
+      "when": "3 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/new-yorks-muslim-film-festival-counter-narratives-1236898067/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Behemoth!’ Review: Pedro Pascal Is a Classical Cellist Skating Through a Midlife Crisis in Tony Gilroy’s Elevated Bauble of a Music Drama",
@@ -111,13 +118,6 @@
       "when": "2 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/02/interview-rod-roddenberry-on-how-new-paramount-wants-to-do-right-by-star-trek/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "John Leguizamo Has a Message for David Ellison: ‘Think of What Americans Need and What the Industry Needs’",
-      "when": "2 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/john-leguizamo-message-david-ellison-what-americans-need-1236897710/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
