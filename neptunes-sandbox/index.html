@@ -219,6 +219,15 @@
   .viewsw button + button{border-left:1px solid var(--line)}
   .viewsw button.on{background:var(--accent-soft);color:var(--text);font-weight:700}
   .youbox{border-color:var(--pc,var(--accent));border-top-width:4px}
+  /* Admin view acting on another empire's star or carrier: frame the window in that empire's colour */
+  body.acting::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;border:4px solid var(--ac);box-shadow:inset 0 0 24px -6px var(--ac)}
+  .actban{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 10px;padding:8px 10px;border-radius:10px;
+    border:2px solid var(--ac);background:color-mix(in srgb,var(--ac) 14%,var(--panel));font-size:13px;line-height:1.35}
+  .actban[hidden]{display:none}
+  .actban .t{flex:1;min-width:180px}
+  #seatNote{position:fixed;top:58px;left:50%;transform:translateX(-50%);z-index:46;width:max-content;max-width:calc(100vw - 32px)}
+  #winner:not(:empty) ~ #seatNote{top:124px}
+  #seatNote .actban{margin:0;box-shadow:var(--shadow)}
   .orders{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
   .orders .btn{padding:6px 4px;font-size:12px;border-radius:8px;text-align:center}
   .orders .btn small{display:block;color:var(--muted);font-size:11px}
@@ -510,6 +519,7 @@
     </div>
   </dialog>
   <div id="winner"></div>
+  <div id="seatNote" role="status" aria-live="polite"></div>
 
   <!-- GALAXY: the map is the whole page; everything else is a screen that slides over it -->
   <section class="panel on" data-tab="galaxy">
@@ -543,6 +553,7 @@
   <!-- the selected star / carrier / empire -->
   <aside class="scr" tabindex="-1" data-scr="inspect" aria-labelledby="inspTitle">
     <div class="scrh"><span class="grab" aria-hidden="true"></span><h2 id="inspTitle">Inspector</h2><button class="scrx" data-close="inspect" title="Close (Esc)" aria-label="Close">✕</button></div>
+    <div class="actban" id="actBan" role="note" hidden></div>
     <div class="insp" id="inspect"></div>
   </aside>
 
@@ -1740,7 +1751,7 @@ function predict(c) {
 
 function renderInspector(force) {
   const box = $("inspect");
-  syncScreens();
+  syncScreens(); renderActing();
   if (RE && (!sel || sel.kind !== "carrier" || sel.id !== RE.id || !S.carriers.some(c => c.id === RE.id))) { RE = null; renderPickbar(); }
   if (!force && RE && box.contains(document.activeElement) && document.activeElement.matches("input[type=number]")) return;  // mid-typing
   if (!sel) {
@@ -2350,7 +2361,19 @@ $("viewSw").addEventListener("change", e => {
   if (e.target.id !== "quickPlay" || e.target.value === "") return;
   playAs(+e.target.value);
 });
+/* Switching seats mid-game hands your empire to its bot, so it always asks first and then
+   leaves a notice with a one-tap way back (a stray keypress on a "You play" list once did it silently). */
+let seatNote = null;                          // { from, to } after a switch, until dismissed
 function playAs(id) {
+  const was = humanId();
+  if (id === was) return;
+  if (was != null && !confirm(id == null
+      ? `Stop playing ${S.players[was].name}? Its bot takes over and every empire is a bot.`
+      : `Play as ${S.players[id].name} instead of ${S.players[was].name}?\n\n${S.players[was].name} goes back to its bot. You'll have ${S.players[id].name}'s stars, ships and cash, not your own.`)) {
+    renderAll(); return;                      // puts every "You play" list back on your seat
+  }
+  if (document.activeElement && document.activeElement.matches("select")) document.activeElement.blur();   // no lingering focus on a seat list
+  seatNote = was != null && id != null ? { from:was, to:id } : null;
   if (playing) skipTurn();
   sim.admin.setHuman(S, id);
   if (id != null) { PB.view = "player"; PB.vision = []; savePB(); sel = { kind:"star", id:S.players[id].home }; if (S.stars[S.players[id].home].owner !== id) sel = null;
@@ -3256,6 +3279,48 @@ document.addEventListener("click", e => {
 });
 
 /* ---------------- wiring ---------------- */
+/* make acting for another empire impossible to miss: in Admin view, a star or carrier that isn't
+   yours frames the window in its owner's colour and the inspector says whose orders you're giving */
+function selOwner() {
+  if (!sel) return null;
+  if (sel.kind === "star") return S.stars[sel.id] ? S.stars[sel.id].owner : null;
+  if (sel.kind === "carrier") { const c = S.carriers.find(x => x.id === sel.id); return c ? c.owner : null; }
+  return null;
+}
+function renderActing() {
+  const h = humanId(), o = selOwner(), ban = $("actBan");
+  const acting = h != null && !playerView() && o != null && o >= 0 && o !== h && S.players[o];
+  document.body.classList.toggle("acting", !!acting);
+  if (acting) {
+    const q = S.players[o], p = S.players[h], what = sel.kind === "star" ? "star" : "carrier";
+    document.body.style.setProperty("--ac", col(q));
+    ban.style.setProperty("--ac", col(q));
+    ban.innerHTML = `<span class="t">🛠 <b>Admin:</b> this is ${sw(q)}<b>${esc(q.name)}</b>'s ${what}. Orders here are given for ${esc(q.name)}, not for you (${esc(p.name)}).</span>
+      <button class="btn small" data-mine>${sw(p)}Back to ${esc(p.name)}</button>`;
+  }
+  ban.hidden = !acting;
+  const n = seatNote, note = $("seatNote");
+  if (n && S.players[n.from] && S.players[n.to] && S.players[n.to].human) {
+    const a = S.players[n.from], b = S.players[n.to];
+    note.innerHTML = `<div class="actban" style="--ac:${col(b)}"><span class="t">You now play ${sw(b)}<b>${esc(b.name)}</b>. ${esc(a.name)} is a bot again.</span>
+      <button class="btn small" data-seatback>${sw(a)}Back to ${esc(a.name)}</button><button class="btn small" data-seatok aria-label="Dismiss">✕</button></div>`;
+  } else { seatNote = null; note.innerHTML = ""; }
+}
+/* back to your own empire: Player view, your home star selected */
+function backToMine() {
+  const p = me(); if (!p) return;
+  PB.view = "player"; PB.vision = []; savePB();
+  const home = S.stars[p.home];
+  sel = home && home.owner === p.id ? { kind:"star", id:home.id } : null;
+  if (sel) focusOn(home, p.id);
+  renderAll();
+}
+$("actBan").addEventListener("click", e => { if (e.target.closest("[data-mine]")) backToMine(); });
+$("seatNote").addEventListener("click", e => {
+  if (e.target.closest("[data-seatok]")) { seatNote = null; renderActing(); }
+  if (e.target.closest("[data-seatback]")) { const n = seatNote; seatNote = null; if (playing) skipTurn(); sim.admin.setHuman(S, n.from); backToMine(); afterChange(); }
+});
+
 function renderAll() {
   renderReplay(); renderTabs(); renderClock(); renderViewSw();
   renderVision(); renderYou(); renderMap(); renderLegend(); renderInspector(); renderFeed();   // the map is always on screen
@@ -3317,8 +3382,8 @@ document.addEventListener("keydown", e => {
     if (tab !== "galaxy") { setTab("galaxy"); return; }
     if (sel) { closeInspector(); return; }
   }
-  if ((e.key === "m" || e.key === "M") && !e.ctrlKey && !e.metaKey && !e.target.matches("input,select,textarea") && !menuOpen) { navOpen() ? closeNav() : openNav(); return; }
-  if (e.target.matches("input,select,textarea")) return;
+  if ((e.key === "m" || e.key === "M") && !e.ctrlKey && !e.metaKey && !typingIn(e) && !menuOpen) { navOpen() ? closeNav() : openNav(); return; }
+  if (typingIn(e)) return;
   if ((e.key === "g" || e.key === "G") && !e.ctrlKey && !e.metaKey) { menuOpen ? closeMenu() : openMenu(); return; }
   if (menuOpen) return;                       // other keys wait until the menu is closed
   if (e.key === "?") { openKeys(); return; }
@@ -3337,11 +3402,21 @@ document.addEventListener("keydown", e => {
   if (e.key === " ") { e.preventDefault(); if (playing && playing.hold) continueTurn(); else toggleAuto(); }
 });
 
+/* A focused list (select) takes letters as type-ahead and ← → as "next option", so pressing A
+   (add stops) or ← (back a turn) while a "You play" list still had focus could quietly swap your
+   empire. Letters and ← → are game keys here: the list lets go of focus and the shortcut runs.
+   ↑ ↓ still change a focused list. */
+const typingIn = e => e.target.matches("input,textarea") || (e.target.matches("select") && !e.npKey);
+document.addEventListener("keydown", e => {
+  if (!e.target.matches("select") || e.ctrlKey || e.metaKey || e.altKey || !/^([a-z?]|ArrowLeft|ArrowRight)$/i.test(e.key)) return;
+  e.preventDefault(); e.npKey = true; e.target.blur();
+}, true);
+
 /* carrier keys: A add stops, L loop, Backspace undo stop, Enter save, Esc leave pick
    mode then cancel; [ and ] step through your carriers at the selected star */
 document.addEventListener("keydown", e => {
   if (menuOpen || $("keys").open) return;
-  const typing = e.target.matches("input,select,textarea");
+  const typing = typingIn(e);
   const hit = () => { e.preventDefault(); e.stopImmediatePropagation(); };
   if (RE) {
     const c = S.carriers.find(x => x.id === RE.id);
