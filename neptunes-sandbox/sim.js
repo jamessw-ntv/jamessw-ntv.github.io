@@ -84,6 +84,7 @@ const DEFAULT_SETTINGS = {
   maxTurns: 400,         // hard stop; most stars wins
   banned: [],            // "a-b" pairs the bots may never ally
   allyVision: true,      // formal allies share scanning (fog of war)
+  botTrade: true,        // bots share techs with allies they like
 };
 
 const STAR_A = ["Al","Be","Ca","De","Ep","Fo","Ga","He","Io","Ka","Le","Mi","No","Or","Pa","Qu","Ri","Sa","Te","Ul","Ve","Wo","Xe","Ya","Ze"];
@@ -103,9 +104,10 @@ const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 const pairKey = (a, b) => a < b ? a + "-" + b : b + "-" + a;
 const turnOf = S => S.turn;
 
-function log(S, type, text, players, star) {
+function log(S, type, text, players, star, extra) {
   const e = { tick:S.tick, turn:S.turn, type, text, players:players || [] };
   if (star != null) e.star = star;                    // where it happened, for map effects
+  if (extra) Object.assign(e, extra);
   S.events.push(e);
   if (S.events.length > 3000) S.events.splice(0, S.events.length - 3000);
 }
@@ -479,6 +481,7 @@ function resolveStar(S, star) {
     takeLosses(defList, defShips - r.def);
     S.carriers = S.carriers.filter(c => c.ships > 0 || c.at !== star.id);
     const aName = sides.map(id => P(S, id).name).join(" + "), dName = P(S, owner).name;
+    const fightInfo = { fight:{ att:sides, def:owner, a:attShips, d:defShips, la:attShips - r.att, ld:defShips - r.def, wa, wd } };   // for battle effects and reports
     sides.forEach(id => S.rel[owner][id] = clamp(S.rel[owner][id] - (r.def <= 0 ? 12 : 4), -100, 100));
     if (r.def <= 0) {
       const inOrbit = {};
@@ -486,10 +489,10 @@ function resolveStar(S, star) {
       const winner = +Object.keys(inOrbit).sort((a, b) => inOrbit[b] - inOrbit[a])[0];
       const cash = star.econ * S.rules.captureCashPerEcon;
       P(S, winner).credits += cash;
-      log(S, "combat", `${P(S, winner).name} captured ${star.name} from ${dName} (${attShips} vs ${defShips} ships${sides.length > 1 ? `, attackers ${aName}` : ""}, ${r.att} left${cash ? `, +$${cash}` : ""}).`, [...sides, owner], star.id);
+      log(S, "combat", `${P(S, winner).name} captured ${star.name} from ${dName} (${attShips} vs ${defShips} ships${sides.length > 1 ? `, attackers ${aName}` : ""}, ${r.att} left${cash ? `, +$${cash}` : ""}).`, [...sides, owner], star.id, fightInfo);
       star.owner = winner; star.econ = 0; star.ships = 0; star.frac = 0;
     } else {
-      log(S, "combat", `${dName} held ${star.name} against ${aName} (${attShips} vs ${defShips} ships, ${r.def} left).`, [...sides, owner], star.id);
+      log(S, "combat", `${dName} held ${star.name} against ${aName} (${attShips} vs ${defShips} ships, ${r.def} left).`, [...sides, owner], star.id, fightInfo);
     }
   }
 }
@@ -851,6 +854,7 @@ function botTurn(S, p) {
   const persona = PERSONAS[p.persona];
   botDiplomacy(S, p, persona);
   botResearch(S, p, persona);
+  botTrade(S, p, persona);
   botSupply(S, p);
   botMilitary(S, p, persona);
   botSpend(S, p, persona);
@@ -1182,6 +1186,48 @@ const admin = {
   setOpinion(S, a, b, v) { S.rel[a][b] = clamp(v, -100, 100); },
 };
 
+/* ---------------- trading ----------------
+   Real game: share_tech gives the other empire one level of a tech you're ahead in, for
+   (their new level × tradeCost); send_money gives any amount free. Gifts warm the receiver. */
+function tradeCost(S, from, to, t) { return (lvl(S, to, t) + 1) * S.rules.tradeCost; }
+function shareTech(S, from, to, t, by) {
+  const p = P(S, from), q = P(S, to);
+  if (!q || !q.alive || from === to) return "Pick another living empire.";
+  if (!techsOn(S).includes(t)) return "Unknown tech.";
+  if (lvl(S, from, t) <= lvl(S, to, t)) return `${q.name} already has ${TECH_LABEL[t]} ${lvl(S, to, t)}.`;
+  if (S.rules.tradeScanned && !starsOf(S, to).some(s => inScan(scanSources(S, [from]), s))) return `${q.name} isn't in your scanning.`;
+  const cost = tradeCost(S, from, to, t);
+  if (p.credits < cost) return `Needs $${cost}, you have $${p.credits}.`;
+  p.credits -= cost; q.tech[t].level++;
+  S.rel[to][from] = clamp(S.rel[to][from] + 5, -100, 100);
+  log(S, "diplomacy", `${p.name} shared ${TECH_LABEL[t]} ${q.tech[t].level} with ${q.name}${by === "bot" ? "" : ` ($${cost})`}.`, [from, to]);
+  return "";
+}
+function sendCash(S, from, to, amount) {
+  const p = P(S, from), q = P(S, to);
+  amount = Math.floor(+amount);
+  if (!q || !q.alive || from === to) return "Pick another living empire.";
+  if (!(amount >= 1)) return "Send at least $1.";
+  if (p.credits < amount) return `You only have $${p.credits}.`;
+  p.credits -= amount; q.credits += amount;
+  S.rel[to][from] = clamp(S.rel[to][from] + Math.min(15, Math.floor(amount / 20)), -100, 100);
+  log(S, "diplomacy", `${p.name} sent $${amount} to ${q.name}.`, [from, to]);
+  return "";
+}
+/* Bots now and then share a tech with a smaller ally they like, while they can spare the cash:
+   at most one level a turn. Help flows from strong to weak, so trading doesn't snowball the leaders. */
+function botTrade(S, p, persona) {
+  if (S.settings.botTrade === false) return;
+  const spare = p.credits - S.rules.carrierCost * 4;
+  const friends = alliesOf(S, p.id).filter(q => { const al = alliance(S, p.id, q); return al && al.warBy == null && S.rel[p.id][q] >= 0
+    && starsOf(S, q).length < starsOf(S, p.id).length; });                         // prop up a weaker friend, never feed a rival
+
+  if (spare <= 0 || !friends.length || rand(S) > .3 * (1 - persona.treach)) return;   // the treacherous rarely give
+  const q = friends[Math.floor(rand(S) * friends.length)];
+  const t = techsOn(S).filter(t => lvl(S, p.id, t) > lvl(S, q, t)).sort((a, b) => tradeCost(S, p.id, q, a) - tradeCost(S, p.id, q, b))[0];
+  if (t && tradeCost(S, p.id, q, t) <= spare * .25) shareTech(S, p.id, q, t, "bot");
+}
+
 /* ---------------- a person's orders ----------------
    The same moves the real game gives a player. Each returns "" on success or a
    plain-English reason it can't be done, so the viewer can show it. */
@@ -1290,6 +1336,8 @@ const act = {
     c.ships -= t; star.ships += t;
     return "";
   },
+  shareTech(S, pid, other, tech) { return shareTech(S, pid, other, tech, "player"); },
+  sendCash(S, pid, other, amount) { return sendCash(S, pid, other, amount); },
   war(S, pid, other) {
     const al = alliance(S, pid, other);
     if (!al) return "You aren't allied.";
@@ -1299,7 +1347,7 @@ const act = {
   },
 };
 
-const API = { ARCHETYPES, lineupFrom, techsOn, speedBetween, ticksBetween, ACTIONS, transferFor, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
+const API = { tradeCost, ARCHETYPES, lineupFrom, techsOn, speedBetween, ticksBetween, ACTIONS, transferFor, routePath, checkRoute, SUPPLY_LINES, RULE_LIST, GALAXY_TYPES, DEFAULT_GALAXY, checkVictory, TECHS, TECH_LABEL, SEATS, PERSONAS, DEFAULT_LINEUP, DEFAULT_SETTINGS,
   defaultRules, newGame, nextTurn, beginTurn, endTurn, tick, admin, act,
   range, resources, infraCost, researchCost, shipsPerCycle, totals, starsOf, winTarget,
   alliance, allied, alliesOf, carrierPos, scanRange, scanSources, inScan, eta, fight, shipsToWin, pairKey, dist };

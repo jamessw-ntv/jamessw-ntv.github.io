@@ -70,6 +70,10 @@ var NP_RULES = [   // `var` so the browser exposes it as window.NP_RULES for sim
   // ---- diplomacy ----
   { key:"allianceFee", value:0, group:"Diplomacy", label:"Alliance request fee ($)", confirmed:false,
     note:"Real games do log a price on alliance offers (NPA reads it from peace events), but the amount isn't in any data we have." },
+  { key:"tradeCost", value:25, group:"Diplomacy", label:"Tech trade cost per level ($)", confirmed:false,
+    note:"Formula confirmed from NPA (intel.ts tradeCostForLevel): sharing a tech costs the level they receive × this. The number is a game setting; 25 is a guess at the default." },
+  { key:"tradeScanned", value:0, group:"Diplomacy", label:"Trade only with empires in your scanning (1 = yes)", confirmed:false,
+    note:"A real game setting (NPA reads config.tradeScanned). Default unknown; off here." },
   { key:"allianceBreakTicks", value:0, group:"Diplomacy", label:"Ticks from declaring war to war", confirmed:true,
     note:"Codex: default is no warning; games can be set to 24 or 48. Alliances are secret until broken." },
 

@@ -6,6 +6,7 @@
      node neptunes-sandbox/tools/balance.js --seeds 20 --sizes 6 --galaxies hexgrid
      node neptunes-sandbox/tools/balance.js --mirror standard   # every seat the same bot: seat fairness only
      node neptunes-sandbox/tools/balance.js --tweak '{"turtle":{"keep":0.4}}'   # try a persona change first
+     node neptunes-sandbox/tools/balance.js --settings '{"botTrade":false}'  # house-rule settings for every game
    Other flags: --pool warlord,turtle,...  --base <first seed>  --detail (galaxy × seat)  --cores N
 
    Lineups are rotated (a Latin square) so every personality sits in every seat
@@ -22,6 +23,7 @@ if (!isMainThread) {
   tweak(workerData.tweak);
   for (const job of workerData.jobs) {
     const S = sim.newGame(job.opts);
+    Object.assign(S.settings, workerData.settings);
     while (!S.winner) sim.nextTurn(S);
     const cx = S.stars.reduce((t, s) => t + s.x, 0) / S.stars.length, cy = S.stars.reduce((t, s) => t + s.y, 0) / S.stars.length;
     parentPort.postMessage({ job, ids:S.winner.ids, how:S.winner.how, turn:S.winner.turn,
@@ -59,7 +61,7 @@ const t0 = Date.now(), results = [];
 let done = 0;
 const chunks = Array.from({ length:cores }, (_, i) => jobs.filter((_, j) => j % cores === i));
 Promise.all(chunks.map(c => new Promise((res, rej) => {
-  const w = new Worker(__filename, { workerData:{ jobs:c, tweak:JSON.parse(arg("tweak", "{}")) } });
+  const w = new Worker(__filename, { workerData:{ jobs:c, tweak:JSON.parse(arg("tweak", "{}")), settings:JSON.parse(arg("settings", "{}")) } });
   w.on("message", m => { results.push(m); if (++done % 200 === 0) process.stderr.write(`${done}/${jobs.length} games\n`); });
   w.on("error", rej); w.on("exit", res);
 }))).then(report);
