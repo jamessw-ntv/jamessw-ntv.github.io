@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-03",
-    "fetched": "2026-10-03T20:53:34+00:00",
+    "fetched": "2026-10-03T23:42:05+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 13,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 5
+      "wind": 12
     },
     "days": [
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 122146.0,
-        "pct": 0.62
+        "price": 122170.0,
+        "pct": 0.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3873.95,
-        "pct": 1.2
+        "price": 3873.47,
+        "pct": 0.79
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Jeremy Strong Defends Method Acting, Says He Doesn’t Feel the Need to ‘Apologize’ to Co-Stars Who May Think ‘I’m Taking It Too Seriously’",
+      "when": "3 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/jeremy-strong-defends-method-acting-social-reckoning-1236898328/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘RuneScape’-Inspired Animation Series in the Works From Lyrical Animation and Jagex",
+      "when": "3 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/gaming/news/runescape-animation-series-lyrical-animation-jagex-1236898308/"
+    },
     {
       "cat": "Film/TV",
       "title": "Guillermo Del Toro Defends ‘Digger,’ Calls the Film ‘Daring, Bold and Cinematically Complex’",
@@ -97,20 +111,6 @@
       "when": "3 Oct",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/tony-gilroy-paramount-warner-bros-merger-behemoth-nyff-1236898132/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Pierre Le Gall’s Passionate Love Story ‘Flesh and Fuel’ Named Best Film at Zurich Film Festival",
-      "when": "3 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/pierre-le-gall-flesh-and-fuel-zurich-film-festival-1236898150/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Verity’ Cast Reveals Their Go-To Book Recommendations on Heels of Novel’s Big-Screen Adaptation (Exclusive)",
-      "when": "3 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/best-books-like-verity-movie-cast-recommendations-picks-1236897066/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
