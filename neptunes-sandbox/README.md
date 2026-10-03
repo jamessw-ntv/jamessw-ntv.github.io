@@ -53,6 +53,14 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
   / cancel, `[` `]` step through the carriers at a star. Buttons are 40 px on touch screens.
 - **Alliances**: alliance web, opinion matrix (what each bot thinks of each other),
   alliance history (formed, ended, who betrayed whom), treachery stats.
+- **Trade** (Overview → *Trade*, when you play an empire): share a tech you lead in, one level at a
+  time for their new level × $25 (the real game's share_tech), or send any amount of cash. Gifts warm
+  the receiver's opinion of you. Bots now and then share a tech with a smaller ally they like
+  (house rule *Bots share techs with allies* in ⚙ Game).
+- **Turn history** (🕘 on the map, key `H`): look back at any earlier turn this session with a
+  slider; ← → step. Look-only: *Play from here* (or editing anything) throws the later turns away.
+- **Battles** flash sparks and float each side's losses (−N ⚔ −M) during playback.
+- **Keyboard shortcuts**: `?` or ☰ → Keyboard shortcuts.
 - **Empires**: leaderboard with tech levels, and charts over time.
 - **Log**: filterable events (diplomacy, combat, expansion, orders, research).
 - **Admin**: force / lock / unlock / break / ban alliances, "every alliance is
@@ -94,7 +102,7 @@ you can see.
 
 ## Simplifications (for now)
 - Bots see everything (no dark galaxy), so Scanning does nothing yet.
-- No tech trading or cash gifts between players yet (the real game has both).
+- Tech trade cost per level ($25) and "trade only in scanning" (off) are guesses at the real defaults.
 - Terraforming and a separate Scanning tech are off, like a default real game (`terraformOn`
   and `scanShared` in the Rules tab turn them back on). Players (and bots) can queue a
   "research next" tech, which takes over when the current level completes.

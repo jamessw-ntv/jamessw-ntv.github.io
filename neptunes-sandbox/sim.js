@@ -34,7 +34,7 @@ const SEATS = [
    research  tech priorities, first = favourite */
 const PERSONAS = {
   warlord:      { label:"Warlord",      aggr:.90, treach:.50, allyAt:35, maxAllies:1, keep:.15,
-                  spend:{ econ:.35, industry:.51, science:.14 }, research:["weapons","manufacturing","range"],
+                  spend:{ econ:.38, industry:.48, science:.14 }, research:["weapons","manufacturing","range"],
                   blurb:"Builds ships, attacks early, allies only for convenience." },
   turtle:       { label:"Turtle",       aggr:.20, treach:.05, allyAt:15, maxAllies:2, keep:.55,
                   spend:{ econ:.42, industry:.42, science:.16 }, research:["weapons","banking","terraforming"],

@@ -77,15 +77,16 @@
   .mapctl button{width:34px;height:34px;border-radius:8px;background:var(--panel2);border:1px solid var(--line);
     color:var(--text);font-size:17px;line-height:1;cursor:pointer}
   .mapctl button:hover{border-color:var(--accent)}
-  .replaybar{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:6;display:flex;align-items:center;gap:8px;
+  .replaybar{position:absolute;left:calc(var(--scrW, 0px) + (100% - var(--scrW, 0px)) / 2);bottom:12px;transform:translateX(-50%);z-index:6;display:flex;align-items:center;gap:8px;
     background:rgba(11,15,26,.92);border:1px solid var(--accent);border-radius:999px;padding:6px 8px 6px 10px;box-shadow:var(--shadow);max-width:calc(100% - 24px)}
   .replaybar[hidden]{display:none}
   .replaybar label{display:flex;flex-direction:column;align-items:center;font-size:12px;color:var(--muted);min-width:0;flex:1}
   .replaybar label b{color:var(--text)} .replaybar input{width:min(260px,40vw);accent-color:var(--accent)}
-  @media (max-width:600px){.replaybar{bottom:calc(10px + env(safe-area-inset-bottom));gap:5px;padding:5px 6px;width:calc(100% - 20px);border-radius:14px;flex-wrap:wrap;justify-content:center}
+  @media (max-width:600px){.replaybar{bottom:auto;top:58px;left:10px;transform:none;gap:5px;padding:5px 6px;width:calc(100% - 64px);border-radius:14px;flex-wrap:wrap;justify-content:center}
     .replaybar label{order:-1;flex-basis:100%} .replaybar input{width:100%}}
   .mapctl button.on{background:var(--accent);color:#000}
   body.replaying .mapwrap{box-shadow:inset 0 0 0 2px var(--accent)}
+  body.replaying :is(#inspect,#you,#starDir,#carrierDir) :is(.btn,input,select){pointer-events:none;opacity:.45}   /* an old turn is look-only */
   @media (max-width:600px){body.replaying .scalebar{display:none}}
   .scalebar{position:absolute;left:12px;bottom:10px;font-size:11px;color:var(--muted);pointer-events:none}
   .scalebar i{display:block;height:6px;border:1px solid var(--muted);border-top:0;margin-bottom:3px}
@@ -480,6 +481,7 @@
         <dt><kbd>M</kbd></dt><dd>Menu of screens</dd>
         <dt><kbd>G</kbd></dt><dd>Game menu: restart, new game, house rules</dd>
         <dt><kbd>V</kbd></dt><dd>Switch Player / Admin view (when playing an empire)</dd>
+        <dt><kbd>S</kbd> <kbd>C</kbd></dt><dd>Your stars / your carriers</dd>
         <dt><kbd>F</kbd></dt><dd>Full-screen map</dd>
         <dt><kbd>Esc</kbd></dt><dd>Close the top screen or selection</dd>
         <dt><kbd>?</kbd></dt><dd>This list</dd></dl></section>
@@ -747,7 +749,9 @@ const botLabel = p => isMe(p) ? "You" : playerView() ? "Empire" : sim.PERSONAS[p
 
 function save() { if (replay) return; try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } catch (e) {} }
 function load() { try { return JSON.parse(localStorage.getItem(SAVE_KEY) || "null"); } catch (e) { return null; } }
-function snap() { history[S.turn] = JSON.stringify(S); history.length = S.turn + 1; }
+function snap() {
+  if (replay && !branchHere()) return;        // an edit while looking back at an old turn: branch from it, or undo the edit
+  history[S.turn] = JSON.stringify(S); history.length = S.turn + 1; }
 function startGame(state) { S = state; history = []; snap(); sel = null; cam = null; feedRebuild();
   PB.vision = PB.vision.filter(id => id < S.players.length); save(); renderAll(); }
 function afterChange() {                    // admin edits become part of this turn
@@ -873,10 +877,12 @@ function leaveReplay() {
   feedRebuild(); renderAll();
 }
 function branchHere() {                         // an edit while looking back: play on from this turn instead
-  if (!confirm(`Play on from turn ${S.turn}? Turns ${S.turn + 1}–${replay.live.turn} are thrown away.`)) { S = JSON.parse(history[replay.at]); renderAll(); return false; }
+  const lost = replay.live.turn - S.turn;
+  if (!confirm(`Play on from turn ${S.turn}? ${lost > 1 ? `Turns ${S.turn + 1}–${replay.live.turn} are` : `Turn ${replay.live.turn} is`} thrown away.`)) { S = JSON.parse(history[replay.at]); renderAll(); return false; }
   replay = null; history.length = S.turn + 1;
   return true;
 }
+const firstSaved = () => { const i = history.findIndex(h => h); return i < 0 ? 0 : i; };
 function renderReplay() {
   const el = $("replaybar"), lb = document.querySelector('.mapctl [data-z="hist"]');
   if (lb) { lb.classList.toggle("on", !!replay); lb.disabled = !replay && (!history.some((h, i) => h && i < S.turn) || !!playing); }
@@ -884,14 +890,17 @@ function renderReplay() {
   if (!replay) { el.hidden = true; return; }
   const last = replay.live.turn;
   el.hidden = false;
-  el.innerHTML = `<button class="btn small" data-rp="prev" title="Earlier turn (←)" ${replay.at <= 0 ? "disabled" : ""}>◀</button>
-    <label><span>Turn <b>${replay.at}</b> of ${last}</span><input type="range" id="rpSlider" min="0" max="${last}" value="${replay.at}" aria-label="Turn"></label>
+  el.innerHTML = `<button class="btn small" data-rp="prev" title="Earlier turn (←)" ${replay.at <= firstSaved() ? "disabled" : ""}>◀</button>
+    <label><span>Turn <b>${replay.at}</b> of ${last}</span><input type="range" id="rpSlider" min="${firstSaved()}" max="${last}" value="${replay.at}" aria-label="Turn"></label>
     <button class="btn small" data-rp="next" title="Later turn (→)">▶</button>
     <button class="btn small" data-rp="branch" title="Throw away the later turns and play on from here">Play from here</button>
     <button class="btn small primary" data-rp="now" title="Back to turn ${last} (H)">Now ✕</button>`;
 }
-$("replaybar").addEventListener("input", e => { if (e.target.id === "rpSlider") { const t = +e.target.value;
-  if (t >= replay.live.turn) { leaveReplay(); return; } replay.at = t; S = JSON.parse(history[t] || history[replay.at]); feedRebuild();
+$("replaybar").addEventListener("input", e => { if (e.target.id === "rpSlider") { let t = +e.target.value;
+  if (t >= replay.live.turn) { leaveReplay(); return; }
+  while (t < replay.live.turn && !history[t]) t++;                 // turns lost on reload: snap to the next saved one
+  if (t >= replay.live.turn) { leaveReplay(); return; }
+  replay.at = t; S = JSON.parse(history[t]); feedRebuild();
   renderClock(); renderMap(); renderLegend(); renderInspector(); renderFeed(); renderYou();
   e.target.previousElementSibling.innerHTML = `Turn <b>${t}</b> of ${replay.live.turn}`; } });
 $("replaybar").addEventListener("change", e => { if (e.target.id === "rpSlider" && replay) renderAll(); });
@@ -1369,6 +1378,7 @@ function renderMap() {
   // battle / capture / claim bursts while a tick plays back
   if (anim && anim.post) {
     const k = (anim.t - .72) / .28, op = Math.max(0, 1 - k);
+    const stackAt = {};
     for (const e of anim.fx) {
       const st = S.stars[e.star]; if (!seesStar(vis, st)) continue;
       const c = e.kind === "battle" ? "#ff5a4f" : st.owner >= 0 ? col(S.players[st.owner]) : "#fff";
@@ -1382,7 +1392,8 @@ function renderMap() {
         out.push(`<path d="${d}" stroke="${e.kind === "capture" ? c : "#ffd27a"}" stroke-width="${f(1.6 * u)}" stroke-linecap="round" opacity="${op.toFixed(2)}"/>`);
       }
       if (e.fight && (e.fight.la || e.fight.ld)) {   // losses on each side float up from the star
-        const y = st.y - (18 + k * 16) * u, fs = 12 * u;
+        const n = stackAt[e.star] = (stackAt[e.star] || 0) + 1;   // several fights at one star stack upward
+        const y = st.y - (18 + k * 16 + (n - 1) * 14) * u, fs = 12 * u;
         out.push(`<text x="${st.x}" y="${f(y)}" text-anchor="middle" font-size="${f(fs)}" font-weight="800" paint-order="stroke" stroke="#000" stroke-width="${f(2.6 * u)}" opacity="${Math.min(1, op * 1.6).toFixed(2)}">
           <tspan fill="${col(S.players[e.fight.att[0]])}">−${e.fight.la}</tspan><tspan fill="#fff"> ⚔ </tspan><tspan fill="${col(S.players[e.fight.def])}">−${e.fight.ld}</tspan></text>`);
       }
@@ -2282,7 +2293,9 @@ let tradeTo = null;
 function tradeHtml(p, busy) {
   const rivals = S.players.filter(q => q.alive && q.id !== p.id);
   if (!rivals.length) return "";
-  if (!rivals.some(q => q.id === tradeTo)) tradeTo = (rivals.find(q => sim.allied(S, p.id, q.id)) || rivals[0]).id;
+  const ahead = q => sim.techsOn(S).some(t => p.tech[t].level > q.tech[t].level);
+  if (!rivals.some(q => q.id === tradeTo)) tradeTo = (rivals.find(q => sim.allied(S, p.id, q.id) && ahead(q)) || rivals.find(ahead)
+    || rivals.find(q => sim.allied(S, p.id, q.id)) || rivals[0]).id;
   const q = S.players[tradeTo];
   const techs = sim.techsOn(S).filter(t => p.tech[t].level > q.tech[t].level);
   return fold("ytrade", "Trade", `
@@ -2291,7 +2304,7 @@ function tradeHtml(p, busy) {
       return `<button class="btn" data-share="${t}" ${busy || c > p.credits ? "disabled" : ""} title="Give ${esc(q.name)} ${esc(sim.TECH_LABEL[t])} ${q.tech[t].level + 1}">${esc(sim.TECH_LABEL[t])} ${q.tech[t].level}→${q.tech[t].level + 1}<small>$${c}</small></button>`; }).join("")}</div>`
       : `<div class="small muted">${esc(q.name)} is level with you or ahead in every tech.</div>`}
     <div class="sendrow small"><span>Send $</span><input type="number" id="cashAmt" min="1" max="${p.credits}" value="${Math.min(p.credits, 50)}">
-      <button class="btn small" id="cashGo" ${busy || !p.credits ? "disabled" : ""}>Send cash</button></div>
+      <button class="btn small" id="cashGo" ${busy || !p.credits ? "disabled" : ""}>Send cash</button><span class="muted">you have $${p.credits}</span></div>
     <div class="small muted">Gifts improve what they think of you. Bots share techs with smaller allies they like.</div>`,
     techs.length ? `${techs.length} tech${techs.length > 1 ? "s" : ""} to share` : "share tech, send cash");
 }

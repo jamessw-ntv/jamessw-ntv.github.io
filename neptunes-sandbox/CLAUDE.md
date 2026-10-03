@@ -28,6 +28,9 @@ analysis. Plain static page; no server.
   from NPA's timetravel.ts); the editor is `routeEditor` / `pickStop` / `drawRoutes` in index.html.
   Warp gates: `star.gate`, `speedBetween` / `ticksBetween` (speed fixed at departure in `c.speed`).
   Battle forecasts: `forecast` in index.html runs `sim.tick` on a JSON copy of the state.
+  Trading: `shareTech` / `sendCash` / `botTrade` in sim.js (`act.shareTech`, `act.sendCash`); UI is `tradeHtml`.
+  Turn history: `replay` / `openReplay` / `replayGo` / `branchHere` in index.html swap S for a `history[]` snapshot;
+  `snap()` and `save()` are guarded so a look-back never overwrites the live game.
   Techs in play: `techsOn(S)` (Terraforming and separate Scanning are off by default).
 
 ## Intent routing
