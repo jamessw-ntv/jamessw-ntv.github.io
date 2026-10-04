@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-04",
-    "fetched": "2026-10-04T12:07:57+00:00",
+    "fetched": "2026-10-04T17:24:20+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 4
+      "temp": 7,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 5
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 14,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 59
-      },
-      {
-        "day": "Mon",
         "min": 7,
         "max": 18,
         "icon": "☁️",
@@ -33,11 +25,19 @@
       },
       {
         "day": "Tue",
-        "min": 9,
+        "min": 8,
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 94
+        "rain": 96
+      },
+      {
+        "day": "Wed",
+        "min": 7,
+        "max": 16,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
       }
     ]
   },
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 122968.0,
-        "pct": 0.76
+        "price": 122951.0,
+        "pct": 0.44
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3891.44,
-        "pct": 0.6
+        "price": 3895.23,
+        "pct": 0.64
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Pete Hegseth Chugs ‘Spider-Man’s Non-Alcoholic B—- Beer’ in ‘SNL’ Cold Open That Mocks Tom Holland, Mitch McConnell and JD Vance",
+      "title": "‘Spotlight’ Director Says The Catholic Church Hasn’t Done ‘Enough’ To Protect Children From Sexual Assault 10 Years After Film’s Best Picture Win: ‘Not Until Every Child Is Safe’",
       "when": "4 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/snl-pete-hegseth-spider-man-non-alcoholic-beer-1236898415/"
+      "url": "https://variety.com/2026/film/news/spotlight-catholic-church-children-sexual-abuse-nyff-1236898551/"
     },
     {
       "cat": "Film/TV",
-      "title": "Taylor Swift Crashes Dakota Johnson’s ‘SNL’ Monologue as Her Breakup Therapist, Shows Travis Kelce Love with Cleveland Shoutout",
+      "title": "Daily Wire’s Pro-ICE Film ‘Pawn Shop’ Production Temporarily Suspended",
       "when": "4 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/taylor-swift-snl-cameo-dakota-johnson-saturday-night-live-1236898411/"
+      "url": "https://variety.com/2026/film/news/daily-wires-pro-ice-film-temporarily-suspended-montana-1236898635/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘East of Eden’ Boss Zoe Kazan on That Devastating Ending, Why Florence Pugh’s Cathy Is Both a ‘Murderer’ and ‘Survivor’ and Making Lee a Central Character",
+      "when": "4 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/east-of-eden-explained-ending-cathy-lee-sexuality-1236897001/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Pedro Pascal in ‘Behemoth!’: The Oscar-Worthy Role That He (and Latinos) Have Been Waiting For",
+      "when": "4 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/pedro-pascal-behemoth-oscars-chances-latino-best-actor-1236898464/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +118,6 @@
       "when": "4 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/03/watch-star-trek-scouts-take-on-the-robots-for-some-space-basketball/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘A Statement’ Review: Just What We Need Right Now — Another Movie About Climate Change! But Tom McCarthy’s Historically Based Talkfest Reveals How Much We Knew in 1980",
-      "when": "4 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/a-statement-review-paul-rudd-paul-giamatti-nyff-1236898120/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Lawrence Rothman on Their New Album, ‘Here Lives Love/Sawdust to Stardust,’ a Growing Legacy Producing Other Artists, and the Talk with Bowie That Changed Everything",
-      "when": "3 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/lawrence-rothman-here-lies-love-album-producer-americana-1236898339/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
