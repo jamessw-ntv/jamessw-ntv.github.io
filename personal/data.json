@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-03",
-    "fetched": "2026-10-03T23:42:05+00:00",
+    "updated": "2026-10-04",
+    "fetched": "2026-10-04T05:23:22+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
+      "temp": 14,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 12
+      "wind": 9
     },
     "days": [
       {
@@ -21,11 +21,11 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 57
+        "rain": 59
       },
       {
         "day": "Mon",
-        "min": 6,
+        "min": 7,
         "max": 18,
         "icon": "☁️",
         "desc": "Overcast",
@@ -34,10 +34,10 @@
       {
         "day": "Tue",
         "min": 9,
-        "max": 16,
+        "max": 15,
         "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 90
+        "desc": "Showers",
+        "rain": 92
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 122170.0,
+        "price": 122262.0,
         "pct": 0.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3873.47,
-        "pct": 0.79
+        "price": 3883.17,
+        "pct": 0.71
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Jeremy Strong Defends Method Acting, Says He Doesn’t Feel the Need to ‘Apologize’ to Co-Stars Who May Think ‘I’m Taking It Too Seriously’",
-      "when": "3 Oct",
+      "title": "Pete Hegseth Chugs ‘Spider-Man’s Non-Alcoholic B—- Beer’ in ‘SNL’ Cold Open That Mocks Tom Holland, Mitch McConnell and JD Vance",
+      "when": "4 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jeremy-strong-defends-method-acting-social-reckoning-1236898328/"
+      "url": "https://variety.com/2026/tv/news/snl-pete-hegseth-spider-man-non-alcoholic-beer-1236898415/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘RuneScape’-Inspired Animation Series in the Works From Lyrical Animation and Jagex",
-      "when": "3 Oct",
+      "title": "Taylor Swift Crashes Dakota Johnson’s ‘SNL’ Monologue as Her Breakup Therapist, Shows Travis Kelce Love with Cleveland Shoutout",
+      "when": "4 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/runescape-animation-series-lyrical-animation-jagex-1236898308/"
+      "url": "https://variety.com/2026/music/news/taylor-swift-snl-cameo-dakota-johnson-saturday-night-live-1236898411/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Watch: The ‘Star Trek: Scouts’ Take On The Robots For Some Space Basketball",
+      "when": "4 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/03/watch-star-trek-scouts-take-on-the-robots-for-some-space-basketball/"
     },
     {
       "cat": "Film/TV",
-      "title": "Guillermo Del Toro Defends ‘Digger,’ Calls the Film ‘Daring, Bold and Cinematically Complex’",
-      "when": "3 Oct",
+      "title": "‘A Statement’ Review: Just What We Need Right Now — Another Movie About Climate Change! But Tom McCarthy’s Historically Based Talkfest Reveals How Much We Knew in 1980",
+      "when": "4 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/guillermo-del-toro-defends-digger-1236898266/"
+      "url": "https://variety.com/2026/film/reviews/a-statement-review-paul-rudd-paul-giamatti-nyff-1236898120/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tony Gilroy Says Paramount-Warner Bros. Merger Will ‘Destroy’ a ‘Healthy and Beautiful Business’ in ‘The Name of Venture Capital’: ‘It’s Tragic’",
+      "title": "Lawrence Rothman on Their New Album, ‘Here Lives Love/Sawdust to Stardust,’ a Growing Legacy Producing Other Artists, and the Talk with Bowie That Changed Everything",
       "when": "3 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/tony-gilroy-paramount-warner-bros-merger-behemoth-nyff-1236898132/"
+      "url": "https://variety.com/2026/music/news/lawrence-rothman-here-lies-love-album-producer-americana-1236898339/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "2 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/02/interview-rod-roddenberry-on-how-new-paramount-wants-to-do-right-by-star-trek/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Paramount And Warner Bros. To Merge Under Skydance Corporate Banner – Watch Announcement Video",
-      "when": "2 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/02/paramount-and-warner-bros-to-merge-under-skydance-corporate-banner-watch-announcement-video/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
