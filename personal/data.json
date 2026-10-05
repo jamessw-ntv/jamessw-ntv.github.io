@@ -3,32 +3,24 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-05",
-    "fetched": "2026-10-05T06:45:21+00:00",
+    "fetched": "2026-10-05T15:47:08+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 7
+      "temp": 11,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 8
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 17,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Tue",
         "min": 9,
-        "max": 17,
+        "max": 15,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 94
       },
       {
@@ -37,6 +29,14 @@
         "max": 16,
         "icon": "☁️",
         "desc": "Overcast",
+        "rain": 0
+      },
+      {
+        "day": "Thu",
+        "min": 5,
+        "max": 21,
+        "icon": "🌤️",
+        "desc": "Mainly clear",
         "rain": 0
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 123689.0,
-        "pct": 1.04
+        "price": 122429.0,
+        "pct": -0.44
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3908.13,
-        "pct": 0.73
+        "price": 3874.49,
+        "pct": -0.37
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Harvey Keitel Plays Acting Teacher in Gaurav Bhardwaj’s Debut Feature ‘The Method’ (EXCLUSIVE)",
+      "title": "Dominga Sotomayor’s Cannes’ Directors Fortnight Film ‘La Perra’ Sells Internationally",
       "when": "5 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/harvey-keitel-stars-new-york-acting-drama-method-1236898849/"
+      "url": "https://variety.com/2026/film/global/dominga-sotomayor-cannes-directors-fortnight-la-perra-1236899156/"
     },
     {
       "cat": "Film/TV",
-      "title": "China Box Office: Crime Procedural ‘Traces of Justice’ Leads National Day Frame",
+      "title": "Riley Keough and Director Clay Tweel Board First Responder Psychedelic Therapy Doc ‘Under Fire’ as Executive Producers (EXCLUSIVE)",
       "when": "5 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/china-box-office-traces-of-justice-national-day-1236898842/"
+      "url": "https://variety.com/2026/film/columns/riley-keough-clay-tweel-first-responder-psychedelic-therapy-documentary-under-fire-executive-producers-1236898220/"
     },
     {
       "cat": "Film/TV",
-      "title": "John Oliver Dodges David Ellison-Skydance News on ‘Last Week Tonight’",
+      "title": "Jay-Z, Megan Thee Stallion, Keke Palmer, Gina Prince-Bythewood and NY Knicks Champs Named to Ebony Power 100 List (EXCLUSIVE)",
       "when": "5 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/john-oliver-last-week-tonight-david-ellison-skydance-hbo-warner-bros-1236898839/"
+      "url": "https://variety.com/2026/scene/news/ebony-power-100-jay-z-keke-palmer-ny-knicks-1236894919/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Lanterns’ Finale: Hal Jordan’s Killer and Manhunter Revealed, Sinestro Creates [SPOILER], John Stewart Powers Up for ‘Superman’ Sequel",
+      "title": "‘Things We Never Got Over’ Amazon Series Adds Six to Cast",
       "when": "5 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/lanterns-finale-hal-killer-manhunter-sinestro-yellow-lantern-1236897626/"
+      "url": "https://variety.com/2026/tv/news/things-we-never-got-over-amazon-series-cast-1236899122/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "9h ago",
       "lang": "HTML",
       "commit": ""
     }
