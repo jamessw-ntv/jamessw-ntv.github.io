@@ -2,23 +2,23 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-04",
-    "fetched": "2026-10-04T21:09:41+00:00",
+    "updated": "2026-10-05",
+    "fetched": "2026-10-05T00:38:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 15,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 2
+      "wind": 4
     },
     "days": [
       {
         "day": "Today",
         "min": 7,
-        "max": 18,
+        "max": 17,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -26,14 +26,14 @@
       {
         "day": "Tue",
         "min": 9,
-        "max": 16,
+        "max": 17,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 96
       },
       {
         "day": "Wed",
-        "min": 7,
+        "min": 6,
         "max": 16,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,52 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 123555.0,
-        "pct": 1.34
+        "price": 124126.0,
+        "pct": 1.56
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3894.43,
-        "pct": 0.67
+        "price": 3913.16,
+        "pct": 0.89
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "J. Todd Anderson, ‘The Nice Guys’ Storyboard Artist and Longtime Coen Brothers Collaborator, Dies at 67",
+      "when": "5 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/people-news/j-todd-anderson-dead-the-nice-guys-coen-brothers-1236898722/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Sarah Jessica Parker Says She’s ‘Never’ Worn Her Archived ‘Sex and the City’ Wardrobe: ‘There’s a Huge Separation Between Myself and Carrie Bradshaw’",
+      "when": "4 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/sarah-jessica-parker-carrie-bradshaw-sex-and-the-city-wardrobe-1236898781/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Interview: Wilson Cruz On The Legacy Of ‘Discovery’ And His Hopes For More Diversity In Future Star Trek",
+      "when": "4 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/04/interview-wilson-cruz-on-the-legacy-of-discovery-and-his-hopes-for-more-diversity-in-future-star-trek/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Marvel Canceled ‘Blade,’ But the Gory Vampire Brawler ‘Half’ Will Thrill Genre Fans",
+      "when": "4 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/features/half-vampire-action-movie-india-blade-1236898106/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Is ‘Rubber Soul’ the Beatles’ Best Album? The Answer to That is as Malleable as the Shifting Track Lists, but This ‘Super Deluxe’ Is Super Essential: Boxed Set Review",
+      "when": "4 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/album-reviews/beatles-rubber-soul-super-deluxe-boxed-set-review-1236898774/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "This Week, In a Galaxy Far, Far Away: ‘Galactic Racer’ Marvels, Shawn Levy’s New Deal, and Kathleen Kennedy’s Latest Spin",
       "when": "4 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/this-week-in-a-galaxy-far-far-away-galactic-racer-marvels-shawn-levys-new-deal-and-kathleen-kennedys-latest-spin.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "James Gunn Confirms He’s ‘Already’ Writing His Next Film Ahead of ‘Superman: Man of Tomorrow’",
-      "when": "4 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/james-gunn-next-project-superman-man-of-tomorrow-1236898696/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Gypsy-Rose Blanchard Launches Petition to ‘Fight Online Harassment’ Following Partner Ken Urker’s Death: ‘Fame Does Not Erase Humanity’",
-      "when": "4 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/gypsy-rose-blanchard-petition-online-harassment-ken-urker-1236898652/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sass Jordan, Singer and Longtime ‘Canadian Idol’ Judge, Dies at 65",
-      "when": "4 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/people-news/sass-jordan-dead-canadian-idol-singer-1236898644/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Spotlight’ Director Says The Catholic Church Hasn’t Done ‘Enough’ To Protect Children From Sexual Assault 10 Years After Film’s Best Picture Win: ‘Not Until Every Child Is Safe’",
-      "when": "4 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/spotlight-catholic-church-children-sexual-abuse-nyff-1236898551/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "3 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/03/interview-celia-rose-gooding-on-playing-future-uhura-star-trek-strange-new-worlds-genres-and-more/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Interview: Rod Roddenberry On How New Paramount Wants “To Do Right By Star Trek”",
-      "when": "2 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/02/interview-rod-roddenberry-on-how-new-paramount-wants-to-do-right-by-star-trek/"
     },
     {
       "cat": "Trek/Wars",
