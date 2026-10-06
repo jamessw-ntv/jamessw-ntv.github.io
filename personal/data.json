@@ -3,29 +3,29 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-06",
-    "fetched": "2026-10-06T02:49:55+00:00",
+    "fetched": "2026-10-06T09:59:55+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 18
+      "temp": 10,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
         "min": 9,
-        "max": 16,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 94
+        "rain": 100
       },
       {
         "day": "Wed",
-        "min": 7,
+        "min": 8,
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
@@ -35,8 +35,8 @@
         "day": "Thu",
         "min": 5,
         "max": 21,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "⛅",
+        "desc": "Partly cloudy",
         "rain": 0
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 122757.0,
-        "pct": -1.59
+        "price": 123410.0,
+        "pct": -0.09
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3878.47,
-        "pct": -1.49
+        "price": 3888.89,
+        "pct": -0.39
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Andrew Garfield Says OpenAI’s Sam Altman Seemed ‘F—ing Great Before Playing Him in ‘Artificial’: And Then You Learn More About a Person’",
+      "title": "Darius Jabloński, Kadri Kousaar and Rodrigo Susarte Make the Cut at Tallinn TV Beats Co-Financing Market (EXCLUSIVE)",
       "when": "6 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/andrew-garfield-sam-altman-movie-artificial-nyff-premiere-luca-guadagnino-1236894719/"
+      "url": "https://variety.com/2026/tv/global/darius-jablonski-tallinn-tv-beats-1236899447/"
     },
     {
       "cat": "Film/TV",
-      "title": "Skydance to Fully Reorganize International; Kevin MacLellan Will Not Lead Key Group",
+      "title": "Michael Douglas Weighs In on ‘Nepo Baby’ Debate, Says the Title ‘Really Pisses Me Off’",
       "when": "6 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/skydance-reorganize-international-kevin-maclellan-1236899732/"
+      "url": "https://variety.com/2026/film/news/michael-douglas-nepo-baby-debate-1236899927/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Artificial’ First Reactions: Luca Guadagnino’s OpenAI Drama is ‘Provocative,’ ‘Downright Horrifying’ and His ‘Best Film in a Decade’",
+      "title": "Jon Stewart’s ‘Daily Show’ Skips David Ellison-Skydance News to Take on AI",
       "when": "6 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/artificial-first-reactions-sam-altman-open-ai-1236899622/"
+      "url": "https://variety.com/2026/tv/news/jon-stewart-daily-show-skydance-david-ellison-ai-1236899825/"
     },
     {
       "cat": "Film/TV",
-      "title": "Casey Bloys Signs New Multiyear Deal to Continue Overseeing HBO Max and Paramount+ As He Assumes His New Role at Skydance",
+      "title": "‘Artificial’ Review: Luca Guadagnino Has Made the Real Sequel to ‘The Social Network’ — a Brain-Spinning Tech-Geek Docudrama, Brilliantly Acted by Andrew Garfield and Yura Borisov",
       "when": "6 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/casey-bloys-new-deal-hbo-max-paramount-skydance-1236899664/"
+      "url": "https://variety.com/2026/film/reviews/artificial-review-andrew-garfield-luca-gaudagnino-1236898663/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     }
