@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-07",
-    "fetched": "2026-10-07T01:21:17+00:00",
+    "fetched": "2026-10-07T08:27:00+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 13,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 12
+      "wind": 6
     },
     "days": [
       {
@@ -27,17 +27,17 @@
         "day": "Thu",
         "min": 6,
         "max": 21,
-        "icon": "🌤️",
-        "desc": "Mainly clear",
+        "icon": "⛅",
+        "desc": "Partly cloudy",
         "rain": 0
       },
       {
         "day": "Fri",
-        "min": 12,
+        "min": 11,
         "max": 24,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 4
+        "rain": 6
       }
     ]
   },
@@ -72,24 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 122324.0,
-        "pct": -0.74
+        "price": 120527.0,
+        "pct": -2.04
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3853.64,
-        "pct": -1.1
+        "price": 3753.23,
+        "pct": -3.52
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Eddie Redmayne’s Kore-eda Hirokazu Film Is Still Being Scripted, Director Says at Busan",
+      "title": "Singapore Film Festival Stands by ‘The Assassin(s)’ After Korean Conservatives Demand It Be Dropped",
       "when": "7 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/eddie-redmayne-kore-eda-hirokazu-film-1236903931/"
+      "url": "https://variety.com/2026/film/news/singapore-film-festival-stands-by-the-assassins-1236904122/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Brazilian Cinema at Risk: A Report From Watching the Presidential Elections From the Rio Film Festival",
+      "when": "7 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/brazilian-cinema-at-risk-presidential-elections-rio-fest-1236899299/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "The New Kindle Is Down to $100 for Amazon Prime Big Deals Day",
+      "when": "7 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/prime-day-2026-kindle-deals-shop-online-1236784367/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "ITV Studios Unveils Mipcom Drama Slate Led by Lunar Thriller ‘First Woman,’ and a Further Four New Titles, Including Steven Moffat’s ‘Number 10’ (EXCLUSIVE)",
+      "when": "7 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/itv-studios-mipcom-drama-slate-first-woman-1236903527/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +118,6 @@
       "when": "7 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/06/take-on-a-bored-q-in-star-trek-voyager-across-the-unknown-q-trials-free-expansion-out-now/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Skeet Ulrich Says His ‘Scream’ Arc Couldn’t Be Completed After Melissa Barrera’s Firing: ‘There’s No Billy Loomis’ Without Her",
-      "when": "7 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/skeet-ulrich-scream-melissa-barrera-1236903923/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Co-Founder Nate Bolotin to Exit XYZ Films After Almost Two Decades With Studio (EXCLUSIVE)",
-      "when": "6 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/co-founder-nate-bolotin-exit-xyz-films-1236903877/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Inside Omega’s James Bond Exhibition, From 007’s Toothbrush to His Passport and Mini Car Bombs",
-      "when": "6 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/omega-james-bond-exhibition-spectre-watches-1236903776/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     }
