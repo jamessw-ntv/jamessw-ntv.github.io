@@ -2,14 +2,14 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-06",
-    "fetched": "2026-10-06T21:32:11+00:00",
+    "updated": "2026-10-07",
+    "fetched": "2026-10-07T01:21:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 13,
       "icon": "☀️",
       "desc": "Clear",
       "wind": 12
@@ -27,17 +27,17 @@
         "day": "Thu",
         "min": 6,
         "max": 21,
-        "icon": "⛅",
-        "desc": "Partly cloudy",
+        "icon": "🌤️",
+        "desc": "Mainly clear",
         "rain": 0
       },
       {
         "day": "Fri",
-        "min": 11,
+        "min": 12,
         "max": 24,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 0
+        "rain": 4
       }
     ]
   },
@@ -72,38 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 122547.0,
-        "pct": -0.45
+        "price": 122324.0,
+        "pct": -0.74
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3862.32,
-        "pct": -0.81
+        "price": 3853.64,
+        "pct": -1.1
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Next Generation Collective Launches in Support of Young Hollywood Talent’s Mental Health",
-      "when": "6 Oct",
+      "title": "Eddie Redmayne’s Kore-eda Hirokazu Film Is Still Being Scripted, Director Says at Busan",
+      "when": "7 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/next-generation-collective-young-hollywood-mental-health-1236903647/"
+      "url": "https://variety.com/2026/film/news/eddie-redmayne-kore-eda-hirokazu-film-1236903931/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Take On A Bored Q In ‘Star Trek Voyager: Across The Unknown – Q Trials’ Free Expansion, Out Now",
+      "when": "7 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/06/take-on-a-bored-q-in-star-trek-voyager-across-the-unknown-q-trials-free-expansion-out-now/"
     },
     {
       "cat": "Film/TV",
-      "title": "Eva Marie Saint, ‘North by Northwest’ Star, Dies at 102",
-      "when": "6 Oct",
+      "title": "Skeet Ulrich Says His ‘Scream’ Arc Couldn’t Be Completed After Melissa Barrera’s Firing: ‘There’s No Billy Loomis’ Without Her",
+      "when": "7 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/eva-marie-saint-dead-north-by-northwest-1236903677/"
+      "url": "https://variety.com/2026/film/news/skeet-ulrich-scream-melissa-barrera-1236903923/"
     },
     {
       "cat": "Film/TV",
-      "title": "Miley Cyrus’ ‘Bass Persuades’ Has the Biggest Chart Drop Ever for an Album in the Week After a No. 1 Debut",
+      "title": "Co-Founder Nate Bolotin to Exit XYZ Films After Almost Two Decades With Studio (EXCLUSIVE)",
       "when": "6 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/miley-cyrus-biggest-drop-after-number-one-album-debut-1236903472/"
+      "url": "https://variety.com/2026/film/news/co-founder-nate-bolotin-exit-xyz-films-1236903877/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Inside Omega’s James Bond Exhibition, From 007’s Toothbrush to His Passport and Mini Car Bombs",
+      "when": "6 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/columns/omega-james-bond-exhibition-spectre-watches-1236903776/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Gates McFadden To Pen ‘Crusher’ Comic Bridging Gap Between ‘Star Trek: TNG’ And ‘Picard’",
+      "when": "6 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/06/gates-mcfadden-to-pen-crusher-comic-bridging-gap-between-star-trek-tng-and-picard/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,20 +132,6 @@
       "when": "6 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/06/paramount-warner-bros-officially-merged-brings-big-aspirations-and-big-questions-for-star-trek/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Donald Trump Praises Newly Merged Paramount-Warner Bros.: ‘They’re Terrific People, and It’s Gonna Be a Great Company’",
-      "when": "6 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/trump-praises-paramount-warner-bros-skydance-merger-terrific-people-1236903643/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Amazon Prime Days 2026 Has Star Trek Discounts Up To 60%",
-      "when": "6 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/06/amazon-prime-days-deals-see-star-trek-discounts-up-to-60-off/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/10/zuckuss-star-wars-character-spotlight.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "See A Spooky ‘Deep Space Nine’ Locked-Station Thriller Begin In Preview Of Star Trek: Holo-Ween II #1",
-      "when": "6 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/06/see-a-spooky-deep-space-nine-locked-station-thriller-begin-in-preview-of-star-trek-holo-ween-ii-1/"
-    },
-    {
       "cat": "Games",
       "title": "Another Satisfactory Announcement",
       "when": "29 Sep",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
