@@ -3,24 +3,24 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-07",
-    "fetched": "2026-10-07T16:16:28+00:00",
+    "fetched": "2026-10-07T21:52:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 12,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 6
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
         "max": 21,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "⛅",
+        "desc": "Partly cloudy",
         "rain": 0
       },
       {
@@ -72,45 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119881.0,
-        "pct": -2.36
+        "price": 119482.0,
+        "pct": -2.52
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3693.16,
-        "pct": -4.65
+        "price": 3686.73,
+        "pct": -4.52
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Laika’s ‘Wildwood’ Set to Close Animation Is Film Festival",
+      "title": "‘Ted Lasso’ Star and EP Brendan Hunt on the Season 4 Finale’s Surprise Job Changes, and Whether There Will Be a Season 5",
       "when": "7 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/laika-wildwood-animation-is-film-festival-closing-night-1236903874/"
+      "url": "https://variety.com/2026/tv/news/ted-lasso-finale-explained-brendan-hunt-season-5-1236904697/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Heated Rivalry,’ ‘The Pitt’ and ‘The Diplomat’ Lead Artios Awards Nominations",
+      "title": "London Film Festival Hails the ‘Great Andrew Scott’ as ‘Elsinore’ Opens 70th Edition With Tears, Cheers and ‘The Ethel Merman Disco Album’",
       "when": "7 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/casting-socitey-artios-awards-nominations-2027-1236903909/"
+      "url": "https://variety.com/2026/film/global/andrew-scott-elsinore-opens-london-film-festival-1236904258/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscars: Saudi Arabia Picks Quirky Comedy ‘A Matter of Life and Death’ for International Feature Race",
+      "title": "Dewayne Perkins to Launch ‘I Swear We’re Friends,’ New Digital ‘Skitcom’ on YouTube (EXCLUSIVE)",
       "when": "7 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/oscars-saudi-arabia-a-matter-of-life-and-death-intl-feature-1236904328/"
+      "url": "https://variety.com/2026/digital/news/dewayne-perkins-youtube-series-i-swear-were-friends-1236902523/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Hunting Wives’ Renewed for Season 3 at Netflix Ahead of Season 2 Premiere",
+      "title": "PlayStation to Launch New Crunchyroll Anime Hub for PS5",
       "when": "7 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/the-hunting-wives-renewed-season-3-netflix-1236904349/"
+      "url": "https://variety.com/2026/gaming/news/playstation-ps5-new-crunchyroll-anime-hub-1236904550/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Timothy Zahn To Write “Twisty” Star Trek Graphic Novel Set On Deep Space 9",
+      "when": "7 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/07/timothy-zahn-to-write-twisty-star-trek-graphic-novel-set-on-deep-space-9/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Zero Company’ Developer Bit Reactor Announces Team Members Returning to Work After Recent Furloughs",
+      "when": "7 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-zero-company-developer-bit-reactor-announces-team-members-returning-to-work-after-recent-furloughs.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Watch: William Shatner Lamented Spock’s Popularity In ‘Sixty-Year Mission’ Star Trek Documentary Clip",
+      "when": "7 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/07/watch-william-shatner-lamented-spocks-popularity-in-sixty-year-mission-star-trek-documentary-clip/"
     },
     {
       "cat": "Trek/Wars",
@@ -128,31 +149,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Gates McFadden To Pen ‘Crusher’ Comic Bridging Gap Between ‘Star Trek: TNG’ And ‘Picard’",
-      "when": "6 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/06/gates-mcfadden-to-pen-crusher-comic-bridging-gap-between-star-trek-tng-and-picard/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Paramount/Warner Bros. Officially Merged, Brings Big Aspirations (And Big Questions) For Star Trek",
-      "when": "6 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/06/paramount-warner-bros-officially-merged-brings-big-aspirations-and-big-questions-for-star-trek/"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Crait and Sebulba Are Highlights in ‘Galactic Racer’ Official Launch Trailer",
       "when": "6 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/crait-and-sebulba-are-highlights-in-galactic-racer-official-launch-trailer.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: ‘Galactic Racer’ Marvels, Shawn Levy’s New Deal, and Kathleen Kennedy’s Latest Spin",
-      "when": "6 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/this-week-in-a-galaxy-far-far-away-galactic-racer-marvels-shawn-levys-new-deal-and-kathleen-kennedys-latest-spin.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
