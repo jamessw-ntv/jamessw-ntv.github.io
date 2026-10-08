@@ -3,24 +3,24 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-08",
-    "fetched": "2026-10-08T01:42:24+00:00",
+    "fetched": "2026-10-08T08:42:32+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 19,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 14
+      "temp": 16,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
         "max": 21,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "⛅",
+        "desc": "Partly cloudy",
         "rain": 0
       },
       {
@@ -34,10 +34,10 @@
       {
         "day": "Sat",
         "min": 13,
-        "max": 20,
+        "max": 19,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 51
+        "rain": 31
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119580.0,
-        "pct": -2.02
+        "price": 118991.0,
+        "pct": -1.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3708.94,
-        "pct": -3.56
+        "price": 3678.14,
+        "pct": -1.86
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Questlove Reflects on the Power of Vulnerability and Being a Trailblazer: ‘I Gotta Be the Change I Want to Be’",
+      "title": "Nathan Fielder’s Elizabeth Holmes Doc ‘You Can See Everything’ Sets November U.K. Release Date",
       "when": "8 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/questlove-power-of-vulnerability-being-a-trailblazer-1236904881/"
+      "url": "https://variety.com/2026/film/global/nathan-fielder-you-can-see-everything-uk-release-date-1236905306/"
     },
     {
       "cat": "Film/TV",
-      "title": "Disney Cruise Ship Believe to Debut ‘Encanto’ Musical, ‘Frozen’ Family Feast and More",
+      "title": "Josh Hartnett Leads Netflix’s Exhilarating Sea Monster Thriller ‘Below’: TV Review",
       "when": "8 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/disney-ship-believe-encanto-musical-frozen-1236905011/"
+      "url": "https://variety.com/2026/tv/reviews/below-review-netflix-josh-hartnett-1236904980/"
     },
     {
       "cat": "Film/TV",
-      "title": "Payal Kapadia, Anurag Kashyap Joined by Kavita Gupta’s Cineroost as Producer on Prateek Vats’ ‘Chronicles of a Confession’ (EXCLUSIVE)",
-      "when": "7 Oct",
+      "title": "Vancouver Film Festival Prizes: Big Wins for Immigrant Tale ‘Nina Roza,’ the ‘Polished Cinematic’ ‘In the Heart of the South’ and Separated Sisters Story ‘How We Stand’",
+      "when": "8 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/payal-kapadia-anurag-kashyap-kavita-gupta-prateek-vats-chronicles-of-a-confession-1236905094/"
+      "url": "https://variety.com/2026/film/global/vancouver-film-festival-prizes-nina-roza-how-we-stand-1236905277/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Marshals’ Star Luke Grimes Says He Hasn’t Spoken to ‘Yellowstone’ Co-Star Kevin Costner ‘Since We Stopped Working Together’",
-      "when": "7 Oct",
+      "title": "James Gunn Responds to ‘Clayface’ Criticism: ‘The Public Voting on What IP They Want to See’ Isn’t ‘the Only Way to Make a Movie’",
+      "when": "8 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/marshals-luke-grimes-kevin-costner-yellowstone-1236905016/"
+      "url": "https://variety.com/2026/film/news/james-gunn-responds-to-clayface-criticism-dc-studios-1236905240/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
