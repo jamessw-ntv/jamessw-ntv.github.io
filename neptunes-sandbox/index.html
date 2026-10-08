@@ -739,11 +739,18 @@
       </div>
 
       <div class="box"><h2>Save &amp; share</h2>
-        <div class="small muted" style="margin-bottom:8px">The current game auto-saves in this browser. Rewind history lasts until you close the page.</div>
+        <div class="small muted" style="margin-bottom:8px">The game auto-saves in this browser only, so your phone and computer each keep their own game.
+          To carry this one across, open a share link on the other device. Rewind history lasts until you close the page.</div>
         <div class="row">
+          <button class="btn small primary" data-share="link">🔗 Share link</button>
+          <button class="btn small" data-share="code">Copy save code</button>
           <button class="btn small" id="exportBtn">Export game (.json)</button>
-          <label class="btn small">Import… <input type="file" id="importFile" accept=".json" class="hidden"></label>
+          <label class="btn small">Import file… <input type="file" id="importFile" accept=".json,application/json,text/plain" class="hidden"></label>
         </div>
+        <div class="small" data-share-msg role="status" aria-live="polite"></div>
+        <details class="fold"><summary><span class="ft">Paste a link or save code</span></summary><div class="fb">
+          <textarea data-share-in rows="3" style="width:100%;box-sizing:border-box" placeholder="Paste a share link or save code" aria-label="Share link or save code"></textarea>
+          <div class="row" style="margin-top:6px"><button class="btn small" data-share="load">Load game</button></div></div></details>
       </div>
     </div>
   </section>
@@ -2790,9 +2797,16 @@ function renderMenu() {
         <span class="muted" id="gmBetrayalVal">${st.betrayal === 0 ? "never" : "×" + st.betrayal}</span></div>
     </div>
 
-    <div class="gsec"><h4>Save</h4>
-      <div class="row"><button class="btn small" id="gmExport">Export game (.json)</button>
-        <span class="small muted">The game also auto-saves in this browser.</span></div>
+    <div class="gsec"><h4>Save &amp; share</h4>
+      <div class="small muted" style="margin-bottom:8px">Auto-saves in this browser only. To play this game on another device, open a share link there.</div>
+      <div class="row"><button class="btn small primary" data-share="link">🔗 Share link</button>
+        <button class="btn small" data-share="code">Copy save code</button>
+        <button class="btn small" id="gmExport">Export (.json)</button>
+        <label class="btn small" for="importFile">Import file…</label></div>
+      <div class="small" data-share-msg role="status" aria-live="polite"></div>
+      <details class="fold"><summary><span class="ft">Paste a link or save code</span></summary><div class="fb">
+        <textarea data-share-in rows="3" style="width:100%;box-sizing:border-box" placeholder="Paste a share link or save code" aria-label="Share link or save code"></textarea>
+        <div class="row" style="margin-top:6px"><button class="btn small" data-share="load">Load game</button></div></div></details>
     </div>
 
     <div class="gsec"><h4>Keys</h4>
@@ -3114,11 +3128,83 @@ $("exportBtn").onclick = () => {
 };
 $("importFile").onchange = async e => {
   const f = e.target.files[0]; if (!f) return;
-  try { const st = JSON.parse(await f.text()); if (!st.stars || !st.players || !st.rules || !(st.rules.ticksPerTurn > 0)) throw 0;
-    st.rules = Object.assign(sim.defaultRules(), st.rules); stopAuto(); startGame(st); }
-  catch (err) { alert("That file isn't a sandbox save."); }
+  let st = null; try { st = fixSave(await unpackGame(await f.text())); } catch (err) {}
+  if (st) adopt(st, "file"); else alert("That file isn't a sandbox save.");
   e.target.value = "";
 };
+
+/* ---------------- moving a game between devices ----------------
+   Saves live in this browser's localStorage, so every device keeps its own game.
+   A share link carries the whole game in the URL hash (#game=…): the JSON, deflated,
+   base64url, with a one-letter format prefix (z = deflate-raw, j = plain). The hash
+   never reaches the server. Opening one asks before replacing a game in progress. */
+const b64u = {
+  enc: u8 => { let s = ""; for (let i = 0; i < u8.length; i += 0x8000) s += String.fromCharCode.apply(null, u8.subarray(i, i + 0x8000));
+    return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); },
+  dec: str => { const s = atob(str.replace(/-/g, "+").replace(/_/g, "/")), u = new Uint8Array(s.length);
+    for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; } };
+const pipe = async (u8, stream) => new Uint8Array(await new Response(new Blob([u8]).stream().pipeThrough(stream)).arrayBuffer());
+async function packGame(st) {
+  const raw = new TextEncoder().encode(JSON.stringify(st));
+  if (typeof CompressionStream === "function") try { return "z" + b64u.enc(await pipe(raw, new CompressionStream("deflate-raw"))); } catch (e) {}
+  return "j" + b64u.enc(raw);
+}
+async function unpackGame(text) {                 // a share link, a save code, or a whole .json save
+  let code = String(text).trim();
+  if (code[0] === "{") return JSON.parse(code);
+  const m = code.match(/#game=([A-Za-z0-9_-]+)/); if (m) code = m[1];
+  code = code.replace(/\s+/g, "");
+  let u = b64u.dec(code.slice(1));
+  if (code[0] === "z") u = await pipe(u, new DecompressionStream("deflate-raw"));
+  else if (code[0] !== "j") throw new Error("not a save code");
+  return JSON.parse(new TextDecoder().decode(u));
+}
+const shareUrl = code => location.href.split("#")[0] + "#game=" + code;
+function shareMsg(text) { document.querySelectorAll("[data-share-msg]").forEach(el => { el.textContent = text; }); }
+// load a game from elsewhere; a game in progress here is only replaced after asking
+function adopt(st, from) {
+  const cur = replay ? replay.live : S;
+  const here = cur && (cur.turn > 0 || cur.players.some(p => p.human)) && JSON.stringify(cur) !== JSON.stringify(st);
+  if (here && !confirm(`Load the ${from === "file" ? "imported" : "shared"} game (seed ${st.seed}, turn ${st.turn})? ` +
+    `It replaces the game on this device (seed ${cur.seed}, turn ${cur.turn}). Share or export this one first to keep it.`)) return false;
+  stopAuto(); if (playing) skipTurn(); if (replay) replay = null;
+  startGame(st); if (menuOpen) renderMenu(); shareMsg(`Loaded: seed ${st.seed}, turn ${st.turn}.`); return true;
+}
+async function copyText(t) {
+  try { await navigator.clipboard.writeText(t); return true; } catch (e) {}
+  const ta = Object.assign(document.createElement("textarea"), { value:t }); document.body.appendChild(ta); ta.select();
+  let ok = false; try { ok = document.execCommand("copy"); } catch (e) {} ta.remove(); return ok;
+}
+document.addEventListener("click", async e => {
+  const b = e.target.closest("[data-share]"); if (!b) return;
+  const k = b.dataset.share;
+  if (k === "load") {
+    const box = b.closest(".box, .gsec").querySelector("[data-share-in]");
+    let st = null; try { st = fixSave(await unpackGame(box.value)); } catch (err) {}
+    if (!st) return shareMsg("That isn't a share link or save code. Check it was copied in full.");
+    if (adopt(st, "link")) box.value = "";
+    return;
+  }
+  if (playing) skipTurn();
+  const live = replay ? replay.live : S, code = await packGame(live), url = shareUrl(code);
+  const what = `seed ${live.seed}, turn ${live.turn}`;
+  if (k === "link" && navigator.share && matchMedia("(pointer:coarse)").matches) {
+    try { await navigator.share({ title:`Neptune's Pride sandbox (${what})`, url }); shareMsg(`Shared: ${what}. Open the link on the other device.`); return; }
+    catch (err) { if (err && err.name === "AbortError") return; }
+  }
+  const ok = await copyText(k === "link" ? url : code);
+  shareMsg(ok ? `${k === "link" ? "Link" : "Save code"} copied (${what}). ${k === "link" ? "Open it on the other device." : "Paste it under “Paste a link or save code” on the other device."}`
+    : "Couldn't reach the clipboard. Use Export instead.");
+});
+async function openSharedLink() {
+  if (!/#game=/.test(location.hash)) return;
+  const raw = location.hash;
+  window.history.replaceState(null, "", location.href.split("#")[0]);   // a reload shouldn't ask again
+  let st = null; try { st = fixSave(await unpackGame(raw)); } catch (err) {}
+  if (!st) return alert("That share link is broken or cut short, so the game on this device was kept.");
+  adopt(st, "link");
+}
+window.addEventListener("hashchange", openSharedLink);
 
 /* ---------------- rules ---------------- */
 function renderRules() {
@@ -3605,14 +3691,17 @@ document.addEventListener("keydown", e => {
   }
 }, true);
 
-const saved = load();
 // only trust a save that has a full rule set; top up any rules added to rules.js since it was made
-const usable = saved && saved.v === 1 && saved.stars && saved.rules && saved.rules.ticksPerTurn > 0;
-if (usable && !("startCarriers" in saved.rules)) {   // saved before real costs/start were confirmed: drop the old placeholders
-  ["econBaseCost", "industryBaseCost", "scienceBaseCost", "startStars", "startEcon", "startIndustry", "startScience"].forEach(k => delete saved.rules[k]);
+function fixSave(st) {
+  if (!st || st.v !== 1 || !Array.isArray(st.stars) || !Array.isArray(st.players) || !st.rules || !(st.rules.ticksPerTurn > 0)) return null;
+  if (!("startCarriers" in st.rules)) {   // saved before real costs/start were confirmed: drop the old placeholders
+    ["econBaseCost", "industryBaseCost", "scienceBaseCost", "startStars", "startEcon", "startIndustry", "startScience"].forEach(k => delete st.rules[k]);
+  }
+  st.rules = Object.assign(sim.defaultRules(), st.rules); return st;
 }
-if (usable) saved.rules = Object.assign(sim.defaultRules(), saved.rules);
-startGame(usable ? saved : sim.newGame({ seed:Math.floor(Math.random() * 1e6) }));
+const saved = fixSave(load());
+startGame(saved || sim.newGame({ seed:Math.floor(Math.random() * 1e6) }));
+openSharedLink();
 </script>
 </body>
 </html>

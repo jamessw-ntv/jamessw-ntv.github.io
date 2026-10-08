@@ -36,6 +36,9 @@ analysis. Plain static page; no server.
   `snap()` and `save()` are guarded so a look-back never overwrites the live game.
   Logistics view (key O, `PB.logi`): `logistics()` / `drawLogiLanes` / `drawLogiMarks` / `renderLogiBox` in index.html;
   scope is `logiScope()` (Player view = your own routes only).
+  Saves: `save()` / `load()` / `fixSave()` (localStorage, so per browser and per device). Moving a game between
+  devices: share link `#game=<z|j><base64url>` (deflate-raw JSON in the hash), save code, or .json file;
+  `packGame` / `unpackGame` / `adopt` / `openSharedLink` in index.html. `adopt` asks before replacing a game in progress.
   Techs in play: `techsOn(S)` (Terraforming and separate Scanning are off by default).
 
 ## Intent routing

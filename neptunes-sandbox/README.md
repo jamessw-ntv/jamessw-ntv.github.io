@@ -19,7 +19,7 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
 - **⚙ Game menu** (top bar, key `G`), usable in Player view: restart from turn 0 on the same
   galaxy, start a new galaxy (type, size, empire count, your seat), switch seats, tick speed and
   ticks per turn, pause rules, house rules (unbreakable alliances, no notice, coalition wins,
-  shared scanning, betrayal), export, and a list of every key. It reveals nothing Player view hides.
+  shared scanning, betrayal), save & share, and a list of every key. It reveals nothing Player view hides.
 - **Player / Admin view** (header switch, key `V`): *Player* shows only what your empire can
   scan, hides the bots' personalities, feelings, cash, research and other empires' secret
   alliances, and drops the Admin and Alliances tabs (Rules become read-only). *Admin* shows
@@ -76,7 +76,11 @@ Games). You step through it a turn at a time, rewind, and study the diplomacy.
 - **Log**: filterable events (diplomacy, combat, expansion, orders, research).
 - **Admin**: force / lock / unlock / break / ban alliances, "every alliance is
   unbreakable", betrayal slider, change bot personalities, give cash or ships,
-  new game (seed, seats), export/import.
+  new game (seed, seats), save & share.
+- **Save & share**: the game auto-saves in this browser only, so each device keeps its own game.
+  To move one across, use *Share link* (the whole game rides in the link, nothing is uploaded),
+  *Copy save code* and paste it on the other device, or export/import a .json file. Loading asks
+  before replacing a game in progress.
 - **Rules**: every number, flagged confirmed or placeholder, editable live.
 
 ## Rules — what's confirmed
