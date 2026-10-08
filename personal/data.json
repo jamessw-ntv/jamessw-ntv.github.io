@@ -2,25 +2,25 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-07",
-    "fetched": "2026-10-07T21:52:39+00:00",
+    "updated": "2026-10-08",
+    "fetched": "2026-10-08T01:42:24+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 19,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 10
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
         "max": 21,
-        "icon": "⛅",
-        "desc": "Partly cloudy",
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 0
       },
       {
@@ -29,15 +29,15 @@
         "max": 24,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 6
+        "rain": 2
       },
       {
         "day": "Sat",
         "min": 13,
-        "max": 19,
+        "max": 20,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 47
+        "rain": 51
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119482.0,
-        "pct": -2.52
+        "price": 119580.0,
+        "pct": -2.02
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3686.73,
-        "pct": -4.52
+        "price": 3708.94,
+        "pct": -3.56
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Ted Lasso’ Star and EP Brendan Hunt on the Season 4 Finale’s Surprise Job Changes, and Whether There Will Be a Season 5",
-      "when": "7 Oct",
+      "title": "Questlove Reflects on the Power of Vulnerability and Being a Trailblazer: ‘I Gotta Be the Change I Want to Be’",
+      "when": "8 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ted-lasso-finale-explained-brendan-hunt-season-5-1236904697/"
+      "url": "https://variety.com/2026/biz/news/questlove-power-of-vulnerability-being-a-trailblazer-1236904881/"
     },
     {
       "cat": "Film/TV",
-      "title": "London Film Festival Hails the ‘Great Andrew Scott’ as ‘Elsinore’ Opens 70th Edition With Tears, Cheers and ‘The Ethel Merman Disco Album’",
-      "when": "7 Oct",
+      "title": "Disney Cruise Ship Believe to Debut ‘Encanto’ Musical, ‘Frozen’ Family Feast and More",
+      "when": "8 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/andrew-scott-elsinore-opens-london-film-festival-1236904258/"
+      "url": "https://variety.com/2026/biz/news/disney-ship-believe-encanto-musical-frozen-1236905011/"
     },
     {
       "cat": "Film/TV",
-      "title": "Dewayne Perkins to Launch ‘I Swear We’re Friends,’ New Digital ‘Skitcom’ on YouTube (EXCLUSIVE)",
+      "title": "Payal Kapadia, Anurag Kashyap Joined by Kavita Gupta’s Cineroost as Producer on Prateek Vats’ ‘Chronicles of a Confession’ (EXCLUSIVE)",
       "when": "7 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/dewayne-perkins-youtube-series-i-swear-were-friends-1236902523/"
+      "url": "https://variety.com/2026/film/markets-festivals/payal-kapadia-anurag-kashyap-kavita-gupta-prateek-vats-chronicles-of-a-confession-1236905094/"
     },
     {
       "cat": "Film/TV",
-      "title": "PlayStation to Launch New Crunchyroll Anime Hub for PS5",
+      "title": "‘Marshals’ Star Luke Grimes Says He Hasn’t Spoken to ‘Yellowstone’ Co-Star Kevin Costner ‘Since We Stopped Working Together’",
       "when": "7 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/playstation-ps5-new-crunchyroll-anime-hub-1236904550/"
+      "url": "https://variety.com/2026/tv/news/marshals-luke-grimes-kevin-costner-yellowstone-1236905016/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
