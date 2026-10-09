@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-09",
-    "fetched": "2026-10-09T01:54:54+00:00",
+    "fetched": "2026-10-09T08:47:28+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 23,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 23
+      "temp": 20,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
         "min": 11,
-        "max": 24,
+        "max": 25,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 8
+        "rain": 0
       },
       {
         "day": "Sat",
         "min": 13,
-        "max": 19,
+        "max": 20,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 14
+        "rain": 25
       },
       {
         "day": "Sun",
         "min": 10,
-        "max": 22,
+        "max": 21,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 6
+        "rain": 0
       }
     ]
   },
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117379.0,
-        "pct": -1.69
+        "price": 118240.0,
+        "pct": -0.7
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3556.41,
-        "pct": -4.0
+        "price": 3577.3,
+        "pct": -2.83
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Michael Ovitz Ordered to Complete Deposition in Julia Ormond Case After Storming Out Over Jeffrey Epstein Questions",
+      "title": "A Rare David Bowie Self-Portrait — Featuring His Handprints — Is Going on Auction at Sotheby’s",
       "when": "9 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/michael-ovitz-ormond-deposition-epstein-1236906246/"
+      "url": "https://variety.com/2026/music/global/david-bowie-self-portrait-handprints-auction-sothebys-1236905394/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hugh Hefner’s Widow Crystal Harris Asks Jessica Biel to ‘Please Reconsider’ Playing His Wife: ‘I Experienced Sexual, Emotional…Physical Abuse’",
+      "title": "Bavaria Media Intl. Unveils Mipcom Slate Including German TV Hits ‘Mordach,’ ‘Home-Made Christmas’ and ‘Throughout the Years’ (EXCLUSIVE)",
       "when": "9 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hugh-hefner-widow-jessica-biel-reconsider-playing-wife-1236906237/"
+      "url": "https://variety.com/2026/tv/global/bavaria-mipcom-slate-1236905980/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "SkyShowtime’s ‘The Homicide Unit,’ From Warner Bros., and Iceland’s ‘Fjord’ Boarded by Reinvent Yellow Sales (EXCLUSIVE)",
+      "when": "9 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/the-homicide-unit-fjord-reinvent-yellow-sales-mipcom-1236905990/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "John Rhys-Davies, Diego Boneta Fantasy ‘Starbright’ Boarded by Cappu Films Ahead of Busan Market (EXCLUSIVE)",
+      "when": "9 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/john-rhys-davies-fantasy-starbright-cappu-busan-1236906361/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +118,6 @@
       "when": "9 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/08/star-trek-strange-new-worlds-finished-season-4-without-making-nielsen-top-10-streaming-chart/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Angel and the Badman’ Review: Zachary Levi Leads Angel Studios’ Fitfully Engaging Remake of a John Wayne Vehicle",
-      "when": "8 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/angel-and-the-badman-review-1236906233/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ice-T on ‘Law & Order: SVU’s’ Longevity and Cultural Impact: ‘I’m on a Good Treadmill, and I Want to Stay on It’",
-      "when": "8 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/ice-t-law-order-svu-longevity-cultural-impact-1236905719/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
