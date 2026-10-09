@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-08",
-    "fetched": "2026-10-08T21:56:09+00:00",
+    "updated": "2026-10-09",
+    "fetched": "2026-10-09T01:54:54+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 15
+      "temp": 23,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 23
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 24,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 8
       },
       {
         "day": "Sat",
@@ -29,7 +29,7 @@
         "max": 19,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 22
+        "rain": 14
       },
       {
         "day": "Sun",
@@ -37,7 +37,7 @@
         "max": 22,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 4
+        "rain": 6
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117231.0,
-        "pct": -1.83
+        "price": 117379.0,
+        "pct": -1.69
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3551.16,
-        "pct": -3.68
+        "price": 3556.41,
+        "pct": -4.0
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "David Corenswet Proves He’s More Than Superman in ‘Mr. Irrelevant,’ a Potential ‘Blind Side’-Style Oscar Vehicle Following NFL Legends Screening in NYC",
-      "when": "8 Oct",
+      "title": "Michael Ovitz Ordered to Complete Deposition in Julia Ormond Case After Storming Out Over Jeffrey Epstein Questions",
+      "when": "9 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/david-corenswet-superman-mr-irrelevant-oscars-nfl-screening-1236905819/"
+      "url": "https://variety.com/2026/film/news/michael-ovitz-ormond-deposition-epstein-1236906246/"
     },
     {
       "cat": "Film/TV",
-      "title": "Becoming Elvis Costello: The Legend Goes In-Depth on His New ‘My Aim Is True’ Boxed Set, Origins of the Iconic Name and Glasses, and Finding a Sound and Persona That Transformed Rock Forever",
-      "when": "8 Oct",
+      "title": "Hugh Hefner’s Widow Crystal Harris Asks Jessica Biel to ‘Please Reconsider’ Playing His Wife: ‘I Experienced Sexual, Emotional…Physical Abuse’",
+      "when": "9 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/elvis-costello-my-aim-is-true-boxed-set-origins-interview-1236906075/"
+      "url": "https://variety.com/2026/film/news/hugh-hefner-widow-jessica-biel-reconsider-playing-wife-1236906237/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Trek: Strange New Worlds’ Finished Season 4 Without Making Nielsen Top 10 Streaming Chart",
+      "when": "9 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/08/star-trek-strange-new-worlds-finished-season-4-without-making-nielsen-top-10-streaming-chart/"
     },
     {
       "cat": "Film/TV",
-      "title": "David Zaslav Gets $606 Million Payout From Paramount-Warner Bros. Merger",
+      "title": "‘Angel and the Badman’ Review: Zachary Levi Leads Angel Studios’ Fitfully Engaging Remake of a John Wayne Vehicle",
       "when": "8 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/david-zaslav-exit-package-warner-bros-discovery-paramount-merger-1236905947/"
+      "url": "https://variety.com/2026/film/reviews/angel-and-the-badman-review-1236906233/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Crazy Rich Asians’ HBO Series Sets Cast: Constance Wu, Henry Golding, Michelle Yeoh, Ronny Chieng Returning",
+      "title": "Ice-T on ‘Law & Order: SVU’s’ Longevity and Cultural Impact: ‘I’m on a Good Treadmill, and I Want to Stay on It’",
       "when": "8 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/crazy-rich-asians-series-cast-constance-wu-henry-golding-michelle-yeoh-1236905874/"
+      "url": "https://variety.com/2026/biz/news/ice-t-law-order-svu-longevity-cultural-impact-1236905719/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "NYCC: Nacelle Toys Reveals Gene Roddenberry And Lucille Ball Star Trek Figures",
+      "when": "8 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/08/nycc-nacelle-toys-reveals-gene-roddenberry-and-lucille-ball-star-trek-figures/"
     },
     {
       "cat": "Trek/Wars",
@@ -128,24 +142,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Timothy Zahn To Write “Twisty” Star Trek Graphic Novel Set On Deep Space 9",
-      "when": "7 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/07/timothy-zahn-to-write-twisty-star-trek-graphic-novel-set-on-deep-space-9/"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "‘Star Wars: Zero Company’ Developer Bit Reactor Announces Team Members Returning to Work After Recent Furloughs",
       "when": "7 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-zero-company-developer-bit-reactor-announces-team-members-returning-to-work-after-recent-furloughs.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Watch: William Shatner Lamented Spock’s Popularity In ‘Sixty-Year Mission’ Star Trek Documentary Clip",
-      "when": "7 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/07/watch-william-shatner-lamented-spocks-popularity-in-sixty-year-mission-star-trek-documentary-clip/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
