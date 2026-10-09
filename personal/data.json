@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-09",
-    "fetched": "2026-10-09T08:47:28+00:00",
+    "fetched": "2026-10-09T16:01:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 13
+      "temp": 15,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
-        "min": 11,
-        "max": 25,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Sat",
         "min": 13,
         "max": 20,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 25
+        "rain": 41
       },
       {
         "day": "Sun",
         "min": 10,
-        "max": 21,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
+        "max": 22,
+        "icon": "⛅",
+        "desc": "Partly cloudy",
+        "rain": 4
+      },
+      {
+        "day": "Mon",
+        "min": 10,
+        "max": 18,
+        "icon": "🌦️",
+        "desc": "Heavy showers",
+        "rain": 86
       }
     ]
   },
@@ -72,45 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118240.0,
-        "pct": -0.7
+        "price": 118692.0,
+        "pct": 1.81
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3577.3,
-        "pct": -2.83
+        "price": 3564.35,
+        "pct": 1.81
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "A Rare David Bowie Self-Portrait — Featuring His Handprints — Is Going on Auction at Sotheby’s",
+      "title": "‘Star Wars: Galactic Racer’ Debuts on Amazon Luna Day and Date With Wide Release (Gaming News Roundup)",
       "when": "9 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/global/david-bowie-self-portrait-handprints-auction-sothebys-1236905394/"
+      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-october-5-1236899234/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bavaria Media Intl. Unveils Mipcom Slate Including German TV Hits ‘Mordach,’ ‘Home-Made Christmas’ and ‘Throughout the Years’ (EXCLUSIVE)",
+      "title": "Mike Ditka, Legendary Chicago Bears Coach and Football Analyst, Dies at 86",
       "when": "9 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/bavaria-mipcom-slate-1236905980/"
+      "url": "https://variety.com/2026/tv/news/mike-ditka-dead-dies-chicago-bears-coach-1236906648/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Everything Announced at Lucasfilm Publishing Panel at NYCC",
+      "when": "9 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/everything-announced-at-lucasfilm-publishing-panel-nycc.html"
     },
     {
       "cat": "Film/TV",
-      "title": "SkyShowtime’s ‘The Homicide Unit,’ From Warner Bros., and Iceland’s ‘Fjord’ Boarded by Reinvent Yellow Sales (EXCLUSIVE)",
+      "title": "Bill Owens and Wendy McMahon on Why They Left CBS News: ‘The Match Was Fixed’",
       "when": "9 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/the-homicide-unit-fjord-reinvent-yellow-sales-mipcom-1236905990/"
+      "url": "https://variety.com/2026/tv/news/bill-owens-wendy-mcmahon-why-they-left-60-minutes-cbs-news-1236904699/"
     },
     {
       "cat": "Film/TV",
-      "title": "John Rhys-Davies, Diego Boneta Fantasy ‘Starbright’ Boarded by Cappu Films Ahead of Busan Market (EXCLUSIVE)",
+      "title": "Classic Moments With Dolly Parton, Remembered by the Actors Portraying Her in the Broadway Musical, ‘A True Original’: ‘I’m Jezebel, and God Loves Me Anyway!’",
       "when": "9 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/john-rhys-davies-fantasy-starbright-cappu-busan-1236906361/"
+      "url": "https://variety.com/2026/legit/news/dolly-parton-remembered-actors-broadway-musical-1236906569/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Kit Fisto – ‘Star Wars’ Character Spotlight",
+      "when": "9 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/kit-fisto-star-wars-character-spotlight.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Podcast: All Access Looks At Star Trek’s Future Under Skydance, Plus News And NY Comic Con Preview",
+      "when": "9 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/09/podcast-all-access-looks-at-star-treks-future-under-skydance-plus-news-and-ny-comic-con-preview/"
     },
     {
       "cat": "Trek/Wars",
@@ -128,31 +149,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "NYCC: Nacelle Company To Produce ‘Con Of Wrath’ Documentary About Infamous Star Trek Convention",
-      "when": "8 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/08/nycc-nacelle-company-to-produce-con-of-wrath-documentary-about-infamous-star-trek-convention/"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "New ‘Star Wars’ Young Adult Book ‘Princess of the Rebellion’ Focuses on Leia, Luke, and Han After ‘A New Hope’",
       "when": "8 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/new-star-wars-young-adult-book-princess-of-the-rebellion-focuses-on-leia-luke-and-han-after-a-new-hope.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Zero Company’ Developer Bit Reactor Announces Team Members Returning to Work After Recent Furloughs",
-      "when": "7 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-zero-company-developer-bit-reactor-announces-team-members-returning-to-work-after-recent-furloughs.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Ahsoka’ Tie-In Comic Revealed With an Original Story Penned by Dave Filoni",
-      "when": "7 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-ahsoka-tie-in-comic-revealed-with-an-original-story-penned-by-dave-filoni.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     }
