@@ -3,24 +3,24 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-10",
-    "fetched": "2026-10-10T00:39:18+00:00",
+    "fetched": "2026-10-10T06:53:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 17,
+      "temp": 19,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 16
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
         "min": 13,
         "max": 20,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 6
       },
       {
@@ -29,7 +29,7 @@
         "max": 22,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 0
+        "rain": 6
       },
       {
         "day": "Mon",
@@ -37,7 +37,7 @@
         "max": 18,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 98
+        "rain": 90
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118117.0,
-        "pct": 0.61
+        "price": 118490.0,
+        "pct": 0.21
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3561.11,
-        "pct": 0.04
+        "price": 3570.33,
+        "pct": -0.18
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Danny Trejo Speaks Out About His Role in Daily Wire ‘Pawn Shop’ Movie: ‘I Am Not Pro-ICE. I Am Pro-Immigrant.’",
+      "title": "Vietnamese Supernatural Horror ‘Bloodline: The Curse Within’ Heads to Busan Market With Mockingbird Pictures (EXCLUSIVE)",
       "when": "10 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/danny-trejo-daily-wire-pawn-shop-not-pro-ice-1236907272/"
+      "url": "https://variety.com/2026/film/markets-festivals/vietnamese-supernatural-horror-bloodline-the-curse-within-busan-market-1236907324/"
     },
     {
       "cat": "Film/TV",
-      "title": "Magic: The Gathering Reveals New ‘Darkhold Destiny’ Marvel Set, ‘Avengers: Doomsday’ Theater-Only Card Giveaway",
+      "title": "Movistar Plus Drives Into YA Comedy, Smart Social Issue Genre",
       "when": "10 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/magic-the-gathering-marvel-darkhold-destiny-doomsday-cards-1236906955/"
+      "url": "https://variety.com/2026/tv/global/movistar-plus-victoria-martin-isabel-pena-arte-france-1236893803/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bill Burr on ‘The Social Reckoning,’ Sparring With Jeremy Strong as Mark Zuckerberg and Why Tech CEOs are ‘Leading Us to Ruin’",
-      "when": "9 Oct",
+      "title": "Netflix Says 67% of Surveyed Members Want to Visit Korea as Busan’s Creative Asia Puts Locations in Focus",
+      "when": "10 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/bill-burr-the-social-reckoning-zuckerberg-1236907159/"
+      "url": "https://variety.com/2026/tv/markets-festivals/netflix-busan-surveyed-members-want-visit-korea-1236907318/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jason Blum on How ‘Other Mommy’ Got That Controversial Title, Kristen Bell Joins ‘Violent Night 2’ and More From Blumhouse at NYCC",
-      "when": "9 Oct",
+      "title": "Spain’s TV Powerhouses Forge New Partnerships as Series Biz Evolves",
+      "when": "10 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/other-mommy-blair-witch-paranormal-activity-blumhouse-nycc-1236907220/"
+      "url": "https://variety.com/2026/tv/markets-festivals/spain-tv-series-licensing-coproductions-1236893852/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
