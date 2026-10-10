@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-09",
-    "fetched": "2026-10-09T20:43:23+00:00",
+    "updated": "2026-10-10",
+    "fetched": "2026-10-10T00:39:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
+      "temp": 17,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 9
+      "wind": 16
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 20,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 41
+        "rain": 6
       },
       {
         "day": "Sun",
@@ -29,7 +29,7 @@
         "max": 22,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 4
+        "rain": 0
       },
       {
         "day": "Mon",
@@ -37,7 +37,7 @@
         "max": 18,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 86
+        "rain": 98
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117833.0,
-        "pct": 0.31
+        "price": 118117.0,
+        "pct": 0.61
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3544.1,
-        "pct": -0.1
+        "price": 3561.11,
+        "pct": 0.04
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Shari Redstone-Backed Sipur Studios Opens London Office, Sets Out International Strategy Including Boarding Olivier Dahan’s ‘Nana’ (EXCLUSIVE)",
-      "when": "9 Oct",
+      "title": "Danny Trejo Speaks Out About His Role in Daily Wire ‘Pawn Shop’ Movie: ‘I Am Not Pro-ICE. I Am Pro-Immigrant.’",
+      "when": "10 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/sipur-studios-london-olivier-dahan-nana-1236902209/"
+      "url": "https://variety.com/2026/film/news/danny-trejo-daily-wire-pawn-shop-not-pro-ice-1236907272/"
     },
     {
       "cat": "Film/TV",
-      "title": "Trump Taps ‘Devoted Fan’ Katie Zacharia, a Fox News and CNN Commentator, as White House Press Secretary",
-      "when": "9 Oct",
+      "title": "Magic: The Gathering Reveals New ‘Darkhold Destiny’ Marvel Set, ‘Avengers: Doomsday’ Theater-Only Card Giveaway",
+      "when": "10 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/trump-katie-zacharia-white-house-press-secretary-fox-news-1236906962/"
+      "url": "https://variety.com/2026/gaming/news/magic-the-gathering-marvel-darkhold-destiny-doomsday-cards-1236906955/"
     },
     {
       "cat": "Film/TV",
-      "title": "Dodgers and Vans Team Up on Limited-Edition Sneaker Collection in Time for MLB Playoffs",
+      "title": "Bill Burr on ‘The Social Reckoning,’ Sparring With Jeremy Strong as Mark Zuckerberg and Why Tech CEOs are ‘Leading Us to Ruin’",
       "when": "9 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/dodgers-and-vans-sneaker-collection-shop-online-1236906961/"
+      "url": "https://variety.com/2026/film/news/bill-burr-the-social-reckoning-zuckerberg-1236907159/"
     },
     {
       "cat": "Film/TV",
-      "title": "Olivia Wilde Eyes Oscars History With ‘The Invite’ as the First Woman to Direct Herself to an Acting Nomination",
+      "title": "Jason Blum on How ‘Other Mommy’ Got That Controversial Title, Kristen Bell Joins ‘Violent Night 2’ and More From Blumhouse at NYCC",
       "when": "9 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/olivia-wilde-oscars-history-first-woman-acting-directing-invite-1236906906/"
+      "url": "https://variety.com/2026/film/news/other-mommy-blair-witch-paranormal-activity-blumhouse-nycc-1236907220/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Starfighter’ Character ‘The Rock Pirate Of Kaneen’ Named In Publishing Reveals",
+      "when": "9 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-starfighter-character-the-rock-pirate-of-kaneen-named-in-publishing-reveals.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "9 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/kit-fisto-star-wars-character-spotlight.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "New ‘Star Wars’ Young Adult Book ‘Princess of the Rebellion’ Focuses on Leia, Luke, and Han After ‘A New Hope’",
-      "when": "9 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/new-star-wars-young-adult-book-princess-of-the-rebellion-focuses-on-leia-luke-and-han-after-a-new-hope.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
