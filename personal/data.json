@@ -3,30 +3,30 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-10",
-    "fetched": "2026-10-10T18:23:31+00:00",
+    "fetched": "2026-10-10T22:22:48+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 5
+      "temp": 16,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 8
     },
     "days": [
       {
         "day": "Today",
-        "min": 10,
+        "min": 11,
         "max": 22,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "⛅",
+        "desc": "Partly cloudy",
         "rain": 2
       },
       {
         "day": "Mon",
-        "min": 9,
-        "max": 18,
+        "min": 10,
+        "max": 19,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 88
@@ -72,45 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118818.0,
-        "pct": 0.51
+        "price": 118742.0,
+        "pct": 0.57
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3590.48,
-        "pct": 0.86
+        "price": 3588.05,
+        "pct": 0.95
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Dungeon Crawler Carl’ Live-Action TV Series to Begin Shooting in 2027, More Details Coming ‘Very Soon’",
+      "title": "New ‘Naruto’ Anime Series and ‘Shadow Rising’ Manga Revealed",
       "when": "10 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/dungeon-crawler-carl-tv-series-filming-2027-release-date-1236907644/"
+      "url": "https://variety.com/2026/digital/news/naruto-new-anime-series-shadow-rising-manga-1236907767/"
     },
     {
       "cat": "Film/TV",
-      "title": "Barry Manilow Cancels Las Vegas Residency Shows Days After Returning to the Stage Post-Cancer Recovery",
+      "title": "Here’s How to Watch Floyd Schofield vs. Lucas Bahdi Title Boxing Bout Live Online",
       "when": "10 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/barry-manilow-cancels-las-vegas-shows-1236907619/"
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-floyd-schofield-vs-lucas-bahdi-boxing-live-online-1236904664/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Children of Blood and Bone’ Author Tomi Adeyemi Quietly Cancels New York Comic Con Panel",
+      "title": "‘The Furious’ Star Xie Miao to Headline U.S.-Set Martial Arts Crime Thriller for Stars Collective (EXCLUSIVE)",
       "when": "10 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/tomi-adeyemi-cancels-nycc-appearance-1236907595/"
+      "url": "https://variety.com/2026/film/markets-festivals/the-furious-xie-miao-martial-arts-crime-thriller-1236907398/"
     },
     {
       "cat": "Film/TV",
-      "title": "Nicolas Cage Says He’s ‘Probably Not’ Working With Amazon Again After Refusing to Sign AI Waiver for ‘Spider-Noir,’ Teases Joining ‘True Detective’",
+      "title": "‘Ibuku’ Review: Dreamlike Indonesian Drama Is a Compelling Tale of Parental Redemption",
       "when": "10 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/nicolas-cage-ai-waiver-amazon-spider-noir-1236907564/"
+      "url": "https://variety.com/2026/film/reviews/ibuku-review-1236907736/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Savi’s Workshop Galaxy’s Edge Lightsabers Receive Upgrades Adding New Effects",
+      "when": "10 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/savis-workshop-galaxys-edge-lightsabers-receive-upgrades-adding-new-effects.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "NYCC: First Look At ‘Star Trek: Starfleet Academy’ Season 2, Returning In March With Bill Nighy Joining",
+      "when": "10 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/10/nycc-first-look-at-star-trek-starfleet-academy-season-2-returning-in-march-with-bill-nighy-joining/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Scott Bakula And ‘Enterprise’ Producer Mike Sussman Developing CBS Procedural, Door Still Open For ‘Star Trek: United’ [Exclusive]",
+      "when": "10 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/10/scott-bakula-and-enterprise-producer-mike-sussman-developing-cbs-procedural-door-still-open-for-star-trek-united-exclusive/"
     },
     {
       "cat": "Trek/Wars",
@@ -128,31 +149,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Kit Fisto – ‘Star Wars’ Character Spotlight",
-      "when": "9 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/kit-fisto-star-wars-character-spotlight.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Podcast: All Access Looks At Star Trek’s Future Under Skydance, Plus News And NY Comic Con Preview",
       "when": "9 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/09/podcast-all-access-looks-at-star-treks-future-under-skydance-plus-news-and-ny-comic-con-preview/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Trek: Strange New Worlds’ Finished Season 4 Without Making Nielsen Top 10 Streaming Chart",
-      "when": "9 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/08/star-trek-strange-new-worlds-finished-season-4-without-making-nielsen-top-10-streaming-chart/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "NYCC: Nacelle Toys Reveals Gene Roddenberry And Lucille Ball Star Trek Figures",
-      "when": "8 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/08/nycc-nacelle-toys-reveals-gene-roddenberry-and-lucille-ball-star-trek-figures/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
