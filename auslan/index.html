@@ -16,7 +16,7 @@
 <header class="page">
   <div class="wrap" style="padding-bottom:0">
     <h1>Auslan Trainer</h1>
-    <div class="sub">Step 1: live hand tracking. Everything runs in your browser; <b>no video leaves this device</b>.</div>
+    <div class="sub">Fingerspelling practice: the five vowels. Everything runs in your browser; <b>no video leaves this device</b>.</div>
   </div>
 </header>
 
@@ -27,14 +27,33 @@
     <span id="status" class="sub" role="status">Idle</span>
   </div>
 
+  <section class="practice card" id="practice" aria-live="polite">
+    <div class="diagram" id="diagram"></div>
+    <div class="coach-text">
+      <div class="target"><span class="sub">Sign</span> <b id="targetLetter">A</b></div>
+      <div class="sub" id="hint"></div>
+      <p id="feedback">Press Start camera, then show both hands.</p>
+      <div class="picks" id="vowelPicks" aria-label="Choose a vowel"></div>
+      <label class="sub">Dominant hand
+        <select id="dominantHand">
+          <option value="Right">Right</option>
+          <option value="Left">Left</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
   <div class="stage" id="stage">
     <video id="video" playsinline muted></video>
     <canvas id="overlay"></canvas>
+    <canvas id="coach"></canvas>
   </div>
 
   <dl class="readout">
     <div class="card"><dt>Hands</dt><dd id="handCount">0</dd></div>
     <div class="card"><dt>Detail</dt><dd id="handDetail">None</dd></div>
+    <div class="card"><dt>Letters signed</dt><dd id="practiceScore">0</dd></div>
+    <div class="card"><dt>Both hands seen (last 60 frames)</dt><dd id="bothSeen">n/a</dd></div>
     <div class="card"><dt>Frames/sec</dt><dd id="fps">0</dd></div>
     <div class="card"><dt>Processor</dt><dd id="delegate">n/a</dd></div>
   </dl>
@@ -46,5 +65,6 @@
 </footer>
 
 <script type="module" src="app.js"></script>
+<script type="module" src="vowels.js"></script>
 </body>
 </html>

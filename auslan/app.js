@@ -177,6 +177,12 @@ function loop() {
     window.auslan.lastResult = result;
     draw(result);
     updateReadout(result);
+    // Practice modes (e.g. vowels.js) listen for this instead of reaching into the loop.
+    document.dispatchEvent(
+      new CustomEvent("auslan:hands", {
+        detail: { result, width: els.canvas.width, height: els.canvas.height },
+      }),
+    );
 
     fpsFrames++;
     const now = performance.now();
