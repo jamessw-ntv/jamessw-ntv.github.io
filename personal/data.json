@@ -3,33 +3,33 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-11",
-    "fetched": "2026-10-11T01:45:20+00:00",
+    "fetched": "2026-10-11T08:36:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
+      "temp": 19,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 22
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
         "min": 11,
-        "max": 22,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 2
+        "max": 23,
+        "icon": "⛅",
+        "desc": "Partly cloudy",
+        "rain": 14
       },
       {
         "day": "Mon",
         "min": 10,
-        "max": 19,
+        "max": 18,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 88
+        "rain": 98
       },
       {
         "day": "Tue",
@@ -37,7 +37,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 56
+        "rain": 76
       }
     ]
   },
@@ -72,52 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118772.0,
-        "pct": 0.44
+        "price": 118805.0,
+        "pct": 0.27
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3589.89,
-        "pct": 0.7
+        "price": 3575.5,
+        "pct": 0.19
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Journey Drummer Deen Castronovo Returns to the Stage to Play Full Show, Two Nights After Medical Scare",
+      "when": "11 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/journey-deen-castronovo-drummer-returns-stage-san-antonio-1236908003/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Taiwan’s Sole Busan Competition Title ‘To Be Ordinary’ Marks Lee Yun Chan’s Return to Features After Two Decades",
+      "when": "11 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/busan-competition-to-be-ordinary-lee-yun-chan-comeback-1236908013/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Korean and Italian Producers Sign Co-Production Pact at Busan Market",
+      "when": "11 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/korea-italy-producer-groups-coproduction-pact-busan-1236908007/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Sci-Fi Thriller ‘Overstake’ Gets Generative AI Rebuild, Boarded by Cappu Films at Busan Market (EXCLUSIVE)",
+      "when": "11 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/sci-fi-thriller-overstake-generative-ai-rebuild-busan-market-1236907993/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "NYCC: Watch Full Star Trek Universe Panel, Including Conversation With William Shatner And Ben Stiller",
+      "when": "11 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/10/nycc-watch-full-star-trek-universe-panel-including-conversation-with-william-shatner-and-ben-stiller/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars/Marvel’ Crossover Series Extended to Six Issues, Will Be Canon to the Marvel Comics Universe",
       "when": "11 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-marvel-crossover-series-extended-to-six-issues-will-be-canon-to-the-marvel-comics-universe.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘The First Taste of Loneliness’ Review: A Sentimental but Affecting Study of Family Life After Bereavement",
-      "when": "11 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-first-taste-of-loneliness-review-1236907801/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Philippines Revamps International Co-Production Fund With Minority and Majority Tracks, Unveiled at Busan Market",
-      "when": "11 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/philippines-revamps-coproduction-fund-minority-majority-tracks-1236907874/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Lego Is Bringing Marvel and ‘Star Wars’ Together for First-Ever Fan-Designed Crossover Set",
-      "when": "11 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/lego-marvel-star-wars-lego-ideas-set-nycc-1236906728/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Bill Maher Slams Cornell and the ‘Depravity’ of Fraternities Amid Sexual Assault Lawsuit: ‘I’m Glad to See Them Eating a S— Sandwich’",
-      "when": "11 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/bill-maher-slams-cornell-sexual-assault-lawsuit-1236907856/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-starfighter-character-the-rock-pirate-of-kaneen-named-in-publishing-reveals.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Podcast: All Access Looks At Star Trek’s Future Under Skydance, Plus News And NY Comic Con Preview",
-      "when": "9 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/09/podcast-all-access-looks-at-star-treks-future-under-skydance-plus-news-and-ny-comic-con-preview/"
-    },
-    {
       "cat": "Games",
       "title": "Another Satisfactory Announcement",
       "when": "29 Sep",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
