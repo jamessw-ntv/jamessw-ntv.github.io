@@ -3,29 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-11",
-    "fetched": "2026-10-11T08:36:07+00:00",
+    "fetched": "2026-10-11T15:31:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 19,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 14
+      "temp": 18,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
-        "min": 11,
-        "max": 23,
-        "icon": "⛅",
-        "desc": "Partly cloudy",
-        "rain": 14
-      },
-      {
-        "day": "Mon",
-        "min": 10,
+        "min": 9,
         "max": 18,
         "icon": "🌦️",
         "desc": "Showers",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 76
+      },
+      {
+        "day": "Wed",
+        "min": 7,
+        "max": 13,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 6
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118805.0,
-        "pct": 0.27
+        "price": 119258.0,
+        "pct": 0.45
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3575.5,
-        "pct": 0.19
+        "price": 3598.31,
+        "pct": 0.27
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Journey Drummer Deen Castronovo Returns to the Stage to Play Full Show, Two Nights After Medical Scare",
+      "title": "‘The Social Reckoning’ Flops With $5.5 Million Debut, ‘Other Mommy’ Tops Box Office With $27.5 Million",
       "when": "11 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/journey-deen-castronovo-drummer-returns-stage-san-antonio-1236908003/"
+      "url": "https://variety.com/2026/film/box-office/social-reckoning-flops-other-mommy-leads-box-office-1236908161/"
     },
     {
       "cat": "Film/TV",
-      "title": "Taiwan’s Sole Busan Competition Title ‘To Be Ordinary’ Marks Lee Yun Chan’s Return to Features After Two Decades",
+      "title": "John Malkovich Says the Oscars Race Was a ‘Different World’ When He Was Last on the Campaign Trail: ‘Now, That’s the Only Way to Get People to Go to Theaters’",
       "when": "11 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/busan-competition-to-be-ordinary-lee-yun-chan-comeback-1236908013/"
+      "url": "https://variety.com/2026/film/festivals/john-malkovich-oscars-campaigning-only-way-people-theaters-1236907530/"
     },
     {
       "cat": "Film/TV",
-      "title": "Korean and Italian Producers Sign Co-Production Pact at Busan Market",
+      "title": "‘Wildwood’ Director Travis Knight Reflects on Animated Feature’s 16-Year Journey at London Premiere: ‘When We Started This, Barack Obama Was a Fresh-Faced President’",
       "when": "11 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/korea-italy-producer-groups-coproduction-pact-busan-1236908007/"
+      "url": "https://variety.com/2026/film/global/wildwood-director-animation-16-year-journey-london-premiere-1236908166/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sci-Fi Thriller ‘Overstake’ Gets Generative AI Rebuild, Boarded by Cappu Films at Busan Market (EXCLUSIVE)",
+      "title": "Disney Broadens Super Bowl LXI Plans With Pat McAfee, Next-Gen Stats",
       "when": "11 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/sci-fi-thriller-overstake-generative-ai-rebuild-busan-market-1236907993/"
+      "url": "https://variety.com/2026/tv/musicians/disney-super-bowl-lxi-pat-mcafee-next-gen-stats-1236908159/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "4m ago",
       "lang": "HTML",
       "commit": ""
     }
