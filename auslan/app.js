@@ -51,7 +51,10 @@ async function createLandmarker() {
     minHandPresenceConfidence: 0.5,
     minTrackingConfidence: 0.5,
   });
+  // Adding ?cpu to the page address skips the graphics card (GPU), which some devices handle badly.
+  const forceCpu = new URLSearchParams(location.search).has("cpu");
   try {
+    if (forceCpu) throw new Error("CPU requested in the address");
     const lm = await HandLandmarker.createFromOptions(vision, options("GPU"));
     els.delegate.textContent = "GPU";
     return lm;
@@ -144,7 +147,16 @@ function loop() {
   const video = els.video;
   if (video.currentTime !== lastVideoTime && video.readyState >= 2) {
     lastVideoTime = video.currentTime;
-    const result = landmarker.detectForVideo(video, performance.now());
+    let result;
+    try {
+      result = landmarker.detectForVideo(video, performance.now());
+    } catch (err) {
+      // Without this, one failed frame silently stops the loop while the status still says "Tracking".
+      console.error(err);
+      setStatus(`Tracking stopped (${els.delegate.textContent}): ${err.message}. Try adding ?cpu to the address.`);
+      els.start.disabled = false;
+      return;
+    }
     window.auslan.lastResult = result;
     draw(result);
     updateReadout(result);
