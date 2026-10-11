@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-11",
-    "fetched": "2026-10-11T20:07:14+00:00",
+    "fetched": "2026-10-11T23:37:22+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 13
+      "temp": 16,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 9
     },
     "days": [
       {
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119823.0,
-        "pct": 0.8
+        "price": 119704.0,
+        "pct": 0.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3634.69,
-        "pct": 1.07
+        "price": 3626.57,
+        "pct": 1.06
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Why Disney’s Kids & Family Division Is Working With Creators Like Dhar Mann and Nastya: We Need to ‘Meet Kids Where They Are’",
+      "title": "‘Demon Hunters’ India-Taiwan Action-Comedy Sets Netherlands Theatrical Release (EXCLUSIVE)",
       "when": "11 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/disney-kids-family-creators-dhar-mann-nastya-1236908306/"
+      "url": "https://variety.com/2026/film/markets-festivals/demon-hunters-india-taiwan-action-comedy-netherlands-release-1236908532/"
     },
     {
       "cat": "Film/TV",
-      "title": "Globo Bets on ‘To Love Is to Care’ at Mipcom as It Ushers ‘Super Drama’ Concept: ‘Titles That Represent the Best of the Brazilian Telenovela Tradition’",
+      "title": "Cannes-Winning ‘Tiger Stripes’ Producer Backs Taiwanese Coming-of-Age Drama ‘Uncle’ at Busan Asian Project Market",
       "when": "11 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/globo-to-love-is-to-care-mipcom-super-drama-telenovela-1236908154/"
+      "url": "https://variety.com/2026/film/markets-festivals/tiger-stripes-producer-uncle-busan-asian-project-market-1236908528/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars’ Publishing Announcements New York Comic-Con; Also, Where Is Taika?",
+      "when": "11 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/this-week-in-a-galaxy-far-far-away-star-wars-publishing-announcements-new-york-comic-con-also-where-is-taika.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Sally Field Was Like a ‘Mother Figure’ While Filming ‘Mrs. Doubtfire,’ Says Star Matthew Lawrence: ‘We Really Became a Family Unit’",
+      "title": "Hugh Hefner’s Ex-Wife Calls Him a ‘True Gentleman’ After His Widow Crystal Harris Urges Jessica Biel to ‘Reconsider’ Playing His Wife",
       "when": "11 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/matthew-lawrence-sally-field-mrs-doubtfire-1236908316/"
+      "url": "https://variety.com/2026/film/news/hugh-hefner-ex-wife-crystal-harris-jessica-biel-playmates-1236908495/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Artemis Fowl’ Animated TV Show Set at Disney",
+      "title": "Quentin Tarantino Play ‘The Popinjay Cavalier,’ Starring Sacha Baron Cohen, to Open on West End in March",
       "when": "11 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/artemis-fowl-animated-tv-show-disney-1236908229/"
+      "url": "https://variety.com/2026/theater/global/quentin-tarantino-play-sacha-baron-cohen-west-end-run-dates-1236906408/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "UPDATE: Every New ‘Star Wars’ Title Announced During Lucasfilm Publishing Panels at NYCC",
+      "when": "11 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/update-every-new-star-wars-title-announced-during-lucasfilm-publishing-panels-nycc.html"
     },
     {
       "cat": "Trek/Wars",
@@ -128,13 +142,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Savi’s Workshop Galaxy’s Edge Lightsabers Receive Upgrades Adding New Effects",
-      "when": "10 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/savis-workshop-galaxys-edge-lightsabers-receive-upgrades-adding-new-effects.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "NYCC: First Look At ‘Star Trek: Starfleet Academy’ Season 2, Returning In March With Bill Nighy Joining",
       "when": "10 Oct",
       "source": "TrekMovie",
@@ -146,13 +153,6 @@
       "when": "10 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/10/scott-bakula-and-enterprise-producer-mike-sussman-developing-cbs-procedural-door-still-open-for-star-trek-united-exclusive/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Starfighter’ Character ‘The Rock Pirate Of Kaneen’ Named In Publishing Reveals",
-      "when": "9 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-starfighter-character-the-rock-pirate-of-kaneen-named-in-publishing-reveals.html"
     },
     {
       "cat": "Games",
