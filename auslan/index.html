@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Auslan Trainer</title>
+<link rel="stylesheet" href="../assets/hub.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="hubbar">
+  <a class="backlink" href="../">← Hub</a>
+  <span class="crumb"><b>Auslan Trainer</b></span>
+</div>
+
+<header class="page">
+  <div class="wrap" style="padding-bottom:0">
+    <h1>Auslan Trainer</h1>
+    <div class="sub">Step 1: live hand tracking. Everything runs in your browser; <b>no video leaves this device</b>.</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="controls">
+    <button id="startBtn" class="toggle" type="button">Start camera</button>
+    <label class="toggle"><input id="mirrorToggle" type="checkbox" checked> Mirror view</label>
+    <span id="status" class="sub" role="status">Idle</span>
+  </div>
+
+  <div class="stage" id="stage">
+    <video id="video" playsinline muted></video>
+    <canvas id="overlay"></canvas>
+  </div>
+
+  <dl class="readout">
+    <div class="card"><dt>Hands</dt><dd id="handCount">0</dd></div>
+    <div class="card"><dt>Detail</dt><dd id="handDetail">None</dd></div>
+    <div class="card"><dt>Frames/sec</dt><dd id="fps">0</dd></div>
+    <div class="card"><dt>Processor</dt><dd id="delegate">n/a</dd></div>
+  </dl>
+</div>
+
+<footer class="site">
+  Hand tracking by <a href="https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker">Google MediaPipe</a>.
+  Part of the <a href="../">projects hub</a>.
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
