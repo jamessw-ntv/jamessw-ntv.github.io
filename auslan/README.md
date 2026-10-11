@@ -35,3 +35,4 @@ python3 -m http.server 8000   # from the repo root
 ## Credits
 
 Hand tracking: [Google MediaPipe Hand Landmarker](https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker) (Apache 2.0).
+`selftest.jpg` is MediaPipe's `victory.jpg` test image, used at start-up to check the graphics card (GPU) path really finds hands; if not, the app falls back to the CPU. Add `?cpu` to the address to skip the GPU entirely.

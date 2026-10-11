@@ -30,6 +30,7 @@ const els = {
 const ctx = els.canvas.getContext("2d");
 
 let landmarker = null;
+let selfTestWarning = "";
 let lastVideoTime = -1;
 let fpsFrames = 0;
 let fpsSince = performance.now();
@@ -51,19 +52,35 @@ async function createLandmarker() {
     minHandPresenceConfidence: 0.5,
     minTrackingConfidence: 0.5,
   });
-  // Adding ?cpu to the page address skips the graphics card (GPU), which some devices handle badly.
-  const forceCpu = new URLSearchParams(location.search).has("cpu");
-  try {
-    if (forceCpu) throw new Error("CPU requested in the address");
-    const lm = await HandLandmarker.createFromOptions(vision, options("GPU"));
-    els.delegate.textContent = "GPU";
-    return lm;
-  } catch (err) {
-    console.warn("GPU delegate failed, falling back to CPU", err);
-    const lm = await HandLandmarker.createFromOptions(vision, options("CPU"));
-    els.delegate.textContent = "CPU";
-    return lm;
+  // Adding ?cpu to the page address skips the graphics card (GPU) entirely.
+  if (!new URLSearchParams(location.search).has("cpu")) {
+    try {
+      const lm = await HandLandmarker.createFromOptions(vision, options("GPU"));
+      // Some phone GPUs load the model fine but then never find a hand. Like a smoke
+      // alarm's test button, check it on a photo that definitely contains a hand.
+      if (await passesSelfTest(lm)) {
+        els.delegate.textContent = "GPU";
+        return lm;
+      }
+      console.warn("GPU delegate found no hand in the self-test image, falling back to CPU");
+      lm.close();
+    } catch (err) {
+      console.warn("GPU delegate failed, falling back to CPU", err);
+    }
   }
+  const lm = await HandLandmarker.createFromOptions(vision, options("CPU"));
+  els.delegate.textContent = "CPU";
+  if (!(await passesSelfTest(lm))) {
+    selfTestWarning = " Warning: the hand model failed its self-check on this device.";
+  }
+  return lm;
+}
+
+async function passesSelfTest(lm) {
+  const img = new Image();
+  img.src = "selftest.jpg";
+  await img.decode();
+  return lm.detectForVideo(img, performance.now()).landmarks.length > 0;
 }
 
 async function startCamera() {
@@ -186,7 +203,7 @@ els.start.addEventListener("click", async () => {
     landmarker ??= await createLandmarker();
     setStatus("Waiting for camera permission…");
     await startCamera();
-    setStatus("Tracking. Hold your hands up to the camera.");
+    setStatus("Tracking. Hold your hands up to the camera." + selfTestWarning);
     requestAnimationFrame(loop);
   } catch (err) {
     console.error(err);
