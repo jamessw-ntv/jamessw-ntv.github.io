@@ -38,6 +38,7 @@
   .step.done{opacity:.55}
   .step.next{border-color:var(--accent);box-shadow:var(--shadow-hover)}
   .step input{width:18px;height:18px;margin-top:3px;flex:none}
+  input[type=checkbox]{width:18px;height:18px;vertical-align:middle}
   .step h4{margin:0 0 4px;font-size:15px}
   .step .io{font-size:13px;color:var(--muted)}
   .step .io b{color:var(--text);font-weight:600}
@@ -85,7 +86,7 @@
   .sync textarea{width:100%;min-height:86px;background:var(--black);color:var(--text);border:1px solid var(--line);border-radius:8px;font:12px/1.4 ui-monospace,Menlo,Consolas,monospace;padding:8px;resize:vertical}
   .pbar{height:8px;background:var(--panel2);border-radius:999px;overflow:hidden;min-width:80px}
   .pbar i{display:block;height:100%;background:var(--green)}
-  .toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);max-width:min(560px,calc(100vw - 32px));background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13.5px;box-shadow:var(--shadow-hover);z-index:20}
+  .toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);width:max-content;max-width:min(560px,calc(100vw - 32px));cursor:pointer;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13.5px;box-shadow:var(--shadow-hover);z-index:20}
   details summary{cursor:pointer;color:var(--accent);margin:16px 0 8px;font-size:14px}
 </style>
 </head>
@@ -158,7 +159,7 @@
     <div class="sync" id="stage" style="padding:10px 14px"></div>
     <div class="mapwrap">
       <div class="map" id="map">
-        <div class="zoom"><button id="zin" title="Zoom in">+</button><button id="zout" title="Zoom out">−</button><button id="zfit" title="Fit">⤢</button></div>
+        <div class="zoom"><button id="zin" title="Zoom in" aria-label="Zoom in">+</button><button id="zout" title="Zoom out" aria-label="Zoom out">−</button><button id="zfit" title="Fit" aria-label="Fit the whole plan">⤢</button></div>
         <div class="hint">Drag to pan · scroll, pinch or +/− to zoom · tap a block for details · faint grid = 32-tile chunks</div>
       </div>
       <div class="side" id="side"></div>
@@ -259,7 +260,8 @@ function opts(){ const o = state[state.layout];
 function syncControls(){
   const o = state[state.layout];
   document.querySelectorAll("#layoutSeg .toggle").forEach(b => b.classList.toggle("active", b.dataset.layout===state.layout));
-  document.querySelectorAll("#tabs .toggle").forEach(b => b.classList.toggle("active", b.dataset.tab===state.tab));
+  document.querySelectorAll("#tabs .toggle").forEach(b => { b.classList.toggle("active", b.dataset.tab===state.tab); b.setAttribute("aria-pressed", b.dataset.tab===state.tab); });
+  document.querySelectorAll("#layoutSeg .toggle").forEach(b => b.setAttribute("aria-pressed", b.dataset.layout===state.layout));
   document.querySelectorAll("section[data-pane]").forEach(s => s.classList.toggle("hidden", s.dataset.pane!==state.tab));
   $("spm").value = o.spm; $("profile").value = o.profile; $("beacons").value = o.beacons;
   $("miningProd").value = o.miningProd; $("military").checked = o.military;
@@ -416,7 +418,7 @@ function buildSvg(focus, stage, viewW){
         <title>${esc(b.name)}</title></g>`;
       const txt = `${p.stuck?"⚠ no room · ":""}${built&&!newLine?"✓ ":isNew?"NEW · ":newLine?"+ ":locked?"🔒 ":""}${b.name}`;
       labels.push({ pri: focus===p.id||sel===p.id ? 0 : isNew||p.stuck ? 1 : newLine||built ? 2 : locked ? 4 : 3, x:p.x+.5, y:p.y-1.2*F, fs:4*F, txt,
-        fill: locked?"#5c6788":isNew?"#3ddc84":"#e9edf7" });
+        fill: locked?"#8590b0":isNew?"#3ddc84":"#e9edf7" });
     }
     for(const p of lay.patches){
       const I = { ...PATCH_INFO[p.kind], r: p.r || PATCH_INFO[p.kind].r }, on = selPatch===p.id;
@@ -493,6 +495,7 @@ function renderMap(fit, keepStage){
   const s = document.createElementNS(NS,"svg");
   s.setAttribute("viewBox", `${view.x} ${view.y} ${view.w} ${view.h}`);
   s.setAttribute("preserveAspectRatio","xMidYMid meet");
+  s.setAttribute("role","img"); s.setAttribute("aria-label","Map of the planned base. The guide and the Blocks tab list the same information as text.");
   s.innerHTML = svg;
   el.prepend(s);
   el._bounds = bounds; el._lastW = view.w;
@@ -523,13 +526,15 @@ let dragMoved = false;
   el.addEventListener("pointerdown", e => {
     if(e.target.closest(".zoom")) return;
     pts.set(e.pointerId, { x:e.clientX, y:e.clientY });
-    if(pts.size === 2 && !pdrag){ drag = null; pinch = { ...two(), v: { ...view } }; dragMoved = true; return; }
+    if(pts.size === 2){
+      if(pdrag){ pdrag.p.x = pdrag.ox; pdrag.p.y = pdrag.oy; pdrag = null; relayout(); renderMap(false, true); }
+      drag = null; pinch = { ...two(), v: { ...view } }; dragMoved = true; return; }
     const gm = e.target.closest(".mark");
     if(gm){ const m = state.marks.find(q => q.id===gm.dataset.mid), w = toWorld(e);
-      if(m){ pdrag = { p: m, mark: true, dx: m.x - w.x, dy: m.y - w.y }; selMark = m.id; selPatch = null; sel = null; dragMoved = false; e.preventDefault(); showSide(null); return; } }
+      if(m){ pdrag = { p: m, mark: true, id: e.pointerId, ox: m.x, oy: m.y, dx: m.x - w.x, dy: m.y - w.y }; selMark = m.id; selPatch = null; sel = null; dragMoved = false; e.preventDefault(); showSide(null); return; } }
     const g = e.target.closest(".patch");
     if(g){ const p = state.patches.find(q => q.id===g.dataset.pid), w = toWorld(e);
-      pdrag = { p, dx: p.x - w.x, dy: p.y - w.y }; selPatch = p.id; selMark = null; sel = null; dragMoved = false; e.preventDefault(); return; }
+      pdrag = { p, id: e.pointerId, ox: p.x, oy: p.y, dx: p.x - w.x, dy: p.y - w.y }; selPatch = p.id; selMark = null; sel = null; dragMoved = false; e.preventDefault(); return; }
     drag = { x:e.clientX, y:e.clientY, vx:view.x, vy:view.y }; dragMoved = false; });
   window.addEventListener("pointermove", e => {
     if(pts.has(e.pointerId)) pts.set(e.pointerId, { x:e.clientX, y:e.clientY });
@@ -539,7 +544,7 @@ let dragMoved = false;
       view.w = v.w * f; view.h = v.h * f;
       view.x = v.x + (v.w - view.w) * cx - (t.mx - pinch.mx) * k * f; view.y = v.y + (v.h - view.h) * cy - (t.my - pinch.my) * k * f;
       apply(); return; }
-    if(pdrag){ const w = toWorld(e); pdrag.p.x = Math.round(w.x + pdrag.dx); pdrag.p.y = Math.round(w.y + pdrag.dy); dragMoved = true;
+    if(pdrag && e.pointerId === pdrag.id){ const w = toWorld(e); pdrag.p.x = Math.round(w.x + pdrag.dx); pdrag.p.y = Math.round(w.y + pdrag.dy); dragMoved = true;
       if(!raf) raf = requestAnimationFrame(() => { raf = 0; relayout(); renderMap(false); }); return; }
     if(!drag) return; const r = el.getBoundingClientRect(), k = Math.max(view.w/r.width, view.h/r.height);
     const dx = e.clientX-drag.x, dy = e.clientY-drag.y; if(Math.abs(dx)+Math.abs(dy) > 4) dragMoved = true;
@@ -603,7 +608,7 @@ function stageHtml(){
   return `<div style="display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center">
     <label class="muted" for="stageR" id="stageLbl" style="white-space:nowrap">Show the base at step <b>${s+1}</b> of ${n}${mapStage==null?" (where you are)":""}</label>
     <span style="display:flex;gap:6px;align-items:center;flex:1 1 260px;min-width:0"><button class="toggle" id="stPrev" aria-label="Previous step">◀</button>
-    <input type="range" id="stageR" min="0" max="${n-1}" value="${s}" style="flex:1;min-width:0" aria-label="Step">
+    <input type="range" id="stageR" min="0" max="${n-1}" value="${s}" style="flex:1;min-width:0" aria-label="Step" aria-valuetext="Step ${s+1} of ${n}: ${esc(g ? g.title : "")}">
     <button class="toggle" id="stNext" aria-label="Next step">▶</button></span>
     <button class="toggle" id="stNow" ${mapStage==null?"disabled":""}>Back to where I am</button></div>
     <div style="display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;margin-top:4px"><b style="font-size:13.5px;flex:1 1 200px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" id="stageTitle">${esc(g ? g.title : "")}</b>
@@ -873,7 +878,7 @@ function renderGuide(){
   $("gcard").querySelectorAll("[data-act]").forEach(b => b.onclick = e => {
     e.preventDefault();
     const a = b.dataset.act;
-    if(a==="done") markDone(g, true);
+    if(a==="done"){ markDone(g, true); focusCard(); }
     else if(a==="undo") markDone(g, false);
     else if(a==="skip"){ state.skip[L_()][g.id] = true; viewId = null; recompute(false); }
     else if(a==="back"){ viewId = steps[steps.indexOf(g)-1].id; renderGuide(); }
@@ -882,6 +887,13 @@ function renderGuide(){
     else if(a==="map"){ state.tab = "map"; syncControls(); renderMap(true); }
   });
   renderList(g);
+}
+// after Done, bring the next card's title into view and give it focus (keyboard users stay in place)
+function focusCard(){
+  const h = $("gcard").querySelector("h2"); if(!h) return;
+  h.setAttribute("tabindex", "-1");
+  if(h.getBoundingClientRect().top < 0) h.scrollIntoView({ block:"start" });
+  h.focus({ preventScroll:true });
 }
 function renderList(g){
   $("glist").innerHTML = steps.map((x, i) => `<div class="srow ${g && x.id===g.id ? "cur" : ""}">
@@ -967,7 +979,8 @@ function applyScan(data, use, fileTime){
 }
 let toastT = 0;
 function toast(html){
-  const el = $("toast"); el.innerHTML = html; el.classList.remove("hidden");
+  const el = $("toast"); el.innerHTML = html + ` <span class="muted">(tap to close)</span>`; el.classList.remove("hidden");
+  el.onclick = () => el.classList.add("hidden");
   clearTimeout(toastT); toastT = setTimeout(() => el.classList.add("hidden"), 6000);
 }
 
