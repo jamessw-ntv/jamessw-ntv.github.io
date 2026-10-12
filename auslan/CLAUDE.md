@@ -14,3 +14,5 @@ spell out acronyms and prefer analogies.
 - Handedness: frames go to MediaPipe un-mirrored (mirroring is display-only)
   and its label is used as-is.
 - Build in small, testable chunks; the roadmap is in `README.md`.
+- Fingerspelling photos in `signbank/` are Auslan Signbank, CC BY-NC-ND 4.0:
+  keep them unmodified (no crop, flip or recolour) and keep the attribution.

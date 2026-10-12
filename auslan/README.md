@@ -49,4 +49,5 @@ Left-handed? Change **Dominant hand** to Left; it's remembered on this device.
 ## Credits
 
 Hand tracking: [Google MediaPipe Hand Landmarker](https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker) (Apache 2.0).
+Fingerspelling photos: [Auslan Signbank](https://www.auslan.org.au/spell/twohanded.html) (CC BY-NC-ND 4.0), unmodified; see `signbank/README.md`.
 `selftest.jpg` is MediaPipe's `victory.jpg` test image, used at start-up to check the graphics card (GPU) path really finds hands; if not, the app falls back to the CPU. Add `?cpu` to the address to skip the GPU entirely.

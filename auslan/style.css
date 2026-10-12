@@ -18,22 +18,17 @@
 /* ---- vowel practice ---- */
 .practice{display:flex;gap:16px;align-items:center;margin:0 0 12px;transition:border-color .2s}
 .practice.matching{border-color:var(--green)}
-.practice .diagram{flex:0 0 150px}
-.practice .diagram svg{width:150px;height:auto;display:block}
-.practice .finger{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}
-.practice .tip{fill:var(--panel);stroke:var(--line)}
-.practice .tip.target{fill:var(--yellow);stroke:var(--yellow)}
-.practice .lbl{fill:var(--muted);font:bold 10px system-ui,sans-serif;text-anchor:middle}
-.practice .lbl.target{fill:var(--black)}
-.practice.matching .tip.target{fill:var(--green);stroke:var(--green)}
+.practice.matching .diagram img{outline:3px solid var(--green)}
+.practice .diagram{flex:0 0 auto;margin:0;max-width:45%}
+.practice .diagram img{display:block;width:192px;max-width:100%;height:auto;border-radius:8px}
+.practice .diagram figcaption{font-size:10px;color:var(--muted);margin-top:4px}
+.practice .diagram figcaption a{color:inherit}
 .coach-text{flex:1;min-width:0}
 .target b{font-size:40px;line-height:1;color:var(--text)}
 #feedback{margin:6px 0 10px;min-height:3em}
 .picks{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .picks .toggle{padding:6px 12px}
 .practice select{margin-left:6px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:2px 6px;font:inherit}
-.practice .pointer{stroke:var(--accent);stroke-width:9;stroke-linecap:round;opacity:.6}
-.practice .fist{fill:var(--accent);opacity:.6}
 .posture{margin:0 0 12px}
 .posture summary{cursor:pointer;color:var(--text)}
 .posture ul{margin:8px 0 4px;padding-left:20px}
