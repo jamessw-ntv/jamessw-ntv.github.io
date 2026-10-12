@@ -457,7 +457,7 @@ const DEFAULT_PATCHES = [
 // ctx.obstacles: Set of "gx,gy" 8-tile cells already covered by the player's other buildings.
 function layoutWorld(sol, patches, ctx){
   ctx = ctx || {};
-  const pins = ctx.pins || {}, obst = ctx.obstacles || null, G = 8, nests = (ctx.marks || []).filter(m => m.kind==="nest");
+  const pins = ctx.pins || {}, obst = ctx.obstacles || null, G = 8, nests = (ctx.marks || []).filter(m => m.kind==="nest"), tags = (ctx.marks || []).filter(m => m.kind!=="nest");
   const NEST_GAP = 40;   // keep factories out of biter attack range; defend the gap
   const opt = sol.opt, M = 5, placed = [], flows = [], at = {};
   const pr = p => p.r || PATCH_INFO[p.kind].r;
@@ -466,6 +466,7 @@ function layoutWorld(sol, patches, ctx){
   const weight = (k, rate) => k==="water" ? rate/200 : FLUIDS.has(k) ? rate/20 : rate;
   const free = (x,y,w,h) => placed.every(q => x+w+M <= q.x || q.x+q.w+M <= x || y+h+M <= q.y || q.y+q.h+M <= y)
     && patches.every(p => { const cx = Math.max(x, Math.min(p.x, x+w)), cy = Math.max(y, Math.min(p.y, y+h)); return Math.hypot(cx-p.x, cy-p.y) > pr(p)+M; })
+    && tags.every(t => { const cx = Math.max(x, Math.min(t.x, x+w)), cy = Math.max(y, Math.min(t.y, y+h)); return Math.hypot(cx-t.x, cy-t.y) > 16; })
     && nests.every(n => { const cx = Math.max(x, Math.min(n.x, x+w)), cy = Math.max(y, Math.min(n.y, y+h)); return Math.hypot(cx-n.x, cy-n.y) > (n.r||12) + NEST_GAP; })
     && (!obst || !obst.size || (() => { for(let gx=Math.floor((x-M)/G); gx<=Math.floor((x+w+M)/G); gx++) for(let gy=Math.floor((y-M)/G); gy<=Math.floor((y+h+M)/G); gy++) if(obst.has(gx+","+gy)) return false; return true; })());
   const cells = {};
@@ -574,7 +575,7 @@ const SCAN_COMMAND = [
   'local tech={} for n,t in pairs(f.technologies) do if t.researched then tech[#tech+1]=n end end',
   'local tags={} for _,t in pairs(f.find_chart_tags(s)) do tags[#tags+1]={x=t.position.x,y=t.position.y,text=t.text,icon=t.icon and t.icon.name or nil} end',
   'local en={} for _,e in pairs(s.find_entities_filtered{area=A,force="enemy",type={"unit-spawner","turret"}}) do en[#en+1]={x=e.position.x,y=e.position.y,t=e.type} end',
-  'helpers.write_file("factorio-planner.json",helpers.table_to_json({v=1,tick=game.tick,player={x=c.x,y=c.y},resources=res,machines=m,research=tech,tags=tags,enemies=en}),false,pl.index)',
+  'helpers.write_file("factorio-planner.json",helpers.table_to_json({v=1,seed=s.map_gen_settings.seed,tick=game.tick,player={x=c.x,y=c.y},resources=res,machines=m,research=tech,tags=tags,enemies=en}),false,pl.index)',
   'pl.print("Saved script-output/factorio-planner.json: "..#res.." resource chunks, "..#m.." machines, "..#tech.." technologies, "..#tags.." map tags, "..#en.." enemy buildings")',
 ].join(" ");
 
@@ -635,7 +636,7 @@ function parseScan(data, maxPerKind){
     const r = Math.max(12, Math.max(...grp.map(e => Math.hypot(e.x-x, e.y-y))) + 6);
     marks.push({ id:"n"+marks.length, kind:"nest", x:Math.round(x), y:Math.round(y), r:Math.round(r), count:grp.length, text: String(grp.length) });
   }
-  return { patches, water, marks, machines, research: new Set(data.research || []), player: data.player || null, tick: data.tick };
+  return { seed: data.seed ?? null, patches, water, marks, machines, research: new Set(data.research || []), player: data.player || null, tick: data.tick };
 }
 // How much of each placed block is built: machines with the right recipe inside the block's
 // footprint (plus a small margin). Also returns 8-tile cells covered by machines that sit
@@ -656,7 +657,34 @@ function checkBase(sol, placed, machines){
   return { blocks: out, obstacles, outside: machines.length - used.size };
 }
 
+// Machines you've already built somewhere else than the plan: when a cluster of them makes one
+// block's products, move that block onto them (as a pin) instead of planning a second copy.
+function adoptBuilt(sol, placed, machines, pins){
+  const out = {}, taken = new Set();
+  const inside = (m, p) => m.x >= p.x-6 && m.x <= p.x+p.w+6 && m.y >= p.y-6 && m.y <= p.y+p.h+6;
+  for(const id of BUILD_ORDER){
+    const res = sol.blocks[id]; if(!res || !res.lineList.length || pins[id]) continue;
+    const p = placed.find(q => q.id===id); if(!p) continue;
+    const keys = new Set(res.lineList.map(L => L.key)), need = res.lineList.reduce((s,L)=>s+L.count,0);
+    if(machines.some(m => keys.has(m.key) && inside(m, p))) continue;      // already building it where planned
+    const mine = machines.map((m, i) => ({ ...m, i })).filter(m => keys.has(m.key) && !taken.has(m.i));
+    // biggest group of them within 48 tiles of each other
+    let best = [];
+    const seen = new Set();
+    for(const m of mine){
+      if(seen.has(m.i)) continue;
+      const grp = [m]; seen.add(m.i);
+      for(let k=0; k<grp.length; k++) for(const n of mine) if(!seen.has(n.i) && Math.hypot(n.x-grp[k].x, n.y-grp[k].y) < 48){ seen.add(n.i); grp.push(n); }
+      if(grp.length > best.length) best = grp;
+    }
+    if(best.length < Math.max(3, Math.min(10, need * 0.05))) continue;
+    best.forEach(m => taken.add(m.i));
+    out[id] = { x: Math.floor(Math.min(...best.map(m => m.x))) - 3, y: Math.floor(Math.min(...best.map(m => m.y))) - 3, adopted: best.length };
+  }
+  return out;
+}
+
 // ---------- build order -----------------------------------------------------------------
 const BUILD_ORDER = ["iron","copper","green","auto","log","brick","steel","mil","oil","red","chem","prod","batt","frames","blue","lds","util","silo","labs"];
 
-if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, layoutWorld, packBlock, nice, effects, BUILD_ORDER, BELT, RESEARCH, blockStep, DEFAULT_PATCHES, guideSteps, parseScan, checkBase, SCAN_COMMAND, UNLOCK_STEP, PATCH_INFO, machineAt, modulesAt, MACHINE_TIERS, effects, PROD3 };
+if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, layoutWorld, packBlock, nice, effects, BUILD_ORDER, BELT, RESEARCH, blockStep, DEFAULT_PATCHES, guideSteps, parseScan, checkBase, adoptBuilt, SCAN_COMMAND, UNLOCK_STEP, PATCH_INFO, machineAt, modulesAt, MACHINE_TIERS, effects, PROD3 };

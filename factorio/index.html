@@ -56,7 +56,7 @@
   @media (max-width:860px){.gmain{grid-template-columns:1fr}}
   .gcard{background:var(--panel);border:1px solid var(--accent);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-hover);min-width:0}
   .gkind{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
-  .gkind.build{color:#3ddc84}.gkind.research{color:#9cc4ff}.gkind.extend{color:#ffd479}.gkind.upgrade{color:#c79bff}
+  .gkind.build{color:#3ddc84}.gkind.research{color:#9cc4ff}.gkind.extend{color:#ffd479}.gkind.upgrade{color:#c79bff}.gkind.defend{color:#ff8a80}
   .gcard h2{margin:4px 0 6px;font-size:22px;text-wrap:balance}
   .gcard h4{margin:14px 0 6px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
   .gcard .where{font-size:14px}
@@ -202,11 +202,11 @@
     <h2>Assumptions</h2>
     <ul>
       <li>Recipes, machine speeds, module effects and the beacon falloff curve are copied from Factorio's own data files (base mod 2.1.21, <code>wube/factorio-data</code>), not from memory.</li>
-      <li>Belts are express (blue), 45 items/s. Mining drills are electric drills (0.5 ore/s, +10% per mining productivity level). Pumpjacks are counted at 100% yield (10 crude/s) before mining productivity.</li>
+      <li>Belts are express (blue), 45 items/s. Mining drills are electric drills (0.5 ore/s, +10% per mining productivity level). Pumpjacks are counted at 100% yield (10 crude/s), plus mining productivity.</li>
       <li>Oil uses advanced oil processing, cracking heavy into light and light into petroleum only as much as needed. Rocket fuel and solid fuel are made in the oil block from light oil.</li>
       <li>Beacons follow the 2.x rule: each extra beacon adds less (the effect is divided by the square root of the beacon count). 8 beacons with two Speed 3 each give +424% speed.</li>
       <li>Labs: counted for a 60-second research unit with +250% lab research speed. Labs and the rocket launch animation aren't on the critical path for counts.</li>
-      <li>Power is an estimate: machines and labs at full load, plus beacons (about one per machine in the shared 8-beacon pattern) and mining drills. Inserters, idle drain, and the silo's extra draw while launching are left out.</li>
+      <li>Power is an estimate: machines and labs at full load, plus beacons (about five per machine in the beaconed row pattern) and mining drills. Inserters, idle drain, and the silo's extra draw while launching are left out.</li>
       <li>Science per minute is an upper bound: no infinite technology uses all seven packs at once. Rocket launches take time too, so at 1,000 SPM and above a second silo keeps up more easily.</li>
       <li>Pumpjacks count mining productivity, as drills do. Until <b>Advanced oil processing</b> your refineries run basic processing (petroleum only), so the oil block is sized for the advanced recipe it ends up with.</li>
     </ul>
@@ -281,10 +281,25 @@ function relayout(){
     check = null;
   }
 }
+const OIL_LINES = new Set(["aop","heavy-crack","light-crack"]);   // not in R, but they take productivity
+// biters near the plan get their own step, right after marking resources
+function nearNests(){
+  if(state.layout!=="world" || !lay || !lay.placed) return [];
+  return allMarks().filter(m => m.kind==="nest").map(n => ({ n, d: Math.min(...lay.placed.map(p => {
+    const cx = Math.max(p.x, Math.min(n.x, p.x+p.w)), cy = Math.max(p.y, Math.min(n.y, p.y+p.h)); return Math.hypot(cx-n.x, cy-n.y) - (n.r||12); })) }))
+    .filter(x => x.d < 160).sort((a,b) => a.d - b.d);
+}
+function addDefence(){
+  if(state.layout!=="world") return;
+  const near = nearNests(), synced = !!scan;
+  if(!near.length && !synced) return;
+  steps.splice(1, 0, { id:"d:defend", type:"defend", title: near.length ? `Secure your base: ${near.length} biter nest${near.length===1?"":"s"} close by` : "Secure your base", near });
+}
 function recompute(fit=true){
   sol = solve(opts());
   steps = guideSteps(sol);
   relayout();
+  addDefence();
   autoTick();
   store.set("state", state);
   renderStats(); renderMap(fit); renderGuide(); renderProgress(); renderBlocksTbl(); renderRatios(); renderTemplates();
@@ -355,7 +370,7 @@ function stageOf(id, s){
   if(s == null) return isDone(g) ? "done" : g === currentStep() ? "now" : "later";
   return i < s ? "done" : i === s ? "now" : "later";
 }
-function buildSvg(focus, stage){
+function buildSvg(focus, stage, viewW){
   const o = opts();
   let svg = "", bounds;
   if(lay.kind==="world"){
@@ -365,7 +380,11 @@ function buildSvg(focus, stage){
     if(!xs.length){ xs.push(0, 600); ys.push(0, 600); }
     bounds = { x: Math.min(...xs)-10, y: Math.min(...ys)-10, w: Math.max(...xs)-Math.min(...xs)+20, h: Math.max(...ys)-Math.min(...ys)+20 };
     svg += chunkGrid(bounds);
-    const F = Math.max(1.5, Math.min(6, bounds.w / 260));   // labels grow with the map so they stay readable zoomed out
+    // label size follows the zoom (re-drawn after zooming), so zooming in reveals labels that were hidden
+    const F = Math.max(.8, Math.min(6, (viewW || bounds.w) / 260));
+    const taken = [], labels = [];
+    const fits = (x, y, w, h) => !taken.some(t => x < t.x+t.w && t.x < x+w && y < t.y+t.h && t.y < y+h) && (taken.push({ x, y, w, h }), true);
+    const tw = (t, fs) => t.length * fs * 0.56;   // labels grow with the map so they stay readable zoomed out
     const cur = stage != null && steps[stage] ? (steps[stage].step || 0) : curResearch();
     // biter nests: the base itself, then the 40-tile gap the planner keeps clear (wall and turret it)
     for(const m of mk.filter(m => m.kind==="nest")){
@@ -394,21 +413,30 @@ function buildSvg(focus, stage){
         <rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" fill="${isNew?"#3ddc84":b.color}" fill-opacity="${locked?.03:isNew?.22:built?.3:sel===p.id?.28:.12}"
           stroke="${stroke}" stroke-width="${focus===p.id?2:isNew||newLine||sel===p.id?1:.4}" ${locked&&focus!==p.id?'stroke-dasharray="2 2" stroke-opacity=".5"':""} rx="1"/>
         ${drawCell(p.cell, p.x, p.y, b.color, o, rowStyle)}
-        <text pointer-events="none" x="${p.x+.5}" y="${p.y-1.2*F}" font-size="${4*F}" fill="${locked?"#5c6788":isNew?"#3ddc84":"#e9edf7"}" font-weight="600">${p.stuck?"⚠ no room · ":""}${built&&!newLine?"✓ ":isNew?"NEW · ":newLine?"+ ":locked?"🔒 ":""}${esc(b.name)}</text></g>`;
+        <title>${esc(b.name)}</title></g>`;
+      const txt = `${p.stuck?"⚠ no room · ":""}${built&&!newLine?"✓ ":isNew?"NEW · ":newLine?"+ ":locked?"🔒 ":""}${b.name}`;
+      labels.push({ pri: focus===p.id||sel===p.id ? 0 : isNew||p.stuck ? 1 : newLine||built ? 2 : locked ? 4 : 3, x:p.x+.5, y:p.y-1.2*F, fs:4*F, txt,
+        fill: locked?"#5c6788":isNew?"#3ddc84":"#e9edf7" });
     }
     for(const p of lay.patches){
       const I = { ...PATCH_INFO[p.kind], r: p.r || PATCH_INFO[p.kind].r }, on = selPatch===p.id;
       svg += `<g class="patch" data-pid="${p.id}" style="cursor:move">
         <circle cx="${p.x}" cy="${p.y}" r="${I.r}" fill="${I.color}" fill-opacity=".35" stroke="${on?"#e9edf7":I.color}" stroke-width="${on?1.6:.8}" stroke-dasharray="3 2"/>
         <circle cx="${p.x}" cy="${p.y}" r="${I.r*.45}" fill="${I.color}" fill-opacity=".7"/>
-        <text x="${p.x}" y="${p.y+I.r+7*F}" font-size="${6*F}" fill="#e9edf7" text-anchor="middle" font-weight="600">${esc(I.name)}</text></g>`;
+        <text x="${p.x}" y="${p.y+I.r+7*F}" font-size="${6*F}" fill="#e9edf7" text-anchor="middle" font-weight="600" paint-order="stroke" stroke="#0b0f19" stroke-width="${F}">${esc(I.name)}</text></g>`;
+      taken.push({ x:p.x-tw(I.name,6*F)/2, y:p.y+I.r+1*F, w:tw(I.name,6*F), h:6*F });
     }
     for(const m of mk.filter(m => m.kind!=="nest")){
       const on = selMark===m.id, user = !m.id.startsWith("t");
       svg += `<g class="${user?"mark":""}" data-mid="${esc(m.id)}" style="cursor:${user?"move":"default"}">
         <path d="M${m.x} ${m.y} l${-4*F} ${-8*F} a${4.5*F} ${4.5*F} 0 1 1 ${8*F} 0 z" fill="#ffd479" stroke="${on?"#e9edf7":"#0e1320"}" stroke-width="${on?1:.5}"/>
         <text x="${m.x}" y="${m.y-13*F}" font-size="${5.5*F}" fill="#ffd479" text-anchor="middle" font-weight="700" paint-order="stroke" stroke="#0e1320" stroke-width="1.5">${esc(m.text||"Landmark")}</text></g>`;
+      const t = m.text||"Landmark"; taken.push({ x:m.x-tw(t,5.5*F)/2, y:m.y-18.5*F, w:tw(t,5.5*F), h:5.5*F });
     }
+    // block names last, most important first; one that would overlap another label is left off
+    // (tap or hover the block for its name, or zoom in)
+    labels.sort((a,b) => a.pri - b.pri).forEach(L => { if(fits(L.x, L.y-L.fs, tw(L.txt, L.fs), L.fs*1.15))
+      svg += `<text pointer-events="none" x="${L.x}" y="${L.y}" font-size="${L.fs}" fill="${L.fill}" font-weight="600" paint-order="stroke" stroke="#0b0f19" stroke-width="${L.fs*.18}">${esc(L.txt)}</text>`; });
   } else if(lay.kind==="bus"){
     const xs = lay.placed.flatMap(p=>[p.x, p.x+p.w]).concat([0, lay.busW]);
     const ys = lay.placed.flatMap(p=>[p.y, p.y+p.h]).concat([0, lay.busLen]);
@@ -458,7 +486,7 @@ function buildSvg(focus, stage){
   return { svg, bounds };
 }
 function renderMap(fit, keepStage){
-  const el = $("map"), { svg, bounds } = buildSvg(sel, mapStage);
+  const el = $("map"), { svg, bounds } = buildSvg(sel, mapStage, fit || !view ? null : view.w);
   if(!keepStage) renderStage();
   if(fit || !view) view = { ...bounds };
   el.querySelector("svg")?.remove();
@@ -467,7 +495,7 @@ function renderMap(fit, keepStage){
   s.setAttribute("preserveAspectRatio","xMidYMid meet");
   s.innerHTML = svg;
   el.prepend(s);
-  el._bounds = bounds;
+  el._bounds = bounds; el._lastW = view.w;
   s.querySelectorAll(".blk").forEach(g => g.addEventListener("click", e => { if(!dragMoved){ sel = g.dataset.id; selPatch = null; selMark = null; showSide(sel); renderMap(false);
     if(window.innerWidth <= 860) $("side").scrollIntoView({ behavior:"smooth", block:"start" }); } }));
 }
@@ -482,7 +510,10 @@ function chunkGrid(b){
 let dragMoved = false;
 (function(){
   const el = $("map"); let drag = null;
-  const apply = () => { const s = el.querySelector("svg"); if(s) s.setAttribute("viewBox", `${view.x} ${view.y} ${view.w} ${view.h}`); };
+  let relabel = 0;
+  const apply = () => { const s = el.querySelector("svg"); if(s) s.setAttribute("viewBox", `${view.x} ${view.y} ${view.w} ${view.h}`);
+    // after zooming settles, redraw so labels fit the new scale
+    clearTimeout(relabel); relabel = setTimeout(() => { if(!pinch && !pdrag && Math.abs(view.w - (el._lastW||0)) > 1){ renderMap(false, true); } }, 250); };
   const zoom = (f, cx=.5, cy=.5) => { const nw = view.w*f, nh = view.h*f; view.x += (view.w-nw)*cx; view.y += (view.h-nh)*cy; view.w = nw; view.h = nh; apply(); };
   el.addEventListener("wheel", e => { e.preventDefault(); const r = el.getBoundingClientRect(); zoom(e.deltaY>0?1.15:1/1.15, (e.clientX-r.left)/r.width, (e.clientY-r.top)/r.height); }, {passive:false});
   let pdrag = null, raf = 0;
@@ -662,6 +693,7 @@ function autoTick(){
   autoDone = new Set();
   if(!scan) return;
   if(scan.usePatches && state.layout==="world") autoDone.add("setup");
+  const dg = steps.find(g => g.id==="d:defend"); if(dg && !dg.near.length) autoDone.add("d:defend");
   for(const g of steps){
     if(g.type==="research" && g.techs.every(t => scan.research.has(t))) autoDone.add(g.id);
     if((g.type==="build" || g.type==="extend") && check && check.blocks[g.block]){
@@ -716,7 +748,7 @@ function sourceName(id, k){
 }
 function consumers(k){ return BLOCKS.filter(b => (sol.blocks[b.id].imports[k]||0) > 1e-9).map(b => b.name); }
 function cardHtml(g){
-  const kindLabel = { setup:"Set up", research:"Research", build:"Build", extend:"Extend", upgrade:"Upgrade" }[g.type];
+  const kindLabel = { setup:"Set up", research:"Research", build:"Build", extend:"Extend", upgrade:"Upgrade", defend:"Defend" }[g.type];
   let body = "";
   const example = state.layout==="world" && !scan && JSON.stringify(state.patches.map(p=>[p.kind,p.x,p.y])) === JSON.stringify(DEFAULT_PATCHES.map(p=>[p.kind,p.x,p.y]));
   if(g.type === "setup"){
@@ -735,10 +767,20 @@ function cardHtml(g){
       ${trig.length ? `<p>${trig.map(r => `<b>${esc(r.name)}</b>: ${esc(r.trigger)}`).join("<br>")}</p>` : ""}
       ${g.notes.length ? `<p>${g.notes.map(esc).join("<br>")}</p>` : ""}
       ${after.length ? `<h4>Then you can</h4><div>${after.map(t => `<div>→ ${esc(t)}</div>`).join("")}</div>` : `<p class="muted">These open the way to later research.</p>`}`;
+  } else if(g.type === "defend"){
+    const ref = scan && scan.player ? { x:scan.player.x, y:scan.player.y, name:"where you ran the sync" } : null;
+    const rows = g.near.slice(0, 8).map(({ n, d }) => `<div>☠ <b>${n.count ? `${n.count} enemy buildings` : esc(n.text)}</b> <span class="muted">${fmt(Math.max(0, d))} tiles from the nearest planned block${ref ? ` · about ${fmt(Math.hypot(n.x-ref.x, n.y-ref.y))} tiles ${dirWord(n.x-ref.x, n.y-ref.y)} of ${ref.name}` : ""} · at (${n.x}, ${n.y})</span></div>`).join("");
+    body = g.near.length ? `<p>These nests sit close to where your base will grow. Pollution from smelting and mining reaches them first, so they'll attack first.</p>
+      <h4>Nearest</h4>${rows}${g.near.length > 8 ? `<div class="muted">+${g.near.length-8} more on the 🗺️ Map</div>` : ""}
+      <h4>Do one of these</h4><div>→ Clear them: gun turrets with piercing ammo (Military 2), placed just outside the nest and fed by hand, beat small nests.</div>
+      <div>→ Or hold the line: wall and turret the gap. The dashed red ring on the map is the 40 tiles the plan keeps clear for it.</div>
+      <p class="muted">Sync again after clearing them and this step ticks itself.</p>`
+      : `<p>Your last sync found no biter nests within 160 tiles of the plan. Keep a few turrets near your smelting anyway; pollution spreads as the base grows.</p>`;
+    body += `<div class="gactions" style="margin-top:8px"><button class="btn" data-act="map">🗺️ See them on the map</button></div>`;
   } else if(g.type === "upgrade"){
     const o = opts(), built = BUILD_ORDER.filter(id => sol.blocks[id].lineList.length && steps.some(x => x.id==="b:"+id && steps.indexOf(x) < steps.indexOf(g)));
     const count = m => built.reduce((s,id) => s + sol.blocks[id].lineList.filter(L => L.machine===m).reduce((a,L)=>a+L.count,0), 0);
-    const mods = built.reduce((s,id) => s + sol.blocks[id].lineList.filter(L => L.machine!=="lab" && R[L.key] && R[L.key].p).reduce((a,L)=>a+L.count*MACHINES[L.machine].slots,0), 0);
+    const mods = built.reduce((s,id) => s + sol.blocks[id].lineList.filter(L => L.machine!=="lab" && ((R[L.key] && R[L.key].p) || OIL_LINES.has(L.key))).reduce((a,L)=>a+L.count*MACHINES[L.machine].slots,0), 0);
     const what = { asm: `Swap the <b>${fmt(count("asm"))}</b> assemblers in the blocks you've built for Assembling machine 3. Same 3×3 footprint, so it's a straight swap; each one now runs at full planned speed.`,
       furn: `Replace the <b>${fmt(count("furn"))}</b> stone or steel furnaces in your smelting blocks with electric furnaces. They're 3×3 instead of 2×2, so rebuild each row inside the planned footprint; it was sized for them. No more coal for smelting.`,
       prod: `Put Productivity module 3 in every machine whose recipe allows it: about <b>${fmt(mods)}</b> modules for the blocks you've built (every intermediate, science pack and furnace; not beacons). Every block's counts already assume them.`,
@@ -761,12 +803,14 @@ function cardHtml(g){
       ? "Beacons come later in the research; leave their rows clear."
       : `Productivity module 3${o.profile==="beacon" ? " and beacons come" : " comes"} later in the research. Until then use Prod 1 or 2 modules if you have them, or leave the slots empty.`);
     // how much of the planned output this block makes with what's researched at this step
-    let want = 0, got = 0;
+    // a block runs at the pace of its slowest line
+    let worst = 1;
     for(const L of now){ if(L.machine === "lab") continue;
-      const rec = R[L.key] || { p:false }, tgt = effects(rec, L.machine, o), have = machineAt(L.machine, g.step);
-      const p = mods.prod ? tgt.prod : 0, sp = mods.final ? tgt.speed : have.speed * (mods.prod && rec.p ? 1 + PROD3.speed*MACHINES[L.machine].slots : 1);
-      want += L.count * tgt.speed * (1 + tgt.prod); got += L.count * (have.final || mods.final ? sp : have.speed) * (1 + p); }
-    const pctNow = want ? Math.round(100 * got / want) : 100;
+      const rec = R[L.key] || { p: OIL_LINES.has(L.key) }, tgt = effects(rec, L.machine, o), have = machineAt(L.machine, g.step);
+      const sp = mods.final && have.final ? tgt.speed : have.speed * (mods.prod && rec.p ? 1 + PROD3.speed*MACHINES[L.machine].slots : 1);
+      const p = mods.prod ? tgt.prod : 0;
+      worst = Math.min(worst, (sp * (1 + p)) / (tgt.speed * (1 + tgt.prod))); }
+    const pctNow = Math.round(100 * worst);
     if(interim.length && pctNow < 100) interim.push(`Built like that, this block makes about <b>${pctNow}%</b> of its planned output until the upgrade steps; that's expected.`);
     // ore: how many drills feed this block at the planned rate
     const oreIn = Object.entries(res.imports).filter(([k,v]) => v > 1e-9 && ["iron-ore","copper-ore","stone","coal"].includes(k));
@@ -787,7 +831,7 @@ function cardHtml(g){
     body = `<div class="where">${whereHtml(g.block)}</div>
       <h4>${g.type==="extend" ? "Add" : "Build"}</h4><div>${now.map(pill).join("")}</div>
       ${interim.length ? `<div class="note">${interim.join("<br>")}</div>` : ""}
-      ${g.type==="build" && mining ? `<div class="muted" style="margin-top:6px">Mining: ${mining}${o.miningProd ? ` (at mining productivity ${o.miningProd}; more before you get there)` : ""}.${drillNow ? "" : " Until Electric mining drill is researched, use burner drills: about four times as many."}</div>` : ""}
+      ${g.type==="build" && mining ? `<div class="muted" style="margin-top:6px">Mining: ${mining}${o.miningProd ? ` (at mining productivity ${o.miningProd}; more before you get there)` : ""}.${drillNow ? "" : " Until Electric mining drill is researched, use burner drills: about twice as many."}</div>` : ""}
       ${example ? `<div class="note">⚠ These positions use the <b>example</b> resource patches. Sync from your game or drag the patches on the 🗺️ Map first so they match your world.</div>` : ""}
       ${later.length ? `<div class="muted" style="margin-top:6px">Leave room for ${later.map(L => `${L.count} × ${esc(nice(L.key))}`).join(", ")}; they come with later research.</div>` : ""}
       ${resNote.length ? `<p>${resNote.map(esc).join("<br>")}</p>` : ""}
@@ -887,6 +931,11 @@ function syncFail(err){
 }
 function applyScan(data, use, fileTime){
   const parsed = parseScan(data);
+  // a different map (seed or a base thousands of tiles away): ticks, pins and marks from the old one don't apply
+  const old = scan, far = old && old.player && parsed.player && Math.hypot(old.player.x-parsed.player.x, old.player.y-parsed.player.y) > 3000;
+  const newMap = !!old && ((old.seed != null && parsed.seed != null && old.seed !== parsed.seed) || (parsed.seed == null && far));
+  if(newMap){ state.pins = {}; state.marks = []; state.done.world = {}; state.skip.world = {}; }
+  const prev = new Set(autoDone);
   scan = { ...parsed, at: Date.now(), fileTime: fileTime || null, usePatches: use };
   store.set("scan", { data, at: scan.at, fileTime: scan.fileTime, usePatches: use });
   if(use && parsed.patches.length){
@@ -898,13 +947,20 @@ function applyScan(data, use, fileTime){
       ? { ...p, x: Math.round(pl.x + 350*Math.cos(i*2.1)), y: Math.round(pl.y + 350*Math.sin(i*2.1)) } : p);
     state.patches = [...parsed.patches.map(p => ({ ...p })), ...keep]; state.layout = "world";
   }
-  const before = autoDone.size;
   sel = null; viewId = null; mapStage = null; syncControls(); recompute(true);
+  // blocks you've already built somewhere else get moved onto what you built
+  let adopted = [];
+  if(use && state.layout==="world"){
+    const ad = adoptBuilt(sol, lay.placed, parsed.machines, state.pins);
+    adopted = Object.keys(ad).map(id => BLK[id].name);
+    if(adopted.length){ for(const [id, p] of Object.entries(ad)) state.pins[id] = { x:p.x, y:p.y }; recompute(true); }
+  }
+  const fresh = [...autoDone].filter(id => !prev.has(id)).length;
   const kinds = Object.keys(PATCH_INFO).map(k => `${parsed.patches.filter(p=>p.kind===k).length} ${PATCH_INFO[k].name.toLowerCase()}`).join(", ");
   const nests = parsed.marks.filter(m => m.kind==="nest").length, tags = parsed.marks.length - nests;
   const missing = Object.keys(PATCH_INFO).filter(k => !parsed.patches.some(p => p.kind===k)).map(k => PATCH_INFO[k].name.toLowerCase());
   const warn = use && missing.length ? ` <span class="chip part">Not found within 800 tiles: ${esc(missing.join(", "))}.</span> Their patches are placeholders near your base; drag them on the map to where you'll get them.` : "";
-  const msg = `<span class="chip ok">Synced ${esc(new Date().toLocaleTimeString())}</span> Found ${kinds} patches; ${fmt(parsed.machines.length)} machines; ${fmt(parsed.research.size)} finished technologies; ${tags} map tags; ${nests} biter nests nearby. ${autoDone.size} guide step${autoDone.size===1?"":"s"} ticked from your game.${warn}`;
+  const msg = `<span class="chip ok">Synced ${esc(new Date().toLocaleTimeString())}</span> Found ${kinds} patches; ${fmt(parsed.machines.length)} machines; ${fmt(parsed.research.size)} finished technologies; ${tags} map tags; ${nests} biter nests nearby. ${autoDone.size} guide step${autoDone.size===1?"":"s"} ticked from your game${old && !newMap ? ` (${fresh} new since the last sync)` : ""}.${adopted.length ? ` Found your existing ${esc(adopted.join(", "))} and planned around ${adopted.length===1?"it":"them"}.` : ""}${newMap ? " <b>New map:</b> cleared ticks, pins and landmarks from the previous one." : ""}${warn}`;
   if(!$("syncPanel").classList.contains("hidden")) openSync(true);
   $("syncMsg") && ($("syncMsg").innerHTML = msg);
   toast(msg);
@@ -950,7 +1006,9 @@ async function refreshFromGame(interactive){
     try{ fh = await dirHandle.getFileHandle("factorio-planner.json"); }
     catch(e){ if(interactive) throw new Error(`There's no factorio-planner.json in the folder "${dirHandle.name}" yet. Run the console command first, and pick the script-output folder.`); return false; }
     const f = await fh.getFile();
-    if(!interactive && scan && scan.fileTime && f.lastModified <= scan.fileTime) return false;
+    if(scan && scan.fileTime && f.lastModified <= scan.fileTime){
+      if(interactive) toast(`Already up to date: no new export since ${esc(new Date(scan.fileTime).toLocaleTimeString())}. Run the command in game first.`);
+      return false; }
     applyScan(JSON.parse(await f.text()), scan ? scan.usePatches !== false : true, f.lastModified);
     return true;
   }catch(e){ if(interactive) syncFail(e); return false; }
@@ -971,7 +1029,7 @@ function renderProgress(){
     const b = BLK[id], need = sol.blocks[id].lineList.reduce((s,L)=>s+L.count,0), c = check && check.blocks[id];
     const g = steps.find(x => x.id==="b:"+id), done = g && isDone(g), open = g && steps.indexOf(g) <= curIdx;
     const frac = c ? c.frac : done ? 1 : 0;
-    const label = done ? `<span class="chip ok">done</span>` : c && c.have ? `<span class="chip part">${Math.round(c.frac*100)}% built</span>` : open ? `<span class="chip">ready to build</span>` : `<span class="chip">needs research</span>`;
+    const label = done && c && c.frac < 0.95 ? `<span class="chip part">marked done · ${Math.round(c.frac*100)}% found in game</span>` : done ? `<span class="chip ok">done</span>` : c && c.have ? `<span class="chip part">${Math.round(c.frac*100)}% built</span>` : open ? `<span class="chip">ready to build</span>` : `<span class="chip">needs research</span>`;
     return `<tr><td><span class="sw" style="background:${b.color}"></span>${esc(b.name)}</td><td>${label}</td>
       <td class="n">${c ? `${fmt(c.have)} / ${fmt(need)}` : fmt(need)}</td><td style="width:28%"><div class="pbar"><i style="width:${(frac*100).toFixed(0)}%"></i></div></td>
       <td>${esc(RESEARCH[blockStep(id, sol)].name)}</td></tr>`;
