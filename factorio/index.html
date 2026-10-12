@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Factorio Endgame Planner</title>
+<link rel="stylesheet" href="../assets/hub.css" />
+<style>
+  .controls{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:16px 0 6px}
+  .controls label{color:var(--muted);font-size:13px;display:flex;align-items:center;gap:6px}
+  .controls input[type=number],.controls select{background:var(--panel);color:var(--text);border:1px solid var(--line);
+    border-radius:8px;padding:6px 8px;font:inherit;font-size:13px;width:84px}
+  .controls select{width:auto}
+  .seg{display:inline-flex;gap:6px;flex-wrap:wrap}
+  .tabs{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 14px;border-bottom:1px solid var(--line);padding-bottom:12px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0 16px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+  .stat .v{font-size:20px;font-weight:650}
+  .stat .k{color:var(--muted);font-size:12px}
+  .mapwrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:14px}
+  @media (max-width:860px){.mapwrap{grid-template-columns:1fr}}
+  .map{background:var(--black);border:1px solid var(--line);border-radius:var(--radius);height:70vh;min-height:380px;
+    overflow:hidden;position:relative;touch-action:none;cursor:grab}
+  .map svg{width:100%;height:100%;display:block}
+  .map .zoom{position:absolute;right:10px;top:10px;display:flex;gap:6px}
+  .map .zoom button{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:16px}
+  .map .hint{position:absolute;left:10px;bottom:8px;color:var(--muted);font-size:11.5px;pointer-events:none}
+  .side{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px;max-height:70vh;overflow:auto}
+  .side h3{margin:0 0 4px;font-size:16px}
+  .side .muted,.muted{color:var(--muted);font-size:13px}
+  table{border-collapse:collapse;width:100%;font-size:13px}
+  th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;background:var(--panel2);position:sticky;top:0}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  .tbl{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:auto;max-height:75vh}
+  .sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:baseline}
+  .step{display:flex;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0}
+  .step.done{opacity:.55}
+  .step.next{border-color:var(--accent);box-shadow:var(--shadow-hover)}
+  .step input{width:18px;height:18px;margin-top:3px;flex:none}
+  .step h4{margin:0 0 4px;font-size:15px}
+  .step .io{font-size:13px;color:var(--muted)}
+  .step .io b{color:var(--text);font-weight:600}
+  .pill{display:inline-block;font-size:11.5px;padding:1px 8px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);color:var(--muted);margin:2px 4px 2px 0}
+  .note{background:var(--accent-soft);border:1px solid #1d3a63;border-radius:12px;padding:10px 14px;font-size:13.5px;margin:10px 0}
+  .doc h2{font-size:17px;margin:22px 0 6px}
+  .doc p,.doc li{color:var(--text);font-size:14px}
+  .doc code{background:var(--panel2);padding:1px 5px;border-radius:5px}
+  .tpl{background:var(--black);border:1px solid var(--line);border-radius:12px;padding:8px;margin:8px 0 18px;overflow:auto}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);margin:6px 0}
+</style>
+</head>
+<body>
+<div class="hubbar">
+  <a class="backlink" href="../">← Hub</a>
+  <span class="crumb"><b>Factorio — Endgame Planner</b></span>
+</div>
+
+<header class="page">
+  <div class="wrap" style="padding-bottom:0">
+    <h1>Factorio — Endgame Base Layouts</h1>
+    <div class="sub">Drag the resource patches to where they are in <b>your</b> world and the base lays itself out around them, or use the classic <b>main bus</b> and <b>city-block</b> layouts. Step through research and each newly buildable block lights up green. Sized from the game's own recipe data.</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="controls">
+    <span class="seg" id="layoutSeg">
+      <button class="toggle" data-layout="world">🧭 Your world</button>
+      <button class="toggle" data-layout="bus">🛤️ Main bus</button>
+      <button class="toggle" data-layout="city">🏙️ City blocks</button>
+    </span>
+    <label>Science / min <input type="number" id="spm" min="1" step="1"></label>
+    <label>Modules
+      <select id="profile">
+        <option value="plain">None</option>
+        <option value="prod">Prod 3 everywhere allowed</option>
+        <option value="beacon">Prod 3 + Speed 3 beacons</option>
+      </select></label>
+    <label id="beaconsLbl">Beacons / machine <input type="number" id="beacons" min="1" max="12" step="1"></label>
+    <label>Mining prod. level <input type="number" id="miningProd" min="0" step="1"></label>
+    <label><input type="checkbox" id="military"> Military science</label>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button class="toggle" data-tab="map">🗺️ Build Map</button>
+    <button class="toggle" data-tab="order">✅ Build Order</button>
+    <button class="toggle" data-tab="blocks">🏭 Blocks</button>
+    <button class="toggle" data-tab="ratios">🧮 Ratios</button>
+    <button class="toggle" data-tab="templates">🧩 Templates</button>
+    <button class="toggle" data-tab="guide">📖 Guide</button>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section data-pane="map">
+    <div class="mapwrap">
+      <div class="map" id="map">
+        <div class="zoom"><button id="zin" title="Zoom in">+</button><button id="zout" title="Zoom out">−</button><button id="zfit" title="Fit">⤢</button></div>
+        <div class="hint">Drag to pan · scroll or +/− to zoom · tap a block for details · faint grid = 32-tile chunks</div>
+      </div>
+      <div class="side" id="side"></div>
+    </div>
+  </section>
+
+  <section data-pane="order" class="hidden">
+    <div id="order"></div>
+  </section>
+
+  <section data-pane="blocks" class="hidden">
+    <div class="tbl"><table id="blocksTbl"></table></div>
+  </section>
+
+  <section data-pane="ratios" class="hidden">
+    <h3 style="margin:4px 0 8px">Raw resources</h3>
+    <div class="tbl" style="margin-bottom:18px"><table id="rawTbl"></table></div>
+    <h3 style="margin:4px 0 8px">Every recipe line</h3>
+    <div class="tbl"><table id="ratioTbl"></table></div>
+  </section>
+
+  <section data-pane="templates" class="hidden doc">
+    <p class="muted">Every block on the map is built from one of these line patterns, so a block's footprint is exact for the pattern: its width is <code>machines × pitch</code> and its height is the line height. One square = one tile.</p>
+    <div id="tpls"></div>
+  </section>
+
+  <section data-pane="guide" class="hidden doc" id="guide">
+    <h2>How to use this</h2>
+    <ol>
+      <li>Pick a <b>layout</b>. The main bus is the classic first megabase: one wide trunk of belts with factories peeling off it. City blocks are the next step up: a grid of 100×100 squares ringed by rail, one product per square, trains between them.</li>
+      <li>Set your <b>science per minute</b> (SPM) and module setup. Every count on every tab follows these.</li>
+      <li>Open <b>✅ Build Order</b> and work top to bottom. Each step names the block, where it goes, how many machines, and what belts or trains it needs in and out. Ticks are saved in this browser.</li>
+      <li>Use <b>🗺️ Build Map</b> to see where each block sits. Positions are in tiles from the bus origin (the top-left of the bus) or as a grid square (A1 is top-left) for city blocks.</li>
+    </ol>
+    <h2>Your world</h2>
+    <p>Drag each resource patch to roughly where it sits on your map (one square of the faint grid is a 32×32-tile chunk). The planner then places every block, smelters first, as close as it can to the rate-weighted middle of whatever feeds it, without overlapping a patch or another block. Move a patch and everything re-plans live; the "belt-tiles" figure shows how much hauling the layout needs, so you can compare spots. Add extra patches if you have several of one kind; each block draws from the nearest.</p>
+    <p>The research stepper walks the real technology order. Press <b>Research next</b> and whatever that technology makes buildable turns green on the map: a whole block when it first opens, or a single line when a block gains a new recipe. Locked blocks stay drawn faintly at full size so their space is kept free.</p>
+    <h2>What "endgame" means here</h2>
+    <p>The base game's finish line on Nauvis: all seven science packs, including space science from rocket launches, running continuously for infinite research. Each rocket is 100 rocket parts plus a satellite, and returns 1,000 space science packs.</p>
+    <h2>Assumptions</h2>
+    <ul>
+      <li>Recipes, machine speeds, module effects and the beacon falloff curve are copied from Factorio's own data files (base mod 2.1.21, <code>wube/factorio-data</code>), not from memory.</li>
+      <li>Belts are express (blue), 45 items/s. Mining drills are electric drills (0.5 ore/s, +10% per mining productivity level). Pumpjacks are counted at 100% yield (10 crude/s).</li>
+      <li>Oil uses advanced oil processing, cracking heavy into light and light into petroleum only as much as needed. Rocket fuel and solid fuel are made in the oil block from light oil.</li>
+      <li>Beacons follow the 2.x rule: each extra beacon adds less (the effect is divided by the square root of the beacon count). 8 beacons with two Speed 3 each give +424% speed.</li>
+      <li>Labs: counted for a 60-second research unit with +250% lab research speed. Labs and the rocket launch animation aren't on the critical path for counts.</li>
+      <li>Power is an estimate: machines at full load, plus beacons (about one per machine in the shared 8-beacon pattern) and mining drills. Labs and inserters are left out.</li>
+    </ul>
+    <h2>Space Age</h2>
+    <p>This plan is the base game. With the Space Age expansion the rocket needs 50 parts, space science is made on a space platform instead of from satellites, and the endgame moves to other planets, so it would be a different plan.</p>
+  </section>
+</div>
+
+<footer class="site">Part of the <a href="../">projects hub</a> · data: Factorio base mod 2.1.21</footer>
+
+<script src="engine.js"></script>
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const esc = s => String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = (v,d=0) => (v==null||isNaN(v)) ? "—" : Number(v).toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d});
+const BLK = Object.fromEntries(BLOCKS.map(b=>[b.id,b]));
+const MNAME = { asm:"Assembler 3", furn:"Electric furnace", chem:"Chemical plant", ref:"Oil refinery", silo:"Rocket silo", lab:"Lab" };
+const PRESETS = {
+  world:{ spm: 90,   profile:"prod",   beacons:8, miningProd:5,  military:true },
+  bus:  { spm: 90,   profile:"prod",   beacons:8, miningProd:5,  military:true },
+  city: { spm: 1000, profile:"beacon", beacons:8, miningProd:15, military:true },
+};
+const store = { get(k,d){ try{ const v = localStorage.getItem("factorio."+k); return v==null?d:JSON.parse(v); }catch(e){ return d; } },
+                set(k,v){ try{ localStorage.setItem("factorio."+k, JSON.stringify(v)); }catch(e){} } };
+
+let state = store.get("state", {});
+state = { layout:"world", tab:"map", world:{...PRESETS.world}, bus:{...PRESETS.bus}, city:{...PRESETS.city},
+          patches: DEFAULT_PATCHES.map(p=>({...p})), step: 0, ...state };
+if(!state.world) state.world = {...PRESETS.world};
+if(!state.patches) state.patches = DEFAULT_PATCHES.map(p=>({...p}));
+const qp = new URLSearchParams(location.search);
+if(qp.get("layout") in PRESETS) state.layout = qp.get("layout");
+if(qp.get("tab")) state.tab = qp.get("tab");
+let sol, lay, sel = null, selPatch = null, view = null;
+
+function opts(){ const o = state[state.layout];
+  return { spm: Math.max(1, +o.spm||1), profile:o.profile, beacons: Math.min(12, Math.max(1, +o.beacons||8)),
+           military: !!o.military, miningProd: Math.max(0, +o.miningProd||0), unitTime:60, labSpeed:3.5, oilYield:100 }; }
+
+function syncControls(){
+  const o = state[state.layout];
+  document.querySelectorAll("#layoutSeg .toggle").forEach(b => b.classList.toggle("active", b.dataset.layout===state.layout));
+  document.querySelectorAll("#tabs .toggle").forEach(b => b.classList.toggle("active", b.dataset.tab===state.tab));
+  document.querySelectorAll("section[data-pane]").forEach(s => s.classList.toggle("hidden", s.dataset.pane!==state.tab));
+  $("spm").value = o.spm; $("profile").value = o.profile; $("beacons").value = o.beacons;
+  $("miningProd").value = o.miningProd; $("military").checked = o.military;
+  $("beaconsLbl").style.display = o.profile==="beacon" ? "" : "none";
+}
+
+function recompute(){
+  sol = solve(opts());
+  lay = state.layout==="bus" ? layoutBus(sol) : state.layout==="city" ? layoutCity(sol) : layoutWorld(sol, state.patches);
+  store.set("state", state);
+  renderStats(); renderMap(true); renderOrder(); renderBlocksTbl(); renderRatios(); renderTemplates();
+  showSide(sel && placedFor(sel).length ? sel : null);
+}
+
+// ---------- stats ---------------------------------------------------------------------
+function renderStats(){
+  const t = sol.totals, o = opts();
+  const rockets = o.spm/1000;
+  const cells = state.layout==="world" ? `<div class="stat"><div class="v">${fmt(lay.effort)}</div><div class="k">belt-tiles of transport (lower is tighter)</div></div>`
+              : state.layout==="city" ? `<div class="stat"><div class="v">${lay.cells.length}</div><div class="k">city blocks (${lay.N}×${lay.N} grid)</div></div>`
+                                      : `<div class="stat"><div class="v">${lay.busW} × ${lay.busLen}</div><div class="k">bus width × length (tiles)</div></div>`;
+  $("stats").innerHTML = `
+    <div class="stat"><div class="v">${fmt(o.spm)}</div><div class="k">SPM, ${sol.science.length} packs</div></div>
+    <div class="stat"><div class="v">${fmt(rockets*60,1)}</div><div class="k">rockets / hour</div></div>
+    <div class="stat"><div class="v">${fmt(t.machines)}</div><div class="k">machines${t.beacons?` + ${fmt(t.beacons)} beacons`:""}</div></div>
+    <div class="stat"><div class="v">${fmt(t.drills)}</div><div class="k">mining drills · ${fmt(t.pumpjacks)} pumpjacks</div></div>
+    <div class="stat"><div class="v">${fmt(t.mw/1000,2)} GW</div><div class="k">power (estimate)</div></div>
+    ${cells}`;
+}
+
+// ---------- map -----------------------------------------------------------------------
+const NS = "http://www.w3.org/2000/svg";
+const ITEMCOL = { "iron-plate":"#7d8ea8","copper-plate":"#d27a45","steel-plate":"#b9c6d6","stone-brick":"#b58b6a","electronic-circuit":"#43b35c",
+  "advanced-circuit":"#d0504a","plastic-bar":"#e9edf7","sulfur":"#e8d44a","processing-unit":"#4f7cff","low-density-structure":"#c98a5b",
+  "battery":"#a0b84a","coal":"#555b6b","stone":"#9a8f80" };
+function placedFor(id){
+  if(!lay) return [];
+  return state.layout==="city" ? lay.cells.filter(c=>c.id===id) : lay.placed.filter(p=>p.id===id);
+}
+function cellLabel(gx,gy){ return String.fromCharCode(65+gx) + (gy+1); }
+
+// draws the machines of one packed cell at (ox,oy) in tile units
+function drawCell(cell, ox, oy, color0, o, rowStyle){
+  let s = "";
+  for(const r of cell.rows){
+    const st = rowStyle ? rowStyle(r) : null, color = st ? st.color : color0;
+    if(st && st.op < 1) s += `<g opacity="${st.op}">`;
+    const m = r.machine, size = m==="lab" ? 3 : MACHINES[m].size, x0 = ox + r.x + 2, y0 = oy + r.y;
+    const beacon = o.profile==="beacon" && m!=="lab";
+    if(beacon){
+      const pitch = size+3, my = y0 + 5;   // beacon row (3) + belt + inserter, then machines
+      s += `<rect x="${x0}" y="${y0}" width="${r.n*pitch+3}" height="3" fill="#2a3450" opacity=".7"/>`;
+      s += `<rect x="${x0}" y="${my+size+2}" width="${r.n*pitch+3}" height="3" fill="#2a3450" opacity=".7"/>`;
+      s += `<rect x="${x0}" y="${y0+3}" width="${r.n*pitch+3}" height="1" fill="#4b5675"/>`;
+      for(let i=0;i<r.n;i++){
+        s += `<rect x="${x0+3+i*pitch}" y="${my}" width="${size}" height="${size}" fill="${color}" rx=".4"/>`;
+        s += `<rect x="${x0+i*pitch}" y="${my}" width="3" height="3" fill="#2a3450" opacity=".7"/>`;
+      }
+    } else {
+      const per = Math.ceil(r.n/2);
+      s += `<rect x="${x0}" y="${y0+size+1}" width="${per*size}" height="2" fill="#4b5675"/>`;
+      for(let i=0;i<r.n;i++){
+        const col = i % per, row = Math.floor(i/per);
+        s += `<rect x="${x0+col*size+.15}" y="${y0 + row*(size+4) + .15}" width="${size-.3}" height="${size-.3}" fill="${color}" rx=".4"/>`;
+      }
+    }
+    if(st && st.op < 1) s += `</g>`;
+  }
+  return s;
+}
+
+function renderMap(fit){
+  const o = opts(), el = $("map");
+  let svg = "", bounds;
+  if(lay.kind==="world"){
+    const xs = lay.placed.flatMap(p=>[p.x,p.x+p.w]).concat(lay.patches.flatMap(p=>[p.x-40,p.x+40]), [0,600]);
+    const ys = lay.placed.flatMap(p=>[p.y,p.y+p.h]).concat(lay.patches.flatMap(p=>[p.y-40,p.y+40]), [0,600]);
+    bounds = { x: Math.min(...xs)-10, y: Math.min(...ys)-10, w: Math.max(...xs)-Math.min(...xs)+20, h: Math.max(...ys)-Math.min(...ys)+20 };
+    svg += chunkGrid(bounds);
+    const cur = state.step;
+    // flows: one line per input, width by belt-loads
+    for(const f of lay.flows){
+      const open = blockStep(f.to, sol) <= cur;
+      const wdt = FLUIDS.has(f.k) ? .8 : Math.max(.6, Math.min(4, f.rate/BELT*1.2));
+      const col = FLUIDS.has(f.k) ? "#5b6b8f" : (ITEMCOL[f.k] || "#6b7590");
+      svg += `<line x1="${f.x}" y1="${f.y}" x2="${f.tx}" y2="${f.ty}" stroke="${col}" stroke-width="${wdt}" stroke-linecap="round" opacity="${open?.55:.12}" ${FLUIDS.has(f.k)?'stroke-dasharray="2 2"':""}/>`;
+    }
+    for(const p of lay.patches){
+      const I = PATCH_INFO[p.kind], on = selPatch===p.id;
+      svg += `<g class="patch" data-pid="${p.id}" style="cursor:move">
+        <circle cx="${p.x}" cy="${p.y}" r="${I.r}" fill="${I.color}" fill-opacity=".35" stroke="${on?"#e9edf7":I.color}" stroke-width="${on?1.6:.8}" stroke-dasharray="3 2"/>
+        <circle cx="${p.x}" cy="${p.y}" r="${I.r*.45}" fill="${I.color}" fill-opacity=".7"/>
+        <text x="${p.x}" y="${p.y+I.r+7}" font-size="6" fill="#e9edf7" text-anchor="middle" font-weight="600">${esc(I.name)}</text></g>`;
+    }
+    for(const p of lay.placed){
+      const b = BLK[p.id], bs = blockStep(p.id, sol), locked = bs > cur, isNew = bs === cur;
+      const newLine = !locked && !isNew && p.cell.rows.some(r => (UNLOCK_STEP[r.key] ?? 0) === cur);
+      const stroke = isNew || newLine ? "#3ddc84" : b.color;
+      const rowStyle = r => { const st = UNLOCK_STEP[r.key] ?? 0;
+        if(locked || st > cur) return { color:b.color, op:.15 };
+        if(st === cur) return { color:"#3ddc84", op:1 };
+        return { color:b.color, op:1 }; };
+      svg += `<g class="blk" data-id="${p.id}" style="cursor:pointer">
+        <rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" fill="${isNew?"#3ddc84":b.color}" fill-opacity="${locked?.03:isNew?.22:sel===p.id?.28:.12}"
+          stroke="${stroke}" stroke-width="${isNew||newLine||sel===p.id?1:.4}" ${locked?'stroke-dasharray="2 2" stroke-opacity=".5"':""} rx="1"/>
+        ${drawCell(p.cell, p.x, p.y, b.color, o, rowStyle)}
+        <text x="${p.x+.5}" y="${p.y-1.2}" font-size="4" fill="${locked?"#5c6788":isNew?"#3ddc84":"#e9edf7"}" font-weight="600">${isNew?"NEW · ":newLine?"+ ":locked?"🔒 ":""}${esc(b.name)}</text></g>`;
+    }
+  } else if(lay.kind==="bus"){
+    const xs = lay.placed.flatMap(p=>[p.x, p.x+p.w]).concat([0, lay.busW]);
+    const ys = lay.placed.flatMap(p=>[p.y, p.y+p.h]).concat([0, lay.busLen]);
+    bounds = { x: Math.min(...xs)-20, y: Math.min(...ys)-30, w: Math.max(...xs)-Math.min(...xs)+40, h: Math.max(...ys)-Math.min(...ys)+50 };
+    svg += chunkGrid(bounds);
+    // a collector belt under the smelting band feeds the head of the bus
+    const smelt = lay.placed.filter(p => ["iron","copper","steel","brick"].includes(p.id));
+    if(smelt.length){
+      const cy = lay.busTop + 2, x1 = Math.min(...smelt.map(p=>p.x)), x2 = Math.max(lay.busW, ...smelt.map(p=>p.x+p.w));
+      svg += `<rect x="${x1}" y="${cy}" width="${x2-x1}" height="2" fill="#4b5675" opacity=".8"/>`;
+      smelt.forEach(p => { svg += `<rect x="${p.x+p.w/2-1}" y="${p.y+p.h}" width="2" height="${cy-(p.y+p.h)}" fill="#4b5675" opacity=".8"/>`; });
+    }
+    // bus lanes run from just under the smelting band to the end of the bus
+    let i = 0;
+    for(const L of lay.lanes){
+      for(let b=0;b<L.belts;b++,i++){
+        const x = i + Math.floor(i/4)*2;
+        svg += `<rect x="${x+.2}" y="${lay.busTop}" width=".6" height="${lay.busLen-lay.busTop}" fill="${ITEMCOL[L.key]||"#888"}"/>`;
+      }
+    }
+    for(const p of lay.placed){
+      const b = BLK[p.id];
+      svg += `<g class="blk" data-id="${p.id}" style="cursor:pointer">
+        <rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" fill="${b.color}" fill-opacity="${sel===p.id?.28:.12}" stroke="${b.color}" stroke-width="${sel===p.id?.8:.35}" rx="1"/>
+        ${drawCell(p.cell, p.x, p.y, b.color, o)}
+        <text x="${p.x+.5}" y="${p.y-1}" font-size="2.6" fill="#e9edf7" font-weight="600">${esc(b.name)}</text></g>`;
+    }
+    svg += `<text x="${lay.busW/2}" y="${lay.busLen+6}" font-size="4" fill="#98a4c3" text-anchor="middle">end of bus</text>`;
+  } else {
+    const P = lay.pitch, N = lay.N;
+    bounds = { x:-20, y:-20, w:N*P+40, h:N*P+40 };
+    svg += chunkGrid(bounds);
+    for(let gy=0;gy<N;gy++) for(let gx=0;gx<N;gx++){
+      svg += `<rect x="${gx*P}" y="${gy*P}" width="${P}" height="${P}" fill="none" stroke="#3b4566" stroke-width="5"/>`;
+      svg += `<text x="${gx*P+7}" y="${gy*P+12}" font-size="6" fill="#5c6788">${cellLabel(gx,gy)}</text>`;
+    }
+    for(const c of lay.cells){
+      const b = BLK[c.id], x = c.gx*P, y = c.gy*P;
+      svg += `<g class="blk" data-id="${c.id}" style="cursor:pointer">
+        <rect x="${x+5}" y="${y+5}" width="${P-10}" height="${P-10}" fill="${b.color}" fill-opacity="${sel===c.id?.25:.08}" stroke="${sel===c.id?b.color:"none"}" stroke-width="1"/>
+        <rect x="${x+5}" y="${y+5}" width="${P-10}" height="12" fill="${b.color}" fill-opacity=".35"/>
+        ${drawCell(c.cell, x+7, y+5+14, b.color, o)}
+        <text x="${x+P/2}" y="${y+P-9}" font-size="7" fill="#e9edf7" font-weight="600" text-anchor="middle">${esc(b.name)}${c.of>1?` ${c.n}/${c.of}`:""}</text></g>`;
+    }
+  }
+  if(fit || !view) view = { ...bounds };
+  el.querySelector("svg")?.remove();
+  const s = document.createElementNS(NS,"svg");
+  s.setAttribute("viewBox", `${view.x} ${view.y} ${view.w} ${view.h}`);
+  s.setAttribute("preserveAspectRatio","xMidYMid meet");
+  s.innerHTML = svg;
+  el.prepend(s);
+  el._bounds = bounds;
+  s.querySelectorAll(".blk").forEach(g => g.addEventListener("click", e => { if(!dragMoved){ sel = g.dataset.id; selPatch = null; showSide(sel); renderMap(false); } }));
+}
+function chunkGrid(b){
+  let s = "";
+  const x0 = Math.floor(b.x/32)*32, y0 = Math.floor(b.y/32)*32;
+  for(let x=x0; x<=b.x+b.w; x+=32) s += `<line x1="${x}" y1="${b.y}" x2="${x}" y2="${b.y+b.h}" stroke="#1a2236" stroke-width=".3"/>`;
+  for(let y=y0; y<=b.y+b.h; y+=32) s += `<line x1="${b.x}" y1="${y}" x2="${b.x+b.w}" y2="${y}" stroke="#1a2236" stroke-width=".3"/>`;
+  return s;
+}
+// pan + zoom
+let dragMoved = false;
+(function(){
+  const el = $("map"); let drag = null;
+  const apply = () => { const s = el.querySelector("svg"); if(s) s.setAttribute("viewBox", `${view.x} ${view.y} ${view.w} ${view.h}`); };
+  const zoom = (f, cx=.5, cy=.5) => { const nw = view.w*f, nh = view.h*f; view.x += (view.w-nw)*cx; view.y += (view.h-nh)*cy; view.w = nw; view.h = nh; apply(); };
+  el.addEventListener("wheel", e => { e.preventDefault(); const r = el.getBoundingClientRect(); zoom(e.deltaY>0?1.15:1/1.15, (e.clientX-r.left)/r.width, (e.clientY-r.top)/r.height); }, {passive:false});
+  let pdrag = null, raf = 0;
+  const toWorld = e => { const svg = el.querySelector("svg"), pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY; return pt.matrixTransform(svg.getScreenCTM().inverse()); };
+  el.addEventListener("pointerdown", e => {
+    if(e.target.closest(".zoom")) return;
+    const g = e.target.closest(".patch");
+    if(g){ const p = state.patches.find(q => q.id===g.dataset.pid), w = toWorld(e);
+      pdrag = { p, dx: p.x - w.x, dy: p.y - w.y }; selPatch = p.id; sel = null; dragMoved = false; e.preventDefault(); return; }
+    drag = { x:e.clientX, y:e.clientY, vx:view.x, vy:view.y }; dragMoved = false; });
+  window.addEventListener("pointermove", e => {
+    if(pdrag){ const w = toWorld(e); pdrag.p.x = Math.round(w.x + pdrag.dx); pdrag.p.y = Math.round(w.y + pdrag.dy); dragMoved = true;
+      if(!raf) raf = requestAnimationFrame(() => { raf = 0; lay = layoutWorld(sol, state.patches); renderMap(false); }); return; }
+    if(!drag) return; const r = el.getBoundingClientRect(), k = Math.max(view.w/r.width, view.h/r.height);
+    const dx = e.clientX-drag.x, dy = e.clientY-drag.y; if(Math.abs(dx)+Math.abs(dy) > 4) dragMoved = true;
+    view.x = drag.vx - dx*k; view.y = drag.vy - dy*k; apply(); });
+  window.addEventListener("pointerup", () => {
+    if(pdrag){ pdrag = null; store.set("state", state); lay = layoutWorld(sol, state.patches); renderStats(); renderMap(false); renderOrder(); renderBlocksTbl(); showSide(null); }
+    drag = null; setTimeout(()=>dragMoved=false, 0); });
+  $("zin").onclick = () => zoom(1/1.4); $("zout").onclick = () => zoom(1.4);
+  $("zfit").onclick = () => { view = { ...el._bounds }; apply(); };
+})();
+
+// ---------- block details --------------------------------------------------------------
+function ioList(obj, cls){
+  const rows = Object.entries(obj).filter(([,v])=>v>1e-9).sort((a,b)=>b[1]-a[1]);
+  if(!rows.length) return `<span class="muted">nothing</span>`;
+  return rows.map(([k,v]) => {
+    const isFluid = FLUIDS.has(k), per = v*60;
+    const unit = isFluid ? `${fmt(per)}/min` : `${fmt(per)}/min · ${fmt(v/BELT,2)} blue belts`;
+    return `<div><span class="sw" style="background:${ITEMCOL[k]||"#5c6788"}"></span><b>${esc(nice(k))}</b> <span class="muted">${unit}</span></div>`;
+  }).join("");
+}
+function whereText(id){
+  const ps = placedFor(id);
+  if(state.layout!=="city") return ps.map(p => `tiles (${p.x}, ${p.y}) → (${p.x+p.w}, ${p.y+p.h}), ${p.w}×${p.h}`);
+  return ps.map(c => `square ${cellLabel(c.gx,c.gy)}${c.of>1?` (part ${c.n} of ${c.of})`:""}`);
+}
+function linesHtml(res){
+  return res.lineList.map(L => `<tr><td>${esc(L.key==="lab"?"Labs":nice(L.key))}</td><td>${esc(MNAME[L.machine]||L.machine)}</td><td class="n"><b>${L.count}</b></td><td class="n">${fmt(L.exact,2)}</td></tr>`).join("");
+}
+function researchHtml(){
+  const cur = state.step, t = RESEARCH[cur];
+  const opened = lay.placed.filter(p => blockStep(p.id, sol) === cur).map(p => BLK[p.id].name);
+  const lines = lay.placed.filter(p => blockStep(p.id, sol) < cur).flatMap(p => sol.blocks[p.id].lineList.filter(L => UNLOCK_STEP[L.key] === cur).map(L => `${nice(L.key)} in ${BLK[p.id].name}`));
+  const avail = lay.placed.filter(p => blockStep(p.id, sol) <= cur).length;
+  return `<div style="display:flex;gap:6px;align-items:center;margin:4px 0 8px">
+      <button class="toggle" id="rPrev" ${cur===0?"disabled":""}>◀</button>
+      <div style="flex:1;min-width:0"><div class="muted">Research ${cur+1} of ${RESEARCH.length}</div><b>${esc(t.name)}</b></div>
+      <button class="toggle active" id="rNext" ${cur===RESEARCH.length-1?"disabled":""}>Research next ▶</button></div>
+    <div class="muted" style="margin-bottom:6px">Next: ${cur<RESEARCH.length-1?esc(RESEARCH[cur+1].name):"nothing, the base is complete 🚀"}</div>
+    ${opened.length?`<div><span class="sw" style="background:#3ddc84"></span><b>Now buildable:</b> ${opened.map(esc).join(", ")}</div>`:""}
+    ${lines.length?`<div><span class="sw" style="background:#3ddc84"></span><b>New lines:</b> ${lines.map(esc).join(", ")}</div>`:""}
+    ${!opened.length&&!lines.length?`<div class="muted">${esc(t.note||"Nothing new to build from this one; it unlocks the next research.")}</div>`:""}
+    <div class="muted" style="margin-top:6px">${avail} of ${lay.placed.length} blocks open. Locked blocks keep their full-size spot so nothing has to move later.</div>`;
+}
+function patchHtml(){
+  const p = selPatch && state.patches.find(q => q.id===selPatch);
+  return `<h4 style="margin:14px 0 4px">Resource patches</h4>
+    <div class="muted" style="margin-bottom:6px">Drag a patch to where it is in your world. Add more if you have several.</div>
+    <div class="seg">${Object.entries(PATCH_INFO).map(([k,I]) => `<button class="toggle" data-add="${k}"><span class="sw" style="background:${I.color}"></span>${esc(I.name)}</button>`).join("")}</div>
+    <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+      ${p?`<button class="toggle" id="pDel">Remove selected ${esc(PATCH_INFO[p.kind].name.toLowerCase())}</button>`:""}
+      <button class="toggle" id="pReset">Reset to example</button></div>`;
+}
+function wireWorldSide(){
+  const el = $("side");
+  const go = d => { state.step = Math.max(0, Math.min(RESEARCH.length-1, state.step + d)); store.set("state", state); renderMap(false); renderOrder(); showSide(sel); };
+  el.querySelector("#rPrev")?.addEventListener("click", () => go(-1));
+  el.querySelector("#rNext")?.addEventListener("click", () => go(1));
+  el.querySelectorAll("[data-add]").forEach(b => b.onclick = () => {
+    const c = { x: view.x + view.w/2, y: view.y + view.h/2 };
+    const p = { id: "p" + Date.now().toString(36), kind: b.dataset.add, x: Math.round(c.x), y: Math.round(c.y) };
+    state.patches.push(p); selPatch = p.id; sel = null; recompute(); });
+  el.querySelector("#pDel")?.addEventListener("click", () => { state.patches = state.patches.filter(q => q.id!==selPatch); selPatch = null; recompute(); });
+  el.querySelector("#pReset")?.addEventListener("click", () => { state.patches = DEFAULT_PATCHES.map(p=>({...p})); selPatch = null; recompute(); });
+}
+function showSide(id){
+  const el = $("side");
+  if(state.layout==="world"){
+    if(!id){ el.innerHTML = `<h3>Your world</h3>${researchHtml()}${patchHtml()}
+      <p class="muted" style="margin-top:12px">Each block is placed as close as it can get to what feeds it, weighted by how much flows in: smelters hug their ore, circuits sit between iron and copper, science sits between its parts. Lines show what moves where; thicker means more belts. Tap a block for its details.</p>`;
+      wireWorldSide(); return; }
+  }
+  if(!id){ el.innerHTML = `<h3>${state.layout==="bus"?"Main bus":"City blocks"}</h3>
+    <p class="muted">${state.layout==="bus"
+      ? "Smelting sits across the top of the bus with the oil block beside it. The bus runs down the middle, and each factory branches off left or right in build order. Coloured stripes are the bus belts."
+      : "Each square is 100×100 tiles inside a ring of double rail. Science, the silo and labs sit in the middle; smelting is on the rim, closest to the ore trains. Every square has its train stations along its top edge (the bar)."}</p>
+    <p class="muted">Tap any block for its machines, inputs and outputs.</p>
+    ${state.layout==="bus" ? `<h4 style="margin:12px 0 4px">Bus lanes, left to right</h4>` + lay.lanes.map(L =>
+      `<div><span class="sw" style="background:${ITEMCOL[L.key]||"#888"}"></span><b>${esc(nice(L.key))}</b> <span class="muted">${L.belts} belt${L.belts>1?"s":""} · ${fmt(L.rate*60)}/min</span></div>`).join("")
+      + `<p class="muted">A 2-tile gap after every 4 belts leaves room for undergrounds where a block taps a lane.</p>` : ""}`; return; }
+  const b = BLK[id], res = sol.blocks[id];
+  const rnote = state.layout==="world" ? `<div class="muted" style="margin-bottom:6px">Opens with <b>${esc(RESEARCH[blockStep(id, sol)].name)}</b> · <a href="#" id="sideBack">back to research</a></div>` : "";
+  el.innerHTML = rnote + `<h3><span class="sw" style="background:${b.color}"></span>${esc(b.name)}</h3>
+    <div class="muted" style="margin-bottom:8px">${whereText(id).map(esc).join("<br>")}</div>
+    <table><tr><th>Makes</th><th>Machine</th><th class="n">Build</th><th class="n">Exact</th></tr>${linesHtml(res)}</table>
+    ${res.oil?`<p class="muted">Refineries run ${fmt(res.oil.refineryCrafts*60,1)} cycles/min; cracking turns spare heavy into light and spare light into petroleum.</p>`:""}
+    <h4 style="margin:12px 0 4px">In</h4>${ioList(res.imports)}
+    <h4 style="margin:12px 0 4px">Out</h4>${ioList(res.exports)}`;
+  el.querySelector("#sideBack")?.addEventListener("click", e => { e.preventDefault(); sel = null; showSide(null); renderMap(false); });
+}
+
+// ---------- build order ----------------------------------------------------------------
+const NOTES = {
+  iron:"Start here: the bus can't exist without plates. Leave room to double it later.",
+  copper:"Pair it with iron at the head of the bus.",
+  green:"Cable feeds circuits directly (3 cable assemblers : 2 circuit assemblers per pair at base speed), so cable never touches the bus.",
+  oil:"Pipes, not belts: plastic, sulfur and rocket fuel go onto the bus or by train; acid and lubricant go out by pipe.",
+  red:"The biggest single line in the base. Build it with room on both ends.",
+  silo:"Rocket parts are built inside the silo; the satellite is assembled next to it and inserted by hand or by inserter.",
+  labs:"Daisy-chain labs with inserters, or feed every lab from belts of all packs.",
+  steel:"Steel eats five iron plates each; put it right beside iron smelting.",
+};
+function renderOrderWorld(){
+  const done = store.get("done.world", {}), cur = state.step;
+  const out = [];
+  RESEARCH.forEach((t, i) => {
+    const opened = lay.placed.filter(p => blockStep(p.id, sol) === i);
+    const lines = lay.placed.filter(p => blockStep(p.id, sol) < i).flatMap(p => sol.blocks[p.id].lineList.filter(L => UNLOCK_STEP[L.key] === i).map(L => ({ p, L })));
+    if(!opened.length && !lines.length) return;
+    const blocks = opened.map(p => {
+      const res = sol.blocks[p.id], mach = res.lineList.filter(L => (UNLOCK_STEP[L.key] ?? 0) <= i)
+        .map(L => `<span class="pill">${L.count} × ${esc(L.key==="lab"?"Lab":nice(L.key))}</span>`).join("");
+      return `<div style="margin:6px 0"><b>${esc(BLK[p.id].name)}</b> <span class="muted">at tiles (${p.x}, ${p.y}), ${p.w}×${p.h}</span><div>${mach}</div>
+        <div class="io"><b>In:</b> ${Object.entries(res.imports).filter(([,v])=>v>1e-9).map(([k,v])=>`${esc(nice(k))} ${fmt(v*60)}/min`).join(", ")||"—"}</div></div>`;
+    }).join("");
+    const extra = lines.map(({p,L}) => `<span class="pill">+ ${L.count} × ${esc(nice(L.key))} in ${esc(BLK[p.id].name)}</span>`).join("");
+    const isDone = !!done[t.id];
+    out.push(`<div class="step ${isDone?"done":""} ${i===cur?"next":""}">
+      <input type="checkbox" data-step="${t.id}" ${isDone?"checked":""}>
+      <div style="min-width:0"><h4>After researching ${esc(t.name)} <a href="#" data-goto="${i}" class="muted" style="font-size:12px;font-weight:400">show on map</a></h4>
+        ${blocks}${extra?`<div style="margin-top:4px">${extra}</div>`:""}</div></div>`);
+  });
+  $("order").innerHTML = `<div class="note">Grouped by research. Each step is what becomes buildable once that technology is done, at its spot on your map. Machine counts are the full endgame size, so build what you need now and leave the rest of the space free.</div>` + out.join("");
+  $("order").querySelectorAll("input[data-step]").forEach(cb => cb.onchange = () => { const d = store.get("done.world", {}); d[cb.dataset.step] = cb.checked; store.set("done.world", d); renderOrderWorld(); });
+  $("order").querySelectorAll("[data-goto]").forEach(a => a.onclick = e => { e.preventDefault(); state.step = +a.dataset.goto; state.tab = "map"; sel = null; syncControls(); store.set("state", state); renderMap(false); renderOrderWorld(); showSide(null); });
+}
+function renderOrder(){
+  if(state.layout==="world") return renderOrderWorld();
+  const done = store.get("done."+state.layout, {});
+  let next = null;
+  const steps = BUILD_ORDER.filter(id => sol.blocks[id].lineList.length).map((id, i) => {
+    const b = BLK[id], res = sol.blocks[id], key = id;
+    const isDone = !!done[key]; if(!isDone && !next) next = key;
+    const mach = res.lineList.map(L => `<span class="pill">${L.count} × ${esc(L.key==="lab"?"Lab":nice(L.key))}</span>`).join("");
+    return `<div class="step ${isDone?"done":""} ${next===key?"next":""}">
+      <input type="checkbox" data-step="${key}" ${isDone?"checked":""}>
+      <div><h4>${i+1}. ${esc(b.name)}</h4>
+        <div class="io">Where: ${whereText(id).map(esc).join(" · ")}</div>
+        <div style="margin:6px 0">${mach}</div>
+        <div class="io"><b>In:</b> ${Object.entries(res.imports).filter(([,v])=>v>1e-9).map(([k,v])=>`${esc(nice(k))} ${fmt(v*60)}/min`).join(", ")||"—"}</div>
+        <div class="io"><b>Out:</b> ${Object.entries(res.exports).filter(([,v])=>v>1e-9).map(([k,v])=>`${esc(nice(k))} ${fmt(v*60)}/min`).join(", ")||"science into research"}</div>
+        ${NOTES[id]?`<div class="io" style="margin-top:4px">${esc(NOTES[id])}</div>`:""}
+      </div></div>`;
+  });
+  const total = BUILD_ORDER.filter(id=>sol.blocks[id].lineList.length).length, nDone = Object.values(done).filter(Boolean).length;
+  $("order").innerHTML = `<div class="note">${nDone} of ${total} blocks done${next?` · next up: <b>${esc(BLK[next].name)}</b>`:" · base complete 🚀"}. The order follows dependencies: nothing is built before what feeds it. Smelting goes first, circuits before the science that eats them, and the silo last.</div>` + steps.join("");
+  $("order").querySelectorAll("input[data-step]").forEach(cb => cb.onchange = () => { const d = store.get("done."+state.layout, {}); d[cb.dataset.step] = cb.checked; store.set("done."+state.layout, d); renderOrder(); });
+}
+
+// ---------- tables ---------------------------------------------------------------------
+function renderBlocksTbl(){
+  let h = `<tr><th>Block</th><th>Where</th><th class="n">Machines</th><th>In</th><th>Out</th></tr>`;
+  for(const id of BUILD_ORDER){
+    const b = BLK[id], res = sol.blocks[id]; if(!res.lineList.length) continue;
+    const n = res.lineList.reduce((s,L)=>s+L.count,0);
+    const io = o => Object.entries(o).filter(([,v])=>v>1e-9).map(([k,v])=>`${esc(nice(k))} ${fmt(v*60)}`).join("<br>");
+    h += `<tr><td><span class="sw" style="background:${b.color}"></span>${esc(b.name)}</td><td>${whereText(id).map(esc).join("<br>")}</td><td class="n">${n}</td><td>${io(res.imports)}</td><td>${io(res.exports)||"research"}</td></tr>`;
+  }
+  $("blocksTbl").innerHTML = h + `<tr><td colspan="5" class="muted">Rates are per minute.</td></tr>`;
+}
+function renderRatios(){
+  const t = sol.totals;
+  const rawRows = Object.entries(sol.raw).sort((a,b)=>b[1]-a[1]).map(([k,v]) => {
+    const how = k==="crude-oil" ? `${t.pumpjacks} pumpjacks at 100% yield` : k==="water" ? `${t.offshore} offshore pumps` : `${fmt(Math.ceil(v/t.drillRate))} electric drills · ${fmt(v/BELT,1)} blue belts`;
+    return `<tr><td>${esc(nice(k))}</td><td class="n">${fmt(v*60)}</td><td>${how}</td></tr>`;
+  }).join("");
+  $("rawTbl").innerHTML = `<tr><th>Resource</th><th class="n">per min</th><th>To mine it</th></tr>` + rawRows;
+  let rows = [];
+  for(const b of BLOCKS) for(const L of sol.blocks[b.id].lineList) rows.push({ b, L });
+  $("ratioTbl").innerHTML = `<tr><th>Recipe</th><th>Block</th><th>Machine</th><th class="n">Output /min</th><th class="n">Exact</th><th class="n">Build</th></tr>` +
+    rows.map(({b,L}) => `<tr><td>${esc(L.key==="lab"?"Labs":nice(L.key))}</td><td>${esc(b.name)}</td><td>${esc(MNAME[L.machine]||L.machine)}</td><td class="n">${L.rate?fmt(L.rate*60,1):"—"}</td><td class="n">${fmt(L.exact,2)}</td><td class="n"><b>${L.count}</b></td></tr>`).join("");
+}
+
+// ---------- templates ------------------------------------------------------------------
+function tplSvg(kind){
+  const T = 16; let s = "", W, H;
+  const tile = (x,y,w,h,fill,label) => `<rect x="${x*T}" y="${y*T}" width="${w*T}" height="${h*T}" fill="${fill}" stroke="#0e1320" stroke-width="1" rx="3"/>` + (label?`<text x="${(x+w/2)*T}" y="${(y+h/2)*T+4}" font-size="11" fill="#0e1320" text-anchor="middle" font-weight="700">${label}</text>`:"");
+  if(kind==="plain"){
+    W = 16; H = 11;
+    for(let i=0;i<4;i++){ s += tile(1+i*3,0,3,3,"#43b35c","M"); s += tile(1+i*3,7,3,3,"#43b35c","M"); }
+    for(let i=0;i<12;i++){ s += tile(1+i,3,1,1,"#f0c000",""); s += tile(1+i,6,1,1,"#f0c000",""); s += tile(1+i,4,1,1,"#4b5675",""); s += tile(1+i,5,1,1,"#4b5675",""); }
+    s += tile(13,4,2,2,"#8b8d98","S");
+  } else {
+    W = 22; H = 13;
+    for(let i=0;i<7;i++){ s += tile(i*3,0,3,3,"#3e9cf0","B"); s += tile(i*3,10,3,3,"#3e9cf0","B"); }
+    for(let i=0;i<21;i++){ s += tile(i,3,1,1,"#4b5675",""); s += tile(i,4,1,1,"#f0c000",""); s += tile(i,8,1,1,"#f0c000",""); s += tile(i,9,1,1,"#4b5675",""); }
+    for(let i=0;i<4;i++) s += tile(i*6,5,3,3,"#3e9cf0","B");
+    for(let i=0;i<3;i++) s += tile(3+i*6,5,3,3,"#43b35c","M");
+  }
+  let grid = "";
+  for(let x=0;x<=W;x++) grid += `<line x1="${x*T}" y1="0" x2="${x*T}" y2="${H*T}" stroke="#1a2236"/>`;
+  for(let y=0;y<=H;y++) grid += `<line x1="0" y1="${y*T}" x2="${W*T}" y2="${y*T}" stroke="#1a2236"/>`;
+  return `<svg viewBox="-2 -2 ${W*T+4} ${H*T+4}" style="width:100%;max-width:${W*T+4}px">${grid}${s}</svg>`;
+}
+function renderTemplates(){
+  const leg = `<div class="legend"><span><span class="sw" style="background:#43b35c"></span>machine (3×3)</span><span><span class="sw" style="background:#3e9cf0"></span>beacon (3×3)</span><span><span class="sw" style="background:#f0c000"></span>inserter</span><span><span class="sw" style="background:#4b5675"></span>belt</span><span><span class="sw" style="background:#8b8d98"></span>substation</span></div>`;
+  $("tpls").innerHTML = `
+    <h2>Double row (no beacons)</h2>
+    <p>Two rows of machines face a pair of belts in the middle: inputs on the inner lanes, output back onto the free lane. <b>Pitch 3 tiles per pair</b>, <b>11 tiles tall</b> including a pole/substation gap. Refineries use the same idea at 5 tiles; the silo at 9.</p>
+    <div class="tpl">${tplSvg("plain")}</div>${leg}
+    <h2>Beaconed row (Prod 3 + 8 beacons)</h2>
+    <p>One row of machines alternating with beacons, with a full row of beacons above and below. Every machine touches 8 beacons; every beacon is shared by up to 4 machines. <b>Pitch 6 tiles per machine</b>, <b>13 tiles tall</b>, Stacked lines could share a beacon row; the map keeps each line separate so it can be built and powered on its own.</p>
+    <div class="tpl">${tplSvg("beacon")}</div>${leg}
+    <h2>City block</h2>
+    <p>100×100 tiles from rail centre to rail centre. A 10-tile ring of double rail with junctions at the corners, a 14-tile strip of train stations along the top inside edge, and roughly 86×76 tiles of factory below it. One product (or one part of a big product) per square.</p>`;
+}
+
+// ---------- wiring ---------------------------------------------------------------------
+document.querySelectorAll("#layoutSeg .toggle").forEach(b => b.onclick = () => { state.layout = b.dataset.layout; sel = null; syncControls(); recompute(); });
+document.querySelectorAll("#tabs .toggle").forEach(b => b.onclick = () => { state.tab = b.dataset.tab; syncControls(); store.set("state", state); if(state.tab==="map") renderMap(false); });
+const bind = (id, key, conv) => $(id).addEventListener("change", () => { state[state.layout][key] = conv($(id)); syncControls(); recompute(); });
+bind("spm","spm", e=>Math.max(1,+e.value||1)); bind("profile","profile", e=>e.value); bind("beacons","beacons", e=>+e.value);
+bind("miningProd","miningProd", e=>Math.max(0,+e.value||0)); bind("military","military", e=>e.checked);
+syncControls(); recompute();
+</script>
+</body>
+</html>
