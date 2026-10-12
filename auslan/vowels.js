@@ -192,9 +192,11 @@ if (typeof document !== "undefined") {
     ctx.stroke();
   }
 
-  // A simple picture of the non-dominant hand, palm towards you, as you see it.
+  // A picture of both hands as you see them: the non-dominant hand open, palm towards
+  // you, with the dominant index finger reaching in from the side to the target tip.
   // Each finger is labelled with its vowel; the target is highlighted.
   function diagramSvg(i, nonDominantIsLeft) {
+    const W = 190;
     // Fingers from left to right for a left hand seen palm-on: little, ring, middle, index.
     const fingers = [
       { f: 4, x: 22, top: 44 },
@@ -202,21 +204,35 @@ if (typeof document !== "undefined") {
       { f: 2, x: 62, top: 16 },
       { f: 1, x: 82, top: 26 },
     ];
-    const tip = (f, x, y) =>
-      `<circle cx="${x}" cy="${y}" r="7" class="${f === i ? "tip target" : "tip"}"/>` +
-      `<text x="${x}" y="${y + 3.5}" class="${f === i ? "lbl target" : "lbl"}"${flip(x)}>${VOWELS[f]}</text>`;
-    // Text must not be mirrored when the whole hand is flipped for a right non-dominant hand.
+    const tips = { 0: [116, 76] };
+    fingers.forEach(({ f, x, top }) => (tips[f] = [x, top + 7]));
+    // Text must not be mirrored when the whole picture is flipped for a left-handed signer.
     const flip = (x) => (nonDominantIsLeft ? "" : ` transform="translate(${2 * x} 0) scale(-1 1)"`);
+    const tip = (f) => {
+      const [x, y] = tips[f];
+      return (
+        `<circle cx="${x}" cy="${y}" r="7" class="${f === i ? "tip target" : "tip"}"/>` +
+        `<text x="${x}" y="${y + 3.5}" class="${f === i ? "lbl target" : "lbl"}"${flip(x)}>${VOWELS[f]}</text>`
+      );
+    };
     const parts = fingers.map(
-      ({ f, x, top }) =>
-        `<rect x="${x - 7}" y="${top}" width="14" height="${78 - top}" rx="7" class="finger"/>` + tip(f, x, top + 7),
+      ({ f, x, top }) => `<rect x="${x - 7}" y="${top}" width="14" height="${78 - top}" rx="7" class="finger"/>`,
     );
-    const thumb =
-      `<rect x="96" y="70" width="14" height="40" rx="7" class="finger" transform="rotate(35 103 110)"/>` +
-      tip(0, 116, 76);
-    const g = nonDominantIsLeft ? "" : ` transform="translate(130 0) scale(-1 1)"`;
-    return `<svg viewBox="0 0 130 150" role="img" aria-label="Non-dominant hand, ${FINGER_NAMES[i]} highlighted">
-      <g${g}><rect x="12" y="66" width="82" height="70" rx="18" class="finger"/>${parts.join("")}${thumb}</g></svg>`;
+    const thumb = `<rect x="96" y="70" width="14" height="40" rx="7" class="finger" transform="rotate(35 103 110)"/>`;
+    // Dominant hand: a loose fist low on the right, index finger pointing at the target tip.
+    const [tx, ty] = tips[i];
+    const [fx, fy] = [168, 128];
+    const len = Math.hypot(tx - fx, ty - fy);
+    const stop = (len - 9) / len; // finger pad stops just on the tip
+    const ex = fx + (tx - fx) * stop;
+    const ey = fy + (ty - fy) * stop;
+    const pointer =
+      `<line x1="${fx}" y1="${fy}" x2="${ex}" y2="${ey}" class="pointer"/>` +
+      `<circle cx="${fx}" cy="${fy}" r="17" class="fist"/>`;
+    const g = nonDominantIsLeft ? "" : ` transform="translate(${W} 0) scale(-1 1)"`;
+    return `<svg viewBox="0 0 ${W} 150" role="img" aria-label="Both hands: dominant index finger touching the ${FINGER_NAMES[i]} tip of the open non-dominant hand">
+      <g${g}><rect x="12" y="66" width="82" height="70" rx="18" class="finger"/>${parts.join("")}${thumb}
+      ${pointer}${[1, 2, 3, 4, 0].map(tip).join("")}</g></svg>`;
   }
 
   setTarget(0);

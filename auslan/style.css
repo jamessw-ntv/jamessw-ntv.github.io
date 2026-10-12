@@ -10,7 +10,7 @@
 /* Mirror only the video; the canvas mirrors its own drawing so labels stay readable. */
 .stage.mirrored video{transform:scaleX(-1)}
 
-.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:14px 0 0}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:14px 0 0}
 .readout .card{padding:10px 14px}
 .readout dt{font-size:12px;color:var(--muted)}
 .readout dd{margin:0;font-variant-numeric:tabular-nums}
@@ -18,8 +18,8 @@
 /* ---- vowel practice ---- */
 .practice{display:flex;gap:16px;align-items:center;margin:0 0 12px;transition:border-color .2s}
 .practice.matching{border-color:var(--green)}
-.practice .diagram{flex:0 0 120px}
-.practice .diagram svg{width:120px;height:auto;display:block}
+.practice .diagram{flex:0 0 150px}
+.practice .diagram svg{width:150px;height:auto;display:block}
 .practice .finger{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}
 .practice .tip{fill:var(--panel);stroke:var(--line)}
 .practice .tip.target{fill:var(--yellow);stroke:var(--yellow)}
@@ -32,3 +32,9 @@
 .picks{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .picks .toggle{padding:6px 12px}
 .practice select{margin-left:6px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:2px 6px;font:inherit}
+.practice .pointer{stroke:var(--accent);stroke-width:9;stroke-linecap:round;opacity:.6}
+.practice .fist{fill:var(--accent);opacity:.6}
+.posture{margin:0 0 12px}
+.posture summary{cursor:pointer;color:var(--text)}
+.posture ul{margin:8px 0 4px;padding-left:20px}
+.posture li{margin:4px 0}
