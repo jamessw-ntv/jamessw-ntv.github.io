@@ -271,7 +271,9 @@ function relayout(){
     // existing buildings that aren't part of a planned block are kept clear of
     let obstacles = null;
     const marks = allMarks();
-    if(scan){ const pre = checkBase(sol, layoutWorld(sol, state.patches, { pins: state.pins, marks }).placed, scan.machines); obstacles = pre.obstacles; }
+    if(scan){ const pre = checkBase(sol, layoutWorld(sol, state.patches, { pins: state.pins, marks }).placed, scan.machines); obstacles = pre.obstacles;
+      // lakes: every 8-tile cell of a mostly-water chunk is off limits
+      if(scan.usePatches !== false) (scan.water || []).forEach(([cx, cy]) => { for(let i=0;i<4;i++) for(let j=0;j<4;j++) obstacles.add((cx*4+i)+","+(cy*4+j)); }); }
     lay = layoutWorld(sol, state.patches, { pins: state.pins, obstacles, marks });
     check = scan ? checkBase(sol, lay.placed, scan.machines) : null;
   } else {
@@ -363,7 +365,7 @@ function buildSvg(focus, stage){
     if(!xs.length){ xs.push(0, 600); ys.push(0, 600); }
     bounds = { x: Math.min(...xs)-10, y: Math.min(...ys)-10, w: Math.max(...xs)-Math.min(...xs)+20, h: Math.max(...ys)-Math.min(...ys)+20 };
     svg += chunkGrid(bounds);
-    const F = Math.max(1, Math.min(4, bounds.w / 500));   // labels grow with the map so they stay readable zoomed out
+    const F = Math.max(1.5, Math.min(6, bounds.w / 260));   // labels grow with the map so they stay readable zoomed out
     const cur = stage != null && steps[stage] ? (steps[stage].step || 0) : curResearch();
     // biter nests: the base itself, then the 40-tile gap the planner keeps clear (wall and turret it)
     for(const m of mk.filter(m => m.kind==="nest")){
@@ -371,7 +373,7 @@ function buildSvg(focus, stage){
       svg += `<g class="${user?"mark":""}" data-mid="${esc(m.id)}" style="cursor:${user?"move":"default"}">
         <circle cx="${m.x}" cy="${m.y}" r="${(m.r||12)+40}" fill="#d0504a" fill-opacity=".05" stroke="#d0504a" stroke-opacity=".6" stroke-width=".8" stroke-dasharray="4 3"/>
         <circle cx="${m.x}" cy="${m.y}" r="${m.r||12}" fill="#d0504a" fill-opacity=".35" stroke="${on?"#e9edf7":"#d0504a"}" stroke-width="${on?1.6:.8}"/>
-        <text x="${m.x}" y="${m.y+2*F}" font-size="${6*F}" fill="#ffd0cc" text-anchor="middle" font-weight="700">☠ ${esc(m.text||"Biters")}</text></g>`;
+        <text x="${m.x}" y="${m.y+2*F}" font-size="${6*F}" fill="#ffd0cc" text-anchor="middle" font-weight="700">☠ ${esc(m.text||"Biters")}</text><title>${m.count ? `${m.count} enemy buildings` : esc(m.text||"Biter nest")}</title></g>`;
     }
     // flows: one line per input, width by belt-loads
     for(const f of lay.flows){
@@ -379,13 +381,6 @@ function buildSvg(focus, stage){
       const wdt = FLUIDS.has(f.k) ? .8 : Math.max(.6, Math.min(4, f.rate/BELT*1.2));
       const col = FLUIDS.has(f.k) ? "#5b6b8f" : (ITEMCOL[f.k] || "#6b7590");
       svg += `<line x1="${f.x}" y1="${f.y}" x2="${f.tx}" y2="${f.ty}" stroke="${col}" stroke-width="${wdt}" stroke-linecap="round" opacity="${open?.55:.12}" ${FLUIDS.has(f.k)?'stroke-dasharray="2 2"':""}/>`;
-    }
-    for(const p of lay.patches){
-      const I = { ...PATCH_INFO[p.kind], r: p.r || PATCH_INFO[p.kind].r }, on = selPatch===p.id;
-      svg += `<g class="patch" data-pid="${p.id}" style="cursor:move">
-        <circle cx="${p.x}" cy="${p.y}" r="${I.r}" fill="${I.color}" fill-opacity=".35" stroke="${on?"#e9edf7":I.color}" stroke-width="${on?1.6:.8}" stroke-dasharray="3 2"/>
-        <circle cx="${p.x}" cy="${p.y}" r="${I.r*.45}" fill="${I.color}" fill-opacity=".7"/>
-        <text x="${p.x}" y="${p.y+I.r+7*F}" font-size="${6*F}" fill="#e9edf7" text-anchor="middle" font-weight="600">${esc(I.name)}</text></g>`;
     }
     for(const p of lay.placed){
       const b = BLK[p.id], bs = blockStep(p.id, sol), locked = bs > cur, st = stageOf(p.id, stage), built = st==="done", isNew = st==="now" || (!built && bs === cur);
@@ -399,7 +394,14 @@ function buildSvg(focus, stage){
         <rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" fill="${isNew?"#3ddc84":b.color}" fill-opacity="${locked?.03:isNew?.22:built?.3:sel===p.id?.28:.12}"
           stroke="${stroke}" stroke-width="${focus===p.id?2:isNew||newLine||sel===p.id?1:.4}" ${locked&&focus!==p.id?'stroke-dasharray="2 2" stroke-opacity=".5"':""} rx="1"/>
         ${drawCell(p.cell, p.x, p.y, b.color, o, rowStyle)}
-        <text x="${p.x+.5}" y="${p.y-1.2*F}" font-size="${4*F}" fill="${locked?"#5c6788":isNew?"#3ddc84":"#e9edf7"}" font-weight="600">${p.stuck?"⚠ no room · ":""}${built&&!newLine?"✓ ":isNew?"NEW · ":newLine?"+ ":locked?"🔒 ":""}${esc(b.name)}</text></g>`;
+        <text pointer-events="none" x="${p.x+.5}" y="${p.y-1.2*F}" font-size="${4*F}" fill="${locked?"#5c6788":isNew?"#3ddc84":"#e9edf7"}" font-weight="600">${p.stuck?"⚠ no room · ":""}${built&&!newLine?"✓ ":isNew?"NEW · ":newLine?"+ ":locked?"🔒 ":""}${esc(b.name)}</text></g>`;
+    }
+    for(const p of lay.patches){
+      const I = { ...PATCH_INFO[p.kind], r: p.r || PATCH_INFO[p.kind].r }, on = selPatch===p.id;
+      svg += `<g class="patch" data-pid="${p.id}" style="cursor:move">
+        <circle cx="${p.x}" cy="${p.y}" r="${I.r}" fill="${I.color}" fill-opacity=".35" stroke="${on?"#e9edf7":I.color}" stroke-width="${on?1.6:.8}" stroke-dasharray="3 2"/>
+        <circle cx="${p.x}" cy="${p.y}" r="${I.r*.45}" fill="${I.color}" fill-opacity=".7"/>
+        <text x="${p.x}" y="${p.y+I.r+7*F}" font-size="${6*F}" fill="#e9edf7" text-anchor="middle" font-weight="600">${esc(I.name)}</text></g>`;
     }
     for(const m of mk.filter(m => m.kind!=="nest")){
       const on = selMark===m.id, user = !m.id.startsWith("t");
@@ -433,7 +435,7 @@ function buildSvg(focus, stage){
       svg += `<g class="blk" data-id="${p.id}" style="cursor:pointer" ${fade?'opacity=".25"':""}>
         <rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" fill="${focus===p.id?"#3ddc84":b.color}" fill-opacity="${focus===p.id||sel===p.id?.28:.12}" stroke="${focus===p.id?"#e9edf7":b.color}" stroke-width="${focus===p.id?1.2:sel===p.id?.8:.35}" rx="1"/>
         ${drawCell(p.cell, p.x, p.y, b.color, o)}
-        <text x="${p.x+.5}" y="${p.y-1}" font-size="2.6" fill="#e9edf7" font-weight="600">${esc(b.name)}</text></g>`;
+        <text pointer-events="none" x="${p.x+.5}" y="${p.y-.6}" font-size="3.4" fill="#e9edf7" font-weight="600">${esc(b.name)}</text></g>`;
     }
     svg += `<text x="${lay.busW/2}" y="${lay.busLen+6}" font-size="4" fill="#98a4c3" text-anchor="middle">end of bus</text>`;
   } else {
@@ -513,7 +515,9 @@ let dragMoved = false;
     view.x = drag.vx - dx*k; view.y = drag.vy - dy*k; apply(); });
   const up = e => {
     pts.delete(e.pointerId);
-    if(pinch){ if(pts.size < 2) pinch = null; drag = null; setTimeout(()=>dragMoved=false, 0); return; }
+    if(pinch){ if(pts.size < 2) pinch = null;
+      // one finger still down: keep panning with it
+      const rest = [...pts.values()][0]; drag = rest ? { x:rest.x, y:rest.y, vx:view.x, vy:view.y } : null; return; }
     if(pdrag){ pdrag = null; recompute(false); }
     drag = null; setTimeout(()=>dragMoved=false, 0); };
   window.addEventListener("pointerup", up); window.addEventListener("pointercancel", up);
@@ -631,7 +635,7 @@ function showSide(id){
 
 // ---------- build order ----------------------------------------------------------------
 const NOTES = {
-  iron:"Start here: the bus can't exist without plates. Leave room to double it later.",
+  iron:"Start here: everything else needs plates. Leave room to double it later.",
   copper:"Pair it with iron at the head of the bus.",
   green:"Cable feeds circuits directly from the assembler beside it (the counts above already balance the two), so cable never touches the bus.",
   oil:"Crude, water, acid and lubricant move by pipe; plastic, sulfur and fuel leave on belts (onto the bus or by train).",
@@ -688,7 +692,8 @@ function dirWord(dx, dy){
 function whereHtml(id){
   const ps = placedFor(id);
   if(!ps.length) return "";
-  if(state.layout==="city") return ps.map(c => `City square <b>${cellLabel(c.gx,c.gy)}</b>${c.of>1?` (part ${c.n} of ${c.of})`:""}`).join("<br>");
+  if(state.layout==="city") return ps.map(c => `City square <b>${cellLabel(c.gx,c.gy)}</b>${c.of>1?` (part ${c.n} of ${c.of})`:""}`).join("<br>")
+    + `<div class="muted">Squares are 100×100 tiles between rail centres. A1 is the north-west corner; letters run east, numbers run south.</div>`;
   const p = ps[0], cx = p.x + p.w/2, cy = p.y + p.h/2;
   let rel = "";
   if(state.layout==="world"){
@@ -750,11 +755,23 @@ function cardHtml(g){
     const o = opts(), mods = modulesAt(o, g.step), interim = [];
     for(const m of [...new Set(now.map(L => L.machine))]){
       const have = machineAt(m, g.step);
-      if(have.final) continue;
-      const pct = have.speed ? Math.round(100 * have.speed / effects({ p:false }, m, { ...o, profile:"plain" }).speed) : 0;
-      interim.push(`${esc(MNAME[m])}s aren't researched yet: build with <b>${esc(have.name)}</b> in the same spots${pct ? ` (each runs about ${pct}% as fast; the upgrade step comes later)` : ""}.`);
+      if(!have.final) interim.push(`${esc(MNAME[m])}s aren't researched yet: build with <b>${esc(have.name)}</b> in the same spots${have.speed ? "" : " for now"}.`);
     }
-    if(!mods.final && o.profile!=="plain") interim.push(`${o.profile==="beacon" ? "Modules and beacons come" : "Modules come"} later in the research; leave the ${o.profile==="beacon" ? "beacon rows and module slots" : "module slots"} empty for now. Until then this block makes less than planned.`);
+    if(!mods.final && o.profile!=="plain") interim.push(o.profile==="beacon" && mods.prod
+      ? "Beacons come later in the research; leave their rows clear."
+      : `Productivity module 3${o.profile==="beacon" ? " and beacons come" : " comes"} later in the research. Until then use Prod 1 or 2 modules if you have them, or leave the slots empty.`);
+    // how much of the planned output this block makes with what's researched at this step
+    let want = 0, got = 0;
+    for(const L of now){ if(L.machine === "lab") continue;
+      const rec = R[L.key] || { p:false }, tgt = effects(rec, L.machine, o), have = machineAt(L.machine, g.step);
+      const p = mods.prod ? tgt.prod : 0, sp = mods.final ? tgt.speed : have.speed * (mods.prod && rec.p ? 1 + PROD3.speed*MACHINES[L.machine].slots : 1);
+      want += L.count * tgt.speed * (1 + tgt.prod); got += L.count * (have.final || mods.final ? sp : have.speed) * (1 + p); }
+    const pctNow = want ? Math.round(100 * got / want) : 100;
+    if(interim.length && pctNow < 100) interim.push(`Built like that, this block makes about <b>${pctNow}%</b> of its planned output until the upgrade steps; that's expected.`);
+    // ore: how many drills feed this block at the planned rate
+    const oreIn = Object.entries(res.imports).filter(([k,v]) => v > 1e-9 && ["iron-ore","copper-ore","stone","coal"].includes(k));
+    const drillNow = (UNLOCK_STEP["m:drill"] ?? 0) <= g.step;
+    const mining = oreIn.map(([k,v]) => `<b>${fmt(Math.ceil(v/sol.totals.drillRate))}</b> electric mining drills on ${esc(nice(k).toLowerCase())}`).join(", ");
     // only show what the lines you can build now use and make
     const nowKeys = new Set(now.map(L => L.key)), laterOnly = new Set();
     later.forEach(L => Object.keys((R[L.key] && R[L.key].in) || {}).forEach(k => laterOnly.add(k)));
@@ -770,6 +787,7 @@ function cardHtml(g){
     body = `<div class="where">${whereHtml(g.block)}</div>
       <h4>${g.type==="extend" ? "Add" : "Build"}</h4><div>${now.map(pill).join("")}</div>
       ${interim.length ? `<div class="note">${interim.join("<br>")}</div>` : ""}
+      ${g.type==="build" && mining ? `<div class="muted" style="margin-top:6px">Mining: ${mining}${o.miningProd ? ` (at mining productivity ${o.miningProd}; more before you get there)` : ""}.${drillNow ? "" : " Until Electric mining drill is researched, use burner drills: about four times as many."}</div>` : ""}
       ${example ? `<div class="note">⚠ These positions use the <b>example</b> resource patches. Sync from your game or drag the patches on the 🗺️ Map first so they match your world.</div>` : ""}
       ${later.length ? `<div class="muted" style="margin-top:6px">Leave room for ${later.map(L => `${L.count} × ${esc(nice(L.key))}`).join(", ")}; they come with later research.</div>` : ""}
       ${resNote.length ? `<p>${resNote.map(esc).join("<br>")}</p>` : ""}
@@ -874,15 +892,18 @@ function applyScan(data, use, fileTime){
   if(use && parsed.patches.length){
     // pins stay: they mark blocks you've started, which shouldn't move because ore got mined.
     // A kind the scan didn't find keeps the patch you placed by hand.
-    const found = new Set(parsed.patches.map(p => p.kind));
-    state.patches = [...parsed.patches.map(p => ({ ...p })), ...state.patches.filter(p => !found.has(p.kind))]; state.layout = "world";
+    const found = new Set(parsed.patches.map(p => p.kind)), pl = parsed.player || { x:0, y:0 };
+    // a kind the scan didn't find keeps the patch placed by hand, moved next to the base if it's far away
+    const keep = state.patches.filter(p => !found.has(p.kind)).map((p, i) => Math.hypot(p.x-pl.x, p.y-pl.y) > 900
+      ? { ...p, x: Math.round(pl.x + 350*Math.cos(i*2.1)), y: Math.round(pl.y + 350*Math.sin(i*2.1)) } : p);
+    state.patches = [...parsed.patches.map(p => ({ ...p })), ...keep]; state.layout = "world";
   }
   const before = autoDone.size;
   sel = null; viewId = null; mapStage = null; syncControls(); recompute(true);
   const kinds = Object.keys(PATCH_INFO).map(k => `${parsed.patches.filter(p=>p.kind===k).length} ${PATCH_INFO[k].name.toLowerCase()}`).join(", ");
   const nests = parsed.marks.filter(m => m.kind==="nest").length, tags = parsed.marks.length - nests;
   const missing = Object.keys(PATCH_INFO).filter(k => !parsed.patches.some(p => p.kind===k)).map(k => PATCH_INFO[k].name.toLowerCase());
-  const warn = use && missing.length ? ` <span class="chip part">Not found within 800 tiles: ${esc(missing.join(", "))}</span> Their patches stay where you put them on the map; drag them to where you'll get them.` : "";
+  const warn = use && missing.length ? ` <span class="chip part">Not found within 800 tiles: ${esc(missing.join(", "))}.</span> Their patches are placeholders near your base; drag them on the map to where you'll get them.` : "";
   const msg = `<span class="chip ok">Synced ${esc(new Date().toLocaleTimeString())}</span> Found ${kinds} patches; ${fmt(parsed.machines.length)} machines; ${fmt(parsed.research.size)} finished technologies; ${tags} map tags; ${nests} biter nests nearby. ${autoDone.size} guide step${autoDone.size===1?"":"s"} ticked from your game.${warn}`;
   if(!$("syncPanel").classList.contains("hidden")) openSync(true);
   $("syncMsg") && ($("syncMsg").innerHTML = msg);

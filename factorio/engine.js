@@ -377,7 +377,7 @@ const RESEARCH = [
   { id:"modules", name:"Modules", unlocks:[] },
   { id:"productivity-module", name:"Productivity module", unlocks:["productivity-module"] },
   { id:"speed-module", name:"Speed module", unlocks:[] },
-  { id:"advanced-oil-processing", name:"Advanced oil processing", unlocks:["heavy-crack","light-crack","solid-fuel"], note:"Switch every refinery to Advanced oil processing, then add the cracking plants." },
+  { id:"advanced-oil-processing", name:"Advanced oil processing", unlocks:["heavy-crack","light-crack"], note:"Switch every refinery to Advanced oil processing, then add the cracking plants." },
   { id:"lubricant", name:"Lubricant", unlocks:["lubricant"] },
   { id:"flammables", name:"Flammables", unlocks:[] },
   { id:"battery", name:"Battery", unlocks:["battery"] },
@@ -399,7 +399,7 @@ const RESEARCH = [
   { id:"productivity-module-3", name:"Productivity module 3", unlocks:["m:prod3"] },
   { id:"speed-module-3", name:"Speed module 3", unlocks:["m:speed3"] },
   { id:"utility-science-pack", name:"Utility science pack", unlocks:["utility-science-pack"] },
-  { id:"rocket-fuel", name:"Rocket fuel", unlocks:["rocket-fuel"] },
+  { id:"rocket-fuel", name:"Rocket fuel", unlocks:["rocket-fuel","solid-fuel"] },
   { id:"rocket-silo", name:"Rocket silo", unlocks:["rocket-part","satellite"] },
 
 ];
@@ -565,7 +565,7 @@ const SCAN_COMMAND = [
   'local function add(n,cx,cy,x,y,k,a) local key=n..":"..cx..":"..cy local t=b[key] if not t then t={n=n,cx=cx,cy=cy,x=0,y=0,c=0,a=0} b[key]=t end t.x=t.x+x*k t.y=t.y+y*k t.c=t.c+k t.a=t.a+(a or 0) end',
   'for _,e in pairs(s.find_entities_filtered{area=A,type="resource"}) do local p=e.position add(e.name,math.floor(p.x/32),math.floor(p.y/32),p.x,p.y,1,e.amount) end',
   'local W={} for _,n in pairs{"water","deepwater","water-green","deepwater-green","water-shallow","water-mud"} do if prototypes.tile[n] then W[#W+1]=n end end',
-  'for cx=math.floor((c.x-R)/32),math.floor((c.x+R)/32) do for cy=math.floor((c.y-R)/32),math.floor((c.y+R)/32) do local n=s.count_tiles_filtered{area={{cx*32,cy*32},{cx*32+32,cy*32+32}},name=W} if n>0 then add("water",cx,cy,cx*32+16,cy*32+16,n) end end end',
+  'for cx=math.floor((c.x-R)/32),math.floor((c.x+R)/32) do for cy=math.floor((c.y-R)/32),math.floor((c.y+R)/32) do local n=s.count_tiles_filtered{area={{cx*32,cy*32},{cx*32+32,cy*32+32}},name=W} if n>0 and #W>0 then add("water",cx,cy,cx*32+16,cy*32+16,n) end end end',
   'local res={} for _,t in pairs(b) do res[#res+1]={n=t.n,cx=t.cx,cy=t.cy,x=t.x/t.c,y=t.y/t.c,c=t.c,a=t.a} end',
   'local m={} for _,e in pairs(s.find_entities_filtered{force=f,type={"assembling-machine","furnace","rocket-silo","lab"}}) do local r=nil',
   'pcall(function() local x=e.get_recipe() if x then r=x.name end end)',
@@ -590,6 +590,8 @@ function parseScan(data, maxPerKind){
   maxPerKind = maxPerKind || 3;
   if(!data || typeof data!=="object" || !("resources" in data) || !("machines" in data)) throw new Error("This doesn't look like a factorio-planner.json export.");
   data = { ...data, resources: arr(data.resources), machines: arr(data.machines), research: arr(data.research), tags: arr(data.tags), enemies: arr(data.enemies) };
+  // chunks that are mostly water: blocks are kept off them (a lake isn't a circle)
+  const water = data.resources.filter(r => r.n==="water" && r.c >= 300).map(r => [r.cx, r.cy]);
   const groups = {};
   for(const r of data.resources){ const k = RES_KIND[r.n]; if(k) (groups[k] = groups[k] || []).push(r); }
   const patches = [];
@@ -622,7 +624,8 @@ function parseScan(data, maxPerKind){
     const k0 = pendingE.shift();
     if(seenE.has(k0)) continue;
     const grp = [], q = [k0]; seenE.add(k0);
-    while(q.length && grp.length < 4){
+    let cellsIn = 0;
+    while(q.length && cellsIn++ < 9){
       const k = q.shift(); grp.push(...cellsE.get(k));
       const [cx, cy] = k.split(",").map(Number);
       for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){ const n = (cx+dx)+","+(cy+dy); if(cellsE.has(n) && !seenE.has(n)){ seenE.add(n); q.push(n); } }
@@ -630,9 +633,9 @@ function parseScan(data, maxPerKind){
     q.forEach(k => { seenE.delete(k); pendingE.push(k); });   // not absorbed: they start their own nest
     const x = grp.reduce((s,e)=>s+e.x,0)/grp.length, y = grp.reduce((s,e)=>s+e.y,0)/grp.length;
     const r = Math.max(12, Math.max(...grp.map(e => Math.hypot(e.x-x, e.y-y))) + 6);
-    marks.push({ id:"n"+marks.length, kind:"nest", x:Math.round(x), y:Math.round(y), r:Math.round(r), count:grp.length, text: grp.length+" enemy building"+(grp.length===1?"":"s") });
+    marks.push({ id:"n"+marks.length, kind:"nest", x:Math.round(x), y:Math.round(y), r:Math.round(r), count:grp.length, text: String(grp.length) });
   }
-  return { patches, marks, machines, research: new Set(data.research || []), player: data.player || null, tick: data.tick };
+  return { patches, water, marks, machines, research: new Set(data.research || []), player: data.player || null, tick: data.tick };
 }
 // How much of each placed block is built: machines with the right recipe inside the block's
 // footprint (plus a small margin). Also returns 8-tile cells covered by machines that sit
