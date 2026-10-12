@@ -196,7 +196,13 @@ function solve(opt){
     res.lineList.forEach(L => {
       machines += L.count;
       kw += L.count * MACHINES[L.machine].kw * (1 + L.cons);
-      if(opt.profile === "beacon") beacons += L.count * opt.beacons / 8; // shared rows: ~1 beacon per machine at 8
+      if(opt.profile === "beacon" && L.machine !== "lab"){
+        // the beaconed row (Templates): a full beacon row above and below, one between machines.
+        // Rows are not stacked, so that's ~5 per 3x3 machine; fewer beacons per machine scales it down.
+        const pat = linePattern(L.machine, opt), per = Math.max(1, Math.floor(80 / pat.pitch)), rows = Math.ceil(L.count / per);
+        const rowB = n => 2 * Math.ceil((n * pat.pitch + 3) / 3) + n + 1;
+        beacons += (Math.floor(L.count / per) * rowB(per) + (L.count % per ? rowB(L.count % per) : 0)) * Math.min(1, opt.beacons / 8);
+      }
     });
     if(b.kind === "labs"){
       const labs = Math.ceil(opt.spm * opt.unitTime / (60 * opt.labSpeed));
@@ -339,44 +345,83 @@ function layoutCity(sol){
 
 
 // ---------- research (technology.lua) ---------------------------------------------------
-// A practical research order that respects every prerequisite. Each step lists the recipes
+// A practical research order that includes every prerequisite (checked against technology.lua).
+// `m:` unlocks are machines and modules rather than recipes; `trigger` techs unlock by doing, not in a lab. Each step lists the recipes
 // (this planner's keys) the technology unlocks; recipes no technology unlocks are "start".
 const RESEARCH = [
   { id:"start", name:"Game start", unlocks:["iron-plate","copper-plate","stone-brick","iron-gear-wheel","transport-belt","firearm-magazine"] },
-  { id:"steam-power", name:"Steam power", unlocks:["pipe"] },
-  { id:"electronics", name:"Electronics", unlocks:["copper-cable","electronic-circuit","inserter","lab"] },
-  { id:"automation-science-pack", name:"Automation science pack", unlocks:["automation-science-pack"] },
+  { id:"steam-power", name:"Steam power", unlocks:["pipe"], trigger:"No lab needed: it unlocks when you craft 50 iron plates." },
+  { id:"electronics", name:"Electronics", unlocks:["copper-cable","electronic-circuit","lab","inserter"], trigger:"No lab needed: it unlocks when you craft 10 copper plates." },
+  { id:"automation-science-pack", name:"Automation science pack", unlocks:["automation-science-pack"], trigger:"No lab needed: it unlocks when you craft a lab." },
+  { id:"automation", name:"Automation", unlocks:["m:asm1"] },
+  { id:"electric-mining-drill", name:"Electric mining drill", unlocks:["m:drill"] },
+  { id:"logistics", name:"Logistics", unlocks:[] },
   { id:"radar", name:"Radar", unlocks:["radar"] },
   { id:"logistic-science-pack", name:"Logistic science pack", unlocks:["logistic-science-pack"] },
   { id:"steel-processing", name:"Steel processing", unlocks:["steel-plate"] },
-  { id:"electric-energy-distribution-1", name:"Electric energy distribution 1", unlocks:["iron-stick"] },
-  { id:"solar-energy", name:"Solar energy", unlocks:["solar-panel"] },
+  { id:"automation-2", name:"Automation 2", unlocks:["m:asm2"] },
+  { id:"advanced-material-processing", name:"Advanced material processing", unlocks:["m:steel-furnace"] },
+  { id:"military", name:"Military", unlocks:[] },
   { id:"stone-wall", name:"Stone wall", unlocks:["stone-wall"] },
   { id:"military-2", name:"Military 2", unlocks:["piercing-rounds-magazine","grenade"] },
   { id:"military-science-pack", name:"Military science pack", unlocks:["military-science-pack"] },
   { id:"engine", name:"Engine", unlocks:["engine-unit"] },
-  { id:"oil-processing", name:"Oil processing", unlocks:["aop"], note:"Refineries run Basic oil processing until Advanced oil processing is researched; same buildings, different recipe." },
+  { id:"logistics-2", name:"Logistics 2", unlocks:[] },
+  { id:"fluid-handling", name:"Fluid handling", unlocks:[] },
+  { id:"oil-gathering", name:"Oil gathering", unlocks:["m:pumpjack"] },
+  { id:"oil-processing", name:"Oil processing", unlocks:["aop","m:ref","m:chem"], note:"Refineries run Basic oil processing until Advanced oil processing is researched; same buildings, different recipe.", trigger:"No lab needed: it unlocks when a pumpjack first mines crude oil." },
   { id:"plastics", name:"Plastics", unlocks:["plastic-bar"] },
-  { id:"sulfur-processing", name:"Sulfur processing", unlocks:["sulfur","sulfuric-acid"] },
+  { id:"sulfur-processing", name:"Sulfur processing", unlocks:["sulfuric-acid","sulfur"] },
   { id:"advanced-circuit", name:"Advanced circuit", unlocks:["advanced-circuit"] },
   { id:"chemical-science-pack", name:"Chemical science pack", unlocks:["chemical-science-pack"] },
+  { id:"modules", name:"Modules", unlocks:[] },
+  { id:"productivity-module", name:"Productivity module", unlocks:["productivity-module"] },
+  { id:"speed-module", name:"Speed module", unlocks:[] },
   { id:"advanced-oil-processing", name:"Advanced oil processing", unlocks:["heavy-crack","light-crack","solid-fuel"], note:"Switch every refinery to Advanced oil processing, then add the cracking plants." },
   { id:"lubricant", name:"Lubricant", unlocks:["lubricant"] },
+  { id:"flammables", name:"Flammables", unlocks:[] },
   { id:"battery", name:"Battery", unlocks:["battery"] },
+  { id:"electric-energy-distribution-1", name:"Electric energy distribution 1", unlocks:["iron-stick"] },
+  { id:"solar-energy", name:"Solar energy", unlocks:["solar-panel"] },
   { id:"electric-energy-accumulators", name:"Electric energy accumulators", unlocks:["accumulator"] },
   { id:"electric-engine", name:"Electric engine", unlocks:["electric-engine-unit"] },
   { id:"robotics", name:"Robotics", unlocks:["flying-robot-frame"] },
   { id:"processing-unit", name:"Processing unit", unlocks:["processing-unit"] },
   { id:"low-density-structure", name:"Low density structure", unlocks:["low-density-structure"] },
-  { id:"advanced-material-processing-2", name:"Advanced material processing 2", unlocks:["electric-furnace"] },
-  { id:"productivity-module", name:"Productivity module", unlocks:["productivity-module"] },
+  { id:"advanced-material-processing-2", name:"Advanced material processing 2", unlocks:["electric-furnace","m:furn"] },
   { id:"railway", name:"Railway", unlocks:["rail"] },
+  { id:"concrete", name:"Concrete", unlocks:[] },
   { id:"production-science-pack", name:"Production science pack", unlocks:["production-science-pack"] },
+  { id:"productivity-module-2", name:"Productivity module 2", unlocks:[] },
+  { id:"speed-module-2", name:"Speed module 2", unlocks:[] },
+  { id:"automation-3", name:"Automation 3", unlocks:["m:asm"] },
+  { id:"effect-transmission", name:"Effect transmission", unlocks:["m:beacon"] },
+  { id:"productivity-module-3", name:"Productivity module 3", unlocks:["m:prod3"] },
+  { id:"speed-module-3", name:"Speed module 3", unlocks:["m:speed3"] },
   { id:"utility-science-pack", name:"Utility science pack", unlocks:["utility-science-pack"] },
   { id:"rocket-fuel", name:"Rocket fuel", unlocks:["rocket-fuel"] },
   { id:"rocket-silo", name:"Rocket silo", unlocks:["rocket-part","satellite"] },
+
 ];
-const UNLOCK_STEP = {}; RESEARCH.forEach((t,i) => t.unlocks.forEach(k => UNLOCK_STEP[k] = i));
+const UNLOCK_STEP = {}; RESEARCH.forEach((t,i) => t.unlocks.forEach(k => { if(!(k in UNLOCK_STEP)) UNLOCK_STEP[k] = i; }));
+// The plan is sized for the endgame machine. Until it's researched you build the same block
+// with what you have; this says what that is and how fast it runs compared with the plan.
+const MACHINE_TIERS = {
+  asm:  [["m:asm","Assembling machine 3",1.25],["m:asm2","Assembling machine 2",0.75],["m:asm1","Assembling machine 1",0.5],[null,"hand crafting (Assembling machine 1 comes with Automation)",0]],
+  furn: [["m:furn","Electric furnace",2],["m:steel-furnace","Steel furnace",2],[null,"Stone furnace",1]],
+};
+function machineAt(machine, step){
+  const tiers = MACHINE_TIERS[machine];
+  if(!tiers) return { name: MACHINES[machine] ? MACHINES[machine].name : machine, speed: MACHINES[machine] ? MACHINES[machine].speed : 1, final:true };
+  const t = tiers.find(([k]) => k === null || (UNLOCK_STEP[k] ?? 0) <= step);
+  return { name: t[1], speed: t[2], final: t === tiers[0] };
+}
+// modules and beacons only exist after their research
+function modulesAt(opt, step){
+  const prod = opt.profile !== "plain" && UNLOCK_STEP["m:prod3"] <= step;
+  const beac = opt.profile === "beacon" && UNLOCK_STEP["m:beacon"] <= step && UNLOCK_STEP["m:speed3"] <= step;
+  return { prod, beac, final: (opt.profile === "plain" || prod) && (opt.profile !== "beacon" || beac) };
+}
 // A block opens when the recipe for one of its outputs is researched (and that recipe's
 // own sub-lines are too); its other lines light up as their research lands.
 function blockStep(id, sol){
@@ -388,7 +433,9 @@ function blockStep(id, sol){
     const deps = Object.keys(R[k].in).filter(i => b.local.includes(i) && lines.includes(i));
     return Math.max(lineStep(k), ...deps.map(lineStep));
   });
-  return firsts.length ? Math.min(...firsts) : 0;
+  // and you need something to build it with: assemblers arrive with Automation
+  const needAsm = sol.blocks[id].lineList.some(L => L.machine === "asm") ? UNLOCK_STEP["m:asm1"] : 0;
+  return Math.max(needAsm, firsts.length ? Math.min(...firsts) : 0);
 }
 
 // ---------- layout 3: your world ------------------------------------------------------------
@@ -490,6 +537,13 @@ function guideSteps(sol){
       if(last.type === "research") { last.techs.push(t.id); last.step = i; last.title = "Research " + last.techs.map(x => RESEARCH.find(r=>r.id===x).name).join(", "); if(t.note) last.notes.push(t.note); }
       else steps.push({ id:"r:"+t.id, type:"research", techs:[t.id], step:i, title:"Research "+t.name, notes: t.note ? [t.note] : [] });
     }
+    // upgrades: the endgame machines and modules arrive late, so swap them into what's built
+    const has = k => (UNLOCK_STEP[k] ?? -1) === i;
+    const prof = sol.opt.profile;
+    if(has("m:asm")) steps.push({ id:"u:asm", type:"upgrade", step:i, upgrade:"asm", title:"Upgrade every assembler to Assembling machine 3" });
+    if(has("m:furn")) steps.push({ id:"u:furn", type:"upgrade", step:i, upgrade:"furn", title:"Swap your furnaces for electric furnaces" });
+    if(prof !== "plain" && has("m:prod3")) steps.push({ id:"u:prod", type:"upgrade", step:i, upgrade:"prod", title:"Fill every machine with Productivity module 3" });
+    if(prof === "beacon" && Math.max(UNLOCK_STEP["m:beacon"], UNLOCK_STEP["m:speed3"]) === i) steps.push({ id:"u:beacon", type:"upgrade", step:i, upgrade:"beacon", title:"Add beacons with Speed module 3" });
     blocks.forEach(id => steps.push({ id:"b:"+id, type:"build", block:id, step:i, title:"Build "+BLOCKS.find(b=>b.id===id).name }));
     // group extensions per block
     const byBlock = {};
@@ -505,11 +559,12 @@ function guideSteps(sol){
 // the planner needs (resources, crafting machines with recipes, finished research) to
 // script-output/factorio-planner.json. Factorio 2.x Lua API.
 const SCAN_COMMAND = [
-  '/c local pl=game.player local s=pl.surface local f=pl.force local c=pl.position local R=800',
+  '/c local pl=game.player local s=pl.physical_surface local f=pl.force local c=pl.physical_position local R=800',
+  'if s.platform then s=game.surfaces.nauvis end',
   'local A={{c.x-R,c.y-R},{c.x+R,c.y+R}} local b={}',
   'local function add(n,cx,cy,x,y,k,a) local key=n..":"..cx..":"..cy local t=b[key] if not t then t={n=n,cx=cx,cy=cy,x=0,y=0,c=0,a=0} b[key]=t end t.x=t.x+x*k t.y=t.y+y*k t.c=t.c+k t.a=t.a+(a or 0) end',
   'for _,e in pairs(s.find_entities_filtered{area=A,type="resource"}) do local p=e.position add(e.name,math.floor(p.x/32),math.floor(p.y/32),p.x,p.y,1,e.amount) end',
-  'local W={"water","deepwater","water-green","deepwater-green","water-shallow","water-mud"}',
+  'local W={} for _,n in pairs{"water","deepwater","water-green","deepwater-green","water-shallow","water-mud"} do if prototypes.tile[n] then W[#W+1]=n end end',
   'for cx=math.floor((c.x-R)/32),math.floor((c.x+R)/32) do for cy=math.floor((c.y-R)/32),math.floor((c.y+R)/32) do local n=s.count_tiles_filtered{area={{cx*32,cy*32},{cx*32+32,cy*32+32}},name=W} if n>0 then add("water",cx,cy,cx*32+16,cy*32+16,n) end end end',
   'local res={} for _,t in pairs(b) do res[#res+1]={n=t.n,cx=t.cx,cy=t.cy,x=t.x/t.c,y=t.y/t.c,c=t.c,a=t.a} end',
   'local m={} for _,e in pairs(s.find_entities_filtered{force=f,type={"assembling-machine","furnace","rocket-silo","lab"}}) do local r=nil',
@@ -519,18 +574,22 @@ const SCAN_COMMAND = [
   'local tech={} for n,t in pairs(f.technologies) do if t.researched then tech[#tech+1]=n end end',
   'local tags={} for _,t in pairs(f.find_chart_tags(s)) do tags[#tags+1]={x=t.position.x,y=t.position.y,text=t.text,icon=t.icon and t.icon.name or nil} end',
   'local en={} for _,e in pairs(s.find_entities_filtered{area=A,force="enemy",type={"unit-spawner","turret"}}) do en[#en+1]={x=e.position.x,y=e.position.y,t=e.type} end',
-  'helpers.write_file("factorio-planner.json",helpers.table_to_json({v=1,tick=game.tick,player={x=c.x,y=c.y},resources=res,machines=m,research=tech,tags=tags,enemies=en}),false)',
+  'helpers.write_file("factorio-planner.json",helpers.table_to_json({v=1,tick=game.tick,player={x=c.x,y=c.y},resources=res,machines=m,research=tech,tags=tags,enemies=en}),false,pl.index)',
   'pl.print("Saved script-output/factorio-planner.json: "..#res.." resource chunks, "..#m.." machines, "..#tech.." technologies, "..#tags.." map tags, "..#en.." enemy buildings")',
 ].join(" ");
 
 const RES_KIND = { "iron-ore":"iron", "copper-ore":"copper", "stone":"stone", "coal":"coal", "crude-oil":"oil", "water":"water" };
 const RECIPE_KEY = { "solid-fuel-from-light-oil":"solid-fuel", "advanced-oil-processing":"aop", "basic-oil-processing":"aop",
-  "heavy-oil-cracking":"heavy-crack", "light-oil-cracking":"light-crack" };
+  "heavy-oil-cracking":"heavy-crack", "light-oil-cracking":"light-crack",
+  "solid-fuel-from-petroleum-gas":"solid-fuel", "solid-fuel-from-heavy-oil":"solid-fuel" };
+// the game writes an empty Lua table as {} rather than [], so read every list defensively
+const arr = v => Array.isArray(v) ? v : (v && typeof v==="object" ? Object.values(v) : []);
 // Turn the export into patches (adjacent chunks of one resource merge into one patch; the
 // biggest few of each kind are kept), machines keyed like the planner, and research ids.
 function parseScan(data, maxPerKind){
   maxPerKind = maxPerKind || 3;
-  if(!data || !Array.isArray(data.resources) || !Array.isArray(data.machines)) throw new Error("This doesn't look like a factorio-planner.json export.");
+  if(!data || typeof data!=="object" || !("resources" in data) || !("machines" in data)) throw new Error("This doesn't look like a factorio-planner.json export.");
+  data = { ...data, resources: arr(data.resources), machines: arr(data.machines), research: arr(data.research), tags: arr(data.tags), enemies: arr(data.enemies) };
   const groups = {};
   for(const r of data.resources){ const k = RES_KIND[r.n]; if(k) (groups[k] = groups[k] || []).push(r); }
   const patches = [];
@@ -547,20 +606,31 @@ function parseScan(data, maxPerKind){
     const min = kind==="oil" ? 1 : kind==="water" ? 400 : 60;
     found.filter(f => f.c >= min).sort((a,b) => b.c - a.c).slice(0, maxPerKind).forEach((f, i) => patches.push({
       id: "s"+kind+i, kind, x: Math.round(f.x), y: Math.round(f.y), amount: f.a,
-      r: kind==="oil" ? 14 : Math.max(10, Math.min(kind==="water" ? 80 : 60, Math.round(Math.sqrt(f.c/Math.PI)))) }));
+      r: kind==="oil" ? 14 : Math.max(10, Math.min(kind==="water" ? 240 : 60, Math.round(Math.sqrt(f.c/Math.PI)))) }));
   }
   const machines = data.machines.map(m => ({ x:m.x, y:m.y, name:m.n,
     key: m.n==="lab" ? "lab" : (m.r ? (RECIPE_KEY[m.r] || m.r) : null) }));
   // map tags the player placed, and enemy bases grouped into nests (spawners/worms within ~48 tiles)
-  const marks = (data.tags || []).map((t, i) => ({ id:"t"+i, kind:"tag", x:Math.round(t.x), y:Math.round(t.y), text: t.text || t.icon || "Tag" }));
-  const en = (data.enemies || []).slice(), used = new Array(en.length).fill(false);
-  for(let i=0; i<en.length; i++){
-    if(used[i]) continue; used[i] = true;
-    const grp = [en[i]];
-    for(let k=0; k<grp.length; k++) for(let j=0; j<en.length; j++) if(!used[j] && Math.hypot(en[j].x-grp[k].x, en[j].y-grp[k].y) < 48){ used[j] = true; grp.push(en[j]); }
+  const marks = (data.tags || []).map((t, i) => ({ id:"t"+i, kind:"tag", x:Math.round(t.x), y:Math.round(t.y), text: t.text || (t.icon ? (t.icon.startsWith("signal-") ? t.icon.slice(7) : nice(t.icon)) : "Tag") }));
+  // enemy buildings: bucket into 64-tile squares, then join touching squares into nests (capped
+  // so one huge infested area becomes several nests rather than one giant circle)
+  const cellsE = new Map();
+  for(const e of data.enemies){ const k = Math.floor(e.x/64)+","+Math.floor(e.y/64); (cellsE.get(k) || cellsE.set(k, []).get(k)).push(e); }
+  const seenE = new Set();
+  const pendingE = [...cellsE.keys()];
+  while(pendingE.length){
+    const k0 = pendingE.shift();
+    if(seenE.has(k0)) continue;
+    const grp = [], q = [k0]; seenE.add(k0);
+    while(q.length && grp.length < 4){
+      const k = q.shift(); grp.push(...cellsE.get(k));
+      const [cx, cy] = k.split(",").map(Number);
+      for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){ const n = (cx+dx)+","+(cy+dy); if(cellsE.has(n) && !seenE.has(n)){ seenE.add(n); q.push(n); } }
+    }
+    q.forEach(k => { seenE.delete(k); pendingE.push(k); });   // not absorbed: they start their own nest
     const x = grp.reduce((s,e)=>s+e.x,0)/grp.length, y = grp.reduce((s,e)=>s+e.y,0)/grp.length;
     const r = Math.max(12, Math.max(...grp.map(e => Math.hypot(e.x-x, e.y-y))) + 6);
-    marks.push({ id:"n"+marks.length, kind:"nest", x:Math.round(x), y:Math.round(y), r:Math.round(r), count:grp.length, text: grp.length+" enemy buildings" });
+    marks.push({ id:"n"+marks.length, kind:"nest", x:Math.round(x), y:Math.round(y), r:Math.round(r), count:grp.length, text: grp.length+" enemy building"+(grp.length===1?"":"s") });
   }
   return { patches, marks, machines, research: new Set(data.research || []), player: data.player || null, tick: data.tick };
 }
@@ -586,4 +656,4 @@ function checkBase(sol, placed, machines){
 // ---------- build order -----------------------------------------------------------------
 const BUILD_ORDER = ["iron","copper","green","auto","log","brick","steel","mil","oil","red","chem","prod","batt","frames","blue","lds","util","silo","labs"];
 
-if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, layoutWorld, packBlock, nice, effects, BUILD_ORDER, BELT, RESEARCH, blockStep, DEFAULT_PATCHES, guideSteps, parseScan, checkBase, SCAN_COMMAND, UNLOCK_STEP, PATCH_INFO };
+if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, layoutWorld, packBlock, nice, effects, BUILD_ORDER, BELT, RESEARCH, blockStep, DEFAULT_PATCHES, guideSteps, parseScan, checkBase, SCAN_COMMAND, UNLOCK_STEP, PATCH_INFO, machineAt, modulesAt, MACHINE_TIERS, effects, PROD3 };
