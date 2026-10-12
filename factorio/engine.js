@@ -209,7 +209,7 @@ function solve(opt){
   const drills = ["iron-ore","copper-ore","stone","coal"].reduce((s,k)=>s + Math.ceil((out.raw[k]||0)/drillRate), 0);
   kw += drills * DRILL.kw;
   out.totals = { machines, beacons: Math.round(beacons), drills, mw: kw/1000,
-    pumpjacks: Math.ceil((out.raw["crude-oil"]||0) / (PUMPJACK*opt.oilYield/100)),
+    pumpjacks: Math.ceil((out.raw["crude-oil"]||0) / (PUMPJACK*opt.oilYield/100*(1 + 0.1*(opt.miningProd||0)))),   // mining productivity also speeds pumpjacks
     offshore: Math.ceil((out.raw["water"]||0) / 1200), drillRate };
   return out;
 }
@@ -283,10 +283,10 @@ function layoutBus(sol){
   const opt = sol.opt, GAP = 3, MAXLEN = 48;
   // bus lanes: every shared item a block imports (not fluids, not raw-from-outposts except coal/stone)
   const lanes = [];
-  const busItems = ["iron-plate","copper-plate","steel-plate","stone-brick","electronic-circuit","advanced-circuit","plastic-bar","sulfur","processing-unit","low-density-structure","battery","coal","stone"];
+  const busItems = ["iron-plate","copper-plate","steel-plate","stone-brick","electronic-circuit","advanced-circuit","plastic-bar","sulfur","processing-unit","low-density-structure","battery","rocket-fuel","flying-robot-frame","coal","stone"];
   for(const k of busItems){
     let use = 0;
-    for(const id of BUS_ORDER) use += sol.blocks[id].imports[k] || 0;
+    for(const id of [...BUS_ORDER, "oil"]) use += sol.blocks[id].imports[k] || 0;
     if(use > 1e-9) lanes.push({ key:k, belts: Math.ceil(use / BELT - 1e-9), rate: use });
   }
   let x = 0; lanes.forEach(L => { L.x = x; x += L.belts; });
@@ -345,8 +345,8 @@ const RESEARCH = [
   { id:"start", name:"Game start", unlocks:["iron-plate","copper-plate","stone-brick","iron-gear-wheel","transport-belt","firearm-magazine"] },
   { id:"steam-power", name:"Steam power", unlocks:["pipe"] },
   { id:"electronics", name:"Electronics", unlocks:["copper-cable","electronic-circuit","inserter","lab"] },
-  { id:"radar", name:"Radar", unlocks:["radar"] },
   { id:"automation-science-pack", name:"Automation science pack", unlocks:["automation-science-pack"] },
+  { id:"radar", name:"Radar", unlocks:["radar"] },
   { id:"logistic-science-pack", name:"Logistic science pack", unlocks:["logistic-science-pack"] },
   { id:"steel-processing", name:"Steel processing", unlocks:["steel-plate"] },
   { id:"electric-energy-distribution-1", name:"Electric energy distribution 1", unlocks:["iron-stick"] },
@@ -355,12 +355,12 @@ const RESEARCH = [
   { id:"military-2", name:"Military 2", unlocks:["piercing-rounds-magazine","grenade"] },
   { id:"military-science-pack", name:"Military science pack", unlocks:["military-science-pack"] },
   { id:"engine", name:"Engine", unlocks:["engine-unit"] },
-  { id:"oil-processing", name:"Oil processing", unlocks:[], note:"Refineries and chemical plants. Start with basic oil processing until advanced arrives." },
+  { id:"oil-processing", name:"Oil processing", unlocks:["aop"], note:"Refineries run Basic oil processing until Advanced oil processing is researched; same buildings, different recipe." },
   { id:"plastics", name:"Plastics", unlocks:["plastic-bar"] },
   { id:"sulfur-processing", name:"Sulfur processing", unlocks:["sulfur","sulfuric-acid"] },
   { id:"advanced-circuit", name:"Advanced circuit", unlocks:["advanced-circuit"] },
   { id:"chemical-science-pack", name:"Chemical science pack", unlocks:["chemical-science-pack"] },
-  { id:"advanced-oil-processing", name:"Advanced oil processing", unlocks:["aop","heavy-crack","light-crack","solid-fuel"] },
+  { id:"advanced-oil-processing", name:"Advanced oil processing", unlocks:["heavy-crack","light-crack","solid-fuel"], note:"Switch every refinery to Advanced oil processing, then add the cracking plants." },
   { id:"lubricant", name:"Lubricant", unlocks:["lubricant"] },
   { id:"battery", name:"Battery", unlocks:["battery"] },
   { id:"electric-energy-accumulators", name:"Electric energy accumulators", unlocks:["accumulator"] },
@@ -406,17 +406,37 @@ const DEFAULT_PATCHES = [
   { id:"p3", kind:"stone",  x:300, y:60 },  { id:"p4", kind:"coal",   x:110, y:430 },
   { id:"p5", kind:"oil",    x:500, y:440 }, { id:"p6", kind:"water",  x:300, y:560 },
 ];
-function layoutWorld(sol, patches){
+// ctx.pins: {blockId:{x,y}} keeps blocks the player has already built where they are.
+// ctx.obstacles: Set of "gx,gy" 8-tile cells already covered by the player's other buildings.
+function layoutWorld(sol, patches, ctx){
+  ctx = ctx || {};
+  const pins = ctx.pins || {}, obst = ctx.obstacles || null, G = 8, nests = (ctx.marks || []).filter(m => m.kind==="nest");
+  const NEST_GAP = 40;   // keep factories out of biter attack range; defend the gap
   const opt = sol.opt, M = 5, placed = [], flows = [], at = {};
-  const pr = p => PATCH_INFO[p.kind].r;
+  const pr = p => p.r || PATCH_INFO[p.kind].r;
   const centre = { x: patches.reduce((s,p)=>s+p.x,0)/Math.max(1,patches.length), y: patches.reduce((s,p)=>s+p.y,0)/Math.max(1,patches.length) };
   const nearest = (kind, pt) => patches.filter(p => p.kind===kind).sort((a,b)=>Math.hypot(a.x-pt.x,a.y-pt.y)-Math.hypot(b.x-pt.x,b.y-pt.y))[0];
   const weight = (k, rate) => k==="water" ? rate/200 : FLUIDS.has(k) ? rate/20 : rate;
   const free = (x,y,w,h) => placed.every(q => x+w+M <= q.x || q.x+q.w+M <= x || y+h+M <= q.y || q.y+q.h+M <= y)
-    && patches.every(p => { const cx = Math.max(x, Math.min(p.x, x+w)), cy = Math.max(y, Math.min(p.y, y+h)); return Math.hypot(cx-p.x, cy-p.y) > pr(p)+M; });
+    && patches.every(p => { const cx = Math.max(x, Math.min(p.x, x+w)), cy = Math.max(y, Math.min(p.y, y+h)); return Math.hypot(cx-p.x, cy-p.y) > pr(p)+M; })
+    && nests.every(n => { const cx = Math.max(x, Math.min(n.x, x+w)), cy = Math.max(y, Math.min(n.y, y+h)); return Math.hypot(cx-n.x, cy-n.y) > (n.r||12) + NEST_GAP; })
+    && (!obst || !obst.size || (() => { for(let gx=Math.floor((x-M)/G); gx<=Math.floor((x+w+M)/G); gx++) for(let gy=Math.floor((y-M)/G); gy<=Math.floor((y+h+M)/G); gy++) if(obst.has(gx+","+gy)) return false; return true; })());
+  const cells = {};
+  // widen big blocks until they're no taller than ~1.5x their width, so they fit between patches
+  for(const b of BLOCKS){ const res = sol.blocks[b.id]; if(!res.lineList.length) continue;
+    let c; for(const L of [80, 120, 160, 240, 320, 480, 640]){ c = packBlock(res, opt, L)[0]; if(c.h <= c.w * 1.5) break; }
+    cells[b.id] = c; }
+  // pinned blocks go down first, exactly where they were built
+  for(const [id, pin] of Object.entries(pins)){
+    const cell = cells[id]; if(!cell) continue;
+    // a re-plan can grow a pinned block into its neighbour; then it re-flows like any other
+    if(!placed.every(q => pin.x+cell.w <= q.x || q.x+q.w <= pin.x || pin.y+cell.h <= q.y || q.y+q.h <= pin.y)) continue;
+    const p = { id, x:pin.x, y:pin.y, w:cell.w, h:cell.h, cell, pinned:true };
+    placed.push(p); at[id] = p;
+  }
   for(const b of [...BLOCKS].reverse()){
     const res = sol.blocks[b.id]; if(!res.lineList.length) continue;
-    const cell = packBlock(res, opt, 80)[0];
+    const cell = cells[b.id];
     // sources: placed blocks for intermediates, nearest patch for raw (two passes so the
     // patch choice follows the block's own pull)
     let target = centre, srcs = [];
@@ -432,28 +452,138 @@ function layoutWorld(sol, patches){
       const W = srcs.reduce((s,x)=>s+x.w,0);
       if(W > 0) target = { x: srcs.reduce((s,x)=>s+x.x*x.w,0)/W, y: srcs.reduce((s,x)=>s+x.y*x.w,0)/W };
     }
+    if(at[b.id] && at[b.id].pinned){ const p = at[b.id]; srcs.forEach(s => flows.push({ ...s, to:b.id, tx:p.x+p.w/2, ty:p.y+p.h/2 })); continue; }
     // spiral out from the target to the nearest free spot
     const w = cell.w, h = cell.h, x0 = Math.round(target.x - w/2), y0 = Math.round(target.y - h/2);
     let spot = null;
-    for(let r=0; r<400 && !spot; r+=4){
-      let best = null;
-      for(let dx=-r; dx<=r; dx+=4) for(let dy=-r; dy<=r; dy+=4){
-        if(Math.max(Math.abs(dx),Math.abs(dy)) !== r) continue;
-        if(free(x0+dx, y0+dy, w, h)){ const d = Math.hypot(dx,dy); if(!best || d < best.d) best = { x:x0+dx, y:y0+dy, d }; }
-      }
+    const tryAt = (dx, dy, best) => free(x0+dx, y0+dy, w, h) && (!best || Math.hypot(dx,dy) < best.d) ? { x:x0+dx, y:y0+dy, d:Math.hypot(dx,dy) } : best;
+    for(let r=0; r<1600 && !spot; r+=4){
+      let best = r ? null : tryAt(0, 0, null);
+      for(let t=-r; t<=r && r; t+=4){ best = tryAt(t, -r, best); best = tryAt(t, r, best); if(Math.abs(t) < r){ best = tryAt(-r, t, best); best = tryAt(r, t, best); } }
       spot = best;
     }
+    const stuck = !spot;
     spot = spot || { x:x0, y:y0 };
-    const p = { id:b.id, x:spot.x, y:spot.y, w, h, cell };
+    const p = { id:b.id, x:spot.x, y:spot.y, w, h, cell, stuck };
     placed.push(p); at[b.id] = p;
     srcs.forEach(s => flows.push({ ...s, to:b.id, tx:p.x+w/2, ty:p.y+h/2 }));
   }
   // transport effort: belt-loads x tiles travelled (solids only)
   const effort = flows.filter(f => !FLUIDS.has(f.k)).reduce((s,f) => s + f.rate/BELT * Math.hypot(f.tx-f.x, f.ty-f.y), 0);
-  return { kind:"world", placed, flows, patches, effort };
+  placed.sort((a,b) => BLOCKS.findIndex(x=>x.id===b.id) - BLOCKS.findIndex(x=>x.id===a.id));
+  return { kind:"world", placed, flows, patches, effort, marks: ctx.marks || [] };
+}
+
+// ---------- the guide: one linear list of things to do -----------------------------------
+// Research and building interleave: research a technology, then build every block it opens,
+// then extend blocks that gained a line. Steps have stable ids so ticks survive re-plans.
+function guideSteps(sol){
+  const steps = [{ id:"setup", type:"setup", title:"Mark where your resources are" }];
+  const ids = BUILD_ORDER.filter(id => sol.blocks[id] && sol.blocks[id].lineList.length);
+  const opens = Object.fromEntries(ids.map(id => [id, blockStep(id, sol)]));
+  RESEARCH.forEach((t, i) => {
+    const blocks = ids.filter(id => opens[id] === i);
+    const extend = ids.filter(id => opens[id] < i).flatMap(id => sol.blocks[id].lineList.filter(L => UNLOCK_STEP[L.key] === i).map(L => ({ id, key:L.key })));
+    if(i > 0){
+      // back-to-back research with nothing to build in between becomes one step
+      const last = steps[steps.length-1];
+      if(last.type === "research") { last.techs.push(t.id); last.step = i; last.title = "Research " + last.techs.map(x => RESEARCH.find(r=>r.id===x).name).join(", "); if(t.note) last.notes.push(t.note); }
+      else steps.push({ id:"r:"+t.id, type:"research", techs:[t.id], step:i, title:"Research "+t.name, notes: t.note ? [t.note] : [] });
+    }
+    blocks.forEach(id => steps.push({ id:"b:"+id, type:"build", block:id, step:i, title:"Build "+BLOCKS.find(b=>b.id===id).name }));
+    // group extensions per block
+    const byBlock = {};
+    extend.forEach(e => (byBlock[e.id] = byBlock[e.id] || []).push(e.key));
+    Object.entries(byBlock).forEach(([id, keys]) => steps.push({ id:"e:"+id+":"+t.id, type:"extend", block:id, keys, step:i,
+      title:"Extend "+BLOCKS.find(b=>b.id===id).name }));
+  });
+  return steps;
+}
+
+// ---------- reading the player's game ------------------------------------------------------
+// The save format can't be read outside the game, so a one-line console command exports what
+// the planner needs (resources, crafting machines with recipes, finished research) to
+// script-output/factorio-planner.json. Factorio 2.x Lua API.
+const SCAN_COMMAND = [
+  '/c local pl=game.player local s=pl.surface local f=pl.force local c=pl.position local R=800',
+  'local A={{c.x-R,c.y-R},{c.x+R,c.y+R}} local b={}',
+  'local function add(n,cx,cy,x,y,k,a) local key=n..":"..cx..":"..cy local t=b[key] if not t then t={n=n,cx=cx,cy=cy,x=0,y=0,c=0,a=0} b[key]=t end t.x=t.x+x*k t.y=t.y+y*k t.c=t.c+k t.a=t.a+(a or 0) end',
+  'for _,e in pairs(s.find_entities_filtered{area=A,type="resource"}) do local p=e.position add(e.name,math.floor(p.x/32),math.floor(p.y/32),p.x,p.y,1,e.amount) end',
+  'local W={"water","deepwater","water-green","deepwater-green","water-shallow","water-mud"}',
+  'for cx=math.floor((c.x-R)/32),math.floor((c.x+R)/32) do for cy=math.floor((c.y-R)/32),math.floor((c.y+R)/32) do local n=s.count_tiles_filtered{area={{cx*32,cy*32},{cx*32+32,cy*32+32}},name=W} if n>0 then add("water",cx,cy,cx*32+16,cy*32+16,n) end end end',
+  'local res={} for _,t in pairs(b) do res[#res+1]={n=t.n,cx=t.cx,cy=t.cy,x=t.x/t.c,y=t.y/t.c,c=t.c,a=t.a} end',
+  'local m={} for _,e in pairs(s.find_entities_filtered{force=f,type={"assembling-machine","furnace","rocket-silo","lab"}}) do local r=nil',
+  'pcall(function() local x=e.get_recipe() if x then r=x.name end end)',
+  'if not r and e.type=="furnace" then pcall(function() local q=e.previous_recipe if q then r=(type(q.name)=="string") and q.name or q.name.name end end) end',
+  'm[#m+1]={n=e.name,t=e.type,x=e.position.x,y=e.position.y,r=r} end',
+  'local tech={} for n,t in pairs(f.technologies) do if t.researched then tech[#tech+1]=n end end',
+  'local tags={} for _,t in pairs(f.find_chart_tags(s)) do tags[#tags+1]={x=t.position.x,y=t.position.y,text=t.text,icon=t.icon and t.icon.name or nil} end',
+  'local en={} for _,e in pairs(s.find_entities_filtered{area=A,force="enemy",type={"unit-spawner","turret"}}) do en[#en+1]={x=e.position.x,y=e.position.y,t=e.type} end',
+  'helpers.write_file("factorio-planner.json",helpers.table_to_json({v=1,tick=game.tick,player={x=c.x,y=c.y},resources=res,machines=m,research=tech,tags=tags,enemies=en}),false)',
+  'pl.print("Saved script-output/factorio-planner.json: "..#res.." resource chunks, "..#m.." machines, "..#tech.." technologies, "..#tags.." map tags, "..#en.." enemy buildings")',
+].join(" ");
+
+const RES_KIND = { "iron-ore":"iron", "copper-ore":"copper", "stone":"stone", "coal":"coal", "crude-oil":"oil", "water":"water" };
+const RECIPE_KEY = { "solid-fuel-from-light-oil":"solid-fuel", "advanced-oil-processing":"aop", "basic-oil-processing":"aop",
+  "heavy-oil-cracking":"heavy-crack", "light-oil-cracking":"light-crack" };
+// Turn the export into patches (adjacent chunks of one resource merge into one patch; the
+// biggest few of each kind are kept), machines keyed like the planner, and research ids.
+function parseScan(data, maxPerKind){
+  maxPerKind = maxPerKind || 3;
+  if(!data || !Array.isArray(data.resources) || !Array.isArray(data.machines)) throw new Error("This doesn't look like a factorio-planner.json export.");
+  const groups = {};
+  for(const r of data.resources){ const k = RES_KIND[r.n]; if(k) (groups[k] = groups[k] || []).push(r); }
+  const patches = [];
+  for(const [kind, list] of Object.entries(groups)){
+    const byKey = new Map(list.map(r => [r.cx+","+r.cy, r])), seen = new Set(), found = [];
+    for(const r of list){
+      const k0 = r.cx+","+r.cy; if(seen.has(k0)) continue;
+      const stack = [r], members = []; seen.add(k0);
+      while(stack.length){ const q = stack.pop(); members.push(q);
+        for(let dx=-1; dx<=1; dx++) for(let dy=-1; dy<=1; dy++){ const k = (q.cx+dx)+","+(q.cy+dy); if(!seen.has(k) && byKey.has(k)){ seen.add(k); stack.push(byKey.get(k)); } } }
+      const c = members.reduce((s,m)=>s+m.c,0);
+      found.push({ c, a: members.reduce((s,m)=>s+(m.a||0),0), x: members.reduce((s,m)=>s+m.x*m.c,0)/c, y: members.reduce((s,m)=>s+m.y*m.c,0)/c });
+    }
+    const min = kind==="oil" ? 1 : kind==="water" ? 400 : 60;
+    found.filter(f => f.c >= min).sort((a,b) => b.c - a.c).slice(0, maxPerKind).forEach((f, i) => patches.push({
+      id: "s"+kind+i, kind, x: Math.round(f.x), y: Math.round(f.y), amount: f.a,
+      r: kind==="oil" ? 14 : Math.max(10, Math.min(kind==="water" ? 80 : 60, Math.round(Math.sqrt(f.c/Math.PI)))) }));
+  }
+  const machines = data.machines.map(m => ({ x:m.x, y:m.y, name:m.n,
+    key: m.n==="lab" ? "lab" : (m.r ? (RECIPE_KEY[m.r] || m.r) : null) }));
+  // map tags the player placed, and enemy bases grouped into nests (spawners/worms within ~48 tiles)
+  const marks = (data.tags || []).map((t, i) => ({ id:"t"+i, kind:"tag", x:Math.round(t.x), y:Math.round(t.y), text: t.text || t.icon || "Tag" }));
+  const en = (data.enemies || []).slice(), used = new Array(en.length).fill(false);
+  for(let i=0; i<en.length; i++){
+    if(used[i]) continue; used[i] = true;
+    const grp = [en[i]];
+    for(let k=0; k<grp.length; k++) for(let j=0; j<en.length; j++) if(!used[j] && Math.hypot(en[j].x-grp[k].x, en[j].y-grp[k].y) < 48){ used[j] = true; grp.push(en[j]); }
+    const x = grp.reduce((s,e)=>s+e.x,0)/grp.length, y = grp.reduce((s,e)=>s+e.y,0)/grp.length;
+    const r = Math.max(12, Math.max(...grp.map(e => Math.hypot(e.x-x, e.y-y))) + 6);
+    marks.push({ id:"n"+marks.length, kind:"nest", x:Math.round(x), y:Math.round(y), r:Math.round(r), count:grp.length, text: grp.length+" enemy buildings" });
+  }
+  return { patches, marks, machines, research: new Set(data.research || []), player: data.player || null, tick: data.tick };
+}
+// How much of each placed block is built: machines with the right recipe inside the block's
+// footprint (plus a small margin). Also returns 8-tile cells covered by machines that sit
+// outside every block, so a re-plan steers around the player's existing buildings.
+function checkBase(sol, placed, machines){
+  const M = 6, out = {}, used = new Set();
+  for(const p of placed){
+    const lines = sol.blocks[p.id].lineList.map(L => ({ key:L.key, need:L.count, built:0 }));
+    machines.forEach((m, i) => {
+      if(m.x < p.x-M || m.x > p.x+p.w+M || m.y < p.y-M || m.y > p.y+p.h+M) return;
+      const L = lines.find(l => l.key === m.key); if(L){ L.built++; used.add(i); }
+    });
+    const need = lines.reduce((s,l)=>s+l.need,0), have = lines.reduce((s,l)=>s+Math.min(l.built,l.need),0);
+    out[p.id] = { lines, need, have, frac: need ? have/need : 0 };
+  }
+  const obstacles = new Set();
+  machines.forEach((m, i) => { if(!used.has(i)) for(let dx=-1; dx<=1; dx++) for(let dy=-1; dy<=1; dy++) obstacles.add(Math.floor((m.x+dx*2)/8)+","+Math.floor((m.y+dy*2)/8)); });
+  return { blocks: out, obstacles, outside: machines.length - used.size };
 }
 
 // ---------- build order -----------------------------------------------------------------
 const BUILD_ORDER = ["iron","copper","green","auto","log","brick","steel","mil","oil","red","chem","prod","batt","frames","blue","lds","util","silo","labs"];
 
-if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, layoutWorld, packBlock, nice, effects, BUILD_ORDER, BELT, RESEARCH, blockStep, DEFAULT_PATCHES };
+if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, layoutWorld, packBlock, nice, effects, BUILD_ORDER, BELT, RESEARCH, blockStep, DEFAULT_PATCHES, guideSteps, parseScan, checkBase, SCAN_COMMAND, UNLOCK_STEP, PATCH_INFO };
