@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-11",
-    "fetched": "2026-10-11T23:37:22+00:00",
+    "updated": "2026-10-12",
+    "fetched": "2026-10-12T05:27:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 9
+      "temp": 14,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 16
     },
     "days": [
       {
@@ -35,8 +35,8 @@
         "day": "Wed",
         "min": 7,
         "max": 13,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 6
       }
     ]
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119704.0,
-        "pct": 0.75
+        "price": 120457.0,
+        "pct": 1.38
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3626.57,
-        "pct": 1.06
+        "price": 3669.96,
+        "pct": 2.31
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Demon Hunters’ India-Taiwan Action-Comedy Sets Netherlands Theatrical Release (EXCLUSIVE)",
-      "when": "11 Oct",
+      "title": "Banijay Dishes Up Italian Cooking Show ‘Cooking Grandmas,’ Starring Alessandro Borghese, at Mipcom (EXCLUSIVE)",
+      "when": "12 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/demon-hunters-india-taiwan-action-comedy-netherlands-release-1236908532/"
+      "url": "https://variety.com/2026/tv/global/banijay-italian-cooking-show-cooking-grandmas-mipcom-1236908036/"
     },
     {
       "cat": "Film/TV",
-      "title": "Cannes-Winning ‘Tiger Stripes’ Producer Backs Taiwanese Coming-of-Age Drama ‘Uncle’ at Busan Asian Project Market",
-      "when": "11 Oct",
+      "title": "‘Heart of a Killer,’ Niv Sultan Medical Thriller From Sipur and North Road, Gets Second Season Order (EXCLUSIVE)",
+      "when": "12 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/tiger-stripes-producer-uncle-busan-asian-project-market-1236908528/"
+      "url": "https://variety.com/2026/tv/global/heart-of-a-killer-niv-sultan-season-2-1236908419/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Korea Box Office: Anime Feature ‘Chiikawa’ Edges Past ‘The Assassin(s)’ to Claim Weekend Crown",
+      "when": "12 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/box-office/korea-box-office-chiikawa-edges-the-assassins-1236908656/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "China Box Office: ‘Resident Evil’ Dethrones ‘Traces of Justice’ to Claim Top Spot as Post-Holiday Market Cools",
+      "when": "12 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/china-box-office-resident-evil-top-spot-1236908648/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +118,6 @@
       "when": "11 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/this-week-in-a-galaxy-far-far-away-star-wars-publishing-announcements-new-york-comic-con-also-where-is-taika.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Hugh Hefner’s Ex-Wife Calls Him a ‘True Gentleman’ After His Widow Crystal Harris Urges Jessica Biel to ‘Reconsider’ Playing His Wife",
-      "when": "11 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hugh-hefner-ex-wife-crystal-harris-jessica-biel-playmates-1236908495/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Quentin Tarantino Play ‘The Popinjay Cavalier,’ Starring Sacha Baron Cohen, to Open on West End in March",
-      "when": "11 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/theater/global/quentin-tarantino-play-sacha-baron-cohen-west-end-run-dates-1236906408/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "7m ago",
       "lang": "HTML",
       "commit": ""
     }
