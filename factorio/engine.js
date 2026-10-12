@@ -337,7 +337,123 @@ function layoutCity(sol){
   return { kind:"city", N, cells, pitch: CITY.pitch };
 }
 
+
+// ---------- research (technology.lua) ---------------------------------------------------
+// A practical research order that respects every prerequisite. Each step lists the recipes
+// (this planner's keys) the technology unlocks; recipes no technology unlocks are "start".
+const RESEARCH = [
+  { id:"start", name:"Game start", unlocks:["iron-plate","copper-plate","stone-brick","iron-gear-wheel","transport-belt","firearm-magazine"] },
+  { id:"steam-power", name:"Steam power", unlocks:["pipe"] },
+  { id:"electronics", name:"Electronics", unlocks:["copper-cable","electronic-circuit","inserter","lab"] },
+  { id:"radar", name:"Radar", unlocks:["radar"] },
+  { id:"automation-science-pack", name:"Automation science pack", unlocks:["automation-science-pack"] },
+  { id:"logistic-science-pack", name:"Logistic science pack", unlocks:["logistic-science-pack"] },
+  { id:"steel-processing", name:"Steel processing", unlocks:["steel-plate"] },
+  { id:"electric-energy-distribution-1", name:"Electric energy distribution 1", unlocks:["iron-stick"] },
+  { id:"solar-energy", name:"Solar energy", unlocks:["solar-panel"] },
+  { id:"stone-wall", name:"Stone wall", unlocks:["stone-wall"] },
+  { id:"military-2", name:"Military 2", unlocks:["piercing-rounds-magazine","grenade"] },
+  { id:"military-science-pack", name:"Military science pack", unlocks:["military-science-pack"] },
+  { id:"engine", name:"Engine", unlocks:["engine-unit"] },
+  { id:"oil-processing", name:"Oil processing", unlocks:[], note:"Refineries and chemical plants. Start with basic oil processing until advanced arrives." },
+  { id:"plastics", name:"Plastics", unlocks:["plastic-bar"] },
+  { id:"sulfur-processing", name:"Sulfur processing", unlocks:["sulfur","sulfuric-acid"] },
+  { id:"advanced-circuit", name:"Advanced circuit", unlocks:["advanced-circuit"] },
+  { id:"chemical-science-pack", name:"Chemical science pack", unlocks:["chemical-science-pack"] },
+  { id:"advanced-oil-processing", name:"Advanced oil processing", unlocks:["aop","heavy-crack","light-crack","solid-fuel"] },
+  { id:"lubricant", name:"Lubricant", unlocks:["lubricant"] },
+  { id:"battery", name:"Battery", unlocks:["battery"] },
+  { id:"electric-energy-accumulators", name:"Electric energy accumulators", unlocks:["accumulator"] },
+  { id:"electric-engine", name:"Electric engine", unlocks:["electric-engine-unit"] },
+  { id:"robotics", name:"Robotics", unlocks:["flying-robot-frame"] },
+  { id:"processing-unit", name:"Processing unit", unlocks:["processing-unit"] },
+  { id:"low-density-structure", name:"Low density structure", unlocks:["low-density-structure"] },
+  { id:"advanced-material-processing-2", name:"Advanced material processing 2", unlocks:["electric-furnace"] },
+  { id:"productivity-module", name:"Productivity module", unlocks:["productivity-module"] },
+  { id:"railway", name:"Railway", unlocks:["rail"] },
+  { id:"production-science-pack", name:"Production science pack", unlocks:["production-science-pack"] },
+  { id:"utility-science-pack", name:"Utility science pack", unlocks:["utility-science-pack"] },
+  { id:"rocket-fuel", name:"Rocket fuel", unlocks:["rocket-fuel"] },
+  { id:"rocket-silo", name:"Rocket silo", unlocks:["rocket-part","satellite"] },
+];
+const UNLOCK_STEP = {}; RESEARCH.forEach((t,i) => t.unlocks.forEach(k => UNLOCK_STEP[k] = i));
+// A block opens when the recipe for one of its outputs is researched (and that recipe's
+// own sub-lines are too); its other lines light up as their research lands.
+function blockStep(id, sol){
+  const b = BLOCKS.find(x => x.id === id), lines = sol.blocks[id].lineList.map(L => L.key);
+  if(b.kind === "labs") return UNLOCK_STEP["lab"];
+  if(id === "silo") return UNLOCK_STEP["rocket-part"];
+  const lineStep = k => UNLOCK_STEP[k] ?? 0;
+  const firsts = b.makes.filter(k => lines.includes(k)).map(k => {
+    const deps = Object.keys(R[k].in).filter(i => b.local.includes(i) && lines.includes(i));
+    return Math.max(lineStep(k), ...deps.map(lineStep));
+  });
+  return firsts.length ? Math.min(...firsts) : 0;
+}
+
+// ---------- layout 3: your world ------------------------------------------------------------
+// Resource patches are wherever the player says they are. Blocks are placed supplier-first:
+// each one goes as close as it can to the rate-weighted centre of what it consumes, without
+// overlapping a patch or another block. Moving a patch re-plans everything around it.
+const PATCH_KIND = { "iron-ore":"iron", "copper-ore":"copper", "stone":"stone", "coal":"coal", "crude-oil":"oil", "water":"water" };
+const PATCH_INFO = {
+  iron:{ name:"Iron ore", color:"#7d8ea8", r:26 }, copper:{ name:"Copper ore", color:"#d27a45", r:26 },
+  stone:{ name:"Stone", color:"#b9a37f", r:18 }, coal:{ name:"Coal", color:"#4a4f5c", r:20 },
+  oil:{ name:"Crude oil", color:"#8a5fa0", r:22 }, water:{ name:"Water (lake)", color:"#2f6fb5", r:34 },
+};
+const DEFAULT_PATCHES = [
+  { id:"p1", kind:"iron",   x:120, y:140 }, { id:"p2", kind:"copper", x:470, y:120 },
+  { id:"p3", kind:"stone",  x:300, y:60 },  { id:"p4", kind:"coal",   x:110, y:430 },
+  { id:"p5", kind:"oil",    x:500, y:440 }, { id:"p6", kind:"water",  x:300, y:560 },
+];
+function layoutWorld(sol, patches){
+  const opt = sol.opt, M = 5, placed = [], flows = [], at = {};
+  const pr = p => PATCH_INFO[p.kind].r;
+  const centre = { x: patches.reduce((s,p)=>s+p.x,0)/Math.max(1,patches.length), y: patches.reduce((s,p)=>s+p.y,0)/Math.max(1,patches.length) };
+  const nearest = (kind, pt) => patches.filter(p => p.kind===kind).sort((a,b)=>Math.hypot(a.x-pt.x,a.y-pt.y)-Math.hypot(b.x-pt.x,b.y-pt.y))[0];
+  const weight = (k, rate) => k==="water" ? rate/200 : FLUIDS.has(k) ? rate/20 : rate;
+  const free = (x,y,w,h) => placed.every(q => x+w+M <= q.x || q.x+q.w+M <= x || y+h+M <= q.y || q.y+q.h+M <= y)
+    && patches.every(p => { const cx = Math.max(x, Math.min(p.x, x+w)), cy = Math.max(y, Math.min(p.y, y+h)); return Math.hypot(cx-p.x, cy-p.y) > pr(p)+M; });
+  for(const b of [...BLOCKS].reverse()){
+    const res = sol.blocks[b.id]; if(!res.lineList.length) continue;
+    const cell = packBlock(res, opt, 80)[0];
+    // sources: placed blocks for intermediates, nearest patch for raw (two passes so the
+    // patch choice follows the block's own pull)
+    let target = centre, srcs = [];
+    for(let pass=0; pass<2; pass++){
+      srcs = [];
+      for(const [k, rate] of Object.entries(res.imports)){
+        if(rate <= 1e-9) continue;
+        let pt = null;
+        if(PATCH_KIND[k]){ const p = nearest(PATCH_KIND[k], target); if(p) pt = { x:p.x, y:p.y, patch:p.id }; }
+        else { const owner = BLOCKS.find(o => o.makes.includes(k)); const q = owner && at[owner.id]; if(q) pt = { x:q.x+q.w/2, y:q.y+q.h/2, block:owner.id }; }
+        if(pt) srcs.push({ k, rate, w: weight(k, rate), ...pt });
+      }
+      const W = srcs.reduce((s,x)=>s+x.w,0);
+      if(W > 0) target = { x: srcs.reduce((s,x)=>s+x.x*x.w,0)/W, y: srcs.reduce((s,x)=>s+x.y*x.w,0)/W };
+    }
+    // spiral out from the target to the nearest free spot
+    const w = cell.w, h = cell.h, x0 = Math.round(target.x - w/2), y0 = Math.round(target.y - h/2);
+    let spot = null;
+    for(let r=0; r<400 && !spot; r+=4){
+      let best = null;
+      for(let dx=-r; dx<=r; dx+=4) for(let dy=-r; dy<=r; dy+=4){
+        if(Math.max(Math.abs(dx),Math.abs(dy)) !== r) continue;
+        if(free(x0+dx, y0+dy, w, h)){ const d = Math.hypot(dx,dy); if(!best || d < best.d) best = { x:x0+dx, y:y0+dy, d }; }
+      }
+      spot = best;
+    }
+    spot = spot || { x:x0, y:y0 };
+    const p = { id:b.id, x:spot.x, y:spot.y, w, h, cell };
+    placed.push(p); at[b.id] = p;
+    srcs.forEach(s => flows.push({ ...s, to:b.id, tx:p.x+w/2, ty:p.y+h/2 }));
+  }
+  // transport effort: belt-loads x tiles travelled (solids only)
+  const effort = flows.filter(f => !FLUIDS.has(f.k)).reduce((s,f) => s + f.rate/BELT * Math.hypot(f.tx-f.x, f.ty-f.y), 0);
+  return { kind:"world", placed, flows, patches, effort };
+}
+
 // ---------- build order -----------------------------------------------------------------
 const BUILD_ORDER = ["iron","copper","green","auto","log","brick","steel","mil","oil","red","chem","prod","batt","frames","blue","lds","util","silo","labs"];
 
-if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, packBlock, nice, effects, BUILD_ORDER, BELT };
+if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, layoutWorld, packBlock, nice, effects, BUILD_ORDER, BELT, RESEARCH, blockStep, DEFAULT_PATCHES };
