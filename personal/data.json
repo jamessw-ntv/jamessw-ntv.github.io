@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-12",
-    "fetched": "2026-10-12T05:27:53+00:00",
+    "fetched": "2026-10-12T15:03:03+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
+      "temp": 8,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 16
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
-        "min": 9,
-        "max": 19,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 98
-      },
-      {
-        "day": "Tue",
         "min": 7,
         "max": 13,
         "icon": "🌦️",
@@ -33,11 +25,19 @@
       },
       {
         "day": "Wed",
-        "min": 7,
+        "min": 6,
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 6
+      },
+      {
+        "day": "Thu",
+        "min": 3,
+        "max": 20,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 8
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 120457.0,
-        "pct": 1.38
+        "price": 118517.0,
+        "pct": -0.59
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3669.96,
-        "pct": 2.31
+        "price": 3622.12,
+        "pct": 0.75
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Banijay Dishes Up Italian Cooking Show ‘Cooking Grandmas,’ Starring Alessandro Borghese, at Mipcom (EXCLUSIVE)",
+      "title": "Theo Von Sets New Netflix Special ‘I’m Doing Fine’ for October Release (EXCLUSIVE)",
       "when": "12 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/banijay-italian-cooking-show-cooking-grandmas-mipcom-1236908036/"
+      "url": "https://variety.com/2026/tv/news/theo-von-new-netflix-special-im-doing-fine-1236907676/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Heart of a Killer,’ Niv Sultan Medical Thriller From Sipur and North Road, Gets Second Season Order (EXCLUSIVE)",
+      "title": "‘Always Lalisa’ Director Sue Kim Reveals Secrets Behind Lisa Doc, From YG Blocking Blackpink Music to Lots of Tequila Shots",
       "when": "12 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/heart-of-a-killer-niv-sultan-season-2-1236908419/"
+      "url": "https://variety.com/2026/film/news/always-lalisa-director-lisa-rumored-boyfriend-doc-1236908666/"
     },
     {
       "cat": "Film/TV",
-      "title": "Korea Box Office: Anime Feature ‘Chiikawa’ Edges Past ‘The Assassin(s)’ to Claim Weekend Crown",
+      "title": "Antonio Banderas to Star in AI-Powered Feature ‘Cortes’ From Utopai Studios",
       "when": "12 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/korea-box-office-chiikawa-edges-the-assassins-1236908656/"
+      "url": "https://variety.com/2026/film/news/antonio-banderas-ai-powered-feature-cortes-utopai-studios-1236908962/"
     },
     {
       "cat": "Film/TV",
-      "title": "China Box Office: ‘Resident Evil’ Dethrones ‘Traces of Justice’ to Claim Top Spot as Post-Holiday Market Cools",
+      "title": "‘Hatchet’ Movie: Netflix and Derek Cianfrance to Adapt Gary Paulsen’s Survival Book (EXCLUSIVE)",
       "when": "12 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/china-box-office-resident-evil-top-spot-1236908648/"
+      "url": "https://variety.com/2026/film/news/hatchet-movie-netflix-derek-cianfrance-gary-paulsen-1236909010/"
+    },
+    {
+      "cat": "Games",
+      "title": "1.2 Update Fixes v1.2.4.1",
+      "when": "12 Oct",
+      "source": "Satisfactory",
+      "url": "https://store.steampowered.com/news/app/526870/view/670630562731396159"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "A Reminder Klingons Don’t Take Prisoners In Preview Of ‘Star Trek: Red Shirts – Ghost Of The 21st Century’ #3",
+      "when": "12 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/12/a-reminder-klingons-dont-take-prisoners-in-preview-of-star-trek-red-shirts-ghost-of-the-21st-century-3/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,32 +162,18 @@
       "url": "https://trekmovie.com/2026/10/10/nycc-first-look-at-star-trek-starfleet-academy-season-2-returning-in-march-with-bill-nighy-joining/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Scott Bakula And ‘Enterprise’ Producer Mike Sussman Developing CBS Procedural, Door Still Open For ‘Star Trek: United’ [Exclusive]",
-      "when": "10 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/10/scott-bakula-and-enterprise-producer-mike-sussman-developing-cbs-procedural-door-still-open-for-star-trek-united-exclusive/"
-    },
-    {
       "cat": "Games",
       "title": "Another Satisfactory Announcement",
       "when": "29 Sep",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/712287592723253306"
-    },
-    {
-      "cat": "Games",
-      "title": "Satisfactory - September News",
-      "when": "22 Sep",
-      "source": "Satisfactory",
-      "url": "https://store.steampowered.com/news/app/526870/view/677384059121304793"
     }
   ],
   "dev": [
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7m ago",
+      "pushed": "9h ago",
       "lang": "HTML",
       "commit": ""
     }
