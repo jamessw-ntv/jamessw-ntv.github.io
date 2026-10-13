@@ -3,24 +3,24 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-13",
-    "fetched": "2026-10-13T19:08:15+00:00",
+    "fetched": "2026-10-13T23:41:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 8
+      "temp": 11,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 15
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
+        "min": 7,
         "max": 12,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 2
       },
       {
@@ -34,9 +34,9 @@
       {
         "day": "Fri",
         "min": 7,
-        "max": 21,
-        "icon": "⛅",
-        "desc": "Partly cloudy",
+        "max": 22,
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 39
       }
     ]
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119080.0,
-        "pct": 0.51
+        "price": 119115.0,
+        "pct": 1.38
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3593.84,
-        "pct": -0.5
+        "price": 3578.97,
+        "pct": 1.86
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Bernie Orenstein, Co-Writer of ‘That Girl’ and ‘The New Dick Van Dyke Show,’ Dies at 95",
+      "title": "‘Clean Hands’ Review: Zach Braff Is a Cop on a Crusade to Save His Addict Daughter in an Uneasy Fact-Based Crime Drama",
       "when": "13 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/bernie-orenstein-dead-that-girl-1236910352/"
+      "url": "https://variety.com/2026/film/reviews/clean-hands-review-1236910791/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Girls’ Shocker: Lena Dunham Sets Revival at HBO With Allison Williams, Zosia Mamet, Jemima Kirke Returning",
+      "title": "‘Tommy & Tuppence’ Stars Josh Dylan and Antonia Thomas on That ‘Intense’ Finale, Why the Detective Duo ‘Keep Missing Each Other’ Romantically and a Potential Season 2",
       "when": "13 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/girls-revival-lena-dunham-allison-williams-zosia-mamet-hbo-1236909362/"
+      "url": "https://variety.com/2026/tv/global/tommy-tuppence-finale-josh-dylan-antonia-thomas-romance-season-2-1236909902/"
     },
     {
       "cat": "Film/TV",
-      "title": "Peacock Sets ‘Assassins’ Competition Show Based on Popular School Game; Scarlett Johansson to Produce",
+      "title": "Why the ‘Girls’ Revival Is Such an Exciting Idea",
       "when": "13 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/assassins-reality-show-peacock-1236910332/"
+      "url": "https://variety.com/2026/tv/columns/girls-revival-hbo-1236910307/"
     },
     {
       "cat": "Film/TV",
-      "title": "Duane ‘Keffe D’ Davis Sentenced to 40 Years to Life for Role in Tupac Shakur’s Murder",
+      "title": "‘Just Dance: Decades of Hits’ Costume Designer Breaks Down the New Game’s Look and Not Using AI: ‘It’s Our Art’",
       "when": "13 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/duane-keffe-d-davis-sentenced-40-years-tupac-shakur-murder-1236909531/"
+      "url": "https://variety.com/2026/artisans/news/just-dance-decades-of-hits-no-ai-1236910597/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Interview: Cillian O’Sullivan On Reinventing Roger Korby In ‘Star Trek: Strange New Worlds’",
+      "when": "13 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/13/interview-cillian-osullivan-on-re-inventing-roger-korby-for-star-trek-strange-new-worlds/"
+    },
+    {
+      "cat": "Games",
+      "title": "Satisfactory: The board game – Campaign live now!",
+      "when": "13 Oct",
+      "source": "Satisfactory",
+      "url": "https://store.steampowered.com/news/app/526870/view/670630562731396470"
     },
     {
       "cat": "Trek/Wars",
@@ -134,13 +148,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/10/epic-games-reportedly-delaying-unannounced-game-with-star-wars-and-marvel-characters.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "NYCC: ‘Star Trek: Starfleet Academy’ Cast And Producers Talk Season 1 Political Reaction, Preview Sophomore Year",
-      "when": "12 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/12/nycc-star-trek-starfleet-academy-cast-and-producers-preview-whats-new-for-their-sophomore-year/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.1",
       "when": "12 Oct",
@@ -160,20 +167,13 @@
       "when": "11 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/update-every-new-star-wars-title-announced-during-lucasfilm-publishing-panels-nycc.html"
-    },
-    {
-      "cat": "Games",
-      "title": "Another Satisfactory Announcement",
-      "when": "29 Sep",
-      "source": "Satisfactory",
-      "url": "https://store.steampowered.com/news/app/526870/view/712287592723253306"
     }
   ],
   "dev": [
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
