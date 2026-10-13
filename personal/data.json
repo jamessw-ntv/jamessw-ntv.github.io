@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-13",
-    "fetched": "2026-10-13T11:36:26+00:00",
+    "fetched": "2026-10-13T19:08:15+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 10
+      "temp": 7,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 8
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
-        "max": 13,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 69
-      },
-      {
-        "day": "Wed",
-        "min": 7,
-        "max": 13,
+        "max": 12,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 4
+        "rain": 2
       },
       {
         "day": "Thu",
@@ -37,7 +29,15 @@
         "max": 20,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 0
+      },
+      {
+        "day": "Fri",
+        "min": 7,
+        "max": 21,
+        "icon": "⛅",
+        "desc": "Partly cloudy",
+        "rain": 39
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119665.0,
-        "pct": 0.07
+        "price": 119080.0,
+        "pct": 0.51
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3591.5,
-        "pct": -1.69
+        "price": 3593.84,
+        "pct": -0.5
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Skydance, Movistar Plus Expand Strategic Alliance In a Win-Win Move Into Co-Branded Original Series",
+      "title": "Bernie Orenstein, Co-Writer of ‘That Girl’ and ‘The New Dick Van Dyke Show,’ Dies at 95",
       "when": "13 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/skydance-movistar-plus-hbo-max-jointly-branded-series-1236909926/"
+      "url": "https://variety.com/2026/tv/news/bernie-orenstein-dead-that-girl-1236910352/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jeremy Strong Texted Jessica Chastain After ‘Other Mommy’ Dominated Box Office Over ‘Social Reckoning’ Flop",
+      "title": "‘Girls’ Shocker: Lena Dunham Sets Revival at HBO With Allison Williams, Zosia Mamet, Jemima Kirke Returning",
       "when": "13 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jeremy-strong-texted-jessica-chastain-other-mommy-social-reckoning-1236909803/"
+      "url": "https://variety.com/2026/tv/news/girls-revival-lena-dunham-allison-williams-zosia-mamet-hbo-1236909362/"
     },
     {
       "cat": "Film/TV",
-      "title": "J.K. Rowling Docuseries Set at BBC",
+      "title": "Peacock Sets ‘Assassins’ Competition Show Based on Popular School Game; Scarlett Johansson to Produce",
       "when": "13 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/j-k-rowling-docuseries-bbc-1236909874/"
+      "url": "https://variety.com/2026/tv/news/assassins-reality-show-peacock-1236910332/"
     },
     {
       "cat": "Film/TV",
-      "title": "Raindance to Launch U.K.’s First Major Vertical Festival and Market (EXCLUSIVE)",
+      "title": "Duane ‘Keffe D’ Davis Sentenced to 40 Years to Life for Role in Tupac Shakur’s Murder",
       "when": "13 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/raindance-to-launch-uk-first-vertical-media-festival-market-1236909834/"
+      "url": "https://variety.com/2026/music/news/duane-keffe-d-davis-sentenced-40-years-tupac-shakur-murder-1236909531/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "See Commander Tendi Join Captain Raffi’s Crew In Preview Of ‘Star Trek: Zero Point’ #1",
+      "when": "13 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/13/see-commander-tendi-join-captain-raffis-crew-in-preview-of-star-trek-zero-point-1/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Watch: The ‘Star Trek: Scouts’ Have To Rescue A Snotty Space Whale",
+      "when": "13 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/13/watch-the-star-trek-scouts-have-to-rescue-a-snotty-space-whale/"
     },
     {
       "cat": "Trek/Wars",
@@ -127,25 +141,11 @@
       "url": "https://trekmovie.com/2026/10/12/nycc-star-trek-starfleet-academy-cast-and-producers-preview-whats-new-for-their-sophomore-year/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Interview: Brent Spiner Talks Developing ‘Nemesis’ Sequel With Crossovers From “All The Star Treks”",
-      "when": "12 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/12/interview-brent-spiner-talks-developing-nemesis-sequel-with-crossovers-from-all-the-star-treks/"
-    },
-    {
       "cat": "Games",
       "title": "1.2 Update Fixes v1.2.4.1",
       "when": "12 Oct",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/670630562731396159"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "A Reminder Klingons Don’t Take Prisoners In Preview Of ‘Star Trek: Red Shirts – Ghost Of The 21st Century’ #3",
-      "when": "12 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/12/a-reminder-klingons-dont-take-prisoners-in-preview-of-star-trek-red-shirts-ghost-of-the-21st-century-3/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "8h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     }
