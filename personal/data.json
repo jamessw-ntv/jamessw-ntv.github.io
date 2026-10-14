@@ -3,13 +3,13 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-14",
-    "fetched": "2026-10-14T10:00:36+00:00",
+    "fetched": "2026-10-14T14:58:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 6,
       "icon": "☀️",
       "desc": "Clear",
       "wind": 11
@@ -17,15 +17,7 @@
     "days": [
       {
         "day": "Today",
-        "min": 7,
-        "max": 13,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 4
-      },
-      {
-        "day": "Thu",
-        "min": 4,
+        "min": 3,
         "max": 20,
         "icon": "☁️",
         "desc": "Overcast",
@@ -35,9 +27,17 @@
         "day": "Fri",
         "min": 7,
         "max": 22,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 27
+      },
+      {
+        "day": "Sat",
+        "min": 10,
+        "max": 24,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 27
+        "rain": 25
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118660.0,
-        "pct": -0.99
+        "price": 117393.0,
+        "pct": -1.84
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3560.66,
-        "pct": -1.2
+        "price": 3478.23,
+        "pct": -3.49
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Joanna Hogg to Preside Over El Gouna Film Festival Jury",
+      "title": "Wang Chao’s ‘A Woman’ Swooped on by France’s Malavida, Which Sets 2027 Retrospective",
       "when": "14 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/joanna-hogg-el-gouna-film-festival-jury-president-1236911025/"
+      "url": "https://variety.com/2026/film/global/malavida-wang-chao-a-woman-2027-retrospective-1236911301/"
     },
     {
       "cat": "Film/TV",
-      "title": "Russell Brand Was ‘Ruthless and Calculated’ With a ‘Voracious’ Desire for ‘Sexual Contact,’ Prosecution Alleges in Rape Trial Opening Statement",
+      "title": "Content Market and Conference Mipcom Attracts 10,100 Delegates, Down by Around 500",
       "when": "14 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/russell-brand-rape-trial-ruthless-calculated-prosecution-1236911046/"
+      "url": "https://variety.com/2026/tv/global/mipcom-attendance-2026-1236911034/"
     },
     {
       "cat": "Film/TV",
-      "title": "Banijay Kids & Family Sells ’Little Princess’ to Sky U.K. (EXCLUSIVE)",
+      "title": "Paul McCartney Calls Out Beatles Movies Because Paul Mescal Is Shorter Than John Lennon Actor; He Texted Director Sam Mendes: ‘Don’t Do This!’",
       "when": "14 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/banijay-kids-family-little-princess-sky-u-k-nordisk-film-1236911035/"
+      "url": "https://variety.com/2026/film/news/paul-mccartney-beatles-movies-paul-mescal-too-short-1236911197/"
     },
     {
       "cat": "Film/TV",
-      "title": "Russell T Davies Calls BBC Boss’ AI ‘Doctor Who’ Comment ‘Clumsy’ and Teases Show’s Future: ‘You’ll Start to See Production’ in ‘Summer Next Year’",
+      "title": "‘Zogsool’ Wins Four Prizes at Busan Vision Awards as ‘Full Moon’ Takes Three",
       "when": "14 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/russell-t-davies-bbc-boss-ai-doctor-who-comment-clumsy-1236911048/"
+      "url": "https://variety.com/2026/film/festivals/zogsool-full-moon-busan-vision-awards-2026-1236911303/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "See The Most Important Person In Starfleet Trapped In A Spooky Mystery In ‘Star Trek: Holo-Ween II’ #2 Preview",
+      "when": "14 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/14/see-the-most-important-person-in-starfleet-trapped-in-a-spooky-mystery-in-star-trek-holo-ween-ii-2-preview/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "13 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/13/see-commander-tendi-join-captain-raffis-crew-in-preview-of-star-trek-zero-point-1/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Watch: The ‘Star Trek: Scouts’ Have To Rescue A Snotty Space Whale",
-      "when": "13 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/13/watch-the-star-trek-scouts-have-to-rescue-a-snotty-space-whale/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
