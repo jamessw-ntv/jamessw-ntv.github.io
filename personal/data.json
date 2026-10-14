@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-14",
-    "fetched": "2026-10-14T04:26:38+00:00",
+    "fetched": "2026-10-14T10:00:36+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 13
+      "temp": 8,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 11
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 13,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 4
       },
       {
         "day": "Thu",
@@ -35,9 +35,9 @@
         "day": "Fri",
         "min": 7,
         "max": 22,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 39
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 27
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119530.0,
-        "pct": -0.17
+        "price": 118660.0,
+        "pct": -0.99
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3585.9,
-        "pct": -0.59
+        "price": 3560.66,
+        "pct": -1.2
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Judge Extends Block on Trump’s White House Ban on CNN, MS NOW and Politico",
+      "title": "Joanna Hogg to Preside Over El Gouna Film Festival Jury",
       "when": "14 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/judge-blocks-trump-administrations-ban-cnn-ms-now-politico-1236910947/"
+      "url": "https://variety.com/2026/film/festivals/joanna-hogg-el-gouna-film-festival-jury-president-1236911025/"
     },
     {
       "cat": "Film/TV",
-      "title": "Martha Plimpton Slams Shane Gillis’ ‘Really F—g Stupid’ ‘SNL’ Monologue: ‘He Deserves a Spanking From His Mom’",
+      "title": "Russell Brand Was ‘Ruthless and Calculated’ With a ‘Voracious’ Desire for ‘Sexual Contact,’ Prosecution Alleges in Rape Trial Opening Statement",
       "when": "14 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/shane-gillis-snl-monologue-martha-plimpton-lorne-michaels-1236910915/"
+      "url": "https://variety.com/2026/tv/global/russell-brand-rape-trial-ruthless-calculated-prosecution-1236911046/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘All About Corinne’ Review: Isabelle Huppert Stalks Sandrine Kiberlain in a Witty, Deliciously Acted French Industry Satire",
+      "title": "Banijay Kids & Family Sells ’Little Princess’ to Sky U.K. (EXCLUSIVE)",
       "when": "14 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/all-about-corinne-review-isabelle-huppert-1236908606/"
+      "url": "https://variety.com/2026/tv/global/banijay-kids-family-little-princess-sky-u-k-nordisk-film-1236911035/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kelly Clarkson vs. Art of Play: Footage Revealed of Singer’s Visit to Brooklyn Novelty Store She Slammed for ‘Pretty Woman’ Treatment",
+      "title": "Russell T Davies Calls BBC Boss’ AI ‘Doctor Who’ Comment ‘Clumsy’ and Teases Show’s Future: ‘You’ll Start to See Production’ in ‘Summer Next Year’",
       "when": "14 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/kelly-clarkson-art-of-play-molly-bird-footage-revealed-1236910838/"
+      "url": "https://variety.com/2026/tv/global/russell-t-davies-bbc-boss-ai-doctor-who-comment-clumsy-1236911048/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
