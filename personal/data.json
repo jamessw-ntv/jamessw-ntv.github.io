@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-14",
-    "fetched": "2026-10-14T23:05:44+00:00",
+    "updated": "2026-10-15",
+    "fetched": "2026-10-15T01:23:43+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
+      "temp": 17,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 6
+      "wind": 3
     },
     "days": [
       {
@@ -33,8 +33,8 @@
       },
       {
         "day": "Sat",
-        "min": 11,
-        "max": 24,
+        "min": 10,
+        "max": 23,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 22
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117020.0,
-        "pct": -1.88
+        "price": 117511.0,
+        "pct": -1.43
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3466.65,
-        "pct": -3.25
+        "price": 3476.47,
+        "pct": -2.97
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Abbott Elementary’ Star William Stanford Davis Sets Memoir ‘Don’t Mess With the Fat Kid’ (EXCLUSIVE)",
-      "when": "14 Oct",
+      "title": "Academy CEO Bill Kramer to Head to Tokyo for Leadership Award and Onstage Summit With Toho Boss Matsuoka Hiro",
+      "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/abbott-elementary-william-stanford-davis-memoir-1236912328/"
+      "url": "https://variety.com/2026/film/festivals/academy-ceo-bill-kramer-tokyo-award-toho-boss-summit-1236911117/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Lanterns’ Season 2 Won’t Be Greenlit Until the Writers’ Room ‘Comes Up With a Worthy Successor to a Great First Season’",
-      "when": "14 Oct",
+      "title": "‘The Lowdown’ Creator Sterlin Harjo on the Films That Inspired Season 2, and What Convinced Tommy Lee Jones to Join the Show",
+      "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/lanterns-season-2-greenlit-writers-room-1236908603/"
+      "url": "https://variety.com/2026/tv/news/the-lowdown-sterlin-harjo-season-2-tommy-lee-jones-1236912635/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Beach Fictions’ Review: Utterly Beguiling, Time-Tweaking Korean Romance Shows What a Day a Difference Makes",
-      "when": "14 Oct",
+      "title": "Anthony Edwards Names Justin Bieber ‘White Boy of the Year’ in Satirical Believe That Awards (EXCLUSIVE)",
+      "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/beach-fictions-review-1236912043/"
+      "url": "https://variety.com/2026/sports/news/anthony-edwards-justin-bieber-white-boy-of-the-year-1236912577/"
     },
     {
       "cat": "Film/TV",
-      "title": "Critics Vindicate ‘Artificial’ After Messy Amazon MGM Breakup (and the Studios vs. Talent Wars Around AI Are Just Beginning)",
-      "when": "14 Oct",
+      "title": "‘Full House’ Star Jodie Sweetin Says Dave Coulier is ‘Doing Great’ Following ‘Tough Battle’ with Cancer",
+      "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/amazon-studios-ai-artificial-acclaim-dropped-1236912439/"
+      "url": "https://variety.com/2026/tv/news/jodie-sweetin-dave-coulier-cancer-battle-full-house-1236912656/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Former ‘Doctor Who’ Showrunner Says “Nightmare” Corporate Politics Killed ‘Star Trek: Strange New Worlds’ Crossover",
+      "when": "14 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/14/former-doctor-who-showrunner-says-nightmare-corporate-politics-killed-star-trek-strange-new-worlds-crossover/"
     },
     {
       "cat": "Trek/Wars",
@@ -149,13 +156,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "See Commander Tendi Join Captain Raffi’s Crew In Preview Of ‘Star Trek: Zero Point’ #1",
-      "when": "13 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/13/see-commander-tendi-join-captain-raffis-crew-in-preview-of-star-trek-zero-point-1/"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Epic Games Reportedly Delaying Unannounced Game With ‘Star Wars’ and Marvel Characters, Shifting Focus to AI-Driven Development",
       "when": "12 Oct",
       "source": "SW News Net",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
