@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-15",
-    "fetched": "2026-10-15T07:13:43+00:00",
+    "fetched": "2026-10-15T13:15:30+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 17,
+      "temp": 9,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 16
+      "wind": 7
     },
     "days": [
       {
         "day": "Today",
-        "min": 3,
-        "max": 20,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Fri",
         "min": 8,
         "max": 22,
         "icon": "☁️",
@@ -35,9 +27,17 @@
         "day": "Sat",
         "min": 10,
         "max": 23,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "⛅",
+        "desc": "Partly cloudy",
         "rain": 16
+      },
+      {
+        "day": "Sun",
+        "min": 11,
+        "max": 24,
+        "icon": "🌤️",
+        "desc": "Mainly clear",
+        "rain": 2
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 116465.0,
-        "pct": -2.25
+        "price": 116525.0,
+        "pct": -1.52
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3394.4,
-        "pct": -5.09
+        "price": 3404.32,
+        "pct": -3.84
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Netflix’s ‘Victorious’ Spinoff ‘Hollywood Arts’ Is a Bland Copy of Shows From a Past Era: TV Review",
+      "title": "Spike Lee and Mick Jagger’s Favorite Eyewear Brand Unveils First Collection From New Creative Directors John Juniper and Jeff Solorio",
       "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/hollywood-arts-review-netflix-victorious-1236909385/"
+      "url": "https://variety.com/2026/shopping/news/morgenthal-fredericks-collection-shop-online-1236912270/"
     },
     {
       "cat": "Film/TV",
-      "title": "Gersh Launches Victoria House, Expanding Into Scripted Films, True Crime and International Co-Productions (EXCLUSIVE)",
+      "title": "Zendaya to Star in Alex Garland Sci-Fi Film at A24",
       "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/gersh-victoria-house-launch-you-first-originals-1236909813/"
+      "url": "https://variety.com/2026/film/global/zendaya-to-star-in-alex-garland-sci-fi-film-a24-1236912811/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kirti Kulhari’s Production Debut ‘Kinaare’ to Premiere at Dharamshala, Rima Das’ ‘Not a Hero’ to Open Festival",
+      "title": "‘Club Kid’ to Host Free Screenings for Nightlife Communities in 12 U.S. Cities (EXCLUSIVE)",
       "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/kirti-kulhari-kinaare-rima-das-not-a-hero-dharamshala-1236912276/"
+      "url": "https://variety.com/2026/film/columns/club-kid-free-screenings-nightlife-communities-1236912486/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘South Park’: Stan Discovers Sephora’s Backrooms Before Ike Aura Battles a Looksmaxxing Chad",
+      "title": "British Government ‘Minded to Intervene’ in Sky’s Proposed $2 Billion Takeover of ITV",
       "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/south-park-season-29-sephora-backrooms-aura-battle-1236909613/"
+      "url": "https://variety.com/2026/tv/global/lisa-nandy-intervene-itv-sky-takeover-1236912867/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
