@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-15",
-    "fetched": "2026-10-15T13:15:30+00:00",
+    "fetched": "2026-10-15T18:09:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 7
+      "temp": 8,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 3
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 22,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 57
+        "rain": 33
       },
       {
         "day": "Sat",
@@ -29,7 +29,7 @@
         "max": 23,
         "icon": "⛅",
         "desc": "Partly cloudy",
-        "rain": 16
+        "rain": 10
       },
       {
         "day": "Sun",
@@ -37,7 +37,7 @@
         "max": 24,
         "icon": "🌤️",
         "desc": "Mainly clear",
-        "rain": 2
+        "rain": 0
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 116525.0,
-        "pct": -1.52
+        "price": 118854.0,
+        "pct": 1.46
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3404.32,
-        "pct": -3.84
+        "price": 3525.55,
+        "pct": 1.07
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Spike Lee and Mick Jagger’s Favorite Eyewear Brand Unveils First Collection From New Creative Directors John Juniper and Jeff Solorio",
+      "title": "‘The Conners’ Boss Bruce Helford Hired to Run ‘Newlyweds’ at NBC After Gail Lerner’s Firing",
       "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/morgenthal-fredericks-collection-shop-online-1236912270/"
+      "url": "https://variety.com/2026/tv/news/bruce-helford-nbc-newlyweds-gail-lerner-fired-1236913258/"
     },
     {
       "cat": "Film/TV",
-      "title": "Zendaya to Star in Alex Garland Sci-Fi Film at A24",
+      "title": "Tracy Morgan, Jane Krakowski, Daniel Radcliffe and More Join NBC Comedy Panels at New York Comedy Festival",
       "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/zendaya-to-star-in-alex-garland-sci-fi-film-a24-1236912811/"
+      "url": "https://variety.com/?p=1236909431"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Club Kid’ to Host Free Screenings for Nightlife Communities in 12 U.S. Cities (EXCLUSIVE)",
+      "title": "Warner Bros. Studios Leavesden Revenues Climb 11% to $390 Million Thanks to ‘Harry Potter’ Tour, Increased Production (EXCLUSIVE)",
       "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/club-kid-free-screenings-nightlife-communities-1236912486/"
+      "url": "https://variety.com/2026/biz/global/harry-potter-tour-leavesden-accounts-2025-1236913172/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Creation’s Philadelphia Star Trek Con Almost Sold Out; Celebration Of TNG’s 40th Set For Orlando in March",
+      "when": "15 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/15/creations-philadelphia-star-trek-con-almost-sold-out-celebration-of-tngs-40th-set-for-orlando-in-march/"
     },
     {
       "cat": "Film/TV",
-      "title": "British Government ‘Minded to Intervene’ in Sky’s Proposed $2 Billion Takeover of ITV",
+      "title": "Cleveland Cavaliers on DAZN: Here’s How to Watch 2026-2027 Regular Season Games Live Online",
       "when": "15 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/lisa-nandy-intervene-itv-sky-takeover-1236912867/"
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-cleveland-cavaliers-regular-season-dazn-online-1236913203/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Terry Matalas Talks Patrick Stewart’s ‘Star Trek: Legacy’ Role And ‘Picard’ Season 2’s Biggest Fail",
+      "when": "15 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/15/terry-matalas-talks-patrick-stewarts-star-trek-legacy-role-and-picard-season-2s-biggest-fail/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,20 +146,6 @@
       "when": "14 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/review-thrawn-the-manga-vol-1-reimagines-timothy-zahns-epic-novel-in-stellar-fashion.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "See The Most Important Person In Starfleet Trapped In A Spooky Mystery In ‘Star Trek: Holo-Ween II’ #2 Preview",
-      "when": "14 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/14/see-the-most-important-person-in-starfleet-trapped-in-a-spooky-mystery-in-star-trek-holo-ween-ii-2-preview/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Interview: Cillian O’Sullivan On Reinventing Roger Korby In ‘Star Trek: Strange New Worlds’",
-      "when": "13 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/13/interview-cillian-osullivan-on-re-inventing-roger-korby-for-star-trek-strange-new-worlds/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
