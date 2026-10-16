@@ -3,21 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-16",
-    "fetched": "2026-10-16T19:28:48+00:00",
+    "fetched": "2026-10-16T22:42:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
+      "temp": 18,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 8
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
-        "min": 11,
+        "min": 10,
         "max": 23,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,24 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117386.0,
-        "pct": -1.53
+        "price": 117548.0,
+        "pct": -1.28
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3478.11,
-        "pct": -2.02
+        "price": 3483.65,
+        "pct": -1.88
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Selma Blair’s Rep Speaks Out After Actress’ Arrest and Plane Incident: ‘Selma Did Not Intend to Harm Anyone’",
+      "title": "‘Street Fighter’ Cast Guide: All the WWE Stars, UFC Champs and Celebs Playing Video Game Fighters in the Live-Action Movie",
       "when": "16 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/selma-blair-rep-speaks-out-arrest-plane-incident-1236909381/"
+      "url": "https://variety.com/lists/street-fighter-cast-video-game-vs-live-action/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Elizabeth Holmes’ Partner Billy Evans Admits ‘She Looks Insane’ in ‘You Can See Everything’ Trailer but Defends Making the Doc: ‘Make Up Your Own Mind’",
+      "when": "16 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/billy-evans-defends-you-can-see-everything-elizabeth-holmes-insane-1236914043/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Jon Watts Was Reportedly Developing Another ‘Star Wars’ Series Earlier This Year",
+      "when": "16 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/jon-watts-was-reportedly-developing-another-star-wars-series-earlier-this-year.html"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Music Industry Moves: My Chemical Romance Signs With Warner Chappell",
+      "when": "16 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/jesse-jo-stark-wme-1236910696/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Red Rising’ Movie in the Works at Paramount With ‘Hunger Games’ Director Francis Lawrence",
+      "when": "16 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/red-rising-movie-paramount-hunger-games-director-books-1236914459/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Biddy Blas Actor Talks Bringing ‘Star Wars: Galactic Racer’ Character To Life And Becoming An Internet Sensation",
+      "when": "16 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/biddy-blas-actor-talks-bring-star-wars-galactic-racer-character-to-life-and-becoming-an-internet-sensation.html"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +132,6 @@
       "when": "16 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/16/interview-nana-visitor-on-kiras-spiritual-legacy-and-hopes-for-the-future-of-star-trek/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Kate Berlant on Her HBO Special ‘Parmesan,’ the Joke That Made a Man Flip Her Off and Her Next Project With John Early",
-      "when": "16 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/kate-berlant-hbo-special-parmesan-1236913499/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Diddy Moved to New Prison Days After Being Hospitalized for Alleged Head Injury",
-      "when": "16 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/diddy-moved-to-new-prison-hospitalized-alleged-head-injury-1236914289/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Katie Zacharia, Trump’s Press Secretary, Is Out After Five Days",
-      "when": "16 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/politics/news/katie-zacharia-trump-press-secretary-out-1236914253/"
     },
     {
       "cat": "Trek/Wars",
@@ -141,20 +155,6 @@
       "url": "https://trekmovie.com/2026/10/16/podcast-all-access-gets-updated-on-star-trek-pitches-and-recaps-new-york-comic-con-2026/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "‘Ahsoka’ Season 2 – Dave Filoni Talks Nightsisters and Exploring “Weird” Force Mythology",
-      "when": "15 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/ahsoka-season-2-dave-filoni-talks-nightsisters-and-exploring-weird-force-mythology.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘Rogue One: Chirrut & Baze’ is Fun But Overly Simplistic",
-      "when": "14 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/review-rogue-one-chirrut-baze-is-fun-but-overly-simplistic.html"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory: The board game – Campaign live now!",
       "when": "13 Oct",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
