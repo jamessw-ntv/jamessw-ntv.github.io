@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-16",
-    "fetched": "2026-10-16T05:41:10+00:00",
+    "fetched": "2026-10-16T11:07:27+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 22,
+      "temp": 13,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 3
+      "wind": 8
     },
     "days": [
       {
@@ -25,7 +25,7 @@
       },
       {
         "day": "Sat",
-        "min": 10,
+        "min": 11,
         "max": 23,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -33,10 +33,10 @@
       },
       {
         "day": "Sun",
-        "min": 12,
+        "min": 11,
         "max": 24,
-        "icon": "🌤️",
-        "desc": "Mainly clear",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 2
       }
     ]
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118282.0,
-        "pct": 1.52
+        "price": 118070.0,
+        "pct": 1.13
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3522.4,
-        "pct": 3.76
+        "price": 3539.93,
+        "pct": 3.85
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Nawazuddin Siddiqui to Star as Delhi Street Detective in ‘Kabootar’ (EXCLUSIVE)",
+      "title": "Sundance Winners Blerta Basholli and Myrsini Aristidou Compete in Thessaloniki’s Meet the Neighbors+ Competition (EXCLUSIVE)",
       "when": "16 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/nawazuddin-siddiqui-delhi-street-detective-kabootar-1236913102/"
+      "url": "https://variety.com/2026/film/global/thessaloniki-meet-the-neighbors-1236913838/"
     },
     {
       "cat": "Film/TV",
-      "title": "Cynthia Erivo’s ‘Bad Fairies’ Adds Kylie Minogue, Jonathan Groff and Catherine Tate to Voice Cast",
+      "title": "‘On the Line: The World Burger Games’: Full Day Productions Brings Five Guys Competition to Life in Prime Video Docuseries",
       "when": "16 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/cynthia-erivo-bad-fairies-kylie-minogue-jonathan-groff-1236913639/"
+      "url": "https://variety.com/2026/tv/news/five-guys-competition-prime-video-docuseries-1236912059/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Mandalorian and Grogu’ VFX Veteran Hal Hickel on Rotta’s Redesign, Phil Tippett and Jon Favreau’s ‘Less James Bond, More Jackass’ Approach",
+      "when": "16 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/the-mandalorian-and-grogu-vfx-hal-hickel-phil-tippett-1236913822/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Singapore Media Festival Launches Creator Summit as Asia TV Forum Adds AI Zone, Microdrama Focus",
+      "when": "16 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/markets-festivals/singapore-media-festival-asia-creator-summit-ai-zone-atf-1236913825/"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +118,6 @@
       "when": "16 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/15/james-mcavoy-pitched-a-young-captain-picard-star-trek-show-we-nearly-did-it/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Norm: The Tale of Norm Macdonald’ Review: Judd Apatow’s Juicy and Haunting Portrait of a Comedy Star as Troubled as He Was Hilarious",
-      "when": "16 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/norm-the-tale-of-norm-macdonald-review-judd-apatow-1236911273/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Grey’s Anatomy’ Boss Unpacks Season 23 Premiere and Teases Dolly Parton Episode, Texas Spinoff and Whether This Really Could Be the Final Season",
-      "when": "16 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/greys-anatomy-season-23-premiere-spinoff-update-final-season-1236911978/"
     },
     {
       "cat": "Trek/Wars",
