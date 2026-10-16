@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-16",
-    "fetched": "2026-10-16T15:21:07+00:00",
+    "fetched": "2026-10-16T19:28:48+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 11,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 7
+      "wind": 8
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 23,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 18
+        "rain": 22
       },
       {
         "day": "Sun",
@@ -29,7 +29,7 @@
         "max": 24,
         "icon": "🌤️",
         "desc": "Mainly clear",
-        "rain": 2
+        "rain": 6
       },
       {
         "day": "Mon",
@@ -72,38 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117299.0,
-        "pct": -1.28
+        "price": 117386.0,
+        "pct": -1.53
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3511.62,
-        "pct": 0.28
+        "price": 3478.11,
+        "pct": -2.02
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Julia Stiles Is ‘Crying’ at ‘DWTS’ Rehearsals Ahead of Heath Ledger Tribute: ‘Bringing Back So Many Memories’",
+      "title": "Selma Blair’s Rep Speaks Out After Actress’ Arrest and Plane Incident: ‘Selma Did Not Intend to Harm Anyone’",
       "when": "16 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/julia-stiles-dwts-heath-ledger-tribute-crying-rehearsals-1236913999/"
+      "url": "https://variety.com/2026/film/news/selma-blair-rep-speaks-out-arrest-plane-incident-1236909381/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Interview: Nana Visitor On Kira’s “Spiritual” Legacy And Hopes For The Future Of Star Trek",
+      "when": "16 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/16/interview-nana-visitor-on-kiras-spiritual-legacy-and-hopes-for-the-future-of-star-trek/"
     },
     {
       "cat": "Film/TV",
-      "title": "Martin Scorsese Recalls His Last Conversation With Federico Fellini in New Doc Premiering at Rome Film Festival: ‘Thank You, I’ll See You Soon’ (EXCLUSIVE)",
+      "title": "Kate Berlant on Her HBO Special ‘Parmesan,’ the Joke That Made a Man Flip Her Off and Her Next Project With John Early",
       "when": "16 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/martin-scorsese-fellini-last-conversation-new-doc-1236913900/"
+      "url": "https://variety.com/2026/tv/news/kate-berlant-hbo-special-parmesan-1236913499/"
     },
     {
       "cat": "Film/TV",
-      "title": "Barack and Michelle Obama’s Higher Ground to Recieve Greg Berlanti Social Impact Award",
+      "title": "Diddy Moved to New Prison Days After Being Hospitalized for Alleged Head Injury",
       "when": "16 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/obama-higher-ground-greg-berlanti-social-impact-award-1236913530/"
+      "url": "https://variety.com/2026/music/news/diddy-moved-to-new-prison-hospitalized-alleged-head-injury-1236914289/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Katie Zacharia, Trump’s Press Secretary, Is Out After Five Days",
+      "when": "16 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/politics/news/katie-zacharia-trump-press-secretary-out-1236914253/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Watch: Irish Crime Drama Starring Star Trek’s Kate Mulgrew and Colm Meaney Gets New Trailer",
+      "when": "16 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/16/watch-irish-crime-drama-starring-star-treks-kate-mulgrew-and-colm-meaney-gets-new-trailer/"
     },
     {
       "cat": "Trek/Wars",
@@ -113,32 +134,11 @@
       "url": "https://www.starwarsnewsnet.com/2026/10/sebulba-star-wars-character-spotlight.html"
     },
     {
-      "cat": "Film/TV",
-      "title": "Rachel Chinouriri on How Sobriety and Self-Actualization Inspired Her Sophomore Album ‘I Think I Spoke Too Soon’: ‘It Was Like Doing an Autopsy on Myself’",
-      "when": "16 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/rachel-chinouriri-sobriety-i-think-i-spoke-too-soon-album-1236913601/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Podcast: All Access Gets Updated On Star Trek Pitches And Recaps New York Comic Con 2026",
       "when": "16 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/16/podcast-all-access-gets-updated-on-star-trek-pitches-and-recaps-new-york-comic-con-2026/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "James McAvoy Pitched A Young Captain Picard Star Trek Show: “We Nearly Did It”",
-      "when": "16 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/15/james-mcavoy-pitched-a-young-captain-picard-star-trek-show-we-nearly-did-it/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review: ‘The Sixty-Year Mission’ Lovingly Tells Star Trek’s Complex Origin Story",
-      "when": "15 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/15/review-the-sixty-year-mission-lovingly-tells-star-treks-complex-origin-story/"
     },
     {
       "cat": "Trek/Wars",
