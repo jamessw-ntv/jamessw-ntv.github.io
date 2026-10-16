@@ -2,8 +2,8 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-15",
-    "fetched": "2026-10-15T22:04:08+00:00",
+    "updated": "2026-10-16",
+    "fetched": "2026-10-16T00:15:36+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 119073.0,
-        "pct": 1.68
+        "price": 118833.0,
+        "pct": 1.4
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3557.77,
-        "pct": 2.62
+        "price": 3527.54,
+        "pct": 1.52
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Netflix Shocker: Bela Bajaria Leaving After 10 Years Amid Layoffs",
+      "title": "The 27 Best ‘American Horror Story’ Characters, Ranked",
+      "when": "16 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/lists/american-horror-story-characters-ranked/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jenna Ortega Says She Hopes ‘Klara and the Sun’ Encourages People to ‘Put Down the Computers and Phones’ as Dystopian Film World Premieres in London",
+      "when": "15 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/festivals/jenna-ortega-klara-and-the-sun-put-down-phones-london-premiere-1236912808/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Steven Soderbergh to Help Finish ‘The Batman 2’ Filming After Matt Reeves Stepped Away for Family Matter",
+      "when": "15 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/steven-soderbergh-finish-batman-2-matt-reeves-stepped-away-1236913552/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Netflix Shocker: Bela Bajaria Leaving After 10 Years Amid Layoffs, Peter Rice to Replace as Chief Content Officer",
       "when": "15 Oct",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/netflix-bela-bajaria-leaving-layoffs-1236913504/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Taylor Sheridan’s ‘Frisco King’ Starring Samuel L. Jackson Sets Release Date (TV News Roundup)",
-      "when": "15 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/tv-news-roundup-week-of-oct-12-1236909160/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Fourth Wing’ TV Series Casts Emilio Sakraya as Xaden Riorson",
-      "when": "15 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/fourth-wing-tv-series-xaden-riorson-emilio-sakraya-1236905893/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Denis Villeneuve Chose to Direct New James Bond Movie After ‘Dune 3’ Because ‘I Need a Powerful Rocket to Pull Me Away From Arrakis’",
-      "when": "15 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/denis-villeneuve-james-bond-dune-3-1236913390/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
