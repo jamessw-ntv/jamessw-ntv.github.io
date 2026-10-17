@@ -3,37 +3,37 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-17",
-    "fetched": "2026-10-17T18:19:51+00:00",
+    "fetched": "2026-10-17T21:21:33+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 15,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 7
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
-        "min": 11,
+        "min": 12,
         "max": 24,
-        "icon": "🌤️",
-        "desc": "Mainly clear",
+        "icon": "☀️",
+        "desc": "Clear",
         "rain": 0
       },
       {
         "day": "Mon",
-        "min": 12,
-        "max": 25,
+        "min": 11,
+        "max": 24,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 2
       },
       {
         "day": "Tue",
-        "min": 16,
+        "min": 15,
         "max": 26,
         "icon": "🌦️",
         "desc": "Showers",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117170.0,
-        "pct": 0.1
+        "price": 117327.0,
+        "pct": -0.13
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3474.63,
-        "pct": -0.07
+        "price": 3480.95,
+        "pct": 0.18
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Sense and Sensibility’ Costume Designer on Blending Historical Accuracy and Modern Styling for the Dashwood Sisters: ‘We Want to Do Jane Austen Justice’",
+      "title": "Here’s Where to Watch Sebastian Fundora vs. Ermal Hadribeaj Title Boxing Match Live Online for Free",
       "when": "17 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/sense-and-sensibility-costume-designer-dashwood-1236913296/"
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-fundora-vs-hadribeaj-boxing-live-online-free-1236909640/"
     },
     {
       "cat": "Film/TV",
-      "title": "Gene Schwam, Veteran Hollywood Publicist to Elvis Presley, Julie Andrews and More, Dies at 96",
+      "title": "Paul Bettany Says He and Johnny Depp ‘Hadn’t Spoken’ in Years When Their Texts Were Read During Libel Trial: ‘I Was Being Painted As This Close Friend’",
       "when": "17 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/gene-schwam-dead-publicist-elvis-presley-1236914812/"
+      "url": "https://variety.com/2026/film/news/paul-bettany-johnny-depp-hadnt-spoken-in-years-libel-trial-1236915108/"
     },
     {
       "cat": "Film/TV",
-      "title": "How NBC Brought Live Musicals Back to Television",
+      "title": "‘Klara and the Sun’ Review: There’s No Life — Intelligent, Artificial or Otherwise — in Taika Waititi’s Calamitous Android Fantasy",
       "when": "17 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/sound-of-music-nbc-live-musicals-greenblatt-hairspray-1236914848/"
+      "url": "https://variety.com/2026/film/news/klara-and-the-sun-review-1236914992/"
     },
     {
       "cat": "Film/TV",
-      "title": "Harry Styles Debuts Unreleased Song He Wrote in Memory of Liam Payne, ‘What Is Enough,’ on Second Anniversary of Ex-Bandmate’s Death",
+      "title": "‘Dancing With the Stars’ Pulls Val Chmerkovskiy After ‘Inappropriate’ Carrie Ann Inaba Slap Joke: ‘The Well-Being’ of Our Staff Is ‘Non-Negotiable’",
       "when": "17 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/harry-styles-liam-payne-song-debut-what-is-enough-msg-1236914863/"
+      "url": "https://variety.com/2026/tv/news/dancing-with-the-stars-pulls-val-chmerkovskiy-carrie-ann-inaba-slap-joke-1236915031/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
