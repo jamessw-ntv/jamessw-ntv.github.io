@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-17",
-    "fetched": "2026-10-17T11:30:54+00:00",
+    "fetched": "2026-10-17T15:20:50+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
+      "temp": 13,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 4
+      "wind": 7
     },
     "days": [
       {
         "day": "Today",
-        "min": 10,
-        "max": 24,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 6
-      },
-      {
-        "day": "Sun",
         "min": 11,
         "max": 24,
         "icon": "🌤️",
         "desc": "Mainly clear",
-        "rain": 0
+        "rain": 2
       },
       {
         "day": "Mon",
@@ -38,6 +30,14 @@
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
+      },
+      {
+        "day": "Tue",
+        "min": 16,
+        "max": 26,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 47
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117214.0,
-        "pct": -1.42
+        "price": 117235.0,
+        "pct": 0.01
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3499.74,
-        "pct": -2.01
+        "price": 3482.26,
+        "pct": -0.75
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "J.K. Rowling’s Agent Slams Trans Rights Protest at ‘Harry Potter and the Cursed Child’ in London: It Put ‘Others at Risk’",
+      "title": "‘You Can See Everything’: That Shocking, Meta Twist With [SPOILER] Explained in Elizabeth Holmes Doc",
       "when": "17 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/legit/global/jk-rowling-trans-protest-harry-potter-and-the-cursed-child-1236914728/"
+      "url": "https://variety.com/2026/film/news/you-can-see-everything-amanda-seyfried-elizabeth-holmes-1236914390/"
     },
     {
       "cat": "Film/TV",
-      "title": "Taylor Swift Heroine Clara Bow’s Breakout Movie ‘It’ Leads Carlotta Films, Artcraft Pictures French Distribution Deal of Hollywood Classics",
+      "title": "Daniel Dubois vs. Fabio Wardley 2: Here’s Where to Watch the WBO Title Boxing Match Live Online",
       "when": "17 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/taylor-swift-heroine-clara-bow-it-in-carlotta-artcraft-deal-1236914724/"
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-dubois-vs-wardley-2-boxing-live-online-1236909686/"
     },
     {
       "cat": "Film/TV",
-      "title": "Coen Brothers Bring Laughs to Lumière Award Ceremony as Javier Bardem Recalls ‘No Country for Old Men’: ‘They Gave Me One Masterpiece’",
+      "title": "50 Cent Opens Up About Diddy’s Secret Smear Campaign Against Him, Why He Won’t Work With Courtney Kemp Again and Learning His Mom Was Gay: ‘I’m Not Ashamed of That in Any Way’",
       "when": "17 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/coen-brothers-profane-thank-you-lumiere-award-1236914700/"
+      "url": "https://variety.com/2026/film/features/50-cent-diddy-trump-street-fighter-courtney-kemp-power-gay-mom-1236914411/"
     },
     {
       "cat": "Film/TV",
-      "title": "Miley Cyrus Embraces Being the Anti-Pop Pop Star With Her First ‘Bass Persuades’ Concert at Hollywood Bowl: Concert Review",
+      "title": "Mahershala Ali Cries Recalling ‘Moonlight’ Scene, Keeps Quiet on ‘Spider-Verse’ at London Talk: ‘I’ve Got to Be Careful’",
       "when": "17 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/miley-cyrus-bass-persuades-hollywood-bowl-concert-review-1236914661/"
+      "url": "https://variety.com/2026/film/festivals/mahershala-ali-cries-moonlight-scene-spider-verse-1236914806/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
