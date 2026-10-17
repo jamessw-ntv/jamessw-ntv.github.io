@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-17",
-    "fetched": "2026-10-17T21:21:33+00:00",
+    "fetched": "2026-10-17T23:54:33+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
+      "temp": 20,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 10
+      "wind": 14
     },
     "days": [
       {
@@ -37,7 +37,7 @@
         "max": 26,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 46
+        "rain": 33
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117327.0,
-        "pct": -0.13
+        "price": 117038.0,
+        "pct": -0.22
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3480.95,
-        "pct": 0.18
+        "price": 3448.86,
+        "pct": -0.96
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "James McAvoy Says ‘Split’ Is The Only Film That ‘Really Consistently Pays Me’",
+      "when": "17 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/james-mcavoy-split-only-film-that-consistently-pays-me-1236915162/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Here’s Where to Buy New York Knicks Home Opener Tickets at Madison Square Garden Online",
+      "when": "17 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/new-york-knicks-home-opener-2026-msg-tickets-buy-online-1236874638/"
+    },
     {
       "cat": "Film/TV",
       "title": "Here’s Where to Watch Sebastian Fundora vs. Ermal Hadribeaj Title Boxing Match Live Online for Free",
@@ -97,20 +111,6 @@
       "when": "17 Oct",
       "source": "Variety",
       "url": "https://variety.com/2026/film/news/paul-bettany-johnny-depp-hadnt-spoken-in-years-libel-trial-1236915108/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Klara and the Sun’ Review: There’s No Life — Intelligent, Artificial or Otherwise — in Taika Waititi’s Calamitous Android Fantasy",
-      "when": "17 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/klara-and-the-sun-review-1236914992/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Dancing With the Stars’ Pulls Val Chmerkovskiy After ‘Inappropriate’ Carrie Ann Inaba Slap Joke: ‘The Well-Being’ of Our Staff Is ‘Non-Negotiable’",
-      "when": "17 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/dancing-with-the-stars-pulls-val-chmerkovskiy-carrie-ann-inaba-slap-joke-1236915031/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
