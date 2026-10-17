@@ -2,8 +2,8 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-16",
-    "fetched": "2026-10-16T22:42:47+00:00",
+    "updated": "2026-10-17",
+    "fetched": "2026-10-17T01:12:12+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117548.0,
-        "pct": -1.28
+        "price": 117168.0,
+        "pct": -1.33
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3483.65,
-        "pct": -1.88
+        "price": 3479.91,
+        "pct": -1.24
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "The Impossible ‘Whalefall’: Director Brian Duffield Wanted a Challenge, So He Discovered a Way to Crush Austin Abrams in a Whale Stomach That Left Onlookers ‘Baffled’",
+      "when": "17 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/features/whalefall-austin-abrams-crushed-whale-stomach-on-set-1236912491/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "The Hiring of Peter Rice at Netflix Could Set the Stage for a Corporate Culture Clash About the Future of Movies",
+      "when": "16 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/columns/peter-rice-hired-by-netflix-ted-sarandos-1236914367/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘Street Fighter’ Cast Guide: All the WWE Stars, UFC Champs and Celebs Playing Video Game Fighters in the Live-Action Movie",
@@ -104,20 +118,6 @@
       "when": "16 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/jon-watts-was-reportedly-developing-another-star-wars-series-earlier-this-year.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Music Industry Moves: My Chemical Romance Signs With Warner Chappell",
-      "when": "16 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/jesse-jo-stark-wme-1236910696/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Red Rising’ Movie in the Works at Paramount With ‘Hunger Games’ Director Francis Lawrence",
-      "when": "16 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/red-rising-movie-paramount-hunger-games-director-books-1236914459/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
