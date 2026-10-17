@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-17",
-    "fetched": "2026-10-17T01:12:12+00:00",
+    "fetched": "2026-10-17T06:47:45+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 18,
+      "temp": 21,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 9
+      "wind": 13
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 23,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 22
+        "rain": 6
       },
       {
         "day": "Sun",
@@ -29,15 +29,15 @@
         "max": 24,
         "icon": "🌤️",
         "desc": "Mainly clear",
-        "rain": 6
+        "rain": 0
       },
       {
         "day": "Mon",
-        "min": 12,
+        "min": 11,
         "max": 25,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 0
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117168.0,
-        "pct": -1.33
+        "price": 117280.0,
+        "pct": -0.77
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3479.91,
-        "pct": -1.24
+        "price": 3496.11,
+        "pct": -0.68
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "‘Renoir’ Producers Join Asia-Europe Co-Production Panel at Tokyo Market as Japanese Accelerator Atmovie Global Track Partners With Ties That Bind",
+      "when": "17 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/renoir-producers-asia-europe-co-production-panel-tiffcom-1236914637/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Miley Cyrus Setlist: Every Song Played at ‘Bass Persuades – Live at the Hollywood Bowl’",
+      "when": "17 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/miley-cyrus-setlist-hollywood-bowl-los-angeles-1236914492/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "How Netflix’s Messy Transition Will Rock Hollywood: Looking at You, NBCU",
+      "when": "17 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/netflix-peter-rice-bajaria-messy-dan-lin-jinny-howe-nbcu-1236914573/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "The Impossible ‘Whalefall’: Director Brian Duffield Wanted a Challenge, So He Discovered a Way to Crush Austin Abrams in a Whale Stomach That Left Onlookers ‘Baffled’",
       "when": "17 Oct",
       "source": "Variety",
       "url": "https://variety.com/2026/film/features/whalefall-austin-abrams-crushed-whale-stomach-on-set-1236912491/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "The Hiring of Peter Rice at Netflix Could Set the Stage for a Corporate Culture Clash About the Future of Movies",
-      "when": "16 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/peter-rice-hired-by-netflix-ted-sarandos-1236914367/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Street Fighter’ Cast Guide: All the WWE Stars, UFC Champs and Celebs Playing Video Game Fighters in the Live-Action Movie",
-      "when": "16 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/lists/street-fighter-cast-video-game-vs-live-action/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Elizabeth Holmes’ Partner Billy Evans Admits ‘She Looks Insane’ in ‘You Can See Everything’ Trailer but Defends Making the Doc: ‘Make Up Your Own Mind’",
-      "when": "16 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/billy-evans-defends-you-can-see-everything-elizabeth-holmes-insane-1236914043/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
