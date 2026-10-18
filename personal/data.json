@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-18",
-    "fetched": "2026-10-18T13:07:55+00:00",
+    "fetched": "2026-10-18T17:12:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
+      "temp": 13,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 6
+      "wind": 8
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 26,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 27
+        "rain": 21
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 28,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 39
+        "rain": 47
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117709.0,
-        "pct": 0.43
+        "price": 116573.0,
+        "pct": -0.18
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3469.12,
-        "pct": -0.58
+        "price": 3408.79,
+        "pct": -1.35
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Sergei Loznitsa’s ‘Imperium’ Wins Best Film at BFI London Film Festival",
+      "title": "Georgina Cates, ‘An Awfully Big Adventure’ and ‘2point4 Children’ Actress, Dies at 51",
       "when": "18 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/sergei-loznitsa-imperium-best-film-london-film-festival-1236915621/"
+      "url": "https://variety.com/2026/film/news/georgina-cates-dead-awfully-big-adventure-2point4-children-1236915784/"
     },
     {
       "cat": "Film/TV",
-      "title": "James Austin Johnson’s Trump Stops by ‘SNL U.K.’ for Meeting With Burnham and Zelenskyy: ‘You Don’t Have One Guy Who Can Play Trump?’",
+      "title": "Box Office: ‘You Can See Everything’ Stuns With $15 Million Debut, ‘Street Fighter’ Leads With $31 Million",
       "when": "18 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/snl-uk-james-austin-johnson-trump-surprise-cold-open-1236915603/"
+      "url": "https://variety.com/2026/film/box-office/you-can-see-everything-box-office-nathan-fielder-elizabeth-holmes-huge-start-1236915640/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘SNL U.K.’ Weekend Update Takes Jab at Shane Gillis: ‘You Stupid F—ing C—’",
+      "title": "Inside ‘The New Stanford Prison Experiment,’ Netflix’s Controversial Reality Series: ‘People Are Going to Have Very Strong Feelings’ (EXCLUSIVE)",
       "when": "18 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/snl-uk-shane-gillis-monologue-weekend-update-1236915579/"
+      "url": "https://variety.com/2026/tv/features/new-stanford-prison-experiment-netflix-prison-reality-series-1236915539/"
     },
     {
       "cat": "Film/TV",
-      "title": "Roger Deakins on Instinct, Experience and Not Knowing What Is a Cinematographer: ‘I Still Can’t Answer That’",
+      "title": "Apichatpong Weerasethakul’s ‘Jengira’s Magnificent Dream,’ With Tilda Swinton, Boarded by ‘Triangle of Sadness’ Mexican Co-Producer Piano",
       "when": "18 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/global/roger-deakins-instinct-experience-not-knowing-1236914679/"
+      "url": "https://variety.com/2026/film/global/apichatpong-weerasethakul-tilda-swinton-piano-1236915017/"
     },
     {
       "cat": "Trek/Wars",
