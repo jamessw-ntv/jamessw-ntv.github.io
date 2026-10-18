@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-18",
-    "fetched": "2026-10-18T17:12:17+00:00",
+    "fetched": "2026-10-18T20:25:10+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,20 +12,20 @@
       "temp": 13,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 8
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
         "min": 12,
         "max": 24,
-        "icon": "⛅",
-        "desc": "Partly cloudy",
+        "icon": "🌤️",
+        "desc": "Mainly clear",
         "rain": 0
       },
       {
         "day": "Tue",
-        "min": 14,
+        "min": 15,
         "max": 26,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 116573.0,
-        "pct": -0.18
+        "price": 116041.0,
+        "pct": -1.08
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3408.79,
-        "pct": -1.35
+        "price": 3365.1,
+        "pct": -3.21
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Georgina Cates, ‘An Awfully Big Adventure’ and ‘2point4 Children’ Actress, Dies at 51",
+      "title": "Joe Manganiello Says Ben Affleck’s Scrapped Batman Film Would Have Seen Deathstroke ‘Dismantle Batman’s Entire Life’ and Kill Commissioner Gordon",
       "when": "18 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/georgina-cates-dead-awfully-big-adventure-2point4-children-1236915784/"
+      "url": "https://variety.com/2026/film/news/joe-manganiello-ben-afflecks-batman-film-deathstroke-1236915997/"
     },
     {
       "cat": "Film/TV",
-      "title": "Box Office: ‘You Can See Everything’ Stuns With $15 Million Debut, ‘Street Fighter’ Leads With $31 Million",
+      "title": "Taylor Swift’s ‘The Life of a Showgirl’ Spends 15th Week at No. 1 on Albums Chart",
       "when": "18 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/you-can-see-everything-box-office-nathan-fielder-elizabeth-holmes-huge-start-1236915640/"
+      "url": "https://variety.com/2026/music/news/taylor-swift-the-life-of-a-showgirl-15th-week-no-1-chart-1236915983/"
     },
     {
       "cat": "Film/TV",
-      "title": "Inside ‘The New Stanford Prison Experiment,’ Netflix’s Controversial Reality Series: ‘People Are Going to Have Very Strong Feelings’ (EXCLUSIVE)",
+      "title": "Betty McGuire, ‘Growing Pains’ Actress, Dies at 100",
       "when": "18 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/features/new-stanford-prison-experiment-netflix-prison-reality-series-1236915539/"
+      "url": "https://variety.com/2026/tv/people-news/betty-mcguire-dead-growing-pains-1236915890/"
     },
     {
       "cat": "Film/TV",
-      "title": "Apichatpong Weerasethakul’s ‘Jengira’s Magnificent Dream,’ With Tilda Swinton, Boarded by ‘Triangle of Sadness’ Mexican Co-Producer Piano",
+      "title": "Jesse Eisenberg Says He ‘Couldn’t Get Movie Studio Parts Anymore’ After Winning A Razzie For ‘Batman v Superman’: ‘The Industry Did Not Want Me to Be in a Superhero Movie’",
       "when": "18 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/apichatpong-weerasethakul-tilda-swinton-piano-1236915017/"
+      "url": "https://variety.com/2026/film/global/jesse-eisenberg-razzie-batman-v-superman-1236915876/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
