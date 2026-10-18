@@ -2,42 +2,42 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-17",
-    "fetched": "2026-10-17T23:54:33+00:00",
+    "updated": "2026-10-18",
+    "fetched": "2026-10-18T04:01:54+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 14
+      "temp": 23,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
-        "min": 12,
-        "max": 24,
-        "icon": "☀️",
-        "desc": "Clear",
+        "min": 11,
+        "max": 23,
+        "icon": "🌤️",
+        "desc": "Mainly clear",
         "rain": 0
       },
       {
         "day": "Mon",
         "min": 11,
         "max": 24,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 2
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 8
       },
       {
         "day": "Tue",
-        "min": 15,
-        "max": 26,
+        "min": 16,
+        "max": 25,
         "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 33
+        "desc": "Drizzle",
+        "rain": 50
       }
     ]
   },
@@ -72,18 +72,39 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117038.0,
-        "pct": -0.22
+        "price": 117800.0,
+        "pct": 0.5
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3448.86,
-        "pct": -0.96
+        "price": 3485.99,
+        "pct": -0.08
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Academy Museum Gala 2026 Red Carpet: Taylor Swift, Inde Navarrette and More",
+      "when": "18 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/gallery/academy-museum-gala-2026-red-carpet-photos/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Interview: Robert Picardo On ‘Starfleet Academy’ Cancellation And Star Trek’s Values Surviving",
+      "when": "18 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/17/interview-robert-picardo-on-starfleet-academy-cancellation-and-star-treks-values-surviving/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Quentin Tarantino Confirms He’s ‘Written a Script’ for His Tenth Film, But Won’t Pursue It Yet Because He Wants to ‘Live a Little’",
+      "when": "17 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/quentin-tarantino-confirms-script-for-tenth-film-1236915169/"
+    },
     {
       "cat": "Film/TV",
       "title": "James McAvoy Says ‘Split’ Is The Only Film That ‘Really Consistently Pays Me’",
@@ -97,20 +118,6 @@
       "when": "17 Oct",
       "source": "Variety",
       "url": "https://variety.com/2026/shopping/news/new-york-knicks-home-opener-2026-msg-tickets-buy-online-1236874638/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Here’s Where to Watch Sebastian Fundora vs. Ermal Hadribeaj Title Boxing Match Live Online for Free",
-      "when": "17 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-fundora-vs-hadribeaj-boxing-live-online-free-1236909640/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Paul Bettany Says He and Johnny Depp ‘Hadn’t Spoken’ in Years When Their Texts Were Read During Libel Trial: ‘I Was Being Painted As This Close Friend’",
-      "when": "17 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/paul-bettany-johnny-depp-hadnt-spoken-in-years-libel-trial-1236915108/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/10/sebulba-star-wars-character-spotlight.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Podcast: All Access Gets Updated On Star Trek Pitches And Recaps New York Comic Con 2026",
-      "when": "16 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/16/podcast-all-access-gets-updated-on-star-trek-pitches-and-recaps-new-york-comic-con-2026/"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory: The board game – Campaign live now!",
       "when": "13 Oct",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
