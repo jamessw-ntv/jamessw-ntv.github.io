@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-19",
-    "fetched": "2026-10-19T12:45:56+00:00",
+    "fetched": "2026-10-19T19:11:13+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 16,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 11
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
-        "min": 12,
-        "max": 25,
-        "icon": "⛅",
-        "desc": "Partly cloudy",
-        "rain": 0
-      },
-      {
-        "day": "Tue",
         "min": 16,
         "max": 26,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 27
+        "rain": 51
       },
       {
         "day": "Wed",
@@ -37,7 +29,15 @@
         "max": 28,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 71
+        "rain": 84
+      },
+      {
+        "day": "Thu",
+        "min": 14,
+        "max": 28,
+        "icon": "🌫️",
+        "desc": "Fog",
+        "rain": 4
       }
     ]
   },
@@ -72,18 +72,74 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118224.0,
-        "pct": 0.47
+        "price": 117200.0,
+        "pct": 0.53
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3472.41,
-        "pct": 0.11
+        "price": 3431.51,
+        "pct": 0.89
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Trek/Wars",
+      "title": "Interview: Karim Diané Teases More Gay Klingon Romance In ‘Star Trek: Starfleet Academy’ Season 2",
+      "when": "19 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/19/interview-karim-diane-teases-more-gay-klingon-romance-in-star-trek-starfleet-academy-season-2/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Gwyneth Paltrow Sets First Lead TV Role in A24 Drama ‘The Apology’ at Netflix",
+      "when": "19 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/gwyneth-paltrow-a24-the-apology-first-lead-tv-role-1236916711/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Jon Stewart to Remain ‘Daily Show’ Host Through 2028",
+      "when": "19 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/jon-stewart-daily-show-host-2028-1236916557/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Leap Year’ Director Michael Rowe’s Cross Border Drama ‘Last Weekend’ Boarded by Mexico’s Paloma Negra",
+      "when": "19 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/michael-rowe-last-weekend-paloma-negra-leap-year-1236916044/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Ron Koslow, Screenwriter and Creator of ‘Beauty and the Beast’ TV Series, Dies at 81",
+      "when": "19 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/ron-koslow-dead-beauty-and-the-beast-1236916672/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Disney Reportedly in Talks with Bungie and DICE to Develop a New ‘Star Wars: Battlefront’ Game",
+      "when": "19 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/disney-reportedly-in-talks-with-bungie-and-dice-to-develop-a-new-star-wars-battlefront-game.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "See The Federation Make Its Last Stand In Preview Of ‘Star Trek: The Last Starship’ Finale",
+      "when": "19 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/19/see-the-federation-make-its-last-stand-in-preview-of-star-trek-the-last-starship-finale/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Galactic Racer’ Developers Hint Post-Launch Content is in Development",
+      "when": "19 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-galactic-racer-developers-hint-post-launch-content-is-in-development.html"
+    },
     {
       "cat": "Trek/Wars",
       "title": "Review: ‘The Book Of Boba Fett’ #3 Packs A Wookiee Punch",
@@ -92,67 +148,11 @@
       "url": "https://www.starwarsnewsnet.com/2026/10/review-the-book-of-boba-fett-3-packs-a-wookiee-punch.html"
     },
     {
-      "cat": "Film/TV",
-      "title": "Miley Cyrus Fires Back at Criticism of Hollywood Bowl Concert and Considered Not Doing Second Show: ‘It’s Hard for Me to Stand Up Here’",
-      "when": "19 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/miley-cyrus-fires-back-criticism-hollywood-bowl-concert-1236916307/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Daniel Logan and Jake Lloyd Record a Message Thanking ‘Star Wars’ Fans",
-      "when": "19 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/daniel-logan-and-jake-lloyd-record-a-message-thanking-star-wars-fans.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "James Gray’s ‘Paper Tiger’ Among Doha Film Festival’s Gala and Special Screenings Lineups",
-      "when": "19 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/james-gray-paper-tiger-doha-film-festival-1236915649/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Brit Coming-of-Age Comedy ‘The State of Us’ Lands U.K. Theatrical Deal With Vertigo (EXCLUSIVE)",
-      "when": "19 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/the-state-of-us-uk-theatrical-deal-vertigo-1236916277/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "BBC Denies ‘Celebrity Traitors’ Contender James Acaster Complained Over Competitors’ ‘Macho Banter’: ‘Categorically Untrue’",
-      "when": "19 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/bbc-celebrity-traitors-james-acaster-complaint-1236916280/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: Taika Waititi Speaks, Two Unreported ‘Star Wars’ Projects Emerge, and More",
-      "when": "19 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/this-week-in-a-galaxy-far-far-away-taika-waititi-speaks-two-unreported-star-wars-projects-emerge-and-more.html"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Watch: A Gassy Horta Sends The ‘Star Trek: Scouts’ On A Stinky Rescue",
       "when": "18 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/18/watch-a-gassy-horta-sends-the-star-trek-scouts-on-a-stinky-rescue/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Interview: Robert Picardo On ‘Starfleet Academy’ Cancellation And Star Trek’s Values Surviving",
-      "when": "18 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/17/interview-robert-picardo-on-starfleet-academy-cancellation-and-star-treks-values-surviving/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Interview: Nana Visitor On Kira’s “Spiritual” Legacy And Hopes For The Future Of Star Trek",
-      "when": "16 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/16/interview-nana-visitor-on-kiras-spiritual-legacy-and-hopes-for-the-future-of-star-trek/"
     },
     {
       "cat": "Games",
