@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-19",
-    "fetched": "2026-10-19T19:11:13+00:00",
+    "fetched": "2026-10-19T23:30:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 13
+      "temp": 23,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 19
     },
     "days": [
       {
@@ -21,23 +21,23 @@
         "max": 26,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 51
+        "rain": 26
       },
       {
         "day": "Wed",
-        "min": 17,
+        "min": 16,
         "max": 28,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 84
+        "rain": 73
       },
       {
         "day": "Thu",
         "min": 14,
-        "max": 28,
-        "icon": "🌫️",
-        "desc": "Fog",
-        "rain": 4
+        "max": 29,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 2
       }
     ]
   },
@@ -72,52 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117200.0,
-        "pct": 0.53
+        "price": 117458.0,
+        "pct": -0.27
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3431.51,
-        "pct": 0.89
+        "price": 3448.76,
+        "pct": -0.2
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "‘You Can See Everything’ Sets Oscar Campaigns for Best Picture, Supporting Actress and More Categories",
+      "when": "19 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/awards/you-can-see-everything-oscars-eligibility-awards-1236916699/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Rita Wilson Says She’s Returning for Lena Dunham’s ‘Girls’ Revival: ‘I Would Do Anything for Her’",
+      "when": "19 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/rita-wilson-returning-for-lena-dunhams-girls-revival-1236916942/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Bob Buziak, Former President of RCA Records and Sony’s Tristar Music Group, Dies at 83",
+      "when": "19 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/bob-buziak-dead-rca-records-president-1236916935/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Role Model Shouts Out Jake Shane and Renee Rapp, Channels Chuck Timely on Final North American Tour Date: Concert Report",
+      "when": "19 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/music/news/role-model-jake-shane-renee-rapp-concert-report-1236916776/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "Interview: Karim Diané Teases More Gay Klingon Romance In ‘Star Trek: Starfleet Academy’ Season 2",
       "when": "19 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/19/interview-karim-diane-teases-more-gay-klingon-romance-in-star-trek-starfleet-academy-season-2/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Gwyneth Paltrow Sets First Lead TV Role in A24 Drama ‘The Apology’ at Netflix",
-      "when": "19 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/gwyneth-paltrow-a24-the-apology-first-lead-tv-role-1236916711/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jon Stewart to Remain ‘Daily Show’ Host Through 2028",
-      "when": "19 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jon-stewart-daily-show-host-2028-1236916557/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Leap Year’ Director Michael Rowe’s Cross Border Drama ‘Last Weekend’ Boarded by Mexico’s Paloma Negra",
-      "when": "19 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/michael-rowe-last-weekend-paloma-negra-leap-year-1236916044/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ron Koslow, Screenwriter and Creator of ‘Beauty and the Beast’ TV Series, Dies at 81",
-      "when": "19 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ron-koslow-dead-beauty-and-the-beast-1236916672/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
