@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-20",
-    "fetched": "2026-10-20T09:55:00+00:00",
+    "fetched": "2026-10-20T14:52:48+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 9
+      "temp": 18,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
         "min": 16,
-        "max": 26,
+        "max": 29,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 12
-      },
-      {
-        "day": "Wed",
-        "min": 17,
-        "max": 28,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 76
+        "rain": 55
       },
       {
         "day": "Thu",
-        "min": 14,
+        "min": 15,
         "max": 29,
-        "icon": "🌫️",
-        "desc": "Fog",
+        "icon": "☀️",
+        "desc": "Clear",
         "rain": 0
+      },
+      {
+        "day": "Fri",
+        "min": 18,
+        "max": 28,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 20
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 116404.0,
-        "pct": -2.0
+        "price": 118278.0,
+        "pct": 0.58
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3403.88,
-        "pct": -2.67
+        "price": 3503.8,
+        "pct": 1.7
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Goodbye Julia’ Director on Reaching for ‘Wider Audiences’ in Sudanese Period Drama ‘About Love & September Laws’ (EXCLUSIVE)",
+      "title": "U2 to Play Halftime Show for NFL’s Thanksgiving Eve Game in What League Calls ‘a New NFL Holiday Tradition’",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/goodbye-julia-sudanese-about-love-and-september-laws-1236916213/"
+      "url": "https://variety.com/2026/music/news/u2-halftime-show-nfl-thanksgiving-eve-sofi-stadium-netflix-1236917446/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Big Boys Don’t Cry’ Director Muhammad Mustapha Talks Masculinity Ahead of El Gouna Premiere: ‘The Only Emotion Men Are Allowed to Express Is Anger’",
+      "title": "NBA 2026-2027: Here’s Where to Watch Regular Season Games Live Online",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/big-boys-dont-cry-muhammad-mustapha-el-gouna-1236916813/"
+      "url": "https://variety.com/shop/how-to-watch-nba-schedule-dates-times-1235092524/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Percy Jackson’ Stars Will Attend Lucca Comics, Seeking to ‘Get Up Close and Personal With Their Fans,’ Geek Meet’s Film and TV Chief Says",
+      "title": "Cleo Sol Announces First-Ever North American Arena Tour Dates",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/percy-jackson-lucca-comics-1236914648/"
+      "url": "https://variety.com/2026/music/news/cleo-sol-gentlewoman-north-american-arena-tour-dates-1236917439/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Line of Duty’ Director Douglas Mackinnon Preps Edinburgh-Set Paramedic Drama ‘BurnTime,’ Builds Slate at Rugged Island Films (EXCLUSIVE)",
+      "title": "Spotify Inks Licensing Deal With Believe Music for AI Remixing Tool",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/douglas-mackinnon-burntime-rugged-island-films-1236917192/"
+      "url": "https://variety.com/2026/music/news/spotify-inks-licensing-deal-believe-music-ai-remixing-tool-1236917404/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "See Sisko Reveal A Creepy Clue To The Spooky DS9 Mystery In ‘Star Trek: Holo-Ween II’ #3 Preview",
+      "when": "20 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/20/see-sisko-reveal-a-creepy-clue-to-the-spooky-ds9-mystery-in-star-trek-holo-ween-ii-3-preview/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/10/review-the-book-of-boba-fett-3-packs-a-wookiee-punch.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Watch: A Gassy Horta Sends The ‘Star Trek: Scouts’ On A Stinky Rescue",
-      "when": "18 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/18/watch-a-gassy-horta-sends-the-star-trek-scouts-on-a-stinky-rescue/"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory: The board game – Campaign live now!",
       "when": "13 Oct",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
