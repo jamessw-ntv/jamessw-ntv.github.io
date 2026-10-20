@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-20",
-    "fetched": "2026-10-20T14:52:48+00:00",
+    "fetched": "2026-10-20T19:06:10+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 18,
+      "temp": 16,
       "icon": "⛅",
       "desc": "Partly cloudy",
-      "wind": 10
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
-        "min": 16,
-        "max": 29,
+        "min": 15,
+        "max": 28,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 55
+        "rain": 65
       },
       {
         "day": "Thu",
-        "min": 15,
-        "max": 29,
-        "icon": "☀️",
-        "desc": "Clear",
+        "min": 14,
+        "max": 28,
+        "icon": "🌤️",
+        "desc": "Mainly clear",
         "rain": 0
       },
       {
         "day": "Fri",
         "min": 18,
         "max": 28,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 20
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 16
       }
     ]
   },
@@ -72,45 +72,80 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118278.0,
-        "pct": 0.58
+        "price": 117768.0,
+        "pct": 0.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3503.8,
-        "pct": 1.7
+        "price": 3477.16,
+        "pct": 1.18
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "U2 to Play Halftime Show for NFL’s Thanksgiving Eve Game in What League Calls ‘a New NFL Holiday Tradition’",
+      "title": "‘Lioness’ Season 3 Closes With 9.7 Million Viewers in Seven Days, a Series High and the No. 5 Paramount+ Finale Ever",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/u2-halftime-show-nfl-thanksgiving-eve-sofi-stadium-netflix-1236917446/"
+      "url": "https://variety.com/2026/tv/news/lioness-season-3-finale-ratings-viewers-1236917872/"
     },
     {
       "cat": "Film/TV",
-      "title": "NBA 2026-2027: Here’s Where to Watch Regular Season Games Live Online",
+      "title": "Elizabeth Holmes Mania: ‘You Can See Everything’ Drives 186% Viewership Spike for Amanda Seyfried’s ‘The Dropout’ (EXCLUSIVE)",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/shop/how-to-watch-nba-schedule-dates-times-1235092524/"
+      "url": "https://variety.com/2026/film/news/you-can-see-everything-boosts-dropout-ratings-hulu-seyfried-1236917676/"
     },
     {
       "cat": "Film/TV",
-      "title": "Cleo Sol Announces First-Ever North American Arena Tour Dates",
+      "title": "Robert Downey Jr. Signs On as Pitchman for Snap’s $2,200 Specs AR Glasses",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/cleo-sol-gentlewoman-north-american-arena-tour-dates-1236917439/"
+      "url": "https://variety.com/2026/digital/news/robert-downey-jr-pitchman-snap-specs-ar-glasses-1236917815/"
     },
     {
       "cat": "Film/TV",
-      "title": "Spotify Inks Licensing Deal With Believe Music for AI Remixing Tool",
+      "title": "Starz Gets Back on Verizon Fios After New Carriage Pact",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/spotify-inks-licensing-deal-believe-music-ai-remixing-tool-1236917404/"
+      "url": "https://variety.com/2026/tv/news/starz-verizon-fios-carriage-pact-1236917862/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "New Magic The Gathering Star Trek Set Details Revealed — Watch Star-Studded Debut Video",
+      "when": "20 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/20/new-magic-the-gathering-star-trek-set-details-revealed-watch-star-studded-debut-video/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘Star Wars Icons: Vader’ Is a One-Of-A-Kind Celebration of One of Cinema’s Greatest Characters",
+      "when": "20 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/review-star-wars-icons-vader-is-a-one-of-a-kind-celebration-of-one-of-cinemas-greatest-characters.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars Funday Football’, Real-Time Animated Recreation of Super Bowl LXI, Announced",
+      "when": "20 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-funday-football-coming-to-super-bowl-lxi.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Disney Reportedly in Talks with Bungie and DICE to Develop a New ‘Star Wars: Battlefront’ Game",
+      "when": "20 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/disney-reportedly-in-talks-with-bungie-and-dice-to-develop-a-new-star-wars-battlefront-game.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Boldly Build With ‘Star Trek: Outposts Unknown,’ Out Now — Watch Sing-Along Launch Trailer",
+      "when": "20 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/20/boldly-build-with-star-trek-outposts-unknown-out-now-watch-sing-along-launch-trailer/"
     },
     {
       "cat": "Trek/Wars",
@@ -118,41 +153,6 @@
       "when": "20 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/20/see-sisko-reveal-a-creepy-clue-to-the-spooky-ds9-mystery-in-star-trek-holo-ween-ii-3-preview/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Interview: Karim Diané Teases More Gay Klingon Romance In ‘Star Trek: Starfleet Academy’ Season 2",
-      "when": "19 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/19/interview-karim-diane-teases-more-gay-klingon-romance-in-star-trek-starfleet-academy-season-2/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Disney Reportedly in Talks with Bungie and DICE to Develop a New ‘Star Wars: Battlefront’ Game",
-      "when": "19 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/disney-reportedly-in-talks-with-bungie-and-dice-to-develop-a-new-star-wars-battlefront-game.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "See The Federation Make Its Last Stand In Preview Of ‘Star Trek: The Last Starship’ Finale",
-      "when": "19 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/19/see-the-federation-make-its-last-stand-in-preview-of-star-trek-the-last-starship-finale/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Galactic Racer’ Developers Hint Post-Launch Content is in Development",
-      "when": "19 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-galactic-racer-developers-hint-post-launch-content-is-in-development.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review: ‘The Book Of Boba Fett’ #3 Packs A Wookiee Punch",
-      "when": "19 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/review-the-book-of-boba-fett-3-packs-a-wookiee-punch.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
