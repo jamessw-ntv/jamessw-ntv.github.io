@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-20",
-    "fetched": "2026-10-20T19:06:10+00:00",
+    "fetched": "2026-10-20T22:14:48+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 9
+      "temp": 20,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 2
     },
     "days": [
       {
@@ -27,8 +27,8 @@
         "day": "Thu",
         "min": 14,
         "max": 28,
-        "icon": "🌤️",
-        "desc": "Mainly clear",
+        "icon": "🌫️",
+        "desc": "Fog",
         "rain": 0
       },
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117768.0,
-        "pct": 0.36
+        "price": 118438.0,
+        "pct": 0.78
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3477.16,
-        "pct": 1.18
+        "price": 3510.4,
+        "pct": 1.8
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Lioness’ Season 3 Closes With 9.7 Million Viewers in Seven Days, a Series High and the No. 5 Paramount+ Finale Ever",
+      "title": "Costume Designer Sandy Powell to Present Film London Jarman Award – Film News in Brief",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/lioness-season-3-finale-ratings-viewers-1236917872/"
+      "url": "https://variety.com/2026/artisans/news/film-news-in-brief-oct19-2026-1236916412/"
     },
     {
       "cat": "Film/TV",
-      "title": "Elizabeth Holmes Mania: ‘You Can See Everything’ Drives 186% Viewership Spike for Amanda Seyfried’s ‘The Dropout’ (EXCLUSIVE)",
+      "title": "‘Princess Diaries’ Actor Erik von Detten Accused of Elder Abuse and Fraud in Gold Scheme",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/you-can-see-everything-boosts-dropout-ratings-hulu-seyfried-1236917676/"
+      "url": "https://variety.com/2026/film/news/brink-actor-erik-von-detten-sued-for-elder-abuse-fraud-1236917976/"
     },
     {
       "cat": "Film/TV",
-      "title": "Robert Downey Jr. Signs On as Pitchman for Snap’s $2,200 Specs AR Glasses",
+      "title": "Music Industry Moves: Barbara Cane, BMI’s VP of Worldwide Creative, to Retire After Five Decades",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/robert-downey-jr-pitchman-snap-specs-ar-glasses-1236917815/"
+      "url": "https://variety.com/2026/music/news/barbara-cane-retire-bmi-five-decades-1236918072/"
     },
     {
       "cat": "Film/TV",
-      "title": "Starz Gets Back on Verizon Fios After New Carriage Pact",
+      "title": "Why ‘You Can See Everything’ Could Win Best Picture at the Oscars",
       "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/starz-verizon-fios-carriage-pact-1236917862/"
+      "url": "https://variety.com/2026/film/columns/you-can-see-everything-best-picture-oscars-elizabeth-holmes-1236917667/"
     },
     {
       "cat": "Trek/Wars",
