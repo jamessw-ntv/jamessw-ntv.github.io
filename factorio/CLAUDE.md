@@ -23,7 +23,11 @@ A console command syncs patches, buildings and research from a save. Renders at
     `packBlock` turns machine counts into rectangles using the line patterns in
     `linePattern` (the same patterns drawn in the Templates tab).
   - `guideSteps(sol)` turns the plan into one linear checklist (research, build, extend) with
-    stable ids (`r:<tech>`, `b:<block>`, `e:<block>:<tech>`) so ticks survive re-plans.
+    stable ids (`r:<tech>`, `b:<block>`, `e:<block>:<tech>`, `g:<block>:<step>`) so ticks survive re-plans.
+    Builds are staged: each build/extend step carries `now` (machines to have, sized for the
+    science packs the next pack research opens, in the machines and modules researched by then,
+    via `rateAt`), and `grow` steps raise earlier blocks when each new pack opens. Blocks nothing
+    needs yet wait until something does. The footprint stays the endgame size.
   - `SCAN_COMMAND` is the one-line `/c` Lua the player runs in game; it writes
     `script-output/factorio-planner.json` (resources, machines + recipes, research, map tags,
     enemy bases). `parseScan` reads it; `checkBase` matches machines to block footprints.

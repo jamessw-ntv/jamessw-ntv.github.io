@@ -57,7 +57,7 @@
   @media (max-width:860px){.gmain{grid-template-columns:1fr}}
   .gcard{background:var(--panel);border:1px solid var(--accent);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-hover);min-width:0}
   .gkind{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
-  .gkind.build{color:#3ddc84}.gkind.research{color:#9cc4ff}.gkind.extend{color:#ffd479}.gkind.upgrade{color:#c79bff}.gkind.defend{color:#ff8a80}
+  .gkind.build{color:#3ddc84}.gkind.research{color:#9cc4ff}.gkind.extend{color:#ffd479}.gkind.grow{color:#7fe0d0}.gkind.upgrade{color:#c79bff}.gkind.defend{color:#ff8a80}
   .gcard h2{margin:4px 0 6px;font-size:22px;text-wrap:balance}
   .gcard h4{margin:14px 0 6px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
   .gcard .where{font-size:14px}
@@ -741,10 +741,12 @@ function currentStep(){
   return steps.find(g => !isDone(g) && !isSkipped(g)) || steps.find(g => !isDone(g)) || null;
 }
 function curResearch(){ const g = currentStep(); return g ? (g.step || 0) : RESEARCH.length-1; }
+// the community blueprint viewer refuses phones and tablets
+const PHONE = matchMedia("(pointer:coarse)").matches && !matchMedia("(pointer:fine)").matches;
 function linesFor(g){
   const res = sol.blocks[g.block];
-  if(g.type === "extend") return res.lineList.filter(L => g.keys.includes(L.key));
-  return res.lineList.filter(L => (UNLOCK_STEP[L.key] ?? 0) <= g.step);
+  const lines = g.keys ? res.lineList.filter(L => g.keys.includes(L.key)) : res.lineList.filter(L => (UNLOCK_STEP[L.key] ?? 0) <= g.step);
+  return lines.map(L => g.now && g.now[L.key] != null ? { ...L, count: g.now[L.key], final: L.count, short: (g.short||{})[L.key] || 0 } : { ...L, final: L.count });
 }
 function autoTick(){
   autoDone = new Set();
@@ -753,8 +755,8 @@ function autoTick(){
   const dg = steps.find(g => g.id==="d:defend"); if(dg && !dg.near.length) autoDone.add("d:defend");
   for(const g of steps){
     if(g.type==="research" && g.techs.every(t => scan.research.has(t))) autoDone.add(g.id);
-    if((g.type==="build" || g.type==="extend") && check && check.blocks[g.block]){
-      const lines = check.blocks[g.block].lines, want = linesFor(g);
+    if((g.type==="build" || g.type==="extend" || g.type==="grow") && check && check.blocks[g.block]){
+      const lines = check.blocks[g.block].lines, want = linesFor(g).filter(L => L.count > 0);
       if(want.length && want.every(L => { const c = lines.find(l => l.key===L.key); return c && c.built >= Math.ceil(L.count*0.95); })) autoDone.add(g.id);
     }
   }
@@ -805,7 +807,7 @@ function sourceName(id, k){
 }
 function consumers(k){ return BLOCKS.filter(b => (sol.blocks[b.id].imports[k]||0) > 1e-9).map(b => b.name); }
 function cardHtml(g){
-  const kindLabel = { setup:"Set up", research:"Research", build:"Build", extend:"Extend", upgrade:"Upgrade", defend:"Defend" }[g.type];
+  const kindLabel = { setup:"Set up", research:"Research", build:"Build", extend:"Extend", grow:"Grow", upgrade:"Upgrade", defend:"Defend" }[g.type];
   let body = "";
   const example = state.layout==="world" && !scan && JSON.stringify(state.patches.map(p=>[p.kind,p.x,p.y])) === JSON.stringify(DEFAULT_PATCHES.map(p=>[p.kind,p.x,p.y]));
   if(g.type === "setup"){
@@ -849,7 +851,8 @@ function cardHtml(g){
     const c = check && check.blocks[g.block];
     const lname = L => L.key==="lab" ? "Lab" : L.key==="aop" && g.step < UNLOCK_STEP["heavy-crack"] ? "Oil processing (Basic for now)" : nice(L.key);
     const pill = L => { const got = c && c.lines.find(l => l.key===L.key); const n = got ? Math.min(got.built, L.count) : null;
-      return `<span class="chip ${n===null?"":n>=L.count?"ok":n>0?"part":""}"><b>${L.count}</b> × ${esc(lname(L))} <span class="muted">${esc(MNAME[L.machine]||L.machine)}</span>${n!==null?` · ${n} built`:""}</span>`; };
+      if(!L.count) return `<span class="chip"><span class="muted">${esc(lname(L))}: none needed yet · ${L.final} later</span></span>`;
+      return `<span class="chip ${n===null?"":n>=L.count?"ok":n>0?"part":""}"><b>${L.count}</b> × ${esc(lname(L))} <span class="muted">${esc(machineAt(L.machine, g.step).name)}${g.prev && g.prev[L.key] != null ? ` · add ${L.count - g.prev[L.key]}` : ""}${L.count < L.final ? ` · of ${L.final} endgame` : ""}</span>${n!==null?` · ${n} built`:""}</span>`; };
     // what you can actually build with at this point in the research
     const o = opts(), mods = modulesAt(o, g.step), interim = [];
     for(const m of [...new Set(now.map(L => L.machine))]){
@@ -859,20 +862,17 @@ function cardHtml(g){
     if(!mods.final && o.profile!=="plain") interim.push(o.profile==="beacon" && mods.prod
       ? "Beacons come later in the research; leave their rows clear."
       : `Productivity module 3${o.profile==="beacon" ? " and beacons come" : " comes"} later in the research. Until then use Prod 1 or 2 modules if you have them, or leave the slots empty.`);
-    // how much of the planned output this block makes with what's researched at this step
-    // a block runs at the pace of its slowest line
-    let worst = 1;
-    for(const L of now){ if(L.machine === "lab") continue;
-      const rec = R[L.key] || { p: OIL_LINES.has(L.key) }, tgt = effects(rec, L.machine, o), have = machineAt(L.machine, g.step);
-      const sp = mods.final && have.final ? tgt.speed : have.speed * (mods.prod && rec.p ? 1 + PROD3.speed*MACHINES[L.machine].slots : 1);
-      const p = mods.prod ? tgt.prod : 0;
-      worst = Math.min(worst, (sp * (1 + p)) / (tgt.speed * (1 + tgt.prod))); }
-    const pctNow = Math.round(100 * worst);
-    if(interim.length && pctNow < 100) interim.push(`Built like that, this block makes about <b>${pctNow}%</b> of its planned output until the upgrade steps; that's expected.`);
+    // counts are already raised for the slower machines you have now; a line only falls short
+    // when its whole endgame footprint isn't enough for them yet
+    const shortL = now.filter(L => L.short), pctNow = shortL.length ? Math.round(100 * Math.min(...shortL.map(L => L.short))) : 100;
+    if(interim.length && pctNow < 100) interim.push(`Even with every slot filled, this block makes about <b>${pctNow}%</b> of what it needs until the upgrade steps; that's expected.`);
+    else if(interim.length && now.some(L => L.count && L.count < L.final)) interim.push("The counts above already allow for the slower machines. After the upgrades they'll make more than you need, which does no harm.");
     // ore: how many drills feed this block at the planned rate
+    // ore and belts scale with how much of the block this step builds
+    const share = g.share ?? 1;
     const oreIn = Object.entries(res.imports).filter(([k,v]) => v > 1e-9 && ["iron-ore","copper-ore","stone","coal"].includes(k));
     const drillNow = (UNLOCK_STEP["m:drill"] ?? 0) <= g.step;
-    const mining = oreIn.map(([k,v]) => `<b>${fmt(Math.ceil(v/sol.totals.drillRate))}</b> electric mining drills on ${esc(nice(k).toLowerCase())}`).join(", ");
+    const mining = oreIn.map(([k,v]) => `<b>${fmt(Math.ceil(v*share/sol.totals.drillRate))}</b> electric mining drills on ${esc(nice(k).toLowerCase())}`).join(", ");
     // only show what the lines you can build now use and make
     const nowKeys = new Set(now.map(L => L.key)), laterOnly = new Set();
     later.forEach(L => Object.keys((R[L.key] && R[L.key].in) || {}).forEach(k => laterOnly.add(k)));
@@ -880,13 +880,14 @@ function cardHtml(g){
     const belts = v => { const b = v/BELT; return b < 0.1 ? "under 0.1 belts" : `${fmt(b, b < 1 ? 2 : 1)} belts`; };
     const ins = Object.entries(res.imports).filter(([k,v])=>v>1e-9 && !(g.type==="build" && laterOnly.has(k))).sort((a,b)=>b[1]-a[1]).map(([k,v]) => {
       const src = sourceName(g.block, k);
-      return `<div><span class="sw" style="background:${ITEMCOL[k]||"#5c6788"}"></span><b>${esc(nice(k))}</b> <span class="muted">${fmt(v*60)}/min${FLUIDS.has(k)?" (pipe)":` · ${belts(v)}`}${src?` · from ${esc(src)}`:""}</span></div>`; }).join("");
+      return `<div><span class="sw" style="background:${ITEMCOL[k]||"#5c6788"}"></span><b>${esc(nice(k))}</b> <span class="muted">${fmt(v*share*60)}/min${FLUIDS.has(k)?" (pipe)":` · ${belts(v*share)}`}${src?` · from ${esc(src)}`:""}</span></div>`; }).join("");
     const outs = Object.entries(res.exports).filter(([k,v])=>v>1e-9 && (g.type!=="build" || (UNLOCK_STEP[k] ?? 0) <= g.step)).map(([k,v]) => {
       const to = consumers(k);
-      return `<div><span class="sw" style="background:${ITEMCOL[k]||"#5c6788"}"></span><b>${esc(nice(k))}</b> <span class="muted">${fmt(v*60)}/min${to.length?` · to ${esc(to.slice(0,3).join(", "))}${to.length>3?` +${to.length-3} more`:""}`:""}</span></div>`; }).join("");
+      return `<div><span class="sw" style="background:${ITEMCOL[k]||"#5c6788"}"></span><b>${esc(nice(k))}</b> <span class="muted">${fmt(v*share*60)}/min${to.length?` · to ${esc(to.slice(0,3).join(", "))}${to.length>3?` +${to.length-3} more`:""}`:""}</span></div>`; }).join("");
     const resNote = g.type==="extend" ? ((steps.find(x => x.type==="research" && x.techs.includes(RESEARCH[g.step].id)) || {}).notes || []) : [];
     body = `<div class="where">${whereHtml(g.block)}</div>
-      <h4>${g.type==="extend" ? "Add" : "Build"}</h4><div>${now.map(pill).join("")}</div>
+      ${g.type==="grow" ? `<p>${esc(g.pack)} is open, so the blocks you built earlier need to make more. Bring this one up to:</p>` : ""}
+      <h4>${g.type==="extend" ? "Add" : g.type==="grow" ? "Have built" : "Build now"}</h4><div>${now.map(pill).join("")}</div>
       ${interim.length ? `<div class="note">${interim.join("<br>")}</div>` : ""}
       ${g.type==="build" && mining ? `<div class="muted" style="margin-top:6px">Mining: ${mining}${o.miningProd ? ` (at mining productivity ${o.miningProd}; more before you get there)` : ""}.${drillNow ? "" : " Until Electric mining drill is researched, use burner drills: about twice as many."}</div>` : ""}
       ${example ? `<div class="note">⚠ These positions use the <b>example</b> resource patches. Sync from your game or drag the patches on the 🗺️ Map first so they match your world.</div>` : ""}
@@ -894,7 +895,7 @@ function cardHtml(g){
       ${resNote.length ? `<p>${resNote.map(esc).join("<br>")}</p>` : ""}
       ${g.type==="build" ? `<h4>Feeds in</h4>${ins || `<span class="muted">nothing</span>`}<h4>Sends out</h4>${outs || `<span class="muted">science into the labs</span>`}` : ""}
       ${NOTES[g.block] && g.type==="build" ? `<p class="muted">${esc(NOTES[g.block])}</p>` : ""}
-      <p class="muted">Lay it out as ${opts().profile==="beacon" ? "beaconed rows" : "double rows facing a shared belt"} (see 🧩 Templates). The counts are the full endgame size: put down the whole footprint now and add machines as materials allow.</p>`;
+      <p class="muted">Lay it out as ${opts().profile==="beacon" ? "beaconed rows" : "double rows facing a shared belt"} (see 🧩 Templates). ${g.type==="grow" ? "Add the new machines into the empty slots of the footprint you already reserved." : "The counts are sized for the science you have now. The planned footprint is the endgame size, so lay out the belts for all of it and leave the extra slots empty; Grow steps tell you when to fill more."}</p>`;
   }
   const done = isDone(g), auto = autoDone.has(g.id) && !state.done[L_()][g.id];
   return `<div class="gkind ${g.type}">${kindLabel}${viewId?` · <a href="#" data-act="current">back to current step</a>`:""}</div>
@@ -950,9 +951,10 @@ function renderLegend(g){
     <p class="muted" style="margin:6px 0">${beac
       ? "Each row: beacons, an input belt, machines between beacons, an output belt, beacons. Ingredients go on the top belt (one per lane); products leave on the bottom belt."
       : "Each row pair shares two belts: ingredients on the upper belt (one per lane), products on the lower one. Fast inserters reach one tile, long-handed ones two."} Arms point where items go. Rows are separate lines: link one row's output to the next row's input, and add pipes for fluids.</p>
-    <div class="gactions" style="margin-top:4px"><button class="btn" id="bpCopy">📋 Copy blueprint</button><button class="btn" id="bpView">🖼️ See it with game graphics</button></div>
+    <div class="gactions" style="margin-top:4px"><button class="btn" id="bpCopy">📋 Copy blueprint</button>${PHONE ? "" : `<button class="btn" id="bpView">🖼️ See it with game graphics</button>`}</div>
+    ${PHONE ? `<div class="muted" style="margin-top:6px">The game-graphics viewer only works on a computer. The Close-up above shows the same layout, tile by tile.</div>` : ""}
     <div class="muted" id="bpMsg" style="margin-top:6px"></div>`;
-  $("bpView").onclick = async () => {
+  if($("bpView")) $("bpView").onclick = async () => {
     // a community blueprint viewer that draws blueprints with the game's own sprites
     const w = window.open("about:blank", "_blank");
     try{ const str = await blueprintString(g.block); const url = "https://fbe.teoxoy.com/?source=" + encodeURIComponent(str);

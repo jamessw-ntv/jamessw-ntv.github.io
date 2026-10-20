@@ -150,7 +150,7 @@ function effects(recipe, machineKey, opt){
 // Returns { blocks:{id:{lines:[{key,machine,count,rate}], imports:{}, exports:{}}}, raw:{}, totals }
 function solve(opt){
   const perSec = opt.spm / 60;
-  const science = SCIENCE.map(s=>s[0]).filter(k => k!=="military-science-pack" || opt.military);
+  const science = SCIENCE.map(s=>s[0]).filter(k => k!=="military-science-pack" || opt.military).filter(k => !opt.only || opt.only.includes(k));
   const demand = {};                       // shared-item demand, items/s
   science.forEach(k => demand[k] = perSec);
   const owner = {}; BLOCKS.forEach(b => b.makes.forEach(k => owner[k] = b.id));
@@ -522,6 +522,20 @@ function layoutWorld(sol, patches, ctx){
   return { kind:"world", placed, flows, patches, effort, marks: ctx.marks || [] };
 }
 
+// How much one machine on a line makes at a research step, as a share of what the plan's
+// machine makes under `profile` (interim machines are slower; modules come late).
+const OIL_PROD = ["aop","heavy-crack","light-crack"];
+function rateAt(L, step, opt, profile){
+  if(L.machine === "lab") return 1;
+  const rec = R[L.key] || { p: OIL_PROD.includes(L.key) }, mods = modulesAt(opt, step), have = machineAt(L.machine, step);
+  const tgt = effects(rec, L.machine, { ...opt, profile: profile || opt.profile });
+  let sp, p;
+  if(mods.final && have.final){ const e = effects(rec, L.machine, opt); sp = e.speed; p = e.prod; }
+  else { const slots = MACHINES[L.machine].slots, mod = mods.prod && rec.p;
+    sp = have.speed * Math.max(0.2, 1 + (mod ? PROD3.speed*slots : 0)); p = mod ? PROD3.prod*slots : 0; }
+  return (sp * (1 + p)) / (tgt.speed * (1 + tgt.prod));
+}
+
 // ---------- the guide: one linear list of things to do -----------------------------------
 // Research and building interleave: research a technology, then build every block it opens,
 // then extend blocks that gained a line. Steps have stable ids so ticks survive re-plans.
@@ -529,6 +543,35 @@ function guideSteps(sol){
   const steps = [{ id:"setup", type:"setup", title:"Mark where your resources are" }];
   const ids = BUILD_ORDER.filter(id => sol.blocks[id] && sol.blocks[id].lineList.length);
   const opens = Object.fromEntries(ids.map(id => [id, blockStep(id, sol)]));
+  // Build as you grow: each block is sized for the science packs the next pack research opens
+  // (iron built before red science is sized for red), in the machines and modules you have at
+  // that step, then grows when each new pack arrives. The footprint stays the endgame size.
+  const packStep = k => UNLOCK_STEP[k] ?? UNLOCK_STEP["rocket-part"];
+  const stages = [...new Set(sol.science.map(packStep))].sort((a,b) => a-b);
+  const stageOf = i => stages.find(ps => ps >= i) ?? stages[stages.length-1];
+  const stageSol = {};
+  stages.forEach((ps, n) => {
+    const m = modulesAt(sol.opt, ps), profile = !m.prod ? "plain" : sol.opt.profile==="beacon" && !m.beac ? "prod" : sol.opt.profile;
+    stageSol[ps] = n === stages.length-1 && profile === sol.opt.profile ? sol
+      : solve({ ...sol.opt, profile, only: n === stages.length-1 ? null : sol.science.filter(k => packStep(k) <= ps) });
+  });
+  // machines to have on a line at step i: the stage's demand over what one machine makes then
+  const real = (id, key, i) => {
+    const ps = stageOf(i), F = sol.blocks[id].lineList.find(x => x.key===key), L = stageSol[ps].blocks[id].lineList.find(x => x.key===key);
+    if(!L || L.exact <= 1e-9) return { count:0, short:0 };
+    if(L.machine === "lab") return { count: Math.min(F.count, L.count), short:0 };
+    const want = Math.ceil(L.exact / rateAt(L, i, sol.opt, stageSol[ps].opt.profile) - 1e-9);
+    return { count: Math.min(F.count, want), short: want > F.count ? F.count / want : 0 };
+  };
+  const sized = {};                       // id -> key -> count it was last sized to
+  // share of the block's endgame output that step builds (for its ore and belt numbers)
+  const shareOf = (keys, id, i) => Math.max(0, ...keys.map(k => { const F = sol.blocks[id].lineList.find(x => x.key===k), L = stageSol[stageOf(i)].blocks[id].lineList.find(x => x.key===k);
+    return F && L && F.exact > 0 && L.machine !== "lab" ? Math.min(1, L.exact / F.exact) : 0; }));
+  const sizeFor = (id, keys, i) => { const now = {}, short = {};
+    keys.forEach(k => { const a = real(id, k, i); now[k] = a.count; if(a.short) short[k] = a.short; (sized[id] = sized[id] || {})[k] = a.count; }); return [now, short]; };
+  // a block or line nothing needs yet (batteries before yellow science) waits until something does
+  let pending = [];
+  const needed = (id, keys, i) => keys.some(k => real(id, k, i).count > 0);
   RESEARCH.forEach((t, i) => {
     const blocks = ids.filter(id => opens[id] === i);
     const extend = ids.filter(id => opens[id] < i).flatMap(id => sol.blocks[id].lineList.filter(L => UNLOCK_STEP[L.key] === i).map(L => ({ id, key:L.key })));
@@ -545,13 +588,35 @@ function guideSteps(sol){
     if(has("m:furn")) steps.push({ id:"u:furn", type:"upgrade", step:i, upgrade:"furn", title:"Swap your furnaces for electric furnaces" });
     if(prof !== "plain" && has("m:prod3")) steps.push({ id:"u:prod", type:"upgrade", step:i, upgrade:"prod", title:"Fill every machine with Productivity module 3" });
     if(prof === "beacon" && Math.max(UNLOCK_STEP["m:beacon"], UNLOCK_STEP["m:speed3"]) === i) steps.push({ id:"u:beacon", type:"upgrade", step:i, upgrade:"beacon", title:"Add beacons with Speed module 3" });
-    blocks.forEach(id => steps.push({ id:"b:"+id, type:"build", block:id, step:i, title:"Build "+BLOCKS.find(b=>b.id===id).name }));
+    // a new science pack: grow what's already built to its new size, before anything new
+    if(stages.includes(i) && i > 0){
+      const pack = sol.science.filter(k => packStep(k) === i).map(k => SCIENCE.find(x=>x[0]===k)[1]).join(", ");
+      Object.entries(sized).forEach(([id, ks]) => {
+        const add = {}, prev = {}, short = {};
+        Object.entries(ks).forEach(([k, had]) => { const b = real(id, k, i); if(b.count > had){ ks[k] = add[k] = b.count; prev[k] = had; if(b.short) short[k] = b.short; } });
+        if(Object.keys(add).length) steps.push({ id:"g:"+id+":"+i, type:"grow", block:id, keys:Object.keys(add), now:add, short, prev, step:i, pack, share: shareOf(Object.keys(add), id, i),
+          title:"Grow "+BLOCKS.find(b=>b.id===id).name+" for "+pack });
+      });
+    }
+    const name = id => BLOCKS.find(b=>b.id===id).name;
+    const emit = q => { const [now, short] = sizeFor(q.block, q.keys, i);
+      steps.push(q.type==="build" ? { id:"b:"+q.block, type:"build", block:q.block, step:i, now, short, share: shareOf(q.keys, q.block, i), title:"Build "+name(q.block) }
+        : { id:"e:"+q.block+":"+q.tech, type:"extend", block:q.block, keys:q.keys, step:i, now, short, share: shareOf(q.keys, q.block, i), title:"Extend "+name(q.block) }); };
+    const queue = [...pending];
+    blocks.forEach(id => queue.push({ type:"build", block:id, keys: sol.blocks[id].lineList.filter(L => (UNLOCK_STEP[L.key] ?? 0) <= i).map(L => L.key) }));
     // group extensions per block
     const byBlock = {};
     extend.forEach(e => (byBlock[e.id] = byBlock[e.id] || []).push(e.key));
-    Object.entries(byBlock).forEach(([id, keys]) => steps.push({ id:"e:"+id+":"+t.id, type:"extend", block:id, keys, step:i,
-      title:"Extend "+BLOCKS.find(b=>b.id===id).name }));
+    Object.entries(byBlock).forEach(([id, keys]) => queue.push({ type:"extend", block:id, keys, tech:t.id }));
+    pending = [];
+    queue.forEach(q => {
+      // an extension waits for its block; a deferred build picks up lines researched since
+      if(q.type==="extend" && pending.some(p => p.type==="build" && p.block===q.block)){ pending.find(p => p.type==="build" && p.block===q.block).keys.push(...q.keys); return; }
+      if(needed(q.block, q.keys, i)) emit(q); else pending.push(q);
+    });
   });
+  pending.forEach(q => { const i = RESEARCH.length-1, [now, short] = sizeFor(q.block, q.keys, i);
+    steps.push({ id: q.type==="build" ? "b:"+q.block : "e:"+q.block+":"+q.tech, type:q.type, block:q.block, keys:q.keys, step:i, now, short, share: shareOf(q.keys, q.block, i), title:(q.type==="build"?"Build ":"Extend ")+BLOCKS.find(b=>b.id===q.block).name }); });
   return steps;
 }
 
@@ -761,4 +826,4 @@ function blueprintJson(cell, opt, label){
 // ---------- build order -----------------------------------------------------------------
 const BUILD_ORDER = ["iron","copper","green","auto","log","brick","steel","mil","oil","red","chem","prod","batt","frames","blue","lds","util","silo","labs"];
 
-if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, layoutWorld, packBlock, nice, effects, BUILD_ORDER, BELT, RESEARCH, blockStep, DEFAULT_PATCHES, guideSteps, parseScan, checkBase, adoptBuilt, blockEntities, blueprintJson, SCAN_COMMAND, UNLOCK_STEP, PATCH_INFO, machineAt, modulesAt, MACHINE_TIERS, effects, PROD3 };
+if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, layoutWorld, packBlock, nice, effects, BUILD_ORDER, BELT, RESEARCH, blockStep, DEFAULT_PATCHES, guideSteps, rateAt, parseScan, checkBase, adoptBuilt, blockEntities, blueprintJson, SCAN_COMMAND, UNLOCK_STEP, PATCH_INFO, machineAt, modulesAt, MACHINE_TIERS, effects, PROD3 };
