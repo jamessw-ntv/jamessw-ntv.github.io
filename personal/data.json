@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-19",
-    "fetched": "2026-10-19T23:30:06+00:00",
+    "updated": "2026-10-20",
+    "fetched": "2026-10-20T04:23:29+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 23,
+      "temp": 26,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 19
+      "wind": 18
     },
     "days": [
       {
@@ -21,23 +21,23 @@
         "max": 26,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 26
+        "rain": 12
       },
       {
         "day": "Wed",
-        "min": 16,
-        "max": 28,
+        "min": 17,
+        "max": 27,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 73
+        "rain": 76
       },
       {
         "day": "Thu",
         "min": 14,
-        "max": 29,
+        "max": 28,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 0
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117458.0,
-        "pct": -0.27
+        "price": 117583.0,
+        "pct": -0.53
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3448.76,
-        "pct": -0.2
+        "price": 3455.65,
+        "pct": -0.44
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘You Can See Everything’ Sets Oscar Campaigns for Best Picture, Supporting Actress and More Categories",
-      "when": "19 Oct",
+      "title": "Jon Stewart Jokes Skydance Has ‘Pulled Our Renewal’ Before Slamming JD Vance, Trump and Emmanuel Macron",
+      "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/you-can-see-everything-oscars-eligibility-awards-1236916699/"
+      "url": "https://variety.com/2026/tv/news/jon-stewart-jokes-skydance-has-pulled-our-renewal-j-d-vance-1236917177/"
     },
     {
       "cat": "Film/TV",
-      "title": "Rita Wilson Says She’s Returning for Lena Dunham’s ‘Girls’ Revival: ‘I Would Do Anything for Her’",
-      "when": "19 Oct",
+      "title": "Judi Dench Says Panned ‘Cats’ Film Was a ‘Waste’ of Andrew Lloyd Webber’s ‘Goodwill and Talent’: ‘Oh God, I Can’t Bear It’",
+      "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/rita-wilson-returning-for-lena-dunhams-girls-revival-1236916942/"
+      "url": "https://variety.com/2026/film/news/judi-dench-says-cats-film-was-a-waste-of-goodwill-talent-1236917065/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bob Buziak, Former President of RCA Records and Sony’s Tristar Music Group, Dies at 83",
-      "when": "19 Oct",
+      "title": "Why Daisy Edgar-Jones Listened to Dolly Parton to Prep for ‘Sense and Sensibility’",
+      "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/bob-buziak-dead-rca-records-president-1236916935/"
+      "url": "https://variety.com/2026/film/news/daisy-edgar-jones-sense-and-sensibility-dolly-parton-1236917040/"
     },
     {
       "cat": "Film/TV",
-      "title": "Role Model Shouts Out Jake Shane and Renee Rapp, Channels Chuck Timely on Final North American Tour Date: Concert Report",
-      "when": "19 Oct",
+      "title": "Why ‘Office Space’ Actor Richard Riehle Was the Quintessential Actor’s Actor (Guest Column)",
+      "when": "20 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/role-model-jake-shane-renee-rapp-concert-report-1236916776/"
+      "url": "https://variety.com/2026/film/people-news/office-space-actor-richard-riehle-an-actors-actor-1236917003/"
     },
     {
       "cat": "Trek/Wars",
