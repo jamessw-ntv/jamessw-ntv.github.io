@@ -69,7 +69,8 @@
   .btn:focus-visible,.toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   .mini{background:var(--black);border:1px solid var(--line);border-radius:var(--radius);height:420px;overflow:hidden;position:relative}
   .mini svg{width:100%;height:100%;display:block}
-  .mini .cap{position:absolute;left:10px;bottom:8px;color:var(--muted);font-size:11.5px}
+  .mini .cap{position:absolute;left:10px;bottom:8px;color:var(--muted);font-size:11.5px;background:rgba(11,15,25,.8);padding:2px 6px;border-radius:6px}
+  .mini .minibar{position:absolute;right:8px;top:8px;display:flex;gap:6px}
   .upnext{display:grid;gap:6px;margin-top:14px}
   .upnext div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:13.5px;color:var(--muted)}
   .upnext b{color:var(--text);font-weight:600}
@@ -144,6 +145,7 @@
       <div class="gcard" id="gcard"></div>
       <div>
         <div class="mini" id="gmini"></div>
+        <div id="glegend"></div>
         <div class="upnext" id="gnext"></div>
       </div>
     </div>
@@ -335,8 +337,56 @@ function placedFor(id){
 }
 function cellLabel(gx,gy){ return String.fromCharCode(65+gx) + (gy+1); }
 
+// ---------- game-style drawing: every belt, inserter, pole and machine of a block --------
+// Drawn in the spirit of the game (not its sprites): blue express belts with arrows, blue fast
+// and red long-handed inserters with their arm pointing where items go, brown poles, beacons.
+const ABBR = k => k==="lab" ? "" : nice(k).split(/[\s-]+/).filter(w => !/^(plate|pack|science|unit|bar)$/i.test(w)).map(w => w[0]).join("").slice(0,3).toUpperCase();
+function drawEntity(e){
+  const { x, y, w, h } = e;
+  if(e.name==="express-transport-belt"){
+    return `<rect x="${x}" y="${y}" width="1" height="1" fill="${e.lane==="in"?"#2b5d9c":"#244a7a"}"/><path d="M${x+.32} ${y+.25}L${x+.62} ${y+.5}L${x+.32} ${y+.75}" fill="none" stroke="#a9cdf5" stroke-width=".09"/>`;
+  }
+  if(e.name.endsWith("inserter")){
+    const long = e.name.startsWith("long"), col = long ? "#c0503f" : "#3f7fd6", cx = x+.5, cy = y+.5;
+    // direction points at the pickup; the arm reaches across to the drop side
+    const up = e.dir===0, reach = long ? 1.6 : .8, tip = cy + (up ? reach : -reach);
+    return `<rect x="${x+.18}" y="${y+.18}" width=".64" height=".64" rx=".12" fill="#2a2f3a" stroke="${col}" stroke-width=".1"/>
+      <path d="M${cx} ${cy}L${cx} ${tip}" stroke="${col}" stroke-width=".16" stroke-linecap="round"/><circle cx="${cx}" cy="${tip}" r=".13" fill="${col}"/>`;
+  }
+  if(e.name==="medium-electric-pole") return `<rect x="${x+.28}" y="${y+.28}" width=".44" height=".44" fill="#7a4a2a" stroke="#c98a5b" stroke-width=".07"/>`;
+  if(e.name==="beacon") return `<rect x="${x+.1}" y="${y+.1}" width="${w-.2}" height="${h-.2}" rx=".25" fill="#363c49" stroke="#6b7590" stroke-width=".08"/>
+      <path d="M${x+w/2} ${y+.55}L${x+w-.55} ${y+h/2}L${x+w/2} ${y+h-.55}L${x+.55} ${y+h/2}Z" fill="#3e9cf0" opacity=".8"/>`;
+  if(!e.machine) return "";
+  const body = { "assembling-machine-3":["#46536a","#8fa3c4"], "electric-furnace":["#5d4c3e","#b58b6a"], "chemical-plant":["#40574a","#8fb89a"],
+    "oil-refinery":["#4d4d57","#a0a0b0"], "rocket-silo":["#3b3f4a","#b9c6d6"], "lab":["#3d4a5c","#6fd3ff"] }[e.name] || ["#46536a","#8fa3c4"];
+  const ic = e.key && ITEMCOL[e.key] || (e.name==="lab" ? "#6fd3ff" : "#c9d3e6"), r = Math.min(w, h) * .26, cx = x+w/2, cy = y+h/2;
+  let inner = e.name==="electric-furnace" ? `<rect x="${x+.7}" y="${y+.7}" width="${w-1.4}" height="${h-1.4}" rx=".2" fill="#2a211b"/><circle cx="${cx}" cy="${cy}" r="${r}" fill="#ff8a3d" opacity=".85"/>`
+    : e.name==="chemical-plant" ? `<circle cx="${x+1}" cy="${y+1.1}" r=".55" fill="#2b3a31"/><circle cx="${x+2}" cy="${y+1.1}" r=".55" fill="#2b3a31"/><circle cx="${cx}" cy="${y+2.1}" r=".42" fill="${ic}"/>`
+    : e.name==="lab" ? `<circle cx="${cx}" cy="${cy}" r="${r*1.2}" fill="#1c2a3a"/><circle cx="${cx}" cy="${cy}" r="${r*.7}" fill="#6fd3ff" opacity=".9"/>`
+    : e.name==="rocket-silo" ? `<circle cx="${cx}" cy="${cy}" r="${w*.36}" fill="#1a1d24" stroke="#b9c6d6" stroke-width=".2"/><path d="M${cx} ${cy-2}L${cx+.8} ${cy+1.6}L${cx-.8} ${cy+1.6}Z" fill="#e9edf7"/>`
+    : e.name==="oil-refinery" ? `<circle cx="${x+1.4}" cy="${y+1.4}" r=".8" fill="#6b2e2e"/><circle cx="${x+3.6}" cy="${y+1.4}" r=".8" fill="#6b2e2e"/><rect x="${x+1}" y="${y+2.9}" width="3" height="1.4" rx=".3" fill="#2d2d33"/>`
+    : `<rect x="${x+.55}" y="${y+.55}" width="${w-1.1}" height="${h-1.1}" rx=".3" fill="#262c38"/><circle cx="${cx}" cy="${cy}" r="${r*1.25}" fill="${ic}" opacity=".9"/>`;
+  const ab = e.machine && e.name!=="lab" && e.name!=="rocket-silo" ? ABBR(e.key) : "";
+  return `<g><rect x="${x+.08}" y="${y+.08}" width="${w-.16}" height="${h-.16}" rx=".3" fill="${body[0]}" stroke="${body[1]}" stroke-width=".1"/>${inner}
+    ${ab ? `<text x="${cx}" y="${cy+.28}" font-size="${Math.min(.8, 2.2/ab.length)}" text-anchor="middle" font-weight="800" fill="#0b0f19">${esc(ab)}</text>` : ""}<title>${esc(e.key ? (e.key==="lab" ? "Lab" : nice(e.key)) : e.name)}</title></g>`;
+}
+function drawDetail(cell, ox, oy, o, rowStyle){
+  const ents = blockEntities(cell, o);
+  let s = `<rect x="${ox}" y="${oy}" width="${cell.w}" height="${cell.h}" fill="#1d1f1a" opacity=".85"/>`;
+  // dim whole rows that aren't open yet, like the simple view does
+  const dimKeys = new Set(rowStyle ? cell.rows.filter(r => rowStyle(r).op < 1).map(r => r.key) : []);
+  const byRow = new Map();
+  for(const e of ents){ const k = e.key || ""; }
+  s += `<g transform="translate(${ox} ${oy})">`;
+  // non-machines first, machines on top; entities of dimmed rows faded
+  const rowOf = e => cell.rows.find(r => e.x >= r.x && e.x < r.x + r.w && e.y >= r.y && e.y < r.y + r.h);
+  for(const e of ents){ const r = rowOf(e), dim = r && dimKeys.has(r.key); s += dim ? `<g opacity=".18">${drawEntity(e)}</g>` : drawEntity(e); }
+  return s + `</g>`;
+}
+
 // draws the machines of one packed cell at (ox,oy) in tile units
-function drawCell(cell, ox, oy, color0, o, rowStyle){
+function drawCell(cell, ox, oy, color0, o, rowStyle, detail){
+  if(detail) return drawDetail(cell, ox, oy, o, rowStyle);
   let s = "";
   for(const r of cell.rows){
     const st = rowStyle ? rowStyle(r) : null, color = st ? st.color : color0;
@@ -375,6 +425,8 @@ function stageOf(id, s){
 function buildSvg(focus, stage, viewW){
   const o = opts();
   let svg = "", bounds;
+  // zoomed in far enough to see single tiles: draw every entity the way the game lays it out
+  const DET = viewW != null && viewW < 320;
   if(lay.kind==="world"){
     const mk = lay.marks || [];
     const xs = lay.placed.flatMap(p=>[p.x,p.x+p.w]).concat(lay.patches.flatMap(p=>[p.x-40,p.x+40]), mk.map(m=>m.x));
@@ -414,7 +466,7 @@ function buildSvg(focus, stage, viewW){
       svg += `<g class="blk" data-id="${p.id}" style="cursor:pointer">
         <rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" fill="${isNew?"#3ddc84":b.color}" fill-opacity="${locked?.03:isNew?.22:built?.3:sel===p.id?.28:.12}"
           stroke="${stroke}" stroke-width="${focus===p.id?2:isNew||newLine||sel===p.id?1:.4}" ${locked&&focus!==p.id?'stroke-dasharray="2 2" stroke-opacity=".5"':""} rx="1"/>
-        ${drawCell(p.cell, p.x, p.y, b.color, o, rowStyle)}
+        ${drawCell(p.cell, p.x, p.y, b.color, o, rowStyle, DET)}
         <title>${esc(b.name)}</title></g>`;
       const txt = `${p.stuck?"⚠ no room · ":""}${built&&!newLine?"✓ ":isNew?"NEW · ":newLine?"+ ":locked?"🔒 ":""}${b.name}`;
       labels.push({ pri: focus===p.id||sel===p.id ? 0 : isNew||p.stuck ? 1 : newLine||built ? 2 : locked ? 4 : 3, x:p.x+.5, y:p.y-1.2*F, fs:4*F, txt,
@@ -464,7 +516,7 @@ function buildSvg(focus, stage, viewW){
       if(stage != null && st==="now" && focus==null) focus = p.id;
       svg += `<g class="blk" data-id="${p.id}" style="cursor:pointer" ${fade?'opacity=".25"':""}>
         <rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" fill="${focus===p.id?"#3ddc84":b.color}" fill-opacity="${focus===p.id||sel===p.id?.28:.12}" stroke="${focus===p.id?"#e9edf7":b.color}" stroke-width="${focus===p.id?1.2:sel===p.id?.8:.35}" rx="1"/>
-        ${drawCell(p.cell, p.x, p.y, b.color, o)}
+        ${drawCell(p.cell, p.x, p.y, b.color, o, null, DET)}
         <text pointer-events="none" x="${p.x+.5}" y="${p.y-.6}" font-size="3.4" fill="#e9edf7" font-weight="600">${esc(b.name)}</text></g>`;
     }
     svg += `<text x="${lay.busW/2}" y="${lay.busLen+6}" font-size="4" fill="#98a4c3" text-anchor="middle">end of bus</text>`;
@@ -481,7 +533,7 @@ function buildSvg(focus, stage, viewW){
       svg += `<g class="blk" data-id="${c.id}" style="cursor:pointer" ${fade?'opacity=".25"':""}>
         <rect x="${x+5}" y="${y+5}" width="${P-10}" height="${P-10}" fill="${focus===c.id?"#3ddc84":b.color}" fill-opacity="${focus===c.id||sel===c.id?.25:.08}" stroke="${focus===c.id?"#e9edf7":sel===c.id?b.color:"none"}" stroke-width="${focus===c.id?3:1}"/>
         <rect x="${x+5}" y="${y+5}" width="${P-10}" height="12" fill="${b.color}" fill-opacity=".35"/>
-        ${drawCell(c.cell, x+7, y+5+14, b.color, o)}
+        ${drawCell(c.cell, x+7, y+5+14, b.color, o, null, DET)}
         <text x="${x+P/2}" y="${y+14}" font-size="7" fill="#e9edf7" font-weight="600" text-anchor="middle">${esc(b.name)}${c.of>1?` ${c.n}/${c.of}`:""}</text></g>`;
     }
   }
@@ -855,13 +907,75 @@ function cardHtml(g){
 }
 function renderMini(g){
   const el = $("gmini"), focus = g && g.block ? g.block : null;
+  const pf = focus && placedFor(focus)[0];
+  if(pf && state.mini !== "map"){
+    // close-up: just this block, tile by tile, the way you'll build it
+    const cell = pf.cell, pad = 2, o = opts();
+    const rowStyle = g.type==="build" ? (r => ({ op: (UNLOCK_STEP[r.key] ?? 0) > g.step ? .15 : 1 })) : null;
+    let grid = "";
+    for(let x = 0; x <= cell.w; x += 1) grid += `<line x1="${x}" y1="0" x2="${x}" y2="${cell.h}" stroke="#2c2f27" stroke-width="${x%8?0.04:0.1}"/>`;
+    for(let y = 0; y <= cell.h; y += 1) grid += `<line x1="0" y1="${y}" x2="${cell.w}" y2="${y}" stroke="#2c2f27" stroke-width="${y%8?0.04:0.1}"/>`;
+    el.innerHTML = `<svg viewBox="${-pad} ${-pad} ${cell.w+pad*2} ${cell.h+pad*2}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Close-up of ${esc(BLK[focus].name)}, tile by tile">
+        <rect x="0" y="0" width="${cell.w}" height="${cell.h}" fill="#1d1f1a"/>${drawDetail(cell, 0, 0, o, rowStyle)}${grid}</svg>
+      <div class="minibar"><button class="toggle active" data-mini="close">🔍 Close-up</button><button class="toggle" data-mini="map">🗺️ Where</button></div>
+      <div class="cap">${cell.w}×${cell.h} tiles · grid lines every tile, bold every 8</div>`;
+    el.querySelectorAll("[data-mini]").forEach(b => b.onclick = () => { state.mini = b.dataset.mini; store.set("state", state); renderMini(g); });
+    renderLegend(g);
+    return;
+  }
   const { svg, bounds } = buildSvg(focus);
   let v = bounds;
   if(focus){ const p = placedFor(focus)[0];
     if(p){ const city = p.gx!==undefined, x = city ? p.gx*lay.pitch : p.x, y = city ? p.gy*lay.pitch : p.y, w = city ? lay.pitch : p.w, h = city ? lay.pitch : p.h;
       const pad = Math.max(w, h) * 1.2 + 30; v = { x: x - pad, y: y - pad, w: w + pad*2, h: h + pad*2 }; } }
   el.innerHTML = `<svg viewBox="${v.x} ${v.y} ${v.w} ${v.h}" preserveAspectRatio="xMidYMid meet">${svg}</svg>
+    ${pf ? `<div class="minibar"><button class="toggle" data-mini="close">🔍 Close-up</button><button class="toggle active" data-mini="map">🗺️ Where</button></div>` : ""}
     <div class="cap">${focus ? "White outline: this step's block. Open 🗺️ Map to look around." : "Your whole plan. Open 🗺️ Map to look around."}</div>`;
+  el.querySelectorAll("[data-mini]").forEach(b => b.onclick = () => { state.mini = b.dataset.mini; store.set("state", state); renderMini(g); });
+  renderLegend(pf ? g : null);
+}
+// the key under the close-up, plus the blueprint to paste into the game
+function renderLegend(g){
+  const el = $("glegend"); if(!el) return;
+  if(!g || !g.block || !placedFor(g.block)[0]){ el.innerHTML = ""; return; }
+  const o = opts(), beac = o.profile==="beacon";
+  const sw = (svgInner, label) => `<span><svg viewBox="0 0 1 1" width="16" height="16" style="vertical-align:-3px;margin-right:4px">${svgInner}</svg>${label}</span>`;
+  el.innerHTML = `<div class="legend">
+      ${sw(drawEntity({ name:"express-transport-belt", x:0, y:0, w:1, h:1, lane:"in" }), "express belt (arrow = flow)")}
+      ${sw(drawEntity({ name:"fast-inserter", x:0, y:0, w:1, h:1, dir:8 }), "fast inserter")}
+      ${beac ? "" : sw(drawEntity({ name:"long-handed-inserter", x:0, y:0, w:1, h:1, dir:8 }).replace(/1\.6/g, ".4"), "long-handed inserter")}
+      ${sw(drawEntity({ name:"medium-electric-pole", x:0, y:0, w:1, h:1 }), "medium pole")}
+      ${beac ? sw(`<rect width="1" height="1" rx=".2" fill="#363c49"/><path d="M.5 .15L.85 .5L.5 .85L.15 .5Z" fill="#3e9cf0"/>`, "beacon") : ""}
+    </div>
+    <p class="muted" style="margin:6px 0">${beac
+      ? "Each row: beacons, an input belt, machines between beacons, an output belt, beacons. Ingredients go on the top belt (one per lane); products leave on the bottom belt."
+      : "Each row pair shares two belts: ingredients on the upper belt (one per lane), products on the lower one. Fast inserters reach one tile, long-handed ones two."} Arms point where items go. Rows are separate lines: link one row's output to the next row's input, and add pipes for fluids.</p>
+    <div class="gactions" style="margin-top:4px"><button class="btn" id="bpCopy">📋 Copy blueprint</button><button class="btn" id="bpView">🖼️ See it with game graphics</button></div>
+    <div class="muted" id="bpMsg" style="margin-top:6px"></div>`;
+  $("bpView").onclick = async () => {
+    // a community blueprint viewer that draws blueprints with the game's own sprites
+    const w = window.open("about:blank", "_blank");
+    try{ const str = await blueprintString(g.block); const url = "https://fbe.teoxoy.com/?source=" + encodeURIComponent(str);
+      if(w) w.location = url; else location.href = url;
+      $("bpMsg").innerHTML = "Opened in the Factorio Blueprint Editor (a free community site, no longer updated). If it shows nothing, use Copy blueprint and paste it in game instead.";
+    }catch(e){ if(w) w.close(); $("bpMsg").textContent = "Couldn't build the blueprint in this browser: " + e.message; }
+  };
+  $("bpCopy").onclick = async () => {
+    const msg = $("bpMsg");
+    try{
+      const str = await blueprintString(g.block);
+      try{ await navigator.clipboard.writeText(str); msg.innerHTML = "Copied. In game: open the blueprint library (<b>B</b>), press <b>Import string</b>, paste."; }
+      catch(e){ msg.innerHTML = `<textarea readonly style="width:100%;min-height:60px" aria-label="Blueprint string">${esc(str)}</textarea>Select it and copy, then in game: blueprint library (<b>B</b>) → <b>Import string</b>.`; msg.querySelector("textarea").select(); }
+    }catch(e){ msg.textContent = "Couldn't build the blueprint in this browser: " + e.message; }
+  };
+}
+async function blueprintString(id){
+  const p = placedFor(id)[0], json = JSON.stringify(blueprintJson(p.cell, opts(), BLK[id].name));
+  // Factorio's format: "0" + base64 of the zlib-compressed JSON
+  const cs = new Blob([json]).stream().pipeThrough(new CompressionStream("deflate"));
+  const buf = new Uint8Array(await new Response(cs).arrayBuffer());
+  let bin = ""; for(let i = 0; i < buf.length; i += 0x8000) bin += String.fromCharCode.apply(null, buf.subarray(i, i + 0x8000));
+  return "0" + btoa(bin);
 }
 function renderGuide(){
   const cur = currentStep(), g = (viewId && steps.find(x => x.id===viewId)) || cur;

@@ -684,7 +684,71 @@ function adoptBuilt(sol, placed, machines, pins){
   return out;
 }
 
+// ---------- the exact build: every entity of a block, tile by tile ------------------------
+// Positions are block-local tiles (top-left of the entity). The same list draws the close-up
+// view and becomes the in-game blueprint, so what you see is what you paste.
+const ENTITY = { asm:"assembling-machine-3", furn:"electric-furnace", chem:"chemical-plant", ref:"oil-refinery", silo:"rocket-silo", lab:"lab" };
+const GAME_RECIPE = { aop:"advanced-oil-processing", "heavy-crack":"heavy-oil-cracking", "light-crack":"light-oil-cracking", "solid-fuel":"solid-fuel-from-light-oil" };
+const DIR = { N:0, E:4, S:8, W:12 };   // Factorio 2.x 16-way directions
+function blockEntities(cell, opt){
+  const out = [], add = (name, x, y, w, h, extra) => out.push({ name, x, y, w, h, ...extra });
+  for(const r of cell.rows){
+    const m = r.machine, size = m==="lab" ? 3 : MACHINES[m].size, beacon = opt.profile==="beacon" && m!=="lab";
+    const recipe = m==="lab" || m==="furn" || m==="silo" ? null : (GAME_RECIPE[r.key] || r.key);
+    const mach = (x, y) => add(ENTITY[m], x, y, size, size, { recipe, key:r.key, machine:true });
+    const feeds = m !== "ref";   // refineries are all pipes
+    if(beacon){
+      // beacons | input belt | inserters | machines between beacons | inserters | output belt | beacons
+      const pitch = size + 3, x0 = r.x + 1, y0 = r.y, my = y0 + 5, len = r.n * pitch + 3;
+      for(let bx = 0; bx + 3 <= len; bx += 3){ add("beacon", x0+bx, y0, 3, 3); add("beacon", x0+bx, my+size+2, 3, 3); }
+      for(let x = 0; x < len; x++){ add("express-transport-belt", x0+x, y0+3, 1, 1, { dir:DIR.E, lane:"in" }); add("express-transport-belt", x0+x, my+size+1, 1, 1, { dir:DIR.E, lane:"out" }); }
+      for(let i = 0; i <= r.n; i++){
+        add("beacon", x0+i*pitch, my, 3, 3);
+        add("medium-electric-pole", x0+i*pitch+1, y0+4, 1, 1); add("medium-electric-pole", x0+i*pitch+1, my+size, 1, 1);
+      }
+      for(let i = 0; i < r.n; i++){
+        const mx = x0 + 3 + i*pitch; mach(mx, my);
+        if(feeds){ add("fast-inserter", mx+1, y0+4, 1, 1, { dir:DIR.N, from:"belt" });            // belt above → machine
+          add("fast-inserter", mx+1, my+size, 1, 1, { dir:DIR.N, from:"machine" }); }           // machine → belt below
+      }
+    } else {
+      // two rows of machines facing an input belt and an output belt
+      const per = Math.ceil(r.n/2), x0 = r.x + 2, y0 = r.y, by = y0 + size + 1, len = per * size;
+      for(let x = 0; x < len; x++){ add("express-transport-belt", x0+x, by, 1, 1, { dir:DIR.E, lane:"in" }); add("express-transport-belt", x0+x, by+1, 1, 1, { dir:DIR.E, lane:"out" }); }
+      for(let i = 0; i < r.n; i++){
+        const col = i % per, top = i < per, mx = x0 + col*size, my = top ? y0 : y0 + size + 4, iy = top ? y0 + size : y0 + size + 3;
+        mach(mx, my);
+        if(feeds){
+          if(top){ add("fast-inserter", mx, iy, 1, 1, { dir:DIR.S, from:"belt" });                    // input belt (next row) → machine
+                   add("long-handed-inserter", mx+size-1, iy, 1, 1, { dir:DIR.N, from:"machine" }); } // machine → output belt (2 rows down)
+          else   { add("long-handed-inserter", mx, iy, 1, 1, { dir:DIR.N, from:"belt" });            // input belt (2 rows up) → machine
+                   add("fast-inserter", mx+size-1, iy, 1, 1, { dir:DIR.S, from:"machine" }); }      // machine → output belt
+        }
+        if(col % 2 === 0 && size === 3) add("medium-electric-pole", mx+1, iy, 1, 1);
+        else if(size > 3 && col % 1 === 0) add("medium-electric-pole", mx+Math.floor(size/2), iy, 1, 1);
+      }
+    }
+  }
+  return out;
+}
+// Factorio blueprint JSON (the caller compresses it: "0" + base64(zlib(json))). It's written in
+// the 1.1 format (8-way directions, 1.1 version stamp): Factorio 2.x upgrades it on import, and
+// blueprint viewers that only know 1.1 (fbe.teoxoy.com) can still draw it with the game's sprites.
+function blueprintJson(cell, opt, label){
+  const ents = blockEntities(cell, opt);
+  const entities = ents.map((e, i) => {
+    const o = { entity_number: i+1, name: e.name, position: { x: e.x + e.w/2, y: e.y + e.h/2 } };
+    if(e.dir) o.direction = e.dir / 2;
+    if(e.recipe) o.recipe = e.recipe;
+    return o;
+  });
+  const main = ents.find(e => e.machine);
+  return { blueprint: { item:"blueprint", label: label || "Factorio planner block",
+    icons: [{ signal:{ type:"item", name: main ? main.name : "assembling-machine-3" }, index:1 }],
+    entities, version: 281479278886912 } };   // 1.1.110
+}
+
 // ---------- build order -----------------------------------------------------------------
 const BUILD_ORDER = ["iron","copper","green","auto","log","brick","steel","mil","oil","red","chem","prod","batt","frames","blue","lds","util","silo","labs"];
 
-if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, layoutWorld, packBlock, nice, effects, BUILD_ORDER, BELT, RESEARCH, blockStep, DEFAULT_PATCHES, guideSteps, parseScan, checkBase, adoptBuilt, SCAN_COMMAND, UNLOCK_STEP, PATCH_INFO, machineAt, modulesAt, MACHINE_TIERS, effects, PROD3 };
+if(typeof module !== "undefined") module.exports = { MACHINES, R, OIL, BLOCKS, SCIENCE, solve, layoutBus, layoutCity, layoutWorld, packBlock, nice, effects, BUILD_ORDER, BELT, RESEARCH, blockStep, DEFAULT_PATCHES, guideSteps, parseScan, checkBase, adoptBuilt, blockEntities, blueprintJson, SCAN_COMMAND, UNLOCK_STEP, PATCH_INFO, machineAt, modulesAt, MACHINE_TIERS, effects, PROD3 };
