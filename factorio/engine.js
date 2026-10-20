@@ -695,7 +695,7 @@ function blockEntities(cell, opt){
   for(const r of cell.rows){
     const m = r.machine, size = m==="lab" ? 3 : MACHINES[m].size, beacon = opt.profile==="beacon" && m!=="lab";
     const recipe = m==="lab" || m==="furn" || m==="silo" ? null : (GAME_RECIPE[r.key] || r.key);
-    const mach = (x, y) => add(ENTITY[m], x, y, size, size, { recipe, key:r.key, machine:true });
+    const mach = (x, y) => add(ENTITY[m], x, y, size, size, { recipe, key:r.key, machine:true, machineKey:m });
     const feeds = m !== "ref";   // refineries are all pipes
     if(beacon){
       // beacons | input belt | inserters | machines between beacons | inserters | output belt | beacons
@@ -705,6 +705,9 @@ function blockEntities(cell, opt){
       for(let i = 0; i <= r.n; i++){
         add("beacon", x0+i*pitch, my, 3, 3);
         add("medium-electric-pole", x0+i*pitch+1, y0+4, 1, 1); add("medium-electric-pole", x0+i*pitch+1, my+size, 1, 1);
+        if(size >= 9 && i < r.n){ add("medium-electric-pole", x0+i*pitch+1, my+4, 1, 1);
+          add("medium-electric-pole", x0+i*pitch+7, y0+4, 1, 1); add("medium-electric-pole", x0+i*pitch+7, my+size, 1, 1); }
+        if(size >= 9 && i === r.n) add("medium-electric-pole", x0+i*pitch+1, my+4, 1, 1);
       }
       for(let i = 0; i < r.n; i++){
         const mx = x0 + 3 + i*pitch; mach(mx, my);
@@ -718,17 +721,20 @@ function blockEntities(cell, opt){
       for(let i = 0; i < r.n; i++){
         const col = i % per, top = i < per, mx = x0 + col*size, my = top ? y0 : y0 + size + 4, iy = top ? y0 + size : y0 + size + 3;
         mach(mx, my);
+        const ia = size > 3 ? mx + Math.floor(size/2) - 1 : mx, ib = size > 3 ? mx + Math.floor(size/2) + 1 : mx+size-1;
         if(feeds){
-          if(top){ add("fast-inserter", mx, iy, 1, 1, { dir:DIR.S, from:"belt" });                    // input belt (next row) → machine
-                   add("long-handed-inserter", mx+size-1, iy, 1, 1, { dir:DIR.N, from:"machine" }); } // machine → output belt (2 rows down)
-          else   { add("long-handed-inserter", mx, iy, 1, 1, { dir:DIR.N, from:"belt" });            // input belt (2 rows up) → machine
-                   add("fast-inserter", mx+size-1, iy, 1, 1, { dir:DIR.S, from:"machine" }); }      // machine → output belt
+          if(top){ add("fast-inserter", ia, iy, 1, 1, { dir:DIR.S, from:"belt" });                    // input belt (next row) → machine
+                   add("long-handed-inserter", ib, iy, 1, 1, { dir:DIR.N, from:"machine" }); } // machine → output belt (2 rows down)
+          else   { add("long-handed-inserter", ia, iy, 1, 1, { dir:DIR.N, from:"belt" });            // input belt (2 rows up) → machine
+                   add("fast-inserter", ib, iy, 1, 1, { dir:DIR.S, from:"machine" }); }      // machine → output belt
         }
-        if(col % 2 === 0 && size === 3) add("medium-electric-pole", mx+1, iy, 1, 1);
+        if(size === 3 && (col % 2 === 0 || col === per-1)) add("medium-electric-pole", mx+1, iy, 1, 1);
         else if(size > 3 && col % 1 === 0) add("medium-electric-pole", mx+Math.floor(size/2), iy, 1, 1);
       }
+      if(size > 3) add("medium-electric-pole", x0+len, y0+3, 1, 1);   // bridge to the 3x3 rows beside it
     }
   }
+  for(let y = 1; y < cell.h; y += 7) add("medium-electric-pole", 0, y, 1, 1);   // spine joining the shelves
   return out;
 }
 // Factorio blueprint JSON (the caller compresses it: "0" + base64(zlib(json))). It's written in
@@ -740,6 +746,10 @@ function blueprintJson(cell, opt, label){
     const o = { entity_number: i+1, name: e.name, position: { x: e.x + e.w/2, y: e.y + e.h/2 } };
     if(e.dir) o.direction = e.dir / 2;
     if(e.recipe) o.recipe = e.recipe;
+    // module requests, as the plan assumes them (the game asks bots or you to fill them)
+    const M = e.machine && MACHINES[e.machineKey];
+    if(M && opt.profile !== "plain" && ((R[e.key] && R[e.key].p) || ["aop","heavy-crack","light-crack"].includes(e.key))) o.items = { "productivity-module-3": M.slots };
+    if(e.name === "beacon") o.items = { "speed-module-3": 2 };
     return o;
   });
   const main = ents.find(e => e.machine);
