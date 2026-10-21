@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-21",
-    "fetched": "2026-10-21T01:25:33+00:00",
+    "fetched": "2026-10-21T07:22:30+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 26,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 3
+      "temp": 24,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 7
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 28,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 86
+        "rain": 82
       },
       {
         "day": "Thu",
@@ -29,15 +29,15 @@
         "max": 28,
         "icon": "🌫️",
         "desc": "Fog",
-        "rain": 0
+        "rain": 2
       },
       {
         "day": "Fri",
-        "min": 18,
+        "min": 17,
         "max": 28,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 12
+        "rain": 14
       }
     ]
   },
@@ -72,38 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118067.0,
-        "pct": 1.18
+        "price": 117826.0,
+        "pct": 1.01
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3489.91,
-        "pct": 2.04
+        "price": 3477.66,
+        "pct": 1.67
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Netflix Chiefs Concede That Slowdown in U.S. Viewing Sparked the Content Leadership Shakeup: ‘We’re Focusing on Execution,’ Ted Sarandos Says",
+      "title": "‘Father’s House,’ Starring David Dencik and Trine-Dyrholm, Picked Up by DR Sales Ahead of Tallinn Competition",
       "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-slowdown-u-s-viewing-shakeup-bela-bajaria-dan-lin-1236918124/"
+      "url": "https://variety.com/2026/film/global/trine-dyrholm-david-dencik-dr-sales-religious-sect-1236918444/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kurosawa Kiyoshi, Shimizu Takashi Among Directors of Disney+, Hulu Japanese Horror Series ‘Night Tales Club’",
+      "title": "‘Pirates of the Caribbean’ Secret Cinema Immersive Stage Show Casts George Maguire as Jack Sparrow, Extends London Run",
       "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/kurosawa-shimizu-disney-japanese-horror-night-tales-club-1236918137/"
+      "url": "https://variety.com/2026/theater/news/pirates-of-the-caribbean-secret-cinema-jack-sparrow-1236918148/"
     },
     {
       "cat": "Film/TV",
-      "title": "Access: Horror Virtual Film Festival Sheds Light on Disability by ‘Centering Ableism as the Horror Rather Than Disability’",
-      "when": "20 Oct",
+      "title": "Thai Pop Star Jeff Satur Signs With Universal Music Southeast Asia, Sets 2027 Album and World Tour",
+      "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/features/access-horror-film-festival-disability-horrror-1236916976/"
+      "url": "https://variety.com/2026/music/news/thai-pop-star-jeff-satur-universal-music-1236918438/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Julia Stiles ‘Bawled’ Before Heath Ledger Tribute, Breaks Down ’10 Things I Hate About You’ Cast Reunion on ‘Dancing With the Stars’",
+      "when": "21 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/julia-stiles-10-things-i-hate-about-you-reunion-heath-ledger-tribute-dwts-1236916762/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "20 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/20/star-trek-starfleet-academy-cast-talk-character-twists-and-complicated-season-2-and-series-finale/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Charli xcx Cancels ‘Music, Fashion, Film’ Show in Arizona Due to Illness: ‘It Breaks Me That I Can’t Be With You’",
-      "when": "20 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/charli-xcx-cancels-arizona-show-due-to-illness-1236918156/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
