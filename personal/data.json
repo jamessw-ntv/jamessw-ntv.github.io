@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-21",
-    "fetched": "2026-10-21T07:22:30+00:00",
+    "fetched": "2026-10-21T13:38:05+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 24,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 7
+      "temp": 16,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 3
     },
     "days": [
       {
         "day": "Today",
-        "min": 14,
-        "max": 28,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 82
-      },
-      {
-        "day": "Thu",
-        "min": 14,
+        "min": 13,
         "max": 28,
         "icon": "🌫️",
         "desc": "Fog",
-        "rain": 2
+        "rain": 0
       },
       {
         "day": "Fri",
         "min": 17,
         "max": 28,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 14
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 22
+      },
+      {
+        "day": "Sat",
+        "min": 14,
+        "max": 26,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 81
       }
     ]
   },
@@ -72,49 +72,56 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 117826.0,
-        "pct": 1.01
+        "price": 118592.0,
+        "pct": 1.78
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3477.66,
-        "pct": 1.67
+        "price": 3504.03,
+        "pct": 2.34
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Father’s House,’ Starring David Dencik and Trine-Dyrholm, Picked Up by DR Sales Ahead of Tallinn Competition",
+      "title": "Young Audiences Want to Redefine Modern Storytelling, New Study Shows",
       "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/trine-dyrholm-david-dencik-dr-sales-religious-sect-1236918444/"
+      "url": "https://variety.com/2026/film/news/young-audiences-redefine-modern-storytelling-ucla-study-1236918129/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Pirates of the Caribbean’ Secret Cinema Immersive Stage Show Casts George Maguire as Jack Sparrow, Extends London Run",
+      "title": "Jake Tapper Sketches Work Outside CNN: Graphic Novel Probes Life of ‘Butcher’ Klaus Barbie",
       "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/theater/news/pirates-of-the-caribbean-secret-cinema-jack-sparrow-1236918148/"
+      "url": "https://variety.com/2026/tv/news/jake-tapper-cnn-graphic-novel-the-butcher-klaus-barbie-1236918541/"
     },
     {
       "cat": "Film/TV",
-      "title": "Thai Pop Star Jeff Satur Signs With Universal Music Southeast Asia, Sets 2027 Album and World Tour",
+      "title": "Neiman Marcus’s Luxe 2026 Holiday Offerings Include $180,000 ‘Star Wars’ Experience",
       "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/thai-pop-star-jeff-satur-universal-music-1236918438/"
+      "url": "https://variety.com/2026/shopping/news/neiman-marcus-star-wars-experience-gift-guide-shop-online-1236916724/"
     },
     {
       "cat": "Film/TV",
-      "title": "Julia Stiles ‘Bawled’ Before Heath Ledger Tribute, Breaks Down ’10 Things I Hate About You’ Cast Reunion on ‘Dancing With the Stars’",
+      "title": "Netflix Stock Deflates to Two-Year Low. What Will It Take to Revive Revenue Growth?",
       "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/julia-stiles-10-things-i-hate-about-you-reunion-heath-ledger-tribute-dwts-1236916762/"
+      "url": "https://variety.com/2026/tv/news/netflix-stock-falls-two-year-low-after-earnings-report-1236918535/"
     },
     {
       "cat": "Trek/Wars",
-      "title": "‘Star Trek: Starfleet Academy’ Cast Talk Character “Twists” And “Complicated” Season 2 (And Series) Finale",
+      "title": "Review: ‘The Fall of Kylo Ren’ #3 Takes a Break for a Knights of Ren Flashback",
+      "when": "21 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/review-the-fall-of-kylo-ren-3-takes-a-break-for-a-knights-of-ren-flashback.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Trek: Starfleet Academy’ Cast Talks Character “Twists” And “Complicated” Season 2 (And Series) Finale",
       "when": "20 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/20/star-trek-starfleet-academy-cast-talk-character-twists-and-complicated-season-2-and-series-finale/"
@@ -142,13 +149,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Disney Reportedly in Talks with Bungie and DICE to Develop a New ‘Star Wars: Battlefront’ Game",
-      "when": "20 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/disney-reportedly-in-talks-with-bungie-and-dice-to-develop-a-new-star-wars-battlefront-game.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Boldly Build With ‘Star Trek: Outposts Unknown,’ Out Now — Watch Sing-Along Launch Trailer",
       "when": "20 Oct",
       "source": "TrekMovie",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     }
