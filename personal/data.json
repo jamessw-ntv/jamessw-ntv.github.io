@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-21",
-    "fetched": "2026-10-21T13:38:05+00:00",
+    "fetched": "2026-10-21T18:30:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 3
+      "temp": 13,
+      "icon": "🌫️",
+      "desc": "Fog",
+      "wind": 7
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 28,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 22
+        "rain": 39
       },
       {
         "day": "Sat",
@@ -37,7 +37,7 @@
         "max": 26,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 81
+        "rain": 86
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 118592.0,
-        "pct": 1.78
+        "price": 120460.0,
+        "pct": 2.24
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3504.03,
-        "pct": 2.34
+        "price": 3578.45,
+        "pct": 2.76
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Young Audiences Want to Redefine Modern Storytelling, New Study Shows",
+      "title": "‘Fourth Wing’ Author Rebecca Yarros Praises Violet and Xaden TV Casting; Amazon Confirms Esther McGregor, Emilio Sakraya",
       "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/young-audiences-redefine-modern-storytelling-ucla-study-1236918129/"
+      "url": "https://variety.com/2026/tv/news/fourth-wing-rebecca-yarros-violet-xaden-casting-amazon-1236919071/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jake Tapper Sketches Work Outside CNN: Graphic Novel Probes Life of ‘Butcher’ Klaus Barbie",
+      "title": "Sequel to Egyptian Hit ‘Sleepless Nights’ Eyes 2027 Shoot as New Details Revealed (EXCLUSIVE)",
       "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jake-tapper-cnn-graphic-novel-the-butcher-klaus-barbie-1236918541/"
+      "url": "https://variety.com/2026/film/global/sleepless-nights-2-2027-shoot-tamer-habib-karim-el-shenawy-1236918999/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Respawn and DICE Studios Working on ‘Star Wars: Battlefront 3,’ BioWare Shuttering",
+      "when": "21 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/respawn-and-dice-studios-confirmed-to-be-working-on-star-wars-battlefront-3-bioware-shuttering.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Neiman Marcus’s Luxe 2026 Holiday Offerings Include $180,000 ‘Star Wars’ Experience",
+      "title": "Todd Haynes’ ‘De Noche’ Mexican Co-Producer Península Boards Pimienta Films’ Stop-Motion ‘Insectario’ by Sofia Carrillo (EXCLUSIVE)",
       "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/neiman-marcus-star-wars-experience-gift-guide-shop-online-1236916724/"
+      "url": "https://variety.com/2026/film/global/todd-haynes-de-noche-peninsula-insectario-sofia-carrillo-1236916667/"
     },
     {
       "cat": "Film/TV",
-      "title": "Netflix Stock Deflates to Two-Year Low. What Will It Take to Revive Revenue Growth?",
+      "title": "Will Elon Musk Help the Ellisons Pay Down Skydance’s Massive Debt? John Malone Predicts Tech Mogul’s SpaceX Could Invest up to $10 Billion Into Media Company",
       "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-stock-falls-two-year-low-after-earnings-report-1236918535/"
+      "url": "https://variety.com/2026/biz/news/elon-musk-invest-ellisons-skydance-debt-john-malone-1236918906/"
     },
     {
       "cat": "Trek/Wars",
@@ -142,13 +149,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "‘Star Wars Funday Football’, Real-Time Animated Recreation of Super Bowl LXI, Announced",
-      "when": "20 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-funday-football-coming-to-super-bowl-lxi.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Boldly Build With ‘Star Trek: Outposts Unknown,’ Out Now — Watch Sing-Along Launch Trailer",
       "when": "20 Oct",
       "source": "TrekMovie",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
