@@ -2,22 +2,22 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-21",
-    "fetched": "2026-10-21T22:13:33+00:00",
+    "updated": "2026-10-22",
+    "fetched": "2026-10-22T01:23:25+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 21,
+      "temp": 27,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 9
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
-        "min": 13,
+        "min": 14,
         "max": 28,
         "icon": "🌫️",
         "desc": "Fog",
@@ -26,18 +26,18 @@
       {
         "day": "Fri",
         "min": 17,
-        "max": 28,
+        "max": 27,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 39
+        "rain": 27
       },
       {
         "day": "Sat",
         "min": 14,
-        "max": 24,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 86
+        "max": 22,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 100
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 120544.0,
-        "pct": 1.78
+        "price": 119934.0,
+        "pct": 1.62
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3548.92,
-        "pct": 1.1
+        "price": 3523.08,
+        "pct": 1.09
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Glee’ Reboot: Who’s Coming Back? Will Rachel Sing Olivia Rodrigo? How MAGA Is Sue? And More Fan Questions",
-      "when": "21 Oct",
+      "title": "Ranbir Kapoor, Yash Epic ‘Ramayana: Part One’ Sets Pay-Per-View Release on JioHotstar After Theatrical Run",
+      "when": "22 Oct",
       "source": "Variety",
-      "url": "https://variety.com/lists/glee-reboot-actors-return-sue-maga-fan-questions/"
+      "url": "https://variety.com/2026/film/news/ranbir-kapoor-yash-ramayana-jiohotstar-pay-per-view-release-1236919377/"
     },
     {
       "cat": "Film/TV",
-      "title": "Alexander Skarsgård on His Wacky ‘Wicker’ Red Carpet Looks: From Clear Shoes and a Multicolored Skirt to a Gray Wig Inspired by Co-Star Olivia Colman",
-      "when": "21 Oct",
+      "title": "Vietnamese Whodunit ‘Karaoke Murder’ Sets Record With Same-Weekend Opening on Four Continents (EXCLUSIVE)",
+      "when": "22 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/alexander-skarsgard-wicker-red-carpet-looks-1236919284/"
+      "url": "https://variety.com/2026/film/news/vietnamese-whodunit-karaoke-murder-four-continent-release-1236919373/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Abbott Elementary’ Season 6 Premiere Hits 6.3 Million Viewers in Seven Days (EXCLUSIVE)",
-      "when": "21 Oct",
+      "title": "Iron Maiden’s Nicko McBrain Rejected an Invite to Golf With Trump, Says He Should Be ‘Put in Jail’: ‘I’m Not Amused by the Narcissism’",
+      "when": "22 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/abbott-elementary-season-6-premiere-ratings-1236919286/"
+      "url": "https://variety.com/2026/music/news/iron-maidens-nicko-mcbrain-rejected-invite-trump-1236919360/"
     },
     {
       "cat": "Film/TV",
-      "title": "Meta’s Almost $10 Billion Legal Costs Take Huge Toll on Q3 Earnings, Wall Street Shrugs",
+      "title": "Hur Jin-ho Thanks Singapore Festival for Protecting Freedom of Expression as ‘The Assassin(s)’ Opens, SGIFF Chair Boo Junfeng Says: ‘We Refuse to Show Anything That Has Been Censored’",
       "when": "21 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/meta-q3-earnings-2026-1236918874/"
+      "url": "https://variety.com/2026/film/festivals/hur-jin-ho-thanks-singapore-festival-assassins-opens-1236919346/"
     },
     {
       "cat": "Trek/Wars",
