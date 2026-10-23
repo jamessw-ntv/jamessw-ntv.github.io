@@ -3,30 +3,30 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-23",
-    "fetched": "2026-10-23T18:12:41+00:00",
+    "fetched": "2026-10-23T21:57:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 8
+      "temp": 17,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 5
     },
     "days": [
       {
         "day": "Today",
         "min": 14,
-        "max": 20,
+        "max": 22,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 96
       },
       {
         "day": "Sun",
-        "min": 9,
-        "max": 18,
+        "min": 8,
+        "max": 17,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 100
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 115790.0,
-        "pct": 0.27
+        "price": 115582.0,
+        "pct": -0.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3415.74,
-        "pct": 0.91
+        "price": 3407.11,
+        "pct": -0.01
       }
     ]
   },
   "releases": [
     {
-      "cat": "Film/TV",
-      "title": "Joel McHale to Star in Short Film From ‘Open Door’ Director Kevin Cate (EXCLUSIVE)",
+      "cat": "Trek/Wars",
+      "title": "Exclusive: Preview Of ‘Star Trek: The Original Voyages’ Visual History Book",
       "when": "23 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/joel-mchale-short-film-open-door-director-kevin-cate-1236929838/"
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/23/exclusive-preview-of-star-trek-the-original-voyages-visual-history-book/"
     },
     {
       "cat": "Film/TV",
-      "title": "Fusion Entertainment Signs Director Ryan DeForeest, Sets Feature Adaptation of His Short Film ‘My Brother & Me’ (EXCLUSIVE)",
+      "title": "‘Law & Order: SVU’ Sets Stephanie March to Return as Alexandra Cabot",
       "when": "23 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/fusion-entertainment-ryan-deforeest-my-brother-me-1236929744/"
+      "url": "https://variety.com/2026/tv/news/law-order-svu-stephanie-march-return-alexandra-cabot-1236929966/"
     },
     {
       "cat": "Film/TV",
-      "title": "Valladolid Film Festival Draws Global Auteurs, 30 World Premieres and Emerging Spanish Talent",
+      "title": "Why Olivia Colman Didn’t Get Splinters From Getting Intimate With Alexander Skarsgård’s ‘Wicker’ Costume",
       "when": "23 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/valladolid-film-festival-30-world-premieres-global-auteurs-1236922172/"
+      "url": "https://variety.com/2026/artisans/news/what-alexander-skarsgard-wicker-basket-was-made-from-1236929863/"
     },
     {
       "cat": "Film/TV",
-      "title": "Slayyyter Cancels Remaining European and U.K. Tour Dates to Recover From Laryngitis",
+      "title": "Ethan Klein Reacts to Hila Klein’s Cheating Allegations Amid ‘H3 Podcast’ Fallout: ‘Please Respect My Family’s Privacy … They Have Nothing to Do With This’",
       "when": "23 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/slayyyter-cancels-european-uk-tour-dates-laryngitis-1236929864/"
+      "url": "https://variety.com/2026/digital/news/ethan-klein-reacts-hila-klein-cheating-allegations-h3-1236929836/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "How to Watch MLB World Series 2026: Tampa Bay Rays vs. Milwaukee Brewers Online for Free",
+      "when": "23 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-world-series-2026-mlb-livestream-online-free-1236929580/"
     },
     {
       "cat": "Trek/Wars",
@@ -148,13 +155,6 @@
       "url": "https://trekmovie.com/2026/10/20/new-magic-the-gathering-star-trek-set-details-revealed-watch-star-studded-debut-video/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Boldly Build With ‘Star Trek: Outposts Unknown,’ Out Now — Watch Sing-Along Launch Trailer",
-      "when": "20 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/20/boldly-build-with-star-trek-outposts-unknown-out-now-watch-sing-along-launch-trailer/"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory: The board game – Campaign live now!",
       "when": "13 Oct",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
