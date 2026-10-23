@@ -3,33 +3,33 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-23",
-    "fetched": "2026-10-23T01:21:41+00:00",
+    "fetched": "2026-10-23T07:17:00+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 26,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 22
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
-        "min": 18,
+        "min": 17,
         "max": 28,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 33
+        "rain": 59
       },
       {
         "day": "Sat",
         "min": 14,
         "max": 22,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 81
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 90
       },
       {
         "day": "Sun",
@@ -72,38 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 115780.0,
-        "pct": -3.49
+        "price": 116363.0,
+        "pct": -0.84
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3395.98,
-        "pct": -3.61
+        "price": 3422.48,
+        "pct": -1.15
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Peter Chan Rules Out AI-Generated Content, Says Feature Films Will Survive the Rise of Vertical Dramas",
+      "title": "Asif Kapadia on Bringing the ‘Amazing,’ ‘Profound,’ ‘Beautiful’ ‘7 Up’ Documentary Series to a Close After More Than 60 Years: ‘It’s a Dream Job’",
       "when": "23 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/peter-chan-rules-out-ai-generated-content-feature-films-survival-1236922012/"
+      "url": "https://variety.com/2026/tv/global/asif-kapadia-7-up-documentary-series-dream-job-1236922122/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Ebenezer’ Creates a Real Venmo Profile for Scrooge, Which Hands Out Money and Accepts It, Too",
+      "title": "‘The Notebook’ Musical Sets West End Run at Newly Renamed Judi Dench Theatre",
       "when": "23 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ebenezer-venmo-real-johnny-depp-scrooge-movie-1236921820/"
+      "url": "https://variety.com/2026/theater/global/the-notebook-musical-west-end-run-judi-dench-theatre-1236920361/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscars Predictions 2027: Is ‘You Can See Everything’ the Film That Can Take Down ‘The Odyssey’?",
+      "title": "Biographies of John Williams and Bernard Herrmann Among Honored Works in ASCAP’s Awards for Music Writing and Broadcasts",
       "when": "23 Oct",
       "source": "Variety",
-      "url": "https://variety.com/lists/2027-oscars-predictions/"
+      "url": "https://variety.com/2026/music/news/ascap-writing-awards-biographies-john-williams-bernard-herrmann-1236922092/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Richard Gadd, Bill Camp and Ray McKinnon Join Michael Keaton-Directed Western ‘Rode to Ruin’ (EXCLUSIVE)",
+      "when": "23 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/richard-gadd-bill-camp-ray-mckinnon-rode-to-ruin-1236922088/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "23 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-starfighter-budget-surpasses-the-force-awakens-before-tax-credits.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Michael Gray, Star of ‘Shazam!’ TV Series, Dies at 75",
-      "when": "22 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/people-news/michael-gray-dead-shazam-1236921937/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     }
