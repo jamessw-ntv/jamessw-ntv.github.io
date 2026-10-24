@@ -2,23 +2,23 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-23",
-    "fetched": "2026-10-23T21:57:09+00:00",
+    "updated": "2026-10-24",
+    "fetched": "2026-10-24T00:25:16+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 17,
+      "temp": 19,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 5
+      "wind": 2
     },
     "days": [
       {
         "day": "Today",
-        "min": 14,
-        "max": 22,
+        "min": 15,
+        "max": 23,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 96
@@ -28,7 +28,7 @@
         "min": 8,
         "max": 17,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Heavy showers",
         "rain": 100
       },
       {
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 115582.0,
-        "pct": -0.36
+        "price": 114786.0,
+        "pct": -0.73
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3407.11,
-        "pct": -0.01
+        "price": 3373.19,
+        "pct": -0.73
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Sacha Baron Cohen Says Donald Trump Has ‘Elements of Brilliance’ and ‘We Were Too Easy to Dismiss Him as a Nincompoop’",
+      "when": "23 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/sacha-baron-cohen-donald-trump-brilliance-nincompoop-ali-g-1236930008/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Sandra Hüller Joins ‘Avengers: Doomsday’ in Cameo Role",
+      "when": "23 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/sandra-huller-avengers-doomsday-cameo-role-1236930032/"
+    },
     {
       "cat": "Trek/Wars",
       "title": "Exclusive: Preview Of ‘Star Trek: The Original Voyages’ Visual History Book",
@@ -104,20 +118,6 @@
       "when": "23 Oct",
       "source": "Variety",
       "url": "https://variety.com/2026/artisans/news/what-alexander-skarsgard-wicker-basket-was-made-from-1236929863/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ethan Klein Reacts to Hila Klein’s Cheating Allegations Amid ‘H3 Podcast’ Fallout: ‘Please Respect My Family’s Privacy … They Have Nothing to Do With This’",
-      "when": "23 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/ethan-klein-reacts-hila-klein-cheating-allegations-h3-1236929836/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "How to Watch MLB World Series 2026: Tampa Bay Rays vs. Milwaukee Brewers Online for Free",
-      "when": "23 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-world-series-2026-mlb-livestream-online-free-1236929580/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     }
