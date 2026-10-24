@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-24",
-    "fetched": "2026-10-24T05:36:00+00:00",
+    "fetched": "2026-10-24T10:41:11+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 23,
+      "temp": 18,
       "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 6
+      "desc": "Showers",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
         "min": 15,
-        "max": 23,
+        "max": 24,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 88
@@ -28,7 +28,7 @@
         "min": 8,
         "max": 17,
         "icon": "🌦️",
-        "desc": "Heavy showers",
+        "desc": "Showers",
         "rain": 100
       },
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114734.0,
-        "pct": -1.46
+        "price": 114670.0,
+        "pct": -1.44
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3376.91,
-        "pct": -1.31
+        "price": 3370.25,
+        "pct": -1.4
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Bill Maher’s Embarrassing Karoline Leavitt Interview on ‘Real Time’",
+      "title": "El Gouna Takeaways: ‘Safe Exit’ Wins Top Prize, Arab TV Seeks New Talent and Egyptian Filmmakers Push Boundaries",
       "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/bill-maher-karoline-leavitt-interview-trump-real-time-hbo-1236930093/"
+      "url": "https://variety.com/2026/film/global/el-gouna-film-festival-2026-five-takeaways-cinegouna-1236930192/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kartik Aaryan’s ‘Captain India’ Set Amid Houthi Conflict in Yemen (EXCLUSIVE)",
+      "title": "UFC 333 Livestream: Here’s How to Watch  Volkanovski vs. Evloev Online for Free",
       "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/kartik-aaryan-captain-india-houthi-conflict-yemen-1236930090/"
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-ufc-333-volkanovski-vs-evloev-live-online-free-1236917590/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ken Atchity, ‘The Meg’ Producer and Literary Agent, Dies at 82",
+      "title": "Jay-Z Brings Out Blue Ivy Carter, DJ Khaled and John Legend During the First of Two Nights at Los Angeles’ SoFi Stadium",
       "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/people-news/ken-atchity-dead-the-meg-1236930069/"
+      "url": "https://variety.com/2026/music/news/jay-z-brings-out-blue-ivy-dj-khaled-scarface-sofi-stadium-1236930075/"
     },
     {
       "cat": "Film/TV",
-      "title": "Sacha Baron Cohen Says Donald Trump Has ‘Elements of Brilliance’ and ‘We Were Too Easy to Dismiss Him as a Nincompoop’",
-      "when": "23 Oct",
+      "title": "Kore-eda Hirokazu Explains Why He Never Films Children Crying – and What Ken Loach and Hou Hsiao-hsien Taught Him",
+      "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/sacha-baron-cohen-donald-trump-brilliance-nincompoop-ali-g-1236930008/"
+      "url": "https://variety.com/2026/film/festivals/kore-eda-hirokazu-why-never-films-children-crying-1236930180/"
     },
     {
       "cat": "Trek/Wars",
