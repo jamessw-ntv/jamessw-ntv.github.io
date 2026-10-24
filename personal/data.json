@@ -3,29 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-24",
-    "fetched": "2026-10-24T10:41:11+00:00",
+    "fetched": "2026-10-24T14:23:45+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 18,
+      "temp": 17,
       "icon": "🌦️",
       "desc": "Showers",
-      "wind": 13
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
-        "min": 15,
-        "max": 24,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 88
-      },
-      {
-        "day": "Sun",
-        "min": 8,
+        "min": 9,
         "max": 17,
         "icon": "🌦️",
         "desc": "Showers",
@@ -37,7 +29,15 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 59
+        "rain": 57
+      },
+      {
+        "day": "Tue",
+        "min": 7,
+        "max": 14,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 75
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114670.0,
-        "pct": -1.44
+        "price": 114146.0,
+        "pct": -1.39
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3370.25,
-        "pct": -1.4
+        "price": 3336.64,
+        "pct": -1.96
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Dalton Smith vs. Alberto Puello Livestream: Here’s Where to Watch the WBC Junior Welterweight Title Boxing Match Online",
+      "when": "24 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-smith-vs-puello-boxing-live-online-1236918582/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Love Language’ Review: Chloë Grace Moretz Sells Words of Affirmation in an Old-School Romcom With Gen-Z Trappings",
+      "when": "24 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/reviews/love-language-review-1236930209/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Morelia Film Festival Prizes: ‘Six Months in a Pink and Blue Building,’ an ‘Expression of Pure, Unbound Beauty,’ Wins Top ‘Ojo’ Award",
+      "when": "24 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/morelia-film-festival-prizes-pink-and-blue-building-1236929888/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "El Gouna Takeaways: ‘Safe Exit’ Wins Top Prize, Arab TV Seeks New Talent and Egyptian Filmmakers Push Boundaries",
       "when": "24 Oct",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/el-gouna-film-festival-2026-five-takeaways-cinegouna-1236930192/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "UFC 333 Livestream: Here’s How to Watch  Volkanovski vs. Evloev Online for Free",
-      "when": "24 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-ufc-333-volkanovski-vs-evloev-live-online-free-1236917590/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jay-Z Brings Out Blue Ivy Carter, DJ Khaled and John Legend During the First of Two Nights at Los Angeles’ SoFi Stadium",
-      "when": "24 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/jay-z-brings-out-blue-ivy-dj-khaled-scarface-sofi-stadium-1236930075/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Kore-eda Hirokazu Explains Why He Never Films Children Crying – and What Ken Loach and Hou Hsiao-hsien Taught Him",
-      "when": "24 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/kore-eda-hirokazu-why-never-films-children-crying-1236930180/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     }
