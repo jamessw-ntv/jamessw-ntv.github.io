@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-24",
-    "fetched": "2026-10-24T14:23:45+00:00",
+    "fetched": "2026-10-24T18:00:15+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 17,
+      "temp": 16,
       "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 6
+      "desc": "Drizzle",
+      "wind": 10
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 57
+        "rain": 39
       },
       {
         "day": "Tue",
@@ -37,7 +37,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 75
+        "rain": 53
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114146.0,
-        "pct": -1.39
+        "price": 114103.0,
+        "pct": -1.63
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3336.64,
-        "pct": -1.96
+        "price": 3302.89,
+        "pct": -3.51
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Dalton Smith vs. Alberto Puello Livestream: Here’s Where to Watch the WBC Junior Welterweight Title Boxing Match Online",
+      "title": "Sylvester Stallone Says Daughter’s ‘Tulsa King’ Casting is ‘Of Course’ Nepotism: ‘Obviously We Let Them Have Every Advantage’",
       "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-smith-vs-puello-boxing-live-online-1236918582/"
+      "url": "https://variety.com/2026/tv/news/sylvester-stallone-tulsa-king-nepotism-1236930287/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Love Language’ Review: Chloë Grace Moretz Sells Words of Affirmation in an Old-School Romcom With Gen-Z Trappings",
+      "title": "The Surprise Guest in ‘You Can See Everything’ Could Win an Oscar. Should They?",
       "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/love-language-review-1236930209/"
+      "url": "https://variety.com/2026/film/columns/amanda-seyfried-you-can-see-everything-oscar-1236916757/"
     },
     {
       "cat": "Film/TV",
-      "title": "Morelia Film Festival Prizes: ‘Six Months in a Pink and Blue Building,’ an ‘Expression of Pure, Unbound Beauty,’ Wins Top ‘Ojo’ Award",
+      "title": "New York’s AMC Kips Bay Theater Closes on Jan. 3; CEO Says ‘AMC Wants to Stay’ but NYU Langone ‘Wants Us Gone’",
       "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/morelia-film-festival-prizes-pink-and-blue-building-1236929888/"
+      "url": "https://variety.com/2026/film/news/amc-kips-bay-closing-date-ceo-adam-aron-1236930275/"
     },
     {
       "cat": "Film/TV",
-      "title": "El Gouna Takeaways: ‘Safe Exit’ Wins Top Prize, Arab TV Seeks New Talent and Egyptian Filmmakers Push Boundaries",
+      "title": "Box Office: ‘Clayface’ Lands at No. 1 with $10.4 Million Debut, ‘You Can See Everything’ Adds $6.14 Million on Friday",
       "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/el-gouna-film-festival-2026-five-takeaways-cinegouna-1236930192/"
+      "url": "https://variety.com/2026/film/box-office/box-office-clayface-you-can-see-everything-wildwood-wicker-1236930256/"
     },
     {
       "cat": "Trek/Wars",
