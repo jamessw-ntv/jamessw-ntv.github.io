@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-24",
-    "fetched": "2026-10-24T20:32:15+00:00",
+    "fetched": "2026-10-24T23:02:25+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 15,
       "icon": "🌦️",
       "desc": "Showers",
-      "wind": 10
+      "wind": 9
     },
     "days": [
       {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114469.0,
-        "pct": -1.02
+        "price": 114571.0,
+        "pct": -0.29
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3332.76,
-        "pct": -2.2
+        "price": 3335.43,
+        "pct": -0.86
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Happy 20th Birthday, ‘Debut’! A Revealing Look Back at Taylor Swift’s Self-Titled First Album, Via a Previously Unpublished Q&A",
+      "title": "‘SNL U.K.’ Weekend Update Tackles Meghan Markle Dad Allegations, James Bond Auditions and ‘Glee’ Reboot",
       "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/taylor-swift-interview-debut-album-20th-anniversary-1236930352/"
+      "url": "https://variety.com/2026/tv/global/snl-uk-weekend-update-meghan-markle-glee-1236930013/"
     },
     {
       "cat": "Film/TV",
-      "title": "Here’s Where to Watch Emanuel Navarrete vs. O’Shaquie Foster Junior Lightweight Titles Boxing Match Live Online",
+      "title": "Cynthia Erivo Plays Glinda in ‘Nigerian Wicked’ Sketch on ‘SNL U.K.’: ‘She Wants a BBL That Defies Gravity’",
       "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-navarrete-vs-foster-boxing-live-online-1236918612/"
+      "url": "https://variety.com/2026/tv/global/cynthia-erivo-glinda-nigerian-wicked-snl-uk-1236930402/"
     },
     {
       "cat": "Film/TV",
-      "title": "What Is ‘Fjord’ Really About? A Political Stance That May Be Too Hot to Handle",
+      "title": "Shia LaBeouf Would Trash-Talk ‘Lizzie McGuire’ While Filming ‘Even Stevens,’ Says Christy Carlson Romano: ‘He Wanted to Be the Number One Show’",
       "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/what-is-fjord-really-about-1236930049/"
+      "url": "https://variety.com/2026/tv/news/shia-labeouf-lizzie-mcguire-even-stevens-christy-carlson-romano-1236930410/"
     },
     {
       "cat": "Film/TV",
-      "title": "Horror Fans, Rejoice: FilmQuest Breakout ‘The Crawling’ Is the Gutsy Alien Freakout of Your Dreams",
+      "title": "Cynthia Erivo Imagines Competing on ‘The Great British Bake Off’ in ‘SNL U.K.’ Opening Monologue: ‘I’ve Got a Soggy Bottom and I’m Freaking Stressed!’",
       "when": "24 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/the-crawling-alien-movie-1236930222/"
+      "url": "https://variety.com/2026/tv/global/cynthia-erivo-monologue-snl-uk-british-bake-off-1236930011/"
     },
     {
       "cat": "Trek/Wars",
