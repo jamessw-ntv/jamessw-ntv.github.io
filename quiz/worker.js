@@ -11,6 +11,7 @@
  *   ADMIN_EMAIL  who gets the notification (a verified Email Routing destination address)
  *   FROM_EMAIL   sender on your domain, e.g. quiz@yourdomain.com
  *   CSV_KEY      secret, a password you choose for downloading results.csv
+ *   ADMIN_PASSWORD  secret, the shared password for the dashboard (quiz/admin/)
  */
 
 const COLUMNS = ["submitted_at", "name", "email", "quiz", "score", "total", "percent", "result", "answers", "email_status"];
@@ -28,10 +29,15 @@ export default {
 
       // Download every result: https://<worker-url>/results.csv?key=<CSV_KEY>
       if (url.pathname === "/results.csv") {
-        if (!env.CSV_KEY || url.searchParams.get("key") !== env.CSV_KEY) {
-          return new Response("Wrong or missing key", { status: 403 });
-        }
+        if (!allowed(request, url, env)) return new Response("Wrong or missing key", { status: 403, headers: cors() });
         return await csv(env);
+      }
+
+      // The dashboard reads results here, sending the password as "Authorization: Bearer <password>".
+      if (url.pathname === "/results.json") {
+        if (!allowed(request, url, env)) return json({ error: "Wrong password" }, 403);
+        const { results } = await env.DB.prepare(`SELECT id, ${COLUMNS.join(", ")} FROM results ORDER BY id DESC`).all();
+        return json({ results });
       }
 
       // Opening the Worker URL in a browser is a quick "is it live?" check.
@@ -98,7 +104,8 @@ async function csv(env) {
   return new Response(lines.join("\r\n") + "\r\n", {
     headers: {
       "Content-Type": "text/csv; charset=utf-8",
-      "Content-Disposition": 'attachment; filename="results.csv"'
+      "Content-Disposition": 'attachment; filename="results.csv"',
+      ...cors()
     }
   });
 }
@@ -110,13 +117,19 @@ function cell(v) {
   return '"' + s.replace(/"/g, '""') + '"';
 }
 
+// True when the request carries the dashboard password or the CSV key.
+function allowed(request, url, env) {
+  const given = (request.headers.get("Authorization") || "").replace(/^Bearer\s+/i, "") || url.searchParams.get("key") || "";
+  return given !== "" && (given === env.ADMIN_PASSWORD || given === env.CSV_KEY);
+}
+
 function text(v) { return String(v == null ? "" : v).slice(0, 5000); }
 
 function cors() {
   return {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type"
+    "Access-Control-Allow-Headers": "Content-Type, Authorization"
   };
 }
 

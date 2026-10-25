@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Quiz Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
+<link rel="stylesheet" href="../../assets/hub.css" />
+<link rel="stylesheet" href="../quiz.css" />
+<style>
+  .d-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+  .d-head h1{font:700 clamp(28px,4vw,38px)/1.1 var(--q-display);margin:12px 0 0;letter-spacing:-.02em}
+  .d-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .d-actions .q-btn{padding:11px 16px;font-size:14px}
+
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+  @media (max-width:860px){.tiles{grid-template-columns:repeat(2,1fr)}}
+  .tile{background:var(--q-glass);border:1px solid var(--q-edge);border-radius:18px;padding:18px 18px 16px}
+  .tile .lbl{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+  .tile .val{font:700 34px/1.1 var(--q-display);margin-top:8px;font-variant-numeric:tabular-nums}
+  .tile .sub{color:var(--muted);font-size:13px;margin-top:4px}
+
+  .charts{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;margin-bottom:14px}
+  @media (max-width:860px){.charts{grid-template-columns:1fr}}
+  .panel{background:var(--q-glass);border:1px solid var(--q-edge);border-radius:18px;padding:18px}
+  .panel h2{font:600 15px/1.2 var(--q-display);margin:0 0 4px}
+  .panel .note{color:var(--muted);font-size:12px;margin:0 0 12px}
+  .chart{position:relative}
+  .chart svg{display:block;width:100%;height:auto;overflow:visible}
+  .chart text{fill:var(--muted);font:13px var(--q-body)}
+  .chart .grid{stroke:rgba(255,255,255,.06)}
+  .chart .bar{fill:var(--q-ball);transition:opacity .15s}
+  .chart .bar.dim{opacity:.35}
+  .chart .hit{fill:transparent;cursor:default}
+  .chart .passline{stroke:var(--text);stroke-dasharray:4 4;opacity:.5}
+  .tip{position:absolute;pointer-events:none;background:#0b1020;border:1px solid var(--line);border-radius:10px;
+    padding:8px 10px;font-size:12px;color:var(--text);white-space:nowrap;transform:translate(-50%,-110%);opacity:0;transition:opacity .12s}
+  .tip b{font-variant-numeric:tabular-nums}
+
+  .tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+  .tools .q-input{max-width:320px;padding:10px 12px;font-size:14px}
+  .seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--q-edge);border-radius:12px;padding:3px}
+  .seg button{font:600 13px var(--q-body);color:var(--muted);background:none;border:0;padding:8px 12px;border-radius:9px;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--q-ball);color:var(--q-ball-ink)}
+  .tablewrap{overflow-x:auto;border-radius:14px;border:1px solid var(--q-edge)}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:720px}
+  th{text-align:left;font-weight:600;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em;
+    padding:12px 14px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--q-edge);cursor:pointer;user-select:none;white-space:nowrap}
+  th[aria-sort="ascending"]::after{content:" ↑"} th[aria-sort="descending"]::after{content:" ↓"}
+  td{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top}
+  tbody tr.row{cursor:pointer;transition:background .12s}
+  tbody tr.row:hover{background:rgba(255,255,255,.03)}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  td .who{font-weight:600} td .mail{color:var(--muted);font-size:13px}
+  .pill{display:inline-flex;align-items:center;gap:6px;font:700 11px/1 var(--q-body);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:999px}
+  .pill.pass{background:var(--q-pass-soft);color:var(--q-pass)} .pill.fail{background:var(--q-fail-soft);color:var(--q-fail)}
+  .estat{font-size:12px;color:var(--muted)} .estat.bad{color:var(--q-fail)}
+  tr.detail td{background:rgba(0,0,0,.18);color:var(--muted);font-size:13px;white-space:pre-line}
+  .empty{padding:40px;text-align:center;color:var(--muted)}
+
+  .login{max-width:420px;margin:8vh auto 0}
+  .login h1{font:700 30px/1.15 var(--q-display);margin:16px 0 6px}
+</style>
+</head>
+<body class="q">
+<div class="hubbar">
+  <a class="backlink" href="../">← Quiz</a>
+  <span class="crumb"><b>Results dashboard</b></span>
+</div>
+
+<main class="q-shell wide" id="app"></main>
+
+<script src="../questions.js"></script>
+<script>
+/* Admin dashboard: one shared password (ADMIN_PASSWORD on the Worker).
+   The password is only kept for this browser tab (sessionStorage) and sent to the Worker on each request. */
+const app = document.getElementById("app");
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const KEY = "quizAdminPw";
+let pw = null, rows = [], view = { q: "", filter: "all", sort: "submitted_at", dir: -1, open: null };
+try { pw = sessionStorage.getItem(KEY); } catch (e) {}
+
+function login(msg) {
+  app.innerHTML = `
+  <form class="q-card login q-screen" id="f">
+    <span class="q-kicker"><span class="dot"></span>Admin</span>
+    <h1>Results dashboard</h1>
+    <p class="q-lede" style="font-size:15px;margin-bottom:18px">Enter the shared admin password.</p>
+    <div class="q-field"><label for="pw">Password</label>
+      <input class="q-input" id="pw" type="password" autocomplete="current-password" autofocus></div>
+    <button class="q-btn primary" style="width:100%" type="submit">Open dashboard <span class="arrow">→</span></button>
+    <p class="q-err" id="err">${esc(msg || "")}</p>
+  </form>`;
+  document.getElementById("f").addEventListener("submit", ev => {
+    ev.preventDefault();
+    pw = document.getElementById("pw").value;
+    load();
+  });
+}
+
+async function load() {
+  try {
+    const r = await fetch(QUIZ.WORKER_URL.replace(/\/$/, "") + "/results.json", { headers: { Authorization: "Bearer " + pw } });
+    if (r.status === 403) { forget(); return login("That password didn't work."); }
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    rows = (await r.json()).results || [];
+    try { sessionStorage.setItem(KEY, pw); } catch (e) {}
+    dashboard();
+  } catch (e) {
+    console.error(e);
+    login("Couldn't reach the results service. Check your connection and try again.");
+  }
+}
+function forget() { pw = null; try { sessionStorage.removeItem(KEY); } catch (e) {} }
+
+/* ---------- dashboard ---------- */
+function dashboard() {
+  const n = rows.length;
+  const passes = rows.filter(r => r.result === "PASS").length;
+  const avg = n ? Math.round(rows.reduce((s, r) => s + Number(r.percent || 0), 0) / n) : 0;
+  const week = rows.filter(r => Date.now() - new Date(r.submitted_at) < 7 * 864e5).length;
+  const people = new Set(rows.map(r => (r.email || "").toLowerCase())).size;
+
+  app.innerHTML = `
+  <section class="q-screen">
+    <div class="d-head">
+      <div><span class="q-kicker"><span class="dot"></span>${esc(QUIZ.title)}</span><h1>Results dashboard</h1></div>
+      <div class="d-actions">
+        <button class="q-btn ghost" id="refresh" type="button">↻ Refresh</button>
+        <button class="q-btn primary" id="csv" type="button">⬇ Download CSV</button>
+        <button class="q-btn ghost" id="out" type="button">Log out</button>
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="tile"><div class="lbl">Attempts</div><div class="val">${n}</div><div class="sub">${people} ${people === 1 ? "person" : "people"}</div></div>
+      <div class="tile"><div class="lbl">Pass rate</div><div class="val">${n ? Math.round(passes / n * 100) : 0}%</div><div class="sub">${passes} passed · ${n - passes} not yet</div></div>
+      <div class="tile"><div class="lbl">Average score</div><div class="val">${avg}%</div><div class="sub">Pass mark ${QUIZ.passMark}%</div></div>
+      <div class="tile"><div class="lbl">Last 7 days</div><div class="val">${week}</div><div class="sub">attempts</div></div>
+    </div>
+    <div class="charts">
+      <div class="panel"><h2>Score distribution</h2><p class="note">Attempts per score band. The dashed line is the pass mark.</p><div class="chart" id="hist"></div></div>
+      <div class="panel"><h2>Accuracy by question</h2><p class="note">Share of attempts that got each question right. Low bars are worth reteaching.</p><div class="chart" id="byq"></div></div>
+    </div>
+    <div class="panel">
+      <div class="tools">
+        <input class="q-input" id="search" placeholder="Search name or email" value="${esc(view.q)}">
+        <div class="seg" role="group" aria-label="Filter">
+          ${["all", "PASS", "FAIL"].map(f => `<button type="button" data-f="${f}" aria-pressed="${view.filter === f}">${f === "all" ? "All" : f === "PASS" ? "Passed" : "Not yet"}</button>`).join("")}
+        </div>
+        <span class="estat" id="shown"></span>
+      </div>
+      <div class="tablewrap"><table>
+        <thead><tr>
+          <th data-k="submitted_at">Submitted</th><th data-k="name">Trainee</th><th data-k="percent">Score</th>
+          <th data-k="result">Result</th><th data-k="email_status">Admin email</th></tr></thead>
+        <tbody id="tb"></tbody>
+      </table></div>
+    </div>
+  </section>`;
+
+  histogram(document.getElementById("hist"));
+  byQuestion(document.getElementById("byq"));
+  table();
+  document.getElementById("search").addEventListener("input", e => { view.q = e.target.value; table(); });
+  app.querySelectorAll(".seg button").forEach(b => b.onclick = () => {
+    view.filter = b.dataset.f;
+    app.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    table();
+  });
+  app.querySelectorAll("th").forEach(th => th.onclick = () => {
+    view.dir = view.sort === th.dataset.k ? -view.dir : -1; view.sort = th.dataset.k; table();
+  });
+  document.getElementById("refresh").onclick = load;
+  document.getElementById("out").onclick = () => { forget(); login(); };
+  document.getElementById("csv").onclick = downloadCsv;
+}
+
+function table() {
+  const q = view.q.trim().toLowerCase();
+  let list = rows.filter(r => (view.filter === "all" || r.result === view.filter) &&
+    (!q || (r.name + " " + r.email).toLowerCase().includes(q)));
+  const k = view.sort, num = k === "percent";
+  list.sort((a, b) => (num ? Number(a[k]) - Number(b[k]) : String(a[k]).localeCompare(String(b[k]))) * view.dir);
+  app.querySelectorAll("th").forEach(th => th.setAttribute("aria-sort", th.dataset.k === k ? (view.dir > 0 ? "ascending" : "descending") : "none"));
+  document.getElementById("shown").textContent = `${list.length} of ${rows.length} shown`;
+  const tb = document.getElementById("tb");
+  if (!list.length) { tb.innerHTML = `<tr><td colspan="5" class="empty">${rows.length ? "No results match." : "No attempts yet. Share the quiz link to get started."}</td></tr>`; return; }
+  tb.innerHTML = list.map(r => {
+    const d = new Date(r.submitted_at), sent = r.email_status === "sent";
+    return `<tr class="row" data-id="${r.id}">
+      <td class="num">${d.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" })}<div class="mail">${d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" })}</div></td>
+      <td><div class="who">${esc(r.name)}</div><div class="mail">${esc(r.email)}</div></td>
+      <td class="num"><b>${esc(r.percent)}%</b> <span class="mail">${esc(r.score)}/${esc(r.total)}</span></td>
+      <td><span class="pill ${r.result === "PASS" ? "pass" : "fail"}">${r.result === "PASS" ? "✓ Pass" : "✕ Not yet"}</span></td>
+      <td><span class="estat ${sent ? "" : "bad"}">${sent ? "✓ Sent" : esc(r.email_status)}</span></td></tr>` +
+      (view.open === r.id ? `<tr class="detail"><td colspan="5">${esc(r.answers)}</td></tr>` : "");
+  }).join("");
+  tb.querySelectorAll("tr.row").forEach(tr => tr.onclick = () => {
+    const id = Number(tr.dataset.id); view.open = view.open === id ? null : id; table();
+  });
+}
+
+/* ---------- charts (single series, so no legend; hover shows exact values) ---------- */
+function histogram(el) {
+  const bins = Array.from({ length: 10 }, (_, i) => ({ lo: i * 10, hi: i === 9 ? 100 : i * 10 + 9, n: 0 }));
+  rows.forEach(r => bins[Math.min(9, Math.floor(Number(r.percent) / 10))].n++);
+  const W = 560, H = 230, L = 34, B = 26, T = 10, max = Math.max(1, ...bins.map(b => b.n));
+  const step = Math.max(1, Math.ceil(max / 4)), top = step * Math.ceil(max / step);
+  const bw = (W - L) / bins.length, y = v => T + (H - T - B) * (1 - v / top);
+  let svg = "";
+  for (let v = 0; v <= top; v += step) svg += `<line class="grid" x1="${L}" x2="${W}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}</text>`;
+  bins.forEach((b, i) => {
+    const x = L + i * bw + 1, w = bw - 2, h = y(0) - y(b.n);
+    if (b.n) svg += `<path class="bar" data-i="${i}" d="${barPath(x, y(b.n), w, h)}"/>`;
+    svg += `<rect class="hit" data-i="${i}" x="${L + i * bw}" y="${T}" width="${bw}" height="${H - T - B}"/>`;
+    if (i % 2 === 0) svg += `<text x="${L + i * bw}" y="${H - 8}">${b.lo}%</text>`;
+  });
+  svg += `<text x="${W}" y="${H - 8}" text-anchor="end">100%</text>`;
+  const px = L + (W - L) * QUIZ.passMark / 100;
+  svg += `<line class="passline" x1="${px}" x2="${px}" y1="${T}" y2="${y(0)}"/><text x="${px - 5}" y="${T + 11}" text-anchor="end">pass ${QUIZ.passMark}%</text>`;
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Score distribution">${svg}</svg><div class="tip"></div>`;
+  hover(el, i => `${bins[i].lo}–${bins[i].hi}%: <b>${bins[i].n}</b> ${bins[i].n === 1 ? "attempt" : "attempts"}`);
+}
+
+function byQuestion(el) {
+  const total = QUIZ.questions.length, right = new Array(total).fill(0), seen = new Array(total).fill(0);
+  rows.forEach(r => String(r.answers || "").split("\n").forEach(line => {
+    const m = line.match(/^Q(\d+):/); if (!m) return;
+    const i = Number(m[1]) - 1; if (i < 0 || i >= total) return;
+    seen[i]++; if (!/\(wrong\)\s*$/.test(line)) right[i]++;
+  }));
+  const pct = right.map((r, i) => seen[i] ? Math.round(r / seen[i] * 100) : 0);
+  const W = 420, rowH = 32, L = 38, R = 48, H = total * rowH + 6;
+  let svg = "";
+  pct.forEach((p, i) => {
+    const y = 4 + i * rowH, w = Math.max(p ? 4 : 0, (W - L - R) * p / 100);
+    svg += `<text x="0" y="${y + 17}">Q${i + 1}</text>
+      <rect x="${L}" y="${y + 4}" width="${W - L - R}" height="18" rx="4" fill="rgba(255,255,255,.04)"/>
+      ${w ? `<rect class="bar" data-i="${i}" x="${L}" y="${y + 4}" width="${w}" height="18" rx="4"/>` : ""}
+      <text x="${W - R + 8}" y="${y + 17}" style="fill:var(--text);font-variant-numeric:tabular-nums">${seen[i] ? p + "%" : "—"}</text>
+      <rect class="hit" data-i="${i}" x="0" y="${y}" width="${W}" height="${rowH}"/>`;
+  });
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Accuracy by question">${svg}</svg><div class="tip"></div>`;
+  hover(el, i => `Q${i + 1}: ${esc(QUIZ.questions[i].q.slice(0, 60))}${QUIZ.questions[i].q.length > 60 ? "…" : ""}<br><b>${right[i]}/${seen[i]}</b> correct`);
+}
+
+// Bar with rounded data-end (top) and a square baseline.
+function barPath(x, y, w, h) {
+  const r = Math.min(4, h, w / 2);
+  return `M${x},${y + h}V${y + r}Q${x},${y} ${x + r},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + h}Z`;
+}
+function hover(el, label) {
+  const tip = el.querySelector(".tip");
+  el.querySelectorAll(".hit").forEach(h => {
+    h.addEventListener("mouseenter", () => {
+      const i = h.dataset.i;
+      el.querySelectorAll(".bar").forEach(b => b.classList.toggle("dim", b.dataset.i !== i));
+      tip.innerHTML = label(Number(i)); tip.style.opacity = 1;
+    });
+    h.addEventListener("mousemove", ev => {
+      const r = el.getBoundingClientRect();
+      tip.style.left = (ev.clientX - r.left) + "px"; tip.style.top = (ev.clientY - r.top) + "px";
+    });
+    h.addEventListener("mouseleave", () => { tip.style.opacity = 0; el.querySelectorAll(".bar").forEach(b => b.classList.remove("dim")); });
+  });
+}
+
+async function downloadCsv() {
+  const btn = document.getElementById("csv"); btn.disabled = true;
+  try {
+    const r = await fetch(QUIZ.WORKER_URL.replace(/\/$/, "") + "/results.csv", { headers: { Authorization: "Bearer " + pw } });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const url = URL.createObjectURL(await r.blob());
+    const a = Object.assign(document.createElement("a"), { href: url, download: `quiz-results-${new Date().toISOString().slice(0, 10)}.csv` });
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  } catch (e) { alert("Couldn't download the CSV: " + e.message); }
+  btn.disabled = false;
+}
+
+pw ? load() : login();
+</script>
+</body>
+</html>

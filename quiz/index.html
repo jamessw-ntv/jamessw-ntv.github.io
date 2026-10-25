@@ -4,122 +4,224 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Umpire Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
 <link rel="stylesheet" href="../assets/hub.css" />
-<style>
-  .quiz{max-width:720px;margin:18px auto 0}
-  .q{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-    padding:16px 18px;margin:0 0 14px;box-shadow:var(--shadow)}
-  .q h3{margin:0 0 10px;font-size:15px}
-  .q label{display:flex;gap:10px;align-items:flex-start;padding:7px 9px;border-radius:9px;cursor:pointer}
-  .q label:hover{background:var(--panel2)}
-  .q.missing{border-color:var(--red)}
-  .field{display:flex;flex-direction:column;gap:4px;margin:0 0 12px}
-  .field input{font:inherit;padding:9px 11px;border-radius:9px;border:1px solid var(--line);
-    background:var(--panel2);color:var(--text)}
-  .submit{font:inherit;font-weight:700;padding:10px 22px;border-radius:10px;border:0;
-    background:var(--accent);color:var(--black);cursor:pointer}
-  .submit[disabled]{opacity:.6;cursor:progress}
-  .msg{padding:14px 16px;border-radius:var(--radius);margin:14px 0;border:1px solid var(--line);background:var(--panel)}
-  .msg.ok{border-color:var(--green)}
-  .msg.err{border-color:var(--red)}
-  .msg.warn{border-color:var(--yellow)}
-</style>
+<link rel="stylesheet" href="quiz.css" />
 </head>
-<body>
+<body class="q">
 <div class="hubbar">
   <a class="backlink" href="../">← Hub</a>
   <span class="crumb"><b>Umpire Quiz</b></span>
 </div>
 
-<header class="page">
-  <div class="wrap" style="padding-bottom:0">
-    <h1 id="title">Umpire Quiz</h1>
-    <div class="sub">Answer every question, then submit. Your result is saved and sent to the course admin.</div>
-  </div>
-</header>
-
-<div class="wrap">
-  <form class="quiz" id="quiz" novalidate>
-    <div class="q">
-      <div class="field"><label for="name" style="padding:0">Full name</label><input id="name" required autocomplete="name"></div>
-      <div class="field" style="margin:0"><label for="email" style="padding:0">Email</label><input id="email" type="email" required autocomplete="email"></div>
-    </div>
-    <div id="questions"></div>
-    <div id="status"></div>
-    <button class="submit" id="submit" type="submit">Submit answers</button>
-  </form>
-</div>
-
-<footer class="site">Part of the <a href="../">projects hub</a>.</footer>
+<main class="q-shell" id="app" aria-live="polite"></main>
+<canvas id="confetti" aria-hidden="true"></canvas>
 
 <script src="questions.js"></script>
 <script>
+/* All quiz content lives in questions.js. This file only draws the screens. */
+const app = document.getElementById("app");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const form = document.getElementById("quiz");
-const statusBox = document.getElementById("status");
-const btn = document.getElementById("submit");
+const LETTERS = "ABCDEFGH";
+const total = QUIZ.questions.length;
+const state = { name: "", email: "", answers: new Array(total).fill(null), i: 0 };
 
 document.title = QUIZ.title;
-document.getElementById("title").textContent = QUIZ.title;
-document.getElementById("questions").innerHTML = QUIZ.questions.map((item, i) => `
-  <div class="q" id="q${i}">
-    <h3>${i + 1}. ${esc(item.q)}</h3>
-    ${item.options.map((opt, j) => `
-      <label><input type="radio" name="q${i}" value="${j}"> <span>${esc(opt)}</span></label>`).join("")}
-  </div>`).join("");
 
-function show(kind, html){ statusBox.innerHTML = `<div class="msg ${kind}">${html}</div>`; }
-
-form.addEventListener("submit", async ev => {
-  ev.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  if (!name || !email) return show("err", "Please enter your name and email.");
-
-  // Collect answers and flag any unanswered questions.
-  const answers = []; let missing = 0;
-  QUIZ.questions.forEach((item, i) => {
-    const picked = form.querySelector(`input[name="q${i}"]:checked`);
-    document.getElementById("q" + i).classList.toggle("missing", !picked);
-    if (!picked) missing++;
-    answers.push(picked ? Number(picked.value) : null);
+/* ---------- 1. Welcome ---------- */
+function welcome() {
+  const mins = Math.max(2, Math.round(total * 0.6));
+  app.innerHTML = `
+  <section class="q-screen">
+    <span class="q-kicker"><span class="dot"></span>WBSC Softball · Umpire Mechanics</span>
+    <h1 class="q-title">${esc(QUIZ.title).replace(/:\s*(.*)$/, ': <span class="hl">$1</span>')}</h1>
+    <p class="q-lede">Answer each question, then see your score straight away. Your result is saved and sent to the course admin.</p>
+    <div class="q-stats">
+      <div class="q-stat"><b>${total}</b><span>Questions</span></div>
+      <div class="q-stat"><b>${QUIZ.passMark}%</b><span>To pass</span></div>
+      <div class="q-stat"><b>~${mins}m</b><span>To finish</span></div>
+    </div>
+    <form class="q-card" id="who" novalidate>
+      <div class="q-row">
+        <div class="q-field"><label for="name">Full name</label>
+          <input class="q-input" id="name" autocomplete="name" value="${esc(state.name)}" placeholder="Alex Umpire"></div>
+        <div class="q-field"><label for="email">Email</label>
+          <input class="q-input" id="email" type="email" autocomplete="email" value="${esc(state.email)}" placeholder="you@example.com"></div>
+      </div>
+      <button class="q-btn primary" type="submit" style="width:100%">Start the quiz <span class="arrow">→</span></button>
+      <p class="q-err" id="err"></p>
+    </form>
+  </section>`;
+  document.getElementById("who").addEventListener("submit", ev => {
+    ev.preventDefault();
+    const n = document.getElementById("name"), e = document.getElementById("email");
+    state.name = n.value.trim(); state.email = e.value.trim();
+    n.classList.toggle("bad", !state.name);
+    e.classList.toggle("bad", !/^\S+@\S+\.\S+$/.test(state.email));
+    if (!state.name || !/^\S+@\S+\.\S+$/.test(state.email)) {
+      document.getElementById("err").textContent = "Please enter your name and a valid email.";
+      return;
+    }
+    state.i = 0; question();
   });
-  if (missing) return show("err", `Please answer all questions (${missing} left, outlined in red).`);
+}
 
-  const correct = answers.filter((a, i) => a === QUIZ.questions[i].answer).length;
-  const total = QUIZ.questions.length;
+/* ---------- 2. One question at a time ---------- */
+function question() {
+  const item = QUIZ.questions[state.i], picked = state.answers[state.i], last = state.i === total - 1;
+  app.innerHTML = `
+  <section class="q-screen">
+    <div class="q-progress">
+      <div class="q-track"><div class="q-fill" id="fill"></div></div>
+      <span class="q-count">${state.i + 1} / ${total}</span>
+    </div>
+    <div class="q-card q-slide">
+      <div class="q-qnum">Question ${state.i + 1}</div>
+      <div class="q-question">${esc(item.q)}</div>
+      <div class="q-options" role="radiogroup" aria-label="Answers">
+        ${item.options.map((o, j) => `
+          <button class="q-opt" role="radio" aria-checked="${picked === j}" data-j="${j}" type="button">
+            <span class="key">${LETTERS[j]}</span><span>${esc(o)}</span></button>`).join("")}
+      </div>
+      <div class="q-nav">
+        <button class="q-btn ghost" id="back" type="button" ${state.i === 0 ? "disabled" : ""}>← Back</button>
+        <span class="q-hint">Tip: press ${LETTERS.slice(0, item.options.length).split("").join(" / ")} then Enter</span>
+        <button class="q-btn primary" id="next" type="button" ${picked == null ? "disabled" : ""}>${last ? "Finish" : "Next"} <span class="arrow">→</span></button>
+      </div>
+    </div>
+  </section>`;
+  requestAnimationFrame(() => document.getElementById("fill").style.width = (state.i / total * 100) + "%");
+  app.querySelectorAll(".q-opt").forEach(b => b.addEventListener("click", () => choose(Number(b.dataset.j))));
+  document.getElementById("back").onclick = () => { state.i--; question(); };
+  document.getElementById("next").onclick = next;
+}
+function choose(j) {
+  state.answers[state.i] = j;
+  app.querySelectorAll(".q-opt").forEach(b => b.setAttribute("aria-checked", Number(b.dataset.j) === j));
+  document.getElementById("next").disabled = false;
+}
+function next() {
+  if (state.answers[state.i] == null) return;
+  if (state.i < total - 1) { state.i++; question(); } else results();
+}
+document.addEventListener("keydown", ev => {
+  if (!document.querySelector(".q-opt") || ev.target.tagName === "INPUT") return;
+  if (ev.key === "Enter" && ev.target.tagName === "BUTTON") return; // the focused button handles its own Enter
+  const j = LETTERS.indexOf(ev.key.toUpperCase());
+  const n = ev.key >= "1" && ev.key <= "9" ? Number(ev.key) - 1 : j;
+  if (n >= 0 && n < QUIZ.questions[state.i].options.length) choose(n);
+  else if (ev.key === "Enter") next();
+});
+
+/* ---------- 3. Results, saved to the Worker ---------- */
+function results() {
+  const correct = state.answers.filter((a, i) => a === QUIZ.questions[i].answer).length;
   const percent = Math.round(correct / total * 100);
   const passed = percent >= QUIZ.passMark;
+  const R = 86, C = 2 * Math.PI * R;
+  app.innerHTML = `
+  <section class="q-screen q-result">
+    <div class="q-card">
+      <div class="q-ring">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="${passed ? "#3ee08f" : "#ff6b7a"}"/><stop offset="1" stop-color="${passed ? "#d9ff3f" : "#ffb36b"}"/></linearGradient></defs>
+          <circle class="bg" cx="100" cy="100" r="${R}" fill="none" stroke-width="14"/>
+          <circle class="fg" id="arc" cx="100" cy="100" r="${R}" fill="none" stroke="url(#g)" stroke-width="14"
+            stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C}"/>
+        </svg>
+        <div class="mid"><div class="pct" id="pct">0%</div><div class="of">${correct} of ${total} correct</div></div>
+      </div>
+      <span class="q-badge ${passed ? "pass" : "fail"}">${passed ? "✓ Passed" : "✕ Not yet"}</span>
+      <h2>${passed ? `Great call, ${esc(state.name.split(" ")[0])}!` : `Keep at it, ${esc(state.name.split(" ")[0])}.`}</h2>
+      <p class="q-lede" style="margin:0 auto">${passed
+        ? `You cleared the ${QUIZ.passMark}% pass mark.`
+        : `You need ${QUIZ.passMark}% to pass. Review the answers below and try again.`}</p>
+      <div class="q-save" id="save"><span class="q-spin"></span>Saving your result…</div>
+      <div class="q-review">${QUIZ.questions.map((q, i) => {
+        const ok = state.answers[i] === q.answer;
+        return `<div class="item ${ok ? "ok" : "no"}"><span class="mark">${ok ? "✓" : "✕"}</span><div>
+          <div class="q">${i + 1}. ${esc(q.q)}</div>
+          <div class="a">${ok ? `<b>${esc(q.options[q.answer])}</b>`
+            : `You said ${esc(q.options[state.answers[i]])} · Correct: <b>${esc(q.options[q.answer])}</b>`}</div></div></div>`;
+      }).join("")}</div>
+      <div style="margin-top:22px"><button class="q-btn ghost" id="again" type="button">Take it again</button></div>
+    </div>
+  </section>`;
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.getElementById("arc").style.strokeDashoffset = C * (1 - percent / 100);
+    countUp(document.getElementById("pct"), percent);
+  }));
+  document.getElementById("again").onclick = () => { state.answers.fill(null); state.i = 0; question(); };
+  if (passed) setTimeout(confetti, 600);
+  save({ correct, percent, passed });
+}
 
+async function save({ correct, percent, passed }) {
+  const box = document.getElementById("save");
   const payload = {
-    quiz: QUIZ.title, name, email, correct, total, percent,
+    quiz: QUIZ.title, name: state.name, email: state.email, correct, total, percent,
     result: passed ? "PASS" : "FAIL",
-    answers: answers.map((a, i) => `Q${i + 1}: ${QUIZ.questions[i].options[a]}${a === QUIZ.questions[i].answer ? "" : " (wrong)"}`).join("\n")
+    answers: state.answers.map((a, i) => `Q${i + 1}: ${QUIZ.questions[i].options[a]}${a === QUIZ.questions[i].answer ? "" : " (wrong)"}`).join("\n")
   };
-
-  btn.disabled = true; btn.textContent = "Saving…";
-  show("", "Saving your result…");
-  const scoreLine = `You scored <b>${correct}/${total} (${percent}%)</b>: <b>${passed ? "PASS" : "not yet a pass"}</b>.`;
   try {
     // text/plain keeps this a "simple" request (no CORS preflight). The Worker's reply
     // is readable, so "saved" below is a real confirmation, not a guess.
     const r = await fetch(QUIZ.WORKER_URL, {
-      method: "POST",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(payload)
+      method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload)
     });
     const res = await r.json();
     if (!res.saved) throw new Error(res.error || "not saved");
-    show(res.emailed ? "ok" : "warn",
-      `${scoreLine}<br>Your result has been saved.` +
-      (res.emailed ? "" : " (The admin email didn't send, but your result is safe in the records.)"));
-    btn.textContent = "Submitted";
+    box.className = "q-save " + (res.emailed ? "ok" : "warn");
+    box.innerHTML = res.emailed ? "✓ Your result has been saved and sent to the course admin."
+      : "✓ Your result has been saved. (The admin email didn't send, but your result is safe.)";
   } catch (e) {
     console.error(e);
-    show("err", `${scoreLine}<br>Your result <b>could not be saved</b>. Please check your connection and press Submit again.`);
-    btn.disabled = false; btn.textContent = "Try again";
+    box.className = "q-save err";
+    box.innerHTML = `Your result <b>could not be saved</b>. <button class="q-btn ghost" id="retry" type="button" style="padding:8px 12px">Retry</button>`;
+    document.getElementById("retry").onclick = () => {
+      box.className = "q-save"; box.innerHTML = '<span class="q-spin"></span>Saving your result…';
+      save({ correct, percent, passed });
+    };
   }
-});
+}
+
+function countUp(el, to) {
+  const t0 = performance.now(), d = 1300;
+  (function step(t) {
+    const k = Math.min(1, (t - t0) / d), e = 1 - Math.pow(1 - k, 3);
+    el.textContent = Math.round(to * e) + "%";
+    if (k < 1) requestAnimationFrame(step);
+  })(t0);
+}
+
+/* A short burst of confetti for a pass. Skipped for people who prefer reduced motion. */
+function confetti() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const c = document.getElementById("confetti"), x = c.getContext("2d");
+  c.width = innerWidth; c.height = innerHeight;
+  const colors = ["#d9ff3f", "#3ee08f", "#7ab0ff", "#a855f7", "#ffffff"];
+  const bits = Array.from({ length: 160 }, () => ({
+    x: c.width / 2 + (Math.random() - .5) * 200, y: c.height * .35,
+    vx: (Math.random() - .5) * 14, vy: -Math.random() * 14 - 4,
+    s: 4 + Math.random() * 6, r: Math.random() * 6, vr: (Math.random() - .5) * .3,
+    col: colors[Math.floor(Math.random() * colors.length)]
+  }));
+  const t0 = performance.now();
+  (function frame(t) {
+    x.clearRect(0, 0, c.width, c.height);
+    bits.forEach(b => {
+      b.vy += .35; b.vx *= .99; b.x += b.vx; b.y += b.vy; b.r += b.vr;
+      x.save(); x.translate(b.x, b.y); x.rotate(b.r); x.fillStyle = b.col;
+      x.fillRect(-b.s / 2, -b.s / 4, b.s, b.s / 2); x.restore();
+    });
+    if (t - t0 < 3200) requestAnimationFrame(frame); else x.clearRect(0, 0, c.width, c.height);
+  })(t0);
+}
+
+welcome();
 </script>
 </body>
 </html>

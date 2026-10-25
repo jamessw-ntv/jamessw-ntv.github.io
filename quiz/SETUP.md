@@ -42,6 +42,7 @@ Worker > **Settings > Variables and Secrets > Add**:
 | `ADMIN_EMAIL` | Text | admin's email (the verified one from step 1) |
 | `FROM_EMAIL` | Text | e.g. `quiz@yourdomain.com` (any name **at your domain**) |
 | `CSV_KEY` | Secret | a password you make up for the results download |
+| `ADMIN_PASSWORD` | Secret | the shared password for the results dashboard |
 
 The names must be exact, in capitals.
 
@@ -72,6 +73,12 @@ The names must be exact, in capitals.
    - [ ] The admin receives the email.
 2. Download the results: `https://umpire-quiz.<you>.workers.dev/results.csv?key=<CSV_KEY>`
    - [ ] The CSV contains the test row with `email_status` = `sent`.
+
+## Results dashboard
+Open <https://jamessw-ntv.github.io/quiz/admin/> and enter `ADMIN_PASSWORD`. It shows attempts,
+pass rate, average score, a score chart, accuracy for each question, and a searchable table. Click a row
+to see that person's answers, or use **Download CSV**. The password is remembered until the tab closes.
+To change it, update the `ADMIN_PASSWORD` secret on the Worker. The new password works straight away.
 
 ## If something fails
 | Symptom | Check |
