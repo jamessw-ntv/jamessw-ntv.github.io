@@ -1,227 +1,414 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Umpire Quiz</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
-<link rel="stylesheet" href="../assets/hub.css" />
-<link rel="stylesheet" href="quiz.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Softball Umpires</title>
+<meta name="description" content="Rules, education and assessment for softball umpires, with a practice and recorded umpire quiz.">
+<link rel="icon" href="images/wbsc-logo.svg">
+<link rel="stylesheet" href="site.css">
 </head>
-<body class="q">
-<div class="hubbar">
-  <a class="backlink" href="../">← Hub</a>
-  <span class="crumb"><b>Umpire Quiz</b></span>
+<body>
+<div class="approval-note">
+  <div class="wrap">
+    <strong>Interactive approval prototype</strong>
+    <span>Sample question bank pending rules-committee verification. Recorded quizzes are saved and sent to the site administrator.</span>
+  </div>
 </div>
 
-<main class="q-shell" id="app" aria-live="polite"></main>
-<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="topbar">
+  <div class="wrap">
+    <span>WORLD BASEBALL SOFTBALL · UMPIRE EDUCATION</span>
+    <span>RULES · TRAINING · ASSESSMENT</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap header-inner">
+    <a href="#top" aria-label="Go to top">
+      <img class="brand-logo" src="images/wbsc-logo.svg" alt="WBSC logo">
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#development">DEVELOPMENT</a>
+      <a href="#resources">RESOURCES</a>
+      <a href="#learning">TRAINING</a>
+      <a href="#network">ORGANISATIONS</a>
+      <a class="quiz-link" href="#quiz">TAKE THE QUIZ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img src="images/hero.jpg" alt="Softball umpire making a safe call during a play at first base">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <div class="hero-tag">Game officials</div>
+        <h1>SOFTBALL<br>UMPIRES</h1>
+        <p>Rules, education and practical assessment designed to build confident, consistent decision-making on the field.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#quiz">TAKE THE UMPIRE QUIZ</a>
+          <a class="btn btn-outline" href="#resources">EXPLORE RESOURCES</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-path">
+      <small>Development pathway</small>
+      <strong>Learn → Test → Record → Improve</strong>
+    </div>
+  </section>
+
+  <div class="breadcrumb">
+    <div class="wrap">HOME &nbsp;›&nbsp; GAME OFFICIALS &nbsp;›&nbsp; SOFTBALL UMPIRES</div>
+  </div>
+
+  <section class="section" id="development">
+    <div class="wrap">
+      <div class="intro">
+        <div>
+          <div class="eyebrow">Umpire development</div>
+          <h2 class="title">DEVELOP YOUR<br>UMPIRE KNOWLEDGE.</h2>
+        </div>
+        <div class="intro-copy">
+          A central learning hub for softball umpires to access rules and mechanics, review educational content, practise real game scenarios and complete recorded assessments.
+        </div>
+      </div>
+
+      <div class="gateway">
+        <article class="gateway-card">
+          <div class="gateway-num">01</div>
+          <h3>UMPIRE DEVELOPMENT</h3>
+          <p>Pathways, education and accreditation information.</p>
+          <div class="gateway-link">EXPLORE →</div>
+        </article>
+        <article class="gateway-card">
+          <div class="gateway-num">02</div>
+          <h3>RULES &amp; RESOURCES</h3>
+          <p>Rules, mechanics, interpretations and documents.</p>
+          <div class="gateway-link">VIEW RESOURCES →</div>
+        </article>
+        <article class="gateway-card">
+          <div class="gateway-num">03</div>
+          <h3>TRAINING</h3>
+          <p>Practical learning material for game officials.</p>
+          <div class="gateway-link">START LEARNING →</div>
+        </article>
+        <article class="gateway-card feature">
+          <div class="gateway-num">04</div>
+          <h3>UMPIRE QUIZ</h3>
+          <p>Test your knowledge and permanently record your score.</p>
+          <div class="gateway-link">TAKE THE QUIZ →</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="resources section" id="resources">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Reference library</div>
+          <h2 class="title">UMPIRE RESOURCES</h2>
+        </div>
+        <a class="viewall" href="https://www.wbsc.org/en/organisation/game-officials/softball-umpires" target="_blank" rel="noopener">VIEW ALL RESOURCES →</a>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource">
+          <div class="resource-icon">R</div>
+          <div><strong>Official Softball Rules</strong><span>Current rules and official documentation</span></div>
+          <a class="go" href="https://www.wbsc.org/en/organisation/game-officials/softball-umpires" target="_blank" rel="noopener">VIEW →</a>
+        </div>
+        <div class="resource">
+          <div class="resource-icon">M</div>
+          <div><strong>Umpire Mechanics</strong><span>Positioning, signals and crew mechanics</span></div>
+          <a class="go" href="https://www.wbsc.org/en/organisation/game-officials/softball-umpires" target="_blank" rel="noopener">VIEW →</a>
+        </div>
+        <div class="resource">
+          <div class="resource-icon">I</div>
+          <div><strong>Rule Interpretations</strong><span>Practical rulings and common game situations</span></div>
+          <a class="go" href="https://www.wbsc.org/en/organisation/game-officials/softball-umpires" target="_blank" rel="noopener">VIEW →</a>
+        </div>
+        <div class="resource">
+          <div class="resource-icon">A</div>
+          <div><strong>Accreditation &amp; Forms</strong><span>Development and assessment resources</span></div>
+          <a class="go" href="https://www.wbsc.org/en/organisation/game-officials/softball-umpires" target="_blank" rel="noopener">VIEW →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="learning">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Learn before you test</div>
+          <h2 class="title">FEATURED LEARNING</h2>
+        </div>
+        <div class="viewall">VIEW ALL LEARNING →</div>
+      </div>
+
+      <div class="learning-grid">
+        <article class="lesson">
+          <img src="images/lesson-obstruction.jpg" alt="Softball base play with umpire observing the runner and fielder">
+          <div class="lesson-inner">
+            <span class="lesson-tag">RULE INTERPRETATION</span>
+            <h3>Obstruction vs Interference</h3>
+            <p>Recognise the difference, identify who has impeded whom, and apply the correct ruling.</p>
+            <div class="lesson-link">START LEARNING →</div>
+          </div>
+        </article>
+
+        <article class="lesson">
+          <img src="images/lesson-illegal-pitch.jpg" alt="Softball pitcher delivering a pitch while the catcher and umpire observe">
+          <div class="lesson-inner">
+            <span class="lesson-tag">PLATE UMPIRE</span>
+            <h3>Illegal Pitch</h3>
+            <p>Review pitching requirements, recognise illegal actions and practise the correct umpire response.</p>
+            <div class="lesson-link">START LEARNING →</div>
+          </div>
+        </article>
+
+        <article class="lesson">
+          <img src="images/lesson-force-or-timing.jpg" alt="Softball tag play at a base with an umpire making a call">
+          <div class="lesson-inner">
+            <span class="lesson-tag">ADVANCED</span>
+            <h3>Force Play or Timing Play?</h3>
+            <p>Work through live base-play scenarios and determine whether runs score.</p>
+            <div class="lesson-link">START LEARNING →</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="quiz-lead">
+        <div class="quiz-lead-copy">
+          <div class="eyebrow" style="color:#DEC53E">Next step</div>
+          <h3>READY TO TEST YOUR KNOWLEDGE?</h3>
+          <p>Choose a category, complete a practice or recorded quiz, and receive rule-based feedback on your decisions.</p>
+          <a class="btn btn-gold" style="margin-top:18px" href="#quiz">START QUIZ ↓</a>
+        </div>
+        <div class="quiz-cat-wrap" role="group" aria-label="Jump to a quiz category">
+          <button type="button" class="quiz-cat" data-jump-category="general" aria-pressed="false">GENERAL RULES</button>
+          <button type="button" class="quiz-cat" data-jump-category="plate" aria-pressed="false">PLATE UMPIRE</button>
+          <button type="button" class="quiz-cat" data-jump-category="base" aria-pressed="false">BASE UMPIRE</button>
+          <button type="button" class="quiz-cat" data-jump-category="situations" aria-pressed="false">GAME SITUATIONS</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quiz" id="quiz">
+    <div class="wrap">
+      <div class="eyebrow" style="color:#DEC53E">Knowledge assessment</div>
+      <h2 class="title">UMPIRE QUIZ</h2>
+
+      <div class="quiz-mode-toggle" role="tablist" aria-label="Quiz mode">
+        <button type="button" class="mode-btn active" id="mode-practice" data-mode="practice" role="tab" aria-selected="true">PRACTICE QUIZ</button>
+        <button type="button" class="mode-btn" id="mode-recorded" data-mode="recorded" role="tab" aria-selected="false">RECORDED QUIZ</button>
+      </div>
+
+      <div class="quiz-setup" id="quiz-setup">
+        <div class="quiz-setup-grid">
+          <div class="setup-block">
+            <span class="setup-label">Choose a category</span>
+            <div class="setup-options" id="category-options" role="group" aria-label="Quiz category">
+              <button type="button" class="setup-chip" data-category="general" aria-pressed="false">GENERAL RULES</button>
+              <button type="button" class="setup-chip" data-category="plate" aria-pressed="false">PLATE UMPIRE</button>
+              <button type="button" class="setup-chip" data-category="base" aria-pressed="false">BASE UMPIRE</button>
+              <button type="button" class="setup-chip" data-category="situations" aria-pressed="false">GAME SITUATIONS</button>
+            </div>
+          </div>
+          <div class="setup-block">
+            <span class="setup-label">Choose a difficulty</span>
+            <div class="setup-options" id="difficulty-options" role="group" aria-label="Quiz difficulty">
+              <button type="button" class="setup-chip" data-difficulty="foundation" aria-pressed="false">FOUNDATION</button>
+              <button type="button" class="setup-chip" data-difficulty="intermediate" aria-pressed="false">INTERMEDIATE</button>
+              <button type="button" class="setup-chip" data-difficulty="advanced" aria-pressed="false">ADVANCED</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-setup-record" id="quiz-setup-record" hidden>
+          <div class="field"><label for="record-name">Name</label><input id="record-name" autocomplete="name"></div>
+          <div class="field"><label for="record-email">Email</label><input id="record-email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="record-association">Association</label><input id="record-association" autocomplete="organization"></div>
+        </div>
+
+        <button type="button" class="btn btn-gold" id="start-quiz-btn" disabled>START QUIZ</button>
+        <p class="setup-hint" id="setup-hint">Select a category and difficulty to begin.</p>
+      </div>
+
+      <div class="quiz-shell" id="quiz-shell" hidden>
+        <div class="question">
+          <div class="qmeta"><span id="qmeta-current">Question 1 of 1</span><span id="qmeta-percent">0%</span></div>
+          <div class="track" aria-hidden="true"><div class="bar" id="quiz-bar"></div></div>
+          <h3 id="question-text"></h3>
+          <div class="answers" role="radiogroup" aria-label="Answer options" id="answers"></div>
+          <div class="feedback" id="feedback" aria-live="polite">
+            <span class="feedback-icon" id="feedback-icon" aria-hidden="true"></span>
+            <span id="feedback-body"></span>
+          </div>
+          <div class="submit">
+            <small id="submit-context">Practice quiz</small>
+            <button class="btn btn-gold" id="submit-answer" type="button">SUBMIT ANSWER</button>
+          </div>
+        </div>
+
+        <aside class="record" id="record-panel">
+          <div class="eyebrow">Your attempt</div>
+          <h4 id="record-heading">PRACTICE MODE</h4>
+          <div id="record-body"></div>
+        </aside>
+      </div>
+
+      <div class="quiz-summary" id="quiz-summary" hidden>
+        <div class="summary-head">
+          <div>
+            <div class="eyebrow" style="color:#DEC53E">Result</div>
+            <div class="summary-score" id="summary-score">0<small id="summary-meta">0 of 0 correct</small></div>
+          </div>
+          <span class="summary-pill pass" id="summary-pill">PASS</span>
+        </div>
+        <div class="summary-note" id="summary-note"></div>
+        <div class="review-list" id="review-list"></div>
+        <div class="summary-actions">
+          <button type="button" class="btn btn-gold" id="retry-quiz-btn">TRY ANOTHER QUIZ</button>
+          <a class="btn btn-outline" href="#learning">REVIEW FEATURED LEARNING</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results section">
+    <div class="wrap">
+      <div class="eyebrow">Development record</div>
+      <h2 class="title">YOUR QUIZ PROGRESS</h2>
+      <p class="network-note">Showing the recorded quizzes you have completed in this browser session. Every recorded attempt is also saved for the site administrator.</p>
+      <div class="result-grid">
+        <div class="result-card"><span>Latest score</span><strong id="stat-latest">—</strong><small id="stat-latest-meta">Complete a recorded quiz below</small></div>
+        <div class="result-card"><span>Best score</span><strong id="stat-best">—</strong><small id="stat-best-meta">No recorded attempts yet</small></div>
+        <div class="result-card"><span>Recorded attempts</span><strong id="stat-attempts">0</strong><small id="stat-attempts-meta">This session</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="network">
+    <div class="wrap">
+      <div class="eyebrow">WBSC network &amp; partners</div>
+      <h2 class="title" style="margin-bottom:10px">OFFICIAL FOOTER GROUPS</h2>
+      <p class="network-note">Grouped and ordered to match the current indexed WBSC footer structure. The EPSI position is included because it is now listed by WBSC, but its logo file has not yet been supplied.</p>
+
+      <div class="partner-group" data-carousel>
+        <div class="partner-head">
+          <h3>CONTINENTAL ASSOCIATIONS</h3>
+          <div class="arrows">
+            <button class="arrow prev" type="button" aria-label="Previous continental associations logos">‹</button>
+            <button class="arrow next" type="button" aria-label="Next continental associations logos">›</button>
+          </div>
+        </div>
+        <div class="logo-window"><div class="logo-track"><div class="logo-card"><img src="images/wbsc-africa-logo.png" alt="WBSC Africa logo"></div><div class="logo-card"><img src="images/wbsc-americas-logo.png" alt="WBSC Americas logo"></div><div class="logo-card"><img src="images/wbsc-asia-logo.png" alt="WBSC Asia logo"></div><div class="logo-card"><img src="images/wbsc-europe-logo.png" alt="WBSC Europe logo"></div><div class="logo-card"><img src="images/wbsc-oceania-logo.png" alt="WBSC Oceania logo"></div></div></div>
+      </div>
+      <div class="partner-group" data-carousel>
+        <div class="partner-head">
+          <h3>WBSC GLOBAL SPONSORS</h3>
+          <div class="arrows">
+            <button class="arrow prev" type="button" aria-label="Previous wbsc global sponsors logos">‹</button>
+            <button class="arrow next" type="button" aria-label="Next wbsc global sponsors logos">›</button>
+          </div>
+        </div>
+        <div class="logo-window"><div class="logo-track"><div class="logo-card"><img src="images/konami-logo.svg" alt="KONAMI logo"></div><div class="logo-card"><img src="images/raxus-logo.svg" alt="RAXUS logo"></div><div class="logo-card"><img src="images/kowa-logo.svg" alt="Kowa logo"></div><div class="logo-card"><img src="images/mufg-bank-logo.svg" alt="MUFG Bank logo"></div><div class="logo-card"><img src="images/nippon-express-logo.svg" alt="Nippon Express logo"></div><div class="logo-card"><img src="images/daiso-japan-logo.svg" alt="Daiso Japan logo"></div></div></div>
+      </div>
+      <div class="partner-group" data-carousel>
+        <div class="partner-head">
+          <h3>WBSC OFFICIAL SUPPLIERS</h3>
+          <div class="arrows">
+            <button class="arrow prev" type="button" aria-label="Previous wbsc official suppliers logos">‹</button>
+            <button class="arrow next" type="button" aria-label="Next wbsc official suppliers logos">›</button>
+          </div>
+        </div>
+        <div class="logo-window"><div class="logo-track"><div class="logo-card"><img src="images/ssk-logo.svg" alt="SSK logo"></div><div class="logo-card"><img src="images/mizuno-logo.svg" alt="Mizuno logo"></div><div class="logo-card"><img src="images/synergy-sports-logo.svg" alt="Synergy Sports logo"></div><div class="logo-card"><img src="images/corpay-logo.svg" alt="Corpay logo"></div><div class="logo-card"><img src="images/trackman-logo.svg" alt="TrackMan logo"></div></div></div>
+      </div>
+      <div class="partner-group" data-carousel>
+        <div class="partner-head">
+          <h3>MEMBER OF</h3>
+          <div class="arrows">
+            <button class="arrow prev" type="button" aria-label="Previous member of logos">‹</button>
+            <button class="arrow next" type="button" aria-label="Next member of logos">›</button>
+          </div>
+        </div>
+        <div class="logo-window"><div class="logo-track"><div class="logo-card"><img src="images/asoif-logo.svg" alt="Association of Summer Olympic International Federations logo"></div><div class="logo-card"><img src="images/arisf-logo.svg" alt="Association of IOC Recognised International Sports Federations logo"></div><div class="logo-card"><img src="images/the-world-games-logo.svg" alt="The World Games logo"></div><div class="logo-card"><img src="images/imga-logo.svg" alt="International Masters Games Association logo"></div><div class="logo-card"><img src="images/virtus-logo.svg" alt="Virtus logo"></div><div class="logo-card missing-logo" role="img" aria-label="EPSI logo file needed"><span>EPSI<br><small>LOGO FILE NEEDED</small></span></div></div></div>
+      </div>
+      <div class="partner-group" data-carousel>
+        <div class="partner-head">
+          <h3>PARTNER WITH</h3>
+          <div class="arrows">
+            <button class="arrow prev" type="button" aria-label="Previous partner with logos">‹</button>
+            <button class="arrow next" type="button" aria-label="Next partner with logos">›</button>
+          </div>
+        </div>
+        <div class="logo-window"><div class="logo-track"><div class="logo-card"><img src="images/olympic-channel-logo.svg" alt="Olympic Channel logo"></div></div></div>
+      </div>
+      <div class="partner-group" data-carousel>
+        <div class="partner-head">
+          <h3>SIGNATORY OF</h3>
+          <div class="arrows">
+            <button class="arrow prev" type="button" aria-label="Previous signatory of logos">‹</button>
+            <button class="arrow next" type="button" aria-label="Next signatory of logos">›</button>
+          </div>
+        </div>
+        <div class="logo-window"><div class="logo-track"><div class="logo-card"><img src="images/wada-logo.png" alt="World Anti-Doping Agency WADA logo"></div></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-main">
+      <div>
+        <img class="brand-logo" src="images/wbsc-logo.svg" alt="WBSC logo">
+        <p class="footer-copy">Professional education, resources and assessment for softball game officials.</p>
+        <p class="credit">Approval prototype only. Photography is illustrative placeholder content and should be replaced with approved/licensed assets for production.</p>
+      </div>
+      <div class="footer-navigation">
+        <div class="footer-row">
+          <div>
+            <h4>Development</h4>
+            <a href="#development">Umpire pathway</a>
+            <a href="#learning">Education</a>
+            <a href="#">Accreditation</a>
+          </div>
+          <div>
+            <h4>Resources</h4>
+            <a href="#resources">Rules</a>
+            <a href="#resources">Mechanics</a>
+            <a href="#learning">Featured Learning</a>
+          </div>
+        </div>
+        <div class="footer-row">
+          <div>
+            <h4>Assessment</h4>
+            <a href="#quiz">Take a quiz</a>
+            <a href="#quiz">My results</a>
+            <a href="admin/">Admin dashboard</a>
+          </div>
+          <div>
+            <h4>Information</h4>
+            <a href="#">Contact</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Privacy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Softball Umpires · Approval Concept</span>
+      <span>Privacy · Accessibility · Terms</span>
+    </div>
+  </div>
+</footer>
 
 <script src="questions.js"></script>
-<script>
-/* All quiz content lives in questions.js. This file only draws the screens. */
-const app = document.getElementById("app");
-const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const LETTERS = "ABCDEFGH";
-const total = QUIZ.questions.length;
-const state = { name: "", email: "", answers: new Array(total).fill(null), i: 0 };
-
-document.title = QUIZ.title;
-
-/* ---------- 1. Welcome ---------- */
-function welcome() {
-  const mins = Math.max(2, Math.round(total * 0.6));
-  app.innerHTML = `
-  <section class="q-screen">
-    <span class="q-kicker"><span class="dot"></span>WBSC Softball · Umpire Mechanics</span>
-    <h1 class="q-title">${esc(QUIZ.title).replace(/:\s*(.*)$/, ': <span class="hl">$1</span>')}</h1>
-    <p class="q-lede">Answer each question, then see your score straight away. Your result is saved and sent to the course admin.</p>
-    <div class="q-stats">
-      <div class="q-stat"><b>${total}</b><span>Questions</span></div>
-      <div class="q-stat"><b>${QUIZ.passMark}%</b><span>To pass</span></div>
-      <div class="q-stat"><b>~${mins}m</b><span>To finish</span></div>
-    </div>
-    <form class="q-card" id="who" novalidate>
-      <div class="q-row">
-        <div class="q-field"><label for="name">Full name</label>
-          <input class="q-input" id="name" autocomplete="name" value="${esc(state.name)}" placeholder="Alex Umpire"></div>
-        <div class="q-field"><label for="email">Email</label>
-          <input class="q-input" id="email" type="email" autocomplete="email" value="${esc(state.email)}" placeholder="you@example.com"></div>
-      </div>
-      <button class="q-btn primary" type="submit" style="width:100%">Start the quiz <span class="arrow">→</span></button>
-      <p class="q-err" id="err"></p>
-    </form>
-  </section>`;
-  document.getElementById("who").addEventListener("submit", ev => {
-    ev.preventDefault();
-    const n = document.getElementById("name"), e = document.getElementById("email");
-    state.name = n.value.trim(); state.email = e.value.trim();
-    n.classList.toggle("bad", !state.name);
-    e.classList.toggle("bad", !/^\S+@\S+\.\S+$/.test(state.email));
-    if (!state.name || !/^\S+@\S+\.\S+$/.test(state.email)) {
-      document.getElementById("err").textContent = "Please enter your name and a valid email.";
-      return;
-    }
-    state.i = 0; question();
-  });
-}
-
-/* ---------- 2. One question at a time ---------- */
-function question() {
-  const item = QUIZ.questions[state.i], picked = state.answers[state.i], last = state.i === total - 1;
-  app.innerHTML = `
-  <section class="q-screen">
-    <div class="q-progress">
-      <div class="q-track"><div class="q-fill" id="fill"></div></div>
-      <span class="q-count">${state.i + 1} / ${total}</span>
-    </div>
-    <div class="q-card q-slide">
-      <div class="q-qnum">Question ${state.i + 1}</div>
-      <div class="q-question">${esc(item.q)}</div>
-      <div class="q-options" role="radiogroup" aria-label="Answers">
-        ${item.options.map((o, j) => `
-          <button class="q-opt" role="radio" aria-checked="${picked === j}" data-j="${j}" type="button">
-            <span class="key">${LETTERS[j]}</span><span>${esc(o)}</span></button>`).join("")}
-      </div>
-      <div class="q-nav">
-        <button class="q-btn ghost" id="back" type="button" ${state.i === 0 ? "disabled" : ""}>← Back</button>
-        <span class="q-hint">Tip: press ${LETTERS.slice(0, item.options.length).split("").join(" / ")} then Enter</span>
-        <button class="q-btn primary" id="next" type="button" ${picked == null ? "disabled" : ""}>${last ? "Finish" : "Next"} <span class="arrow">→</span></button>
-      </div>
-    </div>
-  </section>`;
-  requestAnimationFrame(() => document.getElementById("fill").style.width = (state.i / total * 100) + "%");
-  app.querySelectorAll(".q-opt").forEach(b => b.addEventListener("click", () => choose(Number(b.dataset.j))));
-  document.getElementById("back").onclick = () => { state.i--; question(); };
-  document.getElementById("next").onclick = next;
-}
-function choose(j) {
-  state.answers[state.i] = j;
-  app.querySelectorAll(".q-opt").forEach(b => b.setAttribute("aria-checked", Number(b.dataset.j) === j));
-  document.getElementById("next").disabled = false;
-}
-function next() {
-  if (state.answers[state.i] == null) return;
-  if (state.i < total - 1) { state.i++; question(); } else results();
-}
-document.addEventListener("keydown", ev => {
-  if (!document.querySelector(".q-opt") || ev.target.tagName === "INPUT") return;
-  if (ev.key === "Enter" && ev.target.tagName === "BUTTON") return; // the focused button handles its own Enter
-  const j = LETTERS.indexOf(ev.key.toUpperCase());
-  const n = ev.key >= "1" && ev.key <= "9" ? Number(ev.key) - 1 : j;
-  if (n >= 0 && n < QUIZ.questions[state.i].options.length) choose(n);
-  else if (ev.key === "Enter") next();
-});
-
-/* ---------- 3. Results, saved to the Worker ---------- */
-function results() {
-  const correct = state.answers.filter((a, i) => a === QUIZ.questions[i].answer).length;
-  const percent = Math.round(correct / total * 100);
-  const passed = percent >= QUIZ.passMark;
-  const R = 86, C = 2 * Math.PI * R;
-  app.innerHTML = `
-  <section class="q-screen q-result">
-    <div class="q-card">
-      <div class="q-ring">
-        <svg viewBox="0 0 200 200" aria-hidden="true">
-          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="${passed ? "#3ee08f" : "#ff6b7a"}"/><stop offset="1" stop-color="${passed ? "#d9ff3f" : "#ffb36b"}"/></linearGradient></defs>
-          <circle class="bg" cx="100" cy="100" r="${R}" fill="none" stroke-width="14"/>
-          <circle class="fg" id="arc" cx="100" cy="100" r="${R}" fill="none" stroke="url(#g)" stroke-width="14"
-            stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C}"/>
-        </svg>
-        <div class="mid"><div class="pct" id="pct">0%</div><div class="of">${correct} of ${total} correct</div></div>
-      </div>
-      <span class="q-badge ${passed ? "pass" : "fail"}">${passed ? "✓ Passed" : "✕ Not yet"}</span>
-      <h2>${passed ? `Great call, ${esc(state.name.split(" ")[0])}!` : `Keep at it, ${esc(state.name.split(" ")[0])}.`}</h2>
-      <p class="q-lede" style="margin:0 auto">${passed
-        ? `You cleared the ${QUIZ.passMark}% pass mark.`
-        : `You need ${QUIZ.passMark}% to pass. Review the answers below and try again.`}</p>
-      <div class="q-save" id="save"><span class="q-spin"></span>Saving your result…</div>
-      <div class="q-review">${QUIZ.questions.map((q, i) => {
-        const ok = state.answers[i] === q.answer;
-        return `<div class="item ${ok ? "ok" : "no"}"><span class="mark">${ok ? "✓" : "✕"}</span><div>
-          <div class="q">${i + 1}. ${esc(q.q)}</div>
-          <div class="a">${ok ? `<b>${esc(q.options[q.answer])}</b>`
-            : `You said ${esc(q.options[state.answers[i]])} · Correct: <b>${esc(q.options[q.answer])}</b>`}</div></div></div>`;
-      }).join("")}</div>
-      <div style="margin-top:22px"><button class="q-btn ghost" id="again" type="button">Take it again</button></div>
-    </div>
-  </section>`;
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    document.getElementById("arc").style.strokeDashoffset = C * (1 - percent / 100);
-    countUp(document.getElementById("pct"), percent);
-  }));
-  document.getElementById("again").onclick = () => { state.answers.fill(null); state.i = 0; question(); };
-  if (passed) setTimeout(confetti, 600);
-  save({ correct, percent, passed });
-}
-
-async function save({ correct, percent, passed }) {
-  const box = document.getElementById("save");
-  const payload = {
-    quiz: QUIZ.title, name: state.name, email: state.email, correct, total, percent,
-    result: passed ? "PASS" : "FAIL",
-    answers: state.answers.map((a, i) => `Q${i + 1}: ${QUIZ.questions[i].options[a]}${a === QUIZ.questions[i].answer ? "" : " (wrong)"}`).join("\n")
-  };
-  try {
-    // text/plain keeps this a "simple" request (no CORS preflight). The Worker's reply
-    // is readable, so "saved" below is a real confirmation, not a guess.
-    const r = await fetch(QUIZ.WORKER_URL, {
-      method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload)
-    });
-    const res = await r.json();
-    if (!res.saved) throw new Error(res.error || "not saved");
-    box.className = "q-save " + (res.emailed ? "ok" : "warn");
-    box.innerHTML = res.emailed ? "✓ Your result has been saved and sent to the course admin."
-      : "✓ Your result has been saved. (The admin email didn't send, but your result is safe.)";
-  } catch (e) {
-    console.error(e);
-    box.className = "q-save err";
-    box.innerHTML = `Your result <b>could not be saved</b>. <button class="q-btn ghost" id="retry" type="button" style="padding:8px 12px">Retry</button>`;
-    document.getElementById("retry").onclick = () => {
-      box.className = "q-save"; box.innerHTML = '<span class="q-spin"></span>Saving your result…';
-      save({ correct, percent, passed });
-    };
-  }
-}
-
-function countUp(el, to) {
-  const t0 = performance.now(), d = 1300;
-  (function step(t) {
-    const k = Math.min(1, (t - t0) / d), e = 1 - Math.pow(1 - k, 3);
-    el.textContent = Math.round(to * e) + "%";
-    if (k < 1) requestAnimationFrame(step);
-  })(t0);
-}
-
-/* A short burst of confetti for a pass. Skipped for people who prefer reduced motion. */
-function confetti() {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const c = document.getElementById("confetti"), x = c.getContext("2d");
-  c.width = innerWidth; c.height = innerHeight;
-  const colors = ["#d9ff3f", "#3ee08f", "#7ab0ff", "#a855f7", "#ffffff"];
-  const bits = Array.from({ length: 160 }, () => ({
-    x: c.width / 2 + (Math.random() - .5) * 200, y: c.height * .35,
-    vx: (Math.random() - .5) * 14, vy: -Math.random() * 14 - 4,
-    s: 4 + Math.random() * 6, r: Math.random() * 6, vr: (Math.random() - .5) * .3,
-    col: colors[Math.floor(Math.random() * colors.length)]
-  }));
-  const t0 = performance.now();
-  (function frame(t) {
-    x.clearRect(0, 0, c.width, c.height);
-    bits.forEach(b => {
-      b.vy += .35; b.vx *= .99; b.x += b.vx; b.y += b.vy; b.r += b.vr;
-      x.save(); x.translate(b.x, b.y); x.rotate(b.r); x.fillStyle = b.col;
-      x.fillRect(-b.s / 2, -b.s / 4, b.s, b.s / 2); x.restore();
-    });
-    if (t - t0 < 3200) requestAnimationFrame(frame); else x.clearRect(0, 0, c.width, c.height);
-  })(t0);
-}
-
-welcome();
-</script>
+<script src="site.js"></script>
 </body>
 </html>

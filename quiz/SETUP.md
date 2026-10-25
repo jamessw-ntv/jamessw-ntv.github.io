@@ -89,8 +89,10 @@ To change it, update the `ADMIN_PASSWORD` secret on the Worker. The new password
 
 ---
 
-**Editing questions:** everything lives in `questions.js`. `answer` is the position
-of the correct option counting from **0**. `passMark` is the pass percentage.
+**Editing questions:** everything lives in `questions.js`. Each question has an `id` (e.g. `G1`), a `category`
+(general, plate, base or situations), a `difficulty` (foundation, intermediate or advanced), `options`, and `correct`,
+the position of the right option counting from **0**. `active:false` hides a question without deleting it. `passMark` is
+the pass percentage (85 by default). Only **Recorded Quiz** attempts are saved and emailed. Practice attempts are not.
 
 **Changing worker.js later:** open the Worker, **Edit code**, paste, **Deploy**. The URL doesn't change.
 
