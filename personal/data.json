@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-25",
-    "fetched": "2026-10-25T14:56:03+00:00",
+    "fetched": "2026-10-25T18:18:21+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 6,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 6
+      "wind": 9
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 65
+        "rain": 62
       },
       {
         "day": "Tue",
@@ -29,7 +29,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 60
+        "rain": 69
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 41
+        "rain": 61
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114506.0,
-        "pct": 0.38
+        "price": 114694.0,
+        "pct": 0.46
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3327.93,
-        "pct": -0.14
+        "price": 3347.0,
+        "pct": 1.27
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "ESPN Taps Marvel’s Vision to Boost ElClásico’s Debut on ABC",
+      "title": "Elon Musk’s Grok Releases First AI-Generated ‘Odyssey’ Episode, Months After Promising ‘Historically Accurate’ Full-Length Film",
       "when": "25 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/espn-taps-marvel-vision-elclasico-debut-abc-1236930598/"
+      "url": "https://variety.com/2026/film/news/elon-musks-grok-ai-generated-odyssey-1236930662/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘A Court of Thorns and Roses’ Gets a Fittingly Sexy Fashion Collection Ahead of Sarah J. Maas’s Latest Book",
+      "title": "DJ Pikachu: Pokémon Goes EDM With Lasers, Battles and Marshmello in 30th Anniversary Concert at Intuit Dome",
       "when": "25 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/a-court-of-thorns-and-roses-for-love-and-lemons-collection-1236930606/"
+      "url": "https://variety.com/2026/digital/news/pokemon-marshmello-concert-30th-anniversary-1236930618/"
     },
     {
       "cat": "Film/TV",
-      "title": "Serielizados Prizes: Hagai Levi’s ‘Etty’ and ‘Astonishing’ ‘Killing a Bear’ Win Big as ‘El Observatorio’ Bags the Mind the Gap Pitch Prize",
+      "title": "Jessica Biel Says ‘7th Heaven’ Reboot Will ‘Modernize’ the Show Now That TV Has ‘Less Limitations’: ‘We Were Very Careful About What Our Audience Wanted’",
       "when": "25 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/serielizados-hagai-levi-etty-killing-a-bear-matar-a-un-oso-1236930579/"
+      "url": "https://variety.com/2026/tv/news/jessica-biel-7th-heaven-reboot-producer-1236930631/"
     },
     {
       "cat": "Film/TV",
-      "title": "Egyptian Cinema Eyes Its Next Act as Industry Veterans Call for Better Scripts, Wider Distribution",
+      "title": "Box Office: ‘You Can See Everything’ Scores $19.5 Million in Huge Second Weekend, ‘Clayface’ Leads With $24 Million Debut",
       "when": "25 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/egyptian-cinema-el-gouna-film-industry-future-1236930557/"
+      "url": "https://variety.com/2026/film/box-office/you-can-see-everything-box-office-huge-second-weekend-clayface-leads-1236930604/"
     },
     {
       "cat": "Trek/Wars",
@@ -180,7 +180,7 @@
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "10h ago",
       "lang": "HTML",
       "commit": ""
     }
