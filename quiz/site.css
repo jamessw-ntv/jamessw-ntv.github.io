@@ -29,9 +29,6 @@
   .btn-gold { background:var(--gold); color:var(--navy); }
   .btn-gold:hover { background:#E9D25A; }
   .btn-outline { border:1px solid #fff; color:#fff; background:transparent; }
-  .approval-note { background:#FFF9DA; color:#4B4212; border-bottom:1px solid #E6D778; }
-  .approval-note .wrap { padding:10px 0; font-size:.78rem; display:flex; justify-content:space-between; align-items:center; gap:20px; }
-  .approval-note strong { color:var(--navy); }
   .topbar { background:var(--navy-deep); color:#fff; font-size:.7rem; }
   .topbar .wrap { min-height:31px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
   header { background:var(--navy); border-bottom:4px solid var(--gold); }
@@ -169,7 +166,6 @@
     .footer-main { grid-template-columns:1fr; gap:35px; }
   }
   @media(max-width:620px) {
-    .approval-note .wrap { align-items:flex-start; flex-direction:column; gap:3px; }
     .topbar { display:none; }
     .header-inner { min-height:82px; }
     .brand-logo { width:150px; }
