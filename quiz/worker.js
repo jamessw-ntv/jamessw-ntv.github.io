@@ -6,10 +6,11 @@
  * If the email fails, the row is still saved and its "email_status" says why.
  *
  * Settings the Worker needs (Cloudflare dashboard > the Worker > Settings):
- *   DB              D1 database binding (where results are stored)
- *   ADMIN_EMAIL     who gets the notification (must be your Resend account email)
- *   RESEND_API_KEY  secret, from resend.com
- *   CSV_KEY         secret, a password you choose for downloading results.csv
+ *   DB           D1 database binding (where results are stored)
+ *   EMAIL        "Send email" binding (Cloudflare Email Routing on your domain)
+ *   ADMIN_EMAIL  who gets the notification (a verified Email Routing destination address)
+ *   FROM_EMAIL   sender on your domain, e.g. quiz@yourdomain.com
+ *   CSV_KEY      secret, a password you choose for downloading results.csv
  */
 
 const COLUMNS = ["submitted_at", "name", "email", "quiz", "score", "total", "percent", "result", "answers", "email_status"];
@@ -68,25 +69,21 @@ async function submit(request, env) {
   }
 
   // 2) EMAIL, in its own try/catch so a failure can never undo the save above.
+  // Sent by Cloudflare itself (Email Routing), so no email account or API key is needed.
   let emailed = false, status;
   try {
-    const r = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { "Authorization": "Bearer " + env.RESEND_API_KEY, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        from: "Umpire Quiz <onboarding@resend.dev>",
-        to: env.ADMIN_EMAIL,
-        subject: `Quiz result: ${row.name} - ${row.result} (${row.percent}%)`,
-        text:
-          `Name: ${row.name}\nEmail: ${row.email}\nQuiz: ${row.quiz}\n` +
-          `Score: ${row.score}/${row.total} (${row.percent}%) ${row.result}\n\n${row.answers}`
-      })
+    await env.EMAIL.send({
+      to: env.ADMIN_EMAIL,
+      from: { email: env.FROM_EMAIL, name: "Umpire Quiz" },
+      subject: `Quiz result: ${row.name} - ${row.result} (${row.percent}%)`,
+      text:
+        `Name: ${row.name}\nEmail: ${row.email}\nQuiz: ${row.quiz}\n` +
+        `Score: ${row.score}/${row.total} (${row.percent}%) ${row.result}\n\n${row.answers}`
     });
-    if (!r.ok) throw new Error(r.status + " " + (await r.text()).slice(0, 200));
     emailed = true;
     status = "sent";
   } catch (err) {
-    status = "FAILED: " + err.message;
+    status = "FAILED: " + (err.code ? err.code + " " : "") + err.message;
   }
   try {
     await env.DB.prepare("UPDATE results SET email_status = ? WHERE id = ?").bind(status, id).run();
