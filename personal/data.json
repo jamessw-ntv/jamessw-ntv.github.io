@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-24",
-    "fetched": "2026-10-24T23:02:25+00:00",
+    "updated": "2026-10-25",
+    "fetched": "2026-10-25T00:57:17+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 15,
-      "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 9
+      "icon": "🌧️",
+      "desc": "Rain",
+      "wind": 10
     },
     "days": [
       {
@@ -29,15 +29,15 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 39
+        "rain": 51
       },
       {
         "day": "Tue",
         "min": 6,
-        "max": 14,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 53
+        "rain": 63
       }
     ]
   },
@@ -72,18 +72,25 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114571.0,
-        "pct": -0.29
+        "price": 114959.0,
+        "pct": 0.28
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3335.43,
-        "pct": -0.86
+        "price": 3356.17,
+        "pct": -0.5
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "Nathan Fielder Negotiated a ‘Kill Switch’ on ‘You Can See Everything,’ Says Lance Oppenheim: ‘If We Didn’t Find Something, We Could Just Throw It All Away’",
+      "when": "25 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/nathan-fielder-you-can-see-everything-lance-oppenheim-1236916862/"
+    },
     {
       "cat": "Film/TV",
       "title": "‘SNL U.K.’ Weekend Update Tackles Meghan Markle Dad Allegations, James Bond Auditions and ‘Glee’ Reboot",
@@ -104,13 +111,6 @@
       "when": "24 Oct",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/shia-labeouf-lizzie-mcguire-even-stevens-christy-carlson-romano-1236930410/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Cynthia Erivo Imagines Competing on ‘The Great British Bake Off’ in ‘SNL U.K.’ Opening Monologue: ‘I’ve Got a Soggy Bottom and I’m Freaking Stressed!’",
-      "when": "24 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/cynthia-erivo-monologue-snl-uk-british-bake-off-1236930011/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "2h ago",
+      "pushed": "1h ago",
       "lang": "HTML",
       "commit": ""
     }
