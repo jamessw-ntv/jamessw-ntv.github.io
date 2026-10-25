@@ -13,7 +13,7 @@ const QUIZ = {
   passMark: 80, // percent needed to pass
 
   // Paste your Worker URL here, inside the quotes (it ends in .workers.dev).
-  WORKER_URL: "PASTE_YOUR_WORKER_URL_HERE",
+  WORKER_URL: "https://umpire-quiz.jsiddelwhipp.workers.dev",
 
   // PLACEHOLDER QUESTIONS: replace with the real ones before going live.
   questions: [
