@@ -61,8 +61,11 @@
   .intro { display:grid; grid-template-columns:.9fr 1.1fr; gap:70px; align-items:start; }
   .intro-copy { color:var(--body); font-size:1.02rem; line-height:1.75; font-weight:500; }
   .gateway { display:grid; grid-template-columns:repeat(4,1fr); margin-top:40px; border-top:1px solid var(--line); border-left:1px solid var(--line); }
-  .gateway-card { min-height:220px; padding:24px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; flex-direction:column; color:var(--navy); background:#fff; }
+  .gateway-card { min-height:220px; padding:24px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; flex-direction:column; color:var(--navy); background:#fff; text-decoration:none; transition:background .2s; }
+  .gateway-card:hover { background:#f3f5f9; }
+  .gateway-card:hover .gateway-link, .gateway-card:focus-visible .gateway-link { text-decoration:underline; }
   .gateway-card.feature { background:var(--navy); color:#fff; border-color:var(--navy); }
+  .gateway-card.feature:hover { background:#00205f; }
   .gateway-num { font-size:.7rem; color:var(--red); font-weight:900; }
   .gateway-card.feature .gateway-num { color:var(--gold); }
   .gateway-card h3 { margin:34px 0 8px; color:#000714; font-size:1.04rem; font-weight:900; letter-spacing:.01em; }
