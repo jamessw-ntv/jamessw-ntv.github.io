@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Umpire Quiz</title>
+<link rel="stylesheet" href="../assets/hub.css" />
+<style>
+  .quiz{max-width:720px;margin:18px auto 0}
+  .q{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 18px;margin:0 0 14px;box-shadow:var(--shadow)}
+  .q h3{margin:0 0 10px;font-size:15px}
+  .q label{display:flex;gap:10px;align-items:flex-start;padding:7px 9px;border-radius:9px;cursor:pointer}
+  .q label:hover{background:var(--panel2)}
+  .q.missing{border-color:var(--red)}
+  .field{display:flex;flex-direction:column;gap:4px;margin:0 0 12px}
+  .field input{font:inherit;padding:9px 11px;border-radius:9px;border:1px solid var(--line);
+    background:var(--panel2);color:var(--text)}
+  .submit{font:inherit;font-weight:700;padding:10px 22px;border-radius:10px;border:0;
+    background:var(--accent);color:var(--black);cursor:pointer}
+  .submit[disabled]{opacity:.6;cursor:progress}
+  .msg{padding:14px 16px;border-radius:var(--radius);margin:14px 0;border:1px solid var(--line);background:var(--panel)}
+  .msg.ok{border-color:var(--green)}
+  .msg.err{border-color:var(--red)}
+  .msg.warn{border-color:var(--yellow)}
+</style>
+</head>
+<body>
+<div class="hubbar">
+  <a class="backlink" href="../">← Hub</a>
+  <span class="crumb"><b>Umpire Quiz</b></span>
+</div>
+
+<header class="page">
+  <div class="wrap" style="padding-bottom:0">
+    <h1 id="title">Umpire Quiz</h1>
+    <div class="sub">Answer every question, then submit. Your result is saved and sent to the course admin.</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <form class="quiz" id="quiz" novalidate>
+    <div class="q">
+      <div class="field"><label for="name" style="padding:0">Full name</label><input id="name" required autocomplete="name"></div>
+      <div class="field" style="margin:0"><label for="email" style="padding:0">Email</label><input id="email" type="email" required autocomplete="email"></div>
+    </div>
+    <div id="questions"></div>
+    <div id="status"></div>
+    <button class="submit" id="submit" type="submit">Submit answers</button>
+  </form>
+</div>
+
+<footer class="site">Part of the <a href="../">projects hub</a>.</footer>
+
+<script src="questions.js"></script>
+<script>
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const form = document.getElementById("quiz");
+const statusBox = document.getElementById("status");
+const btn = document.getElementById("submit");
+
+document.title = QUIZ.title;
+document.getElementById("title").textContent = QUIZ.title;
+document.getElementById("questions").innerHTML = QUIZ.questions.map((item, i) => `
+  <div class="q" id="q${i}">
+    <h3>${i + 1}. ${esc(item.q)}</h3>
+    ${item.options.map((opt, j) => `
+      <label><input type="radio" name="q${i}" value="${j}"> <span>${esc(opt)}</span></label>`).join("")}
+  </div>`).join("");
+
+function show(kind, html){ statusBox.innerHTML = `<div class="msg ${kind}">${html}</div>`; }
+
+form.addEventListener("submit", async ev => {
+  ev.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  if (!name || !email) return show("err", "Please enter your name and email.");
+
+  // Collect answers and flag any unanswered questions.
+  const answers = []; let missing = 0;
+  QUIZ.questions.forEach((item, i) => {
+    const picked = form.querySelector(`input[name="q${i}"]:checked`);
+    document.getElementById("q" + i).classList.toggle("missing", !picked);
+    if (!picked) missing++;
+    answers.push(picked ? Number(picked.value) : null);
+  });
+  if (missing) return show("err", `Please answer all questions (${missing} left, outlined in red).`);
+
+  const correct = answers.filter((a, i) => a === QUIZ.questions[i].answer).length;
+  const total = QUIZ.questions.length;
+  const percent = Math.round(correct / total * 100);
+  const passed = percent >= QUIZ.passMark;
+
+  const payload = {
+    quiz: QUIZ.title, name, email, correct, total, percent,
+    result: passed ? "PASS" : "FAIL",
+    answers: answers.map((a, i) => `Q${i + 1}: ${QUIZ.questions[i].options[a]}${a === QUIZ.questions[i].answer ? "" : " (wrong)"}`).join("\n")
+  };
+
+  btn.disabled = true; btn.textContent = "Saving…";
+  show("", "Saving your result…");
+  const scoreLine = `You scored <b>${correct}/${total} (${percent}%)</b>: <b>${passed ? "PASS" : "not yet a pass"}</b>.`;
+  try {
+    // text/plain keeps this a "simple" request (no CORS preflight). The Worker's reply
+    // is readable, so "saved" below is a real confirmation, not a guess.
+    const r = await fetch(QUIZ.WORKER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+    const res = await r.json();
+    if (!res.saved) throw new Error(res.error || "not saved");
+    show(res.emailed ? "ok" : "warn",
+      `${scoreLine}<br>Your result has been saved.` +
+      (res.emailed ? "" : " (The admin email didn't send, but your result is safe in the records.)"));
+    btn.textContent = "Submitted";
+  } catch (e) {
+    console.error(e);
+    show("err", `${scoreLine}<br>Your result <b>could not be saved</b>. Please check your connection and press Submit again.`);
+    btn.disabled = false; btn.textContent = "Try again";
+  }
+});
+</script>
+</body>
+</html>
