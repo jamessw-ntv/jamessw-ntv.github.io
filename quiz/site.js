@@ -1,4 +1,7 @@
 (() => {
+  // The quiz engine only runs on the quiz page (take/).
+  if (!document.getElementById('quiz-setup')) return;
+
   /* Settings and the question bank live in questions.js (QUIZ). */
   const CONFIG = { PASS_THRESHOLD: QUIZ.passMark / 100, RULEBOOK_EDITION: QUIZ.rulebookEdition };
   const QUESTION_BANK = QUIZ.questions;
@@ -33,12 +36,6 @@
     summaryNote: document.getElementById('summary-note'),
     reviewList: document.getElementById('review-list'),
     retryBtn: document.getElementById('retry-quiz-btn'),
-    statLatest: document.getElementById('stat-latest'),
-    statLatestMeta: document.getElementById('stat-latest-meta'),
-    statBest: document.getElementById('stat-best'),
-    statBestMeta: document.getElementById('stat-best-meta'),
-    statAttempts: document.getElementById('stat-attempts'),
-    statAttemptsMeta: document.getElementById('stat-attempts-meta'),
     recordName: document.getElementById('record-name'),
     recordEmail: document.getElementById('record-email'),
     recordAssociation: document.getElementById('record-association')
@@ -58,9 +55,6 @@
   };
 
   const attemptCounts = {};
-  let bestPercent = null;
-  let bestMeta = '';
-  let recordedAttemptsThisSession = 0;
 
   function escapeHtml(str) {
     const div = document.createElement('div');
@@ -137,15 +131,12 @@
     input.addEventListener('input', updateStartAvailability);
   });
 
-  document.querySelectorAll('[data-jump-category]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const category = btn.dataset.jumpCategory;
-      document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
-      state.category = category;
-      selectChip(els.categoryOptions, 'category', category);
-      updateStartAvailability();
-    });
-  });
+  // Links from the landing page can preselect a category, e.g. take/?category=plate
+  const preset = new URLSearchParams(location.search).get('category');
+  if (preset && CATEGORY_LABELS[preset]) {
+    state.category = preset;
+    selectChip(els.categoryOptions, 'category', preset);
+  }
 
   function getQuestionSet(category, difficulty) {
     let list = QUESTION_BANK.filter(q => q.active && q.category === category && q.difficulty === difficulty);
@@ -321,7 +312,6 @@
     if (state.mode === 'recorded') {
       const key = `${state.category}:${state.difficulty}`;
       attemptCounts[key] = (attemptCounts[key] || 0) + 1;
-      recordedAttemptsThisSession++;
 
       // Same shape the Worker and dashboard expect. One line per question: "G1: chosen answer (wrong)".
       const payload = {
@@ -349,25 +339,9 @@
       });
       save();
 
-      updateProgressStats(percentage, state.category, state.difficulty);
     } else {
       els.summaryNote.textContent = 'This was a practice attempt — it was not saved or emailed. Switch to Recorded Quiz to have your score kept on file.';
     }
-  }
-
-  function updateProgressStats(percentage, category, difficulty) {
-    els.statLatest.textContent = percentage + '%';
-    els.statLatestMeta.textContent = `${CATEGORY_LABELS[category]} · ${DIFFICULTY_LABELS[difficulty]}`;
-
-    if (bestPercent === null || percentage > bestPercent) {
-      bestPercent = percentage;
-      bestMeta = `${CATEGORY_LABELS[category]} · ${DIFFICULTY_LABELS[difficulty]}`;
-    }
-    els.statBest.textContent = bestPercent + '%';
-    els.statBestMeta.textContent = bestMeta;
-
-    els.statAttempts.textContent = String(recordedAttemptsThisSession);
-    els.statAttemptsMeta.textContent = 'This session';
   }
 
   // text/plain keeps this a "simple" request (no CORS preflight), and the Worker's reply
@@ -390,6 +364,9 @@
 
   updateStartAvailability();
 
+})();
+
+(() => {
   /* ---- Carousel logic (unchanged from the approval prototype) ---- */
   document.querySelectorAll('[data-carousel]').forEach(group => {
     const track = group.querySelector('.logo-track');

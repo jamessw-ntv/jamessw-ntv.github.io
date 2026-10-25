@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Umpire Quiz · Softball Umpires</title>
+<meta name="description" content="Rules, education and assessment for softball umpires, with a practice and recorded umpire quiz.">
+<link rel="icon" href="../images/wbsc-logo.svg">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<div class="approval-note">
+  <div class="wrap">
+    <strong>Interactive approval prototype</strong>
+    <span>Sample question bank pending rules-committee verification. Recorded quizzes are saved and sent to the site administrator.</span>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>WORLD BASEBALL SOFTBALL · UMPIRE EDUCATION</span>
+    <span>RULES · TRAINING · ASSESSMENT</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap header-inner">
+    <a href="../" aria-label="Softball Umpires home">
+      <img class="brand-logo" src="../images/wbsc-logo.svg" alt="WBSC logo">
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="../#development">DEVELOPMENT</a>
+      <a href="../#resources">RESOURCES</a>
+      <a href="../#learning">TRAINING</a>
+      <a href="../#network">ORGANISATIONS</a>
+      <a class="quiz-link" href="#quiz">TAKE THE QUIZ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="quiz" id="quiz">
+    <div class="wrap">
+      <div class="eyebrow" style="color:#DEC53E">Knowledge assessment</div>
+      <h2 class="title">UMPIRE QUIZ</h2>
+
+      <div class="quiz-mode-toggle" role="tablist" aria-label="Quiz mode">
+        <button type="button" class="mode-btn active" id="mode-practice" data-mode="practice" role="tab" aria-selected="true">PRACTICE QUIZ</button>
+        <button type="button" class="mode-btn" id="mode-recorded" data-mode="recorded" role="tab" aria-selected="false">RECORDED QUIZ</button>
+      </div>
+
+      <div class="quiz-setup" id="quiz-setup">
+        <div class="quiz-setup-grid">
+          <div class="setup-block">
+            <span class="setup-label">Choose a category</span>
+            <div class="setup-options" id="category-options" role="group" aria-label="Quiz category">
+              <button type="button" class="setup-chip" data-category="general" aria-pressed="false">GENERAL RULES</button>
+              <button type="button" class="setup-chip" data-category="plate" aria-pressed="false">PLATE UMPIRE</button>
+              <button type="button" class="setup-chip" data-category="base" aria-pressed="false">BASE UMPIRE</button>
+              <button type="button" class="setup-chip" data-category="situations" aria-pressed="false">GAME SITUATIONS</button>
+            </div>
+          </div>
+          <div class="setup-block">
+            <span class="setup-label">Choose a difficulty</span>
+            <div class="setup-options" id="difficulty-options" role="group" aria-label="Quiz difficulty">
+              <button type="button" class="setup-chip" data-difficulty="foundation" aria-pressed="false">FOUNDATION</button>
+              <button type="button" class="setup-chip" data-difficulty="intermediate" aria-pressed="false">INTERMEDIATE</button>
+              <button type="button" class="setup-chip" data-difficulty="advanced" aria-pressed="false">ADVANCED</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-setup-record" id="quiz-setup-record" hidden>
+          <div class="field"><label for="record-name">Name</label><input id="record-name" autocomplete="name"></div>
+          <div class="field"><label for="record-email">Email</label><input id="record-email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="record-association">Association</label><input id="record-association" autocomplete="organization"></div>
+        </div>
+
+        <button type="button" class="btn btn-gold" id="start-quiz-btn" disabled>START QUIZ</button>
+        <p class="setup-hint" id="setup-hint">Select a category and difficulty to begin.</p>
+      </div>
+
+      <div class="quiz-shell" id="quiz-shell" hidden>
+        <div class="question">
+          <div class="qmeta"><span id="qmeta-current">Question 1 of 1</span><span id="qmeta-percent">0%</span></div>
+          <div class="track" aria-hidden="true"><div class="bar" id="quiz-bar"></div></div>
+          <h3 id="question-text"></h3>
+          <div class="answers" role="radiogroup" aria-label="Answer options" id="answers"></div>
+          <div class="feedback" id="feedback" aria-live="polite">
+            <span class="feedback-icon" id="feedback-icon" aria-hidden="true"></span>
+            <span id="feedback-body"></span>
+          </div>
+          <div class="submit">
+            <small id="submit-context">Practice quiz</small>
+            <button class="btn btn-gold" id="submit-answer" type="button">SUBMIT ANSWER</button>
+          </div>
+        </div>
+
+        <aside class="record" id="record-panel">
+          <div class="eyebrow">Your attempt</div>
+          <h4 id="record-heading">PRACTICE MODE</h4>
+          <div id="record-body"></div>
+        </aside>
+      </div>
+
+      <div class="quiz-summary" id="quiz-summary" hidden>
+        <div class="summary-head">
+          <div>
+            <div class="eyebrow" style="color:#DEC53E">Result</div>
+            <div class="summary-score" id="summary-score">0<small id="summary-meta">0 of 0 correct</small></div>
+          </div>
+          <span class="summary-pill pass" id="summary-pill">PASS</span>
+        </div>
+        <div class="summary-note" id="summary-note"></div>
+        <div class="review-list" id="review-list"></div>
+        <div class="summary-actions">
+          <button type="button" class="btn btn-gold" id="retry-quiz-btn">TRY ANOTHER QUIZ</button>
+          <a class="btn btn-outline" href="../#learning">REVIEW FEATURED LEARNING</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-main">
+      <div>
+        <img class="brand-logo" src="../images/wbsc-logo.svg" alt="WBSC logo">
+        <p class="footer-copy">Professional education, resources and assessment for softball game officials.</p>
+        <p class="credit">Approval prototype only. Photography is illustrative placeholder content and should be replaced with approved/licensed assets for production.</p>
+      </div>
+      <div class="footer-navigation">
+        <div class="footer-row">
+          <div>
+            <h4>Development</h4>
+            <a href="../#development">Umpire pathway</a>
+            <a href="../#learning">Education</a>
+            <a href="#">Accreditation</a>
+          </div>
+          <div>
+            <h4>Resources</h4>
+            <a href="../#resources">Rules</a>
+            <a href="../#resources">Mechanics</a>
+            <a href="../#learning">Featured Learning</a>
+          </div>
+        </div>
+        <div class="footer-row">
+          <div>
+            <h4>Assessment</h4>
+            <a href="#quiz">Take a quiz</a>
+            <a href="../admin/">Admin dashboard</a>
+          </div>
+          <div>
+            <h4>Information</h4>
+            <a href="#">Contact</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Privacy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Softball Umpires · Approval Concept</span>
+      <span>Privacy · Accessibility · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../questions.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>
