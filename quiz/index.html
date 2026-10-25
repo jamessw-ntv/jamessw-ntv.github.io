@@ -101,9 +101,9 @@ form.addEventListener("submit", async ev => {
   show("", "Saving your result…");
   const scoreLine = `You scored <b>${correct}/${total} (${percent}%)</b>: <b>${passed ? "PASS" : "not yet a pass"}</b>.`;
   try {
-    // text/plain keeps this a "simple" request, so the browser skips the CORS preflight
-    // that Apps Script can't answer. Apps Script's reply is readable, so we get real confirmation.
-    const r = await fetch(QUIZ.SCRIPT_URL, {
+    // text/plain keeps this a "simple" request (no CORS preflight). The Worker's reply
+    // is readable, so "saved" below is a real confirmation, not a guess.
+    const r = await fetch(QUIZ.WORKER_URL, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(payload)

@@ -1,7 +1,7 @@
 /* ============================================================
    QUIZ SETTINGS AND QUESTIONS. This is the only file you need to edit.
    ------------------------------------------------------------
-   - Paste your Apps Script web app URL into SCRIPT_URL (see SETUP.md).
+   - Paste your Cloudflare Worker URL into WORKER_URL (see SETUP.md).
    - Each question has: q (the question), options (the choices),
      and answer (the number of the correct option, counting from 0).
      So answer: 0 = first option, answer: 1 = second option, and so on.
@@ -12,8 +12,8 @@ const QUIZ = {
   title: "WBSC Umpire Mechanics: Knowledge Check",
   passMark: 80, // percent needed to pass
 
-  // Paste the web app URL from Apps Script here, inside the quotes.
-  SCRIPT_URL: "PASTE_YOUR_WEB_APP_URL_HERE",
+  // Paste your Worker URL here, inside the quotes (it ends in .workers.dev).
+  WORKER_URL: "PASTE_YOUR_WORKER_URL_HERE",
 
   // PLACEHOLDER QUESTIONS: replace with the real ones before going live.
   questions: [
