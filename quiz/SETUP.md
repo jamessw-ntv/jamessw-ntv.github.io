@@ -93,6 +93,7 @@ To change it, update the `ADMIN_PASSWORD` secret on the Worker. The new password
 (general, plate, base or situations), a `difficulty` (foundation, intermediate or advanced), `options`, and `correct`,
 the position of the right option counting from **0**. `active:false` hides a question without deleting it. `passMark` is
 the pass percentage (85 by default). Only **Recorded Quiz** attempts are saved and emailed. Practice attempts are not.
+Browsers can keep the old `questions.js` for up to 10 minutes; to force the new one at once, change the `?v=` number after `questions.js` in `quiz/index.html`, `quiz/take/index.html` and `quiz/admin/index.html`.
 
 **Changing worker.js later:** open the Worker, **Edit code**, paste, **Deploy**. The URL doesn't change.
 
