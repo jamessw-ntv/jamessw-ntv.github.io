@@ -151,7 +151,7 @@
   els.startBtn.addEventListener('click', () => {
     const { list, fellBack } = getQuestionSet(state.category, state.difficulty);
     if (list.length === 0) {
-      els.setupHint.textContent = 'No sample questions are available yet for this category.';
+      els.setupHint.textContent = 'No questions are available yet for this category.';
       return;
     }
     state.questions = list;
@@ -163,7 +163,7 @@
     els.quizSummary.hidden = true;
     els.quizShell.hidden = false;
     els.setupHint.textContent = fellBack
-      ? 'No sample questions at this exact difficulty yet — showing all difficulties for this category.'
+      ? 'No questions at this exact difficulty yet — showing all difficulties for this category.'
       : '';
     renderQuestion();
   });
@@ -261,7 +261,7 @@
         els.feedback.classList.add(isCorrect ? 'is-correct' : 'is-incorrect');
         els.feedbackIcon.textContent = isCorrect ? '✓' : '✕';
         els.feedbackBody.innerHTML = `<strong>${isCorrect ? 'Correct' : 'Not quite'}:</strong> ${q.ruling} ${q.explanation}
-          <br><span style="opacity:.85">Reference: ${q.ruleRef} · ${q.edition} (sample content — pending rules committee verification)</span>`;
+          <br><span style="opacity:.85">Reference: ${q.ruleRef} · ${q.edition}</span>`;
       } else {
         els.feedback.classList.add('is-correct');
         els.feedbackIcon.textContent = '•';
@@ -296,7 +296,7 @@
     if (state.missed.length === 0) {
       const div = document.createElement('div');
       div.className = 'review-item was-correct';
-      div.innerHTML = '<strong>All sample questions correct.</strong><p>Strong result — try a harder difficulty or a different category next.</p>';
+      div.innerHTML = '<strong>All questions correct.</strong><p>Strong result — try a harder difficulty or a different category next.</p>';
       els.reviewList.appendChild(div);
     } else {
       state.missed.forEach(q => {
@@ -367,7 +367,7 @@
 })();
 
 (() => {
-  /* ---- Carousel logic (unchanged from the approval prototype) ---- */
+  /* ---- Carousel logic ---- */
   document.querySelectorAll('[data-carousel]').forEach(group => {
     const track = group.querySelector('.logo-track');
     const viewport = group.querySelector('.logo-window');
