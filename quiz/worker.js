@@ -14,7 +14,8 @@
  *   ADMIN_PASSWORD  secret, the shared password for the dashboard (quiz/admin/)
  */
 
-const COLUMNS = ["submitted_at", "name", "email", "quiz", "score", "total", "percent", "result", "answers", "email_status"];
+const COLUMNS = ["submitted_at", "name", "email", "association", "quiz", "score", "total", "percent", "result", "answers", "email_status"];
+let migrated = false;
 
 export default {
   async fetch(request, env) {
@@ -24,6 +25,13 @@ export default {
     try {
       await env.DB.prepare(`CREATE TABLE IF NOT EXISTS results (
         id INTEGER PRIMARY KEY AUTOINCREMENT, ${COLUMNS.map(c => c + " TEXT").join(", ")})`).run();
+      if (!migrated) {
+        // Tables made before a column existed get it added once; "duplicate column" just means it's already there.
+        for (const c of COLUMNS) {
+          try { await env.DB.prepare(`ALTER TABLE results ADD COLUMN ${c} TEXT`).run(); } catch (err) { /* already present */ }
+        }
+        migrated = true;
+      }
 
       if (request.method === "POST") return await submit(request, env);
 
@@ -59,7 +67,7 @@ async function submit(request, env) {
   // 1) SAVE.
   const row = {
     submitted_at: new Date().toISOString(),
-    name: text(data.name), email: text(data.email), quiz: text(data.quiz),
+    name: text(data.name), email: text(data.email), association: text(data.association), quiz: text(data.quiz),
     score: String(Number(data.correct) || 0), total: String(Number(data.total) || 0),
     percent: String(Number(data.percent) || 0), result: text(data.result),
     answers: text(data.answers), email_status: "sending"
@@ -83,7 +91,7 @@ async function submit(request, env) {
       from: { email: env.FROM_EMAIL, name: "Umpire Quiz" },
       subject: `Quiz result: ${row.name} - ${row.result} (${row.percent}%)`,
       text:
-        `Name: ${row.name}\nEmail: ${row.email}\nQuiz: ${row.quiz}\n` +
+        `Name: ${row.name}\nEmail: ${row.email}\nAssociation: ${row.association || "-"}\nQuiz: ${row.quiz}\n` +
         `Score: ${row.score}/${row.total} (${row.percent}%) ${row.result}\n\n${row.answers}`
     });
     emailed = true;
