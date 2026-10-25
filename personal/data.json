@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-25",
-    "fetched": "2026-10-25T00:57:17+00:00",
+    "fetched": "2026-10-25T05:51:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
-      "icon": "🌧️",
-      "desc": "Rain",
-      "wind": 10
+      "temp": 11,
+      "icon": "🌦️",
+      "desc": "Showers",
+      "wind": 16
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 51
+        "rain": 72
       },
       {
         "day": "Tue",
@@ -37,7 +37,7 @@
         "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 63
+        "rain": 67
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114959.0,
-        "pct": 0.28
+        "price": 114446.0,
+        "pct": -0.28
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3356.17,
-        "pct": -0.5
+        "price": 3338.59,
+        "pct": -1.19
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Nathan Fielder Negotiated a ‘Kill Switch’ on ‘You Can See Everything,’ Says Lance Oppenheim: ‘If We Didn’t Find Something, We Could Just Throw It All Away’",
+      "title": "Soccer Drama ‘Forza,’ With AC Milan Great Alessandro Costacurta, Heads to Tokyo Market With EST N8 (EXCLUSIVE)",
       "when": "25 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/nathan-fielder-you-can-see-everything-lance-oppenheim-1236916862/"
+      "url": "https://variety.com/2026/film/news/soccer-drama-forza-ac-milan-alessandro-costacurta-tokyo-market-est-n8-1236930538/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘SNL U.K.’ Weekend Update Tackles Meghan Markle Dad Allegations, James Bond Auditions and ‘Glee’ Reboot",
-      "when": "24 Oct",
+      "title": "‘KPop Demon Hunters,’ ‘Squid Game’ Stars Fete Netflix’s Korea Decade as Ted Sarandos Teases ‘Tantara,’ ‘All of Us Are Dead’ Season 2",
+      "when": "25 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/snl-uk-weekend-update-meghan-markle-glee-1236930013/"
+      "url": "https://variety.com/2026/tv/news/kpop-demon-hunters-squid-game-stars-netflix-korea-decade-1236930528/"
     },
     {
       "cat": "Film/TV",
-      "title": "Cynthia Erivo Plays Glinda in ‘Nigerian Wicked’ Sketch on ‘SNL U.K.’: ‘She Wants a BBL That Defies Gravity’",
-      "when": "24 Oct",
+      "title": "AI Firm Behind India’s ‘Mahabharat’ Series Turns to Indonesian Myth in Cross-Border IP Pact (EXCLUSIVE)",
+      "when": "25 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/cynthia-erivo-glinda-nigerian-wicked-snl-uk-1236930402/"
+      "url": "https://variety.com/2026/tv/news/ai-india-mahabharat-series-indonesian-myth-1236930485/"
     },
     {
       "cat": "Film/TV",
-      "title": "Shia LaBeouf Would Trash-Talk ‘Lizzie McGuire’ While Filming ‘Even Stevens,’ Says Christy Carlson Romano: ‘He Wanted to Be the Number One Show’",
-      "when": "24 Oct",
+      "title": "SAG-AFTRA Extends Duncan Crabtree-Ireland’s Contract and Adds CEO to Title",
+      "when": "25 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/shia-labeouf-lizzie-mcguire-even-stevens-christy-carlson-romano-1236930410/"
+      "url": "https://variety.com/2026/film/news/sag-aftra-duncan-crabtree-ireland-contract-extension-1236930503/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "1h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     }
