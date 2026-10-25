@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-25",
-    "fetched": "2026-10-25T11:05:54+00:00",
+    "fetched": "2026-10-25T14:56:03+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 14
+      "temp": 7,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 17,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 100
-      },
-      {
-        "day": "Mon",
         "min": 6,
-        "max": 14,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 72
+        "rain": 65
       },
       {
         "day": "Tue",
         "min": 6,
-        "max": 14,
+        "max": 13,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 67
+        "rain": 60
+      },
+      {
+        "day": "Wed",
+        "min": 6,
+        "max": 15,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 41
       }
     ]
   },
@@ -72,18 +72,32 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114274.0,
-        "pct": -0.34
+        "price": 114506.0,
+        "pct": 0.38
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3313.66,
-        "pct": -1.67
+        "price": 3327.93,
+        "pct": -0.14
       }
     ]
   },
   "releases": [
+    {
+      "cat": "Film/TV",
+      "title": "ESPN Taps Marvel’s Vision to Boost ElClásico’s Debut on ABC",
+      "when": "25 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/espn-taps-marvel-vision-elclasico-debut-abc-1236930598/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘A Court of Thorns and Roses’ Gets a Fittingly Sexy Fashion Collection Ahead of Sarah J. Maas’s Latest Book",
+      "when": "25 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/a-court-of-thorns-and-roses-for-love-and-lemons-collection-1236930606/"
+    },
     {
       "cat": "Film/TV",
       "title": "Serielizados Prizes: Hagai Levi’s ‘Etty’ and ‘Astonishing’ ‘Killing a Bear’ Win Big as ‘El Observatorio’ Bags the Mind the Gap Pitch Prize",
@@ -97,20 +111,6 @@
       "when": "25 Oct",
       "source": "Variety",
       "url": "https://variety.com/2026/film/global/egyptian-cinema-el-gouna-film-industry-future-1236930557/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jay-Z Brings His ‘Jay-Z 30’ Concert Series to a Close in Los Angeles With Dr. Dre, Snoop Dogg and Too Short",
-      "when": "25 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/jay-z-30-closer-dr-dre-snoop-dogg-los-angeles-sofi-stadium-1236930554/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Soccer Drama ‘Forza,’ With AC Milan Great Alessandro Costacurta, Heads to Tokyo Market With EST N8 (EXCLUSIVE)",
-      "when": "25 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/soccer-drama-forza-ac-milan-alessandro-costacurta-tokyo-market-est-n8-1236930538/"
     },
     {
       "cat": "Trek/Wars",
@@ -171,16 +171,16 @@
   ],
   "dev": [
     {
-      "repo": "softball-umpires-quiz",
+      "repo": "jamessw-ntv.github.io",
       "desc": "",
       "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
-      "repo": "jamessw-ntv.github.io",
+      "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     }
