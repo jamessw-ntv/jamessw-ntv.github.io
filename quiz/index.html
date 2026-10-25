@@ -33,7 +33,7 @@
       <a href="#resources">RESOURCES</a>
       <a href="#learning">TRAINING</a>
       <a href="#network">ORGANISATIONS</a>
-      <a class="quiz-link" href="#quiz">TAKE THE QUIZ</a>
+      <a class="quiz-link" href="take/">TAKE THE QUIZ</a>
     </nav>
   </div>
 </header>
@@ -47,7 +47,7 @@
         <h1>SOFTBALL<br>UMPIRES</h1>
         <p>Rules, education and practical assessment designed to build confident, consistent decision-making on the field.</p>
         <div class="hero-actions">
-          <a class="btn btn-gold" href="#quiz">TAKE THE UMPIRE QUIZ</a>
+          <a class="btn btn-gold" href="take/">TAKE THE UMPIRE QUIZ</a>
           <a class="btn btn-outline" href="#resources">EXPLORE RESOURCES</a>
         </div>
       </div>
@@ -93,7 +93,7 @@
           <p>Practical learning material for game officials.</p>
           <div class="gateway-link">START LEARNING →</div>
         </a>
-        <a href="#quiz" class="gateway-card feature">
+        <a href="take/" class="gateway-card feature">
           <div class="gateway-num">04</div>
           <h3>UMPIRE QUIZ</h3>
           <p>Test your knowledge and permanently record your score.</p>
@@ -185,109 +185,14 @@
           <div class="eyebrow" style="color:#DEC53E">Next step</div>
           <h3>READY TO TEST YOUR KNOWLEDGE?</h3>
           <p>Choose a category, complete a practice or recorded quiz, and receive rule-based feedback on your decisions.</p>
-          <a class="btn btn-gold" style="margin-top:18px" href="#quiz">START QUIZ ↓</a>
+          <a class="btn btn-gold" style="margin-top:18px" href="take/">START QUIZ →</a>
         </div>
         <div class="quiz-cat-wrap" role="group" aria-label="Jump to a quiz category">
-          <button type="button" class="quiz-cat" data-jump-category="general" aria-pressed="false">GENERAL RULES</button>
-          <button type="button" class="quiz-cat" data-jump-category="plate" aria-pressed="false">PLATE UMPIRE</button>
-          <button type="button" class="quiz-cat" data-jump-category="base" aria-pressed="false">BASE UMPIRE</button>
-          <button type="button" class="quiz-cat" data-jump-category="situations" aria-pressed="false">GAME SITUATIONS</button>
+          <a class="quiz-cat" href="take/?category=general">GENERAL RULES</a>
+          <a class="quiz-cat" href="take/?category=plate">PLATE UMPIRE</a>
+          <a class="quiz-cat" href="take/?category=base">BASE UMPIRE</a>
+          <a class="quiz-cat" href="take/?category=situations">GAME SITUATIONS</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="quiz" id="quiz">
-    <div class="wrap">
-      <div class="eyebrow" style="color:#DEC53E">Knowledge assessment</div>
-      <h2 class="title">UMPIRE QUIZ</h2>
-
-      <div class="quiz-mode-toggle" role="tablist" aria-label="Quiz mode">
-        <button type="button" class="mode-btn active" id="mode-practice" data-mode="practice" role="tab" aria-selected="true">PRACTICE QUIZ</button>
-        <button type="button" class="mode-btn" id="mode-recorded" data-mode="recorded" role="tab" aria-selected="false">RECORDED QUIZ</button>
-      </div>
-
-      <div class="quiz-setup" id="quiz-setup">
-        <div class="quiz-setup-grid">
-          <div class="setup-block">
-            <span class="setup-label">Choose a category</span>
-            <div class="setup-options" id="category-options" role="group" aria-label="Quiz category">
-              <button type="button" class="setup-chip" data-category="general" aria-pressed="false">GENERAL RULES</button>
-              <button type="button" class="setup-chip" data-category="plate" aria-pressed="false">PLATE UMPIRE</button>
-              <button type="button" class="setup-chip" data-category="base" aria-pressed="false">BASE UMPIRE</button>
-              <button type="button" class="setup-chip" data-category="situations" aria-pressed="false">GAME SITUATIONS</button>
-            </div>
-          </div>
-          <div class="setup-block">
-            <span class="setup-label">Choose a difficulty</span>
-            <div class="setup-options" id="difficulty-options" role="group" aria-label="Quiz difficulty">
-              <button type="button" class="setup-chip" data-difficulty="foundation" aria-pressed="false">FOUNDATION</button>
-              <button type="button" class="setup-chip" data-difficulty="intermediate" aria-pressed="false">INTERMEDIATE</button>
-              <button type="button" class="setup-chip" data-difficulty="advanced" aria-pressed="false">ADVANCED</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="quiz-setup-record" id="quiz-setup-record" hidden>
-          <div class="field"><label for="record-name">Name</label><input id="record-name" autocomplete="name"></div>
-          <div class="field"><label for="record-email">Email</label><input id="record-email" type="email" autocomplete="email"></div>
-          <div class="field"><label for="record-association">Association</label><input id="record-association" autocomplete="organization"></div>
-        </div>
-
-        <button type="button" class="btn btn-gold" id="start-quiz-btn" disabled>START QUIZ</button>
-        <p class="setup-hint" id="setup-hint">Select a category and difficulty to begin.</p>
-      </div>
-
-      <div class="quiz-shell" id="quiz-shell" hidden>
-        <div class="question">
-          <div class="qmeta"><span id="qmeta-current">Question 1 of 1</span><span id="qmeta-percent">0%</span></div>
-          <div class="track" aria-hidden="true"><div class="bar" id="quiz-bar"></div></div>
-          <h3 id="question-text"></h3>
-          <div class="answers" role="radiogroup" aria-label="Answer options" id="answers"></div>
-          <div class="feedback" id="feedback" aria-live="polite">
-            <span class="feedback-icon" id="feedback-icon" aria-hidden="true"></span>
-            <span id="feedback-body"></span>
-          </div>
-          <div class="submit">
-            <small id="submit-context">Practice quiz</small>
-            <button class="btn btn-gold" id="submit-answer" type="button">SUBMIT ANSWER</button>
-          </div>
-        </div>
-
-        <aside class="record" id="record-panel">
-          <div class="eyebrow">Your attempt</div>
-          <h4 id="record-heading">PRACTICE MODE</h4>
-          <div id="record-body"></div>
-        </aside>
-      </div>
-
-      <div class="quiz-summary" id="quiz-summary" hidden>
-        <div class="summary-head">
-          <div>
-            <div class="eyebrow" style="color:#DEC53E">Result</div>
-            <div class="summary-score" id="summary-score">0<small id="summary-meta">0 of 0 correct</small></div>
-          </div>
-          <span class="summary-pill pass" id="summary-pill">PASS</span>
-        </div>
-        <div class="summary-note" id="summary-note"></div>
-        <div class="review-list" id="review-list"></div>
-        <div class="summary-actions">
-          <button type="button" class="btn btn-gold" id="retry-quiz-btn">TRY ANOTHER QUIZ</button>
-          <a class="btn btn-outline" href="#learning">REVIEW FEATURED LEARNING</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="results section">
-    <div class="wrap">
-      <div class="eyebrow">Development record</div>
-      <h2 class="title">YOUR QUIZ PROGRESS</h2>
-      <p class="network-note">Showing the recorded quizzes you have completed in this browser session. Every recorded attempt is also saved for the site administrator.</p>
-      <div class="result-grid">
-        <div class="result-card"><span>Latest score</span><strong id="stat-latest">—</strong><small id="stat-latest-meta">Complete a recorded quiz below</small></div>
-        <div class="result-card"><span>Best score</span><strong id="stat-best">—</strong><small id="stat-best-meta">No recorded attempts yet</small></div>
-        <div class="result-card"><span>Recorded attempts</span><strong id="stat-attempts">0</strong><small id="stat-attempts-meta">This session</small></div>
       </div>
     </div>
   </section>
@@ -388,8 +293,7 @@
         <div class="footer-row">
           <div>
             <h4>Assessment</h4>
-            <a href="#quiz">Take a quiz</a>
-            <a href="#quiz">My results</a>
+            <a href="take/">Take a quiz</a>
             <a href="admin/">Admin dashboard</a>
           </div>
           <div>

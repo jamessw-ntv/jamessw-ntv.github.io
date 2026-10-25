@@ -68,7 +68,7 @@ The names must be exact, in capitals.
 3. Commit. Wait about 1 minute for Pages to rebuild.
 
 ## 6. Test (2 min)
-1. Open <https://jamessw-ntv.github.io/quiz/> and submit a test attempt.
+1. Open <https://jamessw-ntv.github.io/quiz/take/>, choose **Recorded Quiz**, and submit a test attempt.
    - [ ] The page says **"Your result has been saved."**
    - [ ] The admin receives the email.
 2. Download the results: `https://umpire-quiz.<you>.workers.dev/results.csv?key=<CSV_KEY>`
