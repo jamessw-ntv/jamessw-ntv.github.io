@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-25",
-    "fetched": "2026-10-25T21:35:36+00:00",
+    "updated": "2026-10-26",
+    "fetched": "2026-10-26T00:00:48+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 12
+      "temp": 12,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 17
     },
     "days": [
       {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114217.0,
-        "pct": -0.06
+        "price": 113872.0,
+        "pct": -0.94
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3323.37,
-        "pct": -0.03
+        "price": 3310.39,
+        "pct": -1.25
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "From ‘Hoop Dreams’ to ‘Flee’: The 20 Documentaries That Deserved a Best Picture Oscar Nomination",
+      "when": "25 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/lists/documentaries-best-picture-oscar-nominations-snubs/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "James Gunn Defends the DC Universe, Says He Dislikes the Idea That ‘Individual Stories Aren’t Meaningful Unless They Lead to Something’",
+      "when": "25 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/james-gunn-defends-clayface-individual-stories-dcu-1236930872/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘You Can See Everything’ Director Lance Oppenheim Says Billy Evans ‘Didn’t Care About Being Seen Naked’; Evans Asked, ‘Want to Film Me Showering?’",
+      "when": "25 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/you-can-see-everything-billy-evans-full-frontal-lance-oppenheim-1236930442/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: ‘Battlefront 3’ In the Works, ‘Starfighter’ Partial Budget Revealed, and More",
+      "when": "25 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/this-week-in-a-galaxy-far-far-away-battlefront-3-in-the-works-starfighter-partial-budget-revealed-and-more.html"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Peggy King, ‘George Gobel Show’ Actress and Singer of the ’50s, Dies at 96",
       "when": "25 Oct",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/people-news/peggy-king-dead-actress-singer-1236930847/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Hudson Williams Says He’s Writing a Film Featuring an ‘Ex-Hockey Player’ and Is ‘Getting Tripped Up’ by ‘Heated Rivalry’ Parallels",
-      "when": "25 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hudson-williams-new-film-heated-rivalry-parallel-1236930742/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Wicker’ Stars Olivia Colman, Alexander Skarsgård and Elizabeth Debicki on Making the ‘Very Silly,’ ‘Really Heartbreaking’ Film: ‘It’s Not Just a Slapstick or Sex Comedy’",
-      "when": "25 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/alexander-skarsgard-olivia-colman-elizabeth-debicki-wicker-interview-1236919062/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Olivia Rodrigo’s ‘You Seem Pretty Sad for a Girl So in Love’ Returns to No. 1 on Albums Chart Following ‘Expectations’ Remix",
-      "when": "25 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/olivia-rodrigo-you-seem-pretty-sad-returns-to-no-1-chart-1236930779/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "23 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/sixth-brother-star-wars-character-spotlight.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Starfighter’ Budget Surpasses ‘The Force Awakens’ Before Tax Credits",
-      "when": "23 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/star-wars-starfighter-budget-surpasses-the-force-awakens-before-tax-credits.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "2h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "14h ago",
+      "pushed": "16h ago",
       "lang": "HTML",
       "commit": ""
     }
