@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-26",
-    "fetched": "2026-10-26T04:15:10+00:00",
+    "fetched": "2026-10-26T10:54:55+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 18
+      "temp": 10,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
-        "max": 13,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 67
@@ -34,7 +34,7 @@
       {
         "day": "Wed",
         "min": 6,
-        "max": 15,
+        "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 73
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 113469.0,
-        "pct": -1.25
+        "price": 114339.0,
+        "pct": 0.24
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3284.92,
-        "pct": -2.22
+        "price": 3313.79,
+        "pct": 0.31
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Korea Box Office: Anime Phenomenon ‘Chiikawa’ Remains Unstoppable as Yeon Sang-ho Thriller ‘Paradise Lost’ Debuts",
+      "title": "Tokyo Film Festival Opens With ‘Sukiyaki’ and a Plea for Peace as Japan’s Government Restates Global Content Ambitions",
       "when": "26 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/korea-box-office-chiikawa-paradise-lost-1236930928/"
+      "url": "https://variety.com/2026/film/festivals/tokyo-film-fest-opens-sukiyaki-japan-content-goal-1236931066/"
     },
     {
       "cat": "Film/TV",
-      "title": "Eric Bauza, Emmy Award-Winning Looney Tunes Voice Actor, Dies at 46",
+      "title": "Lula’s Election Win: How Taylor’s Swift’s Advice to Fandom Helped Him to a Historic Victory and Defeat for Trump",
       "when": "26 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/people-news/eric-bauza-dead-looney-tunes-voice-actor-1236930931/"
+      "url": "https://variety.com/2026/film/global/lula-election-win-taylor-swift-guillermo-del-toro-fandom-1236931046/"
     },
     {
       "cat": "Film/TV",
-      "title": "China Box Office: ‘Resident Evil’ Stays at No. 1 as Market Hits Fall Lull",
+      "title": "Trump Calls Bill Maher a ‘Complete and Total Loser,’ Tells Him ‘Don’t Call Anymore’ in Lengthy Truth Social Post",
       "when": "26 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/china-box-office-resident-evil-no-1-market-lull-1236930923/"
+      "url": "https://variety.com/2026/tv/news/trump-calls-bill-maher-complete-total-loser-truth-social-1236931052/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Moon Knight’ Star May Calamawy Fronts ‘Night Feeds,’ Opener of New Tokyo Horror Festival Yami (EXCLUSIVE)",
+      "title": "‘VelociPastor 2’ Leaves FilmQuest Audience Roaring, Celebrating Human-Made Films in an AI Era",
       "when": "26 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/moon-knight-star-tokyo-horror-fest-yami-opener-night-feeds-1236930653/"
+      "url": "https://variety.com/2026/film/festivals/velocipastor-2-filmquest-audience-laughter-1236930949/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "20h ago",
+      "pushed": "1d ago",
       "lang": "HTML",
       "commit": ""
     }
