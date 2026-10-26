@@ -3,15 +3,15 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-26",
-    "fetched": "2026-10-26T10:54:55+00:00",
+    "fetched": "2026-10-26T17:14:18+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "☁️",
-      "desc": "Overcast",
+      "temp": 7,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
       "wind": 6
     },
     "days": [
@@ -21,15 +21,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 67
-      },
-      {
-        "day": "Tue",
-        "min": 6,
-        "max": 14,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 67
+        "rain": 79
       },
       {
         "day": "Wed",
@@ -37,7 +29,15 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 73
+        "rain": 67
+      },
+      {
+        "day": "Thu",
+        "min": 10,
+        "max": 18,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 64
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114339.0,
-        "pct": 0.24
+        "price": 114426.0,
+        "pct": -0.33
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3313.79,
-        "pct": 0.31
+        "price": 3315.55,
+        "pct": -0.9
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Tokyo Film Festival Opens With ‘Sukiyaki’ and a Plea for Peace as Japan’s Government Restates Global Content Ambitions",
+      "title": "Sharjah Film Festival Partners With UAE’s Media Authority in Push to Assist Emerging Filmmakers",
       "when": "26 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/tokyo-film-fest-opens-sukiyaki-japan-content-goal-1236931066/"
+      "url": "https://variety.com/2026/film/global/sharjah-film-festival-uae-national-media-authority-fann-1236931290/"
     },
     {
       "cat": "Film/TV",
-      "title": "Lula’s Election Win: How Taylor’s Swift’s Advice to Fandom Helped Him to a Historic Victory and Defeat for Trump",
+      "title": "Instagram Is Testing Ability to Share Videos up to 90 Minutes Long and Launches on Apple TV — but Unlike YouTube, It’s Still Not Going to Pay Creators",
       "when": "26 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/lula-election-win-taylor-swift-guillermo-del-toro-fandom-1236931046/"
+      "url": "https://variety.com/2026/digital/news/instagram-videos-90-minutes-apple-tv-not-paying-creators-1236931293/"
     },
     {
       "cat": "Film/TV",
-      "title": "Trump Calls Bill Maher a ‘Complete and Total Loser,’ Tells Him ‘Don’t Call Anymore’ in Lengthy Truth Social Post",
+      "title": "Walter Koenig, Chekov on Original ‘Star Trek,’ Dies at 90",
       "when": "26 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/trump-calls-bill-maher-complete-total-loser-truth-social-1236931052/"
+      "url": "https://variety.com/2026/film/news/walter-koenig-dead-chekov-star-trek-1236931312/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘VelociPastor 2’ Leaves FilmQuest Audience Roaring, Celebrating Human-Made Films in an AI Era",
+      "title": "Harry Styles Waltzes His Way Through ‘Coming Up Roses’ Music Video",
       "when": "26 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/velocipastor-2-filmquest-audience-laughter-1236930949/"
+      "url": "https://variety.com/2026/music/news/harry-styles-waltzes-coming-up-roses-music-video-1236931286/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review: ‘Star Trek: Outposts Unknown’ Is All About Managing Resources… Less About Exploration",
+      "when": "26 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/26/review-star-trek-outposts-unknown-is-all-about-managing-resources-less-about-exploration/"
     },
     {
       "cat": "Trek/Wars",
@@ -146,13 +153,6 @@
       "when": "20 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/20/star-trek-starfleet-academy-cast-talk-character-twists-and-complicated-season-2-and-series-finale/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "New Magic The Gathering Star Trek Set Details Revealed — Watch Star-Studded Debut Video",
-      "when": "20 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/20/new-magic-the-gathering-star-trek-set-details-revealed-watch-star-studded-debut-video/"
     },
     {
       "cat": "Games",
