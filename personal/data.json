@@ -2,26 +2,26 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-26",
-    "fetched": "2026-10-26T22:32:19+00:00",
+    "updated": "2026-10-27",
+    "fetched": "2026-10-27T01:56:46+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 8
+      "temp": 14,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
+        "min": 5,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 59
+        "rain": 35
       },
       {
         "day": "Wed",
@@ -29,7 +29,7 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 65
+        "rain": 67
       },
       {
         "day": "Thu",
@@ -37,7 +37,7 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 56
+        "rain": 59
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 113827.0,
-        "pct": -0.43
+        "price": 113851.0,
+        "pct": 0.43
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3287.1,
-        "pct": -1.29
+        "price": 3302.4,
+        "pct": 0.33
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Odyssey’ VFX House DNEG Co-Finances Francesco Lucente’s Fantasy Adventure ‘Sinbad,’ Cappu Films Boards Sales (EXCLUSIVE)",
-      "when": "26 Oct",
+      "title": "Jay-Z to Perform at Apple Music 2027 Super Bowl Halftime Show",
+      "when": "27 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/odyssey-vfx-dneg-fantasy-adventure-sinbad-cappu-films-1236931640/"
+      "url": "https://variety.com/2026/music/news/jay-z-to-perform-2027-super-bowl-halftime-show-1236876986/"
     },
     {
       "cat": "Film/TV",
-      "title": "India’s Oscar Entry ‘Gondhal’ Unveils Global Trailer (EXCLUSIVE)",
-      "when": "26 Oct",
+      "title": "Searchlight Pictures Marketing EVP Michelle Hooper Exits Studio",
+      "when": "27 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/india-oscar-entry-gondhal-global-trailer-1236931634/"
+      "url": "https://variety.com/2026/film/news/searchlight-pictures-marketing-evp-michelle-hooper-exits-1236931776/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Call of Duty’ Movie Will Be About the ‘Cost of War and Having to Be a Warrior,’ Says Director: ‘These Are Not Comic Books or Cartoon Characters’",
-      "when": "26 Oct",
+      "title": "Hubert de la Bouillerie, Editor on ‘Woodstock,’ ‘Witches of Eastwick,’ Dies at 75",
+      "when": "27 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/call-of-duty-movie-rejects-comic-book-films-superheroes-1236931483/"
+      "url": "https://variety.com/2026/film/obituaries-people-news/hubert-de-la-bouillerie-dead-witches-eastwick-1236931650/"
     },
     {
       "cat": "Film/TV",
-      "title": "Pasifika Entertainment Advancement Komiti Announces 2026 Writers Fellowship Class",
-      "when": "26 Oct",
+      "title": "Netflix Hires Steve Wilson to Lead Podcast Content Acquisition",
+      "when": "27 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/peak-2026-writers-fellowship-class-1236931560/"
+      "url": "https://variety.com/2026/film/news/netflix-hires-steve-wilson-podcast-content-acquisition-1236931678/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     },
