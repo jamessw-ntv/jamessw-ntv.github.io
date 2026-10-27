@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-27",
-    "fetched": "2026-10-27T01:56:46+00:00",
+    "fetched": "2026-10-27T07:36:24+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 13
+      "temp": 12,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 7
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 35
+        "rain": 59
       },
       {
         "day": "Wed",
@@ -29,7 +29,7 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 67
+        "rain": 69
       },
       {
         "day": "Thu",
@@ -37,7 +37,7 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 59
+        "rain": 56
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 113851.0,
-        "pct": 0.43
+        "price": 113507.0,
+        "pct": -0.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3302.4,
-        "pct": 0.33
+        "price": 3286.63,
+        "pct": -0.22
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Jay-Z to Perform at Apple Music 2027 Super Bowl Halftime Show",
+      "title": "Netflix Docuseries ‘The One About Matthew Perry’ Is a Tragic, Mournful Portrait of Addiction: TV Review",
       "when": "27 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/jay-z-to-perform-2027-super-bowl-halftime-show-1236876986/"
+      "url": "https://variety.com/2026/tv/reviews/the-one-about-matthew-perry-review-netflix-1236931448/"
     },
     {
       "cat": "Film/TV",
-      "title": "Searchlight Pictures Marketing EVP Michelle Hooper Exits Studio",
+      "title": "Donnie Iris, Pittsburgh’s Favorite Rocker, Who Scored Hits With the Jaggerz and as a Solo Artist, Dies at 83",
       "when": "27 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/searchlight-pictures-marketing-evp-michelle-hooper-exits-1236931776/"
+      "url": "https://variety.com/2026/music/obituaries-people-news/donnie-iris-dead-pittsburgh-rocker-jaggerz-rapper-ah-leah-1236931843/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hubert de la Bouillerie, Editor on ‘Woodstock,’ ‘Witches of Eastwick,’ Dies at 75",
+      "title": "‘Mirzapur’ Tops a Decade of Indian Streaming as New Commissions Fall, IMDb Report Finds (EXCLUSIVE)",
       "when": "27 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/obituaries-people-news/hubert-de-la-bouillerie-dead-witches-eastwick-1236931650/"
+      "url": "https://variety.com/2026/tv/news/mirzapur-indian-streaming-commissions-fall-imdb-report-1236931765/"
     },
     {
       "cat": "Film/TV",
-      "title": "Netflix Hires Steve Wilson to Lead Podcast Content Acquisition",
+      "title": "Tokyo Jury President Rolf de Heer on FIAPF’s New A-List: ‘It Matters a Great Deal to Some People, and Not at All to Others’",
       "when": "27 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/netflix-hires-steve-wilson-podcast-content-acquisition-1236931678/"
+      "url": "https://variety.com/2026/film/festivals/tokyo-jury-chief-rolf-de-heer-fiapf-new-a-list-1236931842/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "1d ago",
+      "pushed": "2d ago",
       "lang": "HTML",
       "commit": ""
     }
