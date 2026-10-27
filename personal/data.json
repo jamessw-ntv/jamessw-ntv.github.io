@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-27",
-    "fetched": "2026-10-27T14:17:10+00:00",
+    "fetched": "2026-10-27T19:58:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 8
+      "temp": 6,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 7
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 56
+        "rain": 78
       },
       {
         "day": "Thu",
@@ -29,7 +29,7 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 73
+        "rain": 64
       },
       {
         "day": "Fri",
@@ -37,7 +37,7 @@
         "max": 24,
         "icon": "🌫️",
         "desc": "Fog",
-        "rain": 2
+        "rain": 6
       }
     ]
   },
@@ -72,24 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 113867.0,
-        "pct": 0.04
+        "price": 114752.0,
+        "pct": 0.82
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3303.37,
-        "pct": 0.23
+        "price": 3336.16,
+        "pct": 1.19
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Every Contact Leaves a Trace’ Director on Why She Hired a Detective: ‘I’m Trying to Reconstruct a Life Story’",
+      "title": "Television Academy Foundation Pacts With Best Buy to Launch Production Assistant Training Program for Los Angeles Area High School Students",
       "when": "27 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/every-contact-leaves-a-trace-lynne-sachs-1236931916/"
+      "url": "https://variety.com/2026/tv/news/television-academy-foundation-production-best-buy-training-1236932299/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Danny Masterson Loses Appeal of Rape Conviction",
+      "when": "27 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/danny-masterson-loses-appeal-rape-conviction-1236932259/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "As NFL Expands Globally, Marriott Bonvoy Taps Cooper Kupp, Jerry Rice and More for City Travel Guides",
+      "when": "27 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/marriott-bonvoy-nfl-city-guides-book-online-1236919138/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Nobody Wants This’ Season 3 Opens With 6.2 Million Views in Four Days",
+      "when": "27 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/nobody-wants-this-season-3-ratings-netflix-views-1236932276/"
     },
     {
       "cat": "Trek/Wars",
@@ -99,32 +120,11 @@
       "url": "https://www.starwarsnewsnet.com/2026/10/prolific-voice-actor-eric-bauza-passes-away-at-46-portrayed-eb-3-on-young-jedi-adventures.html"
     },
     {
-      "cat": "Film/TV",
-      "title": "Errol Morris Is Sitting on a Secret Elizabeth Holmes Interview (EXCLUSIVE)",
-      "when": "27 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/features/errol-morris-secret-elizabeth-holmes-interview-1236931901/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "The DS9 Crew Run Out Of Time To Solve A Terrifying Mystery In ‘Star Trek: Holo-Ween II’ Finale Preview",
       "when": "27 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/27/the-ds9-crew-run-out-of-time-to-solve-a-terrifying-mystery-in-star-trek-holo-ween-ii-finale-preview/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Miraculous: Tales of Ladybug & Cat Noir’ Sets Global Season 7 Rollout on Disney, TF1 and Globo",
-      "when": "27 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/miraculous-tales-of-ladybug-cat-noir-season-7-rollout-1236931475/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Susan Saint James, Emmy-Winning Star of ‘Kate & Allie’ and ‘McMillan & Wife,’ Dies at 80",
-      "when": "27 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/susan-saint-james-dead-kate-and-allie-mcmillan-and-wife-1236932008/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     },
