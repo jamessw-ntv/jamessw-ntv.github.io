@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-28",
-    "fetched": "2026-10-28T05:06:55+00:00",
+    "fetched": "2026-10-28T11:15:39+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
+      "temp": 12,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 17
+      "wind": 14
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 59
+        "rain": 78
       },
       {
         "day": "Thu",
@@ -29,7 +29,7 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 63
+        "rain": 71
       },
       {
         "day": "Fri",
@@ -37,7 +37,7 @@
         "max": 24,
         "icon": "🌫️",
         "desc": "Fog",
-        "rain": 2
+        "rain": 0
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114939.0,
-        "pct": 1.19
+        "price": 115607.0,
+        "pct": 1.81
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3342.21,
-        "pct": 1.38
+        "price": 3356.41,
+        "pct": 2.04
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Val Chmerkovskiy Says He Wants ‘Nothing But Love’ for Carrie Ann Inaba Following ‘DWTS’ Suspension, Apologizes to Jenna Dewan: ‘I Am So Sorry for All the Chaos’",
+      "title": "Russell Brand Takes the Stand in Rape Trial and Reveals No One Agreed to Testify on His Behalf: ‘My Entire Life Has Been Consumed by These Allegations’",
       "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/val-chmerkovskiy-carrie-ann-inaba-dwts-suspension-1236932655/"
+      "url": "https://variety.com/2026/tv/global/russell-brand-takes-stand-rape-trial-no-one-else-testifying-1236933186/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kore-eda Hirokazu Hails Japanese Cinema’s Global Moment as Ninomiya Kazunari, Academy’s Amy Homma and ‘Kokuho’ Producer Murata Chieko Take Stage at Kering Women in Motion Tokyo Event",
+      "title": "‘One Cut of the Dead’ Director Ueda Shinichiro on Turning a Microdrama Into Tokyo Feature ‘Earthlings in Love’",
       "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/kore-eda-japanese-cinema-global-moment-women-in-motion-1236932656/"
+      "url": "https://variety.com/2026/film/festivals/one-cut-of-the-dead-director-microdrama-feature-earthlings-in-love-1236933285/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jessica Biel Says She Won’t Hand Her Son Acting Roles Just ‘Because You’re Part of This Family’: ‘We’re Not Doing That’",
+      "title": "Amazon MGM Studios Japan ‘Doubling’ Investment to Meet Global Standards, Local Chief Buddy Marini Reveals at Tokyo Market",
       "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/jessica-biel-matchbox-nepo-baby-1236932645/"
+      "url": "https://variety.com/2026/film/markets-festivals/amazon-mgm-studios-japan-doubling-investment-global-standards-1236933235/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscars Will ‘Always’ Reward Human Excellence in AI Era, Academy Chiefs Say as They Leave Door Open to International Feature Rule Tweaks (EXCLUSIVE)",
+      "title": "Camila Mendes, Leslie Bibb Shooting ‘Upgraded 2’ in Venice, Where Biennale Art Show Is Part of Rom-Com’s Storyline",
       "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/oscars-always-reward-human-excellence-ai-era-academy-1236932637/"
+      "url": "https://variety.com/2026/film/global/camila-mendes-leslie-bibb-upgraded-2-venice-1236931945/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "2d ago",
+      "pushed": "3d ago",
       "lang": "HTML",
       "commit": ""
     }
