@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-28",
-    "fetched": "2026-10-28T11:15:39+00:00",
+    "fetched": "2026-10-28T18:13:32+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 11,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 14
+      "wind": 7
     },
     "days": [
       {
         "day": "Today",
-        "min": 6,
-        "max": 16,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 78
-      },
-      {
-        "day": "Thu",
         "min": 10,
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 71
+        "rain": 92
       },
       {
         "day": "Fri",
@@ -38,6 +30,14 @@
         "icon": "🌫️",
         "desc": "Fog",
         "rain": 0
+      },
+      {
+        "day": "Sat",
+        "min": 12,
+        "max": 22,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 94
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 115607.0,
-        "pct": 1.81
+        "price": 114694.0,
+        "pct": 0.16
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3356.41,
-        "pct": 2.04
+        "price": 3326.15,
+        "pct": -0.22
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Russell Brand Takes the Stand in Rape Trial and Reveals No One Agreed to Testify on His Behalf: ‘My Entire Life Has Been Consumed by These Allegations’",
+      "title": "‘Difficult People’ Creator Julie Klausner on Reuniting Billy Eichner and the Gang for a Live-Read of the Movie Script That Never Got Made",
       "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/russell-brand-takes-stand-rape-trial-no-one-else-testifying-1236933186/"
+      "url": "https://variety.com/2026/tv/features/julie-klausner-difficult-people-billy-eichner-cast-town-hall-event-1236929950/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Watch Replay: October TrekMovie/SyFy Sistas Live Star Trek News Show",
+      "when": "28 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/28/watch-replay-october-trekmovie-syfy-sistas-live-star-trek-news-show/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘One Cut of the Dead’ Director Ueda Shinichiro on Turning a Microdrama Into Tokyo Feature ‘Earthlings in Love’",
+      "title": "Video-Game Rating Group ESRB Names Netflix and MPA Alum Orit Michiel President",
       "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/one-cut-of-the-dead-director-microdrama-feature-earthlings-in-love-1236933285/"
+      "url": "https://variety.com/2026/gaming/news/esrb-orit-michiel-president-netflix-mpa-1236933508/"
     },
     {
       "cat": "Film/TV",
-      "title": "Amazon MGM Studios Japan ‘Doubling’ Investment to Meet Global Standards, Local Chief Buddy Marini Reveals at Tokyo Market",
+      "title": "A+E Global Media’s Dan Silberman Joins AI Company Sol as Its New Head of Marketing and Communications",
       "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/amazon-mgm-studios-japan-doubling-investment-global-standards-1236933235/"
+      "url": "https://variety.com/2026/tv/news/ae-dan-silberman-sol-head-marketing-communications-1236933415/"
     },
     {
       "cat": "Film/TV",
-      "title": "Camila Mendes, Leslie Bibb Shooting ‘Upgraded 2’ in Venice, Where Biennale Art Show Is Part of Rom-Com’s Storyline",
+      "title": "Variety’s 10 Actors to Watch Detail Tapping Into Dark Characters and Gaining Confidence at Newport Beach Film Festival",
       "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/camila-mendes-leslie-bibb-upgraded-2-venice-1236931945/"
+      "url": "https://variety.com/2026/awards/fashion/10-actors-to-watch-panel-newport-beach-film-festival-video-1236932443/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘Rogue One: Darth Vader’ Is a Great Vader Story That Ends Far Too Soon",
+      "when": "28 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/review-rogue-one-darth-vader-is-a-great-vader-story-that-ends-far-too-soon.html"
     },
     {
       "cat": "Trek/Wars",
@@ -135,24 +149,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "The DS9 Crew Run Out Of Time To Solve A Terrifying Mystery In ‘Star Trek: Holo-Ween II’ Finale Preview",
+      "title": "The DS9 Crew Runs Out Of Time To Solve A Terrifying Mystery In ‘Star Trek: Holo-Ween II’ Finale Preview",
       "when": "27 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/27/the-ds9-crew-run-out-of-time-to-solve-a-terrifying-mystery-in-star-trek-holo-ween-ii-finale-preview/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – Timothy Zahn’s ‘Thrawn’ Deluxe Edition Is a Collector’s Piece the Grand Admiral Would Be Proud Of",
-      "when": "27 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/review-timothy-zahns-thrawn-deluxe-edition-is-a-collectors-piece-the-grand-admiral-would-be-proud-of.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Walter Koenig, Star Trek’s Beloved Chekov, Dies at 90",
-      "when": "26 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/26/walter-koenig-star-treks-beloved-chekov-dies-at-90/"
     },
     {
       "cat": "Games",
