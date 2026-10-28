@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-28",
-    "fetched": "2026-10-28T18:13:32+00:00",
+    "fetched": "2026-10-28T23:03:42+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 7
+      "temp": 13,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 11
     },
     "days": [
       {
@@ -72,24 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114694.0,
-        "pct": 0.16
+        "price": 115096.0,
+        "pct": 0.1
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3326.15,
-        "pct": -0.22
+        "price": 3340.23,
+        "pct": -0.01
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Difficult People’ Creator Julie Klausner on Reuniting Billy Eichner and the Gang for a Live-Read of the Movie Script That Never Got Made",
+      "title": "‘Pixels and Pencils’ Panelists Talk the Dangers of AI, Demanding Animation Processes and the Importance of Human Creativity",
       "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/features/julie-klausner-difficult-people-billy-eichner-cast-town-hall-event-1236929950/"
+      "url": "https://variety.com/2026/film/news/pixels-and-pencils-panelists-2026-1236933652/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Emmy Award-Winning Actor, Comedian, Producer and Writer JB Smoove to Keynote at Variety’s Business Managers Breakfast",
+      "when": "28 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/biz/news/jb-smoove-to-keynote-varietys-business-managers-breakfast-1236933656/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Bangladesh Soccer League, Indonesian Film Venture Drive U.K. Firm Goldfinch’s Asia Push (EXCLUSIVE)",
+      "when": "28 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/bangladesh-soccer-league-indonesian-film-venture-goldfinchs-asia-push-1236933685/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Barbara Barrie, Oscar-Nominated Star of ‘Barney Miller’ and ‘Breaking Away,’ Dies at 95",
+      "when": "28 Oct",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/barbara-barrie-dead-company-breaking-away-1236933678/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Kathleen Kenendy Leading Los Angeles Olympic Opening and Closing Ceremonies",
+      "when": "28 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/kathleen-kenendy-leading-los-angeles-olympic-opening-and-closing-ceremonies.html"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +125,6 @@
       "when": "28 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/28/watch-replay-october-trekmovie-syfy-sistas-live-star-trek-news-show/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Video-Game Rating Group ESRB Names Netflix and MPA Alum Orit Michiel President",
-      "when": "28 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/esrb-orit-michiel-president-netflix-mpa-1236933508/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "A+E Global Media’s Dan Silberman Joins AI Company Sol as Its New Head of Marketing and Communications",
-      "when": "28 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/ae-dan-silberman-sol-head-marketing-communications-1236933415/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Variety’s 10 Actors to Watch Detail Tapping Into Dark Characters and Gaining Confidence at Newport Beach Film Festival",
-      "when": "28 Oct",
-      "source": "Variety",
-      "url": "https://variety.com/2026/awards/fashion/10-actors-to-watch-panel-newport-beach-film-festival-video-1236932443/"
     },
     {
       "cat": "Trek/Wars",
@@ -139,13 +146,6 @@
       "when": "27 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/a-deep-dive-into-knights-of-the-old-republic-part-3.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Prolific Voice Actor Eric Bauza Passes Away at 46; Portrayed EB-3 on ‘Young Jedi Adventures’",
-      "when": "27 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/prolific-voice-actor-eric-bauza-passes-away-at-46-portrayed-eb-3-on-young-jedi-adventures.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     },
