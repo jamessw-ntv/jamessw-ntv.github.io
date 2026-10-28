@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-27",
-    "fetched": "2026-10-27T23:39:38+00:00",
+    "updated": "2026-10-28",
+    "fetched": "2026-10-28T05:06:55+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 16,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 8
+      "wind": 17
     },
     "days": [
       {
@@ -21,7 +21,7 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 78
+        "rain": 59
       },
       {
         "day": "Thu",
@@ -29,7 +29,7 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 64
+        "rain": 63
       },
       {
         "day": "Fri",
@@ -37,7 +37,7 @@
         "max": 24,
         "icon": "🌫️",
         "desc": "Fog",
-        "rain": 6
+        "rain": 2
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114863.0,
-        "pct": 0.68
+        "price": 114939.0,
+        "pct": 1.19
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3337.39,
-        "pct": 0.93
+        "price": 3342.21,
+        "pct": 1.38
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Ancestral Memory Meets AI in Himalayan Drama ‘Shirjara: Song of Grandmother’ at Tokyo Gap-Financing Market",
-      "when": "27 Oct",
+      "title": "Val Chmerkovskiy Says He Wants ‘Nothing But Love’ for Carrie Ann Inaba Following ‘DWTS’ Suspension, Apologizes to Jenna Dewan: ‘I Am So Sorry for All the Chaos’",
+      "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/ancestral-memory-ai-nepali-drama-shirjara-tokyo-market-1236932531/"
+      "url": "https://variety.com/2026/tv/news/val-chmerkovskiy-carrie-ann-inaba-dwts-suspension-1236932655/"
     },
     {
       "cat": "Film/TV",
-      "title": "Punk Band Guitar Wolf Rocks Back Into Takeuchi Tetsuro’s ‘Wild Zero Overdrive’ at Tokyo Gap-Financing Market",
-      "when": "27 Oct",
+      "title": "Kore-eda Hirokazu Hails Japanese Cinema’s Global Moment as Ninomiya Kazunari, Academy’s Amy Homma and ‘Kokuho’ Producer Murata Chieko Take Stage at Kering Women in Motion Tokyo Event",
+      "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/guitar-wolf-rocks-back-wild-zero-overdrive-tokyo-market-1236932518/"
+      "url": "https://variety.com/2026/film/festivals/kore-eda-japanese-cinema-global-moment-women-in-motion-1236932656/"
     },
     {
       "cat": "Film/TV",
-      "title": "Acrobatic Pastor’s Secret Obsession Drives Boo Junfeng’s ‘Trinity’ at Tokyo Gap-Financing Market",
-      "when": "27 Oct",
+      "title": "Jessica Biel Says She Won’t Hand Her Son Acting Roles Just ‘Because You’re Part of This Family’: ‘We’re Not Doing That’",
+      "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/acrobatic-pastor-drama-trinity-tokyo-gap-financing-market-1236932480/"
+      "url": "https://variety.com/2026/film/news/jessica-biel-matchbox-nepo-baby-1236932645/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The One About Matthew Perry’ Director on Gaining His Sister’s Trust, Explaining How He Died and More",
-      "when": "27 Oct",
+      "title": "Oscars Will ‘Always’ Reward Human Excellence in AI Era, Academy Chiefs Say as They Leave Door Open to International Feature Rule Tweaks (EXCLUSIVE)",
+      "when": "28 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/matthew-perry-documentary-director-sister-mia-explaining-his-death-1236931602/"
+      "url": "https://variety.com/2026/film/festivals/oscars-always-reward-human-excellence-ai-era-academy-1236932637/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     },
