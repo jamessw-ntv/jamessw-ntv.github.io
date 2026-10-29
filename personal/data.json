@@ -2,26 +2,26 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-28",
-    "fetched": "2026-10-28T23:03:42+00:00",
+    "updated": "2026-10-29",
+    "fetched": "2026-10-29T02:17:34+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 11
+      "temp": 16,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
         "min": 10,
-        "max": 17,
+        "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 92
+        "rain": 94
       },
       {
         "day": "Fri",
@@ -34,10 +34,10 @@
       {
         "day": "Sat",
         "min": 12,
-        "max": 22,
+        "max": 21,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 94
+        "rain": 99
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 115096.0,
-        "pct": 0.1
+        "price": 113173.0,
+        "pct": -1.74
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3340.23,
-        "pct": -0.01
+        "price": 3263.2,
+        "pct": -2.72
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Pixels and Pencils’ Panelists Talk the Dangers of AI, Demanding Animation Processes and the Importance of Human Creativity",
-      "when": "28 Oct",
+      "title": "‘The Mosquito Bowl’ Review: Football Heroes Take to the Battlefield in Peter Berg’s Emptily Macho WWII Epic",
+      "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/pixels-and-pencils-panelists-2026-1236933652/"
+      "url": "https://variety.com/2026/film/reviews/the-mosquito-bowl-review-1236932067/"
     },
     {
       "cat": "Film/TV",
-      "title": "Emmy Award-Winning Actor, Comedian, Producer and Writer JB Smoove to Keynote at Variety’s Business Managers Breakfast",
-      "when": "28 Oct",
+      "title": "From Carlos Reygadas to Hamaguchi’s Cinematographer, Tokyo’s Nippon Cinema Now Directors on Unexpected Connections",
+      "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/jb-smoove-to-keynote-varietys-business-managers-breakfast-1236933656/"
+      "url": "https://variety.com/2026/film/festivals/carlos-reygadas-hamaguchi-cinematographer-nippon-cinema-now-1236933790/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bangladesh Soccer League, Indonesian Film Venture Drive U.K. Firm Goldfinch’s Asia Push (EXCLUSIVE)",
-      "when": "28 Oct",
+      "title": "‘The Hunger Games: Sunrise on the Reaping’ First Reactions Call Prequel the ‘Rogue One’ of the Franchise and Praise Joseph Zada as Haymitch",
+      "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/bangladesh-soccer-league-indonesian-film-venture-goldfinchs-asia-push-1236933685/"
+      "url": "https://variety.com/2026/film/news/hunger-games-sunrise-on-the-reaping-first-reactions-1236933573/"
     },
     {
       "cat": "Film/TV",
-      "title": "Barbara Barrie, Oscar-Nominated Star of ‘Barney Miller’ and ‘Breaking Away,’ Dies at 95",
-      "when": "28 Oct",
+      "title": "‘Smile 3’ Sets David Bruckner to Direct While Franchise Creator Parker Finn Helms ‘Possession’ Remake (EXCLUSIVE)",
+      "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/barbara-barrie-dead-company-breaking-away-1236933678/"
+      "url": "https://variety.com/2026/film/news/smile-3-director-writer-1236838500/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     },
