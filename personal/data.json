@@ -3,21 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-29",
-    "fetched": "2026-10-29T16:48:24+00:00",
+    "fetched": "2026-10-29T21:42:19+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 11,
       "icon": "🌫️",
       "desc": "Fog",
-      "wind": 6
+      "wind": 2
     },
     "days": [
       {
         "day": "Today",
-        "min": 7,
+        "min": 8,
         "max": 25,
         "icon": "🌫️",
         "desc": "Fog",
@@ -26,14 +26,14 @@
       {
         "day": "Sat",
         "min": 12,
-        "max": 21,
+        "max": 20,
         "icon": "⛈️",
         "desc": "Thunderstorm",
         "rain": 99
       },
       {
         "day": "Sun",
-        "min": 11,
+        "min": 10,
         "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 115551.0,
-        "pct": 1.2
+        "price": 112965.0,
+        "pct": -1.77
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3347.53,
-        "pct": 1.26
+        "price": 3250.36,
+        "pct": -2.75
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Hollywood Marketing Leaders Gather for a Candid Conversation About the Future of Entertainment",
+      "title": "Byron Allen Earns Profit After Selling All the Starz Stock He Bought From Steven Mnuchin",
       "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/lists/future-entertainment-marketing-dinner-amazon-ads/"
+      "url": "https://variety.com/2026/tv/news/byron-allen-sells-starz-stock-steven-mnuchin-1236934569/"
     },
     {
       "cat": "Film/TV",
-      "title": "BAFTA Trustees Accused of Potentially Violating Charity Law Over Free Ceremony Tickets",
+      "title": "Patrick Stewart’s Career in Photos: ‘Star Trek,’ ‘X-Men,’ ‘Avengers: Doomsday’ and More",
       "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/bafta-accused-violating-charity-law-free-ceremony-tickets-1236934263/"
+      "url": "https://variety.com/lists/patrick-stewart-career-photos-star-trek-x-men-avengers-doomsday/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Shaun the Sheep: The Beast of Mossy Bottom’ Director on Why AI Is Not a Threat: ‘There’s a Desire to See the Craft Behind the Finished Product’",
+      "title": "Hugh Jackman Mourns ‘X-Men’ Co-Star Patrick Stewart: ‘A Tremendous Friend and Man. I Learned So Much From Him’",
       "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/shaun-the-sheep-mossy-bottom-director-ai-animation-1236933410/"
+      "url": "https://variety.com/2026/film/news/patrick-stewart-dies-hugh-jackman-mourns-x-men-actor-1236934490/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Queen Sugar’ Author to Develop Novel ‘Friends and Family’ Into Series With UTV, Mary J. Blige, Gina Prince-Bythewood",
+      "title": "William Shatner and ‘Star Trek’ Family Mourn Patrick Stewart With Picard Tributes: ‘Godspeed, Captain’",
       "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/queen-sugar-friends-and-family-tv-series-mary-j-blige-1236934220/"
+      "url": "https://variety.com/2026/tv/news/william-shatner-star-trek-patrick-stewart-picard-tributes-1236934479/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Patrick Stewart Dies at 86",
+      "when": "29 Oct",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/10/29/patrick-stewart-dies-at-86/"
     },
     {
       "cat": "Trek/Wars",
@@ -122,9 +129,16 @@
     {
       "cat": "Trek/Wars",
       "title": "Kathleen Kenendy Leading Los Angeles Olympic Opening and Closing Ceremonies",
-      "when": "28 Oct",
+      "when": "29 Oct",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/10/kathleen-kenendy-leading-los-angeles-olympic-opening-and-closing-ceremonies.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘Rogue One: Darth Vader’ Is a Great Vader Story That Ends Far Too Soon",
+      "when": "29 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/review-rogue-one-darth-vader-is-a-great-vader-story-that-ends-far-too-soon.html"
     },
     {
       "cat": "Trek/Wars",
@@ -135,24 +149,10 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "Review – ‘Rogue One: Darth Vader’ Is a Great Vader Story That Ends Far Too Soon",
-      "when": "28 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/review-rogue-one-darth-vader-is-a-great-vader-story-that-ends-far-too-soon.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Heartfelt Tributes To Walter Koenig Coming In From Across Star Trek And Beyond",
       "when": "27 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/27/heartfelt-tributes-to-walter-koenig-coming-in-from-across-star-trek-and-beyond/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "The DS9 Crew Runs Out Of Time To Solve A Terrifying Mystery In ‘Star Trek: Holo-Ween II’ Finale Preview",
-      "when": "27 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/27/the-ds9-crew-run-out-of-time-to-solve-a-terrifying-mystery-in-star-trek-holo-ween-ii-finale-preview/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     },
