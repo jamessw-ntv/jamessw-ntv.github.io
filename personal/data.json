@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-29",
-    "fetched": "2026-10-29T09:43:07+00:00",
+    "fetched": "2026-10-29T16:48:24+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "☀️",
-      "desc": "Clear",
+      "temp": 8,
+      "icon": "🌫️",
+      "desc": "Fog",
       "wind": 6
     },
     "days": [
       {
         "day": "Today",
-        "min": 10,
-        "max": 17,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 100
-      },
-      {
-        "day": "Fri",
-        "min": 8,
-        "max": 24,
+        "min": 7,
+        "max": 25,
         "icon": "🌫️",
         "desc": "Fog",
         "rain": 0
       },
       {
         "day": "Sat",
-        "min": 13,
-        "max": 22,
+        "min": 12,
+        "max": 21,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 99
+      },
+      {
+        "day": "Sun",
+        "min": 11,
+        "max": 18,
         "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 100
+        "desc": "Drizzle",
+        "rain": 51
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 113843.0,
-        "pct": -1.63
+        "price": 115551.0,
+        "pct": 1.2
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3294.38,
-        "pct": -2.18
+        "price": 3347.53,
+        "pct": 1.26
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Godzilla Minus One’ U.S. Success ‘Wasn’t a Strategy; We Just Tried,’ Says Toho CEO at Tokyo Festival",
+      "title": "Hollywood Marketing Leaders Gather for a Candid Conversation About the Future of Entertainment",
       "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/godzilla-minus-one-us-success-wasnt-strategy-toho-chief-1236933968/"
+      "url": "https://variety.com/lists/future-entertainment-marketing-dinner-amazon-ads/"
     },
     {
       "cat": "Film/TV",
-      "title": "AI Can Critique Shakespeare but Can’t Write It, Russo Brothers’ AGBO Execs Tell Tokyo Market",
+      "title": "BAFTA Trustees Accused of Potentially Violating Charity Law Over Free Ceremony Tickets",
       "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/ai-critique-shakespeare-cant-write-russo-brothers-agbo-tokyo-1236933960/"
+      "url": "https://variety.com/2026/film/news/bafta-accused-violating-charity-law-free-ceremony-tickets-1236934263/"
     },
     {
       "cat": "Film/TV",
-      "title": "Japan IP Market to Return to Cannes in 2027 as Tokyo Partnership Continues",
+      "title": "‘Shaun the Sheep: The Beast of Mossy Bottom’ Director on Why AI Is Not a Threat: ‘There’s a Desire to See the Craft Behind the Finished Product’",
       "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/japan-ip-market-returns-cannes-2027-1236933952/"
+      "url": "https://variety.com/2026/film/global/shaun-the-sheep-mossy-bottom-director-ai-animation-1236933410/"
     },
     {
       "cat": "Film/TV",
-      "title": "Busan Winner ‘Birds in the Dark’ to Close Dharamshala International Film Festival, Varun Grover’s ‘Damned’ Among New Titles",
+      "title": "‘Queen Sugar’ Author to Develop Novel ‘Friends and Family’ Into Series With UTV, Mary J. Blige, Gina Prince-Bythewood",
       "when": "29 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/busan-winner-birds-in-the-dark-dharamshala-film-festival-1236933942/"
+      "url": "https://variety.com/2026/tv/news/queen-sugar-friends-and-family-tv-series-mary-j-blige-1236934220/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘The High Republic Adventures: Pathfinders’ #6 Neatly Wraps Up the Series in Style",
+      "when": "29 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/review-the-high-republic-adventures-pathfinders-6-neatly-wraps-up-the-series-in-style.html"
     },
     {
       "cat": "Trek/Wars",
@@ -139,13 +146,6 @@
       "when": "27 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/27/heartfelt-tributes-to-walter-koenig-coming-in-from-across-star-trek-and-beyond/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "A Deep Dive Into ‘Knights of the Old Republic’ – Part 3",
-      "when": "27 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/a-deep-dive-into-knights-of-the-old-republic-part-3.html"
     },
     {
       "cat": "Trek/Wars",
