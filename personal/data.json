@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-30",
-    "fetched": "2026-10-30T01:46:37+00:00",
+    "fetched": "2026-10-30T08:24:47+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 23,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 9
+      "temp": 21,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
         "min": 8,
-        "max": 25,
+        "max": 26,
         "icon": "🌫️",
         "desc": "Fog",
         "rain": 0
@@ -29,15 +29,15 @@
         "max": 20,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 98
+        "rain": 100
       },
       {
         "day": "Sun",
-        "min": 11,
+        "min": 10,
         "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 56
+        "rain": 37
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109428.0,
-        "pct": -4.02
+        "price": 111096.0,
+        "pct": -2.26
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3131.81,
-        "pct": -5.09
+        "price": 3176.31,
+        "pct": -3.39
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Beef’ Actor Justin H. Min’s ‘Journey There,’ Hong Sangsoo’s Locarno Winner ‘Nowhere to Lay My Eyes’ Rack Up International Sales for Finecut",
+      "title": "Annecy Winner ‘The Violinist’ Found Its Italian Co-Producers at Tokyo Market, Director Ervin Han Tells Anime Co-Production Panel",
       "when": "30 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/beef-actor-justin-h-min-journey-there-hong-sangsoo-film-sales-1236934722/"
+      "url": "https://variety.com/2026/film/markets-festivals/annecy-winner-violinist-found-italian-partners-tiffcom-1236934868/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ian McKellen Pays Tribute to Close Friend Patrick Stewart: ‘He Wore His Heart on His Sleeve’",
+      "title": "Taiwanese Feature ‘Uncle’ Wins Top Prize at Tokyo Gap-Financing Market Awards",
       "when": "30 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ian-mckellen-patrick-stewart-tribute-1236934477/"
+      "url": "https://variety.com/2026/film/markets-festivals/taiwanese-feature-uncle-top-prize-tokyo-gap-financing-market-1236934855/"
     },
     {
       "cat": "Film/TV",
-      "title": "California Begins Discussion on Unlimited Film Incentives: ‘That Is a Heavy Lift’",
+      "title": "Gay Filipino Couple’s Homecoming Documentary ‘We Had a Plan’ Boarded by Cat&Docs Ahead of IDFA Premiere, Trailer Unveiled (EXCLUSIVE)",
       "when": "30 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/california-film-incentives-unlimited-1236934661/"
+      "url": "https://variety.com/2026/film/news/gay-filipino-couple-documentary-catdocs-idfa-1236934716/"
     },
     {
       "cat": "Film/TV",
-      "title": "Matthew Weiner Exits Peacock, 101 Studios Series ‘The Chairman’ Starring Eddie Murphy (EXCLUSIVE)",
+      "title": "Japan’s Anime Market Hits Record $28.2 Billion as Local Sales Surge",
       "when": "30 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/matthew-weiner-peacock-101-studios-chairman-eddie-murphy-1236934392/"
+      "url": "https://variety.com/2026/film/markets-festivals/japan-anime-market-record-28-billion-local-sales-surge-1236934838/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "4d ago",
+      "pushed": "5d ago",
       "lang": "HTML",
       "commit": ""
     }
