@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-30",
-    "fetched": "2026-10-30T15:45:11+00:00",
+    "fetched": "2026-10-30T20:37:08+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 18,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 17
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 18
     },
     "days": [
       {
         "day": "Today",
         "min": 12,
-        "max": 21,
+        "max": 20,
         "icon": "⛈️",
         "desc": "Thunderstorm",
         "rain": 100
       },
       {
         "day": "Sun",
-        "min": 11,
-        "max": 19,
+        "min": 10,
+        "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 35
+        "rain": 34
       },
       {
         "day": "Mon",
-        "min": 9,
+        "min": 10,
         "max": 19,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 90
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 92
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110085.0,
-        "pct": -5.06
+        "price": 109317.0,
+        "pct": -3.73
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3163.46,
-        "pct": -5.87
+        "price": 3183.52,
+        "pct": -2.39
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Amazon CEO Says Prime Video Is Profitable and Generates ‘Tens of Billions of Dollars’ Annually; Content Spending Grew 7% in Q3 to $5.9 Billion",
+      "title": "Paramount+ Acquires Rights to Moonbug Series From the ‘Blippi’ and ‘CoComelon’ Universes (EXCLUSIVE)",
       "when": "30 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/prime-video-profitable-content-spending-q3-amazon-ceo-1236935186/"
+      "url": "https://variety.com/2026/tv/news/paramount-blippi-cocomelon-moonbug-series-1236935530/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jerry Seinfeld Sets Las Vegas Residency in 2027 (EXCLUSIVE)",
+      "title": "‘A Few Good Men’ Review: Broadway Revival Breathes New Life Into Aaron Sorkin’s Courtroom Classic",
       "when": "30 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jerry-seinfeld-las-vegas-residency-2027-1236931418/"
+      "url": "https://variety.com/2026/legit/reviews/a-few-good-men-review-broadway-revival-aaron-sorkin-bradley-whitford-1236935521/"
     },
     {
       "cat": "Film/TV",
-      "title": "Aerosmith Joined by Dave Grohl and Johnny Depp at Hollywood Bowl for First Show in Three Years, as GNR and Black Crowes Open With Tribute Sets: Concert Review",
+      "title": "‘Criminal Minds: Evolution’ to End With Season 20 at Paramount+",
       "when": "30 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/concert-reviews/aerosmith-hollywood-bowl-dave-grohl-johnny-depp-guns-roses-1236934897/"
+      "url": "https://variety.com/2026/tv/news/criminal-minds-evolution-final-season-20-paramount-1236935501/"
     },
     {
       "cat": "Film/TV",
-      "title": "Noah Wyle Says Eddie Murphy Told Him to ‘F— Off’ When He Was 9 Years Old, So ‘The Pitt’ Star Always Signs Autographs for Kids Now",
+      "title": "‘Iron Man’ Cinematographer Matthew Libatique Says AI ‘Could Replace Marvel’ VFX, but They’ll Never ‘Use AI Actors’",
       "when": "30 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/noah-wyle-eddie-murphy-autograph-1236935184/"
+      "url": "https://variety.com/2026/film/global/iron-man-matthew-libatique-ai-could-replace-marvel-vfx-1236934879/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Maz Kanata – ‘Star Wars’ Character Spotlight",
+      "when": "30 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/maz-kanata-star-wars-character-spotlight.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "EA Chose to Make ‘Star Wars: Battlefront 3’ Over ‘Mass Effect 5’, Deeming It Less Risky",
+      "when": "30 Oct",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/10/ea-chose-to-make-star-wars-battlefront-3-over-mass-effect-5-deeming-it-less-risky.html"
     },
     {
       "cat": "Trek/Wars",
@@ -141,20 +155,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/10/review-the-high-republic-adventures-pathfinders-6-neatly-wraps-up-the-series-in-style.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Kathleen Kenendy Leading Los Angeles Olympic Opening and Closing Ceremonies",
-      "when": "29 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/kathleen-kenendy-leading-los-angeles-olympic-opening-and-closing-ceremonies.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘Rogue One: Darth Vader’ Is a Great Vader Story That Ends Far Too Soon",
-      "when": "29 Oct",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/10/review-rogue-one-darth-vader-is-a-great-vader-story-that-ends-far-too-soon.html"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory: The board game – Campaign live now!",
       "when": "13 Oct",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     },
