@@ -2,8 +2,8 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-10-30",
-    "fetched": "2026-10-30T20:37:08+00:00",
+    "updated": "2026-10-31",
+    "fetched": "2026-10-31T00:35:57+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -25,19 +25,19 @@
       },
       {
         "day": "Sun",
-        "min": 10,
+        "min": 11,
         "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 34
+        "rain": 29
       },
       {
         "day": "Mon",
-        "min": 10,
-        "max": 19,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
-        "rain": 92
+        "min": 9,
+        "max": 20,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 96
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109317.0,
-        "pct": -3.73
+        "price": 109892.0,
+        "pct": 0.26
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3183.52,
-        "pct": -2.39
+        "price": 3191.16,
+        "pct": 1.6
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Paramount+ Acquires Rights to Moonbug Series From the ‘Blippi’ and ‘CoComelon’ Universes (EXCLUSIVE)",
-      "when": "30 Oct",
+      "title": "Martin Scorsese Says His ‘Cleopatra’ Movie With Angelina Jolie Was ‘Ruined’ by Seth Rogen and the Sony Hack: ‘It Was Gonna Be Really Wild’",
+      "when": "31 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/paramount-blippi-cocomelon-moonbug-series-1236935530/"
+      "url": "https://variety.com/2026/film/news/martin-scorsese-cleopatra-angelina-jolie-ruined-sony-hack-1236935596/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘A Few Good Men’ Review: Broadway Revival Breathes New Life Into Aaron Sorkin’s Courtroom Classic",
-      "when": "30 Oct",
+      "title": "Daytime Emmys 2026 Winners List (UPDATED LIVE)",
+      "when": "31 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/legit/reviews/a-few-good-men-review-broadway-revival-aaron-sorkin-bradley-whitford-1236935521/"
+      "url": "https://variety.com/2026/tv/news/daytime-emmys-2026-winners-list-1236935712/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Criminal Minds: Evolution’ to End With Season 20 at Paramount+",
+      "title": "Two Arrested in Murder of ‘SNL’ Writer’s Sister",
       "when": "30 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/criminal-minds-evolution-final-season-20-paramount-1236935501/"
+      "url": "https://variety.com/2026/tv/news/arrests-murder-christina-downer-jimmy-fowlie-1236935631/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Iron Man’ Cinematographer Matthew Libatique Says AI ‘Could Replace Marvel’ VFX, but They’ll Never ‘Use AI Actors’",
+      "title": "Selma Blair Apologizes for Plane Incident: ‘I Am So Sorry’",
       "when": "30 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/iron-man-matthew-libatique-ai-could-replace-marvel-vfx-1236934879/"
+      "url": "https://variety.com/2026/film/news/selma-blair-apologizes-plane-incident-1236935645/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     },
