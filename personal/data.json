@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-10-31",
-    "fetched": "2026-10-31T00:35:57+00:00",
+    "fetched": "2026-10-31T06:50:29+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 18,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 18
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 20
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 29
+        "rain": 20
       },
       {
         "day": "Mon",
@@ -37,7 +37,7 @@
         "max": 20,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 96
+        "rain": 94
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109892.0,
-        "pct": 0.26
+        "price": 109951.0,
+        "pct": -1.39
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3191.16,
-        "pct": 1.6
+        "price": 3194.59,
+        "pct": 0.08
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Martin Scorsese Says His ‘Cleopatra’ Movie With Angelina Jolie Was ‘Ruined’ by Seth Rogen and the Sony Hack: ‘It Was Gonna Be Really Wild’",
+      "title": "Ozu Shapes Mishima Yukiko’s Tokyo Competition Title ‘Two Cigarettes, Three Nights’",
       "when": "31 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/martin-scorsese-cleopatra-angelina-jolie-ruined-sony-hack-1236935596/"
+      "url": "https://variety.com/2026/film/festivals/ozu-mishima-yukiko-two-cigarettes-three-nights-1236935944/"
     },
     {
       "cat": "Film/TV",
-      "title": "Daytime Emmys 2026 Winners List (UPDATED LIVE)",
+      "title": "Sourav Ganguly’s ‘Bigg Boss Bangla’ Among Highlights as Indian Media Giant JioStar Revenues Climb 10%",
       "when": "31 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/daytime-emmys-2026-winners-list-1236935712/"
+      "url": "https://variety.com/2026/tv/news/sourav-ganguly-bigg-boss-highlight-jiostar-revenue-rises-1236935940/"
     },
     {
       "cat": "Film/TV",
-      "title": "Two Arrested in Murder of ‘SNL’ Writer’s Sister",
-      "when": "30 Oct",
+      "title": "How Keanu Reeves Landed in Stop-Motion Samurai Epic ‘Hidari’ – and Why S.S. Rajamouli Wanted to Know How It Was Made",
+      "when": "31 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/arrests-murder-christina-downer-jimmy-fowlie-1236935631/"
+      "url": "https://variety.com/2026/film/festivals/keanu-reeves-hidari-ss-rajamouli-1236935934/"
     },
     {
       "cat": "Film/TV",
-      "title": "Selma Blair Apologizes for Plane Incident: ‘I Am So Sorry’",
-      "when": "30 Oct",
+      "title": "Georgia’s ‘Guria’ Wins Best Film at Asia Pacific Screen Awards as Thailand’s Sompot Chidgasornpongse Takes Director Prize",
+      "when": "31 Oct",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/selma-blair-apologizes-plane-incident-1236935645/"
+      "url": "https://variety.com/2026/film/awards/georgia-guria-best-film-asia-pacific-screen-awards-1236935931/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
