@@ -3,38 +3,38 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-01",
-    "fetched": "2026-11-01T15:55:07+00:00",
+    "fetched": "2026-11-01T20:24:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 11,
+      "temp": 12,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 6
+      "wind": 5
     },
     "days": [
       {
         "day": "Today",
         "min": 10,
-        "max": 21,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "max": 20,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
         "rain": 97
       },
       {
         "day": "Tue",
-        "min": 10,
-        "max": 18,
+        "min": 9,
+        "max": 17,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 60
       },
       {
         "day": "Wed",
         "min": 8,
-        "max": 21,
+        "max": 20,
         "icon": "⛈️",
         "desc": "Thunderstorm",
         "rain": 100
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110961.0,
-        "pct": 0.61
+        "price": 110564.0,
+        "pct": 0.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3224.91,
-        "pct": 0.8
+        "price": 3206.63,
+        "pct": 0.06
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Michael Mann Hospitalized After Accidentally Shooting Himself in the Leg at Los Angeles Gun Range",
+      "title": "’14th’ Director Ava DuVernay on Midterm Elections: ‘Either Way We’re in Trouble’",
       "when": "1 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/michael-mann-shot-himself-gun-range-accident-1236936667/"
+      "url": "https://variety.com/2026/film/columns/14th-director-ava-duvernay-midterm-elections-1236936842/"
     },
     {
       "cat": "Film/TV",
-      "title": "The Best Pop-Culture Advent Calendars for 2026: ‘Bluey,’ ‘The Nightmare Before Christmas,’ Marvel and More",
+      "title": "‘Nobody Wants This’ Star Tovah Feldshuh Says ‘Tensions Are Not Rising’ Amid Disagreement With Adam Brody over Israel-Palestine Conflict",
       "when": "1 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/best-pop-culture-advent-calendars-2026-shop-online-1236912504/"
+      "url": "https://variety.com/2026/tv/news/nobody-wants-this-tensions-adam-brody-israel-palestine-1236936822/"
     },
     {
       "cat": "Film/TV",
-      "title": "Valladolid Festival Prizes: Alain Gomis’ ‘Dao’ Wins Golden Spike, ‘La Gradiva’ Takes Silver",
+      "title": "‘Searching for SmarterChild’ Filmmakers Investigate Why We Insult Chatbots",
       "when": "1 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/valladolid-prizes-dao-la-gradiva-lisandro-alonso-1236936281/"
+      "url": "https://variety.com/2026/film/global/searching-for-smarterchild-chatbots-1236936670/"
     },
     {
       "cat": "Film/TV",
-      "title": "Inde Navarrette Wins Halloween With Penis-Destroying Robot ‘SNL’ Sketch ‘The Inventor’s Wife’",
+      "title": "Martha Stewart Responds to Halloween Costume Backlash: ‘Homelessness’ Is ‘Something That I Care Deeply About’",
       "when": "1 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/inde-navarrette-snl-halloween-the-inventors-wife-penis-robot-1236936629/"
+      "url": "https://variety.com/2026/digital/news/martha-stewart-backlash-halloween-costume-homelessness-1236936874/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     },
