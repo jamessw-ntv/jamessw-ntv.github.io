@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-01",
-    "fetched": "2026-11-01T08:58:53+00:00",
+    "fetched": "2026-11-01T15:55:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
+      "temp": 11,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 4
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
         "min": 10,
-        "max": 18,
+        "max": 21,
         "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 12
-      },
-      {
-        "day": "Mon",
-        "min": 10,
-        "max": 19,
-        "icon": "🌧️",
-        "desc": "Rain",
-        "rain": 99
+        "desc": "Showers",
+        "rain": 97
       },
       {
         "day": "Tue",
@@ -37,7 +29,15 @@
         "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 63
+        "rain": 60
+      },
+      {
+        "day": "Wed",
+        "min": 8,
+        "max": 21,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 100
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 111133.0,
-        "pct": 1.1
+        "price": 110961.0,
+        "pct": 0.61
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3233.97,
-        "pct": 1.51
+        "price": 3224.91,
+        "pct": 0.8
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
+      "title": "Michael Mann Hospitalized After Accidentally Shooting Himself in the Leg at Los Angeles Gun Range",
+      "when": "1 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/michael-mann-shot-himself-gun-range-accident-1236936667/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "The Best Pop-Culture Advent Calendars for 2026: ‘Bluey,’ ‘The Nightmare Before Christmas,’ Marvel and More",
+      "when": "1 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/shopping/news/best-pop-culture-advent-calendars-2026-shop-online-1236912504/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Valladolid Festival Prizes: Alain Gomis’ ‘Dao’ Wins Golden Spike, ‘La Gradiva’ Takes Silver",
+      "when": "1 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/valladolid-prizes-dao-la-gradiva-lisandro-alonso-1236936281/"
+    },
+    {
+      "cat": "Film/TV",
       "title": "Inde Navarrette Wins Halloween With Penis-Destroying Robot ‘SNL’ Sketch ‘The Inventor’s Wife’",
       "when": "1 Nov",
       "source": "Variety",
       "url": "https://variety.com/2026/tv/news/inde-navarrette-snl-halloween-the-inventors-wife-penis-robot-1236936629/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Godzilla Minus Zero’ Stars Relive Hollywood Ovation and Fan Chants for Yamazaki Takashi at Tokyo Festival",
-      "when": "1 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/godzilla-minus-zero-stars-relive-hollywood-ovation-tokyo-festival-1236936612/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘SNL’ Weekend Update Finally Weighs in on Israel",
-      "when": "1 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/snl-weekend-update-israel-stance-michael-che-colin-jost-1236936599/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘SNL’ Celebrates Milwaukee Brewers’ World Series Win With Bobby Moynihan’s Drunk Uncle on Weekend Update",
-      "when": "1 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/drunk-uncle-bobby-moynihan-snl-milwaukee-brewers-world-win-1236936586/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     },
