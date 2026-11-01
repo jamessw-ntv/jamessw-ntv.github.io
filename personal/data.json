@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-01",
-    "fetched": "2026-11-01T02:01:34+00:00",
+    "fetched": "2026-11-01T08:58:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 18,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 10
+      "temp": 16,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 4
     },
     "days": [
       {
@@ -26,10 +26,10 @@
       {
         "day": "Mon",
         "min": 10,
-        "max": 22,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
-        "rain": 93
+        "max": 19,
+        "icon": "🌧️",
+        "desc": "Rain",
+        "rain": 99
       },
       {
         "day": "Tue",
@@ -37,7 +37,7 @@
         "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 62
+        "rain": 63
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110414.0,
-        "pct": 0.38
+        "price": 111133.0,
+        "pct": 1.1
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3226.81,
-        "pct": 1.16
+        "price": 3233.97,
+        "pct": 1.51
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Pandemic-Era Longing to Gather Fed Qiu Jiongjiong’s Tokyo Competition Title ‘Fuxi: Four Tales of Feasting’",
+      "title": "Inde Navarrette Wins Halloween With Penis-Destroying Robot ‘SNL’ Sketch ‘The Inventor’s Wife’",
       "when": "1 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/pandemic-longing-gather-tokyo-competition-title-fuxi-1236936421/"
+      "url": "https://variety.com/2026/tv/news/inde-navarrette-snl-halloween-the-inventors-wife-penis-robot-1236936629/"
     },
     {
       "cat": "Film/TV",
-      "title": "Phoebe Bridgers Makes L.A.’s Intuit Dome Into an Intimate Space Full of Love, Grief, Light Shows, ‘Peter Pan’ Cosplay and a Great Billie Eilish Duet: Concert Review",
+      "title": "‘Godzilla Minus Zero’ Stars Relive Hollywood Ovation and Fan Chants for Yamazaki Takashi at Tokyo Festival",
       "when": "1 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/concert-reviews/phoebe-bridgers-concert-review-billie-eilish-intuit-dome-1236936235/"
+      "url": "https://variety.com/2026/film/festivals/godzilla-minus-zero-stars-relive-hollywood-ovation-tokyo-festival-1236936612/"
     },
     {
       "cat": "Film/TV",
-      "title": "Judge Dismisses Trump’s Wall Street Journal Defamation Lawsuit Over Published Epstein ‘Birthday Book’ for a Second Time",
-      "when": "31 Oct",
+      "title": "‘SNL’ Weekend Update Finally Weighs in on Israel",
+      "when": "1 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/judge-dismisses-trump-wsj-defamation-lawsuit-epstein-1236936423/"
+      "url": "https://variety.com/2026/tv/news/snl-weekend-update-israel-stance-michael-che-colin-jost-1236936599/"
     },
     {
       "cat": "Film/TV",
-      "title": "Tokyo Asian Future Drama ‘Jani Be Good’ Probes Silence and Motherhood in a Chinese-Indonesian Family, Marking Ariani Darmawan’s Return",
-      "when": "31 Oct",
+      "title": "‘SNL’ Celebrates Milwaukee Brewers’ World Series Win With Bobby Moynihan’s Drunk Uncle on Weekend Update",
+      "when": "1 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/tokyo-drama-jani-be-good-silence-motherhood-1236936404/"
+      "url": "https://variety.com/2026/tv/news/drunk-uncle-bobby-moynihan-snl-milwaukee-brewers-world-win-1236936586/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "6d ago",
+      "pushed": "7d ago",
       "lang": "HTML",
       "commit": ""
     }
