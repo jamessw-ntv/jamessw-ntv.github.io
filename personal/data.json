@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-02",
-    "fetched": "2026-11-02T00:28:35+00:00",
+    "fetched": "2026-11-02T07:31:30+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 19,
-      "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 10
+      "temp": 18,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 2
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 70
+        "rain": 60
       },
       {
         "day": "Wed",
@@ -72,38 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110981.0,
-        "pct": 0.64
+        "price": 111114.0,
+        "pct": 0.38
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3230.35,
-        "pct": 0.68
+        "price": 3247.92,
+        "pct": 0.73
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Marty Erlichman, Longtime Manager for Barbra Streisand, Dies at 97",
+      "title": "Haley Stevens’ Unsettling CNN Interview Proves Why She’s Unfit for Public Office",
       "when": "2 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/people-news/marty-erlichman-dead-barbra-streisand-manager-1236937009/"
+      "url": "https://variety.com/2026/politics/columns/haley-stevens-anderson-cooper-interview-column-1236937200/"
     },
     {
       "cat": "Film/TV",
-      "title": "From ‘The Devil Wears Prada’ to ‘The Invite,’ Costume Designers Shatter the Myth Behind Dressing Contemporary Characters: ‘It’s Very Difficult’",
-      "when": "1 Nov",
+      "title": "Siddhant Chaturvedi, Alizeh, Jimmy Shergill’s 1990s British Punjabi Music Drama ‘Bolo Bolo Bolo,’ Directed by Vikas Bahl, Wraps U.K. Shoot (EXCLUSIVE)",
+      "when": "2 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/costume-designers-contemporary-costume-1236936227/"
+      "url": "https://variety.com/2026/film/news/siddhant-chaturvedi-jimmy-shergill-bolo-bolo-bolo-uk-shoot-wrap-1236937033/"
     },
     {
       "cat": "Film/TV",
-      "title": "Palme d’Or Winner ‘Fjord’ Opens Jakarta World Cinema as Cinematographer Tudor Vladimir Panduru Leads Masterclass",
-      "when": "1 Nov",
+      "title": "Tokyo’s First Animated Competition Title ‘Magic Atlas’ Was Sun Xun’s ‘All-In Moment’",
+      "when": "2 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/fjord-jakarta-world-cinema-1236937002/"
+      "url": "https://variety.com/2026/film/festivals/tokyos-first-animated-competition-title-magic-atlas-sun-xun-1236937195/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "John Oliver Reviews ‘You Can See Everything’: Elizabeth Holmes and Billy Evans Are ‘Complete Lunatics’",
+      "when": "2 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/john-oliver-you-can-see-everything-elizabeth-holmes-billy-evans-lunatics-1236937192/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "1 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/this-week-in-a-galaxy-far-far-away-battlefront-3-behind-the-scenes-corporate-drama-kathleen-kennedy-returns-to-la-picture-and-not-much-more.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Between Us’ Director Matsumura Shingo on Finding Connection After Disaster and Making Films on Japanese Budgets",
-      "when": "1 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/between-us-director-connection-after-disaster-japanese-budgets-1236936999/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "7d ago",
+      "pushed": "8d ago",
       "lang": "HTML",
       "commit": ""
     }
