@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-03",
-    "fetched": "2026-11-03T00:54:04+00:00",
+    "fetched": "2026-11-03T07:45:26+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 16,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 12
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 9
     },
     "days": [
       {
@@ -33,11 +33,11 @@
       },
       {
         "day": "Thu",
-        "min": 8,
+        "min": 9,
         "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 90
+        "rain": 94
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110111.0,
-        "pct": -0.85
+        "price": 109827.0,
+        "pct": -1.17
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3224.4,
-        "pct": -0.13
+        "price": 3224.75,
+        "pct": -0.68
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "New Japanese Animation Prize Named Nippon Anime Awards, Sets First Ceremony for November 2027",
+      "title": "Bill Hader to Guest Star on ‘Abbott Elementary’",
       "when": "3 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/new-japanese-animation-prize-nippon-anime-awards-2027-1236938040/"
+      "url": "https://variety.com/2026/tv/news/bill-hader-guest-star-abbott-elementary-1236938191/"
     },
     {
       "cat": "Film/TV",
-      "title": "Veteran Publicist Bill Harrison and Creative Director Johnny Wujek Join Nonprofit Art of Elysium (EXCLUSIVE)",
+      "title": "Mohammad Rasoulof Cites Jafar Panahi’s New Prison Sentence as He and O Mipo Receive Tokyo’s Kurosawa Akira Award: ‘Iranian Cinema Continues to Face Repression’",
       "when": "3 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/publicist-bill-harrison-creative-director-stylist-johnny-wujek-art-of-elysium-1236938034/"
+      "url": "https://variety.com/2026/film/festivals/mohammad-rasoulof-cites-jafar-panahi-sentence-tokyo-kurosawa-award-1236938188/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Vote for America 2026:’ Here’s How to Watch Newsmax’s Midterm Election Special Online for Free",
+      "title": "‘Wicker’ Edges ‘Primetime’ for U.K., Ireland Box Office Crown as ‘Godzilla,’ ‘Ramayana’ Loom",
       "when": "3 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/newsmax-midterm-elections-show-watch-live-online-free-stream-1236938036/"
+      "url": "https://variety.com/2026/film/box-office/wicker-primetime-uk-ireland-box-office-crown-godzilla-ramayana-1236938181/"
     },
     {
       "cat": "Film/TV",
-      "title": "MS NOW Has 2026 Midterm Elections Coverage: Here’s How to Watch Election Night Results Live Online Free",
+      "title": "Emraan Hashmi’s Musical Horror Film ‘Rooh’ Adds Tips Films and Tips Music (EXCLUSIVE)",
       "when": "3 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/midterm-elections-2026-results-ms-now-livestream-online-free-1236937922/"
+      "url": "https://variety.com/2026/film/news/emraan-hashmi-musical-horror-rooh-tips-films-tips-music-1236938129/"
     },
     {
       "cat": "Trek/Wars",
@@ -180,7 +180,7 @@
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "8d ago",
+      "pushed": "9d ago",
       "lang": "HTML",
       "commit": ""
     }
