@@ -3,29 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-03",
-    "fetched": "2026-11-03T07:45:26+00:00",
+    "fetched": "2026-11-03T16:01:33+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 16,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 9
+      "temp": 9,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 4
     },
     "days": [
       {
         "day": "Today",
-        "min": 10,
-        "max": 17,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 63
-      },
-      {
-        "day": "Wed",
-        "min": 8,
+        "min": 9,
         "max": 21,
         "icon": "⛈️",
         "desc": "Thunderstorm",
@@ -33,11 +25,19 @@
       },
       {
         "day": "Thu",
-        "min": 9,
+        "min": 8,
         "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 94
+        "rain": 100
+      },
+      {
+        "day": "Fri",
+        "min": 8,
+        "max": 19,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 75
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109827.0,
-        "pct": -1.17
+        "price": 111262.0,
+        "pct": 0.84
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3224.75,
-        "pct": -0.68
+        "price": 3291.82,
+        "pct": 1.64
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Bill Hader to Guest Star on ‘Abbott Elementary’",
+      "title": "Funko Launches New ‘Harry Potter’ Mystery Collectibles Ahead of HBO Series",
       "when": "3 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/bill-hader-guest-star-abbott-elementary-1236938191/"
+      "url": "https://variety.com/2026/shopping/news/harry-potter-funko-pop-mystery-box-shop-online-1236937371/"
     },
     {
       "cat": "Film/TV",
-      "title": "Mohammad Rasoulof Cites Jafar Panahi’s New Prison Sentence as He and O Mipo Receive Tokyo’s Kurosawa Akira Award: ‘Iranian Cinema Continues to Face Repression’",
+      "title": "Nicole Taylor, Country Singer in Triplet Trio Taylor Red, Dies at 35",
       "when": "3 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/mohammad-rasoulof-cites-jafar-panahi-sentence-tokyo-kurosawa-award-1236938188/"
+      "url": "https://variety.com/2026/music/news/nicole-taylor-dead-taylor-red-country-trio-1236938512/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Wicker’ Edges ‘Primetime’ for U.K., Ireland Box Office Crown as ‘Godzilla,’ ‘Ramayana’ Loom",
+      "title": "Tristan Thompson Boards Jason Zada’s Bitcoin Creator Movie ‘Satoshi’ as Producer (EXCLUSIVE)",
       "when": "3 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/wicker-primetime-uk-ireland-box-office-crown-godzilla-ramayana-1236938181/"
+      "url": "https://variety.com/2026/film/global/tristan-thompson-bitcoin-creator-movie-satoshi-producer-1236938246/"
     },
     {
       "cat": "Film/TV",
-      "title": "Emraan Hashmi’s Musical Horror Film ‘Rooh’ Adds Tips Films and Tips Music (EXCLUSIVE)",
+      "title": "Josh O’Connor Describes Bond Rumors as ‘Incredibly Bizarre Pinch Me Moment’: ‘To Be Considered Is Extraordinary’",
       "when": "3 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/emraan-hashmi-musical-horror-rooh-tips-films-tips-music-1236938129/"
+      "url": "https://variety.com/2026/film/news/josh-oconnor-james-bond-casting-rumors-1236938475/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "10 Worlds We Want to Experience in ‘Star Wars: Battlefront III’",
+      "when": "3 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/10-worlds-we-want-to-experience-in-star-wars-battlefront-iii.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "2 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/ahsoka-season-2-cast-discuss-their-characters-journeys-and-using-outdoor-sets-this-time.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: ‘Battlefront 3’ Behind the Scenes Corporate Drama, Kathleen Kennedy Returns to LA Picture, and Not Much More",
-      "when": "1 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/this-week-in-a-galaxy-far-far-away-battlefront-3-behind-the-scenes-corporate-drama-kathleen-kennedy-returns-to-la-picture-and-not-much-more.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     },
