@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-04",
-    "fetched": "2026-11-04T08:57:22+00:00",
+    "fetched": "2026-11-04T16:58:45+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 17
+      "temp": 10,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 20,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
-        "rain": 100
-      },
-      {
-        "day": "Thu",
         "min": 9,
-        "max": 15,
+        "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 94
+        "rain": 98
       },
       {
         "day": "Fri",
@@ -37,7 +29,15 @@
         "max": 19,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 61
+        "rain": 63
+      },
+      {
+        "day": "Sat",
+        "min": 7,
+        "max": 12,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 100
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 111952.0,
-        "pct": 1.91
+        "price": 114970.0,
+        "pct": 3.19
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3315.92,
-        "pct": 2.5
+        "price": 3478.04,
+        "pct": 5.6
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Cristian Mungiu’s Cinematographer Tudor Vladimir Panduru Breaks Down Long Takes on ‘Fjord,’ ‘R.M.N.’ at Jakarta World Cinema Masterclass",
+      "title": "Music Industry Moves: Jackson Wang Inks With WME; Position Music Signs Arkai to JV With Lindsey Stirling’s Label",
       "when": "4 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/cristian-mungiu-cinematographer-tudor-vladimir-panduru-long-takes-masterclass-1236939064/"
+      "url": "https://variety.com/2026/music/news/jackson-wang-signs-with-wme-1236939377/"
     },
     {
       "cat": "Film/TV",
-      "title": "NBCUniversal, Hornbill Capital Back EloElo, Parent of Indian Microdrama Platform Story TV, in $80 Million Funding Round",
+      "title": "These Coffee Table Books Make the Perfect Gift This Holiday Season",
       "when": "4 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/nbcuniversal-microdrama-story-tv-eloelo-80-million-1236938992/"
+      "url": "https://variety.com/shop/best-coffee-table-books-for-movie-lovers-1234729999/"
     },
     {
       "cat": "Film/TV",
-      "title": "Karen Bass and Nithya Raman in Tight Race for L.A. Mayor in Early Returns",
+      "title": "15th Annual Hamilton Behind the Camera Awards Honorees Announced in Partnership With Variety",
       "when": "4 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/news/karen-bass-nithya-raman-l-a-mayor-1236938860/"
+      "url": "https://variety.com/2026/biz/news/15th-annual-hamilton-behind-the-camera-awards-1236938842/"
     },
     {
       "cat": "Film/TV",
-      "title": "Democrats Win House and Senate in Sweeping Rout of GOP",
+      "title": "Daisy Ridley, Sosie Bacon and Simon Rex to Star in Road Trip Horror ‘Get Rid of It’ From ‘Whiplash’ and ‘Drive’ Producer",
       "when": "4 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/news/midterm-election-results-democrats-win-house-senate-1236938473/"
+      "url": "https://variety.com/2026/film/global/daisy-ridley-sosie-bacon-simon-rex-get-rid-of-it-1236939126/"
+    },
+    {
+      "cat": "Games",
+      "title": "Crossplay is now available in Satisfactory!",
+      "when": "4 Nov",
+      "source": "Satisfactory",
+      "url": "https://store.steampowered.com/news/app/526870/view/679640301799735915"
     },
     {
       "cat": "Trek/Wars",
@@ -160,20 +167,13 @@
       "when": "13 Oct",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/670630562731396470"
-    },
-    {
-      "cat": "Games",
-      "title": "1.2 Update Fixes v1.2.4.1",
-      "when": "12 Oct",
-      "source": "Satisfactory",
-      "url": "https://store.steampowered.com/news/app/526870/view/670630562731396159"
     }
   ],
   "dev": [
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     },
