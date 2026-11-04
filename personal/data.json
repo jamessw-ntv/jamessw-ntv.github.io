@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-03",
-    "fetched": "2026-11-03T21:38:53+00:00",
+    "updated": "2026-11-04",
+    "fetched": "2026-11-04T02:03:52+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 8
+      "temp": 18,
+      "icon": "⛈️",
+      "desc": "Thunderstorm",
+      "wind": 21
     },
     "days": [
       {
@@ -26,18 +26,18 @@
       {
         "day": "Thu",
         "min": 9,
-        "max": 15,
+        "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 98
+        "rain": 100
       },
       {
         "day": "Fri",
         "min": 9,
-        "max": 19,
+        "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 75
+        "rain": 73
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 111784.0,
-        "pct": 1.87
+        "price": 110416.0,
+        "pct": 0.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3294.86,
-        "pct": 2.32
+        "price": 3245.47,
+        "pct": 0.77
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Cher Adores Michael Douglas,’ Icon’s Rep Says After Douglas Disses Her Oscar Win for ‘Moonstruck’",
-      "when": "3 Nov",
+      "title": "Weta FX and TAICCA Partner to Turn Taiwan Into an AI Screen Production Hub for Asia (EXCLUSIVE)",
+      "when": "4 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/cher-michael-douglas-disses-oscar-win-moonstruck-1236938822/"
+      "url": "https://variety.com/2026/film/markets-festivals/weta-fx-taicca-partner-taiwan-ai-screen-production-hub-1236938968/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscar Predictions: Animated Feature — A New and Competitive Era for the Medium That Isn’t Just for Kids",
-      "when": "3 Nov",
+      "title": "Lucy Liu’s ‘The Pirate Queen’ Expands With Graphic Novel, New Game and International Tour as Creator Eloise Singer Joins BAFTA Breakthrough Cohort (EXCLUSIVE)",
+      "when": "4 Nov",
       "source": "Variety",
-      "url": "https://variety.com/feature/2027-oscars-best-animated-feature-predictions-1236878503/"
+      "url": "https://variety.com/2026/gaming/news/lucy-liu-pirate-queen-graphic-novel-game-tour-1236938962/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Elder Scrolls 6’ Title Revealed (Gaming News Roundup)",
-      "when": "3 Nov",
+      "title": "Park Hoon-jung’s Assassin Noir ‘Tristes Tropiques’ Sells to North America, France, Spain",
+      "when": "4 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-november-2-1236937743/"
+      "url": "https://variety.com/2026/film/news/park-hoon-jung-assassin-noir-tristes-tropiques-sales-1236938950/"
     },
     {
       "cat": "Film/TV",
-      "title": "Netflix Orders YA Drama ‘Prep’ Based on Curtis Sittenfeld Novel From Nicole Taylor",
-      "when": "3 Nov",
+      "title": "BAFTA Unveils 2026 Breakthrough U.K. Cohort, Including ‘The Other Bennet Sister’ Star Ella Bruccoleri",
+      "when": "4 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-ya-drama-prep-curtis-sittenfeld-novel-nicole-taylor-1236938734/"
+      "url": "https://variety.com/2026/film/news/bafta-breakthrough-2026-other-bennet-sister-ella-bruccoleri-1236938267/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     },
