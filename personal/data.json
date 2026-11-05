@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-05",
-    "fetched": "2026-11-05T03:21:03+00:00",
+    "fetched": "2026-11-05T12:02:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 12
+      "temp": 10,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 3
     },
     "days": [
       {
@@ -29,14 +29,14 @@
         "max": 19,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 88
+        "rain": 78
       },
       {
         "day": "Sat",
         "min": 7,
         "max": 12,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
+        "icon": "🌦️",
+        "desc": "Showers",
         "rain": 100
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114876.0,
-        "pct": 5.36
+        "price": 114480.0,
+        "pct": 2.39
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3464.8,
-        "pct": 7.96
+        "price": 3447.31,
+        "pct": 3.94
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Andrew Garfield Says He ‘Never Had Any Interaction’ With Sam Altman While Filming ‘Artificial,’ Despite Altman Claiming They Waved to Each Other: ‘I Was Very Confused By That’",
+      "title": "Liam Neeson Says There’s ‘Nobody Better Than’ Meryl Streep to Take Over Aslan Role in ‘Narnia,’ but Admits He Didn’t Know About Greta Gerwig’s Movie: ‘This Is News to Me’",
       "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/andrew-garfield-sam-altman-artificial-1236939933/"
+      "url": "https://variety.com/2026/film/news/liam-neeson-meryl-streep-aslan-narnia-1236940112/"
     },
     {
       "cat": "Film/TV",
-      "title": "Blue Wave Sweep: What Does Democratic Shift Mean for Hollywood and the Media?",
+      "title": "‘Conclave’ Director Edward Berger Teases Upcoming Brad Pitt A24 Film ‘The Riders’: It’s a ‘European Odyssey’",
       "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/blue-wave-questions-hollywood-media-1236939674/"
+      "url": "https://variety.com/2026/film/global/conclave-director-edward-berger-a24-the-riders-brad-pitt-1236938487/"
     },
     {
       "cat": "Film/TV",
-      "title": "Pixar Names Jonathan Garson as President; Jim Morris Moves to Emeritus Role",
+      "title": "South International Series Festival Prizes: ’Blindspot Berlin,’ ‘The Oligarch and the Art Dealer’ Win Big",
       "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/pixar-jim-morris-president-emeritus-jonathan-garson-president-1236939816/"
+      "url": "https://variety.com/2026/tv/global/south-international-series-festival-prizes-blindspot-berlin-1236940109/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Pitt’ and ‘ER’ Are Similar Enough to Allow Crichton Suit, Appeals Court Rules",
+      "title": "‘Married at First Sight’ U.K. Canceled by Channel 4 Following Sexual Assault Allegations",
       "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/the-pitt-noah-wyle-crichton-lawsuit-1236939852/"
+      "url": "https://variety.com/2026/tv/global/married-at-first-sight-uk-canceled-1236940065/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "10d ago",
+      "pushed": "11d ago",
       "lang": "HTML",
       "commit": ""
     }
