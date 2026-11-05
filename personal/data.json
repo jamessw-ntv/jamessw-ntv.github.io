@@ -3,33 +3,25 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-05",
-    "fetched": "2026-11-05T12:02:23+00:00",
+    "fetched": "2026-11-05T19:46:28+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 3
+      "temp": 9,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 8
     },
     "days": [
       {
         "day": "Today",
-        "min": 9,
-        "max": 16,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 100
-      },
-      {
-        "day": "Fri",
         "min": 8,
         "max": 19,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 78
+        "rain": 69
       },
       {
         "day": "Sat",
@@ -38,6 +30,14 @@
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 100
+      },
+      {
+        "day": "Sun",
+        "min": 6,
+        "max": 14,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 8
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 114480.0,
-        "pct": 2.39
+        "price": 109965.0,
+        "pct": -3.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3447.31,
-        "pct": 3.94
+        "price": 3256.97,
+        "pct": -5.49
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Liam Neeson Says There’s ‘Nobody Better Than’ Meryl Streep to Take Over Aslan Role in ‘Narnia,’ but Admits He Didn’t Know About Greta Gerwig’s Movie: ‘This Is News to Me’",
+      "title": "Nithya Raman Wins L.A. Mayor’s Race as Karen Bass Concedes",
       "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/liam-neeson-meryl-streep-aslan-narnia-1236940112/"
+      "url": "https://variety.com/2026/politics/news/nithya-raman-wins-los-angeles-mayor-1236939950/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Conclave’ Director Edward Berger Teases Upcoming Brad Pitt A24 Film ‘The Riders’: It’s a ‘European Odyssey’",
+      "title": "‘Hyena,’ Thriller Exec Produced by David Lynch, to Star Kiernan Shipka, D’Pharaoh Woon-A-Tai, Edgar Ramírez and Rosemarie DeWitt",
       "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/conclave-director-edward-berger-a24-the-riders-brad-pitt-1236938487/"
+      "url": "https://variety.com/2026/film/global/hyena-thriller-exec-produced-david-lynch-kiernan-shipka-1236940574/"
     },
     {
       "cat": "Film/TV",
-      "title": "South International Series Festival Prizes: ’Blindspot Berlin,’ ‘The Oligarch and the Art Dealer’ Win Big",
+      "title": "What ‘Legend of Zelda’ Superfan Jon Batiste Thinks of ‘Ocarina of Time’ Remake and the Game’s Iconic Score",
       "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/south-international-series-festival-prizes-blindspot-berlin-1236940109/"
+      "url": "https://variety.com/2026/gaming/news/legend-of-zelda-ocarina-of-time-review-score-jon-batiste-1236940357/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Married at First Sight’ U.K. Canceled by Channel 4 Following Sexual Assault Allegations",
+      "title": "T-Mobile Taps Bryan Cranston in Bid to Wake Consumers Up to ‘T-Mix’ Plan",
       "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/married-at-first-sight-uk-canceled-1236940065/"
+      "url": "https://variety.com/2026/tv/news/t-mobile-bryan-cranston-t-mix-1236940344/"
     },
     {
       "cat": "Trek/Wars",
@@ -118,6 +118,20 @@
       "when": "5 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/adam-driver-confirms-he-is-done-with-star-wars.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Disney CEO Josh D’Amaro Planning to Lay Off More Employees, Redirecting Funding to Films and Television",
+      "when": "5 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/disney-ceo-josh-damaro-planning-to-lay-off-more-employees-redirecting-funding-to-films-and-television.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "10 Worlds We Want to Experience in ‘Star Wars: Battlefront III’",
+      "when": "5 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/10-worlds-we-want-to-experience-in-star-wars-battlefront-iii.html"
     },
     {
       "cat": "Games",
@@ -132,20 +146,6 @@
       "when": "3 Nov",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/11/03/tributes-to-patrick-stewart-pour-in-from-friends-costars-and-more/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Disney CEO Josh D’Amaro Planning to Lay Off More Employees, Redirecting Funding to Films and Television",
-      "when": "3 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/disney-ceo-josh-damaro-planning-to-lay-off-more-employees-redirecting-funding-to-films-and-television.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "10 Worlds We Want to Experience in ‘Star Wars: Battlefront III’",
-      "when": "3 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/10-worlds-we-want-to-experience-in-star-wars-battlefront-iii.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "8h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     },
