@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-04",
-    "fetched": "2026-11-04T22:30:24+00:00",
+    "updated": "2026-11-05",
+    "fetched": "2026-11-05T03:21:03+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 18
+      "temp": 15,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 12
     },
     "days": [
       {
@@ -21,22 +21,22 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 98
+        "rain": 100
       },
       {
         "day": "Fri",
         "min": 8,
-        "max": 20,
+        "max": 19,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 63
+        "rain": 88
       },
       {
         "day": "Sat",
         "min": 7,
         "max": 12,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
         "rain": 100
       }
     ]
@@ -58,8 +58,8 @@
       {
         "code": "CSL",
         "name": "CSL",
-        "price": null,
-        "pct": null
+        "price": 201.24,
+        "pct": 1.89
       },
       {
         "code": "WES",
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 115055.0,
-        "pct": 3.16
+        "price": 114876.0,
+        "pct": 5.36
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3473.18,
-        "pct": 5.84
+        "price": 3464.8,
+        "pct": 7.96
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "The Chicks Recall ‘the Incident’ and Compare Bush to Trump in ‘Taking the Long Way’ 20th Anniversary Shows: Concert Review",
-      "when": "4 Nov",
+      "title": "Andrew Garfield Says He ‘Never Had Any Interaction’ With Sam Altman While Filming ‘Artificial,’ Despite Altman Claiming They Waved to Each Other: ‘I Was Very Confused By That’",
+      "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/concert-reviews/chicks-taking-long-way-20th-anniversary-tour-concert-review-1236938619/"
+      "url": "https://variety.com/2026/film/news/andrew-garfield-sam-altman-artificial-1236939933/"
     },
     {
       "cat": "Film/TV",
-      "title": "AMC Theatres Sets All-Time Record for Quarterly Revenue, Thanks to ‘Spider-Man: Brand New Day’ and ‘The Odyssey’",
-      "when": "4 Nov",
+      "title": "Blue Wave Sweep: What Does Democratic Shift Mean for Hollywood and the Media?",
+      "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/amc-theatres-record-quarterly-revenue-spider-man-brand-new-day-the-odyssey-1236939750/"
+      "url": "https://variety.com/2026/film/news/blue-wave-questions-hollywood-media-1236939674/"
     },
     {
       "cat": "Film/TV",
-      "title": "Scarlett Johansson Says ‘The Batman 2’ Role Was ‘Very Hard to Figure Out’: ‘It Gave Me a Lot of Existential Angst’",
-      "when": "4 Nov",
+      "title": "Pixar Names Jonathan Garson as President; Jim Morris Moves to Emeritus Role",
+      "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/scarlett-johansson-the-batman-2-role-hard-figure-out-1236939769/"
+      "url": "https://variety.com/2026/film/news/pixar-jim-morris-president-emeritus-jonathan-garson-president-1236939816/"
     },
     {
       "cat": "Film/TV",
-      "title": "Lili Reinhart, Danny Ramirez, Suki Waterhouse, Mark Duplass and Lukas Gage Team for Horror Movie ‘Violet’ From ‘Verity’ Writer (EXCLUSIVE)",
-      "when": "4 Nov",
+      "title": "‘The Pitt’ and ‘ER’ Are Similar Enough to Allow Crichton Suit, Appeals Court Rules",
+      "when": "5 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/lili-reinhart-danny-ramirez-suki-waterhouse-horror-violet-1236939652/"
+      "url": "https://variety.com/2026/tv/news/the-pitt-noah-wyle-crichton-lawsuit-1236939852/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Adam Driver Confirms He Is Done With ‘Star Wars’",
+      "when": "5 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/adam-driver-confirms-he-is-done-with-star-wars.html"
     },
     {
       "cat": "Games",
@@ -142,13 +149,6 @@
     },
     {
       "cat": "Trek/Wars",
-      "title": "It’s Time for ‘Star Wars’ to Break Up with EA (Editorial)",
-      "when": "2 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/its-time-for-star-wars-to-break-up-with-ea-editorial.html"
-    },
-    {
-      "cat": "Trek/Wars",
       "title": "Podcast: All Access Remembers Star Trek Icons Walter Koenig and Patrick Stewart",
       "when": "30 Oct",
       "source": "TrekMovie",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     },
