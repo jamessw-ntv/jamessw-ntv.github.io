@@ -3,32 +3,24 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-06",
-    "fetched": "2026-11-06T07:49:45+00:00",
+    "fetched": "2026-11-06T15:49:34+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 18,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 6
+      "temp": 10,
+      "icon": "🌦️",
+      "desc": "Showers",
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 21,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 71
-      },
-      {
-        "day": "Sat",
         "min": 7,
-        "max": 13,
+        "max": 12,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 100
       },
       {
@@ -37,7 +29,15 @@
         "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 2
+        "rain": 0
+      },
+      {
+        "day": "Mon",
+        "min": 4,
+        "max": 20,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110114.0,
-        "pct": -3.87
+        "price": 110056.0,
+        "pct": 0.62
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3245.3,
-        "pct": -5.69
+        "price": 3236.38,
+        "pct": -0.82
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘African Kung-Fu Nazis’ Franchise Lands at Hong Kong’s Cappu Films for International Sales (EXCLUSIVE)",
+      "title": "Carson Daly, Laura Jarrett Ready to Launch ‘New Era’ at NBC’s ‘Saturday Today’",
       "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/african-kung-fu-nazis-franchise-lands-cappu-films-sales-1236941036/"
+      "url": "https://variety.com/2026/tv/news/carson-daly-laura-jarrett-saturday-today-new-era-nbc-1236941237/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hollywood Has Flipped on GenAI, Says ‘Avatar’ VFX House Weta FX Chief: ‘If You Don’t Have an AI Strategy, Don’t Bother’",
+      "title": "‘Werwulf,’ ‘Cliff Booth,’ ‘The Odyssey’ and More Costume Designers Show Exclusive Sketches From the Year’s Biggest Movies",
       "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/hollywood-flipped-genai-avatar-vfx-house-weta-fx-1236941070/"
+      "url": "https://variety.com/2026/artisans/news/werwulf-cliff-booth-odyssey-costume-designer-sketches-1236939372/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jane Fonda ‘Didn’t Dare Imagine’ Democrats’ Blue Tsunami: ‘We Have to Block What’s Bad and Fight For What’s Good’",
+      "title": "Katherine Ryan Feeling ‘Grief and Relief’ Over Russell Brand Conviction After Reportedly Calling Out His Behavior on Comedy Central",
       "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/columns/jane-fonda-democrats-blue-tsunami-wave-midterm-election-1236941027/"
+      "url": "https://variety.com/2026/global/news/katherine-ryan-reacts-to-russell-brand-rape-conviction-1236941302/"
     },
     {
       "cat": "Film/TV",
-      "title": "Pamela Abdy Delivers Fiery Speech After Warner Bros Exit: ‘It is Getting Harder, Not Easier, to be a Woman in the Business’",
+      "title": "Motorhead’s Classic ‘Orgasmatron’ Gets a Mighty 40th Anniversary Sonic Upgrade and Deluxe Edition: Album Review",
       "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/pamela-abdy-warner-bros-taking-break-1236941011/"
+      "url": "https://variety.com/2026/music/reviews/motorheads-orgasmatron-deluxe-edition-album-review-1236939607/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     },
