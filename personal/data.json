@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-06",
-    "fetched": "2026-11-06T15:49:34+00:00",
+    "fetched": "2026-11-06T21:24:56+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
+      "temp": 9,
       "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 11
+      "desc": "Drizzle",
+      "wind": 14
     },
     "days": [
       {
@@ -35,8 +35,8 @@
         "day": "Mon",
         "min": 4,
         "max": 20,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "⛅",
+        "desc": "Partly cloudy",
         "rain": 0
       }
     ]
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110056.0,
-        "pct": 0.62
+        "price": 110457.0,
+        "pct": 0.93
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3236.38,
-        "pct": -0.82
+        "price": 3247.67,
+        "pct": 0.97
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Carson Daly, Laura Jarrett Ready to Launch ‘New Era’ at NBC’s ‘Saturday Today’",
+      "title": "Here’s Where to Watch the Virginia Tech Hokies vs. SMU Mustangs Game Live Online",
       "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/carson-daly-laura-jarrett-saturday-today-new-era-nbc-1236941237/"
+      "url": "https://variety.com/2026/shopping/news/watch-virginia-tech-smu-college-football-espn-live-online-1236940215/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Werwulf,’ ‘Cliff Booth,’ ‘The Odyssey’ and More Costume Designers Show Exclusive Sketches From the Year’s Biggest Movies",
+      "title": "Bradley Cooper and Danny McBride’s ‘G.I. Joe’ Movie Set for 2028; Paramount Shifts New ‘Paranormal Activity’ to Halloween 2027",
       "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/werwulf-cliff-booth-odyssey-costume-designer-sketches-1236939372/"
+      "url": "https://variety.com/2026/film/news/bradley-cooper-danny-mcbride-g-i-joe-movie-release-date-paranomal-activity-1236941646/"
     },
     {
       "cat": "Film/TV",
-      "title": "Katherine Ryan Feeling ‘Grief and Relief’ Over Russell Brand Conviction After Reportedly Calling Out His Behavior on Comedy Central",
+      "title": "Paramount Network Orders 13 Original Episodes of Larry the Cable Guy-Hosted Clip Show ‘American Mayhem’ (EXCLUSIVE)",
       "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/global/news/katherine-ryan-reacts-to-russell-brand-rape-conviction-1236941302/"
+      "url": "https://variety.com/2026/tv/news/paramount-network-larry-the-cable-guy-american-mayhem-1236941619/"
     },
     {
       "cat": "Film/TV",
-      "title": "Motorhead’s Classic ‘Orgasmatron’ Gets a Mighty 40th Anniversary Sonic Upgrade and Deluxe Edition: Album Review",
+      "title": "Seville European Film Festival Honors Agnieszka Holland, Thierry Frémaux and Cartoon Saloon",
       "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/reviews/motorheads-orgasmatron-deluxe-edition-album-review-1236939607/"
+      "url": "https://variety.com/2026/film/global/seville-european-film-festival-agnieszka-holland-fremaux-1236941616/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Kelleran Beq – ‘Star Wars’ Character Spotlight",
+      "when": "6 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/kelleran-beq-star-wars-character-spotlight.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "5 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/disney-ceo-josh-damaro-planning-to-lay-off-more-employees-redirecting-funding-to-films-and-television.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "10 Worlds We Want to Experience in ‘Star Wars: Battlefront III’",
-      "when": "5 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/10-worlds-we-want-to-experience-in-star-wars-battlefront-iii.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     },
