@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-06",
-    "fetched": "2026-11-06T00:55:39+00:00",
+    "fetched": "2026-11-06T07:49:45+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 17,
+      "temp": 18,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 14
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
         "min": 8,
-        "max": 20,
+        "max": 21,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 75
+        "rain": 71
       },
       {
         "day": "Sat",
         "min": 7,
-        "max": 12,
+        "max": 13,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 100
       },
       {
         "day": "Sun",
         "min": 6,
-        "max": 14,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 8
+        "rain": 2
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109990.0,
-        "pct": -4.29
+        "price": 110114.0,
+        "pct": -3.87
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3234.39,
-        "pct": -6.38
+        "price": 3245.3,
+        "pct": -5.69
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Rosamund Pike Set to Star in and Produce ‘Feed’, Body Horror Movie From Leslye Headland",
+      "title": "‘African Kung-Fu Nazis’ Franchise Lands at Hong Kong’s Cappu Films for International Sales (EXCLUSIVE)",
       "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/rosamund-pike-feed-body-horror-movie-leslye-headland-1236940925/"
+      "url": "https://variety.com/2026/film/markets-festivals/african-kung-fu-nazis-franchise-lands-cappu-films-sales-1236941036/"
     },
     {
       "cat": "Film/TV",
-      "title": "Gay Influencer Famed for Dancing in High Heels Faces Middle Age in Nine-Year Taiwan Creative Content Fest Documentary ‘My Silly Flirty Boys’",
+      "title": "Hollywood Has Flipped on GenAI, Says ‘Avatar’ VFX House Weta FX Chief: ‘If You Don’t Have an AI Strategy, Don’t Bother’",
       "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/high-heeled-gay-influencer-doc-taiwan-creative-content-fest-1236940913/"
+      "url": "https://variety.com/2026/film/markets-festivals/hollywood-flipped-genai-avatar-vfx-house-weta-fx-1236941070/"
     },
     {
       "cat": "Film/TV",
-      "title": "Amnesiac Surgeon Confronts His Organ-Trafficking Past in Taiwan Creative Content Fest Series ‘Hannibal Inside’",
-      "when": "5 Nov",
+      "title": "Jane Fonda ‘Didn’t Dare Imagine’ Democrats’ Blue Tsunami: ‘We Have to Block What’s Bad and Fight For What’s Good’",
+      "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/spotlight/amnesiac-surgeon-thriller-taiwan-creative-content-fest-1236940903/"
+      "url": "https://variety.com/2026/politics/columns/jane-fonda-democrats-blue-tsunami-wave-midterm-election-1236941027/"
     },
     {
       "cat": "Film/TV",
-      "title": "Letterboxd in Negotiations to Be Acquired by New York Times Company",
-      "when": "5 Nov",
+      "title": "Pamela Abdy Delivers Fiery Speech After Warner Bros Exit: ‘It is Getting Harder, Not Easier, to be a Woman in the Business’",
+      "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/letterboxd-negotiations-new-york-times-1236940881/"
+      "url": "https://variety.com/2026/film/news/pamela-abdy-warner-bros-taking-break-1236941011/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "11d ago",
+      "pushed": "12d ago",
       "lang": "HTML",
       "commit": ""
     }
