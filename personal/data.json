@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-07",
-    "fetched": "2026-11-07T15:34:49+00:00",
+    "fetched": "2026-11-07T20:04:02+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 7,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 5
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
-        "max": 16,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -26,17 +26,17 @@
       {
         "day": "Mon",
         "min": 4,
-        "max": 20,
-        "icon": "🌤️",
-        "desc": "Mainly clear",
+        "max": 21,
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 0
       },
       {
         "day": "Tue",
         "min": 10,
         "max": 24,
-        "icon": "🌦️",
-        "desc": "Drizzle",
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 14
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110290.0,
-        "pct": 0.67
+        "price": 110226.0,
+        "pct": -0.18
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3259.54,
-        "pct": 1.18
+        "price": 3250.46,
+        "pct": -0.07
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Here’s How to Watch WWE Crown Jewel 2026 Live Online",
+      "title": "Trump Offers Press Secretary Role to UFC CEO Dana White, Asks That He Bring Assistants to ‘Defend Us Against the Lunatic Left’",
       "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/how-to-watch-wwe-crown-jewel-2026-live-online-free-1236938579/"
+      "url": "https://variety.com/2026/biz/news/trump-press-secretary-ufc-dana-white-1236942110/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘3 Body Problem’ Director Derek Tsang Boards DEA True-Crime Series ‘Group 41’ From Zhang Yimou’s ‘Shadow’ Producer Jonah Greenberg (EXCLUSIVE)",
+      "title": "‘Full House’ Star Jodie Sweetin Says She Had ‘$190 in My Bank Account’ Before Filming ‘Fuller House’: ‘I Had to Borrow Money the First Week’",
       "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/asia/3-body-problem-director-derek-tsang-dea-true-crime-series-group-41-1236941978/"
+      "url": "https://variety.com/2026/tv/news/full-house-jodie-sweetin-fuller-house-1236942080/"
     },
     {
       "cat": "Film/TV",
-      "title": "Davika Hoorne Returning for ‘Inherit’ Sequel, Director Banjong Pisanthanakun Confirms (EXCLUSIVE)",
+      "title": "Keira Knightley and ‘Black Doves’ Creator Joe Barton  Why Helen Should Have Been the One to Kill [SPOILER], That Oner and Hopes for Season 3",
       "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/davika-hoorne-inherit-sequel-1236941967/"
+      "url": "https://variety.com/2026/tv/global/keira-knightley-black-doves-creator-joe-barton-dani-death-season-3-1236941609/"
     },
     {
       "cat": "Film/TV",
-      "title": "AI Filmmaking Platform Core Studio Launches at Taiwan Creative Content Fest With 24 Specialized Agents",
+      "title": "Oscar Short Film Race Spotlights Bold Stories, New Animation Tech and Creative Risk-Taking",
       "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/ai-filmmaking-platform-core-studio-launches-24-agents-tccf-1236941957/"
+      "url": "https://variety.com/2026/awards/focus/oscar-short-film-race-1236939503/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     },
