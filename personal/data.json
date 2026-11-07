@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-07",
-    "fetched": "2026-11-07T01:44:37+00:00",
+    "fetched": "2026-11-07T08:35:57+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 23
+      "temp": 10,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 16
     },
     "days": [
       {
@@ -26,7 +26,7 @@
       {
         "day": "Sun",
         "min": 6,
-        "max": 15,
+        "max": 16,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 0
@@ -34,9 +34,9 @@
       {
         "day": "Mon",
         "min": 4,
-        "max": 20,
-        "icon": "☀️",
-        "desc": "Clear",
+        "max": 21,
+        "icon": "☁️",
+        "desc": "Overcast",
         "rain": 0
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110495.0,
-        "pct": 0.69
+        "price": 110668.0,
+        "pct": 0.74
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3264.68,
-        "pct": 1.16
+        "price": 3267.84,
+        "pct": 1.0
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Remarried Empress’ Becomes Most-Viewed Local Original Premiere Ever on Disney+ and Hulu",
+      "title": "AI Filmmaking Platform Core Studio Launches at Taiwan Creative Content Fest With 24 Specialized Agents",
       "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/remarried-empress-disney-hulu-biggest-local-premiere-ever-1236941857/"
+      "url": "https://variety.com/2026/film/markets-festivals/ai-filmmaking-platform-core-studio-launches-24-agents-tccf-1236941957/"
     },
     {
       "cat": "Film/TV",
-      "title": "CJ Group’s Miky Lee Hailed as ‘Godmother of K-Culture’ as She Receives Asian Hall of Fame Lifetime Achievement Medal",
+      "title": "‘Triplets of Belleville’ Director Sylvain Chomet Fires Back at AI Accusations Over Dior Film Featuring Robert Pattinson’s Voice: ‘Everything Was Drawn by Hand’ (EXCLUSIVE)",
       "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/miky-lee-godmother-k-culture-asian-hall-fame-1236941850/"
+      "url": "https://variety.com/2026/film/global/sylvain-chomet-denies-ai-accusations-dior-robert-pattinson-1236941945/"
     },
     {
       "cat": "Film/TV",
-      "title": "Swiss Labor Exploitation Drama ‘Enjoy Your Stay’ Lands in Indonesia, Directors Hope It Speaks for Migrant Workers",
+      "title": "Stephen Chow Told Japan to Stop Aping Kung Fu, Says Boss of Film Fund Behind Kore-eda Hirokazu’s ‘Look Back’",
       "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/swiss-labor-drama-enjoy-your-stay-indonesia-1236941824/"
+      "url": "https://variety.com/2026/film/markets-festivals/stephen-chow-japan-stop-aping-kung-fu-k2-pictures-1236941939/"
     },
     {
       "cat": "Film/TV",
-      "title": "Cannes, Annecy-Winning ‘Iron Boy’ Producer Eddy Cinema Backs Memory-Erasure Animation ‘Wilderness of the Greenriver’ at Taiwan Creative Content Fest",
-      "when": "6 Nov",
+      "title": "Adam Driver Won’t Return for ‘Girls’: ‘I Wish Them the Best of Luck’",
+      "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/iron-boy-producer-memory-animation-taiwan-creative-content-fest-1236941811/"
+      "url": "https://variety.com/2026/film/news/adam-driver-wont-return-girls-revival-lena-dunham-1236941924/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "12d ago",
+      "pushed": "13d ago",
       "lang": "HTML",
       "commit": ""
     }
