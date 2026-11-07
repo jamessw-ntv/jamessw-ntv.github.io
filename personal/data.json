@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-07",
-    "fetched": "2026-11-07T20:04:02+00:00",
+    "fetched": "2026-11-07T23:35:16+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 6
+      "temp": 13,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 14
     },
     "days": [
       {
@@ -37,7 +37,7 @@
         "max": 24,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 14
+        "rain": 18
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110226.0,
-        "pct": -0.18
+        "price": 110200.0,
+        "pct": -0.21
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3250.46,
-        "pct": -0.07
+        "price": 3249.44,
+        "pct": -0.23
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Trump Offers Press Secretary Role to UFC CEO Dana White, Asks That He Bring Assistants to ‘Defend Us Against the Lunatic Left’",
+      "title": "U2’s The Edge Wrote an ‘Elf’ Sequel, But It ‘Petered Out and Never Happened,’ Says Andy Richter",
       "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/trump-press-secretary-ufc-dana-white-1236942110/"
+      "url": "https://variety.com/2026/film/news/u2-the-edge-sequel-elf-andy-richter-1236942164/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Full House’ Star Jodie Sweetin Says She Had ‘$190 in My Bank Account’ Before Filming ‘Fuller House’: ‘I Had to Borrow Money the First Week’",
+      "title": "‘Club Kid’ Scene-Stealer Kirby Howell-Baptiste on Playing a Drugged-Up Party Girl Who Turns Jordan Firstman’s World Upside Down: She’s ‘A Complete Tornado’",
       "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/full-house-jodie-sweetin-fuller-house-1236942080/"
+      "url": "https://variety.com/2026/film/global/club-kid-star-kirby-howell-baptiste-edison-party-girl-1236914502/"
     },
     {
       "cat": "Film/TV",
-      "title": "Keira Knightley and ‘Black Doves’ Creator Joe Barton  Why Helen Should Have Been the One to Kill [SPOILER], That Oner and Hopes for Season 3",
+      "title": "French Cinema Is Thriving at Festivals but Facing an Uphill Battle in U.S. Theaters as Distributors Navigate a Shrinking Market",
       "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/keira-knightley-black-doves-creator-joe-barton-dani-death-season-3-1236941609/"
+      "url": "https://variety.com/2026/film/global/french-cinema-festivals-uphill-battle-u-s-theaters-1236942099/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscar Short Film Race Spotlights Bold Stories, New Animation Tech and Creative Risk-Taking",
+      "title": "Bill Skarsgård Says He ‘Wasn’t Even Thrown Into the Mix’ to Be James Bond: ‘Maybe They Were Like, “We Can’t Do a Swede”’",
       "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/awards/focus/oscar-short-film-race-1236939503/"
+      "url": "https://variety.com/2026/film/news/bill-skarsgard-playing-villains-james-bond-film-1236942134/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     },
