@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-06",
-    "fetched": "2026-11-06T21:24:56+00:00",
+    "updated": "2026-11-07",
+    "fetched": "2026-11-07T01:44:37+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 9,
+      "temp": 12,
       "icon": "🌦️",
       "desc": "Drizzle",
-      "wind": 14
+      "wind": 23
     },
     "days": [
       {
@@ -20,7 +20,7 @@
         "min": 7,
         "max": 12,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 100
       },
       {
@@ -35,8 +35,8 @@
         "day": "Mon",
         "min": 4,
         "max": 20,
-        "icon": "⛅",
-        "desc": "Partly cloudy",
+        "icon": "☀️",
+        "desc": "Clear",
         "rain": 0
       }
     ]
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110457.0,
-        "pct": 0.93
+        "price": 110495.0,
+        "pct": 0.69
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3247.67,
-        "pct": 0.97
+        "price": 3264.68,
+        "pct": 1.16
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Here’s Where to Watch the Virginia Tech Hokies vs. SMU Mustangs Game Live Online",
-      "when": "6 Nov",
+      "title": "‘The Remarried Empress’ Becomes Most-Viewed Local Original Premiere Ever on Disney+ and Hulu",
+      "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/watch-virginia-tech-smu-college-football-espn-live-online-1236940215/"
+      "url": "https://variety.com/2026/tv/news/remarried-empress-disney-hulu-biggest-local-premiere-ever-1236941857/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bradley Cooper and Danny McBride’s ‘G.I. Joe’ Movie Set for 2028; Paramount Shifts New ‘Paranormal Activity’ to Halloween 2027",
-      "when": "6 Nov",
+      "title": "CJ Group’s Miky Lee Hailed as ‘Godmother of K-Culture’ as She Receives Asian Hall of Fame Lifetime Achievement Medal",
+      "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/bradley-cooper-danny-mcbride-g-i-joe-movie-release-date-paranomal-activity-1236941646/"
+      "url": "https://variety.com/2026/film/news/miky-lee-godmother-k-culture-asian-hall-fame-1236941850/"
     },
     {
       "cat": "Film/TV",
-      "title": "Paramount Network Orders 13 Original Episodes of Larry the Cable Guy-Hosted Clip Show ‘American Mayhem’ (EXCLUSIVE)",
-      "when": "6 Nov",
+      "title": "Swiss Labor Exploitation Drama ‘Enjoy Your Stay’ Lands in Indonesia, Directors Hope It Speaks for Migrant Workers",
+      "when": "7 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/paramount-network-larry-the-cable-guy-american-mayhem-1236941619/"
+      "url": "https://variety.com/2026/film/festivals/swiss-labor-drama-enjoy-your-stay-indonesia-1236941824/"
     },
     {
       "cat": "Film/TV",
-      "title": "Seville European Film Festival Honors Agnieszka Holland, Thierry Frémaux and Cartoon Saloon",
+      "title": "Cannes, Annecy-Winning ‘Iron Boy’ Producer Eddy Cinema Backs Memory-Erasure Animation ‘Wilderness of the Greenriver’ at Taiwan Creative Content Fest",
       "when": "6 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/seville-european-film-festival-agnieszka-holland-fremaux-1236941616/"
+      "url": "https://variety.com/2026/film/markets-festivals/iron-boy-producer-memory-animation-taiwan-creative-content-fest-1236941811/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     },
