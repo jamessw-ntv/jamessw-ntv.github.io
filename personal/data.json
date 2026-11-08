@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-08",
-    "fetched": "2026-11-08T13:05:40+00:00",
+    "fetched": "2026-11-08T18:18:44+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
+      "temp": 4,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 10
+      "wind": 6
     },
     "days": [
       {
@@ -29,7 +29,7 @@
         "max": 25,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 17
+        "rain": 22
       },
       {
         "day": "Wed",
@@ -37,7 +37,7 @@
         "max": 19,
         "icon": "☁️",
         "desc": "Overcast",
-        "rain": 18
+        "rain": 8
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 110489.0,
-        "pct": 0.11
+        "price": 110356.0,
+        "pct": 0.01
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3256.32,
-        "pct": -0.13
+        "price": 3249.78,
+        "pct": -0.17
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Taiwan’s Content Agency and Partners Put $180 Million Into 27 Projects, From an ‘Our Blues’ Remake to an Off-Broadway Musical",
+      "title": "Judi Dench Says Vin Diesel Sent Her Flowers ‘the Length of a Kayak’ to Persuade Her to Join ‘The Chronicles of Riddick’: I’m ‘Far Too Easily Wooed’",
       "when": "8 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/asia/taiwan-content-agency-partners-180-million-27-projects-1236942318/"
+      "url": "https://variety.com/2026/film/news/judi-dench-reveals-she-was-wooed-1236942417/"
     },
     {
       "cat": "Film/TV",
-      "title": "Indonesian Horror Hit ‘Pabrik Gula’ Gets 2028 Sequel",
+      "title": "Box Office: ‘You Can See Everything’ Becomes Second-Biggest Doc Ever in North America With $80 Million",
       "when": "8 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/indonesian-horror-pabrik-gula-2028-sequel-1236942313/"
+      "url": "https://variety.com/2026/film/box-office/you-can-see-everything-second-highest-grossing-documentary-north-america-box-office-1236942385/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘SNL’ Weekend Update Brutally Roasts Elon Musk Over ‘Epic’ Midterms Defeat",
+      "title": "Cineplex Boards Sanfic Title ‘La Residencia’ From ‘Algo Azul’ Director  Mariel García Spooner",
       "when": "8 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/snl-weekend-update-elon-musk-midterms-election-1236942283/"
+      "url": "https://variety.com/2026/film/global/cineplex-la-residencia-mariel-garcia-spooner-algo-azul-1236941270/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘SNL’: Druski Dons Whiteface as Elizabeth Holmes in ‘You Can See Everything’ Parody",
+      "title": "Box Office: ‘Godzilla Minus Zero’ Roars With $31 Million Debut, ‘Cat in the Hat’ Fizzles With $20 Million",
       "when": "8 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/snl-druski-whiteface-elizabeth-holmes-nathan-fielder-you-can-see-everything-parody-1236942289/"
+      "url": "https://variety.com/2026/film/box-office/godzilla-minus-zero-box-office-opening-weekend-cat-in-the-hat-fizzles-1236942363/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     },
