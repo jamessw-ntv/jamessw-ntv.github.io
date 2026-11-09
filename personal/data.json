@@ -2,23 +2,23 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-08",
-    "fetched": "2026-11-08T22:43:58+00:00",
+    "updated": "2026-11-09",
+    "fetched": "2026-11-09T02:31:15+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 2
+      "temp": 19,
+      "icon": "🌤️",
+      "desc": "Mainly clear",
+      "wind": 1
     },
     "days": [
       {
         "day": "Today",
         "min": 4,
-        "max": 21,
+        "max": 20,
         "icon": "⛅",
         "desc": "Partly cloudy",
         "rain": 0
@@ -28,12 +28,12 @@
         "min": 10,
         "max": 25,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 33
       },
       {
         "day": "Wed",
-        "min": 10,
+        "min": 9,
         "max": 18,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 108411.0,
-        "pct": -1.6
+        "price": 109321.0,
+        "pct": -0.7
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3095.1,
-        "pct": -4.7
+        "price": 3120.09,
+        "pct": -3.89
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Avedon’ Review: Ron Howard’s Thrilling Documentary About Richard Avedon, the Great Photographer Who Turned Head-On Portraits Into an Art Form",
-      "when": "8 Nov",
+      "title": "Microdrama Makers From Turkey and Japan Bet on Emotional Hooks and Infuriating Villains at Taiwan Creative Content Fest",
+      "when": "9 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/avedon-review-ron-howard-richard-avedon-1236942472/"
+      "url": "https://variety.com/2026/tv/markets-festivals/microdrama-makers-turkey-japan-bet-hooks-villains-1236942844/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Passing Strange’ Comes to Pasadena Playhouse: Creators Stew and Heidi Rodewald on the Rock Musical Reaching L.A. Almost Two Decades After Tony-Winning Broadway Run",
-      "when": "8 Nov",
+      "title": "‘Gangs of London’ Director Kim Hong-sun Shoots Korean Martial Arts Action Film ‘The Hit List’ With Jung Woo-sung, ‘Squid Game’ Star Wi Ha-jun",
+      "when": "9 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/legit/news/passing-strange-pasadena-playhouse-stew-heidi-interview-1236942647/"
+      "url": "https://variety.com/2026/film/news/gangs-of-london-director-kim-hong-sun-korean-action-film-hit-list-1236942835/"
     },
     {
       "cat": "Film/TV",
-      "title": "Taylor Swift and Karlie Kloss Reunite at Travis Kelce’s Chiefs Game Against Jets",
-      "when": "8 Nov",
+      "title": "Remembering Sebastián Lelio, an Auteur Who Centered Women’s Stories With Style and Sensitivity",
+      "when": "9 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/taylor-swift-karlie-kloss-reunite-travis-kelce-chiefs-game-1236942684/"
+      "url": "https://variety.com/2026/film/news/remembering-sebastian-lelio-1236942425/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘I’ve Had It’ Podcast Hosts Jennifer Welch and Angie Sullivan Apologize for Laughing at Charlie Kirk Joke: ‘We Regret It’",
-      "when": "8 Nov",
+      "title": "Trump on ’60 Minutes’ Reflects on Midterm Loss, Death and Forgiveness: ‘I Do Hate Some of My Enemies’",
+      "when": "9 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/news/jennifer-welch-angie-sullivan-apologize-charlie-kirk-joke-1236942607/"
+      "url": "https://variety.com/2026/politics/news/trump-60-minutes-midterms-death-forgiveness-enemies-1236942778/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: Adam Driver Not Coming Back to ‘Star Wars’, ‘Ahsoka’ Season 2 Press Has Started",
+      "when": "8 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/this-week-in-a-galaxy-far-far-away-adam-driver-not-coming-back-to-star-wars-ahsoka-season-2-press-has-started.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "5 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/adam-driver-confirms-he-is-done-with-star-wars.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Disney CEO Josh D’Amaro Planning to Lay Off More Employees, Redirecting Funding to Films and Television",
-      "when": "5 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/disney-ceo-josh-damaro-planning-to-lay-off-more-employees-redirecting-funding-to-films-and-television.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     },
