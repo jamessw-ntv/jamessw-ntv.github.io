@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-09",
-    "fetched": "2026-11-09T02:31:15+00:00",
+    "fetched": "2026-11-09T11:12:37+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 19,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 1
+      "temp": 12,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 8
     },
     "days": [
       {
         "day": "Today",
         "min": 4,
-        "max": 20,
+        "max": 21,
         "icon": "⛅",
         "desc": "Partly cloudy",
         "rain": 0
       },
       {
         "day": "Tue",
-        "min": 10,
+        "min": 11,
         "max": 25,
         "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 33
+        "desc": "Drizzle",
+        "rain": 31
       },
       {
         "day": "Wed",
-        "min": 9,
-        "max": 18,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 12
+        "min": 10,
+        "max": 20,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 10
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 109321.0,
-        "pct": -0.7
+        "price": 107320.0,
+        "pct": -2.78
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3120.09,
-        "pct": -3.89
+        "price": 3051.65,
+        "pct": -6.16
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Microdrama Makers From Turkey and Japan Bet on Emotional Hooks and Infuriating Villains at Taiwan Creative Content Fest",
+      "title": "Donald Trump Says He Was ‘Kidding’ About Making Dana White His Press Secretary",
       "when": "9 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/markets-festivals/microdrama-makers-turkey-japan-bet-hooks-villains-1236942844/"
+      "url": "https://variety.com/2026/politics/news/donald-trump-kidding-dana-white-press-secretary-1236942961/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Gangs of London’ Director Kim Hong-sun Shoots Korean Martial Arts Action Film ‘The Hit List’ With Jung Woo-sung, ‘Squid Game’ Star Wi Ha-jun",
+      "title": "Nicholas Denton, Hugh Bonneville and Tim Downie Board Elevated Folk Horror ‘Tragedy Man: The Making of Michael Reeves’ (EXCLUSIVE)",
       "when": "9 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/gangs-of-london-director-kim-hong-sun-korean-action-film-hit-list-1236942835/"
+      "url": "https://variety.com/2026/film/global/tragedy-man-the-making-of-michael-reeves-cast-1236942016/"
+    },
+    {
+      "cat": "Games",
+      "title": "Satisfactory: The Board Game - Last 24 hours of the campaign!",
+      "when": "9 Nov",
+      "source": "Satisfactory",
+      "url": "https://store.steampowered.com/news/app/526870/view/679640570579124608"
     },
     {
       "cat": "Film/TV",
-      "title": "Remembering Sebastián Lelio, an Auteur Who Centered Women’s Stories With Style and Sensitivity",
+      "title": "Jeff Goldblum, John Turturro, Rian Johnson and More Set for Marrakech Film Festival Conversations",
       "when": "9 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/remembering-sebastian-lelio-1236942425/"
+      "url": "https://variety.com/2026/film/global/jeff-goldblum-john-turturro-marrakech-conversations-1236942335/"
     },
     {
       "cat": "Film/TV",
-      "title": "Trump on ’60 Minutes’ Reflects on Midterm Loss, Death and Forgiveness: ‘I Do Hate Some of My Enemies’",
+      "title": "Anthony Chen-Produced ‘Somewhere in the South’ Wins Top Prize at Taiwan Creative Content Fest Pitching Awards, ‘Reunion Dinner’ Takes Three",
       "when": "9 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/news/trump-60-minutes-midterms-death-forgiveness-enemies-1236942778/"
+      "url": "https://variety.com/2026/film/markets-festivals/anthony-chen-somewhere-in-the-south-taiwan-pitch-award-1236942939/"
     },
     {
       "cat": "Trek/Wars",
@@ -160,27 +167,20 @@
       "when": "29 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/29/remembering-star-trek-the-next-generations-patrick-stewart/"
-    },
-    {
-      "cat": "Games",
-      "title": "Satisfactory: The board game – Campaign live now!",
-      "when": "13 Oct",
-      "source": "Satisfactory",
-      "url": "https://store.steampowered.com/news/app/526870/view/670630562731396470"
     }
   ],
   "dev": [
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "14d ago",
+      "pushed": "15d ago",
       "lang": "HTML",
       "commit": ""
     }
