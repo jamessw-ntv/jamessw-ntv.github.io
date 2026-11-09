@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-09",
-    "fetched": "2026-11-09T11:12:37+00:00",
+    "fetched": "2026-11-09T22:10:41+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 18,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 8
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
-        "min": 4,
-        "max": 21,
-        "icon": "⛅",
-        "desc": "Partly cloudy",
-        "rain": 0
-      },
-      {
-        "day": "Tue",
-        "min": 11,
-        "max": 25,
+        "min": 10,
+        "max": 26,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 31
+        "rain": 20
       },
       {
         "day": "Wed",
         "min": 10,
+        "max": 19,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 8
+      },
+      {
+        "day": "Thu",
+        "min": 8,
         "max": 20,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 10
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 0
       }
     ]
   },
@@ -72,31 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107320.0,
-        "pct": -2.78
+        "price": 108209.0,
+        "pct": 0.04
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3051.65,
-        "pct": -6.16
+        "price": 3065.28,
+        "pct": -0.56
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Donald Trump Says He Was ‘Kidding’ About Making Dana White His Press Secretary",
+      "title": "XYZ Films, CAA Media Finance Ink U.S. Deal With Samuel Goldwyn Films for Dark Comedy ‘Kill Me’ Starring Charlie Day and Allison Williams (EXCLUSIVE)",
       "when": "9 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/news/donald-trump-kidding-dana-white-press-secretary-1236942961/"
+      "url": "https://variety.com/2026/film/news/xyz-films-rights-kill-me-charlie-day-allison-williams-1236943468/"
     },
     {
       "cat": "Film/TV",
-      "title": "Nicholas Denton, Hugh Bonneville and Tim Downie Board Elevated Folk Horror ‘Tragedy Man: The Making of Michael Reeves’ (EXCLUSIVE)",
+      "title": "Skydance Q3 Profit Powered By Studios, Streaming",
       "when": "9 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/tragedy-man-the-making-of-michael-reeves-cast-1236942016/"
+      "url": "https://variety.com/2026/tv/news/skydance-q3-profit-studios-streaming-1236943416/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "AMC Global Media Takes $2.1 Million Hit Amid ALLBLK Streamer Sale, Content Licensing Revenue Up 42% in Q3",
+      "when": "9 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/amc-networks-allblk-sale-q3-earnings-1236943399/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘GTA 6’ Presales ‘Far in Excess’ of Expectations Ahead of Next Week’s Launch, Take-Two CEO Says",
+      "when": "9 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/gaming/news/gta-6-preorders-expectations-launch-1236943278/"
     },
     {
       "cat": "Games",
@@ -104,20 +118,6 @@
       "when": "9 Nov",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/679640570579124608"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Jeff Goldblum, John Turturro, Rian Johnson and More Set for Marrakech Film Festival Conversations",
-      "when": "9 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/jeff-goldblum-john-turturro-marrakech-conversations-1236942335/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Anthony Chen-Produced ‘Somewhere in the South’ Wins Top Prize at Taiwan Creative Content Fest Pitching Awards, ‘Reunion Dinner’ Takes Three",
-      "when": "9 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/anthony-chen-somewhere-in-the-south-taiwan-pitch-award-1236942939/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "8h ago",
+      "pushed": "10h ago",
       "lang": "HTML",
       "commit": ""
     },
