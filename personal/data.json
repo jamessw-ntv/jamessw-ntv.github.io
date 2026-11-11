@@ -3,29 +3,21 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-11",
-    "fetched": "2026-11-11T09:07:57+00:00",
+    "fetched": "2026-11-11T17:48:59+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
+      "temp": 8,
       "icon": "☀️",
       "desc": "Clear",
-      "wind": 10
+      "wind": 4
     },
     "days": [
       {
         "day": "Today",
-        "min": 10,
-        "max": 19,
-        "icon": "🌫️",
-        "desc": "Fog",
-        "rain": 5
-      },
-      {
-        "day": "Thu",
-        "min": 7,
+        "min": 8,
         "max": 20,
         "icon": "☁️",
         "desc": "Overcast",
@@ -33,11 +25,19 @@
       },
       {
         "day": "Fri",
-        "min": 10,
-        "max": 19,
+        "min": 11,
+        "max": 20,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 75
+      },
+      {
+        "day": "Sat",
+        "min": 11,
+        "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 51
+        "rain": 61
       }
     ]
   },
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107386.0,
-        "pct": -0.05
+        "price": 108766.0,
+        "pct": 2.14
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2998.23,
-        "pct": -1.34
+        "price": 3052.98,
+        "pct": 3.51
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘NAZA’ From ‘No Other Land’ Co-Directors Passes 1.5 Million Cinema Admissions Worldwide",
+      "title": "Russell Brand’s Pubic Hair Removed From London Museum After Rape Conviction, Curator Says ‘I Have No Desire to Hear His Name Again’",
       "when": "11 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/naza-no-other-land-cinema-admissions-1236944995/"
+      "url": "https://variety.com/2026/global/news/russell-brands-pubic-hair-london-museum-removed-1236945231/"
     },
     {
       "cat": "Film/TV",
-      "title": "Netflix’s Genre-Bending YA Drama ‘The Body’ Is a Queer Y2K Extravaganza: TV Review",
+      "title": "’Unguarded,’ Mario Casas’ Second Movie as a Director, Starring Mario and Oscar Casas, Joins Film Factory’s AFM Slate",
       "when": "11 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/the-body-review-netflix-1236943535/"
+      "url": "https://variety.com/2026/film/global/unguarded-mario-casas-oscar-casas-film-factory-nostromo-1236944445/"
     },
     {
       "cat": "Film/TV",
-      "title": "ITV’s Sale to Sky ‘Progressing as Planned’ as Broadcaster Cuts Fourth-Quarter Content Spend Amid U.K. Ad Slump",
+      "title": "‘Avengers: Endgame Encore’ Sets Disney+ Streaming Release Date",
       "when": "11 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/itv-sky-sale-progressing-cuts-q4-content-spend-1236944980/"
+      "url": "https://variety.com/2026/film/news/avengers-endgame-encore-disney-streaming-release-date-1236821013/"
     },
     {
       "cat": "Film/TV",
-      "title": "Dua Lipa, Tame Impala and SZA to Headline Coachella 2027",
+      "title": "Judge Refuses to Dismiss Trump’s $10 Billion Defamation Suit Against BBC",
       "when": "11 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/dua-lipa-tame-impala-sza-to-headline-coachella-2027-1236944962/"
+      "url": "https://variety.com/2026/politics/news/trump-bbc-defamation-suit-dismiss-1236944785/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Disney Brings 3D ‘Star Wars’ Viewing to Meta Quest and Meta VR Glasses",
+      "when": "11 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/disney-brings-3d-star-wars-viewing-to-meta-quest-and-meta-vr-glasses.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Witness Starfleet On Starfleet Violence In ‘Star Trek: Red Shirts – Ghost of the 21st Century’ #4 Preview",
+      "when": "11 Nov",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/11/11/witness-starfleet-on-starfleet-violence-in-star-trek-red-shirts-ghost-of-the-21st-century-4-preview/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +139,6 @@
       "when": "10 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/kelleran-beq-star-wars-character-spotlight.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Adam Driver Confirms He Is Done With ‘Star Wars’",
-      "when": "10 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/adam-driver-confirms-he-is-done-with-star-wars.html"
     },
     {
       "cat": "Games",
@@ -160,20 +167,13 @@
       "when": "30 Oct",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/10/30/podcast-all-access-remembers-star-trek-icons-walter-koenig-and-patrick-stewart/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Remembering Star Trek: The Next Generation’s Patrick Stewart",
-      "when": "29 Oct",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/10/29/remembering-star-trek-the-next-generations-patrick-stewart/"
     }
   ],
   "dev": [
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     },
