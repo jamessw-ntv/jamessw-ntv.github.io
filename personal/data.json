@@ -3,29 +3,29 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-11",
-    "fetched": "2026-11-11T01:09:15+00:00",
+    "fetched": "2026-11-11T09:07:57+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 14
+      "temp": 13,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
         "min": 10,
-        "max": 20,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "max": 19,
+        "icon": "🌫️",
+        "desc": "Fog",
         "rain": 5
       },
       {
         "day": "Thu",
-        "min": 8,
+        "min": 7,
         "max": 20,
         "icon": "☁️",
         "desc": "Overcast",
@@ -33,11 +33,11 @@
       },
       {
         "day": "Fri",
-        "min": 11,
-        "max": 20,
+        "min": 10,
+        "max": 19,
         "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 57
+        "desc": "Drizzle",
+        "rain": 51
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 106789.0,
-        "pct": -1.64
+        "price": 107386.0,
+        "pct": -0.05
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2975.09,
-        "pct": -3.24
+        "price": 2998.23,
+        "pct": -1.34
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Stacy Keach, Star of ‘Mike Hammer,’ ‘Fat City,’ Dies at 85",
+      "title": "‘NAZA’ From ‘No Other Land’ Co-Directors Passes 1.5 Million Cinema Admissions Worldwide",
       "when": "11 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/stacy-keach-dead-mike-hammer-fat-city-1236944687/"
+      "url": "https://variety.com/2026/film/news/naza-no-other-land-cinema-admissions-1236944995/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Risa and the Wind Phone’ Wins Audience Award at Miami Film Festival Gems – Film News in Brief",
+      "title": "Netflix’s Genre-Bending YA Drama ‘The Body’ Is a Queer Y2K Extravaganza: TV Review",
       "when": "11 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/film-news-in-brief-nov-9-2026-1236943218/"
+      "url": "https://variety.com/2026/tv/reviews/the-body-review-netflix-1236943535/"
     },
     {
       "cat": "Film/TV",
-      "title": "Elliot Frances Flynn and Michael Paré to Star in Indie Supernatural Horror ‘Not Herself’ (EXCLUSIVE)",
-      "when": "10 Nov",
+      "title": "ITV’s Sale to Sky ‘Progressing as Planned’ as Broadcaster Cuts Fourth-Quarter Content Spend Amid U.K. Ad Slump",
+      "when": "11 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/elliot-frances-flynn-michael-pare-indie-horror-not-herself-1236944287/"
+      "url": "https://variety.com/2026/tv/news/itv-sky-sale-progressing-cuts-q4-content-spend-1236944980/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bay Theater in Pacific Palisades Reopens Friday With ‘Ebenezer’",
-      "when": "10 Nov",
+      "title": "Dua Lipa, Tame Impala and SZA to Headline Coachella 2027",
+      "when": "11 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/bay-theater-pacific-palisades-reopens-ebenezer-1236944443/"
+      "url": "https://variety.com/2026/music/news/dua-lipa-tame-impala-sza-to-headline-coachella-2027-1236944962/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "16d ago",
+      "pushed": "17d ago",
       "lang": "HTML",
       "commit": ""
     }
