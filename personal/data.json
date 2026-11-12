@@ -3,24 +3,24 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-12",
-    "fetched": "2026-11-12T16:45:35+00:00",
+    "fetched": "2026-11-12T22:39:53+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
+      "temp": 13,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 7
+      "wind": 6
     },
     "days": [
       {
         "day": "Today",
-        "min": 11,
-        "max": 18,
+        "min": 12,
+        "max": 20,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 71
       },
       {
@@ -28,13 +28,13 @@
         "min": 12,
         "max": 16,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 95
       },
       {
         "day": "Sun",
         "min": 8,
-        "max": 15,
+        "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 69
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 105015.0,
-        "pct": -2.99
+        "price": 104850.0,
+        "pct": -3.15
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2937.06,
-        "pct": -2.93
+        "price": 2951.86,
+        "pct": -2.02
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Dan Hicks, Longtime NBC Sports Broadcaster and Voice of Olympic Swimming, Dies at 64",
+      "title": "Arnold Schwarzenegger Explains to Jimmy Kimmel Why He’s ‘Absolutely’ Still a Republican After the Blue ‘Tsunami’ Midterms",
       "when": "12 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/dan-hicks-dead-nbc-olympics-broadcaster-1236946251/"
+      "url": "https://variety.com/2026/film/news/arnold-schwarzenegger-still-republican-jimmy-kimmel-1236946636/"
     },
     {
       "cat": "Film/TV",
-      "title": "We’re Dangerously Close to Another #OscarsSoWhite Year. Can Zendaya, Colman Domingo, Pedro Pascal and More Prevent It?",
+      "title": "Aspyn Ovard on Her Divorce, Being in a Throuple and Joining ‘The Secret Lives of Mormon Wives’ Universe: ‘I Hope People Can Understand Me a Little Bit Better’",
       "when": "12 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/scars-so-white-2027-predictions-actors-diversity-1236945645/"
+      "url": "https://variety.com/2026/tv/news/aspyn-ovard-secret-lives-mormon-wives-divorce-cancer-throuple-1236945276/"
     },
     {
       "cat": "Film/TV",
-      "title": "Gal Gadot Says Skydance Co-CEO Ynon Kreiz ‘Gives Me Hope’ Against Antisemitism: ‘I’m Frightened by How Quickly Hatred of Jews Is Spreading’",
+      "title": "‘La Bola Negra’ Creatives Faced a Ticking Clock to Finish the Film for Cannes, But Waiting for Snow Almost Kept the Ending From Being Shot",
       "when": "12 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/gal-gadot-ynon-kreiz-antisemitism-jewish-hatred-spreading-1236946059/"
+      "url": "https://variety.com/2026/film/news/la-bola-negra-editor-raced-to-finish-snow-1236946562/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hong Sangsoo’s ‘The Day She Returns’ Sets U.S. Release With ‘The Day He Arrives’ Double Bill, Unveils Trailer (EXCLUSIVE)",
+      "title": "‘Avatar: Seven Havens’ Sets Season 2 Release Date at Paramount+",
       "when": "12 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hong-sangsoo-day-she-returns-us-release-double-bill-1236945052/"
+      "url": "https://variety.com/2026/tv/news/avatar-seven-havens-season-2-release-date-paramount-plus-1236946366/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘Star Wars X-Wing: Starfighters of Adumar’ Audiobook Brings an Embellished Reading to a Beloved Legends Novel",
+      "when": "12 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/review-star-wars-x-wing-starfighters-of-adumar-audiobook-brings-an-embellished-reading-to-a-beloved-legends-novel.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review: ‘The Book Of Boba Fett’ #5 Begins the Din Djarin Takeover",
+      "when": "12 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/review-the-book-of-boba-fett-5-begins-the-din-djarin-takeover.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,20 +139,6 @@
       "when": "11 Nov",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/11/11/spocks-and-a-dominion-bundle-star-trek-online-gets-content-drops-on-pc-consoles/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Disney Parks Opens Surprise Public Testing for New ‘Star Wars: Galaxy’s Edge’ AR Games and Park Experiences",
-      "when": "11 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/disney-parks-opens-surprise-public-testing-for-new-star-wars-galaxys-edge-ar-games-and-park-experiences.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Disney Brings 3D ‘Star Wars’ Viewing to Meta Quest and Meta VR Glasses",
-      "when": "11 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/disney-brings-3d-star-wars-viewing-to-meta-quest-and-meta-vr-glasses.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "8h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     },
