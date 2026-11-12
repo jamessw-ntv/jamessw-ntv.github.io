@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-12",
-    "fetched": "2026-11-12T08:07:22+00:00",
+    "fetched": "2026-11-12T16:45:35+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 17,
-      "icon": "🌤️",
-      "desc": "Mainly clear",
-      "wind": 12
+      "temp": 12,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 7
     },
     "days": [
       {
         "day": "Today",
-        "min": 8,
-        "max": 21,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Fri",
         "min": 11,
         "max": 18,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 84
+        "rain": 71
       },
       {
         "day": "Sat",
         "min": 12,
         "max": 16,
         "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 95
+      },
+      {
+        "day": "Sun",
+        "min": 8,
+        "max": 15,
+        "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 65
+        "rain": 69
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 107854.0,
-        "pct": 0.21
+        "price": 105015.0,
+        "pct": -2.99
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 3004.49,
-        "pct": -0.03
+        "price": 2937.06,
+        "pct": -2.93
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Berlusconi Family’s ProSiebenSat.1 Earnings Surge on Cost Cuts as TV Advertising Slump Drags Revenue",
+      "title": "Dan Hicks, Longtime NBC Sports Broadcaster and Voice of Olympic Swimming, Dies at 64",
       "when": "12 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/berlusconi-family-prosiebensat1-profits-surge-tv-ad-slump-1236945906/"
+      "url": "https://variety.com/2026/tv/news/dan-hicks-dead-nbc-olympics-broadcaster-1236946251/"
     },
     {
       "cat": "Film/TV",
-      "title": "EbonyLife Group, Logical African Partners Launch $50 Million Fund to Support African Cinema (EXCLUSIVE)",
+      "title": "We’re Dangerously Close to Another #OscarsSoWhite Year. Can Zendaya, Colman Domingo, Pedro Pascal and More Prevent It?",
       "when": "12 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/ebonylife-group-logical-african-partners-50-million-fund-1236943902/"
+      "url": "https://variety.com/2026/film/awards/scars-so-white-2027-predictions-actors-diversity-1236945645/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jazz Documentary ‘Tokyo in 33 RPM’ Unveiled Ahead of India’s WAVES Film Bazaar (EXCLUSIVE)",
+      "title": "Gal Gadot Says Skydance Co-CEO Ynon Kreiz ‘Gives Me Hope’ Against Antisemitism: ‘I’m Frightened by How Quickly Hatred of Jews Is Spreading’",
       "when": "12 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/jazz-documentary-tokyo-in-33-rpm-unveiled-1236945240/"
+      "url": "https://variety.com/2026/film/news/gal-gadot-ynon-kreiz-antisemitism-jewish-hatred-spreading-1236946059/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘South Park’ Brings Back Craig and Tweek for ‘Heated Rivalry’-Inspired Episode to Celebrate the Blue Wave",
+      "title": "Hong Sangsoo’s ‘The Day She Returns’ Sets U.S. Release With ‘The Day He Arrives’ Double Bill, Unveils Trailer (EXCLUSIVE)",
       "when": "12 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/south-park-craig-tweek-1236945874/"
+      "url": "https://variety.com/2026/film/news/hong-sangsoo-day-she-returns-us-release-double-bill-1236945052/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: A New Hope’ 50th Anniversary Re-release Gets Brand New Poster, New Behind the Scenes Doc ‘The Hero Awakens’ Coming To Disney Plus on May 4",
+      "when": "12 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-a-new-hope-50th-anniversary-re-release-gets-brand-new-poster-new-behind-the-scenes-doc-the-hero-awakens-coming-to-disney-plus-on-may-4.html"
     },
     {
       "cat": "Trek/Wars",
@@ -141,13 +148,6 @@
       "url": "https://trekmovie.com/2026/11/11/witness-starfleet-on-starfleet-violence-in-star-trek-red-shirts-ghost-of-the-21st-century-4-preview/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: Adam Driver Not Coming Back to ‘Star Wars’, ‘Ahsoka’ Season 2 Press Has Started",
-      "when": "10 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/this-week-in-a-galaxy-far-far-away-adam-driver-not-coming-back-to-star-wars-ahsoka-season-2-press-has-started.html"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory: The Board Game - Last 24 hours of the campaign!",
       "when": "9 Nov",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     },
