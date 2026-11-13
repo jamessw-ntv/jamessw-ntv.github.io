@@ -3,33 +3,33 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-13",
-    "fetched": "2026-11-13T03:19:31+00:00",
+    "fetched": "2026-11-13T12:00:48+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 18,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 4
+      "temp": 15,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 2
     },
     "days": [
       {
         "day": "Today",
         "min": 12,
-        "max": 18,
+        "max": 20,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 100
       },
       {
         "day": "Sat",
         "min": 12,
         "max": 17,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 88
+        "icon": "🌧️",
+        "desc": "Rain",
+        "rain": 100
       },
       {
         "day": "Sun",
@@ -37,7 +37,7 @@
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 74
+        "rain": 80
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 102354.0,
-        "pct": -4.98
+        "price": 101958.0,
+        "pct": -4.48
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2904.94,
-        "pct": -3.12
+        "price": 2880.98,
+        "pct": -2.68
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘SVU’ Star Mariska Hargitay Breaks Down Benson and Stabler’s Complicated Reunion and Her Final Choice: ‘There Are So Many Feelings’",
+      "title": "Microsoft Says ‘No Evidence of Malicious Activity’ in Global Outage of Outlook and Exchange Email",
       "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/svu-mariska-hargitay-benson-stabler-reunion-1236945584/"
+      "url": "https://variety.com/2026/digital/news/microsoft-outlook-email-outage-no-evidence-malicious-activity-1236946855/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Body’ Creator on the Dance Team’s Sexuality, What Happened to Grace and Whether God Is Real",
+      "title": "How the Baltics Are Juggling a Boom in Foreign Productions Like ‘Woman Unknown’ With a Lack of Public Funds",
       "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/the-body-finale-sexuality-grace-god-1236946216/"
+      "url": "https://variety.com/2026/film/global/woman-unknown-star-city-baltics-foreign-shoots-boom-1236946177/"
     },
     {
       "cat": "Film/TV",
-      "title": "Laika’s ‘Wildwood’ Passes $60 Million Worldwide (EXCLUSIVE)",
+      "title": "Russell Brand Faces Sexual Misconduct Claims From Six More Women After Rape Sentencing",
       "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/wildwood-passes-60-million-worldwide-box-office-1236946750/"
+      "url": "https://variety.com/2026/tv/news/russell-brand-misconduct-claims-six-more-women-1236946823/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Witcher’ Star Freya Allan to Lead Joachim Rønning’s Horror Movie ‘System’ (EXCLUSIVE)",
+      "title": "‘Heartland’ Review: Jessica Chastain Rocks a Stetson and a Swagger for a Soapy Nashville Noir",
       "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/freya-allan-horror-movie-system-joachim-ronning-1236946732/"
+      "url": "https://variety.com/2026/film/news/heartland-review-jessica-chastain-1236946587/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "18d ago",
+      "pushed": "19d ago",
       "lang": "HTML",
       "commit": ""
     }
