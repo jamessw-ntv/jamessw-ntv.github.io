@@ -2,42 +2,42 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-12",
-    "fetched": "2026-11-12T22:39:53+00:00",
+    "updated": "2026-11-13",
+    "fetched": "2026-11-13T03:19:31+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
+      "temp": 18,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 6
+      "wind": 4
     },
     "days": [
       {
         "day": "Today",
         "min": 12,
-        "max": 20,
+        "max": 18,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 71
+        "rain": 100
       },
       {
         "day": "Sat",
         "min": 12,
-        "max": 16,
+        "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 95
+        "rain": 88
       },
       {
         "day": "Sun",
-        "min": 8,
+        "min": 9,
         "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 69
+        "rain": 74
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 104850.0,
-        "pct": -3.15
+        "price": 102354.0,
+        "pct": -4.98
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2951.86,
-        "pct": -2.02
+        "price": 2904.94,
+        "pct": -3.12
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Arnold Schwarzenegger Explains to Jimmy Kimmel Why He’s ‘Absolutely’ Still a Republican After the Blue ‘Tsunami’ Midterms",
-      "when": "12 Nov",
+      "title": "‘SVU’ Star Mariska Hargitay Breaks Down Benson and Stabler’s Complicated Reunion and Her Final Choice: ‘There Are So Many Feelings’",
+      "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/arnold-schwarzenegger-still-republican-jimmy-kimmel-1236946636/"
+      "url": "https://variety.com/2026/tv/news/svu-mariska-hargitay-benson-stabler-reunion-1236945584/"
     },
     {
       "cat": "Film/TV",
-      "title": "Aspyn Ovard on Her Divorce, Being in a Throuple and Joining ‘The Secret Lives of Mormon Wives’ Universe: ‘I Hope People Can Understand Me a Little Bit Better’",
-      "when": "12 Nov",
+      "title": "‘The Body’ Creator on the Dance Team’s Sexuality, What Happened to Grace and Whether God Is Real",
+      "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/aspyn-ovard-secret-lives-mormon-wives-divorce-cancer-throuple-1236945276/"
+      "url": "https://variety.com/2026/tv/news/the-body-finale-sexuality-grace-god-1236946216/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘La Bola Negra’ Creatives Faced a Ticking Clock to Finish the Film for Cannes, But Waiting for Snow Almost Kept the Ending From Being Shot",
-      "when": "12 Nov",
+      "title": "Laika’s ‘Wildwood’ Passes $60 Million Worldwide (EXCLUSIVE)",
+      "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/la-bola-negra-editor-raced-to-finish-snow-1236946562/"
+      "url": "https://variety.com/2026/film/global/wildwood-passes-60-million-worldwide-box-office-1236946750/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Avatar: Seven Havens’ Sets Season 2 Release Date at Paramount+",
-      "when": "12 Nov",
+      "title": "‘The Witcher’ Star Freya Allan to Lead Joachim Rønning’s Horror Movie ‘System’ (EXCLUSIVE)",
+      "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/avatar-seven-havens-season-2-release-date-paramount-plus-1236946366/"
+      "url": "https://variety.com/2026/film/global/freya-allan-horror-movie-system-joachim-ronning-1236946732/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     },
