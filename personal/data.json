@@ -3,28 +3,20 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-14",
-    "fetched": "2026-11-14T07:29:42+00:00",
+    "fetched": "2026-11-14T14:54:49+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 13
+      "temp": 10,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 0
     },
     "days": [
       {
         "day": "Today",
-        "min": 12,
-        "max": 17,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 100
-      },
-      {
-        "day": "Sun",
         "min": 8,
         "max": 15,
         "icon": "🌦️",
@@ -33,11 +25,19 @@
       },
       {
         "day": "Mon",
-        "min": 7,
+        "min": 6,
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 10
+      },
+      {
+        "day": "Tue",
+        "min": 6,
+        "max": 16,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 2
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 99229.0,
-        "pct": -2.3
+        "price": 97208.0,
+        "pct": -4.22
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2800.96,
-        "pct": -1.98
+        "price": 2727.32,
+        "pct": -4.95
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Amid Flight Stop, Ari Emanuel Slams Pete Buttigieg for Making ‘Zero Progress’ Modernizing FAA: ‘You Left a Failing System in Place’",
+      "title": "How ‘Law & Order: SVU’ Pulled Off the Impossible With Latest Milestone: ‘It Will Never Happen Again’",
       "when": "14 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/politics/news/ari-emanuel-slams-pete-buttigieg-zero-progress-faa-1236947542/"
+      "url": "https://variety.com/2026/tv/news/law-and-order-svu-600th-episode-1236947263/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Microsoft Adds 11 Retro ‘Star Wars’ Games to PC for Xbox Backwards Compatibility Project",
+      "when": "14 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/microsoft-adds-11-retro-star-wars-games-to-pc-for-xbox-backwards-compatibility-project.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Michael Mann Seeks to Reclaim Rights to Original ‘Heat’ Screenplay",
+      "title": "Venice Prizewinner ‘A Day in the Life of Jo’ Explores ‘Who and What We Truly Are’ Through Emotional Journey of Ordinary, Remarkable Teenage Girl",
       "when": "14 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/michael-mann-new-regency-heat-screenplay-lawsuit-1236947532/"
+      "url": "https://variety.com/2026/film/global/venice-prizewinner-a-day-in-the-life-of-jo-teenage-girl-1236947632/"
     },
     {
       "cat": "Film/TV",
-      "title": "AFM Dealmakers, Talent Agents and Hollywood Stars Left Stranded by Nationwide Flight Stoppage",
+      "title": "Nike Drops New Air Jordan 11 Retro ‘Green Screen’ Sneakers: Here’s Where To Buy a Pair Online",
       "when": "14 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/agents-stars-stranded-flight-stoppage-afm-governors-awards-1236947477/"
+      "url": "https://variety.com/2026/shopping/news/shop-nike-air-jordan-11-retro-green-screen-sneakers-online-1236946508/"
     },
     {
       "cat": "Film/TV",
-      "title": "Kamal Khera Named New Canadian Consul General In Los Angeles, Will Meet With Studios",
+      "title": "‘Hen’ Review: A Resilient Chicken Flies the Coop, Over and Over, in an Unexpectedly Stirring Survival Story",
       "when": "14 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/kamal-khera-canadian-consul-general-los-angeles-1236947219/"
+      "url": "https://variety.com/2026/film/news/hen-review-1236947197/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "13 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/50th-anniversary-star-wars-toy-collection-unveiled.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘Star Wars X-Wing: Isard’s Revenge’ Audiobook Begins a New Chapter for Rogue Squadron",
-      "when": "13 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/review-star-wars-x-wing-isards-revenge-audiobook-begins-a-new-chapter-for-rogue-squadron.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     },
