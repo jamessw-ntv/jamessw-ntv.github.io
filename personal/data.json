@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-14",
-    "fetched": "2026-11-14T00:49:22+00:00",
+    "fetched": "2026-11-14T07:29:42+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -12,7 +12,7 @@
       "temp": 15,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 11
+      "wind": 13
     },
     "days": [
       {
@@ -34,7 +34,7 @@
       {
         "day": "Mon",
         "min": 7,
-        "max": 13,
+        "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 10
@@ -72,38 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 100827.0,
-        "pct": -3.46
+        "price": 99229.0,
+        "pct": -2.3
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2849.98,
-        "pct": -3.47
+        "price": 2800.96,
+        "pct": -1.98
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Jason Voorhees Makes His Animated Debut in New ‘Never Hike Alone’ Short",
-      "when": "13 Nov",
+      "title": "Amid Flight Stop, Ari Emanuel Slams Pete Buttigieg for Making ‘Zero Progress’ Modernizing FAA: ‘You Left a Failing System in Place’",
+      "when": "14 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/digital/news/jason-voorhees-animated-debut-hike-alone-short-1236947225/"
+      "url": "https://variety.com/2026/politics/news/ari-emanuel-slams-pete-buttigieg-zero-progress-faa-1236947542/"
     },
     {
       "cat": "Film/TV",
-      "title": "Trump Hasn’t Commented on Nationwide Flight Shutdown, But He’s Promoting the Federal Film Incentive",
-      "when": "13 Nov",
+      "title": "Michael Mann Seeks to Reclaim Rights to Original ‘Heat’ Screenplay",
+      "when": "14 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/trump-hasnt-commented-flight-shutdown-promoting-film-incentive-1236947426/"
+      "url": "https://variety.com/2026/film/news/michael-mann-new-regency-heat-screenplay-lawsuit-1236947532/"
     },
     {
       "cat": "Film/TV",
-      "title": "Seth Rogen on ‘The Invite,’ ‘Tangles,’ ‘The Studio’ Season 2, Reviving ‘Darkwing Duck’ and Why ‘Any A–hole Can Write That Joke’ Was the Best Advice He Ever Got",
-      "when": "13 Nov",
+      "title": "AFM Dealmakers, Talent Agents and Hollywood Stars Left Stranded by Nationwide Flight Stoppage",
+      "when": "14 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/seth-rogen-the-invite-tangles-the-studio-season-2-1236946538/"
+      "url": "https://variety.com/2026/film/news/agents-stars-stranded-flight-stoppage-afm-governors-awards-1236947477/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Kamal Khera Named New Canadian Consul General In Los Angeles, Will Meet With Studios",
+      "when": "14 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/biz/news/kamal-khera-canadian-consul-general-los-angeles-1236947219/"
     },
     {
       "cat": "Trek/Wars",
@@ -111,13 +118,6 @@
       "when": "13 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-galactic-racer-has-sold-over-1-5-million-copies.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "JB Smoove Talks Creativity and Fighting AI Fears, Evan Shapiro Breaks Down the Digital Entertainment Economy at Variety’s Business Managers Breakfast",
-      "when": "13 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/business-managers-variety-jb-smoove-shapiro-arnie-herrmann-1236947175/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "19d ago",
+      "pushed": "20d ago",
       "lang": "HTML",
       "commit": ""
     }
