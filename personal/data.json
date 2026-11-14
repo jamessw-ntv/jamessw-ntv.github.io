@@ -3,29 +3,29 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-14",
-    "fetched": "2026-11-14T19:50:35+00:00",
+    "fetched": "2026-11-14T23:47:01+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 10,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 8
+      "temp": 13,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 12
     },
     "days": [
       {
         "day": "Today",
         "min": 8,
-        "max": 15,
+        "max": 16,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 80
       },
       {
         "day": "Mon",
-        "min": 6,
+        "min": 7,
         "max": 14,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 96914.0,
-        "pct": -4.74
+        "price": 93876.0,
+        "pct": -6.65
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2704.51,
-        "pct": -5.92
+        "price": 2581.15,
+        "pct": -9.09
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Dawn Greenhalgh, Canadian Stage Veteran Who Voiced the Queen in ‘Babar,’ Dies at 93",
+      "title": "Inside the First AI Music Awards, a Chaotic Evening Attempting to Normalize Tech-Assisted Tunes",
       "when": "14 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/legit/news/dawn-greenhalgh-dead-queen-celeste-babar-1236947732/"
+      "url": "https://variety.com/2026/music/features/inside-first-ai-music-awards-sonic-intelligence-academy-1236947847/"
     },
     {
       "cat": "Film/TV",
-      "title": "Journey Announces Drummer Deen Castronovo Is Exiting Band, Days After Another Health Scare Forced His Second Mid-Show Departure",
+      "title": "Chris Pratt Says He ‘Would Love’ James Gunn to Direct a Fourth ‘Guardians of the Galaxy’ Film After DC Exit",
       "when": "14 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/journey-drummer-deen-castronovo-exits-band-health-scare-1236947754/"
+      "url": "https://variety.com/2026/film/news/chris-pratt-james-gunn-guardians-of-the-galaxy-4-dc-exit-1236947808/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Good Daughter’ Stars Rose Byrne and Meghann Fahy on Playing Sisters With Secrets and That Twisty Killer Ending",
+      "title": "Philippines Wins Inaugural Eurovision Song Contest Asia in Thailand",
       "when": "14 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/the-good-daughter-spoilers-rose-byrne-meghann-fahy-season-finale-1236945641/"
+      "url": "https://variety.com/2026/tv/global/philippines-wins-eurovision-song-contest-asia-carmelle-1236947812/"
     },
     {
       "cat": "Film/TV",
-      "title": "Skip Hinnant, ‘The Electric Company’ Actor and Voice of Ralph Bakshi’s ‘Fritz the Cat’ Movies, Dies at 86",
+      "title": "Is ‘Club Kid’ a ‘Conservative’ Movie? Only If You’re Still Living in the ’60s",
       "when": "14 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/skip-hinnant-dead-electric-company-fritz-the-cat-bakshi-1236947741/"
+      "url": "https://variety.com/2026/film/columns/is-club-kid-a-conservative-movie-jordan-firstman-1236947691/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     },
