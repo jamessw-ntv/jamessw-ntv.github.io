@@ -2,42 +2,42 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-13",
-    "fetched": "2026-11-13T19:28:14+00:00",
+    "updated": "2026-11-14",
+    "fetched": "2026-11-14T00:49:22+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 15,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 2
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
         "min": 12,
-        "max": 20,
+        "max": 17,
         "icon": "🌦️",
         "desc": "Showers",
         "rain": 100
       },
       {
-        "day": "Sat",
-        "min": 12,
-        "max": 17,
-        "icon": "🌧️",
-        "desc": "Rain",
-        "rain": 100
-      },
-      {
         "day": "Sun",
-        "min": 9,
-        "max": 16,
+        "min": 8,
+        "max": 15,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 80
+      },
+      {
+        "day": "Mon",
+        "min": 7,
+        "max": 13,
+        "icon": "☁️",
+        "desc": "Overcast",
+        "rain": 10
       }
     ]
   },
@@ -72,66 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 101841.0,
-        "pct": -3.13
+        "price": 100827.0,
+        "pct": -3.46
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2876.61,
-        "pct": -2.72
+        "price": 2849.98,
+        "pct": -3.47
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Netflix’s ‘Magic the Gathering’ Animated Series Drops First Look at ‘Planeswalker,’ Set for 2027",
+      "title": "Jason Voorhees Makes His Animated Debut in New ‘Never Hike Alone’ Short",
       "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/netflix-magic-the-gathering-series-planeswalker-first-look-1236947203/"
+      "url": "https://variety.com/2026/digital/news/jason-voorhees-animated-debut-hike-alone-short-1236947225/"
     },
     {
       "cat": "Film/TV",
-      "title": "Margot Robbie to Star in A24’s ‘The Week of Pain’ From ‘The Drama’ Director Kristoffer Borgli",
+      "title": "Trump Hasn’t Commented on Nationwide Flight Shutdown, But He’s Promoting the Federal Film Incentive",
       "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/margot-robbie-a24-the-week-of-pain-kristoffer-borgli-1236947188/"
+      "url": "https://variety.com/2026/film/news/trump-hasnt-commented-flight-shutdown-promoting-film-incentive-1236947426/"
     },
     {
       "cat": "Film/TV",
-      "title": "Nearly 80% of Surveyed ACE Editors Are Using AI, New Data Finds: ‘You Adapt or Die’",
+      "title": "Seth Rogen on ‘The Invite,’ ‘Tangles,’ ‘The Studio’ Season 2, Reviving ‘Darkwing Duck’ and Why ‘Any A–hole Can Write That Joke’ Was the Best Advice He Ever Got",
       "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/surveyed-ace-editors-using-ai-avid-data-finds-1236947004/"
+      "url": "https://variety.com/2026/film/awards/seth-rogen-the-invite-tangles-the-studio-season-2-1236946538/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Galactic Racer’ Has Sold Over 1.5 Million Copies",
+      "when": "13 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-galactic-racer-has-sold-over-1-5-million-copies.html"
     },
     {
       "cat": "Film/TV",
-      "title": "TV Academy Cancels Televerse for 2027 Emmy Season; Festival Will Return in Early 2028",
+      "title": "JB Smoove Talks Creativity and Fighting AI Fears, Evan Shapiro Breaks Down the Digital Entertainment Economy at Variety’s Business Managers Breakfast",
       "when": "13 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/tv-academy-cancels-televerse-2027-emmy-season-return-2028-1236947153/"
+      "url": "https://variety.com/2026/biz/news/business-managers-variety-jb-smoove-shapiro-arnie-herrmann-1236947175/"
     },
     {
       "cat": "Trek/Wars",
-      "title": "‘A New Hope’ Re-Release Completes Trilogy of Outstanding Posters by Matt Ferguson",
+      "title": "50th Anniversary ‘Star Wars’ Toy Collection Unveiled",
       "when": "13 Nov",
       "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/a-new-hope-re-release-completes-trilogy-of-outstanding-posters-by-matt-ferguson.html"
+      "url": "https://www.starwarsnewsnet.com/2026/11/50th-anniversary-star-wars-toy-collection-unveiled.html"
     },
     {
       "cat": "Trek/Wars",
-      "title": "Commander Pyre – ‘Star Wars’ Character Spotlight",
+      "title": "Review – ‘Star Wars X-Wing: Isard’s Revenge’ Audiobook Begins a New Chapter for Rogue Squadron",
       "when": "13 Nov",
       "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/commander-pyre-star-wars-character-spotlight.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘Star Wars X-Wing: Starfighters of Adumar’ Audiobook Brings an Embellished Reading to a Beloved Legends Novel",
-      "when": "12 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/review-star-wars-x-wing-starfighters-of-adumar-audiobook-brings-an-embellished-reading-to-a-beloved-legends-novel.html"
+      "url": "https://www.starwarsnewsnet.com/2026/11/review-star-wars-x-wing-isards-revenge-audiobook-begins-a-new-chapter-for-rogue-squadron.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "5h ago",
       "lang": "HTML",
       "commit": ""
     },
