@@ -3,29 +3,29 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-15",
-    "fetched": "2026-11-15T19:39:41+00:00",
+    "fetched": "2026-11-15T23:53:04+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 7,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 6
+      "temp": 13,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
         "min": 6,
-        "max": 14,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 10
       },
       {
         "day": "Tue",
-        "min": 7,
+        "min": 6,
         "max": 16,
         "icon": "☁️",
         "desc": "Overcast",
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 95580.0,
-        "pct": -1.33
+        "price": 96309.0,
+        "pct": 1.75
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2686.26,
-        "pct": -0.57
+        "price": 2707.54,
+        "pct": 3.71
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Phil Collins Says He’s a ‘Well Man’ Now and Hints at the ‘Possibility of Doing Some Shows’ Amid Health Battle: ‘You Haven’t Heard the Last of Me’",
+      "title": "‘Avengers: Doomsday’ Including the Original X-Men ‘Just Felt Right,’ Says Kevin Feige: It’s a ‘Fun Way to Culminate’ 25 Years",
       "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/phil-collins-rock-roll-hall-of-fame-induction-health-1236948171/"
+      "url": "https://variety.com/2026/film/news/kevin-feige-original-x-men-avengers-doomsday-1236948220/"
     },
     {
       "cat": "Film/TV",
-      "title": "Box Office: Domestic Ticket Sales Up 20% From Last Year as Hollywood Awaits ‘Hunger Games’ Prequel, ‘Dune 3’ and ‘Avengers: Doomsday’",
+      "title": "Nathan Fielder Wasn’t ‘Infatuated’ With Elizabeth Holmes While Filming ‘You Can See Everything,’ Says Billy Evans: ‘I Didn’t Get The Impression for One Minute That It Was Romantic’",
       "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/box-office-domestic-ticket-sales-increase-hunger-games-dune-3-avengers-doomsday-1236948160/"
+      "url": "https://variety.com/2026/tv/news/nathan-fielder-elizabeth-holmes-billy-evans-1236948256/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Fate of the Old Republic’ Director Casey Hudson Says Game’s Development is Happening at a “Brisk Pace”",
+      "when": "15 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/fate-of-the-old-republic-director-casey-hudson-says-games-development-is-happening-at-a-brisk-pace.html"
     },
     {
       "cat": "Film/TV",
-      "title": "Rock & Roll Hall of Fame Ceremony Gets Fired Up With Live-Wire Numbers From U2, the Chili Peppers, Usher, Cynthia Erivo, Sienna Spiro, Aerosmith and More",
+      "title": "Russell Brand Compares Rape Trial Coverage to a ‘Football Match’ in Pre-Recorded Video as His Wife Says He’s ‘Okay’ and ‘Praying’ Post-Sentencing",
       "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/rock-roll-hall-fame-induction-ceremony-2026-performances-1236948068/"
+      "url": "https://variety.com/2026/tv/news/russell-brand-rape-trial-sentencing-1236948233/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘KPop Demon Hunters’ Criterion Collection Blu-ray On Sale for 50% Off on Heels of New Tour Announcement",
+      "title": "Ben Affleck Raved About Robert Pattinson’s ‘The Odyssey’ Performance, Recalls Matt Damon: He Said ‘It Was Like Watching a Guy Run Into an Avalanche’",
       "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/kpop-demon-criterion-blu-ray-buy-online-1236759288/"
+      "url": "https://variety.com/2026/film/news/ben-affleck-robert-pattinson-the-odyssey-1236948199/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "14 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/microsoft-adds-11-retro-star-wars-games-to-pc-for-xbox-backwards-compatibility-project.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars: Galactic Racer’ Has Sold Over 1.5 Million Copies",
-      "when": "13 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-galactic-racer-has-sold-over-1-5-million-copies.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "4h ago",
       "lang": "HTML",
       "commit": ""
     },
