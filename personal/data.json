@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-14",
-    "fetched": "2026-11-14T23:47:01+00:00",
+    "updated": "2026-11-15",
+    "fetched": "2026-11-15T05:53:34+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 13,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 12
+      "temp": 14,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 18
     },
     "days": [
       {
@@ -20,13 +20,13 @@
         "min": 8,
         "max": 16,
         "icon": "🌦️",
-        "desc": "Showers",
+        "desc": "Drizzle",
         "rain": 80
       },
       {
         "day": "Mon",
-        "min": 7,
-        "max": 14,
+        "min": 6,
+        "max": 15,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 10
@@ -34,7 +34,7 @@
       {
         "day": "Tue",
         "min": 6,
-        "max": 16,
+        "max": 17,
         "icon": "☁️",
         "desc": "Overcast",
         "rain": 2
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93876.0,
-        "pct": -6.65
+        "price": 95621.0,
+        "pct": -3.25
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2581.15,
-        "pct": -9.09
+        "price": 2666.72,
+        "pct": -4.84
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Inside the First AI Music Awards, a Chaotic Evening Attempting to Normalize Tech-Assisted Tunes",
-      "when": "14 Nov",
+      "title": "Amanda Seyfried to Make Her Debut as ‘Saturday Night Live’ Host",
+      "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/features/inside-first-ai-music-awards-sonic-intelligence-academy-1236947847/"
+      "url": "https://variety.com/2026/tv/news/amanda-seyfried-snl-host-debut-december-don-toliver-1236947942/"
     },
     {
       "cat": "Film/TV",
-      "title": "Chris Pratt Says He ‘Would Love’ James Gunn to Direct a Fourth ‘Guardians of the Galaxy’ Film After DC Exit",
-      "when": "14 Nov",
+      "title": "John Mulaney Mocks Robert F. Kennedy Jr. in ‘SNL’ Monologue: ‘No One Likes Him. You Dumbass … Your Thing Can’t Be the Measles!’",
+      "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/chris-pratt-james-gunn-guardians-of-the-galaxy-4-dc-exit-1236947808/"
+      "url": "https://variety.com/2026/tv/news/john-mulaney-mocks-robert-f-kennedy-jr-snl-monologue-1236947905/"
     },
     {
       "cat": "Film/TV",
-      "title": "Philippines Wins Inaugural Eurovision Song Contest Asia in Thailand",
-      "when": "14 Nov",
+      "title": "Bowen Yang Returns to ‘SNL’ as Jensen Huang as John Mulaney’s Cold Open Mocks Nvidia Scandal, National Ground Stop and Outlook Outage",
+      "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/philippines-wins-eurovision-song-contest-asia-carmelle-1236947812/"
+      "url": "https://variety.com/2026/tv/news/bowen-yang-jensen-huang-snl-cold-open-john-mulaney-tech-1236947900/"
     },
     {
       "cat": "Film/TV",
-      "title": "Is ‘Club Kid’ a ‘Conservative’ Movie? Only If You’re Still Living in the ’60s",
-      "when": "14 Nov",
+      "title": "Brandi Carlile’s All-Requests Tour Isn’t Just a Magnificent Stunt, but an Unusually Moving Transaction Between Performer and Audience: Concert Review",
+      "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/is-club-kid-a-conservative-movie-jordan-firstman-1236947691/"
+      "url": "https://variety.com/2026/music/concert-reviews/brandi-carlile-all-request-tour-burn-setlist-concert-review-1236947885/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "3h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
