@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-15",
-    "fetched": "2026-11-15T05:53:34+00:00",
+    "fetched": "2026-11-15T13:47:04+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 95621.0,
-        "pct": -3.25
+        "price": 96668.0,
+        "pct": -1.97
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2666.72,
-        "pct": -4.84
+        "price": 2705.17,
+        "pct": -3.14
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Amanda Seyfried to Make Her Debut as ‘Saturday Night Live’ Host",
+      "title": "Thessaloniki Awards: Jacqueline Lentzou’s ‘A Day in the Life of Jo: Chapter Phaedra’ Wins the Golden Alexander",
       "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/amanda-seyfried-snl-host-debut-december-don-toliver-1236947942/"
+      "url": "https://variety.com/2026/film/global/thessaloniki-awards-a-day-in-the-life-of-jo-wins-1236948029/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Editorial: Lost Souls – The ‘Star Wars’ Toys We Own That Never Made the Final Cut",
+      "when": "15 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/editorial-lost-souls-the-star-wars-toys-we-own-that-never-made-the-final-cut.html"
     },
     {
       "cat": "Film/TV",
-      "title": "John Mulaney Mocks Robert F. Kennedy Jr. in ‘SNL’ Monologue: ‘No One Likes Him. You Dumbass … Your Thing Can’t Be the Measles!’",
+      "title": "Seville European Film Festival Prizes: ‘You Don’t Belong Here,’ ‘Falling House,’ ’Adult Supervision’ Win Big",
       "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/john-mulaney-mocks-robert-f-kennedy-jr-snl-monologue-1236947905/"
+      "url": "https://variety.com/2026/film/global/seville-european-film-festival-prizes-you-dont-belong-here-1236948019/"
     },
     {
       "cat": "Film/TV",
-      "title": "Bowen Yang Returns to ‘SNL’ as Jensen Huang as John Mulaney’s Cold Open Mocks Nvidia Scandal, National Ground Stop and Outlook Outage",
+      "title": "‘Woman Unknown’ Breakout Mathilde Arcel on Her Venice Award-Winning Performance and Life After Her Lido Triumph: ‘Everything Is Open’",
       "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/bowen-yang-jensen-huang-snl-cold-open-john-mulaney-tech-1236947900/"
+      "url": "https://variety.com/2026/film/global/woman-unknown-mathilde-arcel-venice-award-1236947990/"
     },
     {
       "cat": "Film/TV",
-      "title": "Brandi Carlile’s All-Requests Tour Isn’t Just a Magnificent Stunt, but an Unusually Moving Transaction Between Performer and Audience: Concert Review",
+      "title": "‘Dhurandhar,’ ‘Kantara: A Legend – Chapter 1’ Among Indian Panorama Lineup at IFFI Goa",
       "when": "15 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/concert-reviews/brandi-carlile-all-request-tour-burn-setlist-concert-review-1236947885/"
+      "url": "https://variety.com/2026/film/festivals/dhurandhar-kantara-chapter-1-iffi-indian-panorama-2026-1236947982/"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "13 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-galactic-racer-has-sold-over-1-5-million-copies.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "50th Anniversary ‘Star Wars’ Toy Collection Unveiled",
-      "when": "13 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/50th-anniversary-star-wars-toy-collection-unveiled.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "20d ago",
+      "pushed": "21d ago",
       "lang": "HTML",
       "commit": ""
     }
