@@ -2,8 +2,8 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-15",
-    "fetched": "2026-11-15T23:53:04+00:00",
+    "updated": "2026-11-16",
+    "fetched": "2026-11-16T05:53:09+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -27,16 +27,16 @@
         "day": "Tue",
         "min": 6,
         "max": 16,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 2
       },
       {
         "day": "Wed",
         "min": 9,
         "max": 22,
-        "icon": "☁️",
-        "desc": "Overcast",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 2
       }
     ]
@@ -72,31 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 96309.0,
-        "pct": 1.75
+        "price": 95527.0,
+        "pct": -0.11
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2707.54,
-        "pct": 3.71
+        "price": 2680.66,
+        "pct": 0.5
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Avengers: Doomsday’ Including the Original X-Men ‘Just Felt Right,’ Says Kevin Feige: It’s a ‘Fun Way to Culminate’ 25 Years",
-      "when": "15 Nov",
+      "title": "‘The Gospel of Christmas’ Review: Tyler Perry’s Churchy Musical Drama Does a Threadbare Job of Getting Into the Spirit",
+      "when": "16 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/kevin-feige-original-x-men-avengers-doomsday-1236948220/"
+      "url": "https://variety.com/2026/film/reviews/the-gospel-of-christmas-review-tyler-perry-1236948273/"
     },
     {
       "cat": "Film/TV",
-      "title": "Nathan Fielder Wasn’t ‘Infatuated’ With Elizabeth Holmes While Filming ‘You Can See Everything,’ Says Billy Evans: ‘I Didn’t Get The Impression for One Minute That It Was Romantic’",
-      "when": "15 Nov",
+      "title": "‘Writing With Fire’ Directors’ Himalayan Story Lab Unveils Fourth Cohort, Taps Payal Kapadia and Shaunak Sen as Mentors (EXCLUSIVE)",
+      "when": "16 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/nathan-fielder-elizabeth-holmes-billy-evans-1236948256/"
+      "url": "https://variety.com/2026/film/asia/writing-with-fire-directors-fourth-himalayan-story-lab-cohort-1236947650/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Gilded Age’ Star Denée Benton on Peggy’s Big Day: “It Was Like Eating Candy and Steak All at the Same Time”",
+      "when": "16 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/gilded-age-peggy-wedding-denee-benton-1236948219/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Governors Awards 2026 Red Carpet Photos: Zendaya, Inde Navarrette, Timothée Chalamet and More",
+      "when": "16 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/gallery/governors-awards-2026-red-carpet-photos/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars’ Announces 50th Anniversary Lineup, Potential Gaming Announcements Coming, and More",
+      "when": "16 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/this-week-in-a-galaxy-far-far-away-star-wars-announces-50th-anniversary-lineup-potential-gaming-announcements-coming-and-more.html"
     },
     {
       "cat": "Trek/Wars",
@@ -104,20 +125,6 @@
       "when": "15 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/fate-of-the-old-republic-director-casey-hudson-says-games-development-is-happening-at-a-brisk-pace.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Russell Brand Compares Rape Trial Coverage to a ‘Football Match’ in Pre-Recorded Video as His Wife Says He’s ‘Okay’ and ‘Praying’ Post-Sentencing",
-      "when": "15 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/russell-brand-rape-trial-sentencing-1236948233/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Ben Affleck Raved About Robert Pattinson’s ‘The Odyssey’ Performance, Recalls Matt Damon: He Said ‘It Was Like Watching a Guy Run Into an Avalanche’",
-      "when": "15 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/ben-affleck-robert-pattinson-the-odyssey-1236948199/"
     },
     {
       "cat": "Trek/Wars",
@@ -132,13 +139,6 @@
       "when": "15 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/editorial-lost-souls-the-star-wars-toys-we-own-that-never-made-the-final-cut.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Microsoft Adds 11 Retro ‘Star Wars’ Games to PC for Xbox Backwards Compatibility Project",
-      "when": "14 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/microsoft-adds-11-retro-star-wars-games-to-pc-for-xbox-backwards-compatibility-project.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "4h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
