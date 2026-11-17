@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-17",
-    "fetched": "2026-11-17T07:45:33+00:00",
+    "fetched": "2026-11-17T17:31:05+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,66 +72,73 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 95891.0,
-        "pct": -0.16
+        "price": 94578.0,
+        "pct": -1.64
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2713.15,
-        "pct": 0.75
+        "price": 2646.91,
+        "pct": -2.18
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Fremantle Revenue Rises 7.8% in Q3 on ‘Kill Jackie’ as RTL Group Flags TV Ad Slump",
+      "title": "‘The Odyssey,’ ‘Dune 3,’ ‘Michael’ and More Top Artisans Honored at Hamilton Behind the Camera Awards",
       "when": "17 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/fremantle-q3-revenue-rises-kill-jackie-rtl-flags-ad-slump-1236950073/"
+      "url": "https://variety.com/2026/artisans/news/hamilton-behind-the-camera-awards-odyssey-dune-1236949383/"
     },
     {
       "cat": "Film/TV",
-      "title": "India’s Music Economy Hits $1.8 Billion as Independent Music Claims 43% of Streams, EY Report Finds",
+      "title": "Connor Storrie, Inde Navarrette, Kane Parsons Among 14 Industry Insiders Tapped for 2026 BAFTA Breakthrough U.S. Cohort",
       "when": "17 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/india-music-economy-indie-share-climbs-ey-1236950066/"
+      "url": "https://variety.com/2026/biz/news/connor-storrie-inde-navarrette-parsons-bafta-breakthrough-1236950441/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Cliff Booth’ First Reactions: Brad Pitt’s Sequel Is an ‘Absolute Triumph’ and a ‘Wildly Entertaining’ ‘Love Letter’ to Hollywood",
+      "title": "Music Industry Moves: Felipe Holguin Named CEO of Universal Music Latin America and Iberian Peninsula",
       "when": "17 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/cliff-booth-first-reactions-brad-pitt-fincher-tarantino-1236948975/"
+      "url": "https://variety.com/2026/music/news/felipe-holguin-named-ceo-universal-music-latin-america-1236950449/"
     },
     {
       "cat": "Film/TV",
-      "title": "Brad Pitt Says ‘Ocean’s 14’ Not Shooting Until ‘Late’ 2027",
+      "title": "The Game Awards Nominations 2026: ‘GTA 6’ Lands Game of the Year Nom Ahead of Thursday Release",
       "when": "17 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/brad-pitt-oceans-14-shooting-late-2027-1236950020/"
+      "url": "https://variety.com/2026/awards/news/game-awards-nominations-2026-list-1236949480/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review: ‘So You Think You Know Star Wars’ Is the Surprise Holiday Stocking Stuffer of the Year",
+      "when": "17 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/review-so-you-think-you-know-star-wars-is-the-surprise-holiday-stocking-stuffer-of-the-year.html"
     },
     {
       "cat": "Trek/Wars",
       "title": "Early Previews For ‘Star Wars: The Experience’ Reveal Props And Costumes Exhibit",
-      "when": "16 Nov",
+      "when": "17 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/early-previews-for-star-wars-the-experience-reveal-props-and-costumes-exhibit.html"
     },
     {
       "cat": "Trek/Wars",
       "title": "Grammys 2027: ‘The Mandalorian and Grogu’ and ‘Zero Company’ Earn Nominations",
-      "when": "16 Nov",
+      "when": "17 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/grammys-zero-company-the-mandalorian-and-grogu.html"
     },
     {
       "cat": "Trek/Wars",
-      "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars’ Announces 50th Anniversary Lineup, Potential Gaming Announcements Coming, and More",
-      "when": "16 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/this-week-in-a-galaxy-far-far-away-star-wars-announces-50th-anniversary-lineup-potential-gaming-announcements-coming-and-more.html"
+      "title": "See Captain Seven Try To Keep Her Fragile Fleet Together In Preview Of ‘Star Trek’ #2",
+      "when": "17 Nov",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/11/17/see-captain-seven-try-to-keep-her-fragile-fleet-together-in-preview-of-star-trek-2/"
     },
     {
       "cat": "Trek/Wars",
@@ -146,13 +153,6 @@
       "when": "11 Nov",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/11/11/spocks-and-a-dominion-bundle-star-trek-online-gets-content-drops-on-pc-consoles/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Witness Starfleet On Starfleet Violence In ‘Star Trek: Red Shirts – Ghost of the 21st Century’ #4 Preview",
-      "when": "11 Nov",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/11/11/witness-starfleet-on-starfleet-violence-in-star-trek-red-shirts-ghost-of-the-21st-century-4-preview/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "9h ago",
       "lang": "HTML",
       "commit": ""
     },
