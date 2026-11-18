@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-18",
-    "fetched": "2026-11-18T08:22:30+00:00",
+    "fetched": "2026-11-18T17:54:43+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 18,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 10
+      "temp": 12,
+      "icon": "🌫️",
+      "desc": "Fog",
+      "wind": 4
     },
     "days": [
       {
         "day": "Today",
-        "min": 9,
-        "max": 24,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 0
-      },
-      {
-        "day": "Thu",
-        "min": 13,
-        "max": 29,
+        "min": 12,
+        "max": 30,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 18
+        "rain": 33
       },
       {
         "day": "Fri",
-        "min": 18,
+        "min": 17,
         "max": 23,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 83
+        "rain": 96
+      },
+      {
+        "day": "Sat",
+        "min": 16,
+        "max": 24,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 65
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 96130.0,
-        "pct": 0.26
+        "price": 93840.0,
+        "pct": -0.92
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2691.06,
-        "pct": -0.98
+        "price": 2629.63,
+        "pct": -0.84
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Nawazuddin Siddiqui’s Indian ‘House’ Adaptation ‘Dr. Hassan’ Sets December Premiere on JioHotstar (EXCLUSIVE)",
+      "title": "‘Golden Girls’ and ‘Gilmore Girls’ Writers’ ‘Silver Foxes’ Screenplay Acquired by Alder Street Productions (EXCLUSIVE)",
       "when": "18 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/nawazuddin-siddiqui-house-adaptation-dr-hassan-premiere-1236950232/"
+      "url": "https://variety.com/2026/film/columns/golden-girls-gilmore-girls-writers-silver-foxes-alder-street-james-berg-stan-zimmerman-1236951894/"
     },
     {
       "cat": "Film/TV",
-      "title": "Harry Shum Jr. Honors Late ‘Glee’ Co-Star Naya Rivera During ‘Dancing With the Stars’ Semifinals: ‘We Miss You, Baby Girl’",
+      "title": "Up-and-Coming Filmmakers Talk About Their Craft, Challenges, Inspirations and More at Adobe TV & Film Fund Screening",
       "when": "18 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/dancing-with-the-stars-harry-shum-jr-glee-naya-rivera-1236951568/"
+      "url": "https://variety.com/2026/film/news/adobe-tv-film-fund-screening-recap-filmmakers-panel-1236946087/"
     },
     {
       "cat": "Film/TV",
-      "title": "Series Mania Forum Sets Canada-Quebec as 2027 Guests of Honor",
+      "title": "NHL Legend Tie Domi to Launch ‘Keeping It Real with Tie’ Interview Series With Tom Brady as First Guest",
       "when": "18 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/series-mania-canada-quebec-2027-guests-of-honor-1236951570/"
+      "url": "https://variety.com/2026/biz/news/tie-domi-keeping-it-real-with-tie-interview-series-tom-brady-1236952017/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Dune: Prophecy’ Star Tabu Joins YRF Entertainment’s Netflix Rescue Drama ‘Tunnel Men’ (EXCLUSIVE)",
+      "title": "Elon Musk Has Invested in Skydance, David Ellison Confirms: ‘To Have Him as a Shareholder Is an Honor’",
       "when": "18 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/dune-prophecy-star-tabu-yrf-netflix-series-tunnel-men-1236950175/"
+      "url": "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/"
+    },
+    {
+      "cat": "Games",
+      "title": "Satisfactory Update v1.2.5.1",
+      "when": "18 Nov",
+      "source": "Satisfactory",
+      "url": "https://store.steampowered.com/news/app/526870/view/679641571029680377"
     },
     {
       "cat": "Trek/Wars",
@@ -160,20 +167,13 @@
       "when": "9 Nov",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/679640570579124608"
-    },
-    {
-      "cat": "Games",
-      "title": "Crossplay is now available in Satisfactory!",
-      "when": "4 Nov",
-      "source": "Satisfactory",
-      "url": "https://store.steampowered.com/news/app/526870/view/679640301799735915"
     }
   ],
   "dev": [
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "9h ago",
       "lang": "HTML",
       "commit": ""
     },
