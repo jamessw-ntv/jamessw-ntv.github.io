@@ -2,8 +2,8 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-17",
-    "fetched": "2026-11-17T17:31:05+00:00",
+    "updated": "2026-11-18",
+    "fetched": "2026-11-18T00:50:59+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 94578.0,
-        "pct": -1.64
+        "price": 96070.0,
+        "pct": 0.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2646.91,
-        "pct": -2.18
+        "price": 2698.81,
+        "pct": 0.31
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Odyssey,’ ‘Dune 3,’ ‘Michael’ and More Top Artisans Honored at Hamilton Behind the Camera Awards",
-      "when": "17 Nov",
+      "title": "Ron Howard Says a Jim Carrey ‘Grinch’ Sequel Won’t Get Made Unless ‘It Has a Chance to Be Great’: We’re Moving ‘Cautiously’",
+      "when": "18 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/artisans/news/hamilton-behind-the-camera-awards-odyssey-dune-1236949383/"
+      "url": "https://variety.com/2026/film/news/ron-howard-jim-carrey-grinch-sequel-1236951121/"
     },
     {
       "cat": "Film/TV",
-      "title": "Connor Storrie, Inde Navarrette, Kane Parsons Among 14 Industry Insiders Tapped for 2026 BAFTA Breakthrough U.S. Cohort",
-      "when": "17 Nov",
+      "title": "Don Toliver Announces Sixth Album ‘Nitrous,’ Due Next Month",
+      "when": "18 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/connor-storrie-inde-navarrette-parsons-bafta-breakthrough-1236950441/"
+      "url": "https://variety.com/2026/music/news/don-toliver-announces-sixth-album-nitrous-release-date-1236951108/"
     },
     {
       "cat": "Film/TV",
-      "title": "Music Industry Moves: Felipe Holguin Named CEO of Universal Music Latin America and Iberian Peninsula",
+      "title": "Longtime Exec Howard Lee Departs as Skydance Confirms New Cable Structure and Division Name Under Channing Dungey",
       "when": "17 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/felipe-holguin-named-ceo-universal-music-latin-america-1236950449/"
+      "url": "https://variety.com/2026/tv/news/howard-lee-exits-skydance-global-cable-media-1236951079/"
     },
     {
       "cat": "Film/TV",
-      "title": "The Game Awards Nominations 2026: ‘GTA 6’ Lands Game of the Year Nom Ahead of Thursday Release",
+      "title": "Thom Velde, Former AMC Theatres Executive, Dies at 83",
       "when": "17 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/awards/news/game-awards-nominations-2026-list-1236949480/"
+      "url": "https://variety.com/2026/film/people-news/thom-velde-dead-amc-theatres-1236951046/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Author Claudia Gray Teases ‘Princess of the Rebellion’ Novel Story Details",
+      "when": "17 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/author-claudia-gray-teases-princess-of-the-rebellion-novel-story-details.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars’ Receives Four Nominations at The Game Awards",
+      "when": "17 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-receives-four-nominations-at-the-game-awards.html"
     },
     {
       "cat": "Trek/Wars",
@@ -118,20 +132,6 @@
       "when": "17 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/review-so-you-think-you-know-star-wars-is-the-surprise-holiday-stocking-stuffer-of-the-year.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Early Previews For ‘Star Wars: The Experience’ Reveal Props And Costumes Exhibit",
-      "when": "17 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/early-previews-for-star-wars-the-experience-reveal-props-and-costumes-exhibit.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Grammys 2027: ‘The Mandalorian and Grogu’ and ‘Zero Company’ Earn Nominations",
-      "when": "17 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/grammys-zero-company-the-mandalorian-and-grogu.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "9h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     },
