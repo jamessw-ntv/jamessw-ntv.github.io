@@ -2,23 +2,23 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-18",
-    "fetched": "2026-11-18T17:54:43+00:00",
+    "updated": "2026-11-19",
+    "fetched": "2026-11-19T00:07:59+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 12,
-      "icon": "🌫️",
-      "desc": "Fog",
+      "temp": 24,
+      "icon": "☁️",
+      "desc": "Overcast",
       "wind": 4
     },
     "days": [
       {
         "day": "Today",
         "min": 12,
-        "max": 30,
+        "max": 29,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 33
@@ -26,18 +26,18 @@
       {
         "day": "Fri",
         "min": 17,
-        "max": 23,
+        "max": 25,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 96
+        "rain": 98
       },
       {
         "day": "Sat",
-        "min": 16,
+        "min": 15,
         "max": 24,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 65
+        "rain": 66
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93840.0,
-        "pct": -0.92
+        "price": 93556.0,
+        "pct": -2.82
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2629.63,
-        "pct": -0.84
+        "price": 2639.71,
+        "pct": -2.43
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Golden Girls’ and ‘Gilmore Girls’ Writers’ ‘Silver Foxes’ Screenplay Acquired by Alder Street Productions (EXCLUSIVE)",
+      "title": "Elon Musk Admits He Feels ‘Pretty Foolish’ Having Spent Nearly $500 Million on Midterm Election Races Won by Democrats, Claims He Is ‘Not MAGA’",
       "when": "18 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/golden-girls-gilmore-girls-writers-silver-foxes-alder-street-james-berg-stan-zimmerman-1236951894/"
+      "url": "https://variety.com/2026/digital/news/elon-musk-pretty-foolish-midterm-election-races-not-maga-1236952400/"
     },
     {
       "cat": "Film/TV",
-      "title": "Up-and-Coming Filmmakers Talk About Their Craft, Challenges, Inspirations and More at Adobe TV & Film Fund Screening",
+      "title": "Michelle Monaghan and Justin Theroux to Star in ‘Sleepover’ From Blumhouse Atomic and Universal",
       "when": "18 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/adobe-tv-film-fund-screening-recap-filmmakers-panel-1236946087/"
+      "url": "https://variety.com/2026/film/news/michelle-monaghan-justin-theroux-sleepover-blumhouse-atomic-1236952362/"
     },
     {
       "cat": "Film/TV",
-      "title": "NHL Legend Tie Domi to Launch ‘Keeping It Real with Tie’ Interview Series With Tom Brady as First Guest",
+      "title": "The Next Bond Theme: From Taylor Swift to Raye, 16 Singers Who Could Croon for Robert Pattinson’s 007",
       "when": "18 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/tie-domi-keeping-it-real-with-tie-interview-series-tom-brady-1236952017/"
+      "url": "https://variety.com/lists/bond-theme-contenders-robert-pattinson/"
     },
     {
       "cat": "Film/TV",
-      "title": "Elon Musk Has Invested in Skydance, David Ellison Confirms: ‘To Have Him as a Shareholder Is an Honor’",
+      "title": "As U.S. Infrastructure Crumbles, ABC’s ‘World News Tonight’ Posts Highest Week-Long Daily Ratings Since COVID",
       "when": "18 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/elon-musk-invested-skydance-david-ellison-dealbook-conference-1236951800/"
+      "url": "https://variety.com/2026/tv/news/abc-world-news-tonight-ratings-best-since-covid-1236952295/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Smugglers & Scoundrels: The Race for Jabba’s Bounty’ Review – Jaxxon, Han, and the Galaxy’s Most Iconic Freaks Shine in Cavan Scott’s New Tale",
+      "when": "18 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/smugglers-scoundrels-the-race-for-jabbas-bounty-review-jaxxon-han-and-the-galaxys-most-iconic-freaks-shine-in-cavan-scotts-new-tale.html"
     },
     {
       "cat": "Games",
@@ -132,13 +139,6 @@
       "when": "17 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-receives-four-nominations-at-the-game-awards.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review: ‘So You Think You Know Star Wars’ Is the Surprise Holiday Stocking Stuffer of the Year",
-      "when": "17 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/review-so-you-think-you-know-star-wars-is-the-surprise-holiday-stocking-stuffer-of-the-year.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "9h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
