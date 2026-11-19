@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-19",
-    "fetched": "2026-11-19T08:34:20+00:00",
+    "fetched": "2026-11-19T18:07:07+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 21,
+      "temp": 19,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 9
+      "wind": 12
     },
     "days": [
       {
         "day": "Today",
-        "min": 12,
-        "max": 27,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 69
-      },
-      {
-        "day": "Fri",
         "min": 17,
         "max": 24,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 98
+        "rain": 99
       },
       {
         "day": "Sat",
         "min": 15,
-        "max": 24,
+        "max": 23,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 67
+        "rain": 75
+      },
+      {
+        "day": "Sun",
+        "min": 15,
+        "max": 27,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 76
       }
     ]
   },
@@ -72,52 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 95004.0,
-        "pct": -1.38
+        "price": 94134.0,
+        "pct": 0.29
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2690.4,
-        "pct": -0.2
+        "price": 2655.71,
+        "pct": 1.03
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Altruists’ Review: Netflix FTX Series Fails to Get a Handle on Crypto Scammer Sam Bankman-Fried",
+      "title": "Bond Girl Lea Seydoux Says ‘I Don’t Really Care’ Who Becomes 007’s New Female Lead: ‘It’s Become American’ Now",
       "when": "19 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/reviews/the-altruists-review-netflix-sam-bankman-fried-1236952311/"
+      "url": "https://variety.com/2026/film/global/bond-girl-lea-seydoux-dont-really-care-007-1236953369/"
     },
     {
       "cat": "Film/TV",
-      "title": "Hearst Canvas Launches Frontier Collective Brand as U.K. Arm Builds Digital-Native Content Slate for YouTube",
+      "title": "‘The Further Mis-Adventures of Cliff Booth’ Review: Brad Pitt Hits the Aura Jackpot in a Very Fun Tarantino Hangout Movie That Feels Like QT TV",
       "when": "19 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hearst-canvas-launches-frontier-collective-alex-bescoby-1236952832/"
+      "url": "https://variety.com/2026/film/reviews/the-further-mis-adventures-of-cliff-booth-review-brad-pitt-1236952037/"
     },
     {
       "cat": "Film/TV",
-      "title": "Airbnb Recreates Iconic ‘Kabhi Khushi Kabhie Gham’ Mansion for Film’s 25th Anniversary, With Kareena Kapoor Khan and Hrithik Roshan Hosting",
+      "title": "Dean Koontz’s Jane Hawk Books to Be Developed as TV Series by Monarch Media (EXCLUSIVE)",
       "when": "19 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/kabhi-khushi-kabhie-gham-house-airbnb-book-online-1236952352/"
+      "url": "https://variety.com/2026/tv/news/dean-koontz-jane-hawk-books-tv-series-monarch-media-1236953222/"
     },
     {
       "cat": "Film/TV",
-      "title": "What Happens When Documentary Makers Sell Their Footage to AI Aggregators?",
+      "title": "‘Jeopardy!’ Sets Inaugural Fan Convention in Washington, D.C.",
       "when": "19 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/docmakers-archive-sale-ai-training-dos-and-donts-1236951760/"
+      "url": "https://variety.com/2026/tv/news/jeopardy-fan-convention-washington-dc-1236953378/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Review – ‘The Fall of Kylo Ren’ #4 Wraps up Knights of Ren Plotline but Leaves Loose Ends",
+      "when": "19 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/review-the-fall-of-kylo-ren-4-wraps-up-knights-of-ren-plotline-but-leaves-loose-ends.html"
     },
     {
       "cat": "Trek/Wars",
       "title": "‘Smugglers & Scoundrels: The Race for Jabba’s Bounty’ Review – Jaxxon, Han, and the Galaxy’s Most Iconic Freaks Shine in Cavan Scott’s New Tale",
-      "when": "18 Nov",
+      "when": "19 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/smugglers-scoundrels-the-race-for-jabbas-bounty-review-jaxxon-han-and-the-galaxys-most-iconic-freaks-shine-in-cavan-scotts-new-tale.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Author Claudia Gray Teases ‘Princess of the Rebellion’ Novel Story Details",
+      "when": "19 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/author-claudia-gray-teases-princess-of-the-rebellion-novel-story-details.html"
     },
     {
       "cat": "Games",
@@ -125,20 +139,6 @@
       "when": "18 Nov",
       "source": "Satisfactory",
       "url": "https://store.steampowered.com/news/app/526870/view/679641571029680377"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Author Claudia Gray Teases ‘Princess of the Rebellion’ Novel Story Details",
-      "when": "17 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/author-claudia-gray-teases-princess-of-the-rebellion-novel-story-details.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Star Wars’ Receives Four Nominations at The Game Awards",
-      "when": "17 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-receives-four-nominations-at-the-game-awards.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "8h ago",
+      "pushed": "9h ago",
       "lang": "HTML",
       "commit": ""
     },
