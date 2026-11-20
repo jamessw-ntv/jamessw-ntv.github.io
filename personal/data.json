@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-20",
-    "fetched": "2026-11-20T00:33:44+00:00",
+    "fetched": "2026-11-20T08:16:30+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 26,
-      "icon": "☁️",
-      "desc": "Overcast",
-      "wind": 17
+      "temp": 18,
+      "icon": "🌦️",
+      "desc": "Showers",
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
         "min": 17,
-        "max": 26,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 100
+        "max": 25,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 98
       },
       {
         "day": "Sat",
-        "min": 16,
+        "min": 15,
         "max": 24,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 78
+        "rain": 67
       },
       {
         "day": "Sun",
         "min": 15,
-        "max": 30,
+        "max": 28,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 82
+        "rain": 76
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93130.0,
-        "pct": -0.42
+        "price": 92730.0,
+        "pct": -2.6
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2635.52,
-        "pct": -0.24
+        "price": 2630.45,
+        "pct": -2.36
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Bill Hader’s Feature Directorial Debut ‘They Know’ Acquired by Black Bear",
+      "title": "‘Sentimental Value’ Creative Duo Joachim Trier and Eskil Vogt Set for Göteborg Fest’s Nordic Honorary Dragon Award 2027",
       "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/bill-hader-horror-movie-they-know-acquired-black-bear-1236953795/"
+      "url": "https://variety.com/2026/film/global/joachim-trier-eskil-vogt-goteborg-nordic-honorary-dragon-1236954032/"
     },
     {
       "cat": "Film/TV",
-      "title": "Oscar Predictions: Amanda Seyfried and Matt Damon Take the Top Spots for the First Time as Hollywood Heads Into Thanksgiving",
+      "title": "Busan-Selected Director Anoop Lokkur Turns His Own Tenant War Into Bengaluru Dark Comedy ‘Melgade Mane Kelgade Mane’ at India’s WAVES Film Bazaar",
       "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/lists/2027-oscars-predictions/"
+      "url": "https://variety.com/2026/film/markets-festivals/busan-director-tenant-war-bangalore-dark-comedy-1236954007/"
     },
     {
       "cat": "Film/TV",
-      "title": "Two Directors, One Oscar: Can Lord and Miller, Los Javis, Fielder and Oppenheim or the Esiri Brothers Break Through?",
+      "title": "Australian Brothers Discover They Are Indian Cinema Royalty in WAVES Film Bazaar Documentary ‘Dada & Us’",
       "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/directing-duos-lord-miller-javis-fielder-oppenheim-oscars-1236952486/"
+      "url": "https://variety.com/2026/film/markets-festivals/australian-brothers-indian-cinema-royalty-dada-us-1236954002/"
     },
     {
       "cat": "Film/TV",
-      "title": "Lakers’ Official History Book Gets $9,600 Limited Edition With Magic Johnson Handprints, Staples Center Hardwood and Rare Artwork",
+      "title": "Berlinale Forum-Selected Director R. Gowtham Salutes Village Health Workers in Tamil Dark Comedy ‘Superman Vivagaram’ at India’s WAVES Film Bazaar",
       "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/shopping/news/lakers-photo-book-collectible-deluxe-edition-buy-online-1236953793/"
+      "url": "https://variety.com/2026/film/markets-festivals/berlinale-forum-director-village-health-comedy-superman-vivagaram-1236953998/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "25d ago",
+      "pushed": "26d ago",
       "lang": "HTML",
       "commit": ""
     }
