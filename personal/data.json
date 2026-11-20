@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-20",
-    "fetched": "2026-11-20T17:41:01+00:00",
+    "fetched": "2026-11-20T23:52:51+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 18,
+      "temp": 20,
       "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 9
+      "desc": "Drizzle",
+      "wind": 14
     },
     "days": [
       {
         "day": "Today",
-        "min": 17,
-        "max": 25,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
-        "rain": 98
-      },
-      {
-        "day": "Sat",
         "min": 15,
         "max": 24,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 67
+        "rain": 85
       },
       {
         "day": "Sun",
         "min": 15,
-        "max": 28,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
-        "rain": 76
+        "max": 26,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 75
+      },
+      {
+        "day": "Mon",
+        "min": 11,
+        "max": 20,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 73
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88929.0,
-        "pct": -5.86
+        "price": 88837.0,
+        "pct": -4.41
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2451.37,
-        "pct": -7.96
+        "price": 2446.53,
+        "pct": -7.12
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Maleah Joi Moon on Netflix’s ‘A Different World,’ Debbie Allen’s Backstage Offer and Owning the Show’s ‘Complicated History’ With Cosby",
+      "title": "How to Get Started on Making a Difference as Tax Rules for Charitable Giving Change",
       "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/awards/maleah-joi-moon-a-different-world-netflix-cosby-history-1236952490/"
+      "url": "https://variety.com/2026/biz/news/rick-baker-alabama-tax-charity-sean-weissbart-strictly-1236954674/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Outer Banks’ Alum Madelyn Cline in Final Talks to Join New ‘Serendipity’ Movie (EXCLUSIVE)",
+      "title": "CMA Awards See a 55% Ratings Bump in Key Adults Demo With Taylor Swift’s Return to the Show",
       "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/serendipity-reboot-cast-madelyn-cline-1236952550/"
+      "url": "https://variety.com/2026/music/news/cma-awards-taylor-swift-big-ratings-increase-1236954677/"
     },
     {
       "cat": "Film/TV",
-      "title": "Jennifer Lopez Wears 186-Carat Diamond Necklace to ‘JLo Show’ Premiere: ‘There’s Security All Around’",
+      "title": "‘Michael’ Won’t Be Submitted for BAFTA Awards as Filmmakers Pass on Billion-Dollar Biopic’s Entry (EXCLUSIVE)",
       "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/columns/jennifer-lopez-186-carat-diamond-necklace-jlo-show-premiere-dolce-gabbana-1236953996/"
+      "url": "https://variety.com/2026/film/awards/michael-biopic-bafta-awards-2027-not-submitted-1236954593/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Bouchra’ Filmmakers Orian Barki and Meriem Bennani on Crafting the 3D-Animated, Autofiction Film: ‘Through Specificity, You Can Reach Truth’",
+      "title": "‘Home Alone’ Director Chris Columbus Said Minutes Before New Sequel Was Announced That Another Movie ‘Can’t Happen’ After Catherine O’Hara’s Death",
       "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/variety-events/bouchra-orian-barki-meriem-bennani-screening-series-1236952372/"
+      "url": "https://variety.com/2026/film/news/chris-columbus-home-alone-reboot-reaction-catherine-ohara-1236954497/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars’ February 2027 Comics Preview: Thrawn Closes in on Ezra, Darth Vader Vs. The Avengers, and More",
+      "when": "20 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-february-2027-comics-preview-thrawn-closes-in-on-ezra-darth-vader-vs-the-avengers-and-more.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "19 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/disney-imagineers-and-aws-to-premiere-new-ai-driven-anzellan-robots-at-upcoming-event.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – ‘The Fall of Kylo Ren’ #4 Wraps up Knights of Ren Plotline but Leaves Loose Ends",
-      "when": "19 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/review-the-fall-of-kylo-ren-4-wraps-up-knights-of-ren-plotline-but-leaves-loose-ends.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "9h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
