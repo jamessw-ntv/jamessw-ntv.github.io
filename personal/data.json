@@ -2,42 +2,42 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-19",
-    "fetched": "2026-11-19T18:07:07+00:00",
+    "updated": "2026-11-20",
+    "fetched": "2026-11-20T00:33:44+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 19,
+      "temp": 26,
       "icon": "☁️",
       "desc": "Overcast",
-      "wind": 12
+      "wind": 17
     },
     "days": [
       {
         "day": "Today",
         "min": 17,
-        "max": 24,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
-        "rain": 99
+        "max": 26,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 100
       },
       {
         "day": "Sat",
-        "min": 15,
-        "max": 23,
+        "min": 16,
+        "max": 24,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 75
+        "rain": 78
       },
       {
         "day": "Sun",
         "min": 15,
-        "max": 27,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 76
+        "max": 30,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 82
       }
     ]
   },
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 94134.0,
-        "pct": 0.29
+        "price": 93130.0,
+        "pct": -0.42
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2655.71,
-        "pct": 1.03
+        "price": 2635.52,
+        "pct": -0.24
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Bond Girl Lea Seydoux Says ‘I Don’t Really Care’ Who Becomes 007’s New Female Lead: ‘It’s Become American’ Now",
-      "when": "19 Nov",
+      "title": "Bill Hader’s Feature Directorial Debut ‘They Know’ Acquired by Black Bear",
+      "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/bond-girl-lea-seydoux-dont-really-care-007-1236953369/"
+      "url": "https://variety.com/2026/film/news/bill-hader-horror-movie-they-know-acquired-black-bear-1236953795/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Further Mis-Adventures of Cliff Booth’ Review: Brad Pitt Hits the Aura Jackpot in a Very Fun Tarantino Hangout Movie That Feels Like QT TV",
-      "when": "19 Nov",
+      "title": "Oscar Predictions: Amanda Seyfried and Matt Damon Take the Top Spots for the First Time as Hollywood Heads Into Thanksgiving",
+      "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-further-mis-adventures-of-cliff-booth-review-brad-pitt-1236952037/"
+      "url": "https://variety.com/lists/2027-oscars-predictions/"
     },
     {
       "cat": "Film/TV",
-      "title": "Dean Koontz’s Jane Hawk Books to Be Developed as TV Series by Monarch Media (EXCLUSIVE)",
-      "when": "19 Nov",
+      "title": "Two Directors, One Oscar: Can Lord and Miller, Los Javis, Fielder and Oppenheim or the Esiri Brothers Break Through?",
+      "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/dean-koontz-jane-hawk-books-tv-series-monarch-media-1236953222/"
+      "url": "https://variety.com/2026/film/awards/directing-duos-lord-miller-javis-fielder-oppenheim-oscars-1236952486/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Jeopardy!’ Sets Inaugural Fan Convention in Washington, D.C.",
-      "when": "19 Nov",
+      "title": "Lakers’ Official History Book Gets $9,600 Limited Edition With Magic Johnson Handprints, Staples Center Hardwood and Rare Artwork",
+      "when": "20 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/jeopardy-fan-convention-washington-dc-1236953378/"
+      "url": "https://variety.com/2026/shopping/news/lakers-photo-book-collectible-deluxe-edition-buy-online-1236953793/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Disney Imagineers and AWS to Premiere New AI-Driven Anzellan Robots at Upcoming Event",
+      "when": "19 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/disney-imagineers-and-aws-to-premiere-new-ai-driven-anzellan-robots-at-upcoming-event.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "19 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/smugglers-scoundrels-the-race-for-jabbas-bounty-review-jaxxon-han-and-the-galaxys-most-iconic-freaks-shine-in-cavan-scotts-new-tale.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Author Claudia Gray Teases ‘Princess of the Rebellion’ Novel Story Details",
-      "when": "19 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/author-claudia-gray-teases-princess-of-the-rebellion-novel-story-details.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "9h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
