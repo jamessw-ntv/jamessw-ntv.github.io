@@ -165,7 +165,8 @@ function pace(d){
   const h = (d.history || []).filter(x => x.playedHours != null);
   if(h.length >= 2){
     const days = (new Date(h[h.length-1].date) - new Date(h[0].date)) / DAY;
-    if(days >= 1){ perWeek = (h[h.length-1].playedHours - h[0].playedHours) / days * 7; weekBasis = `since ${h[0].date}`; }
+    const w = days >= 3 ? (h[h.length-1].playedHours - h[0].playedHours) / days * 7 : null;
+    if(w > 0.5){ perWeek = w; weekBasis = `since ${h[0].date}`; }   // ignore tiny or backwards changes (rounding, time zones)
   }
   if(perWeek == null){
     const dated = lv.filter(l => l.reachedAt && l.playedHoursAt != null).sort((a,b) => a.level-b.level);
