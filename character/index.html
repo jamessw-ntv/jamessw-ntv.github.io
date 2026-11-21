@@ -72,6 +72,19 @@
   .stack span{display:block;height:100%}
   .two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
   .waiting{margin-top:24px;padding:12px 14px;border-radius:var(--radius);font-size:13px;background:var(--panel2);border:1px dashed var(--line);color:var(--muted)}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 4px;position:sticky;top:0;z-index:5;padding:8px 0;background:var(--bg)}
+  .djgrid{display:grid;gap:8px}
+  details.dj{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+  details.dj summary{cursor:pointer;padding:12px 14px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;list-style:none}
+  details.dj summary::-webkit-details-marker{display:none}
+  details.dj[open] summary{border-bottom:1px solid var(--line)}
+  .dj-name{font-weight:600} .dj-meta{color:var(--muted);font-size:13px}
+  .dj-body{padding:10px 14px;font-size:13.5px} .dj-body .meta{color:var(--muted);font-size:12.5px} .dj-body ul{margin:8px 0 0;padding-left:18px}
+  .gear{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+  .slot{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;display:grid;gap:2px}
+  .slot .sl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)} .slot .it{font-weight:600}
+  blockquote.tale{margin:0;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--yellow);border-radius:var(--radius);padding:12px 14px;font-style:italic}
+  blockquote.tale small{display:block;font-style:normal;color:var(--muted);font-size:12px;margin-top:6px}
   @media (max-width:640px){ .road{grid-template-columns:repeat(10,1fr)} }
   @media (max-width:520px){ .hero{grid-template-columns:1fr;text-align:center} .ring{margin:0 auto} }
 </style>
@@ -85,7 +98,7 @@
 <header class="page">
   <div class="wrap" style="padding-bottom:0">
     <h1>Road to 60</h1>
-    <div class="sub">One World of Warcraft Forever character's climb to level 60, synced from the AutoBiographer addon on the PC.</div>
+    <div class="sub">Capsiel Deadset's story so far in World of Warcraft Forever: the climb to 60, dungeons, social life, gear and tales, synced from addons on the PC.</div>
   </div>
 </header>
 
@@ -166,97 +179,156 @@ function pace(d){
 
 /* ---------- render ---------- */
 let STATE = {};
+const TABS = [["overview","Overview"],["journey","Journey"],["dungeons","Dungeons"],["social","Social"],["kit","Gear & Travel"],["tales","Tales"]];
+const QUALITY = { poor:"#9d9d9d", common:"var(--text)", uncommon:"#1eff00", rare:"#0070dd", epic:"#a335ee", legendary:"#ff8000" };
+
 function render(d){
   const c = d.character, P = pace(d), t = d.totals || {};
   STATE = { d, P, sel: c.level, filter: "all" };
   const levelPct = (c.level - 1) / 59 * 100;
   const xpPct = P.xpDone / XP60 * 100;
-  const html = [];
+  const T = Object.fromEntries(TABS.map(([k]) => [k, []]));
+  const tile = (k, v, n, cls) => v==null ? "" : `<div class="tile ${cls||""}"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n||""}</div></div>`;
+  const listBars = (rows, val, label, cls) => { const max = Math.max(...rows.map(val)); return `<div class="rows">` +
+    rows.map(r => `<div class="row"><div class="top"><span>${esc(r.name)}</span><span>${label(r)}</span></div>${bar(cls||"purple", val(r), max)}</div>`).join("") + `</div>`; };
 
-  html.push(`<div class="hero">
+  const hero = `<div class="hero">
     <div class="ring" style="--p:${xpPct.toFixed(1)}"><div><span><b>${c.level}</b><small>OF 60</small></span></div></div>
     <div>
       <h2>${esc(c.name)}</h2>
-      <div class="who">Level <b>${c.level}</b> ${esc(c.race)} ${esc(c.class)} · ${esc(c.faction)} · WoW ${esc(c.flavour)}${c.zone ? ` · now in <b>${esc(c.zone)}</b>` : ""}</div>
+      <div class="who">Level <b>${c.level}</b> ${esc(c.race)} ${esc(c.class)} · ${esc(c.faction)} · WoW ${esc(c.flavour)}${d.social && d.social.guildRank ? ` · Guild ${esc(d.social.guildRank)}` : ""}${c.zone ? ` · now in <b>${esc(c.zone)}</b>` : ""}</div>
       ${bar("", xpPct, 100)}
       <div class="lvl"><span><b>${fmt(xpPct,1)}%</b> of the XP to 60</span><span><b>${fmt(levelPct,0)}%</b> of the levels</span></div>
       ${c.xp!=null && c.xpMax ? `<div class="lvl" style="margin-top:6px"><span>This level: <b>${fmt(c.xp)}</b> / ${fmt(c.xpMax)} XP</span></div>` : ""}
       <div class="synced">Last synced ${ago(d.synced)} · last played ${esc(c.lastSeen||"—")}</div>
     </div>
-  </div>`);
+  </div>`;
 
-  html.push(`<div class="tiles">
-    <div class="tile"><div class="k">TIME PLAYED</div><div class="v">${hrs(c.playedHours)}</div><div class="n">${esc(c.played||"")}</div></div>
-    <div class="tile"><div class="k">XP EARNED</div><div class="v">${fmt(P.xpDone)}</div><div class="n">of ${fmt(XP60)}</div></div>
-    <div class="tile"><div class="k">XP / HOUR</div><div class="v">${fmt(P.xpPerHour)}</div><div class="n">${esc(P.basis)}</div></div>
-    <div class="tile gold"><div class="k">GOLD</div><div class="v">${fmt(c.gold, c.gold<10?2:0)}g</div><div class="n">in the bags</div></div>
-    ${t.kills!=null ? `<div class="tile"><div class="k">KILLS</div><div class="v">${fmt(t.kills)}</div><div class="n">mobs slain</div></div>` : ""}
-    ${t.questsCompleted!=null ? `<div class="tile"><div class="k">QUESTS</div><div class="v">${fmt(t.questsCompleted)}</div><div class="n">completed</div></div>` : ""}
-    ${t.deaths!=null ? `<div class="tile"><div class="k">DEATHS</div><div class="v">${fmt(t.deaths)}</div><div class="n">${c.race==="Undead" ? "already dead, technically" : "so far"}</div></div>` : ""}
-    ${t.dungeons!=null ? `<div class="tile"><div class="k">DUNGEONS</div><div class="v">${fmt(t.dungeons)}</div><div class="n">cleared</div></div>` : ""}
-    ${t.bossKills!=null ? `<div class="tile"><div class="k">BOSSES</div><div class="v">${fmt(t.bossKills)}</div><div class="n">defeated</div></div>` : ""}
-    ${t.zonesDiscovered!=null ? `<div class="tile"><div class="k">ZONES</div><div class="v">${fmt(t.zonesDiscovered)}</div><div class="n">discovered</div></div>` : ""}
+  /* ---- Overview ---- */
+  T.overview.push(`<div class="tiles">
+    ${tile("TIME PLAYED", hrs(c.playedHours), esc(c.played||""))}
+    ${tile("XP EARNED", fmt(P.xpDone), "of "+fmt(XP60))}
+    ${tile("XP / HOUR", fmt(P.xpPerHour), esc(P.basis))}
+    ${tile("GOLD", fmt(c.gold, c.gold<10?2:0)+"g", "in the bags", "gold")}
+    ${t.kills!=null ? tile("KILLS", fmt(t.kills), "mobs slain") : ""}
+    ${t.questsCompleted!=null ? tile("QUESTS", fmt(t.questsCompleted), "completed") : ""}
+    ${t.deaths!=null ? tile("DEATHS", fmt(t.deaths), c.race==="Undead" ? "already dead, technically" : "so far") : ""}
+    ${(d.dungeons||[]).length ? tile("DUNGEONS", fmt(d.dungeons.length), fmt(d.dungeons.reduce((n,x)=>n+(x.runs||0),0))+" runs") : t.dungeons!=null ? tile("DUNGEONS", fmt(t.dungeons), "cleared") : ""}
+    ${t.bossKills!=null ? tile("BOSSES", fmt(t.bossKills), "defeated") : ""}
+    ${d.social && d.social.playersGroupedWith!=null ? tile("ADVENTURERS", fmt(d.social.playersGroupedWith), "grouped with") : ""}
   </div>`);
-
-  /* ETA with a what-if slider */
   const startWeek = Math.round(Math.min(60, Math.max(1, P.perWeek || 10)));
-  html.push(`<h3 class="sec">When do I hit 60?</h3><div class="card2">
+  T.overview.push(`<h3 class="sec">When do I hit 60?</h3><div class="card2">
     <p class="eta-big">About <b>${hrs(P.hoursLeft)}</b> of play left to reach level 60.</p>
     <div class="note">Based on ${fmt(P.xpPerHour)} XP an hour (${esc(P.basis)}) and the Classic XP table. Later levels need far more XP, so this gets more accurate as the sync records each level.</div>
     <div class="slider"><label for="wk">If I play</label><input id="wk" type="range" min="1" max="60" value="${startWeek}" />
       <output id="wkOut"></output></div>
     <p class="eta-big" style="margin-top:10px" id="etaDate"></p>
-    <div class="note">${P.perWeek!=null ? `Your actual pace: ${fmt(P.perWeek,1)} hours a week (${esc(P.weekBasis)}).` : "Your real weekly pace appears after a few syncs on different days. Drag the slider to try one."}</div>
+    <div class="note">${P.perWeek!=null ? `Actual pace: ${fmt(P.perWeek,1)} hours a week (${esc(P.weekBasis)}).` : "The real weekly pace appears after a few syncs on different days. Drag the slider to try one."}</div>
   </div>`);
+  const latest = [...(d.highlights||[]), ...(d.socialHighlights||[]).map(h => ({...h, type:"social"}))]
+    .sort((a,b) => String(b.date).localeCompare(String(a.date))).slice(0,5);
+  if(latest.length) T.overview.push(`<h3 class="sec">Latest chapter</h3><ul class="feed">` + latest.map(feedItem).join("") + `</ul>`);
 
-  /* The road */
-  html.push(`<h3 class="sec">The road <span class="src">· tap a level</span></h3><div class="card2">
+  /* ---- Journey ---- */
+  T.journey.push(`<h3 class="sec">The road <span class="src">· tap a level</span></h3><div class="card2">
     <div class="road" id="road"></div>
     <div class="legend"><span><i style="background:#123321;border:1px solid #1d5742"></i>Done</span><span><i style="background:var(--green)"></i>You are here</span>
       <span><i style="background:var(--panel2);border:1px solid var(--line)"></i>Ahead</span><span><i style="background:var(--yellow);border-radius:50%"></i>Milestone</span></div>
     <div class="detail" id="detail"></div>
   </div>`);
-
-  /* Highlights */
   if((d.highlights||[]).length){
     const types = [...new Set(d.highlights.map(h => h.type || "other"))];
-    html.push(`<h3 class="sec">Highlights</h3>
+    T.journey.push(`<h3 class="sec">Highlights</h3>
       <div class="chips" id="chips"><button class="toggle active" data-f="all">All</button>${types.map(ty => `<button class="toggle" data-f="${esc(ty)}">${TYPE_ICON[ty]||"⭐"} ${esc(TYPE_NAME[ty]||ty)}</button>`).join("")}</div>
       <ul class="feed" id="feed"></ul>`);
   }
-
-  /* Time breakdown */
   const parts = [["Fighting","combatHours","var(--red)"],["Casting","castingHours","var(--purple)"],["Flying","taxiHours","var(--blue)"],["Dead","deadHours","var(--black)"],["AFK","afkHours","var(--muted)"]]
     .filter(([,k]) => t[k] > 0);
   if(parts.length){
     const total = c.playedHours || parts.reduce((n,[,k]) => n + t[k], 0);
-    html.push(`<h3 class="sec">Where the time went</h3><div class="card2">
+    T.journey.push(`<h3 class="sec">Where the time went</h3><div class="card2">
       <div class="stack">${parts.map(([,k,col]) => `<span style="width:${pct(t[k], total)}%;background:${col}" title="${hrs(t[k])}"></span>`).join("")}</div>
       <div class="legend">${parts.map(([n,k,col]) => `<span><i style="background:${col}"></i>${n} ${hrs(t[k])}</span>`).join("")}</div></div>`);
   }
-
-  /* Zones + kills */
-  const listBars = (rows, val, label) => { const max = Math.max(...rows.map(val)); return `<div class="rows">` +
-    rows.map(r => `<div class="row"><div class="top"><span>${esc(r.name)}</span><span>${label(r)}</span></div>${bar("purple", val(r), max)}</div>`).join("") + `</div>`; };
   const zones = d.zones || [], kills = d.topKills || [];
-  if(zones.length || kills.length){
-    html.push(`<div class="two">
+  if(zones.length || kills.length) T.journey.push(`<div class="two">
       ${zones.length ? `<div><h3 class="sec">Favourite haunts</h3><div class="card2">${listBars(zones, r => r.hours, r => hrs(r.hours))}</div></div>` : ""}
       ${kills.length ? `<div><h3 class="sec">Most slain</h3><div class="card2">${listBars(kills, r => r.count, r => fmt(r.count))}</div></div>` : ""}
     </div>`);
-  }
-
-  /* Deaths */
-  if((d.deaths||[]).length){
-    html.push(`<h3 class="sec">Hall of shame · ${d.deaths.length} death${d.deaths.length===1?"":"s"}</h3><ul class="feed">` +
+  if((d.deaths||[]).length) T.journey.push(`<h3 class="sec">Hall of shame · ${d.deaths.length} death${d.deaths.length===1?"":"s"}</h3><ul class="feed">` +
       d.deaths.slice(0,15).map(x => `<li><span class="ic">💀</span><span>Killed by <b>${esc(x.killer||"something")}</b>${x.zone ? ` in ${esc(x.zone)}` : ""}<small>Level ${fmt(x.level)} · ${esc(x.date||"")}</small></span></li>`).join("") + `</ul>`);
+
+  /* ---- Dungeons (Forever Dungeon Journal + Attune) ---- */
+  const dj = d.dungeons || [];
+  if(dj.length){
+    T.dungeons.push(`<h3 class="sec">Dungeon journal · ${dj.length} dungeon${dj.length===1?"":"s"}</h3><div class="djgrid">` +
+      dj.map(x => { const b = x.bosses || []; return `<details class="dj"><summary>
+          <span class="dj-name">🏰 ${esc(x.name)}</span>
+          <span class="dj-meta">${fmt(x.runs)} run${x.runs===1?"":"s"}${x.levelFirstRun ? ` · first at level ${fmt(x.levelFirstRun)}` : ""}${x.fastestMinutes ? ` · best ${fmt(x.fastestMinutes)} min` : ""}</span>
+        </summary>
+        <div class="dj-body">
+          <div class="meta">First run ${esc(x.firstRun||"—")} · last run ${esc(x.lastRun||"—")}</div>
+          ${b.length ? `<ul>${b.map(y => `<li>🐉 <b>${esc(y.name)}</b> — ${fmt(y.kills)} kill${y.kills===1?"":"s"}${y.firstKill ? ` <span class="sub">(first ${esc(y.firstKill)})</span>` : ""}</li>`).join("")}</ul>` : ""}
+        </div></details>`; }).join("") + `</div>`);
   }
+  if((d.attunements||[]).length) T.dungeons.push(`<h3 class="sec">Attunements</h3><div class="card2">` +
+    listBars(d.attunements, r => r.percent, r => fmt(r.percent)+"%", "") + `</div>`);
+  if((d.bossesSpoken||[]).length) T.dungeons.push(`<h3 class="sec">Bosses met</h3><div class="chips">` +
+    d.bossesSpoken.map(b => `<span class="b">${esc(typeof b==="string" ? b : b.name)}</span>`).join("") + `</div>`);
 
-  if(!(d.levels||[]).length) html.push(`<div class="waiting">⏳ Level-by-level history, highlights, kills, zones and deaths appear after the first sync from AutoBiographer on the PC.</div>`);
+  /* ---- Social (social_diary) ---- */
+  const so = d.social || {};
+  const SOCIAL = [["PLAYERS MET","playersMet"],["GROUPED WITH","playersGroupedWith"],["GROUPS","groupsJoined"],["WHISPERS SENT","whispersSent"],
+    ["WHISPERS IN","whispersReceived"],["FRIENDS ADDED","friendsAdded"],["TRADES","tradesCompleted"],["DUELS","duels"],["EMOTES","emotes"]].filter(([,k]) => so[k]!=null);
+  const extra = Object.entries(so).filter(([k,v]) => typeof v === "number" && !SOCIAL.some(([,s]) => s===k));
+  if(SOCIAL.length || extra.length) T.social.push(`<h3 class="sec">Social diary${so.guildRank ? ` <span class="src">· guild ${esc(so.guildRank)}</span>` : ""}</h3><div class="tiles">` +
+    SOCIAL.map(([k,key]) => tile(k, fmt(so[key]))).join("") + extra.map(([k,v]) => tile(esc(k).toUpperCase(), fmt(v))).join("") + `</div>`);
+  if((d.socialHighlights||[]).length) T.social.push(`<h3 class="sec">Social moments</h3><ul class="feed">` +
+    d.socialHighlights.map(h => feedItem({...h, type:"social"})).join("") + `</ul>`);
 
-  document.getElementById("app").innerHTML = html.join("");
-  requestAnimationFrame(()=>document.querySelectorAll(".bar > i").forEach(i=>i.style.width = i.dataset.w + "%"));
+  /* ---- Gear & travel ---- */
+  if((d.gear||[]).length) T.kit.push(`<h3 class="sec">Equipped</h3><div class="gear">` +
+    d.gear.map(g => `<div class="slot"><span class="sl">${esc(g.slot)}</span><span class="it" style="color:${QUALITY[g.quality]||"var(--text)"}">${esc(g.name)}</span>
+      <span class="sub">${g.itemLevel ? "ilvl "+fmt(g.itemLevel) : ""}${g.since ? ` · since ${esc(g.since)}` : ""}</span></div>`).join("") + `</div>`);
+  const tr = d.travel || {};
+  if(Object.keys(tr).length) T.kit.push(`<h3 class="sec">Travel log</h3><div class="tiles">
+    ${tile("DISTANCE", tr.distanceKm!=null ? fmt(tr.distanceKm,1)+" km" : null, "on foot and mount")}
+    ${tile("FLIGHTS", tr.flights!=null ? fmt(tr.flights) : null, "taken")}
+    ${tile("HEARTHSTONES", tr.hearthstones!=null ? fmt(tr.hearthstones) : null, "used")}
+    ${tile("ZONES", tr.zonesVisited!=null ? fmt(tr.zonesVisited) : null, "visited")}
+  </div>`);
+  if((d.placesSpoken||[]).length) T.kit.push(`<h3 class="sec">Places discovered</h3><div class="chips">` +
+    d.placesSpoken.map(p => `<span class="b">${esc(typeof p==="string" ? p : p.name)}</span>`).join("") + `</div>`);
+
+  /* ---- Tales ---- */
+  if((d.tales||[]).length) T.tales.push(`<h3 class="sec">Campfire tales</h3><div class="rows">` +
+    d.tales.map(x => `<blockquote class="tale">“${esc(x.text)}”<small>Level ${fmt(x.level)} · ${esc(x.date||"")}</small></blockquote>`).join("") + `</div>`);
+
+  /* ---- assemble ---- */
+  const live = TABS.filter(([k]) => T[k].length);
+  const want = location.hash.slice(1);
+  STATE.tab = live.some(([k]) => k===want) ? want : "overview";
+  const waiting = !(d.levels||[]).length && !dj.length && !(d.highlights||[]).length;
+  document.getElementById("app").innerHTML = hero +
+    `<nav class="tabs" id="tabs">${live.map(([k,n]) => `<a href="#${k}" class="toggle" data-t="${k}">${n}</a>`).join("")}</nav>` +
+    live.map(([k]) => `<section class="tab" data-t="${k}">${T[k].join("")}</section>`).join("") +
+    (waiting ? `<div class="waiting">⏳ Level history, dungeon journal, social diary, gear and tales appear after the first sync from the addons on the PC.</div>` : "");
+  showTab(STATE.tab);
+  document.getElementById("tabs").onclick = e => { const a = e.target.closest("a"); if(!a) return; e.preventDefault();
+    history.replaceState(null, "", "#"+a.dataset.t); showTab(a.dataset.t); };
   drawRoad(); drawDetail(); drawFeed(); wireSlider();
+}
+
+function showTab(k){
+  STATE.tab = k;
+  document.querySelectorAll("#tabs .toggle").forEach(a => a.classList.toggle("active", a.dataset.t===k));
+  document.querySelectorAll("section.tab").forEach(s => s.hidden = s.dataset.t !== k);
+  requestAnimationFrame(()=>document.querySelectorAll(`section.tab[data-t="${k}"] .bar > i`).forEach(i=>i.style.width = i.dataset.w + "%"));
+}
+function feedItem(h){
+  const ic = h.type==="social" ? "🤝" : (TYPE_ICON[h.type]||"⭐");
+  return `<li><span class="ic">${ic}</span><span>${esc(h.text)}<small>Level ${fmt(h.level)} · ${esc(h.date||"")}</small></span></li>`;
 }
 
 function drawRoad(){
@@ -294,7 +366,7 @@ function drawFeed(){
   const feed = document.getElementById("feed"); if(!feed) return;
   const { d, filter } = STATE;
   const rows = d.highlights.filter(h => filter === "all" || (h.type||"other") === filter).slice(0, 40);
-  feed.innerHTML = rows.map(h => `<li><span class="ic">${TYPE_ICON[h.type]||"⭐"}</span><span>${esc(h.text)}<small>Level ${fmt(h.level)} · ${esc(h.date||"")}</small></span></li>`).join("");
+  feed.innerHTML = rows.map(feedItem).join("");
   document.getElementById("chips").onclick = e => { const b = e.target.closest("button"); if(!b) return;
     STATE.filter = b.dataset.f; document.querySelectorAll("#chips .toggle").forEach(x => x.classList.toggle("active", x===b)); drawFeed(); };
 }
