@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-21",
-    "fetched": "2026-11-21T15:13:04+00:00",
+    "fetched": "2026-11-21T21:32:30+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 15,
-      "icon": "🌫️",
-      "desc": "Fog",
-      "wind": 9
+      "temp": 23,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
         "min": 15,
-        "max": 28,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 80
+        "max": 29,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 82
       },
       {
         "day": "Mon",
         "min": 11,
         "max": 21,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
+        "icon": "🌦️",
+        "desc": "Drizzle",
         "rain": 75
       },
       {
         "day": "Tue",
         "min": 8,
-        "max": 15,
+        "max": 16,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 25
+        "rain": 15
       }
     ]
   },
@@ -72,64 +72,64 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90865.0,
-        "pct": -1.06
+        "price": 91082.0,
+        "pct": 2.82
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2548.48,
-        "pct": -1.5
+        "price": 2542.14,
+        "pct": 4.58
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Kylian Mbappé Impersonator Leads Colorful Roster of Doubles in Egyptian Doc ‘The Lookalike’",
+      "title": "Seth Rogen Says Brad Pitt and ‘12 Years a Slave’ Cast Would Visit ‘This Is the End’ Set to ‘Perk Up’ Because They Were ‘in a Bummed-Out Headspace’ While Filming",
       "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/mbappe-impersonator-the-lookalike-egyptian-doc-1236954825/"
+      "url": "https://variety.com/2026/film/news/seth-rogen-brad-pitt-12-years-a-slave-cast-set-visit-1236955074/"
     },
     {
       "cat": "Film/TV",
-      "title": "An Iranian Woman Falls Pregnant to Avoid Execution in ‘Inherited’: Situation in Iran Is ‘Increasingly Complex’",
+      "title": "Jeff Goldblum Performs a Piano Medley and Reflects on His Career at Marrakech Film Festival: ‘The Stories That We Tell Matter’",
       "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/morteza-alizadeh-morally-knotty-inherited-iran-1236954820/"
+      "url": "https://variety.com/2026/film/global/jeff-goldblum-career-marrakech-film-festival-tilda-swinton-1236954972/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Blind Ferryman’ Director on Rejecting Western Stereotypes: ‘I Don’t Want to Make a Movie Asking for Sympathy’",
+      "title": "Russell Crowe’s Request to Shoot ‘A Beautiful Mind’ Chronologically Added $1 Million to the Budget, Says Ron Howard: ‘It Was the Right Kind of Investment’",
       "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/the-blind-ferryman-ali-toffan-al-fatlawi-cairo-1236954929/"
+      "url": "https://variety.com/2026/film/news/russell-crowe-a-beautiful-mind-sequence-ron-howard-1236955038/"
     },
     {
       "cat": "Film/TV",
-      "title": "Obese Monkey Becomes a Weight-Loss Drug Guinea Pig in ‘Boltrim’ at India’s WAVES Film Bazaar",
+      "title": "How the ‘Elsinore’ Makeup Team Transformed Stars Andrew Scott and Olivia Colman to Bring the Story of Ian Charleson to Life",
       "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/obese-monkey-weight-loss-drug-guinea-pig-boltrim-1236954925/"
+      "url": "https://variety.com/2026/artisans/news/elsinore-makeup-olivia-colman-andrew-scott-1236954968/"
     },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars’ February 2027 Comics Preview: Thrawn Closes in on Ezra, Darth Vader Vs. The Avengers, and More",
-      "when": "20 Nov",
+      "when": "21 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-february-2027-comics-preview-thrawn-closes-in-on-ezra-darth-vader-vs-the-avengers-and-more.html"
     },
     {
       "cat": "Trek/Wars",
       "title": "Dagan Gera – ‘Star Wars’ Character Spotlight",
-      "when": "20 Nov",
+      "when": "21 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/dagan-gera-star-wars-character-spotlight.html"
     },
     {
       "cat": "Trek/Wars",
       "title": "Disney Imagineers and AWS to Premiere New AI-Driven Anzellan Robots at Upcoming Event",
-      "when": "19 Nov",
+      "when": "21 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/disney-imagineers-and-aws-to-premiere-new-ai-driven-anzellan-robots-at-upcoming-event.html"
     },
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "8h ago",
+      "pushed": "3h ago",
       "lang": "HTML",
       "commit": ""
     },
