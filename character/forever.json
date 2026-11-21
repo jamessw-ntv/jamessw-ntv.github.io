@@ -1,6 +1,6 @@
 {
-  "synced": "2026-11-21T17:50:00Z",
-  "updated": "2026-11-21",
+  "synced": "2026-11-21T18:06:19Z",
+  "updated": "2026-11-22",
   "character": {
     "name": "Capsiel Deadset",
     "realm": "PvE",
@@ -10,21 +10,996 @@
     "class": "Paladin",
     "level": 33,
     "maxLevel": 60,
-    "xp": null,
-    "xpMax": null,
+    "xp": 18154,
+    "xpMax": 58600,
     "gold": 4.48,
     "played": "4d 6h 41m",
-    "playedHours": 102.7,
-    "zone": null,
+    "playedHours": 102.69,
+    "zone": "Wetlands",
     "lastSeen": "2026-11-22"
   },
-  "levels": [],
-  "totals": {},
-  "highlights": [],
-  "topKills": [],
-  "zones": [],
-  "deaths": [],
+  "levels": [
+    {
+      "level": 1,
+      "reachedAt": "2026-11-04T23:16:30Z",
+      "playedHoursAt": 0.0,
+      "hoursThisLevel": 0.18,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 2,
+      "reachedAt": "2026-11-04T23:27:44Z",
+      "playedHoursAt": 0.18,
+      "hoursThisLevel": 0.26,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 3,
+      "reachedAt": "2026-11-05T00:00:48Z",
+      "playedHoursAt": 0.44,
+      "hoursThisLevel": 0.22,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 4,
+      "reachedAt": "2026-11-05T00:13:46Z",
+      "playedHoursAt": 0.66,
+      "hoursThisLevel": 0.33,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 5,
+      "reachedAt": "2026-11-05T00:33:43Z",
+      "playedHoursAt": 0.99,
+      "hoursThisLevel": 0.34,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 6,
+      "reachedAt": "2026-11-05T00:54:25Z",
+      "playedHoursAt": 1.33,
+      "hoursThisLevel": 0.81,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 7,
+      "reachedAt": "2026-11-05T01:43:15Z",
+      "playedHoursAt": 2.15,
+      "hoursThisLevel": 0.32,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 8,
+      "reachedAt": "2026-11-05T02:02:32Z",
+      "playedHoursAt": 2.47,
+      "hoursThisLevel": 6.92,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 9,
+      "reachedAt": "2026-11-06T01:45:55Z",
+      "playedHoursAt": 9.39,
+      "hoursThisLevel": 1.63,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 10,
+      "reachedAt": "2026-11-06T06:07:29Z",
+      "playedHoursAt": 11.01,
+      "hoursThisLevel": 3.53,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 11,
+      "reachedAt": "2026-11-07T00:28:55Z",
+      "playedHoursAt": 14.54,
+      "hoursThisLevel": null,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 13,
+      "reachedAt": null,
+      "playedHoursAt": null,
+      "hoursThisLevel": null,
+      "zone": "Tirisfal Glades"
+    },
+    {
+      "level": 14,
+      "reachedAt": "2026-11-08T00:34:37Z",
+      "playedHoursAt": 19.67,
+      "hoursThisLevel": null,
+      "zone": "Undercity"
+    },
+    {
+      "level": 18,
+      "reachedAt": null,
+      "playedHoursAt": null,
+      "hoursThisLevel": null,
+      "zone": "Orgrimmar"
+    },
+    {
+      "level": 21,
+      "reachedAt": null,
+      "playedHoursAt": null,
+      "hoursThisLevel": null,
+      "zone": "The Barrens"
+    },
+    {
+      "level": 22,
+      "reachedAt": null,
+      "playedHoursAt": null,
+      "hoursThisLevel": null,
+      "zone": "The Barrens"
+    },
+    {
+      "level": 23,
+      "reachedAt": null,
+      "playedHoursAt": null,
+      "hoursThisLevel": null,
+      "zone": "The Barrens"
+    },
+    {
+      "level": 24,
+      "reachedAt": null,
+      "playedHoursAt": null,
+      "hoursThisLevel": null,
+      "zone": "The Barrens"
+    },
+    {
+      "level": 25,
+      "reachedAt": "2026-11-13T02:47:40Z",
+      "playedHoursAt": 52.19,
+      "hoursThisLevel": 2.31,
+      "zone": "Shadowfang Keep"
+    },
+    {
+      "level": 26,
+      "reachedAt": "2026-11-13T05:06:02Z",
+      "playedHoursAt": 54.5,
+      "hoursThisLevel": 10.04,
+      "zone": "Stonetalon Mountains"
+    },
+    {
+      "level": 27,
+      "reachedAt": "2026-11-16T06:02:45Z",
+      "playedHoursAt": 64.54,
+      "hoursThisLevel": 5.12,
+      "zone": "Hillsbrad Foothills"
+    },
+    {
+      "level": 28,
+      "reachedAt": "2026-11-17T00:29:11Z",
+      "playedHoursAt": 69.66,
+      "hoursThisLevel": null,
+      "zone": "Ashenvale"
+    },
+    {
+      "level": 29,
+      "reachedAt": null,
+      "playedHoursAt": null,
+      "hoursThisLevel": null,
+      "zone": "Blackfathom Deeps"
+    },
+    {
+      "level": 30,
+      "reachedAt": "2026-11-18T09:59:33Z",
+      "playedHoursAt": 80.38,
+      "hoursThisLevel": 7.09,
+      "zone": "The Barrens"
+    },
+    {
+      "level": 31,
+      "reachedAt": "2026-11-19T10:30:21Z",
+      "playedHoursAt": 87.46,
+      "hoursThisLevel": 6.18,
+      "zone": "The Barrens"
+    },
+    {
+      "level": 32,
+      "reachedAt": "2026-11-20T06:58:30Z",
+      "playedHoursAt": 93.65,
+      "hoursThisLevel": 7.22,
+      "zone": "Thousand Needles"
+    },
+    {
+      "level": 33,
+      "reachedAt": "2026-11-21T11:11:35Z",
+      "playedHoursAt": 100.87,
+      "hoursThisLevel": 1.81,
+      "zone": "Excavation Site: Wetlands"
+    }
+  ],
+  "totals": {
+    "kills": 1332,
+    "questsCompleted": 205,
+    "deaths": 32,
+    "bossKills": 28,
+    "dungeons": null,
+    "zonesDiscovered": 28,
+    "goldLooted": 5.99,
+    "goldFromQuests": 9.64,
+    "goldFromVendors": 18.69,
+    "damageDealt": 1438245,
+    "damageTaken": 281144,
+    "healingDone": 179330,
+    "combatHours": 9.17,
+    "afkHours": 0.99,
+    "taxiHours": 2.93,
+    "deadHours": 2.43,
+    "castingHours": 1.9
+  },
+  "highlights": [
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "type": "death",
+      "text": "Died to Thicket Lurker"
+    },
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "type": "boss",
+      "text": "Defeated Relic Guardian"
+    },
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "type": "boss",
+      "text": "Defeated Shadetooth"
+    },
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "type": "death",
+      "text": "Died to Thicket Lurker"
+    },
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "type": "death",
+      "text": "Died to Thicket Lurker"
+    },
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "type": "item",
+      "text": "Equipped Saltscale Girdle"
+    },
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "type": "boss",
+      "text": "Defeated Saltspine"
+    },
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "type": "levelup",
+      "text": "Reached level 33"
+    },
+    {
+      "date": "2026-11-21",
+      "level": 32,
+      "type": "death",
+      "text": "Died to Heartrazor"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "type": "boss",
+      "text": "Defeated Relic Guardian"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "type": "boss",
+      "text": "Defeated Saltspine"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "type": "item",
+      "text": "Equipped Raptorclaw Greaves"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "type": "boss",
+      "text": "Defeated Shadetooth"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "type": "zone",
+      "text": "Entered Excavation Site: Wetlands for the first time"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "type": "zone",
+      "text": "Entered Wetlands for the first time"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "type": "zone",
+      "text": "Entered Arathi Highlands for the first time"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "type": "death",
+      "text": "Died (cause unknown)"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "type": "death",
+      "text": "Died to Hillsbrad Miner"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "type": "death",
+      "text": "Died to Dun Garok Soldier"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "type": "levelup",
+      "text": "Reached level 32"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 31,
+      "type": "death",
+      "text": "Died to Magistrate Burnside"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 31,
+      "type": "zone",
+      "text": "Entered Alterac Mountains for the first time"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 31,
+      "type": "death",
+      "text": "Died to another player"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 31,
+      "type": "zone",
+      "text": "Entered Darkspear Islands for the first time"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 31,
+      "type": "other",
+      "text": "Reached Neutral with Darkspear Raiders"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 31,
+      "type": "skill",
+      "text": "Alchemy reached 150"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 31,
+      "type": "other",
+      "text": "Reached Honored with Orgrimmar"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 31,
+      "type": "levelup",
+      "text": "Reached level 31"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "death",
+      "text": "Died to Bael'dun Soldier"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "zone",
+      "text": "Entered Thousand Needles for the first time"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "other",
+      "text": "Dealt 1,000,000 damage"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Archmage Arugal"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Wolf Master Nandos"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Fenrus the Devourer"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "death",
+      "text": "Died to Lupine Horror"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Odo the Blindwatcher"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Commander Springvale"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Baron Silverlaine"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Razorclaw the Butcher"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "other",
+      "text": "Successfully cast 10,000 spells"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Rethilgore"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "other",
+      "text": "Reached Neutral with Durotar Supply and Logistics"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Aku'mai"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "skill",
+      "text": "Two-Handed Swords reached 150"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Twilight Lord Kelris"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "item",
+      "text": "Equipped Algae Fists"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Geilhast"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Lady Sarevess"
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "type": "boss",
+      "text": "Defeated Ghamoo-ra"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 30,
+      "type": "levelup",
+      "text": "Reached level 30"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "firstkill",
+      "text": "Killed the rare Thora Feathermoon"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "firstkill",
+      "text": "Killed the rare Marcus Bel"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "firstkill",
+      "text": "Killed the rare Aean Swiftriver"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "firstkill",
+      "text": "Killed the rare Hannah Bladeleaf"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "item",
+      "text": "Equipped Wolfsbane"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "item",
+      "text": "Equipped Dreamer's Chestguard"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "item",
+      "text": "Equipped Cultist's Armguards"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "item",
+      "text": "Equipped Strike of the Hydra"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "boss",
+      "text": "Defeated Aku'mai"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "death",
+      "text": "Died to Aku'mai Servant"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "boss",
+      "text": "Defeated Twilight Lord Kelris"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "boss",
+      "text": "Defeated Geilhast"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "boss",
+      "text": "Defeated Lady Sarevess"
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "type": "boss",
+      "text": "Defeated Ghamoo-ra"
+    },
+    {
+      "date": "2026-11-17",
+      "level": 28,
+      "type": "boss",
+      "text": "Defeated Ghamoo-ra"
+    },
+    {
+      "date": "2026-11-17",
+      "level": 28,
+      "type": "zone",
+      "text": "Entered Blackfathom Deeps for the first time"
+    },
+    {
+      "date": "2026-11-17",
+      "level": 28,
+      "type": "other",
+      "text": "1,000 tagged kills"
+    },
+    {
+      "date": "2026-11-17",
+      "level": 28,
+      "type": "other",
+      "text": "Buffed 100 different players outside your group"
+    },
+    {
+      "date": "2026-11-17",
+      "level": 28,
+      "type": "death",
+      "text": "Died to Thistlefur Pathfinder"
+    },
+    {
+      "date": "2026-11-17",
+      "level": 28,
+      "type": "levelup",
+      "text": "Reached level 28"
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "type": "zone",
+      "text": "Entered Ashenvale for the first time"
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "type": "firstkill",
+      "text": "Killed the rare Engineer Whirleygig"
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "type": "firstkill",
+      "text": "Killed the rare Foreman Grills"
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "type": "other",
+      "text": "Reached Friendly with Ratchet"
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "type": "death",
+      "text": "Died to Hillsbrad Foreman"
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "type": "zone",
+      "text": "Entered Azurelode Mine for the first time"
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "type": "death",
+      "text": "Died to Hillsbrad Miner"
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "type": "zone",
+      "text": "Entered Hillsbrad for the first time"
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "type": "other",
+      "text": "Spent 24 hours with Devotion Aura"
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "type": "levelup",
+      "text": "Reached level 27"
+    }
+  ],
+  "topKills": [
+    {
+      "name": "Stormhide",
+      "count": 33
+    },
+    {
+      "name": "Syndicate Watchman",
+      "count": 32
+    },
+    {
+      "name": "Hillsbrad Miner",
+      "count": 27
+    },
+    {
+      "name": "Bael'dun Excavator",
+      "count": 26
+    },
+    {
+      "name": "Starving Mountain Lion",
+      "count": 23
+    },
+    {
+      "name": "Greater Duskbat",
+      "count": 22
+    },
+    {
+      "name": "Hillsbrad Footman",
+      "count": 19
+    },
+    {
+      "name": "Rot Hide Brute",
+      "count": 17
+    },
+    {
+      "name": "Razormane Raider",
+      "count": 17
+    },
+    {
+      "name": "Venture Co. Drudger",
+      "count": 17
+    }
+  ],
+  "zones": [
+    {
+      "name": "The Barrens",
+      "hours": 11.76
+    },
+    {
+      "name": "Tirisfal Glades",
+      "hours": 9.35
+    },
+    {
+      "name": "Hillsbrad Foothills",
+      "hours": 4.36
+    },
+    {
+      "name": "Ashenvale",
+      "hours": 3.91
+    },
+    {
+      "name": "Undercity",
+      "hours": 3.43
+    },
+    {
+      "name": "Silverpine Forest",
+      "hours": 3.36
+    },
+    {
+      "name": "Thunder Bluff",
+      "hours": 3.17
+    },
+    {
+      "name": "Stonetalon Mountains",
+      "hours": 3.04
+    },
+    {
+      "name": "Blackfathom Deeps",
+      "hours": 2.84
+    },
+    {
+      "name": "Shadowfang Keep",
+      "hours": 2.33
+    }
+  ],
+  "deaths": [
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "killer": "Thicket Lurker",
+      "zone": null
+    },
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "killer": "Thicket Lurker",
+      "zone": null
+    },
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "killer": "Thicket Lurker",
+      "zone": null
+    },
+    {
+      "date": "2026-11-21",
+      "level": 32,
+      "killer": "Heartrazor",
+      "zone": null
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "killer": "unknown",
+      "zone": null
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "killer": "Hillsbrad Miner",
+      "zone": null
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "killer": "Dun Garok Soldier",
+      "zone": null
+    },
+    {
+      "date": "2026-11-20",
+      "level": 31,
+      "killer": "Magistrate Burnside",
+      "zone": null
+    },
+    {
+      "date": "2026-11-20",
+      "level": 31,
+      "killer": "another player",
+      "zone": null
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "killer": "Bael'dun Soldier",
+      "zone": null
+    },
+    {
+      "date": "2026-11-19",
+      "level": 30,
+      "killer": "Lupine Horror",
+      "zone": null
+    },
+    {
+      "date": "2026-11-18",
+      "level": 28,
+      "killer": "Aku'mai Servant",
+      "zone": null
+    },
+    {
+      "date": "2026-11-17",
+      "level": 28,
+      "killer": "Thistlefur Pathfinder",
+      "zone": null
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "killer": "Hillsbrad Foreman",
+      "zone": null
+    },
+    {
+      "date": "2026-11-16",
+      "level": 27,
+      "killer": "Hillsbrad Miner",
+      "zone": null
+    },
+    {
+      "date": "2026-11-16",
+      "level": 26,
+      "killer": "Gray Bear",
+      "zone": null
+    },
+    {
+      "date": "2026-11-15",
+      "level": 26,
+      "killer": "another player",
+      "zone": null
+    },
+    {
+      "date": "2026-11-15",
+      "level": 26,
+      "killer": "Kolkar Invader",
+      "zone": null
+    },
+    {
+      "date": "2026-11-15",
+      "level": 26,
+      "killer": "Warlord Krom'zar",
+      "zone": null
+    },
+    {
+      "date": "2026-11-15",
+      "level": 26,
+      "killer": "unknown",
+      "zone": null
+    },
+    {
+      "date": "2026-11-14",
+      "level": 26,
+      "killer": "Deepmoss Venomspitter",
+      "zone": null
+    },
+    {
+      "date": "2026-11-13",
+      "level": 25,
+      "killer": "Lupine Horror",
+      "zone": null
+    },
+    {
+      "date": "2026-11-13",
+      "level": 25,
+      "killer": "Haunted Servitor",
+      "zone": null
+    },
+    {
+      "date": "2026-11-11",
+      "level": 14,
+      "killer": "unknown",
+      "zone": null
+    },
+    {
+      "date": "2026-11-11",
+      "level": 14,
+      "killer": "Kolkar Stormer",
+      "zone": null
+    },
+    {
+      "date": "2026-11-08",
+      "level": 11,
+      "killer": "Tarnished Zealot",
+      "zone": null
+    },
+    {
+      "date": "2026-11-08",
+      "level": 11,
+      "killer": "Shadowvale Lurcher",
+      "zone": null
+    },
+    {
+      "date": "2026-11-07",
+      "level": 10,
+      "killer": "Tarnished Zealot",
+      "zone": null
+    },
+    {
+      "date": "2026-11-07",
+      "level": 10,
+      "killer": "Vile Fin Seer",
+      "zone": null
+    },
+    {
+      "date": "2026-11-07",
+      "level": 10,
+      "killer": "Vile Fin Seer",
+      "zone": null
+    },
+    {
+      "date": "2026-11-07",
+      "level": 10,
+      "killer": "Vile Fin Seer",
+      "zone": null
+    },
+    {
+      "date": "2026-11-05",
+      "level": 8,
+      "killer": "Cursed Darkhound",
+      "zone": null
+    }
+  ],
   "history": [
-    { "date": "2026-11-21", "level": 33, "playedHours": 102.7, "gold": 4.48 }
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "playedHours": 102.7,
+      "gold": 4.48
+    },
+    {
+      "date": "2026-11-22",
+      "level": 33,
+      "playedHours": 102.69,
+      "gold": 4.48
+    }
   ]
 }
