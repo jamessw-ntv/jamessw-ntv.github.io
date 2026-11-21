@@ -1,5 +1,5 @@
 {
-  "synced": "2026-11-21T18:13:41Z",
+  "synced": "2026-11-21T18:17:25Z",
   "updated": "2026-11-22",
   "character": {
     "name": "Capsiel Deadset",
@@ -12,7 +12,7 @@
     "maxLevel": 60,
     "xp": 49794,
     "xpMax": 58600,
-    "gold": 14.37,
+    "gold": 14.3684,
     "played": "4d 11h 51m",
     "playedHours": 107.85,
     "zone": "Thousand Needles",
@@ -1733,7 +1733,7 @@
       "date": "2026-11-22",
       "level": 33,
       "playedHours": 107.85,
-      "gold": 14.37
+      "gold": 14.3684
     }
   ]
 }
