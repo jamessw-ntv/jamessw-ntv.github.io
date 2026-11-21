@@ -1,5 +1,5 @@
 {
-  "synced": "2026-11-21T18:06:19Z",
+  "synced": "2026-11-21T18:11:59Z",
   "updated": "2026-11-22",
   "character": {
     "name": "Capsiel Deadset",
@@ -214,7 +214,7 @@
     "questsCompleted": 205,
     "deaths": 32,
     "bossKills": 28,
-    "dungeons": null,
+    "dungeons": 4,
     "zonesDiscovered": 28,
     "goldLooted": 5.99,
     "goldFromQuests": 9.64,
@@ -531,115 +531,115 @@
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "firstkill",
       "text": "Killed the rare Thora Feathermoon"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "firstkill",
       "text": "Killed the rare Marcus Bel"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "firstkill",
       "text": "Killed the rare Aean Swiftriver"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "firstkill",
       "text": "Killed the rare Hannah Bladeleaf"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "item",
       "text": "Equipped Wolfsbane"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "item",
       "text": "Equipped Dreamer's Chestguard"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "item",
       "text": "Equipped Cultist's Armguards"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "item",
       "text": "Equipped Strike of the Hydra"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "boss",
       "text": "Defeated Aku'mai"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "death",
       "text": "Died to Aku'mai Servant"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "boss",
       "text": "Defeated Twilight Lord Kelris"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "boss",
       "text": "Defeated Geilhast"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "boss",
       "text": "Defeated Lady Sarevess"
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "type": "boss",
       "text": "Defeated Ghamoo-ra"
     },
     {
       "date": "2026-11-17",
-      "level": 28,
+      "level": null,
       "type": "boss",
       "text": "Defeated Ghamoo-ra"
     },
     {
       "date": "2026-11-17",
-      "level": 28,
+      "level": null,
       "type": "zone",
       "text": "Entered Blackfathom Deeps for the first time"
     },
     {
       "date": "2026-11-17",
-      "level": 28,
+      "level": null,
       "type": "other",
       "text": "1,000 tagged kills"
     },
     {
       "date": "2026-11-17",
-      "level": 28,
+      "level": null,
       "type": "other",
       "text": "Buffed 100 different players outside your group"
     },
     {
       "date": "2026-11-17",
-      "level": 28,
+      "level": null,
       "type": "death",
       "text": "Died to Thistlefur Pathfinder"
     },
@@ -863,13 +863,13 @@
     },
     {
       "date": "2026-11-18",
-      "level": 28,
+      "level": null,
       "killer": "Aku'mai Servant",
       "zone": null
     },
     {
       "date": "2026-11-17",
-      "level": 28,
+      "level": null,
       "killer": "Thistlefur Pathfinder",
       "zone": null
     },
@@ -935,25 +935,25 @@
     },
     {
       "date": "2026-11-11",
-      "level": 14,
+      "level": null,
       "killer": "unknown",
       "zone": null
     },
     {
       "date": "2026-11-11",
-      "level": 14,
+      "level": null,
       "killer": "Kolkar Stormer",
       "zone": null
     },
     {
       "date": "2026-11-08",
-      "level": 11,
+      "level": null,
       "killer": "Tarnished Zealot",
       "zone": null
     },
     {
       "date": "2026-11-08",
-      "level": 11,
+      "level": null,
       "killer": "Shadowvale Lurcher",
       "zone": null
     },
@@ -987,6 +987,722 @@
       "killer": "Cursed Darkhound",
       "zone": null
     }
+  ],
+  "dungeons": [
+    {
+      "name": "Ragefire Chasm",
+      "runs": 1,
+      "firstRun": "2026-11-10",
+      "lastRun": "2026-11-10",
+      "levelFirstRun": null,
+      "bosses": [
+        {
+          "name": "Oggleflint",
+          "kills": 1,
+          "firstKill": "2026-11-10"
+        },
+        {
+          "name": "Taragaman the Hungerer",
+          "kills": 1,
+          "firstKill": "2026-11-10"
+        },
+        {
+          "name": "Bazzalan",
+          "kills": 1,
+          "firstKill": "2026-11-10"
+        },
+        {
+          "name": "Jergosh the Invoker",
+          "kills": 1,
+          "firstKill": "2026-11-10"
+        }
+      ],
+      "fastestMinutes": 28
+    },
+    {
+      "name": "Shadowfang Keep",
+      "runs": 2,
+      "firstRun": "2026-11-13",
+      "lastRun": "2026-11-13",
+      "levelFirstRun": 25,
+      "bosses": [
+        {
+          "name": "Rethilgore",
+          "kills": 2,
+          "firstKill": "2026-11-13"
+        },
+        {
+          "name": "Fel Steed / Shadow Charger",
+          "kills": 2,
+          "firstKill": "2026-11-13"
+        },
+        {
+          "name": "Razorclaw the Butcher",
+          "kills": 2,
+          "firstKill": "2026-11-13"
+        },
+        {
+          "name": "Baron Silverlaine",
+          "kills": 2,
+          "firstKill": "2026-11-13"
+        },
+        {
+          "name": "Commander Springvale",
+          "kills": 2,
+          "firstKill": "2026-11-13"
+        },
+        {
+          "name": "Odo the Blindwatcher",
+          "kills": 2,
+          "firstKill": "2026-11-13"
+        },
+        {
+          "name": "Fenrus the Devourer",
+          "kills": 2,
+          "firstKill": "2026-11-13"
+        },
+        {
+          "name": "Arugal's Voidwalker",
+          "kills": 2,
+          "firstKill": "2026-11-13"
+        },
+        {
+          "name": "Wolf Master Nandos",
+          "kills": 2,
+          "firstKill": "2026-11-13"
+        },
+        {
+          "name": "Archmage Arugal",
+          "kills": 2,
+          "firstKill": "2026-11-13"
+        }
+      ],
+      "fastestMinutes": 35
+    },
+    {
+      "name": "Deadmines",
+      "runs": 1,
+      "firstRun": "2026-11-14",
+      "lastRun": "2026-11-14",
+      "levelFirstRun": 26,
+      "bosses": [
+        {
+          "name": "Rhahk'Zor",
+          "kills": 1,
+          "firstKill": "2026-11-14"
+        },
+        {
+          "name": "Sneed's Shredder",
+          "kills": 1,
+          "firstKill": "2026-11-14"
+        },
+        {
+          "name": "Sneed",
+          "kills": 1,
+          "firstKill": "2026-11-14"
+        },
+        {
+          "name": "Gilnid",
+          "kills": 1,
+          "firstKill": "2026-11-14"
+        },
+        {
+          "name": "Mr. Smite",
+          "kills": 1,
+          "firstKill": "2026-11-14"
+        },
+        {
+          "name": "Captain Greenskin",
+          "kills": 1,
+          "firstKill": "2026-11-14"
+        },
+        {
+          "name": "Edwin VanCleef",
+          "kills": 1,
+          "firstKill": "2026-11-14"
+        },
+        {
+          "name": "Cookie",
+          "kills": 1,
+          "firstKill": "2026-11-14"
+        }
+      ],
+      "fastestMinutes": 39
+    },
+    {
+      "name": "Blackfathom Deeps",
+      "runs": 2,
+      "firstRun": "2026-11-18",
+      "lastRun": "2026-11-19",
+      "levelFirstRun": null,
+      "bosses": [
+        {
+          "name": "Ghamoo-ra",
+          "kills": 2,
+          "firstKill": "2026-11-18"
+        },
+        {
+          "name": "Lady Sarevess",
+          "kills": 2,
+          "firstKill": "2026-11-18"
+        },
+        {
+          "name": "Gelihast",
+          "kills": 2,
+          "firstKill": "2026-11-18"
+        },
+        {
+          "name": "Twilight Lord Kelris",
+          "kills": 2,
+          "firstKill": "2026-11-18"
+        },
+        {
+          "name": "Aku'mai",
+          "kills": 2,
+          "firstKill": "2026-11-18"
+        },
+        {
+          "name": "Lorgus Jett",
+          "kills": 1,
+          "firstKill": "2026-11-19"
+        }
+      ],
+      "fastestMinutes": 54
+    }
+  ],
+  "attunements": [
+    {
+      "name": "Blackfathom Deeps",
+      "percent": 100
+    },
+    {
+      "name": "Cozy Sleeping Bag",
+      "percent": 100
+    },
+    {
+      "name": "Ragefire Chasm",
+      "percent": 100
+    },
+    {
+      "name": "Ruins of Lordaeron",
+      "percent": 100
+    },
+    {
+      "name": "Shadowfang Keep",
+      "percent": 100
+    },
+    {
+      "name": "Wailing Caverns",
+      "percent": 100
+    },
+    {
+      "name": "Tome of Dalaran",
+      "percent": 50
+    },
+    {
+      "name": "Razorfen Kraul",
+      "percent": 28
+    },
+    {
+      "name": "Scarlet Key",
+      "percent": 25
+    },
+    {
+      "name": "Excavation Site",
+      "percent": 20
+    },
+    {
+      "name": "The Hall of Thanes",
+      "percent": 16
+    },
+    {
+      "name": "City of Dalaran",
+      "percent": 15
+    },
+    {
+      "name": "Dalaran Sewer Key",
+      "percent": 11
+    },
+    {
+      "name": "Gnomeregan",
+      "percent": 9
+    },
+    {
+      "name": "Razorfen Downs",
+      "percent": 7
+    },
+    {
+      "name": "The Drowned City",
+      "percent": 5
+    },
+    {
+      "name": "Scarlet Monastery",
+      "percent": 4
+    },
+    {
+      "name": "Uldaman",
+      "percent": 4
+    },
+    {
+      "name": "Scepter of the Shifting Sands",
+      "percent": 1
+    },
+    {
+      "name": "Alcaz Prison",
+      "percent": 0
+    },
+    {
+      "name": "Aqual Quintessence",
+      "percent": 0
+    },
+    {
+      "name": "Blackmaw Hold",
+      "percent": 0
+    },
+    {
+      "name": "Blackrock Depths",
+      "percent": 0
+    },
+    {
+      "name": "Blackwing Lair",
+      "percent": 0
+    },
+    {
+      "name": "Dire Maul",
+      "percent": 0
+    },
+    {
+      "name": "Krol'dok Stronghold",
+      "percent": 0
+    },
+    {
+      "name": "Lower Blackrock Spire",
+      "percent": 0
+    },
+    {
+      "name": "Maraudon",
+      "percent": 0
+    },
+    {
+      "name": "Molten Core",
+      "percent": 0
+    },
+    {
+      "name": "Naxxramas",
+      "percent": 0
+    },
+    {
+      "name": "Onyxia's Lair",
+      "percent": 0
+    },
+    {
+      "name": "Scholomance",
+      "percent": 0
+    },
+    {
+      "name": "Stratholme",
+      "percent": 0
+    },
+    {
+      "name": "The Shapers Terrace",
+      "percent": 0
+    },
+    {
+      "name": "The Temple of Atal'Hakkar",
+      "percent": 0
+    },
+    {
+      "name": "Upper Blackrock Spire",
+      "percent": 0
+    },
+    {
+      "name": "Zul'Farrak",
+      "percent": 0
+    }
+  ],
+  "social": {
+    "guildRank": "Officer",
+    "playersSeen": 4042,
+    "playersInteractedWith": 369,
+    "playersSavedToDiary": 13,
+    "groupsJoined": 64,
+    "whispersSent": 14,
+    "whispersReceived": 17,
+    "partyChatMessages": 19,
+    "sayMessages": 29,
+    "tradesCompleted": 3,
+    "campfiresShared": 36,
+    "battlegrounds": 2,
+    "battlegroundsWon": 1
+  },
+  "socialHighlights": [
+    {
+      "date": "2026-11-21",
+      "level": 33,
+      "text": "Crossed paths with 4,000 players"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 32,
+      "text": "Joined group #50"
+    },
+    {
+      "date": "2026-11-20",
+      "level": 31,
+      "text": "Crossed paths with 3,000 players"
+    },
+    {
+      "date": "2026-11-18",
+      "level": null,
+      "text": "Crossed paths with 2,000 players"
+    },
+    {
+      "date": "2026-11-18",
+      "level": null,
+      "text": "Guild rank changed to Officer"
+    },
+    {
+      "date": "2026-11-17",
+      "level": null,
+      "text": "Joined group #25"
+    },
+    {
+      "date": "2026-11-15",
+      "level": 26,
+      "text": "Completed a first trade"
+    },
+    {
+      "date": "2026-11-15",
+      "level": 26,
+      "text": "Won Warsong Gulch"
+    },
+    {
+      "date": "2026-11-14",
+      "level": 26,
+      "text": "Joined group #10"
+    },
+    {
+      "date": "2026-11-14",
+      "level": 26,
+      "text": "Crossed paths with 1,000 players"
+    },
+    {
+      "date": "2026-11-14",
+      "level": 26,
+      "text": "Received a first whisper"
+    },
+    {
+      "date": "2026-11-13",
+      "level": 25,
+      "text": "Joined a group for the first time (since the social diary started)"
+    },
+    {
+      "date": "2026-11-13",
+      "level": null,
+      "text": "Crossed paths with 500 players"
+    },
+    {
+      "date": "2026-11-13",
+      "level": null,
+      "text": "Crossed paths with 100 players"
+    },
+    {
+      "date": "2026-11-10",
+      "level": null,
+      "text": "Guild rank changed to Member"
+    },
+    {
+      "date": "2026-11-06",
+      "level": 8,
+      "text": "Guild rank changed to Member"
+    },
+    {
+      "date": "2026-11-05",
+      "level": 3,
+      "text": "Joined a guild"
+    }
+  ],
+  "gear": [
+    {
+      "slot": "Neck",
+      "name": "Roadwatcher's Confidence",
+      "quality": "uncommon",
+      "itemLevel": 20,
+      "since": "2026-11-16"
+    },
+    {
+      "slot": "Shoulder",
+      "name": "Criminal's Pauldrons",
+      "quality": "uncommon",
+      "itemLevel": 22,
+      "since": "2026-11-16"
+    },
+    {
+      "slot": "Chest",
+      "name": "Dreamer's Chestguard",
+      "quality": "rare",
+      "itemLevel": 32,
+      "since": "2026-11-18"
+    },
+    {
+      "slot": "Waist",
+      "name": "Saltscale Girdle",
+      "quality": "rare",
+      "itemLevel": 31,
+      "since": "2026-11-21"
+    },
+    {
+      "slot": "Legs",
+      "name": "Defender Leggings",
+      "quality": "uncommon",
+      "itemLevel": 23,
+      "since": "2026-11-19"
+    },
+    {
+      "slot": "Feet",
+      "name": "Raptorclaw Greaves",
+      "quality": "rare",
+      "itemLevel": 31,
+      "since": "2026-11-20"
+    },
+    {
+      "slot": "Wrist",
+      "name": "Cultist's Armguards",
+      "quality": "rare",
+      "itemLevel": 29,
+      "since": "2026-11-18"
+    },
+    {
+      "slot": "Hands",
+      "name": "Algae Fists",
+      "quality": "rare",
+      "itemLevel": 28,
+      "since": "2026-11-19"
+    },
+    {
+      "slot": "Finger",
+      "name": "Seal of Sylvanas",
+      "quality": "rare",
+      "itemLevel": 29,
+      "since": "2026-11-14"
+    },
+    {
+      "slot": "Finger",
+      "name": "Band of the Fist",
+      "quality": "uncommon",
+      "itemLevel": 28,
+      "since": "2026-11-19"
+    },
+    {
+      "slot": "Trinket",
+      "name": "Satchel of Potions",
+      "quality": "uncommon",
+      "itemLevel": 33,
+      "since": "2026-11-21"
+    },
+    {
+      "slot": "Back",
+      "name": "Wildhunter Cloak",
+      "quality": "uncommon",
+      "itemLevel": 32,
+      "since": "2026-11-17"
+    },
+    {
+      "slot": "Main hand",
+      "name": "Wolfsbane",
+      "quality": "rare",
+      "itemLevel": 31,
+      "since": "2026-11-20"
+    }
+  ],
+  "travel": {
+    "distanceKm": 722.7,
+    "flights": null,
+    "flightPathsKnown": 14,
+    "hearthstones": 27,
+    "zonesVisited": 28,
+    "subZonesVisited": 183
+  },
+  "tales": [
+    {
+      "date": "2026-11-06",
+      "level": 8,
+      "text": "I still remember my first victory over Rat. It was a new entry in a growing list of adventures."
+    }
+  ],
+  "funStats": [
+    {
+      "label": "JUMPS",
+      "value": "1,425",
+      "note": "for no reason at all"
+    },
+    {
+      "label": "BAG CHECKS",
+      "value": "903",
+      "note": "2.9 hours staring into the bags"
+    },
+    {
+      "label": "GHOST WALKING",
+      "value": "31 km",
+      "note": "jogged back to the corpse"
+    },
+    {
+      "label": "LOOT ROLLS",
+      "value": "131",
+      "note": "rolled a 1 out of 100 twice"
+    }
+  ],
+  "bossesSpoken": [
+    "Aku'mai",
+    "Archmage Arugal",
+    "Baron Silverlaine",
+    "Bazzalan",
+    "Captain Greenskin",
+    "Commander Springvale",
+    "Cookie",
+    "Edwin VanCleef",
+    "Fenrus the Devourer",
+    "Gelihast",
+    "Ghamoo-ra",
+    "Gilnid",
+    "Jergosh the Invoker",
+    "Lady Sarevess",
+    "Mr. Smite",
+    "Odo the Blindwatcher",
+    "Oggleflint",
+    "Razorclaw the Butcher",
+    "Rethilgore",
+    "Rhahk'Zor",
+    "Sneed",
+    "Taragaman the Hungerer",
+    "Twilight Lord Kelris",
+    "Wolf Master Nandos"
+  ],
+  "placesSpoken": [
+    "Agamagor",
+    "Agamand Family Crypt",
+    "Agamand Mills",
+    "Ambermill",
+    "Apothecarium",
+    "Astranaar",
+    "Bandarion Keep",
+    "Blackfathom Deeps",
+    "Blackthorn Ridge",
+    "Bladefist Bay",
+    "Booty Bay",
+    "Boulder Lode Mine",
+    "Brightwater Lake",
+    "Brill",
+    "Brill Town Hall",
+    "Camp Aparaje",
+    "Camp Taurajo",
+    "Canals",
+    "Cape Of Stranglethorn",
+    "Cleft Of Shadow",
+    "Cold Hearth Manor",
+    "Crossroads",
+    "Dalaran",
+    "Darkspear Strand",
+    "Darrow Hill",
+    "Dead Field",
+    "Deadmines",
+    "Deathknell",
+    "Decrepit Ferry",
+    "Deep Elem Mine",
+    "Drag",
+    "Dreadmist Peak",
+    "Echo Isles",
+    "Elder Rise",
+    "Falfarren River",
+    "Fallen Sky Lake",
+    "Felfire Hill",
+    "Fenris Isle",
+    "Fenris Keep",
+    "Field Of Giants",
+    "Forgotten Pools",
+    "Galak Camp",
+    "Gallows End Tavern",
+    "Garrens Haunt",
+    "Gold Road",
+    "Golden Plains",
+    "Greatwood Vale",
+    "Greenpaw Village",
+    "Greymane Wall",
+    "Groldom Farm",
+    "Grommash Hold",
+    "Gunthers Retreat",
+    "Headland",
+    "Hillsbrad Fields",
+    "Honors Stand",
+    "Hunter Rise",
+    "Ivar Patch",
+    "Jaggedswine Farm",
+    "Kargathia Keep",
+    "Lake Falathim",
+    "Lordamere Internment Camp",
+    "Lordamere Lake",
+    "Lushwater Oasis",
+    "Maestras Post",
+    "Magic Quarter",
+    "Malakajin",
+    "Maldens Orchard",
+    "Merchant Coast",
+    "Moonbrook",
+    "Morshan Base Camp",
+    "Morshan Rampart",
+    "Nightmare Vale",
+    "Nightsong Woods",
+    "North Coast",
+    "North Tides Hollow",
+    "Olsens Farthing",
+    "Orgrimmar",
+    "Pools Of Vision",
+    "Ragefire Chasm",
+    "Ratchet",
+    "Ravaged Caravan",
+    "Raynewood Retreat",
+    "Rogues Quarter",
+    "Rolling Plains",
+    "Royal Quarter",
+    "Ruins Of Lordaeron",
+    "Sepulcher",
+    "Sewers",
+    "Shadowfang Keep",
+    "Shadowvale",
+    "Shining Strand",
+    "Shrine Of The Fallen Warrior",
+    "Silverwing Outpost",
+    "Skull Rock",
+    "Sludge Fen",
+    "Solliden Farmstead",
+    "Southern Barrens",
+    "Southern Gold Road",
+    "Southern Savage Coast",
+    "Southfury River",
+    "Spirit Rise",
+    "Splintertree Post",
+    "Stagnant Oasis",
+    "Stillwater Pond",
+    "Stonebull Lake",
+    "Sun Rock Retreat",
+    "Tarren Mill",
+    "Thistlefur Village",
+    "Thorn Hill",
+    "Trade Quarter",
+    "Undercity",
+    "Valgans Field",
+    "Valley Of Honor",
+    "Valley Of Spirits",
+    "Valley Of Strength",
+    "Valley Of Wisdom",
+    "Venture Co Mine",
+    "War Quarter",
+    "Warsong Lumber Camp",
+    "Webwinder Path",
+    "Whispering Forest",
+    "Whispering Shore",
+    "Zoram Strand",
+    "Zoramgar Outpost"
   ],
   "history": [
     {
