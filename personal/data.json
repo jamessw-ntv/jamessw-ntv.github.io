@@ -3,41 +3,41 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-21",
-    "fetched": "2026-11-21T06:39:40+00:00",
+    "fetched": "2026-11-21T15:13:04+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 22,
-      "icon": "☀️",
-      "desc": "Clear",
-      "wind": 11
+      "temp": 15,
+      "icon": "🌫️",
+      "desc": "Fog",
+      "wind": 9
     },
     "days": [
       {
         "day": "Today",
         "min": 15,
-        "max": 25,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 95
-      },
-      {
-        "day": "Sun",
-        "min": 15,
-        "max": 26,
+        "max": 28,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 78
+        "rain": 80
       },
       {
         "day": "Mon",
         "min": 11,
-        "max": 20,
+        "max": 21,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 87
+        "rain": 75
+      },
+      {
+        "day": "Tue",
+        "min": 8,
+        "max": 15,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 25
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 85135.0,
-        "pct": -8.06
+        "price": 90865.0,
+        "pct": -1.06
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2379.06,
-        "pct": -8.8
+        "price": 2548.48,
+        "pct": -1.5
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Bill Maher Mocks ‘Grand Theft Auto 6’-Playing Young Men With Awful ICE Joke",
+      "title": "Kylian Mbappé Impersonator Leads Colorful Roster of Doubles in Egyptian Doc ‘The Lookalike’",
       "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/bill-maher-grand-theft-auto-6-young-men-ice-real-time-hbo-1236954795/"
+      "url": "https://variety.com/2026/film/global/mbappe-impersonator-the-lookalike-egyptian-doc-1236954825/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Godavari’ Director Nikhil Mahajan Turns a Malegaon Carjacking Into Neo-Noir With WAVES Film Bazaar Project ‘Mongoose’",
+      "title": "An Iranian Woman Falls Pregnant to Avoid Execution in ‘Inherited’: Situation in Iran Is ‘Increasingly Complex’",
       "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/godavari-director-nikhil-mahajan-carjacking-neo-noir-mongoose-1236954786/"
+      "url": "https://variety.com/2026/film/global/morteza-alizadeh-morally-knotty-inherited-iran-1236954820/"
     },
     {
       "cat": "Film/TV",
-      "title": "Melania Trump Calls for ‘Peace’ When Asked About Children in Gaza and Israel at Amazon Series Premiere",
+      "title": "‘The Blind Ferryman’ Director on Rejecting Western Stereotypes: ‘I Don’t Want to Make a Movie Asking for Sympathy’",
       "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/melania-trump-series-gaza-israel-children-peace-amazon-1236954718/"
+      "url": "https://variety.com/2026/film/global/the-blind-ferryman-ali-toffan-al-fatlawi-cairo-1236954929/"
     },
     {
       "cat": "Film/TV",
-      "title": "E.J. Carroll, ‘Law & Order,’ ‘GTA 5’ and ‘Blue Bloods’ Actor, Dies at 66",
+      "title": "Obese Monkey Becomes a Weight-Loss Drug Guinea Pig in ‘Boltrim’ at India’s WAVES Film Bazaar",
       "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/e-j-carroll-dead-the-deuce-1236954725/"
+      "url": "https://variety.com/2026/film/markets-festivals/obese-monkey-weight-loss-drug-guinea-pig-boltrim-1236954925/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "26d ago",
+      "pushed": "27d ago",
       "lang": "HTML",
       "commit": ""
     }
