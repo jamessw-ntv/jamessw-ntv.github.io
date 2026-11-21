@@ -552,6 +552,8 @@ def main():
     ap.add_argument("--no-git", action="store_true")
     a = ap.parse_args()
 
+    if not (a.dry_run or a.no_git):
+        git("pull", "--rebase", "--autostash")  # read the latest history from main before merging into it
     data = build()
     now = dt.datetime.now(dt.timezone.utc)
     today = dt.datetime.now().strftime("%Y-%m-%d")
