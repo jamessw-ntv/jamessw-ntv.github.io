@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Character Sheet</title>
+<link rel="stylesheet" href="../assets/hub.css" />
+<style>
+  .sample{margin:16px 0 0;padding:10px 14px;border-radius:var(--radius);font-size:13px;
+    background:#3a2a11;color:#ffcf8a;border:1px solid #5a4012}
+  .hero{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin:18px 0}
+  .avatar{font-size:64px;line-height:1;width:96px;height:96px;display:grid;place-items:center;
+    background:var(--panel2);border:2px solid var(--accent);border-radius:50%;box-shadow:var(--shadow-hover)}
+  .hero h2{margin:0;font-size:24px}
+  .hero .who{color:var(--muted);font-size:13.5px;margin:2px 0 8px}
+  .motto{font-style:italic;color:var(--muted);font-size:13px;margin-top:8px}
+
+  .bar{height:10px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .bar > i{display:block;height:100%;border-radius:999px;background:var(--accent);transition:width .8s ease}
+  .bar.hp > i{background:var(--red)} .bar.mp > i{background:var(--blue)} .bar.sta > i{background:var(--green)}
+  .bar.gold > i{background:var(--yellow)} .bar.skill > i{background:var(--purple)}
+  .lvl{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin:4px 0 0}
+  .lvl b{color:var(--text)}
+
+  h3.sec{margin:28px 0 10px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .attrs{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .attr{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px;text-align:center}
+  .attr .k{font-size:12px;letter-spacing:.15em;color:var(--muted)}
+  .attr .v{font-size:32px;font-weight:700;line-height:1.1}
+  .attr .m{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;background:var(--panel2);color:var(--accent);margin:2px 0 6px}
+  .attr .n{font-size:12px;color:var(--muted)}
+
+  .rows{display:grid;gap:10px}
+  .row{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px}
+  .row .top{display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:6px}
+  .row .top span:last-child{color:var(--muted);white-space:nowrap}
+  .eta{font-size:12px;color:var(--muted);margin-top:6px}
+  .eta b{color:var(--text)}
+
+  .goldgrid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  .coin{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px}
+  .coin .l{font-size:12px;color:var(--muted)}
+  .coin .v{font-size:22px;font-weight:700;color:var(--yellow)}
+
+  .two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  ul.list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  ul.list li{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;
+    display:flex;gap:10px;align-items:center;font-size:14px}
+  ul.list li .ic{font-size:20px}
+  ul.list li small{display:block;color:var(--muted);font-size:12px}
+  ul.list li.locked{opacity:.45}
+  ul.list li .status{margin-left:auto}
+  .biome{font-size:14px}
+  @media (max-width:520px){ .hero{grid-template-columns:1fr;text-align:center} .avatar{margin:0 auto} }
+</style>
+</head>
+<body>
+<div class="hubbar">
+  <a class="backlink" href="../">← Hub</a>
+  <span class="crumb"><b>Character Sheet</b></span>
+</div>
+
+<header class="page">
+  <div class="wrap" style="padding-bottom:0">
+    <h1>Character Sheet</h1>
+    <div class="sub">Real life, rendered as an RPG. Stats live in <b>data.json</b>; projections are calculated "at this rate".</div>
+  </div>
+</header>
+
+<div class="wrap" id="app"><p class="sub" style="margin-top:20px">Rolling for initiative…</p></div>
+
+<footer class="site">Part of the <a href="../">projects hub</a>.</footer>
+
+<script>
+const REPO = "https://raw.githubusercontent.com/jamessw-ntv/jamessw-ntv.github.io/main/";
+async function load(path){
+  const bust = "?_=" + Date.now();
+  for(const url of [REPO + path + bust, "../" + path + bust]){
+    try{ const r = await fetch(url,{cache:"no-store"}); if(r.ok) return await r.json(); }catch(e){}
+  }
+  return null;
+}
+
+const esc = s => String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = (n,d=0) => Number(n).toLocaleString(undefined,{maximumFractionDigits:d});
+const pct = (v,max) => Math.max(0, Math.min(100, max ? v/max*100 : 0));
+const bar = (cls,v,max) => `<div class="bar ${cls}"><i style="width:0" data-w="${pct(v,max)}"></i></div>`;
+const mod = v => { const m = Math.floor((v-10)/2); return (m>=0?"+":"") + m; };
+const DAY = 86400000;
+const when = days => days <= 0 ? "done!" : new Date(Date.now()+days*DAY).toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"});
+
+/* Level = age in years; XP = progress through the current year towards the next birthday. */
+function levelFrom(born){
+  const [y,m] = String(born||"").split("-").map(Number);
+  if(!y) return null;
+  const now = new Date();
+  let last = new Date(now.getFullYear(), (m||1)-1, 1);
+  if(last > now) last = new Date(now.getFullYear()-1, (m||1)-1, 1);
+  const next = new Date(last.getFullYear()+1, last.getMonth(), 1);
+  return { level: last.getFullYear()-y, xp: Math.floor((now-last)/DAY), xpMax: Math.round((next-last)/DAY),
+           daysLeft: Math.ceil((next-now)/DAY) };
+}
+
+function render(d, feed){
+  const c = d.character||{}, L = levelFrom(c.born), g = d.gold||{}, cur = g.currency||"";
+  const money = n => "$" + fmt(n) + (cur ? " " + cur : "");
+  const goldGoalMonths = g.goal && g.perMonth>0 ? Math.max(0,(g.goal.amount-g.current)/g.perMonth) : null;
+  const w = feed && feed.weather && feed.weather.now;
+
+  const html = [];
+  if(d.meta && d.meta.sample) html.push(`<div class="sample">🎲 <b>Sample stats.</b> ${esc(d.meta.note||"")}</div>`);
+
+  html.push(`<div class="hero">
+    <div class="avatar">${esc(c.avatar||"🧙")}</div>
+    <div>
+      <h2>${esc(c.name)} <span style="color:var(--muted);font-weight:400">${esc(c.title||"")}</span></h2>
+      <div class="who">Level ${L?L.level:"?"} ${esc(c.race||"")} ${esc(c.class||"")} · ${esc(c.alignment||"")}</div>
+      ${L ? `${bar("",L.xp,L.xpMax)}<div class="lvl"><span>XP <b>${L.xp}</b> / ${L.xpMax}</span><span><b>${L.daysLeft}</b> days to level ${L.level+1}</span></div>` : ""}
+      ${c.motto ? `<div class="motto">“${esc(c.motto)}”</div>` : ""}
+    </div>
+  </div>`);
+
+  html.push(`<h3 class="sec">Attributes</h3><div class="attrs">` + (d.attributes||[]).map(a=>`
+    <div class="attr"><div class="k">${esc(a.key)}</div><div class="v">${esc(a.value)}</div>
+      <div class="m">${mod(a.value)}</div><div class="n">${esc(a.note||a.name)}</div></div>`).join("") + `</div>`);
+
+  html.push(`<h3 class="sec">Vitals</h3><div class="rows">` + (d.vitals||[]).map(v=>`
+    <div class="row"><div class="top"><span><b>${esc(v.key)}</b> · ${esc(v.name)}</span>
+      <span>${fmt(v.value,1)}${esc(v.unit)} / ${fmt(v.max)}${esc(v.unit)}</span></div>
+      ${bar(String(v.key).toLowerCase(),v.value,v.max)}</div>`).join("") +
+    (w ? `<div class="row biome">🗺️ <b>Current biome:</b> ${esc(feed.weather.place||"")} — ${esc(w.icon||"")} ${esc(w.desc||"")}, ${Math.round(w.temp)}° <span class="sub">(live)</span></div>` : "") +
+    `</div>`);
+
+  if(g.current!=null){
+    html.push(`<h3 class="sec">Gold</h3><div class="goldgrid">
+      <div class="coin"><div class="l">In the coin purse</div><div class="v">${money(g.current)}</div></div>
+      <div class="coin"><div class="l">Looted per month</div><div class="v">${money(g.perMonth||0)}</div></div>
+      <div class="coin"><div class="l">In 1 year, at this rate</div><div class="v">${money(g.current+(g.perMonth||0)*12)}</div></div>
+      <div class="coin"><div class="l">In 5 years, at this rate</div><div class="v">${money(g.current+(g.perMonth||0)*60)}</div></div>
+    </div>` + (g.goal ? `<div class="row" style="margin-top:10px"><div class="top"><span>🎯 ${esc(g.goal.name)}</span>
+      <span>${money(g.current)} / ${money(g.goal.amount)}</span></div>${bar("gold",g.current,g.goal.amount)}
+      <div class="eta">Unlocks around <b>${goldGoalMonths==null?"never at this rate":when(goldGoalMonths*30.44)}</b></div></div>` : ""));
+  }
+
+  html.push(`<h3 class="sec">Side quests — at this rate</h3><div class="rows">` + (d.trackers||[]).map(t=>{
+    const weeks = t.perWeek>0 ? (t.goal-t.value)/t.perWeek : null;
+    return `<div class="row"><div class="top"><span>${esc(t.icon)} ${esc(t.name)}</span><span>${fmt(t.value,1)} / ${fmt(t.goal)}</span></div>
+      ${bar("",t.value,t.goal)}
+      <div class="eta">+${fmt(t.perWeek,2)}/week → <b>${esc(t.goalName)}</b> on <b>${weeks==null?"never at this rate":when(weeks*7)}</b></div></div>`;
+  }).join("") + `</div>`);
+
+  html.push(`<h3 class="sec">Skill tree</h3><div class="rows">` + (d.skills||[]).map(s=>`
+    <div class="row"><div class="top"><span>${esc(s.name)}</span><span>Lv ${s.level} / ${s.max}</span></div>${bar("skill",s.level,s.max)}</div>`).join("") + `</div>`);
+
+  const STATUS = { active:"active", wip:"in progress", planned:"planned", done:"complete" };
+  html.push(`<div class="two">
+    <div><h3 class="sec">Quest log</h3><ul class="list">` + (d.quests||[]).map(q=>`
+      <li><span class="ic">📜</span><span>${esc(q.name)}</span><span class="status ${esc(q.status)}">${esc(STATUS[q.status]||q.status)}</span></li>`).join("") + `</ul></div>
+    <div><h3 class="sec">Achievements</h3><ul class="list">` + (d.achievements||[]).map(a=>`
+      <li class="${a.locked?"locked":""}"><span class="ic">${esc(a.icon)}</span><span>${esc(a.name)}<small>${esc(a.desc||"")}</small></span></li>`).join("") + `</ul></div>
+  </div>`);
+
+  html.push(`<p class="sub" style="margin-top:24px">Last updated ${esc((d.meta&&d.meta.updated)||"—")}.</p>`);
+  document.getElementById("app").innerHTML = html.join("");
+  requestAnimationFrame(()=>document.querySelectorAll(".bar > i").forEach(i=>i.style.width = i.dataset.w + "%"));
+}
+
+(async () => {
+  const [d, feed] = await Promise.all([load("character/data.json"), load("personal/data.json")]);
+  if(!d){ document.getElementById("app").innerHTML = `<p class="sub" style="margin-top:20px">Couldn't load data.json.</p>`; return; }
+  render(d, feed);
+})();
+</script>
+</body>
+</html>

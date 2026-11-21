@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "updated": "2026-11-21",
+    "sample": true,
+    "note": "Placeholder numbers. Edit this file (or tell Claude your real stats) and the sheet recalculates."
+  },
+  "character": {
+    "name": "James",
+    "title": "the Lone Admin",
+    "class": "Systems Architect",
+    "race": "Human",
+    "alignment": "Chaotic Good",
+    "avatar": "🧙",
+    "born": "1990-06",
+    "motto": "If it can't be opened with a double-click, it's too complicated."
+  },
+  "attributes": [
+    { "key": "STR", "name": "Strength",     "value": 11, "note": "Can carry all the shopping in one trip" },
+    { "key": "DEX", "name": "Dexterity",    "value": 13, "note": "Fingerspelling speed improving" },
+    { "key": "CON", "name": "Constitution", "value": 12, "note": "Runs on coffee" },
+    { "key": "INT", "name": "Intelligence", "value": 17, "note": "Reads release notes for fun" },
+    { "key": "WIS", "name": "Wisdom",       "value": 15, "note": "Knows not to deploy on Friday" },
+    { "key": "CHA", "name": "Charisma",     "value": 14, "note": "Calls balls and strikes with confidence" }
+  ],
+  "vitals": [
+    { "key": "HP",  "name": "Sleep last night", "value": 6.5,  "max": 8,     "unit": "h" },
+    { "key": "MP",  "name": "Energy",           "value": 70,   "max": 100,   "unit": "%" },
+    { "key": "STA", "name": "Steps today",      "value": 6200, "max": 10000, "unit": "" }
+  ],
+  "gold": {
+    "currency": "AUD",
+    "current": 5000,
+    "perMonth": 400,
+    "goal": { "name": "Epic loot fund", "amount": 10000 }
+  },
+  "trackers": [
+    { "icon": "📚", "name": "Books read this year",     "value": 7,   "perWeek": 0.4, "goal": 20,   "goalName": "Scholar badge" },
+    { "icon": "🏃", "name": "Km walked/run this year",  "value": 640, "perWeek": 18,  "goal": 1000, "goalName": "1,000 km boots" },
+    { "icon": "🤟", "name": "Auslan signs learned",     "value": 40,  "perWeek": 5,   "goal": 200,  "goalName": "Conversational" },
+    { "icon": "☕", "name": "Coffees this year",        "value": 610, "perWeek": 14,  "goal": 1000, "goalName": "Caffeine lich" },
+    { "icon": "⚾", "name": "Games umpired",            "value": 12,  "perWeek": 1,   "goal": 50,   "goalName": "Veteran umpire" },
+    { "icon": "🏭", "name": "Space Elevator phases",    "value": 2,   "perWeek": 0.25,"goal": 5,    "goalName": "Project Assembly done" }
+  ],
+  "skills": [
+    { "name": "Salesforce sorcery",     "level": 8, "max": 10 },
+    { "name": "Factory logistics",      "level": 7, "max": 10 },
+    { "name": "Train network design",   "level": 6, "max": 10 },
+    { "name": "Rules of softball",      "level": 6, "max": 10 },
+    { "name": "Interstellar diplomacy", "level": 4, "max": 10 },
+    { "name": "Auslan",                 "level": 2, "max": 10 }
+  ],
+  "quests": [
+    { "name": "Satisfactory: reach the Space Elevator", "status": "active" },
+    { "name": "Factorio: build the megabase",           "status": "active" },
+    { "name": "Neptune's Pride: train the bots",        "status": "wip" },
+    { "name": "Auslan: learn to sign",                  "status": "wip" },
+    { "name": "Softball umpire quiz site",              "status": "wip" }
+  ],
+  "achievements": [
+    { "icon": "🏰", "name": "Hub Founder",      "desc": "Built a home for all the side projects" },
+    { "icon": "🛠️", "name": "Sole Admin",       "desc": "Holds an entire Salesforce org together alone" },
+    { "icon": "🤖", "name": "Bot Whisperer",    "desc": "Taught bots to betray each other in space" },
+    { "icon": "🔒", "name": "Locked",           "desc": "Finish a Space Elevator phase", "locked": true }
+  ]
+}
