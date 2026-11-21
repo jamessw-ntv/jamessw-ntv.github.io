@@ -3,83 +3,123 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Azeroth Character Sheet</title>
+<title>Road to 60</title>
 <link rel="stylesheet" href="../assets/hub.css" />
 <style>
-  .hero{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin:18px 0}
-  .avatar{font-size:60px;line-height:1;width:96px;height:96px;display:grid;place-items:center;
-    background:var(--panel2);border:2px solid var(--red);border-radius:50%;box-shadow:var(--shadow-hover)}
+  .hero{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin:18px 0}
+  .ring{--p:0;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;
+    background:conic-gradient(var(--green) calc(var(--p)*1%), var(--panel2) 0);box-shadow:var(--shadow-hover)}
+  .ring > div{width:96px;height:96px;border-radius:50%;background:var(--bg);display:grid;place-items:center;text-align:center}
+  .ring b{font-size:34px;line-height:1}
+  .ring small{display:block;font-size:11px;color:var(--muted);letter-spacing:.1em}
   .hero h2{margin:0;font-size:26px}
   .hero .who{color:var(--muted);font-size:14px;margin:2px 0 10px}
   .hero .who b{color:var(--text)}
   .synced{font-size:12px;color:var(--muted);margin-top:8px}
 
   .bar{height:10px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;overflow:hidden}
-  .bar > i{display:block;height:100%;border-radius:999px;background:var(--accent);transition:width .8s ease}
-  .bar.gold > i{background:var(--yellow)} .bar.purple > i{background:var(--purple)}
-  .bar.green > i{background:var(--green)} .bar.red > i{background:var(--red)}
+  .bar > i{display:block;height:100%;border-radius:999px;background:var(--green);transition:width .8s ease}
+  .bar.purple > i{background:var(--purple)} .bar.gold > i{background:var(--yellow)} .bar.red > i{background:var(--red)}
   .lvl{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted);margin:4px 0 0}
   .lvl b{color:var(--text)}
 
   h3.sec{margin:28px 0 10px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
   h3.sec .src{letter-spacing:0;text-transform:none;font-weight:400;font-size:12px;margin-left:6px}
-  .tiles{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  .card2{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+  .tiles{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
   .tile{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px;text-align:center}
-  .tile .k{font-size:12px;letter-spacing:.15em;color:var(--muted)}
+  .tile .k{font-size:12px;letter-spacing:.12em;color:var(--muted)}
   .tile .v{font-size:24px;font-weight:700;line-height:1.2}
   .tile .n{font-size:12px;color:var(--muted)}
   .tile.gold .v{color:var(--yellow)}
 
-  .rows{display:grid;gap:10px}
-  .row{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px}
-  .row .top{display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:6px}
+  /* ETA + slider */
+  .eta-big{font-size:20px;margin:0 0 6px}
+  .eta-big b{color:var(--green)}
+  .slider{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:14px;flex-wrap:wrap}
+  .slider input{flex:1;min-width:180px;accent-color:var(--green)}
+  .slider output{font-weight:700;min-width:70px}
+  .note{font-size:12px;color:var(--muted);margin-top:8px}
+
+  /* the road: one cell per level */
+  .road{display:grid;grid-template-columns:repeat(20,1fr);gap:4px}
+  .road button{all:unset;cursor:pointer;aspect-ratio:1;border-radius:6px;display:grid;place-items:center;font-size:11px;
+    background:var(--panel2);color:var(--muted);border:1px solid var(--line);position:relative;transition:transform .1s,border-color .1s}
+  .road button:hover,.road button:focus-visible{transform:scale(1.12);border-color:var(--accent);z-index:1}
+  .road button.done{background:#123321;color:#8ee6b0;border-color:#1d5742}
+  .road button.cur{background:var(--green);color:#06210f;font-weight:700;animation:pulse 1.6s ease-in-out infinite}
+  .road button.ms::after{content:"";position:absolute;top:-3px;right:-3px;width:8px;height:8px;border-radius:50%;background:var(--yellow)}
+  .road button.sel{outline:2px solid var(--accent);outline-offset:1px}
+  @keyframes pulse{50%{box-shadow:0 0 0 4px rgba(34,197,94,.25)}}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+  .detail{margin-top:12px}
+  .detail h4{margin:0 0 4px;font-size:16px}
+  .detail .meta{font-size:13px;color:var(--muted)}
+  .detail ul{margin:8px 0 0;padding-left:18px;font-size:13.5px}
+
+  /* highlights */
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .feed{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .feed li{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;display:flex;gap:10px;align-items:flex-start;font-size:14px}
+  .feed li .ic{font-size:18px;line-height:1.3}
+  .feed li small{display:block;color:var(--muted);font-size:12px}
+
+  .rows{display:grid;gap:8px}
+  .row .top{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;margin-bottom:4px}
   .row .top span:last-child{color:var(--muted);white-space:nowrap}
-  .eta{font-size:12px;color:var(--muted);margin-top:6px}
-  .eta b{color:var(--text)}
-
-  ul.list{list-style:none;margin:0;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
-  ul.list li{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;
-    display:flex;gap:10px;align-items:center;font-size:14px}
-  ul.list li .ic{font-size:22px}
-  ul.list li small{display:block;color:var(--muted);font-size:12px}
-  ul.list li.locked{opacity:.4}
-
-  table.roster{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-  table.roster th,table.roster td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
-  table.roster th{color:var(--muted);font-weight:500;font-size:12px;background:var(--panel2)}
-  table.roster td.num{text-align:right;font-variant-numeric:tabular-nums}
-  .scroll{overflow-x:auto}
-  .fact{font-size:14px}
-  .fact b{color:var(--yellow)}
-  @media (max-width:520px){ .hero{grid-template-columns:1fr;text-align:center} .avatar{margin:0 auto} }
+  .stack{display:flex;height:16px;border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+  .stack span{display:block;height:100%}
+  .two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .waiting{margin-top:24px;padding:12px 14px;border-radius:var(--radius);font-size:13px;background:var(--panel2);border:1px dashed var(--line);color:var(--muted)}
+  @media (max-width:640px){ .road{grid-template-columns:repeat(10,1fr)} }
+  @media (max-width:520px){ .hero{grid-template-columns:1fr;text-align:center} .ring{margin:0 auto} }
 </style>
 </head>
 <body>
 <div class="hubbar">
   <a class="backlink" href="../">← Hub</a>
-  <span class="crumb"><b>Azeroth Character Sheet</b></span>
+  <span class="crumb"><b>Road to 60</b></span>
 </div>
 
 <header class="page">
   <div class="wrap" style="padding-bottom:0">
-    <h1>Azeroth Character Sheet</h1>
-    <div class="sub">World of Warcraft stats, synced from the addon save files on the PC. Each sync adds a snapshot, so the "at this rate" dates get sharper over time.</div>
+    <h1>Road to 60</h1>
+    <div class="sub">One World of Warcraft Forever character's climb to level 60, synced from the AutoBiographer addon on the PC.</div>
   </div>
 </header>
 
-<div class="wrap" id="app"><p class="sub" style="margin-top:20px">Summoning…</p></div>
+<div class="wrap" id="app"><p class="sub" style="margin-top:20px">Rising from the grave…</p></div>
 
 <footer class="site">Part of the <a href="../">projects hub</a>.</footer>
 
 <script>
-const RAW = "https://raw.githubusercontent.com/jamessw-ntv/jamessw-ntv.github.io/main/character/wow.json";
-async function loadWow(){
+const RAW = "https://raw.githubusercontent.com/jamessw-ntv/jamessw-ntv.github.io/main/character/forever.json";
+async function load(){
   const bust = "?_=" + Date.now();
-  for(const url of [RAW + bust, "wow.json" + bust]){
+  for(const url of [RAW + bust, "forever.json" + bust]){
     try{ const r = await fetch(url,{cache:"no-store"}); if(r.ok) return await r.json(); }catch(e){}
   }
   return null;
 }
+
+/* XP needed to go from level L to L+1 (the Classic Era table). XP[1] = 1→2, … XP[59] = 59→60. */
+const XP = [0,400,900,1400,2100,2800,3600,4500,5400,6500,7600,8800,10100,11400,12900,14400,16000,17700,19400,21300,23200,
+  25200,27300,29400,31700,34000,36400,38900,41400,44300,47400,50800,54500,58600,62800,67100,71600,76100,80800,85700,90700,
+  95800,101000,106300,111800,117500,123200,129100,135100,141200,147500,153900,160400,167100,173900,180800,187900,195000,202300,209800];
+const xpTo = L => XP.slice(1, L).reduce((a,b) => a+b, 0);   // total XP to reach level L
+const XP60 = xpTo(60);
+const XP_HALF = (() => { for(let L=2; L<=60; L++) if(xpTo(L) >= XP60/2) return L; })();
+
+const MILESTONES = {
+  10: "First talent point. The build starts here.",
+  20: "Level 20: the training wheels come off.",
+  30: "Halfway there, in levels at least.",
+  [XP_HALF]: `The real halfway point: by level ${XP_HALF} you've earned half of all the XP to 60.`,
+  40: "Mount and plate armour. Paladins stop walking everywhere.",
+  50: "The final stretch begins.",
+  60: "Level cap. The journey's end, and the endgame's start.",
+};
 
 /* ---------- helpers ---------- */
 const esc = s => String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -88,123 +128,186 @@ const pct = (v,max) => Math.max(0, Math.min(100, max ? v/max*100 : 0));
 const bar = (cls,v,max) => `<div class="bar ${cls}"><i style="width:0" data-w="${pct(v,max)}"></i></div>`;
 const DAY = 86400000;
 const dateIn = days => new Date(Date.now()+days*DAY).toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"});
+const dShort = iso => iso ? new Date(iso).toLocaleDateString(undefined,{day:"numeric",month:"short"}) : "—";
 const ago = iso => { if(!iso) return "—"; const m = Math.round((Date.now()-new Date(iso))/60000);
   return m<60 ? m+" min ago" : m<1440 ? Math.round(m/60)+" h ago" : Math.round(m/1440)+" days ago"; };
-const CLASS_ICON = { Paladin:"🛡️", Warrior:"⚔️", Druid:"🐻", Shaman:"⚡", Mage:"🔮", Priest:"✨", Rogue:"🗡️",
-  Hunter:"🏹", Warlock:"👹", "Death Knight":"💀", Monk:"🥋", "Demon Hunter":"🦇", Evoker:"🐉" };
+const hrs = h => h==null ? "—" : h < 1 ? Math.round(h*60)+" min" : fmt(h, h<10?1:0)+" h";
+const TYPE_ICON = { levelup:"⬆️", boss:"🐉", dungeon:"🏰", death:"💀", quest:"📜", zone:"🗺️", item:"🎁", spell:"✨", skill:"🛠️", firstkill:"⚔️", other:"⭐" };
+const TYPE_NAME = { levelup:"Level ups", boss:"Bosses", dungeon:"Dungeons", death:"Deaths", quest:"Quests", zone:"Zones", item:"Loot", spell:"Spells", skill:"Skills", firstkill:"First kills", other:"Other" };
 
-/* Next round milestone above a value: 539 → 550, 783 → 800, 32,210 → 35,000. */
-function nextMilestone(v){
-  if(!v) return 10;
-  const step = Math.max(10, 5 * Math.pow(10, Math.floor(Math.log10(v)) - 1));
-  return Math.floor(v/step)*step + step;
-}
-/* Rate per day for one stat, from the oldest to the newest snapshot. */
-function ratePerDay(history, key){
-  const pts = (history||[]).filter(h => h[key]!=null);
-  if(pts.length < 2) return null;
-  const a = pts[0], b = pts[pts.length-1];
-  const days = (new Date(b.date) - new Date(a.date)) / DAY;
-  return days > 0 ? (b[key]-a[key]) / days : null;
-}
-function etaLine(history, key, value, goal, unit){
-  const r = ratePerDay(history, key);
-  if(r == null) return `Need two syncs on different days to work out your pace.`;
-  if(r <= 0) return `No change since ${esc(history[0].date)}, so no ETA yet.`;
-  return `+${fmt(r*7, r*7<10?1:0)}${unit||""} a week → <b>${fmt(goal)}${unit||""}</b> around <b>${dateIn((goal-value)/r)}</b>`;
+/* ---------- pace maths ---------- */
+function pace(d){
+  const c = d.character, lv = d.levels || [];
+  const xpDone = xpTo(c.level) + (c.xp || 0);
+  /* XP per hour: last 5 levels if we have them (XP per hour rises as you level), otherwise the lifetime average */
+  let xpPerHour = c.playedHours ? xpDone / c.playedHours : null, basis = "lifetime average";
+  const recent = lv.filter(l => l.hoursThisLevel > 0 && l.level < c.level).sort((a,b) => b.level-a.level).slice(0,5);
+  if(recent.length >= 3){
+    const xp = recent.reduce((n,l) => n + XP[l.level], 0), h = recent.reduce((n,l) => n + l.hoursThisLevel, 0);
+    if(h > 0){ xpPerHour = xp / h; basis = `your last ${recent.length} levels`; }
+  }
+  const hoursLeft = xpPerHour ? (XP60 - xpDone) / xpPerHour : null;
+  /* hours played per week, from snapshots or level-up dates */
+  let perWeek = null, weekBasis = null;
+  const h = (d.history || []).filter(x => x.playedHours != null);
+  if(h.length >= 2){
+    const days = (new Date(h[h.length-1].date) - new Date(h[0].date)) / DAY;
+    if(days >= 1){ perWeek = (h[h.length-1].playedHours - h[0].playedHours) / days * 7; weekBasis = `since ${h[0].date}`; }
+  }
+  if(perWeek == null){
+    const dated = lv.filter(l => l.reachedAt && l.playedHoursAt != null).sort((a,b) => a.level-b.level);
+    if(dated.length >= 2){
+      const a = dated[0], b = dated[dated.length-1], days = (new Date(b.reachedAt)-new Date(a.reachedAt))/DAY;
+      if(days >= 1){ perWeek = (b.playedHoursAt - a.playedHoursAt) / days * 7; weekBasis = "from your level-up dates"; }
+    }
+  }
+  return { xpDone, xpPerHour, basis, hoursLeft, perWeek, weekBasis };
 }
 
-function render(w){
-  const chars = [...(w.characters||[])].sort((a,b) => (b.level||0)-(a.level||0) || (b.playedHours||0)-(a.playedHours||0));
-  const main = chars[0] || {};
-  const col = w.collections || {};
-  const hist = w.history || [];
-  const gold = chars.reduce((n,c) => n + (c.gold||0), 0);
-  const hours = chars.reduce((n,c) => n + (c.playedHours||0), 0);
+/* ---------- render ---------- */
+let STATE = {};
+function render(d){
+  const c = d.character, P = pace(d), t = d.totals || {};
+  STATE = { d, P, sel: c.level, filter: "all" };
+  const levelPct = (c.level - 1) / 59 * 100;
+  const xpPct = P.xpDone / XP60 * 100;
   const html = [];
 
-  /* Hero: the main */
   html.push(`<div class="hero">
-    <div class="avatar">${CLASS_ICON[main.class] || "🧝"}</div>
+    <div class="ring" style="--p:${xpPct.toFixed(1)}"><div><span><b>${c.level}</b><small>OF 60</small></span></div></div>
     <div>
-      <h2>${esc(main.name)} <span style="color:var(--muted);font-weight:400">of ${esc(main.realm||"")}</span></h2>
-      <div class="who">Level <b>${fmt(main.level)}</b> ${esc(main.race||"")} ${esc(main.class||"")} · ${esc(main.faction||"")} · ${esc(main.flavour||"")}</div>
-      ${main.maxLevel ? `${bar("red", main.level, main.maxLevel)}<div class="lvl"><span>Level <b>${fmt(main.level)}</b> / ${fmt(main.maxLevel)}</span>
-        <span>${main.level >= main.maxLevel ? "<b>Max level</b>" : `${main.maxLevel-main.level} levels to go`}</span></div>` : ""}
-      <div class="synced">Last synced ${ago(w.synced)} · main last seen ${esc(main.lastSeen||"—")}</div>
+      <h2>${esc(c.name)}</h2>
+      <div class="who">Level <b>${c.level}</b> ${esc(c.race)} ${esc(c.class)} · ${esc(c.faction)} · WoW ${esc(c.flavour)}${c.zone ? ` · now in <b>${esc(c.zone)}</b>` : ""}</div>
+      ${bar("", xpPct, 100)}
+      <div class="lvl"><span><b>${fmt(xpPct,1)}%</b> of the XP to 60</span><span><b>${fmt(levelPct,0)}%</b> of the levels</span></div>
+      ${c.xp!=null && c.xpMax ? `<div class="lvl" style="margin-top:6px"><span>This level: <b>${fmt(c.xp)}</b> / ${fmt(c.xpMax)} XP</span></div>` : ""}
+      <div class="synced">Last synced ${ago(d.synced)} · last played ${esc(c.lastSeen||"—")}</div>
     </div>
   </div>`);
 
-  /* Headline numbers */
-  const animals = (col.mounts||0) + (col.pets||0);
   html.push(`<div class="tiles">
-    <div class="tile gold"><div class="k">GOLD</div><div class="v">${fmt(gold)}g</div><div class="n">all characters</div></div>
-    <div class="tile"><div class="k">TIME PLAYED</div><div class="v">${fmt(hours/24)} days</div><div class="n">${fmt(hours)} hours</div></div>
-    <div class="tile"><div class="k">ANIMALS</div><div class="v">${fmt(animals)}</div><div class="n">mounts + pets</div></div>
-    <div class="tile"><div class="k">ACHIEVEMENT PTS</div><div class="v">${fmt(col.achievementPoints)}</div><div class="n">${fmt(col.achievements)} earned</div></div>
-    <div class="tile"><div class="k">CHARACTERS</div><div class="v">${chars.length}</div><div class="n">with saved stats</div></div>
+    <div class="tile"><div class="k">TIME PLAYED</div><div class="v">${hrs(c.playedHours)}</div><div class="n">${esc(c.played||"")}</div></div>
+    <div class="tile"><div class="k">XP EARNED</div><div class="v">${fmt(P.xpDone)}</div><div class="n">of ${fmt(XP60)}</div></div>
+    <div class="tile"><div class="k">XP / HOUR</div><div class="v">${fmt(P.xpPerHour)}</div><div class="n">${esc(P.basis)}</div></div>
+    <div class="tile gold"><div class="k">GOLD</div><div class="v">${fmt(c.gold, c.gold<10?2:0)}g</div><div class="n">in the bags</div></div>
+    ${t.kills!=null ? `<div class="tile"><div class="k">KILLS</div><div class="v">${fmt(t.kills)}</div><div class="n">mobs slain</div></div>` : ""}
+    ${t.questsCompleted!=null ? `<div class="tile"><div class="k">QUESTS</div><div class="v">${fmt(t.questsCompleted)}</div><div class="n">completed</div></div>` : ""}
+    ${t.deaths!=null ? `<div class="tile"><div class="k">DEATHS</div><div class="v">${fmt(t.deaths)}</div><div class="n">${c.race==="Undead" ? "already dead, technically" : "so far"}</div></div>` : ""}
+    ${t.dungeons!=null ? `<div class="tile"><div class="k">DUNGEONS</div><div class="v">${fmt(t.dungeons)}</div><div class="n">cleared</div></div>` : ""}
+    ${t.bossKills!=null ? `<div class="tile"><div class="k">BOSSES</div><div class="v">${fmt(t.bossKills)}</div><div class="n">defeated</div></div>` : ""}
+    ${t.zonesDiscovered!=null ? `<div class="tile"><div class="k">ZONES</div><div class="v">${fmt(t.zonesDiscovered)}</div><div class="n">discovered</div></div>` : ""}
   </div>`);
 
-  /* Collections with next milestone + pace */
-  const COLL = [
-    ["🐎","Mounts","mounts"], ["🐾","Battle pets (species)","pets"], ["🧸","Toys","toys"],
-    ["🏆","Achievement points","achievementPoints"], ["📜","Titles","titles"], ["🗝️","Heirlooms","heirlooms"],
-    ["👘","Transmog appearances","appearances"],
-  ].filter(([,,k]) => col[k] != null);
-  html.push(`<h3 class="sec">Collections <span class="src">· ${esc(col.flavour||"")} account, at this rate</span></h3><div class="rows">` +
-    COLL.map(([ic,name,k]) => { const v = col[k], goal = nextMilestone(v); return `
-      <div class="row"><div class="top"><span>${ic} ${esc(name)}</span><span>${fmt(v)} / ${fmt(goal)}</span></div>
-        ${bar("purple", v, goal)}<div class="eta">${etaLine(hist, k, v, goal)}</div></div>`; }).join("") + `</div>`);
-
-  /* Wealth */
-  const goldGoal = gold < 1e6 ? 1e6 : nextMilestone(gold);
-  html.push(`<h3 class="sec">Treasury</h3><div class="rows">
-    <div class="row"><div class="top"><span>💰 Total gold</span><span>${fmt(gold)}g / ${fmt(goldGoal)}g</span></div>
-      ${bar("gold", gold, goldGoal)}<div class="eta">${etaLine(hist, "gold", gold, goldGoal, "g")}</div></div>` +
-    chars.filter(c => c.gold).map(c => `<div class="row"><div class="top"><span>${esc(c.name)} <span class="sub">${esc(c.flavour)}</span></span><span>${fmt(c.gold, c.gold<10?2:0)}g</span></div>${bar("gold", c.gold, gold)}</div>`).join("") +
-  `</div>`);
-
-  /* Time played, with some perspective */
-  const workYears = hours / 1760;   // a full-time work year is about 1,760 hours
-  html.push(`<h3 class="sec">Time in Azeroth</h3><div class="rows">
-    <div class="row fact">⏳ <b>${fmt(hours)}</b> hours on record: <b>${fmt(hours/24)}</b> days straight, or about <b>${fmt(workYears,1)}</b> full-time work years.</div>
-    <div class="row"><div class="top"><span>Time played</span><span>pace</span></div>
-      <div class="eta">${etaLine(hist, "playedHours", hours, Math.ceil(hours/500)*500, " h")}</div></div>
+  /* ETA with a what-if slider */
+  const startWeek = Math.round(Math.min(60, Math.max(1, P.perWeek || 10)));
+  html.push(`<h3 class="sec">When do I hit 60?</h3><div class="card2">
+    <p class="eta-big">About <b>${hrs(P.hoursLeft)}</b> of play left to reach level 60.</p>
+    <div class="note">Based on ${fmt(P.xpPerHour)} XP an hour (${esc(P.basis)}) and the Classic XP table. Later levels need far more XP, so this gets more accurate as the sync records each level.</div>
+    <div class="slider"><label for="wk">If I play</label><input id="wk" type="range" min="1" max="60" value="${startWeek}" />
+      <output id="wkOut"></output></div>
+    <p class="eta-big" style="margin-top:10px" id="etaDate"></p>
+    <div class="note">${P.perWeek!=null ? `Your actual pace: ${fmt(P.perWeek,1)} hours a week (${esc(P.weekBasis)}).` : "Your real weekly pace appears after a few syncs on different days. Drag the slider to try one."}</div>
   </div>`);
 
-  /* Roster */
-  html.push(`<h3 class="sec">Roster</h3><div class="scroll"><table class="roster"><thead><tr>
-      <th>Character</th><th>Version</th><th>Race / class</th><th>Level</th><th>Gold</th><th>Played</th><th>Last seen</th></tr></thead><tbody>` +
-    chars.map(c => `<tr><td>${CLASS_ICON[c.class]||""} <b>${esc(c.name)}</b> <span class="sub">${esc(c.realm||"")}</span></td><td>${esc(c.flavour||"")}</td>
-      <td>${esc([c.race,c.class].filter(Boolean).join(" "))}</td><td class="num">${fmt(c.level)}</td>
-      <td class="num">${c.gold==null ? "—" : fmt(c.gold, c.gold<10?2:0)+"g"}</td><td>${esc(c.played||"—")}</td><td>${esc(c.lastSeen||"—")}</td></tr>`).join("") +
-    `</tbody></table></div>`);
+  /* The road */
+  html.push(`<h3 class="sec">The road <span class="src">· tap a level</span></h3><div class="card2">
+    <div class="road" id="road"></div>
+    <div class="legend"><span><i style="background:#123321;border:1px solid #1d5742"></i>Done</span><span><i style="background:var(--green)"></i>You are here</span>
+      <span><i style="background:var(--panel2);border:1px solid var(--line)"></i>Ahead</span><span><i style="background:var(--yellow);border-radius:50%"></i>Milestone</span></div>
+    <div class="detail" id="detail"></div>
+  </div>`);
 
-  /* Feats: unlock from the synced numbers */
-  const feats = [
-    ["👑","Max Level",        "Reach the level cap on any character",          chars.some(c => c.maxLevel && c.level >= c.maxLevel)],
-    ["🐎","Stable Master",    "Collect 500 mounts",                             (col.mounts||0) >= 500],
-    ["🦄","Herd of Legends",  "Collect 750 mounts",                             (col.mounts||0) >= 750],
-    ["🐾","Menagerie",        "Collect 750 pet species",                        (col.pets||0) >= 750],
-    ["🧸","Toy Box Hoarder",  "Collect 500 toys",                               (col.toys||0) >= 500],
-    ["🏆","Point Lord",       "Earn 30,000 achievement points",                 (col.achievementPoints||0) >= 30000],
-    ["📜","Many Names",       "Unlock 200 titles",                              (col.titles||0) >= 200],
-    ["👘","Fashion Icon",     "Collect 25,000 transmog appearances",            (col.appearances||0) >= 25000],
-    ["💰","Goblin Tycoon",    "Hold 100,000 gold",                              gold >= 1e5],
-    ["💎","Gold Millionaire", "Hold 1,000,000 gold",                            gold >= 1e6],
-    ["⏳","No-Lifer",         "Play 1 full year (8,760 hours)",                 hours >= 8760],
-    ["👥","Altoholic",        "Have 10 characters with saved stats",            chars.length >= 10],
-  ];
-  html.push(`<h3 class="sec">Feats · ${feats.filter(f=>f[3]).length}/${feats.length}</h3><ul class="list">` +
-    feats.map(([ic,nm,desc,ok]) => `<li class="${ok?"":"locked"}"><span class="ic">${ok?ic:"🔒"}</span><span>${esc(nm)}<small>${esc(desc)}</small></span></li>`).join("") + `</ul>`);
+  /* Highlights */
+  if((d.highlights||[]).length){
+    const types = [...new Set(d.highlights.map(h => h.type || "other"))];
+    html.push(`<h3 class="sec">Highlights</h3>
+      <div class="chips" id="chips"><button class="toggle active" data-f="all">All</button>${types.map(ty => `<button class="toggle" data-f="${esc(ty)}">${TYPE_ICON[ty]||"⭐"} ${esc(TYPE_NAME[ty]||ty)}</button>`).join("")}</div>
+      <ul class="feed" id="feed"></ul>`);
+  }
 
-  html.push(`<p class="sub" style="margin-top:24px">${esc(w.source||"")}. ${esc(w.notes||"")} ${hist.length} snapshot${hist.length===1?"":"s"} on record.</p>`);
+  /* Time breakdown */
+  const parts = [["Fighting","combatHours","var(--red)"],["Casting","castingHours","var(--purple)"],["Flying","taxiHours","var(--blue)"],["Dead","deadHours","var(--black)"],["AFK","afkHours","var(--muted)"]]
+    .filter(([,k]) => t[k] > 0);
+  if(parts.length){
+    const total = c.playedHours || parts.reduce((n,[,k]) => n + t[k], 0);
+    html.push(`<h3 class="sec">Where the time went</h3><div class="card2">
+      <div class="stack">${parts.map(([,k,col]) => `<span style="width:${pct(t[k], total)}%;background:${col}" title="${hrs(t[k])}"></span>`).join("")}</div>
+      <div class="legend">${parts.map(([n,k,col]) => `<span><i style="background:${col}"></i>${n} ${hrs(t[k])}</span>`).join("")}</div></div>`);
+  }
+
+  /* Zones + kills */
+  const listBars = (rows, val, label) => { const max = Math.max(...rows.map(val)); return `<div class="rows">` +
+    rows.map(r => `<div class="row"><div class="top"><span>${esc(r.name)}</span><span>${label(r)}</span></div>${bar("purple", val(r), max)}</div>`).join("") + `</div>`; };
+  const zones = d.zones || [], kills = d.topKills || [];
+  if(zones.length || kills.length){
+    html.push(`<div class="two">
+      ${zones.length ? `<div><h3 class="sec">Favourite haunts</h3><div class="card2">${listBars(zones, r => r.hours, r => hrs(r.hours))}</div></div>` : ""}
+      ${kills.length ? `<div><h3 class="sec">Most slain</h3><div class="card2">${listBars(kills, r => r.count, r => fmt(r.count))}</div></div>` : ""}
+    </div>`);
+  }
+
+  /* Deaths */
+  if((d.deaths||[]).length){
+    html.push(`<h3 class="sec">Hall of shame · ${d.deaths.length} death${d.deaths.length===1?"":"s"}</h3><ul class="feed">` +
+      d.deaths.slice(0,15).map(x => `<li><span class="ic">💀</span><span>Killed by <b>${esc(x.killer||"something")}</b>${x.zone ? ` in ${esc(x.zone)}` : ""}<small>Level ${fmt(x.level)} · ${esc(x.date||"")}</small></span></li>`).join("") + `</ul>`);
+  }
+
+  if(!(d.levels||[]).length) html.push(`<div class="waiting">⏳ Level-by-level history, highlights, kills, zones and deaths appear after the first sync from AutoBiographer on the PC.</div>`);
+
   document.getElementById("app").innerHTML = html.join("");
   requestAnimationFrame(()=>document.querySelectorAll(".bar > i").forEach(i=>i.style.width = i.dataset.w + "%"));
+  drawRoad(); drawDetail(); drawFeed(); wireSlider();
 }
 
-loadWow().then(w => w ? render(w)
-  : (document.getElementById("app").innerHTML = `<p class="sub" style="margin-top:20px">Couldn't load wow.json.</p>`));
+function drawRoad(){
+  const { d, sel } = STATE, cur = d.character.level;
+  const road = document.getElementById("road");
+  road.innerHTML = Array.from({length:60}, (_,i) => i+1).map(L => {
+    const cls = [L < cur ? "done" : L === cur ? "cur" : "", MILESTONES[L] ? "ms" : "", L === sel ? "sel" : ""].join(" ");
+    return `<button class="${cls}" data-l="${L}" aria-label="Level ${L}">${L}</button>`;
+  }).join("");
+  road.onclick = e => { const b = e.target.closest("button"); if(!b) return; STATE.sel = Number(b.dataset.l); drawRoad(); drawDetail(); };
+}
+
+function drawDetail(){
+  const { d, P, sel: L } = STATE, c = d.character;
+  const info = (d.levels||[]).find(x => x.level === L);
+  const hl = (d.highlights||[]).filter(h => h.level === L);
+  const ms = MILESTONES[L] ? `<p>⭐ ${esc(MILESTONES[L])}</p>` : "";
+  let body;
+  if(L < c.level){
+    body = info ? `<div class="meta">Reached ${dShort(info.reachedAt)}${info.zone ? " in "+esc(info.zone) : ""} · ${hrs(info.hoursThisLevel)} spent at this level · ${hrs(info.playedHoursAt)} played in total</div>`
+                : `<div class="meta">Done. Details for this level arrive with the first full sync.</div>`;
+  } else if(L === c.level){
+    body = `<div class="meta">You are here. Level ${L} → ${L+1} takes ${fmt(XP[L])} XP${P.xpPerHour ? `, about ${hrs(XP[L]/P.xpPerHour)} at your pace` : ""}.</div>`;
+  } else if(L === 60){
+    body = `<div class="meta">The finish line. ${hrs(P.hoursLeft)} of play away at your current pace.</div>`;
+  } else {
+    const hoursAway = P.xpPerHour ? (xpTo(L) - P.xpDone) / P.xpPerHour : null;
+    body = `<div class="meta">${fmt(xpTo(L) - P.xpDone)} XP away${hoursAway!=null ? ` (about ${hrs(hoursAway)} of play)` : ""}. This level itself needs ${fmt(XP[L])} XP.</div>`;
+  }
+  document.getElementById("detail").innerHTML = `<h4>Level ${L}</h4>${body}${ms}` +
+    (hl.length ? `<ul>${hl.map(h => `<li>${TYPE_ICON[h.type]||"⭐"} ${esc(h.text)}</li>`).join("")}</ul>` : "");
+}
+
+function drawFeed(){
+  const feed = document.getElementById("feed"); if(!feed) return;
+  const { d, filter } = STATE;
+  const rows = d.highlights.filter(h => filter === "all" || (h.type||"other") === filter).slice(0, 40);
+  feed.innerHTML = rows.map(h => `<li><span class="ic">${TYPE_ICON[h.type]||"⭐"}</span><span>${esc(h.text)}<small>Level ${fmt(h.level)} · ${esc(h.date||"")}</small></span></li>`).join("");
+  document.getElementById("chips").onclick = e => { const b = e.target.closest("button"); if(!b) return;
+    STATE.filter = b.dataset.f; document.querySelectorAll("#chips .toggle").forEach(x => x.classList.toggle("active", x===b)); drawFeed(); };
+}
+
+function wireSlider(){
+  const s = document.getElementById("wk"), out = document.getElementById("wkOut"), eta = document.getElementById("etaDate");
+  const upd = () => { const w = Number(s.value); out.textContent = w + " h/week";
+    eta.innerHTML = STATE.P.hoursLeft ? `…I hit 60 around <b>${dateIn(STATE.P.hoursLeft / w * 7)}</b>.` : "Not enough data yet."; };
+  s.oninput = upd; upd();
+}
+
+load().then(d => d && d.character ? render(d)
+  : (document.getElementById("app").innerHTML = `<p class="sub" style="margin-top:20px">Couldn't load forever.json.</p>`));
 </script>
 </body>
 </html>

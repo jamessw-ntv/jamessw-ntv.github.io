@@ -1,0 +1,30 @@
+{
+  "synced": "2026-11-21T17:50:00Z",
+  "updated": "2026-11-21",
+  "character": {
+    "name": "Capsiel Deadset",
+    "realm": "PvE",
+    "flavour": "Forever",
+    "faction": "Horde",
+    "race": "Undead",
+    "class": "Paladin",
+    "level": 33,
+    "maxLevel": 60,
+    "xp": null,
+    "xpMax": null,
+    "gold": 4.48,
+    "played": "4d 6h 41m",
+    "playedHours": 102.7,
+    "zone": null,
+    "lastSeen": "2026-11-22"
+  },
+  "levels": [],
+  "totals": {},
+  "highlights": [],
+  "topKills": [],
+  "zones": [],
+  "deaths": [],
+  "history": [
+    { "date": "2026-11-21", "level": 33, "playedHours": 102.7, "gold": 4.48 }
+  ]
+}
