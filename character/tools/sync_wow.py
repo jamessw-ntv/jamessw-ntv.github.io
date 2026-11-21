@@ -122,11 +122,27 @@ def build():
         if e.get("Type") == EV_LEVEL and e.get("SubType") == ST_LEVELUP:
             level_ts[e.get("LevelNum")] = e.get("Timestamp")
 
+    # social_diary also records some ding times AutoBiographer missed
+    sd_path = os.path.join(os.path.dirname(ab_path), "social_diary.lua")
+    if os.path.exists(sd_path):
+        try:
+            sdj = ((load(sd_path).get("SocialDiaryCharDB") or {}).get("data") or {}).get("journey") or {}
+            for j in sdj.values():
+                for L, v in (j.get("levels") or {}).items():
+                    if isinstance(L, int) and num((v or {}).get("at")):
+                        level_ts.setdefault(L, v["at"])
+        except Exception as e:
+            print(f"warning: social_diary levels skipped: {e}", file=sys.stderr)
+
     def level_at(ts):
-        lv = 1
-        for L, t in sorted(level_ts.items(), key=lambda x: x[1]):
+        """Level at a timestamp; None when the dings around it weren't recorded."""
+        known = sorted(level_ts.items(), key=lambda x: x[1])
+        lv, idx = 1, -1
+        for i, (L, t) in enumerate(known):
             if t <= ts:
-                lv = L
+                lv, idx = L, i
+        if idx + 1 < len(known) and known[idx + 1][0] != lv + 1:
+            return None
         return lv
 
     def zone_part(area):
@@ -287,6 +303,12 @@ def build():
         del x["_ts"]
     deaths.reverse()
 
+    ctx = dict(sv_dir=os.path.dirname(ab_path), acct_dir=acct_dir, ab=ab, items=items, levels=levels,
+               level_at=level_at, info=info)
+    extras = build_extras(ctx)
+    if extras.get("dungeons"):
+        totals["dungeons"] = len(extras["dungeons"])
+
     last_seen = day(os.path.getmtime(ab_path))
     race = syn_char.get("race")
     race = {"Scourge": "Undead"}.get(race, race)
@@ -315,7 +337,206 @@ def build():
         "topKills": [{"name": n, "count": c} for n, c in kills_by_unit.most_common(10)],
         "zones": [{"name": n, "hours": hrs(s)} for n, s in zone_time.most_common(10)],
         "deaths": deaths,
+        **extras,
     }
+
+
+SLOTS = {1: "Head", 2: "Neck", 3: "Shoulder", 4: "Shirt", 5: "Chest", 6: "Waist", 7: "Legs", 8: "Feet",
+         9: "Wrist", 10: "Hands", 11: "Finger", 12: "Finger", 13: "Trinket", 14: "Trinket", 15: "Back",
+         16: "Main hand", 17: "Off hand", 18: "Ranged", 19: "Tabard"}
+QUALITY = ["poor", "common", "uncommon", "rare", "epic", "legendary", "artifact", "heirloom"]
+HEARTHSTONE_SPELL = 8690
+YARD_KM = 0.0009144
+
+
+def safe_load(path):
+    try:
+        return load(path) if os.path.exists(path) else {}
+    except Exception as e:  # one broken addon file shouldn't stop the sync
+        print(f"warning: could not parse {os.path.basename(path)}: {e}", file=sys.stderr)
+        return {}
+
+
+def attune_names():
+    """Attunement id -> name for Classic-era, non-Alliance entries, from the Attune addon's own data."""
+    import re
+    p = os.path.join(WOW_ROOT, FLAVOUR_DIR, "Interface", "AddOns", "Attune", "AttuneData.lua")
+    out = {}
+    if not os.path.exists(p):
+        return out
+    pat = re.compile(r'\{ID="(\d+)",NAME=AttuneLang\["([^"]+)"\].*?EXPAC=AttuneLang\["([^"]+)"\]')
+    with open(p, encoding="utf-8", errors="replace") as f:
+        for line in f:
+            m = pat.search(line)
+            if m and m.group(3) == "World of Warcraft" and 'FACTION="Alliance"' not in line:
+                out[m.group(1)] = m.group(2)
+    return out
+
+
+def build_extras(ctx):
+    sv, ab, items, levels, level_at = ctx["sv_dir"], ctx["ab"], ctx["items"], ctx["levels"], ctx["level_at"]
+    out = {}
+
+    # --- dungeons (ForeverDungeonJournal run log). Party member names are never read out.
+    fdj = safe_load(os.path.join(sv, "ForeverDungeonJournal.lua")).get("ForeverDungeonJournalCharacterDB", {})
+    runs = sorted(((fdj.get("runLog") or {}).get("runs") or {}).values(), key=lambda r: num(r.get("created")))
+    dmap = {}
+    for r in runs:
+        name = r.get("instanceName") or r.get("dungeon")
+        start = num(r.get("created")) or num(r.get("firstKill"))
+        if not name or not start:
+            continue
+        d = dmap.setdefault(name, {"name": name, "runs": 0, "firstRun": day(start), "lastRun": day(start),
+                                   "levelFirstRun": level_at(start), "bosses": {}, "fastestMinutes": None})
+        d["runs"] += 1
+        d["lastRun"] = day(start)
+        seen = set()
+        for k in (r.get("kills") or {}).values():
+            b = k.get("b")
+            if not b or b in seen:
+                continue
+            seen.add(b)
+            bo = d["bosses"].setdefault(b, {"name": b, "kills": 0, "firstKill": day(num(k.get("t")) or start)})
+            bo["kills"] += 1
+        end = num(r.get("lastBoss")) or num(r.get("finalKill"))
+        if (r.get("completed") or r.get("closed")) and end > start:
+            mins = round((end - start) / 60)
+            if d["fastestMinutes"] is None or mins < d["fastestMinutes"]:
+                d["fastestMinutes"] = mins
+    if dmap:
+        out["dungeons"] = [{**d, "bosses": list(d["bosses"].values())} for d in dmap.values()]
+
+    # --- attunements (Attune, account file, this character's row)
+    att = safe_load(os.path.join(ctx["acct_dir"], "SavedVariables", "Attune.lua")).get("Attune_DB", {})
+    toon = (att.get("toons") or {}).get(SYNDICATOR_NAME) or {}
+    names = attune_names()
+    best = {}
+    for k, v in (toon.get("attuned") or {}).items():
+        n = names.get(str(k))
+        if n:
+            best[n] = max(best.get(n, 0), num(v))
+    if best:
+        out["attunements"] = sorted(({"name": n, "percent": p} for n, p in best.items()),
+                                    key=lambda r: (-r["percent"], r["name"]))
+
+    # --- social (social_diary): counts only. No names, no message text/excerpts.
+    sd = (safe_load(os.path.join(sv, "social_diary.lua")).get("SocialDiaryCharDB") or {}).get("data") or {}
+    inter = sd.get("interactions") or {}
+    by_type = collections.defaultdict(list)
+    for per_player in inter.values():
+        for e in (per_player or {}).values():
+            if isinstance(e, dict) and e.get("type"):
+                by_type[e["type"]].append(num(e.get("time")))
+    group_times = sorted(set(by_type.get("group_join", [])))
+    matches = sorted((sd.get("matches") or {}).values(), key=lambda m: num(m.get("startedAt")))
+    bg_won = sum(1 for m in matches if m.get("state") == "complete" and m.get("winner") == m.get("faction"))
+    social = {
+        "guildRank": ctx["info"].get("GuildRankName"),
+        "playersSeen": len(sd.get("characters") or {}),
+        "playersInteractedWith": len(inter),
+        "playersSavedToDiary": len(sd.get("diary") or {}),
+        "groupsJoined": len(group_times),
+        "whispersSent": len(by_type.get("whisper_out", [])),
+        "whispersReceived": len(by_type.get("whisper_in", [])),
+        "partyChatMessages": len(by_type.get("party", [])),
+        "sayMessages": len(by_type.get("say", [])),
+        "tradesCompleted": len(by_type.get("trade", [])),
+        "campfiresShared": len(set(by_type.get("campfire", []))),
+        "battlegrounds": len(matches),
+        "battlegroundsWon": bg_won,
+    }
+    if any(v for k, v in social.items() if k != "guildRank"):
+        out["social"] = social
+
+    sh = []
+    for e in (ab.get("AUTOBIOGRAPHER_EVENTS_CHAR") or {}).values():
+        ts = num(e.get("Timestamp"))
+        if e.get("Type") == 4 and e.get("SubType") == 3:
+            sh.append((ts, "Joined a guild"))
+        elif e.get("Type") == 4 and e.get("SubType") == 5 and e.get("GuildRankName"):
+            sh.append((ts, f"Guild rank changed to {e['GuildRankName']}"))
+    if group_times:
+        sh.append((group_times[0], "Joined a group for the first time (since the social diary started)"))
+        for n in (10, 25, 50, 100, 250):
+            if len(group_times) >= n:
+                sh.append((group_times[n - 1], f"Joined group #{n}"))
+    for kind, text in (("whisper_in", "Received a first whisper"), ("trade", "Completed a first trade")):
+        if by_type.get(kind):
+            sh.append((min(by_type[kind]), text))
+    seen_times = sorted(num(c.get("firstSeen")) for c in (sd.get("characters") or {}).values() if num(c.get("firstSeen")))
+    for n in (100, 500, 1000, 2000, 3000, 4000, 5000):
+        if len(seen_times) >= n:
+            sh.append((seen_times[n - 1], f"Crossed paths with {n:,} players"))
+    for m in matches:
+        if m.get("state") == "complete" and m.get("mapName"):
+            won = m.get("winner") == m.get("faction")
+            sh.append((num(m.get("startedAt")), f"{'Won' if won else 'Lost'} {m['mapName']}"))
+    sh.sort(reverse=True)
+    if sh:
+        out["socialHighlights"] = [{"date": day(t), "level": level_at(t), "text": x} for t, x in sh if t]
+
+    # --- gear (currently equipped), item level from AutoBiographer's item catalog
+    gear_db = ab.get("AUTOBIOGRAPHER_GEAR_CHAR") or {}
+    since = {}
+    for ch in sorted((gear_db.get("Changes") or {}).values(), key=lambda c: num(c.get("Timestamp"))):
+        since[(ch.get("SlotId"), str(ch.get("ItemId")))] = num(ch.get("Timestamp"))
+    gear = []
+    for slot, iid in sorted(((k, v) for k, v in (gear_db.get("Snapshot") or {}).items() if isinstance(k, int)),
+                            key=lambda x: x[0]):
+        if not iid or slot in (4, 19):
+            continue
+        it = items.get(iid) or items.get(str(iid)) or {}
+        if not it.get("Name"):
+            continue
+        q = num(it.get("Rarity"))
+        t = since.get((slot, str(iid)))
+        gear.append({"slot": SLOTS.get(slot, str(slot)), "name": it["Name"],
+                     "quality": QUALITY[q] if 0 <= q < len(QUALITY) else None,
+                     "itemLevel": it.get("Level"), "since": day(t) if t else None})
+    if gear:
+        out["gear"] = gear
+
+    # --- travel
+    yards = hearths = 0
+    for s in levels.values():
+        yards += sum(num(v) for v in (s.get("DistanceStatistics") or {}).values())
+        hearths += num(((s.get("SpellStatisticsBySpell") or {}).get(HEARTHSTONE_SPELL) or {}).get(1))
+    cat = ab.get("AUTOBIOGRAPHER_CATALOGS_CHAR") or {}
+    fps = fdj.get("flightPoints") or {}
+    out["travel"] = {
+        "distanceKm": round(yards * YARD_KM, 1),
+        "flights": None,
+        "flightPathsKnown": len(fps) or None,
+        "hearthstones": int(hearths),
+        "zonesVisited": sum(1 for z in (cat.get("ZoneCatalog") or {}).values() if z.get("HasEntered")),
+        "subZonesVisited": sum(1 for z in (cat.get("SubZoneCatalog") or {}).values() if z.get("HasEntered")),
+    }
+
+    # --- campfire tales
+    tales = []
+    for t in ((ab.get("AUTOBIOGRAPHER_TALES_CHAR") or {}).get("Items") or {}).values():
+        ts = num(t.get("CreatedTimestamp"))
+        if t.get("Text") and ts:
+            tales.append({"date": day(ts), "level": level_at(ts), "text": t["Text"], "_ts": ts})
+    tales.sort(key=lambda x: x["_ts"], reverse=True)
+    if tales:
+        out["tales"] = [{k: v for k, v in x.items() if k != "_ts"} for x in tales[:20]]
+
+    # --- Spoken addons: bosses and places discovered (names only; no dates are stored)
+    boss_names = {"".join(ch for ch in b.get("Name", "").lower() if ch.isalnum()): b.get("Name")
+                  for b in (cat.get("BossCatalog") or {}).values()}
+    sb = (safe_load(os.path.join(sv, "Spoken_Bosses.lua")).get("SpokenBossesCharacter") or {}).get("found") or {}
+    bl = []
+    for k in sb:
+        raw = str(k).split(":", 1)[-1]
+        bl.append(boss_names.get("".join(ch for ch in raw if ch.isalnum())) or raw.title())
+    if bl:
+        out["bossesSpoken"] = sorted(set(bl))
+    sp = (safe_load(os.path.join(sv, "Spoken_Places.lua")).get("SpokenPlacesCharacter") or {}).get("visited") or {}
+    pl = sorted({str(k).split("/", 1)[1].title() for k in sp if "/" in str(k)})
+    if pl:
+        out["placesSpoken"] = pl
+    return out
 
 
 def git(*args, check=True):
