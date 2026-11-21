@@ -522,6 +522,36 @@ def build_extras(ctx):
     if tales:
         out["tales"] = [{k: v for k, v in x.items() if k != "_ts"} for x in tales[:20]]
 
+    # --- fun stats: the four silliest numbers
+    misc, dist, ui_time, ui_open, rolls = collections.Counter(), collections.Counter(), collections.Counter(), collections.Counter(), []
+    for s in levels.values():
+        for k, v in (s.get("MiscellaneousStatistics") or {}).items():
+            misc[k] += num(v)
+        for k, v in (s.get("DistanceStatistics") or {}).items():
+            dist[k] += num(v)
+        for k, v in (s.get("UiStatistics") or {}).items():
+            ui_time[k] += num((v or {}).get("TimeSpent"))
+            ui_open[k] += num((v or {}).get("OpenCount"))
+        for r in (((s.get("RollStatistics") or {}).get("ItemRolls")) or {}).values():
+            if num((r or {}).get("Roll")):
+                rolls.append(r["Roll"])
+    fun = []
+    if misc[1]:   # MiscellaneousTrackingType.Jumps
+        fun.append({"label": "JUMPS", "value": f"{int(misc[1]):,}", "note": "for no reason at all"})
+    if ui_open[3]:  # UiElement.Bags
+        fun.append({"label": "BAG CHECKS", "value": f"{int(ui_open[3]):,}",
+                    "note": f"{ui_time[3] / 3600:.1f} hours staring into the bags"})
+    if dist[1]:   # DistanceTrackingType.Ghost
+        fun.append({"label": "GHOST WALKING", "value": f"{dist[1] * YARD_KM:.0f} km",
+                    "note": "jogged back to the corpse"})
+    ones = sum(1 for r in rolls if r == 1)
+    if rolls:
+        fun.append({"label": "LOOT ROLLS", "value": f"{len(rolls)}",
+                    "note": ("rolled a 1 out of 100 " + ("once" if ones == 1 else "twice" if ones == 2 else f"{ones} times"))
+                    if ones else f"best roll {max(rolls)}"})
+    if fun:
+        out["funStats"] = fun[:4]
+
     # --- Spoken addons: bosses and places discovered (names only; no dates are stored)
     boss_names = {"".join(ch for ch in b.get("Name", "").lower() if ch.isalnum()): b.get("Name")
                   for b in (cat.get("BossCatalog") or {}).values()}

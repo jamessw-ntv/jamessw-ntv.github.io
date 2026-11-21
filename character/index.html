@@ -218,6 +218,8 @@ function render(d){
     ${t.bossKills!=null ? tile("BOSSES", fmt(t.bossKills), "defeated") : ""}
     ${d.social && d.social.playersGroupedWith!=null ? tile("ADVENTURERS", fmt(d.social.playersGroupedWith), "grouped with") : ""}
   </div>`);
+  if((d.funStats||[]).length) T.overview.push(`<h3 class="sec">Fun stats</h3><div class="tiles">` +
+    d.funStats.slice(0,4).map(f => tile(esc(f.label), esc(f.value), esc(f.note))).join("") + `</div>`);
   const startWeek = Math.round(Math.min(60, Math.max(1, P.perWeek || 10)));
   T.overview.push(`<h3 class="sec">When do I hit 60?</h3><div class="card2">
     <p class="eta-big">About <b>${hrs(P.hoursLeft)}</b> of play left to reach level 60.</p>
