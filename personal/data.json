@@ -2,42 +2,42 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-20",
-    "fetched": "2026-11-20T23:52:51+00:00",
+    "updated": "2026-11-21",
+    "fetched": "2026-11-21T06:39:40+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 14
+      "temp": 22,
+      "icon": "☀️",
+      "desc": "Clear",
+      "wind": 11
     },
     "days": [
       {
         "day": "Today",
         "min": 15,
-        "max": 24,
+        "max": 25,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 85
+        "rain": 95
       },
       {
         "day": "Sun",
         "min": 15,
         "max": 26,
         "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 75
+        "desc": "Showers",
+        "rain": 78
       },
       {
         "day": "Mon",
         "min": 11,
         "max": 20,
-        "icon": "🌦️",
-        "desc": "Drizzle",
-        "rain": 73
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
+        "rain": 87
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 88837.0,
-        "pct": -4.41
+        "price": 85135.0,
+        "pct": -8.06
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2446.53,
-        "pct": -7.12
+        "price": 2379.06,
+        "pct": -8.8
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "How to Get Started on Making a Difference as Tax Rules for Charitable Giving Change",
-      "when": "20 Nov",
+      "title": "Bill Maher Mocks ‘Grand Theft Auto 6’-Playing Young Men With Awful ICE Joke",
+      "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/biz/news/rick-baker-alabama-tax-charity-sean-weissbart-strictly-1236954674/"
+      "url": "https://variety.com/2026/tv/news/bill-maher-grand-theft-auto-6-young-men-ice-real-time-hbo-1236954795/"
     },
     {
       "cat": "Film/TV",
-      "title": "CMA Awards See a 55% Ratings Bump in Key Adults Demo With Taylor Swift’s Return to the Show",
-      "when": "20 Nov",
+      "title": "‘Godavari’ Director Nikhil Mahajan Turns a Malegaon Carjacking Into Neo-Noir With WAVES Film Bazaar Project ‘Mongoose’",
+      "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/cma-awards-taylor-swift-big-ratings-increase-1236954677/"
+      "url": "https://variety.com/2026/film/markets-festivals/godavari-director-nikhil-mahajan-carjacking-neo-noir-mongoose-1236954786/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Michael’ Won’t Be Submitted for BAFTA Awards as Filmmakers Pass on Billion-Dollar Biopic’s Entry (EXCLUSIVE)",
-      "when": "20 Nov",
+      "title": "Melania Trump Calls for ‘Peace’ When Asked About Children in Gaza and Israel at Amazon Series Premiere",
+      "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/michael-biopic-bafta-awards-2027-not-submitted-1236954593/"
+      "url": "https://variety.com/2026/tv/news/melania-trump-series-gaza-israel-children-peace-amazon-1236954718/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Home Alone’ Director Chris Columbus Said Minutes Before New Sequel Was Announced That Another Movie ‘Can’t Happen’ After Catherine O’Hara’s Death",
-      "when": "20 Nov",
+      "title": "E.J. Carroll, ‘Law & Order,’ ‘GTA 5’ and ‘Blue Bloods’ Actor, Dies at 66",
+      "when": "21 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/chris-columbus-home-alone-reboot-reaction-catherine-ohara-1236954497/"
+      "url": "https://variety.com/2026/tv/news/e-j-carroll-dead-the-deuce-1236954725/"
     },
     {
       "cat": "Trek/Wars",
