@@ -3,31 +3,30 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Character Sheet</title>
+<title>Azeroth Character Sheet</title>
 <link rel="stylesheet" href="../assets/hub.css" />
 <style>
   .hero{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin:18px 0}
-  .avatar{font-size:64px;line-height:1;width:96px;height:96px;display:grid;place-items:center;
-    background:var(--panel2);border:2px solid var(--accent);border-radius:50%;box-shadow:var(--shadow-hover)}
-  .hero h2{margin:0;font-size:24px}
-  .hero .who{color:var(--muted);font-size:13.5px;margin:2px 0 8px}
-  .motto{font-style:italic;color:var(--muted);font-size:13px;margin-top:8px}
+  .avatar{font-size:60px;line-height:1;width:96px;height:96px;display:grid;place-items:center;
+    background:var(--panel2);border:2px solid var(--red);border-radius:50%;box-shadow:var(--shadow-hover)}
+  .hero h2{margin:0;font-size:26px}
+  .hero .who{color:var(--muted);font-size:14px;margin:2px 0 10px}
+  .hero .who b{color:var(--text)}
+  .synced{font-size:12px;color:var(--muted);margin-top:8px}
 
   .bar{height:10px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;overflow:hidden}
   .bar > i{display:block;height:100%;border-radius:999px;background:var(--accent);transition:width .8s ease}
-  .bar.red > i{background:var(--red)} .bar.green > i{background:var(--green)}
   .bar.gold > i{background:var(--yellow)} .bar.purple > i{background:var(--purple)}
+  .bar.green > i{background:var(--green)} .bar.red > i{background:var(--red)}
   .lvl{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted);margin:4px 0 0}
   .lvl b{color:var(--text)}
 
   h3.sec{margin:28px 0 10px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
   h3.sec .src{letter-spacing:0;text-transform:none;font-weight:400;font-size:12px;margin-left:6px}
-  .tiles{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .tiles{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
   .tile{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px;text-align:center}
   .tile .k{font-size:12px;letter-spacing:.15em;color:var(--muted)}
-  .tile .v{font-size:30px;font-weight:700;line-height:1.15}
-  .tile .v.sm{font-size:22px}
-  .tile .m{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;background:var(--panel2);color:var(--accent);margin:2px 0 6px}
+  .tile .v{font-size:24px;font-weight:700;line-height:1.2}
   .tile .n{font-size:12px;color:var(--muted)}
   .tile.gold .v{color:var(--yellow)}
 
@@ -37,84 +36,49 @@
   .row .top span:last-child{color:var(--muted);white-space:nowrap}
   .eta{font-size:12px;color:var(--muted);margin-top:6px}
   .eta b{color:var(--text)}
-  .empty{color:var(--muted);font-size:13px}
 
-  .two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-  ul.list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  ul.list{list-style:none;margin:0;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
   ul.list li{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;
     display:flex;gap:10px;align-items:center;font-size:14px}
-  ul.list li .ic{font-size:20px}
+  ul.list li .ic{font-size:22px}
   ul.list li small{display:block;color:var(--muted);font-size:12px}
   ul.list li.locked{opacity:.4}
-  ul.list li .status{margin-left:auto}
+
   table.roster{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-  table.roster th,table.roster td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line)}
+  table.roster th,table.roster td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
   table.roster th{color:var(--muted);font-weight:500;font-size:12px;background:var(--panel2)}
   table.roster td.num{text-align:right;font-variant-numeric:tabular-nums}
   .scroll{overflow-x:auto}
+  .fact{font-size:14px}
+  .fact b{color:var(--yellow)}
   @media (max-width:520px){ .hero{grid-template-columns:1fr;text-align:center} .avatar{margin:0 auto} }
 </style>
 </head>
 <body>
 <div class="hubbar">
   <a class="backlink" href="../">← Hub</a>
-  <span class="crumb"><b>Character Sheet</b></span>
+  <span class="crumb"><b>Azeroth Character Sheet</b></span>
 </div>
 
 <header class="page">
   <div class="wrap" style="padding-bottom:0">
-    <h1>Character Sheet</h1>
-    <div class="sub">Real life, rendered as an RPG. Every number is read live from GitHub, the hourly data feed, or progress saved in this browser.</div>
+    <h1>Azeroth Character Sheet</h1>
+    <div class="sub">World of Warcraft stats, synced from the addon save files on the PC. Each sync adds a snapshot, so the "at this rate" dates get sharper over time.</div>
   </div>
 </header>
 
-<div class="wrap" id="app"><p class="sub" style="margin-top:20px">Rolling for initiative…</p></div>
+<div class="wrap" id="app"><p class="sub" style="margin-top:20px">Summoning…</p></div>
 
 <footer class="site">Part of the <a href="../">projects hub</a>.</footer>
 
 <script>
-const OWNER = "jamessw-ntv", REPO_NAME = "jamessw-ntv.github.io";
-const RAW = `https://raw.githubusercontent.com/${OWNER}/${REPO_NAME}/main/`;
-const API = `https://api.github.com/repos/${OWNER}/${REPO_NAME}`;
-const PROJECTS = [  // folder → how it shows up on the sheet
-  { dir:"satisfactory",     ico:"🏭", quest:"Satisfactory: reach the Space Elevator", status:"active" },
-  { dir:"factorio",         ico:"⚙️", quest:"Factorio: build the megabase",           status:"active" },
-  { dir:"neptunes-sandbox", ico:"🪐", quest:"Neptune's Pride: train the bots",        status:"wip" },
-  { dir:"auslan",           ico:"🤟", quest:"Auslan: learn to sign",                  status:"wip" },
-  { dir:"quiz",             ico:"⚾", quest:"Softball umpire quiz site",              status:"wip" },
-  { dir:"character",        ico:"🧙", quest:"This character sheet",                   status:"wip" },
-];
-
-/* ---------- loaders (each one fails soft: a missing source just shows "—") ---------- */
-async function getJSON(url, opts){ try{ const r = await fetch(url, opts); return r.ok ? await r.json() : null; }catch(e){ return null; } }
-async function loadRepoFile(path){
+const RAW = "https://raw.githubusercontent.com/jamessw-ntv/jamessw-ntv.github.io/main/character/wow.json";
+async function loadWow(){
   const bust = "?_=" + Date.now();
-  return (await getJSON(RAW + path + bust, {cache:"no-store"})) || (await getJSON("../" + path + bust, {cache:"no-store"}));
-}
-async function commitCount(){
-  try{
-    const r = await fetch(API + "/commits?per_page=1");
-    const m = (r.headers.get("link")||"").match(/page=(\d+)>; rel="last"/);
-    return m ? Number(m[1]) : (r.ok ? (await r.json()).length : null);
-  }catch(e){ return null; }
-}
-function local(key){ try{ return JSON.parse(localStorage.getItem(key)); }catch(e){ return null; } }
-
-/* Progress the other hub projects keep in this browser (same site, so it's readable here). */
-function browserProgress(){
-  const DAY = 86400000, now = Date.now(), out = {};
-  const sat = local("satis_plan_progress_v2");
-  if(sat){
-    const stamps = Object.entries(sat).filter(([k,v]) => !k.startsWith("_") && typeof v === "number").map(([,v]) => v);
-    out.satisfactory = { done: stamps.length, last28: stamps.filter(t => now - t < 28*DAY).length };
+  for(const url of [RAW + bust, "wow.json" + bust]){
+    try{ const r = await fetch(url,{cache:"no-store"}); if(r.ok) return await r.json(); }catch(e){}
   }
-  const fac = local("factorio.state");
-  if(fac && fac.done){
-    out.factorio = { done: Object.values(fac.done).reduce((n,l) => n + Object.values(l||{}).filter(Boolean).length, 0) };
-  }
-  const np = local("npSandbox.v2");
-  if(np) out.neptune = { turn: np.turn ?? null, players: (np.players||[]).length };
-  return out;
+  return null;
 }
 
 /* ---------- helpers ---------- */
@@ -122,175 +86,125 @@ const esc = s => String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&l
 const fmt = (n,d=0) => n==null || isNaN(n) ? "—" : Number(n).toLocaleString(undefined,{maximumFractionDigits:d});
 const pct = (v,max) => Math.max(0, Math.min(100, max ? v/max*100 : 0));
 const bar = (cls,v,max) => `<div class="bar ${cls}"><i style="width:0" data-w="${pct(v,max)}"></i></div>`;
-const mod = v => { const m = Math.floor((v-10)/2); return (m>=0?"+":"") + m; };
 const DAY = 86400000;
 const dateIn = days => new Date(Date.now()+days*DAY).toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"});
 const ago = iso => { if(!iso) return "—"; const m = Math.round((Date.now()-new Date(iso))/60000);
-  return m<60 ? m+"m ago" : m<1440 ? Math.round(m/60)+"h ago" : Math.round(m/1440)+"d ago"; };
-/* D&D-style score (3–20) from a size, so bigger projects mean higher attributes. */
-const score = (kb, base=25) => Math.max(3, Math.min(20, Math.round(6 + 2*Math.log2(Math.max(1,kb)/base))));
+  return m<60 ? m+" min ago" : m<1440 ? Math.round(m/60)+" h ago" : Math.round(m/1440)+" days ago"; };
+const CLASS_ICON = { Paladin:"🛡️", Warrior:"⚔️", Druid:"🐻", Shaman:"⚡", Mage:"🔮", Priest:"✨", Rogue:"🗡️",
+  Hunter:"🏹", Warlock:"👹", "Death Knight":"💀", Monk:"🥋", "Demon Hunter":"🦇", Evoker:"🐉" };
 
-/* XP → level on a square curve: level L needs 25·L² XP. */
-const levelOf = xp => Math.floor(Math.sqrt(xp/25));
-const xpFor = L => 25*L*L;
+/* Next round milestone above a value: 539 → 550, 783 → 800, 32,210 → 35,000. */
+function nextMilestone(v){
+  if(!v) return 10;
+  const step = Math.max(10, 5 * Math.pow(10, Math.floor(Math.log10(v)) - 1));
+  return Math.floor(v/step)*step + step;
+}
+/* Rate per day for one stat, from the oldest to the newest snapshot. */
+function ratePerDay(history, key){
+  const pts = (history||[]).filter(h => h[key]!=null);
+  if(pts.length < 2) return null;
+  const a = pts[0], b = pts[pts.length-1];
+  const days = (new Date(b.date) - new Date(a.date)) / DAY;
+  return days > 0 ? (b[key]-a[key]) / days : null;
+}
+function etaLine(history, key, value, goal, unit){
+  const r = ratePerDay(history, key);
+  if(r == null) return `Need two syncs on different days to work out your pace.`;
+  if(r <= 0) return `No change since ${esc(history[0].date)}, so no ETA yet.`;
+  return `+${fmt(r*7, r*7<10?1:0)}${unit||""} a week → <b>${fmt(goal)}${unit||""}</b> around <b>${dateIn((goal-value)/r)}</b>`;
+}
 
-function render(d, feed, repo, commits, langs, tree, prog){
-  const c = d.character || {};
-  const kb = {}; const files = {};
-  (tree && tree.tree || []).filter(e => e.type==="blob").forEach(e => {
-    const top = e.path.includes("/") ? e.path.split("/")[0] : "(root)";
-    kb[top] = (kb[top]||0) + (e.size||0)/1024; files[top] = (files[top]||0) + 1;
-  });
-  const born = repo && repo.created_at ? new Date(repo.created_at) : null;
-  const ageDays = born ? Math.max(1, (Date.now()-born)/DAY) : null;
-  const projects = PROJECTS.filter(p => files[p.dir] || p.dir==="character").length;
-
-  /* XP sources, all real */
-  const xpParts = [
-    ["Commits",            (commits||0) * 5,  `${fmt(commits)} × 5`],
-    ["Code written",       Math.round(Object.values(kb).reduce((a,b)=>a+b,0)), `${fmt(Object.values(kb).reduce((a,b)=>a+b,0))} KB × 1`],
-    ["Projects started",   projects * 250,    `${projects} × 250`],
-    ["Satisfactory steps", (prog.satisfactory?.done||0) * 20, `${fmt(prog.satisfactory?.done||0)} × 20`],
-    ["Factorio steps",     (prog.factorio?.done||0) * 20,     `${fmt(prog.factorio?.done||0)} × 20`],
-  ];
-  const xp = xpParts.reduce((n,p) => n + p[1], 0);
-  const L = levelOf(xp), lo = xpFor(L), hi = xpFor(L+1);
-  const xpPerDay = ageDays ? xp/ageDays : 0;
-  const daysToNext = xpPerDay ? (hi-xp)/xpPerDay : null;
-
+function render(w){
+  const chars = [...(w.characters||[])].sort((a,b) => (b.level||0)-(a.level||0) || (b.playedHours||0)-(a.playedHours||0));
+  const main = chars[0] || {};
+  const col = w.collections || {};
+  const hist = w.history || [];
+  const gold = chars.reduce((n,c) => n + (c.gold||0), 0);
+  const hours = chars.reduce((n,c) => n + (c.playedHours||0), 0);
   const html = [];
 
+  /* Hero: the main */
   html.push(`<div class="hero">
-    <div class="avatar">${esc(c.avatar||"🧙")}</div>
+    <div class="avatar">${CLASS_ICON[main.class] || "🧝"}</div>
     <div>
-      <h2>${esc(c.name)} <span style="color:var(--muted);font-weight:400">${esc(c.title||"")}</span></h2>
-      <div class="who">Level ${L} ${esc(c.race||"")} ${esc(c.class||"")} · ${esc(c.alignment||"")} · Hometown: ${esc(c.home||"")}</div>
-      ${bar("", xp-lo, hi-lo)}
-      <div class="lvl"><span>XP <b>${fmt(xp)}</b> / ${fmt(hi)}</span>
-        <span>${daysToNext==null ? "" : `At this rate, level ${L+1} on <b>${dateIn(daysToNext)}</b>`}</span></div>
-      ${c.motto ? `<div class="motto">“${esc(c.motto)}”</div>` : ""}
+      <h2>${esc(main.name)} <span style="color:var(--muted);font-weight:400">of ${esc(main.realm||"")}</span></h2>
+      <div class="who">Level <b>${fmt(main.level)}</b> ${esc(main.race||"")} ${esc(main.class||"")} · ${esc(main.faction||"")} · ${esc(main.flavour||"")}</div>
+      ${main.maxLevel ? `${bar("red", main.level, main.maxLevel)}<div class="lvl"><span>Level <b>${fmt(main.level)}</b> / ${fmt(main.maxLevel)}</span>
+        <span>${main.level >= main.maxLevel ? "<b>Max level</b>" : `${main.maxLevel-main.level} levels to go`}</span></div>` : ""}
+      <div class="synced">Last synced ${ago(w.synced)} · main last seen ${esc(main.lastSeen||"—")}</div>
     </div>
   </div>`);
 
-  /* Attributes, derived from how much has been built in each realm */
-  const attrs = [
-    ["STR","Industry",     score((kb.satisfactory||0)+(kb.factorio||0)), "Satisfactory + Factorio planners"],
-    ["INT","Strategy",     score(kb["neptunes-sandbox"]||0),             "Neptune's Pride bot sandbox"],
-    ["DEX","Signing",      score(kb.auslan||0),                          "Auslan trainer"],
-    ["CHA","Officiating",  score(kb.quiz||0),                            "Softball umpire site"],
-    ["WIS","Lore",         score((kb.docs||0)+(kb.satisfactory ? 60 : 0), 8), "Docs and design notes"],
-    ["CON","Endurance",    score(ageDays||0, 10),                        `${fmt(ageDays)} days since the hub was founded`],
+  /* Headline numbers */
+  const animals = (col.mounts||0) + (col.pets||0);
+  html.push(`<div class="tiles">
+    <div class="tile gold"><div class="k">GOLD</div><div class="v">${fmt(gold)}g</div><div class="n">all characters</div></div>
+    <div class="tile"><div class="k">TIME PLAYED</div><div class="v">${fmt(hours/24)} days</div><div class="n">${fmt(hours)} hours</div></div>
+    <div class="tile"><div class="k">ANIMALS</div><div class="v">${fmt(animals)}</div><div class="n">mounts + pets</div></div>
+    <div class="tile"><div class="k">ACHIEVEMENT PTS</div><div class="v">${fmt(col.achievementPoints)}</div><div class="n">${fmt(col.achievements)} earned</div></div>
+    <div class="tile"><div class="k">CHARACTERS</div><div class="v">${chars.length}</div><div class="n">with saved stats</div></div>
+  </div>`);
+
+  /* Collections with next milestone + pace */
+  const COLL = [
+    ["🐎","Mounts","mounts"], ["🐾","Battle pets (species)","pets"], ["🧸","Toys","toys"],
+    ["🏆","Achievement points","achievementPoints"], ["📜","Titles","titles"], ["🗝️","Heirlooms","heirlooms"],
+    ["👘","Transmog appearances","appearances"],
+  ].filter(([,,k]) => col[k] != null);
+  html.push(`<h3 class="sec">Collections <span class="src">· ${esc(col.flavour||"")} account, at this rate</span></h3><div class="rows">` +
+    COLL.map(([ic,name,k]) => { const v = col[k], goal = nextMilestone(v); return `
+      <div class="row"><div class="top"><span>${ic} ${esc(name)}</span><span>${fmt(v)} / ${fmt(goal)}</span></div>
+        ${bar("purple", v, goal)}<div class="eta">${etaLine(hist, k, v, goal)}</div></div>`; }).join("") + `</div>`);
+
+  /* Wealth */
+  const goldGoal = gold < 1e6 ? 1e6 : nextMilestone(gold);
+  html.push(`<h3 class="sec">Treasury</h3><div class="rows">
+    <div class="row"><div class="top"><span>💰 Total gold</span><span>${fmt(gold)}g / ${fmt(goldGoal)}g</span></div>
+      ${bar("gold", gold, goldGoal)}<div class="eta">${etaLine(hist, "gold", gold, goldGoal, "g")}</div></div>` +
+    chars.filter(c => c.gold).map(c => `<div class="row"><div class="top"><span>${esc(c.name)} <span class="sub">${esc(c.flavour)}</span></span><span>${fmt(c.gold, c.gold<10?2:0)}g</span></div>${bar("gold", c.gold, gold)}</div>`).join("") +
+  `</div>`);
+
+  /* Time played, with some perspective */
+  const workYears = hours / 1760;   // a full-time work year is about 1,760 hours
+  html.push(`<h3 class="sec">Time in Azeroth</h3><div class="rows">
+    <div class="row fact">⏳ <b>${fmt(hours)}</b> hours on record: <b>${fmt(hours/24)}</b> days straight, or about <b>${fmt(workYears,1)}</b> full-time work years.</div>
+    <div class="row"><div class="top"><span>Time played</span><span>pace</span></div>
+      <div class="eta">${etaLine(hist, "playedHours", hours, Math.ceil(hours/500)*500, " h")}</div></div>
+  </div>`);
+
+  /* Roster */
+  html.push(`<h3 class="sec">Roster</h3><div class="scroll"><table class="roster"><thead><tr>
+      <th>Character</th><th>Version</th><th>Race / class</th><th>Level</th><th>Gold</th><th>Played</th><th>Last seen</th></tr></thead><tbody>` +
+    chars.map(c => `<tr><td>${CLASS_ICON[c.class]||""} <b>${esc(c.name)}</b> <span class="sub">${esc(c.realm||"")}</span></td><td>${esc(c.flavour||"")}</td>
+      <td>${esc([c.race,c.class].filter(Boolean).join(" "))}</td><td class="num">${fmt(c.level)}</td>
+      <td class="num">${c.gold==null ? "—" : fmt(c.gold, c.gold<10?2:0)+"g"}</td><td>${esc(c.played||"—")}</td><td>${esc(c.lastSeen||"—")}</td></tr>`).join("") +
+    `</tbody></table></div>`);
+
+  /* Feats: unlock from the synced numbers */
+  const feats = [
+    ["👑","Max Level",        "Reach the level cap on any character",          chars.some(c => c.maxLevel && c.level >= c.maxLevel)],
+    ["🐎","Stable Master",    "Collect 500 mounts",                             (col.mounts||0) >= 500],
+    ["🦄","Herd of Legends",  "Collect 750 mounts",                             (col.mounts||0) >= 750],
+    ["🐾","Menagerie",        "Collect 750 pet species",                        (col.pets||0) >= 750],
+    ["🧸","Toy Box Hoarder",  "Collect 500 toys",                               (col.toys||0) >= 500],
+    ["🏆","Point Lord",       "Earn 30,000 achievement points",                 (col.achievementPoints||0) >= 30000],
+    ["📜","Many Names",       "Unlock 200 titles",                              (col.titles||0) >= 200],
+    ["👘","Fashion Icon",     "Collect 25,000 transmog appearances",            (col.appearances||0) >= 25000],
+    ["💰","Goblin Tycoon",    "Hold 100,000 gold",                              gold >= 1e5],
+    ["💎","Gold Millionaire", "Hold 1,000,000 gold",                            gold >= 1e6],
+    ["⏳","No-Lifer",         "Play 1 full year (8,760 hours)",                 hours >= 8760],
+    ["👥","Altoholic",        "Have 10 characters with saved stats",            chars.length >= 10],
   ];
-  html.push(`<h3 class="sec">Attributes <span class="src">· from the size of each project</span></h3><div class="tiles">` +
-    attrs.map(([k,n,v,why]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div>
-      <div class="m">${mod(v)}</div><div class="n"><b>${n}</b><br>${esc(why)}</div></div>`).join("") + `</div>`);
+  html.push(`<h3 class="sec">Feats · ${feats.filter(f=>f[3]).length}/${feats.length}</h3><ul class="list">` +
+    feats.map(([ic,nm,desc,ok]) => `<li class="${ok?"":"locked"}"><span class="ic">${ok?ic:"🔒"}</span><span>${esc(nm)}<small>${esc(desc)}</small></span></li>`).join("") + `</ul>`);
 
-  /* XP breakdown */
-  html.push(`<h3 class="sec">Where the XP comes from</h3><div class="rows">` + xpParts.map(([n,v,how]) => `
-    <div class="row"><div class="top"><span>${esc(n)}</span><span>${fmt(v)} XP · ${esc(how)}</span></div>${bar("purple", v, xp)}</div>`).join("") + `</div>`);
-
-  /* Vitals: the hub's own health, plus live world data */
-  const w = feed && feed.weather && feed.weather.now;
-  const fetched = feed && feed.meta && feed.meta.fetched;
-  const minsSince = fetched ? (Date.now()-new Date(fetched))/60000 : null;
-  const btc = feed && feed.markets && (feed.markets.crypto||[]).find(x => x.code==="BTC");
-  html.push(`<h3 class="sec">Vitals <span class="src">· live</span></h3><div class="tiles">
-    <div class="tile"><div class="k">HEARTBEAT</div><div class="v sm">${minsSince==null?"—":ago(fetched)}</div>
-      <div class="n">last hourly data refresh</div>${bar(minsSince!=null && minsSince<120 ? "green" : "red", minsSince==null?0:Math.max(0,180-minsSince), 180)}</div>
-    <div class="tile"><div class="k">BIOME</div><div class="v sm">${w ? esc(w.icon)+" "+Math.round(w.temp)+"°" : "—"}</div>
-      <div class="n">${w ? esc(w.desc)+" in "+esc(feed.weather.place) : "weather unavailable"}</div></div>
-    <div class="tile"><div class="k">LAST ACTION</div><div class="v sm">${repo ? ago(repo.pushed_at) : "—"}</div>
-      <div class="n">last push to the hub</div></div>
-    <div class="tile gold"><div class="k">DRAGON HOARD</div><div class="v sm">${btc && btc.price!=null ? "$"+fmt(btc.price) : "—"}</div>
-      <div class="n">1 Bitcoin in AUD${btc && btc.pct!=null ? ` (${btc.pct>0?"+":""}${btc.pct}%)` : ""}</div></div>
-  </div>`);
-
-  /* Inventory: what's in each project folder */
-  const inv = PROJECTS.filter(p => files[p.dir]);
-  html.push(`<h3 class="sec">Inventory <span class="src">· files in each project, from GitHub</span></h3>` +
-    (inv.length ? `<div class="tiles">` + inv.map(p => `<div class="tile"><div class="k">${p.ico}</div>
-      <div class="v sm">${fmt(kb[p.dir])} KB</div><div class="n">${files[p.dir]} files · ${esc(p.dir)}/</div></div>`).join("") + `</div>`
-      : `<div class="empty">GitHub didn't answer (it allows 60 lookups an hour per visitor). Refresh later.</div>`));
-
-  /* Side quests, from progress saved in this browser */
-  const s = prog.satisfactory, f = prog.factorio, n = prog.neptune;
-  html.push(`<h3 class="sec">Side quests <span class="src">· progress saved in this browser</span></h3><div class="rows">
-    <div class="row"><div class="top"><span>🏭 Satisfactory steps ticked off</span><span>${s ? fmt(s.done) : "—"}</span></div>
-      <div class="eta">${s ? `Pace: <b>${fmt(s.last28/4,1)}</b> steps/week over the last 4 weeks` : "Open the Satisfactory planner in this browser to sync."}</div></div>
-    <div class="row"><div class="top"><span>⚙️ Factorio build steps done</span><span>${f ? fmt(f.done) : "—"}</span></div>
-      <div class="eta">${f ? "Across all three layouts" : "Open the Factorio planner in this browser to sync."}</div></div>
-    <div class="row"><div class="top"><span>🪐 Neptune's Pride sandbox</span><span>${n && n.turn!=null ? "turn "+fmt(n.turn) : "—"}</span></div>
-      <div class="eta">${n ? `${n.players} empires in the current game` : "No saved game in this browser."}</div></div>
-  </div>`);
-
-  /* WoW roster, filled in from the PC when available */
-  html.push(renderWow(d.wow));
-
-  /* Manual logs */
-  html.push(`<h3 class="sec">Manual logs <span class="src">· edit data.json</span></h3><div class="rows">` + (d.manual||[]).map(m => `
-    <div class="row"><div class="top"><span>${esc(m.icon)} ${esc(m.name)}</span>
-      <span>${m.value==null ? "not logged yet" : fmt(m.value,1)+esc(m.unit)+" / "+fmt(m.max)+esc(m.unit)}</span></div>
-      ${m.value==null ? "" : bar("", m.value, m.max)}</div>`).join("") + `</div>`);
-
-  /* Quests + achievements (achievements unlock from real numbers) */
-  const STATUS = { active:"active", wip:"in progress", planned:"planned", done:"complete" };
-  const totalKB = Object.values(kb).reduce((a,b)=>a+b,0);
-  const ach = [
-    ["🏰","Hub Founder",      "Start a personal projects hub",              !!born],
-    ["🗺️","Five Realms",      "Have 5 or more projects on the menu",       projects >= 5],
-    ["🧾","Thousand Commits", "Reach 1,000 commits",                       (commits||0) >= 1000],
-    ["🗣️","Polyglot",         "Write in 4 or more languages",              Object.keys(langs||{}).length >= 4],
-    ["📦","Megabyte Mage",     "Build over 1 MB of projects",               totalKB >= 1024],
-    ["🏭","Pioneer",          "Tick off 50 Satisfactory steps",            (s?.done||0) >= 50],
-    ["⚙️","Factory Must Grow", "Finish 50 Factorio build steps",           (f?.done||0) >= 50],
-    ["🎂","Half-Year Hero",    "Keep the hub alive for 6 months",           (ageDays||0) >= 182],
-  ];
-  html.push(`<div class="two">
-    <div><h3 class="sec">Quest log</h3><ul class="list">` + PROJECTS.map(q => `
-      <li><span class="ic">${q.ico}</span><span>${esc(q.quest)}</span><span class="status ${esc(q.status)}">${esc(STATUS[q.status]||q.status)}</span></li>`).join("") + `</ul></div>
-    <div><h3 class="sec">Achievements · ${ach.filter(a=>a[3]).length}/${ach.length}</h3><ul class="list">` + ach.map(([ic,nm,desc,ok]) => `
-      <li class="${ok?"":"locked"}"><span class="ic">${ok?ic:"🔒"}</span><span>${esc(nm)}<small>${esc(desc)}</small></span></li>`).join("") + `</ul></div>
-  </div>`);
-
-  html.push(`<p class="sub" style="margin-top:24px">Languages: ${Object.entries(langs||{}).map(([k,v])=>`${esc(k)} ${fmt(v/1024)} KB`).join(" · ") || "—"}.
-    Hub founded ${born ? born.toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"}) : "—"}.</p>`);
-
+  html.push(`<p class="sub" style="margin-top:24px">${esc(w.source||"")}. ${esc(w.notes||"")} ${hist.length} snapshot${hist.length===1?"":"s"} on record.</p>`);
   document.getElementById("app").innerHTML = html.join("");
   requestAnimationFrame(()=>document.querySelectorAll(".bar > i").forEach(i=>i.style.width = i.dataset.w + "%"));
 }
 
-/* wow: { updated, source, characters:[{name,realm,flavour,class,race,level,gold,played,ilvl}], account:[{flavour,mounts,pets,toys,achievements}] } */
-function renderWow(wow){
-  const head = `<h3 class="sec">World of Warcraft <span class="src">· ${wow && wow.updated ? "from the PC, "+esc(wow.updated) : "from the PC"}</span></h3>`;
-  if(!wow || !(wow.characters||[]).length) return head + `<div class="empty">Waiting for stats from the WoW install on the PC.</div>`;
-  const chars = [...wow.characters].sort((a,b) => (b.level||0)-(a.level||0));
-  const gold = chars.reduce((n,c) => n + (c.gold||0), 0);
-  const top = chars[0];
-  const acct = wow.account || [];
-  const sum = k => acct.reduce((n,a) => n + (a[k]||0), 0);
-  const tiles = [
-    ["CHARACTERS", fmt(chars.length), "across all versions"],
-    ["TOP LEVEL", fmt(top.level), `${esc(top.name)} · ${esc(top.class||"")}`],
-    ["GOLD", fmt(gold)+"g", "all characters combined", "gold"],
-    ["MOUNTS", sum("mounts") ? fmt(sum("mounts")) : "—", "collected"],
-    ["PETS", sum("pets") ? fmt(sum("pets")) : "—", "collected"],
-    ["ACHIEVEMENTS", sum("achievements") ? fmt(sum("achievements")) : "—", "points"],
-  ];
-  return head + `<div class="tiles">` + tiles.map(([k,v,n,cls]) => `<div class="tile ${cls||""}"><div class="k">${k}</div><div class="v sm">${v}</div><div class="n">${n}</div></div>`).join("") + `</div>
-    <div class="scroll" style="margin-top:10px"><table class="roster"><thead><tr><th>Character</th><th>Version</th><th>Class</th><th>Level</th><th>Gold</th><th>Played</th></tr></thead><tbody>` +
-    chars.map(c => `<tr><td><b>${esc(c.name)}</b>${c.realm ? ` <span class="sub">${esc(c.realm)}</span>` : ""}</td><td>${esc(c.flavour||"")}</td>
-      <td>${esc([c.race,c.class].filter(Boolean).join(" "))}</td><td class="num">${fmt(c.level)}</td><td class="num">${c.gold==null?"—":fmt(c.gold)+"g"}</td><td>${esc(c.played||"—")}</td></tr>`).join("") +
-    `</tbody></table></div>` + (wow.source ? `<p class="sub">Source: ${esc(wow.source)}</p>` : "");
-}
-
-(async () => {
-  const [d, feed, repo, commits, langs, tree] = await Promise.all([
-    loadRepoFile("character/data.json"), loadRepoFile("personal/data.json"),
-    getJSON(API), commitCount(), getJSON(API + "/languages"), getJSON(API + "/git/trees/main?recursive=1"),
-  ]);
-  if(!d){ document.getElementById("app").innerHTML = `<p class="sub" style="margin-top:20px">Couldn't load data.json.</p>`; return; }
-  render(d, feed, repo, commits, langs, tree, browserProgress());
-})();
+loadWow().then(w => w ? render(w)
+  : (document.getElementById("app").innerHTML = `<p class="sub" style="margin-top:20px">Couldn't load wow.json.</p>`));
 </script>
 </body>
 </html>
