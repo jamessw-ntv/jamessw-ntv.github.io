@@ -1,5 +1,5 @@
 {
-  "synced": "2026-11-21T18:11:59Z",
+  "synced": "2026-11-21T18:13:41Z",
   "updated": "2026-11-22",
   "character": {
     "name": "Capsiel Deadset",
@@ -10,12 +10,12 @@
     "class": "Paladin",
     "level": 33,
     "maxLevel": 60,
-    "xp": 18154,
+    "xp": 49794,
     "xpMax": 58600,
-    "gold": 4.48,
-    "played": "4d 6h 41m",
-    "playedHours": 102.69,
-    "zone": "Wetlands",
+    "gold": 14.37,
+    "played": "4d 11h 51m",
+    "playedHours": 107.85,
+    "zone": "Thousand Needles",
     "lastSeen": "2026-11-22"
   },
   "levels": [
@@ -205,30 +205,60 @@
       "level": 33,
       "reachedAt": "2026-11-21T11:11:35Z",
       "playedHoursAt": 100.87,
-      "hoursThisLevel": 1.81,
-      "zone": "Excavation Site: Wetlands"
+      "hoursThisLevel": 6.98,
+      "zone": "Thousand Needles"
     }
   ],
   "totals": {
-    "kills": 1332,
-    "questsCompleted": 205,
-    "deaths": 32,
+    "kills": 1358,
+    "questsCompleted": 217,
+    "deaths": 33,
     "bossKills": 28,
     "dungeons": 4,
-    "zonesDiscovered": 28,
-    "goldLooted": 5.99,
-    "goldFromQuests": 9.64,
-    "goldFromVendors": 18.69,
-    "damageDealt": 1438245,
-    "damageTaken": 281144,
-    "healingDone": 179330,
-    "combatHours": 9.17,
+    "zonesDiscovered": 29,
+    "goldLooted": 6.03,
+    "goldFromQuests": 10.25,
+    "goldFromVendors": 20.51,
+    "damageDealt": 1485788,
+    "damageTaken": 288667,
+    "healingDone": 183943,
+    "combatHours": 9.44,
     "afkHours": 0.99,
-    "taxiHours": 2.93,
-    "deadHours": 2.43,
-    "castingHours": 1.9
+    "taxiHours": 3.09,
+    "deadHours": 2.45,
+    "castingHours": 1.94
   },
   "highlights": [
+    {
+      "date": "2026-11-22",
+      "level": 33,
+      "type": "other",
+      "text": "Reached Neutral with Windshapers"
+    },
+    {
+      "date": "2026-11-22",
+      "level": 33,
+      "type": "zone",
+      "text": "Entered Mulgore for the first time"
+    },
+    {
+      "date": "2026-11-22",
+      "level": 33,
+      "type": "death",
+      "text": "Died (cause unknown)"
+    },
+    {
+      "date": "2026-11-22",
+      "level": 33,
+      "type": "other",
+      "text": "Reached Honored with Thunder Bluff"
+    },
+    {
+      "date": "2026-11-22",
+      "level": 33,
+      "type": "item",
+      "text": "Equipped Furs of the Earthen Ring"
+    },
     {
       "date": "2026-11-21",
       "level": 33,
@@ -678,36 +708,6 @@
       "level": 27,
       "type": "death",
       "text": "Died to Hillsbrad Foreman"
-    },
-    {
-      "date": "2026-11-16",
-      "level": 27,
-      "type": "zone",
-      "text": "Entered Azurelode Mine for the first time"
-    },
-    {
-      "date": "2026-11-16",
-      "level": 27,
-      "type": "death",
-      "text": "Died to Hillsbrad Miner"
-    },
-    {
-      "date": "2026-11-16",
-      "level": 27,
-      "type": "zone",
-      "text": "Entered Hillsbrad for the first time"
-    },
-    {
-      "date": "2026-11-16",
-      "level": 27,
-      "type": "other",
-      "text": "Spent 24 hours with Devotion Aura"
-    },
-    {
-      "date": "2026-11-16",
-      "level": 27,
-      "type": "levelup",
-      "text": "Reached level 27"
     }
   ],
   "topKills": [
@@ -766,8 +766,16 @@
       "hours": 4.36
     },
     {
+      "name": "Thousand Needles",
+      "hours": 4.11
+    },
+    {
       "name": "Ashenvale",
       "hours": 3.91
+    },
+    {
+      "name": "Thunder Bluff",
+      "hours": 3.77
     },
     {
       "name": "Undercity",
@@ -778,23 +786,21 @@
       "hours": 3.36
     },
     {
-      "name": "Thunder Bluff",
-      "hours": 3.17
-    },
-    {
       "name": "Stonetalon Mountains",
-      "hours": 3.04
+      "hours": 3.14
     },
     {
       "name": "Blackfathom Deeps",
       "hours": 2.84
-    },
-    {
-      "name": "Shadowfang Keep",
-      "hours": 2.33
     }
   ],
   "deaths": [
+    {
+      "date": "2026-11-22",
+      "level": 33,
+      "killer": "unknown",
+      "zone": null
+    },
     {
       "date": "2026-11-21",
       "level": 33,
@@ -1180,6 +1186,10 @@
       "percent": 100
     },
     {
+      "name": "Excavation Site",
+      "percent": 100
+    },
+    {
       "name": "Ragefire Chasm",
       "percent": 100
     },
@@ -1208,36 +1218,32 @@
       "percent": 25
     },
     {
-      "name": "Excavation Site",
-      "percent": 20
+      "name": "Dalaran Sewer Key",
+      "percent": 22
+    },
+    {
+      "name": "City of Dalaran",
+      "percent": 21
     },
     {
       "name": "The Hall of Thanes",
       "percent": 16
     },
     {
-      "name": "City of Dalaran",
-      "percent": 15
-    },
-    {
-      "name": "Dalaran Sewer Key",
-      "percent": 11
+      "name": "The Drowned City",
+      "percent": 10
     },
     {
       "name": "Gnomeregan",
       "percent": 9
     },
     {
+      "name": "Scarlet Monastery",
+      "percent": 8
+    },
+    {
       "name": "Razorfen Downs",
       "percent": 7
-    },
-    {
-      "name": "The Drowned City",
-      "percent": 5
-    },
-    {
-      "name": "Scarlet Monastery",
-      "percent": 4
     },
     {
       "name": "Uldaman",
@@ -1322,16 +1328,16 @@
   ],
   "social": {
     "guildRank": "Officer",
-    "playersSeen": 4042,
-    "playersInteractedWith": 369,
+    "playersSeen": 4423,
+    "playersInteractedWith": 412,
     "playersSavedToDiary": 13,
-    "groupsJoined": 64,
+    "groupsJoined": 74,
     "whispersSent": 14,
     "whispersReceived": 17,
     "partyChatMessages": 19,
-    "sayMessages": 29,
-    "tradesCompleted": 3,
-    "campfiresShared": 36,
+    "sayMessages": 39,
+    "tradesCompleted": 4,
+    "campfiresShared": 38,
     "battlegrounds": 2,
     "battlegroundsWon": 1
   },
@@ -1453,10 +1459,10 @@
     },
     {
       "slot": "Legs",
-      "name": "Defender Leggings",
+      "name": "Plainsguard Leggings",
       "quality": "uncommon",
-      "itemLevel": 23,
-      "since": "2026-11-19"
+      "itemLevel": 29,
+      "since": "2026-11-22"
     },
     {
       "slot": "Feet",
@@ -1502,10 +1508,10 @@
     },
     {
       "slot": "Back",
-      "name": "Wildhunter Cloak",
-      "quality": "uncommon",
-      "itemLevel": 32,
-      "since": "2026-11-17"
+      "name": "Furs of the Earthen Ring",
+      "quality": "rare",
+      "itemLevel": 33,
+      "since": "2026-11-22"
     },
     {
       "slot": "Main hand",
@@ -1516,12 +1522,12 @@
     }
   ],
   "travel": {
-    "distanceKm": 722.7,
+    "distanceKm": 785.7,
     "flights": null,
-    "flightPathsKnown": 14,
-    "hearthstones": 27,
-    "zonesVisited": 28,
-    "subZonesVisited": 183
+    "flightPathsKnown": 15,
+    "hearthstones": 29,
+    "zonesVisited": 29,
+    "subZonesVisited": 193
   },
   "tales": [
     {
@@ -1533,22 +1539,22 @@
   "funStats": [
     {
       "label": "JUMPS",
-      "value": "1,425",
+      "value": "1,521",
       "note": "for no reason at all"
     },
     {
       "label": "BAG CHECKS",
-      "value": "903",
-      "note": "2.9 hours staring into the bags"
+      "value": "976",
+      "note": "3.1 hours staring into the bags"
     },
     {
       "label": "GHOST WALKING",
-      "value": "31 km",
+      "value": "32 km",
       "note": "jogged back to the corpse"
     },
     {
       "label": "LOOT ROLLS",
-      "value": "131",
+      "value": "132",
       "note": "rolled a 1 out of 100 twice"
     }
   ],
@@ -1585,16 +1591,19 @@
     "Ambermill",
     "Apothecarium",
     "Astranaar",
+    "Bael Modan",
     "Bandarion Keep",
     "Blackfathom Deeps",
     "Blackthorn Ridge",
     "Bladefist Bay",
     "Booty Bay",
     "Boulder Lode Mine",
+    "Boulderslide Ravine",
     "Brightwater Lake",
     "Brill",
     "Brill Town Hall",
     "Camp Aparaje",
+    "Camp Gevrek",
     "Camp Taurajo",
     "Canals",
     "Cape Of Stranglethorn",
@@ -1602,6 +1611,7 @@
     "Cold Hearth Manor",
     "Crossroads",
     "Dalaran",
+    "Darkcloud Pinnacle",
     "Darkspear Strand",
     "Darrow Hill",
     "Dead Field",
@@ -1620,17 +1630,21 @@
     "Fenris Keep",
     "Field Of Giants",
     "Forgotten Pools",
+    "Freewind Post",
     "Galak Camp",
     "Gallows End Tavern",
     "Garrens Haunt",
+    "Gloomrise",
     "Gold Road",
     "Golden Plains",
+    "Great Lift",
     "Greatwood Vale",
     "Greenpaw Village",
     "Greymane Wall",
     "Groldom Farm",
     "Grommash Hold",
     "Gunthers Retreat",
+    "Hall Of The Brave",
     "Headland",
     "Hillsbrad Fields",
     "Honors Stand",
@@ -1650,6 +1664,7 @@
     "Moonbrook",
     "Morshan Base Camp",
     "Morshan Rampart",
+    "Mountain Den",
     "Nightmare Vale",
     "Nightsong Woods",
     "North Coast",
@@ -1661,10 +1676,15 @@
     "Ratchet",
     "Ravaged Caravan",
     "Raynewood Retreat",
+    "Razorfen Downs",
+    "Razorfen Kraul",
+    "Red Rocks",
+    "Roguefeather Den",
     "Rogues Quarter",
     "Rolling Plains",
     "Royal Quarter",
     "Ruins Of Lordaeron",
+    "Screeching Canyon",
     "Sepulcher",
     "Sewers",
     "Shadowfang Keep",
@@ -1673,6 +1693,7 @@
     "Shrine Of The Fallen Warrior",
     "Silverwing Outpost",
     "Skull Rock",
+    "Skywatcher Plateau",
     "Sludge Fen",
     "Solliden Farmstead",
     "Southern Barrens",
@@ -1698,9 +1719,12 @@
     "Venture Co Mine",
     "War Quarter",
     "Warsong Lumber Camp",
+    "Weathered Nook",
     "Webwinder Path",
     "Whispering Forest",
     "Whispering Shore",
+    "Whitereach Post",
+    "Windbreak Canyon",
     "Zoram Strand",
     "Zoramgar Outpost"
   ],
@@ -1708,8 +1732,8 @@
     {
       "date": "2026-11-22",
       "level": 33,
-      "playedHours": 102.69,
-      "gold": 4.48
+      "playedHours": 107.85,
+      "gold": 14.37
     }
   ]
 }
