@@ -111,7 +111,7 @@ def build():
                     det = c.get("details", {})
                     if det.get("character") == SYNDICATOR_NAME:
                         syn_char = det
-                        gold = round(num(c.get("money")) / 10000, 2)
+                        gold = round(num(c.get("money")) / 10000, 4)  # keep copper precision
 
     played_sec = num(info.get("LastTotalTimePlayed"))
     level = max(levels) if levels else None

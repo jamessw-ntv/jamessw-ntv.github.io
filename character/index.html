@@ -210,7 +210,7 @@ function render(d){
     ${tile("TIME PLAYED", hrs(c.playedHours), esc(c.played||""))}
     ${tile("XP EARNED", fmt(P.xpDone), "of "+fmt(XP60))}
     ${tile("XP / HOUR", fmt(P.xpPerHour), esc(P.basis))}
-    ${tile("GOLD", fmt(c.gold, c.gold<10?2:0)+"g", "in the bags", "gold")}
+    ${tile("GOLD", (cu => `${Math.floor(cu/10000)}g ${Math.floor(cu/100)%100}s ${cu%100}c`)(Math.round((c.gold||0)*10000)), "in the bags", "gold")}
     ${t.kills!=null ? tile("KILLS", fmt(t.kills), "mobs slain") : ""}
     ${t.questsCompleted!=null ? tile("QUESTS", fmt(t.questsCompleted), "completed") : ""}
     ${t.deaths!=null ? tile("DEATHS", fmt(t.deaths), c.race==="Undead" ? "already dead, technically" : "so far") : ""}
