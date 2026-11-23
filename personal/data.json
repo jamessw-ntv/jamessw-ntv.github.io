@@ -2,23 +2,23 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-22",
-    "fetched": "2026-11-22T23:28:39+00:00",
+    "updated": "2026-11-23",
+    "fetched": "2026-11-23T06:59:44+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
       "temp": 18,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 15
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 16
     },
     "days": [
       {
         "day": "Today",
         "min": 12,
-        "max": 21,
+        "max": 20,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 82
@@ -27,9 +27,9 @@
         "day": "Tue",
         "min": 8,
         "max": 16,
-        "icon": "☁️",
-        "desc": "Overcast",
-        "rain": 4
+        "icon": "⛅",
+        "desc": "Partly cloudy",
+        "rain": 10
       },
       {
         "day": "Wed",
@@ -72,45 +72,52 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91891.0,
-        "pct": 1.18
+        "price": 92500.0,
+        "pct": 3.76
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2592.1,
-        "pct": 2.19
+        "price": 2594.07,
+        "pct": 3.52
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Ateez Debuts at No. 1 on Billboard 200 for the Third Time This Year; U2’s ‘Carnaval de Luz’ Bows at No. 4",
-      "when": "22 Nov",
+      "title": "Korea Box Office: Mystery Thriller ‘White Blast’ Opens at No. 1, Ending Five-Week ‘Chiikawa’ Reign",
+      "when": "23 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/ateez-u2-album-chart-debut-billboard-1236955537/"
+      "url": "https://variety.com/2026/film/box-office/korea-box-office-mystery-thriller-white-blast-1236955658/"
     },
     {
       "cat": "Film/TV",
-      "title": "Why Another ‘Hunger Games’ Movie Isn’t Coming Anytime Soon",
-      "when": "22 Nov",
+      "title": "Spain Pitches Incentives, Crews and a 500 Million-Strong Spanish-Speaking Market to India at WAVES Film Bazaar",
+      "when": "23 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/hunger-games-another-movie-isnt-coming-anytime-soon-1236955499/"
+      "url": "https://variety.com/2026/film/markets-festivals/spain-coproductions-incentives-india-waves-film-bazaar-1236955634/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Glee’ Star Chris Colfer Says He Forgot Kurt Hummel ‘Meant So Much to People’ Because of the ‘Homophobia and Hatred’ He Experienced During the Show",
-      "when": "22 Nov",
+      "title": "China Box Office: ‘The Hunger Games: Sunrise on the Reaping’ Opens at No. 1 in Quiet Frame",
+      "when": "23 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/glee-chris-colfer-kurt-homophobia-1236955465/"
+      "url": "https://variety.com/2026/film/box-office/china-box-office-the-hunger-games-sunrise-on-the-reaping-1236955624/"
     },
     {
       "cat": "Film/TV",
-      "title": "Huelva Ibero-American Film Festival Prizes: ‘After Elena,’ Alfredo Castro, Lucía Puenzo and ‘La Bola Negra’ Win Big",
-      "when": "22 Nov",
+      "title": "Don Toliver’s Manchester Concert Evacuated After Suspected Tear Gas Released Into Crowd",
+      "when": "23 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/huelva-ibero-american-film-festival-prizes-after-elena-1236955462/"
+      "url": "https://variety.com/2026/music/news/don-toliver-manchester-concert-evacuated-tear-gas-1236955605/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars’ Nominations at the Grammys and Game Awards, and Previews for ‘Star Wars’ Museum and Claudia Gray’s Next Novel",
+      "when": "22 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/this-week-in-a-galaxy-far-far-away-star-wars-nominations-at-the-grammys-and-game-awards-and-previews-for-star-wars-museum-and-claudia-grays-next-novel.html"
     },
     {
       "cat": "Trek/Wars",
@@ -125,13 +132,6 @@
       "when": "21 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/dagan-gera-star-wars-character-spotlight.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Disney Imagineers and AWS to Premiere New AI-Driven Anzellan Robots at Upcoming Event",
-      "when": "21 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/disney-imagineers-and-aws-to-premiere-new-ai-driven-anzellan-robots-at-upcoming-event.html"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "5h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     },
