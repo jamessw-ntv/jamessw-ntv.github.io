@@ -3,7 +3,7 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-23",
-    "fetched": "2026-11-23T06:59:44+00:00",
+    "fetched": "2026-11-23T19:07:40+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92500.0,
-        "pct": 3.76
+        "price": 93010.0,
+        "pct": 1.54
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2594.07,
-        "pct": 3.52
+        "price": 2634.45,
+        "pct": 1.81
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Korea Box Office: Mystery Thriller ‘White Blast’ Opens at No. 1, Ending Five-Week ‘Chiikawa’ Reign",
+      "title": "Oscars: 38 Animated Movies, 104 International Films and 190 Documentaries Make the Eligibility Lists, Setting New Records",
       "when": "23 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/korea-box-office-mystery-thriller-white-blast-1236955658/"
+      "url": "https://variety.com/2026/film/awards/oscars-2027-eligible-animated-documentary-international-1236956087/"
     },
     {
       "cat": "Film/TV",
-      "title": "Spain Pitches Incentives, Crews and a 500 Million-Strong Spanish-Speaking Market to India at WAVES Film Bazaar",
+      "title": "Super Bowl 2027 and Jay-Z Halftime Show to Screen in Imax Theaters",
       "when": "23 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/spain-coproductions-incentives-india-waves-film-bazaar-1236955634/"
+      "url": "https://variety.com/2026/film/news/super-bowl-jay-z-halftime-show-imax-theaters-1236955971/"
     },
     {
       "cat": "Film/TV",
-      "title": "China Box Office: ‘The Hunger Games: Sunrise on the Reaping’ Opens at No. 1 in Quiet Frame",
+      "title": "Why New Wave Music Won’t Go Away: New Documentary Explores How Synthesizers, MTV and Androgyny Built the Enduring Genre",
       "when": "23 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/box-office/china-box-office-the-hunger-games-sunrise-on-the-reaping-1236955624/"
+      "url": "https://variety.com/2026/music/features/new-wave-music-wont-go-away-documentary-mgm-plus-1236954761/"
     },
     {
       "cat": "Film/TV",
-      "title": "Don Toliver’s Manchester Concert Evacuated After Suspected Tear Gas Released Into Crowd",
+      "title": "Taylor Swift, a Brenda Lee Superfan, Presents the Star With 10x Platinum Plaque for ‘Rockin’ Around the Christmas Tree’",
       "when": "23 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/don-toliver-manchester-concert-evacuated-tear-gas-1236955605/"
+      "url": "https://variety.com/2026/music/news/brenda-lee-taylor-swift-diamond-rockin-around-christmas-tree-1236956093/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,14 +173,14 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "7h ago",
+      "pushed": "12h ago",
       "lang": "HTML",
       "commit": ""
     },
     {
       "repo": "softball-umpires-quiz",
       "desc": "",
-      "pushed": "28d ago",
+      "pushed": "29d ago",
       "lang": "HTML",
       "commit": ""
     }
