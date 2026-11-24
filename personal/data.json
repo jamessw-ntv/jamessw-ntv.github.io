@@ -2,8 +2,8 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-23",
-    "fetched": "2026-11-23T19:07:40+00:00",
+    "updated": "2026-11-24",
+    "fetched": "2026-11-24T04:41:23+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
@@ -72,66 +72,73 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 93010.0,
-        "pct": 1.54
+        "price": 91466.0,
+        "pct": -0.61
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2634.45,
-        "pct": 1.81
+        "price": 2573.05,
+        "pct": -0.99
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Oscars: 38 Animated Movies, 104 International Films and 190 Documentaries Make the Eligibility Lists, Setting New Records",
-      "when": "23 Nov",
+      "title": "Woody Harrelson Turned Down Haymitch Offer Twice: I Didn’t ‘Think There Was Enough to Do’ in ‘The Hunger Games’",
+      "when": "24 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/awards/oscars-2027-eligible-animated-documentary-international-1236956087/"
+      "url": "https://variety.com/2026/film/news/woody-harrelson-turned-down-haymitch-the-hunger-games-1236956694/"
     },
     {
       "cat": "Film/TV",
-      "title": "Super Bowl 2027 and Jay-Z Halftime Show to Screen in Imax Theaters",
-      "when": "23 Nov",
+      "title": "Marathi Crime Drama ‘Hurda – That Tight Green Top’ Puts a Journalist’s Masculinity Under the Microscope at WAVES Film Bazaar",
+      "when": "24 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/super-bowl-jay-z-halftime-show-imax-theaters-1236955971/"
+      "url": "https://variety.com/2026/film/markets-festivals/marathi-crime-drama-hurda-masculinity-microscope-1236956699/"
     },
     {
       "cat": "Film/TV",
-      "title": "Why New Wave Music Won’t Go Away: New Documentary Explores How Synthesizers, MTV and Androgyny Built the Enduring Genre",
-      "when": "23 Nov",
+      "title": "Bela Bajaria Reflects on Her Netflix Experience and Says ‘Stay Tuned’ at International Emmy Awards",
+      "when": "24 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/features/new-wave-music-wont-go-away-documentary-mgm-plus-1236954761/"
+      "url": "https://variety.com/2026/tv/news/bela-bajaria-netflix-stay-tuned-international-emmy-awards-1236956315/"
     },
     {
       "cat": "Film/TV",
-      "title": "Taylor Swift, a Brenda Lee Superfan, Presents the Star With 10x Platinum Plaque for ‘Rockin’ Around the Christmas Tree’",
-      "when": "23 Nov",
+      "title": "Shanghai Golden Goblet Winner Ridham Janve Stages a Goan Village Death Watch in ‘Goodbye Mr D’Mello’ at WAVES Film Bazaar",
+      "when": "24 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/brenda-lee-taylor-swift-diamond-rockin-around-christmas-tree-1236956093/"
+      "url": "https://variety.com/2026/film/markets-festivals/shanghai-winner-ridham-janve-goan-death-watch-dark-comedy-1236956692/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Rick Berman Says He “Got Over” The Constant Criticism Of His Star Trek Era",
+      "when": "23 Nov",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/11/23/rick-berman-says-he-got-over-the-constant-criticism-of-his-star-trek-era/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Aaron Pierre Says Ryan Gosling Helped Secure His ‘Star Wars: Starfighter’ Role",
+      "when": "23 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/aaron-pierre-says-ryan-gosling-helped-secure-his-star-wars-starfighter-role.html"
     },
     {
       "cat": "Trek/Wars",
       "title": "This Week, In a Galaxy Far, Far Away: ‘Star Wars’ Nominations at the Grammys and Game Awards, and Previews for ‘Star Wars’ Museum and Claudia Gray’s Next Novel",
-      "when": "22 Nov",
+      "when": "23 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/this-week-in-a-galaxy-far-far-away-star-wars-nominations-at-the-grammys-and-game-awards-and-previews-for-star-wars-museum-and-claudia-grays-next-novel.html"
     },
     {
       "cat": "Trek/Wars",
       "title": "‘Star Wars’ February 2027 Comics Preview: Thrawn Closes in on Ezra, Darth Vader Vs. The Avengers, and More",
-      "when": "21 Nov",
+      "when": "23 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-february-2027-comics-preview-thrawn-closes-in-on-ezra-darth-vader-vs-the-avengers-and-more.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Dagan Gera – ‘Star Wars’ Character Spotlight",
-      "when": "21 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/dagan-gera-star-wars-character-spotlight.html"
     },
     {
       "cat": "Games",
@@ -155,13 +162,6 @@
       "url": "https://trekmovie.com/2026/11/15/watch-the-star-trek-scouts-fight-slime-with-slime/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Spocks And A Dominion Bundle: Star Trek Online Gets Content Drops On PC, Consoles",
-      "when": "11 Nov",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/11/11/spocks-and-a-dominion-bundle-star-trek-online-gets-content-drops-on-pc-consoles/"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory: The Board Game - Last 24 hours of the campaign!",
       "when": "9 Nov",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "12h ago",
+      "pushed": "9h ago",
       "lang": "HTML",
       "commit": ""
     },
