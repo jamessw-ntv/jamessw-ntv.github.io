@@ -2,31 +2,31 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-24",
-    "fetched": "2026-11-24T15:39:50+00:00",
+    "updated": "2026-11-25",
+    "fetched": "2026-11-25T00:30:06+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 8,
+      "temp": 20,
       "icon": "🌤️",
       "desc": "Mainly clear",
-      "wind": 6
+      "wind": 13
     },
     "days": [
       {
         "day": "Today",
         "min": 7,
         "max": 25,
-        "icon": "🌤️",
-        "desc": "Mainly clear",
+        "icon": "⛅",
+        "desc": "Partly cloudy",
         "rain": 0
       },
       {
         "day": "Thu",
         "min": 13,
-        "max": 28,
+        "max": 27,
         "icon": "🌦️",
         "desc": "Drizzle",
         "rain": 65
@@ -34,10 +34,10 @@
       {
         "day": "Fri",
         "min": 17,
-        "max": 21,
+        "max": 22,
         "icon": "🌦️",
         "desc": "Showers",
-        "rain": 98
+        "rain": 99
       }
     ]
   },
@@ -72,24 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90245.0,
-        "pct": -5.22
+        "price": 89615.0,
+        "pct": -2.98
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2533.31,
-        "pct": -5.68
+        "price": 2517.44,
+        "pct": -2.39
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘Grand Theft Auto VI’ Review: A Bloody, Boundary-Shifting Reclamation of the American Dream",
+      "title": "Randy Newman to Receive Society of Composers & Lyricists Lifetime Achievement Award — Film News in Brief",
+      "when": "25 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/film-news-in-brief-nov-23-2026-1236955894/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Golden Globes: ‘Spider-Man: Brand New Day’ Goes Comedy, ‘Dune 3’ Skips Box Office Achievement Category and More (EXCLUSIVE)",
       "when": "24 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/reviews/grand-theft-auto-vi-review-gta-6-1236955932/"
+      "url": "https://variety.com/2026/film/awards/golden-globes-2027-spider-man-comedy-dune-box-office-1236957413/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Patrick Stewart Was ‘Struggling With His Health’ on Last Day of Filming ‘Avengers: Doomsday’; Marvel Plans to Add Tribute to Movie",
+      "when": "24 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/patrick-stewart-avengers-doomsday-marvel-tribute-1236957522/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Black Bear Buys Thriller ‘Seeker,’ Starring ‘Obsession’s’ Cooper Tomlinson and ‘Off Campus’ Actor Mika Abdalla (EXCLUSIVE)",
+      "when": "24 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/news/black-bear-seeker-cooper-tomlinson-mika-abdalla-1236957478/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "David Fincher Claims That He Met Kathleen Kennedy About ‘Star Wars’ Before Disney Purchased Lucasfilm",
+      "when": "24 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/david-fincher-claims-that-he-met-kathleen-kennedy-about-star-wars-before-disney-purchased-lucasfilm.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Bella Shepard And Karim Diané On Technobabble, Harsh Makeup, And Season 2 of ‘Star Trek: Starfleet Academy’",
+      "when": "24 Nov",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/11/24/bella-shepard-and-karim-diane-on-technobabble-harsh-makeup-and-season-2-of-star-trek-starfleet-academy/"
     },
     {
       "cat": "Trek/Wars",
@@ -97,27 +132,6 @@
       "when": "24 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/galactic-racer-will-add-new-vehicles-tracks-and-private-races-in-december-update.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "‘Murder of JonBenet Ramsey’ Trailer Puts Child’s Parents Under the Microscope",
-      "when": "24 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/murder-of-jonbenet-ramsey-trailer-netflix-1236956945/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Tidal Bans AI-Generated Music",
-      "when": "24 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/music/news/tidal-bans-ai-generated-music-1236956924/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Sweden’s Oscar Entry ‘Adult Supervision’ Closes Further Deals (EXCLUSIVE)",
-      "when": "24 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/sweden-oscar-entry-adult-supervision-further-deals-1236956858/"
     },
     {
       "cat": "Trek/Wars",
@@ -134,13 +148,6 @@
       "url": "https://trekmovie.com/2026/11/23/rick-berman-says-he-got-over-the-constant-criticism-of-his-star-trek-era/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Aaron Pierre Says Ryan Gosling Helped Secure His ‘Star Wars: Starfighter’ Role",
-      "when": "23 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/aaron-pierre-says-ryan-gosling-helped-secure-his-star-wars-starfighter-role.html"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory Update v1.2.5.1",
       "when": "18 Nov",
@@ -155,13 +162,6 @@
       "url": "https://trekmovie.com/2026/11/17/see-captain-seven-try-to-keep-her-fragile-fleet-together-in-preview-of-star-trek-2/"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "Watch: The ‘Star Trek: Scouts’ Fight Slime With Slime",
-      "when": "15 Nov",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/11/15/watch-the-star-trek-scouts-fight-slime-with-slime/"
-    },
-    {
       "cat": "Games",
       "title": "Satisfactory: The Board Game - Last 24 hours of the campaign!",
       "when": "9 Nov",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "10h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     },
