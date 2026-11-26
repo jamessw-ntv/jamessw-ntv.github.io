@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-25",
-    "fetched": "2026-11-25T19:51:34+00:00",
+    "updated": "2026-11-26",
+    "fetched": "2026-11-26T02:43:15+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 14,
-      "icon": "⛅",
-      "desc": "Partly cloudy",
-      "wind": 8
+      "temp": 27,
+      "icon": "🌦️",
+      "desc": "Drizzle",
+      "wind": 1
     },
     "days": [
       {
@@ -21,19 +21,19 @@
         "max": 28,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 69
+        "rain": 80
       },
       {
         "day": "Fri",
-        "min": 17,
+        "min": 18,
         "max": 22,
         "icon": "⛈️",
         "desc": "Thunderstorm",
-        "rain": 100
+        "rain": 98
       },
       {
         "day": "Sat",
-        "min": 14,
+        "min": 13,
         "max": 22,
         "icon": "⛈️",
         "desc": "Thunderstorm",
@@ -72,45 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 90300.0,
-        "pct": 0.46
+        "price": 91599.0,
+        "pct": 2.6
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2537.88,
-        "pct": 0.71
+        "price": 2559.48,
+        "pct": 2.44
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Horror ‘Soulala’ Reinforces Saudi YouTube Generation Boom as Director Says U.S. Is ‘a Decade Behind’ on Online-to-Cinema Phenomenon",
-      "when": "25 Nov",
+      "title": "‘The Squirrel’ Review: An Endearing Futuristic Dramedy, Finland’s Oscar Entry Makes a Case for Organic Love in the Age of Automation",
+      "when": "26 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/horror-soulala-youtube-generation-saudi-doha-1236956740/"
+      "url": "https://variety.com/2026/film/reviews/the-squirrel-review-1236955178/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Avengers: Doomsday’ Launches ‘Monopoly Go’ Tie-In Season ‘Doomsday Go’ (Gaming News Roundup)",
-      "when": "25 Nov",
+      "title": "‘Four Seasons In Java’ Review: Indonesia’s Oscar Submission Is a Gorgeous, Slow-Burning Thriller With Elements of Magical Realism",
+      "when": "26 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/gaming/news/gaming-news-roundup-week-of-nov-23-1236956394/"
+      "url": "https://variety.com/2026/film/reviews/four-seasons-in-java-review-1236953446/"
     },
     {
       "cat": "Film/TV",
-      "title": "As ‘Hello Kitty’ Joins Thanksgiving Parade, Sanrio Execs Tease ‘Magical’ Warner Bros. Animated Movie, Video Game Plans and 50-Year-Old Brand’s Gen Alpha Strategy",
-      "when": "25 Nov",
+      "title": "Colman Domingo Responds to Post Telling Oscar Pundits Not to Add His ‘Michael’ Performance to Predictions: ‘Who Hurt You?’",
+      "when": "26 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hello-kitty-balloon-movie-update-sanrio-merch-events-1236956985/"
+      "url": "https://variety.com/2026/film/news/colman-domingo-responds-michael-performance-1236958665/"
     },
     {
       "cat": "Film/TV",
-      "title": "Ariana Grande Says ‘Petal’ Music Video Backlash Felt Like ‘Black Mirror’ and ‘I Wouldn’t Change a Thing. I’d Put It Out Again Today As Is’",
-      "when": "25 Nov",
+      "title": "Judge Blocks FCC’s Move Against ABC’s Station Licenses: ‘This Is Not a Close Case’",
+      "when": "26 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/music/news/ariana-grande-petal-music-video-backlash-black-mirror-1236958153/"
+      "url": "https://variety.com/2026/tv/news/fcc-abc-license-renewals-injunction-1236958634/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Bryce Dallas Howard, Alan Tudyk, Ming-Na Wen, and More Coming To ‘Star Wars’ Celebration 2027",
+      "when": "26 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/bryce-dallas-howard-alan-tudyk-ming-na-wen-and-more-coming-to-star-wars-celebration-2027.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Ahsoka’ Season One Junior Novelization by S.T. Bende Announced, Cover Revealed",
+      "when": "25 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/ahsoka-season-one-junior-novelization-announced-cover-revealed.html"
     },
     {
       "cat": "Trek/Wars",
@@ -132,20 +146,6 @@
       "when": "24 Nov",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/11/24/bella-shepard-and-karim-diane-on-technobabble-harsh-makeup-and-season-2-of-star-trek-starfleet-academy/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Galactic Racer’ Will Add New Vehicles, Tracks and Private Races in December Update",
-      "when": "24 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/galactic-racer-will-add-new-vehicles-tracks-and-private-races-in-december-update.html"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Review – Marc Thompson Does It Again In New ‘Choices of One’ Unabridged Audiobook",
-      "when": "24 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/review-marc-thompson-does-it-again-in-new-choices-of-one-unabridged-audiobook.html"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "10h ago",
+      "pushed": "6h ago",
       "lang": "HTML",
       "commit": ""
     },
