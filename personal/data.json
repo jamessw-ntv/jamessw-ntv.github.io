@@ -3,16 +3,16 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-26",
-    "fetched": "2026-11-26T02:43:15+00:00",
+    "fetched": "2026-11-26T12:07:52+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 27,
-      "icon": "🌦️",
-      "desc": "Drizzle",
-      "wind": 1
+      "temp": 20,
+      "icon": "☁️",
+      "desc": "Overcast",
+      "wind": 7
     },
     "days": [
       {
@@ -21,19 +21,19 @@
         "max": 28,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 80
+        "rain": 29
       },
       {
         "day": "Fri",
-        "min": 18,
-        "max": 22,
-        "icon": "⛈️",
-        "desc": "Thunderstorm",
-        "rain": 98
+        "min": 17,
+        "max": 21,
+        "icon": "🌦️",
+        "desc": "Showers",
+        "rain": 100
       },
       {
         "day": "Sat",
-        "min": 13,
+        "min": 15,
         "max": 22,
         "icon": "⛈️",
         "desc": "Thunderstorm",
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 91599.0,
-        "pct": 2.6
+        "price": 91681.0,
+        "pct": 3.04
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2559.48,
-        "pct": 2.44
+        "price": 2571.36,
+        "pct": 3.21
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "‘The Squirrel’ Review: An Endearing Futuristic Dramedy, Finland’s Oscar Entry Makes a Case for Organic Love in the Age of Automation",
+      "title": "Huw Edwards Speaks Publicly About Conviction and Downfall for First Time in Channel 4 Doc: ‘I’d Lost the Plot’",
       "when": "26 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/the-squirrel-review-1236955178/"
+      "url": "https://variety.com/2026/tv/global/huw-edwards-speaks-publicly-about-crimes-channel-4-doc-1236958880/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Four Seasons In Java’ Review: Indonesia’s Oscar Submission Is a Gorgeous, Slow-Burning Thriller With Elements of Magical Realism",
+      "title": "‘Bandit Queen’ Sequel From Bobby Bedi, ‘Satluj’ Director Honey Trehan Targets Late 2027 or Early 2028 Release, Enters Casting (EXCLUSIVE)",
       "when": "26 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/reviews/four-seasons-in-java-review-1236953446/"
+      "url": "https://variety.com/2026/film/news/bandit-queen-sequel-bobby-bedi-honey-trehan-2027-28-release-1236958895/"
     },
     {
       "cat": "Film/TV",
-      "title": "Colman Domingo Responds to Post Telling Oscar Pundits Not to Add His ‘Michael’ Performance to Predictions: ‘Who Hurt You?’",
+      "title": "Richard Hammond Says He Was Approached About ‘Top Gear’ Return, but Decided: ‘No, I’m Too Old’",
       "when": "26 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/colman-domingo-responds-michael-performance-1236958665/"
+      "url": "https://variety.com/2026/tv/global/top-gear-richard-hammond-declined-return-1236958870/"
     },
     {
       "cat": "Film/TV",
-      "title": "Judge Blocks FCC’s Move Against ABC’s Station Licenses: ‘This Is Not a Close Case’",
+      "title": "Indie Filmmakers at WAVES Film Bazaar Look to ‘Dangal’ China Playbook, Pop-Up Cinemas and Screening Fees to Find Audiences",
       "when": "26 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/fcc-abc-license-renewals-injunction-1236958634/"
+      "url": "https://variety.com/2026/film/markets-festivals/indie-filmmakers-dangal-china-playbook-waves-film-bazaar-1236958872/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "9h ago",
       "lang": "HTML",
       "commit": ""
     },
