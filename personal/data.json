@@ -3,22 +3,22 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-27",
-    "fetched": "2026-11-27T14:51:19+00:00",
+    "fetched": "2026-11-27T23:18:58+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 18,
-      "icon": "🌦️",
-      "desc": "Showers",
-      "wind": 10
+      "temp": 20,
+      "icon": "⛈️",
+      "desc": "Thunderstorm",
+      "wind": 19
     },
     "days": [
       {
         "day": "Today",
         "min": 14,
-        "max": 21,
+        "max": 22,
         "icon": "⛈️",
         "desc": "Thunderstorm",
         "rain": 100
@@ -29,15 +29,15 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 96
+        "rain": 100
       },
       {
         "day": "Mon",
-        "min": 9,
-        "max": 15,
+        "min": 10,
+        "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 77
+        "rain": 80
       }
     ]
   },
@@ -72,24 +72,59 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89468.0,
-        "pct": -2.26
+        "price": 89763.0,
+        "pct": -1.42
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2509.29,
-        "pct": -1.96
+        "price": 2488.34,
+        "pct": -2.07
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Iranian Activist and ‘It Was Just an Accident’ Screenwriter Mehdi Mahmoudian Arrested in Tehran on Charges of ‘Anti-Government Propaganda’",
+      "title": "NBC Pulls Spot Advocating for End to U.S. Military Aid to Israel, Will Review Approval Procedures After Outcry",
       "when": "27 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/global/it-was-just-an-accident-writer-mehdi-mahmoudian-arrested-iran-1236959405/"
+      "url": "https://variety.com/2026/tv/news/nbc-israel-military-aid-spot-middle-east-girl-1236959795/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "Predicting Awards Season’s First Big Week: Who Wins at the Gothams, NYFCC, NBR and More",
+      "when": "27 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/lists/gotham-nyfcc-nbr-afi-lafca-predictions-2026/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘Percy Jackson and the Olympians’ Star Leah Sava Jeffries on Her Idea for Annabeth’s Gray Contacts and the Big Fan Surprise Coming in the Season 3 Finale: A ‘Dream Came True’",
+      "when": "27 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/percy-jackson-season-3-gray-contacts-finale-1236958463/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "‘The Hunting Wives’ Stars and Creator Break Down Margo and Sophie’s Dangerous Love Affair in Season 2: ‘It’s a F—-ed Up Commitment’ to ‘Move Past’ Murder",
+      "when": "27 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/news/hunting-wives-brittany-snow-malin-akerman-season-2-sex-murder-1236952232/"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "Hardcase – ‘Star Wars’ Character Spotlight",
+      "when": "27 Nov",
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/hardcase-star-wars-character-spotlight.html"
+    },
+    {
+      "cat": "Trek/Wars",
+      "title": "‘Star Trek Voyager: Across The Unknown — Year of Hell’ DLC Heads To PC, Consoles in December",
+      "when": "27 Nov",
+      "source": "TrekMovie",
+      "url": "https://trekmovie.com/2026/11/27/star-trek-voyager-across-the-unknown-year-of-hell-dlc-heads-to-pc-consoles-in-december/"
     },
     {
       "cat": "Trek/Wars",
@@ -106,34 +141,6 @@
       "url": "https://www.starwarsnewsnet.com/2026/11/bryce-dallas-howard-alan-tudyk-ming-na-wen-and-more-coming-to-star-wars-celebration-2027.html"
     },
     {
-      "cat": "Film/TV",
-      "title": "Producer of Oscar-Nominated ‘A Friend Of Dorothy’ to Make Directorial Debut With Disability Drama ‘Hidden Creatures,’ Easyjet Founder Boards as EP (EXCLUSIVE)",
-      "when": "27 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/global/a-friend-of-dorothy-max-marlow-directing-hidden-creatures-1236959288/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "‘Ahsoka’ Season One Junior Novelization by S.T. Bende Announced, Cover Revealed",
-      "when": "27 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/ahsoka-season-one-junior-novelization-announced-cover-revealed.html"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Spain Nears New India Co-Production Pact as It Wraps Country of Honor Run at IFFI Goa, WAVES Film Bazaar",
-      "when": "27 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/markets-festivals/spain-new-india-co-production-pact-iffi-goa-honor-run-1236959353/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "South African President Cyril Ramaphosa Gives Speech at Canal+ Academy Training Program Launch: ‘You Are Living My Dream’",
-      "when": "27 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/global/south-african-president-canal-plus-academy-training-program-1236959278/"
-    },
-    {
       "cat": "Trek/Wars",
       "title": "Watch Replay: November TrekMovie/SyFy Sistas Live Star Trek News Show",
       "when": "25 Nov",
@@ -146,13 +153,6 @@
       "when": "24 Nov",
       "source": "TrekMovie",
       "url": "https://trekmovie.com/2026/11/24/bella-shepard-and-karim-diane-on-technobabble-harsh-makeup-and-season-2-of-star-trek-starfleet-academy/"
-    },
-    {
-      "cat": "Trek/Wars",
-      "title": "Rick Berman Says He “Got Over” The Constant Criticism Of His Star Trek Era",
-      "when": "23 Nov",
-      "source": "TrekMovie",
-      "url": "https://trekmovie.com/2026/11/23/rick-berman-says-he-got-over-the-constant-criticism-of-his-star-trek-era/"
     },
     {
       "cat": "Games",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "9h ago",
+      "pushed": "8h ago",
       "lang": "HTML",
       "commit": ""
     },
