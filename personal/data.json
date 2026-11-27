@@ -3,32 +3,24 @@
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
     "updated": "2026-11-27",
-    "fetched": "2026-11-27T04:53:39+00:00",
+    "fetched": "2026-11-27T14:51:19+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
+      "temp": 18,
       "icon": "🌦️",
       "desc": "Showers",
-      "wind": 11
+      "wind": 10
     },
     "days": [
       {
         "day": "Today",
-        "min": 17,
-        "max": 22,
-        "icon": "🌦️",
-        "desc": "Showers",
-        "rain": 100
-      },
-      {
-        "day": "Sat",
         "min": 14,
-        "max": 22,
-        "icon": "🌦️",
-        "desc": "Showers",
+        "max": 21,
+        "icon": "⛈️",
+        "desc": "Thunderstorm",
         "rain": 100
       },
       {
@@ -37,7 +29,15 @@
         "max": 17,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 95
+        "rain": 96
+      },
+      {
+        "day": "Mon",
+        "min": 9,
+        "max": 15,
+        "icon": "🌦️",
+        "desc": "Drizzle",
+        "rain": 77
       }
     ]
   },
@@ -72,66 +72,66 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 92243.0,
-        "pct": 0.69
+        "price": 89468.0,
+        "pct": -2.26
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2601.02,
-        "pct": 1.64
+        "price": 2509.29,
+        "pct": -1.96
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "Laxman Utekar, Rajkumar Periasamy and Vishnuvardhan Set New Films With Bhushan Kumar’s T-Series (EXCLUSIVE)",
+      "title": "Iranian Activist and ‘It Was Just an Accident’ Screenwriter Mehdi Mahmoudian Arrested in Tehran on Charges of ‘Anti-Government Propaganda’",
       "when": "27 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/film/news/laxman-utekar-rajkumar-periasamy-vishnuvardhan-films-tseries-1236958689/"
+      "url": "https://variety.com/2026/film/global/it-was-just-an-accident-writer-mehdi-mahmoudian-arrested-iran-1236959405/"
     },
     {
-      "cat": "Film/TV",
-      "title": "‘Blade Runner 2099’ Boss Silka Luisa on What the Finale Means for Replicants and the Fate of Cora and Olwen",
+      "cat": "Trek/Wars",
+      "title": "‘Star Wars: Starfighter’ Director Shawn Levy Shares New Behind-The Scenes Photo With Ryan Gosling",
       "when": "27 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/blade-runner-2099-finale-cora-olwen-fates-1236958380/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Gerald R. Molen, Oscar-Winning ‘Schindler’s List’ Producer, Dies at 91",
-      "when": "26 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/news/gerald-r-molen-dead-schindlers-list-producer-1236959200/"
-    },
-    {
-      "cat": "Film/TV",
-      "title": "Asha Bhosle and S. Janaki Remembered by Singer K.S. Chithra and Suhasini Maniratnam at IFFI’s Lata Mangeshkar Talk",
-      "when": "26 Nov",
-      "source": "Variety",
-      "url": "https://variety.com/2026/film/festivals/asha-bhosle-s-janaki-ks-chithra-suhasini-iffi-1236959192/"
+      "source": "SW News Net",
+      "url": "https://www.starwarsnewsnet.com/2026/11/star-wars-starfighter-director-shawn-levy-shares-new-behind-the-scenes-photo-with-ryan-gosling.html"
     },
     {
       "cat": "Trek/Wars",
       "title": "Bryce Dallas Howard, Alan Tudyk, Ming-Na Wen, and More Coming To ‘Star Wars’ Celebration 2027",
-      "when": "26 Nov",
+      "when": "27 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/bryce-dallas-howard-alan-tudyk-ming-na-wen-and-more-coming-to-star-wars-celebration-2027.html"
     },
     {
+      "cat": "Film/TV",
+      "title": "Producer of Oscar-Nominated ‘A Friend Of Dorothy’ to Make Directorial Debut With Disability Drama ‘Hidden Creatures,’ Easyjet Founder Boards as EP (EXCLUSIVE)",
+      "when": "27 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/global/a-friend-of-dorothy-max-marlow-directing-hidden-creatures-1236959288/"
+    },
+    {
       "cat": "Trek/Wars",
       "title": "‘Ahsoka’ Season One Junior Novelization by S.T. Bende Announced, Cover Revealed",
-      "when": "26 Nov",
+      "when": "27 Nov",
       "source": "SW News Net",
       "url": "https://www.starwarsnewsnet.com/2026/11/ahsoka-season-one-junior-novelization-announced-cover-revealed.html"
     },
     {
-      "cat": "Trek/Wars",
-      "title": "David Fincher Claims That He Met Kathleen Kennedy About ‘Star Wars’ Before Disney Purchased Lucasfilm",
-      "when": "26 Nov",
-      "source": "SW News Net",
-      "url": "https://www.starwarsnewsnet.com/2026/11/david-fincher-claims-that-he-met-kathleen-kennedy-about-star-wars-before-disney-purchased-lucasfilm.html"
+      "cat": "Film/TV",
+      "title": "Spain Nears New India Co-Production Pact as It Wraps Country of Honor Run at IFFI Goa, WAVES Film Bazaar",
+      "when": "27 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/film/markets-festivals/spain-new-india-co-production-pact-iffi-goa-honor-run-1236959353/"
+    },
+    {
+      "cat": "Film/TV",
+      "title": "South African President Cyril Ramaphosa Gives Speech at Canal+ Academy Training Program Launch: ‘You Are Living My Dream’",
+      "when": "27 Nov",
+      "source": "Variety",
+      "url": "https://variety.com/2026/tv/global/south-african-president-canal-plus-academy-training-program-1236959278/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "6h ago",
+      "pushed": "9h ago",
       "lang": "HTML",
       "commit": ""
     },
