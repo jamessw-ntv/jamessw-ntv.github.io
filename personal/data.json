@@ -2,17 +2,17 @@
   "meta": {
     "title": "Personal Dashboard",
     "place": "Ferntree Gully, VIC",
-    "updated": "2026-11-27",
-    "fetched": "2026-11-27T23:18:58+00:00",
+    "updated": "2026-11-28",
+    "fetched": "2026-11-28T07:17:50+00:00",
     "note": "Live. weather Open-Meteo · crypto CoinGecko · ASX Yahoo · dev GitHub · releases RSS."
   },
   "weather": {
     "place": "Ferntree Gully, VIC",
     "now": {
-      "temp": 20,
-      "icon": "⛈️",
-      "desc": "Thunderstorm",
-      "wind": 19
+      "temp": 17,
+      "icon": "⛅",
+      "desc": "Partly cloudy",
+      "wind": 15
     },
     "days": [
       {
@@ -26,18 +26,18 @@
       {
         "day": "Sun",
         "min": 11,
-        "max": 17,
+        "max": 16,
         "icon": "🌦️",
-        "desc": "Drizzle",
+        "desc": "Showers",
         "rain": 100
       },
       {
         "day": "Mon",
-        "min": 10,
+        "min": 9,
         "max": 14,
         "icon": "🌦️",
         "desc": "Drizzle",
-        "rain": 80
+        "rain": 92
       }
     ]
   },
@@ -72,45 +72,45 @@
       {
         "code": "BTC",
         "name": "Bitcoin",
-        "price": 89763.0,
-        "pct": -1.42
+        "price": 89620.0,
+        "pct": -3.23
       },
       {
         "code": "ETH",
         "name": "Ethereum",
-        "price": 2488.34,
-        "pct": -2.07
+        "price": 2483.85,
+        "pct": -4.45
       }
     ]
   },
   "releases": [
     {
       "cat": "Film/TV",
-      "title": "NBC Pulls Spot Advocating for End to U.S. Military Aid to Israel, Will Review Approval Procedures After Outcry",
-      "when": "27 Nov",
+      "title": "Indonesian Cinema’s Next Chapter Is Reaching the World ‘Without Losing Our Cultural Identity,’ Says JAFF Market Director Linda Gozali",
+      "when": "28 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/nbc-israel-military-aid-spot-middle-east-girl-1236959795/"
+      "url": "https://variety.com/2026/film/markets-festivals/indonesian-cinema-next-chapter-global-jaff-market-1236959893/"
     },
     {
       "cat": "Film/TV",
-      "title": "Predicting Awards Season’s First Big Week: Who Wins at the Gothams, NYFCC, NBR and More",
-      "when": "27 Nov",
+      "title": "Southeast Asian Cinema’s Global Rise Needs Long-Term Backing to Last, Says JAFF Chief Ifa Isfansyah",
+      "when": "28 Nov",
       "source": "Variety",
-      "url": "https://variety.com/lists/gotham-nyfcc-nbr-afi-lafca-predictions-2026/"
+      "url": "https://variety.com/2026/film/markets-festivals/southeast-asian-cinema-rise-long-term-backing-jaff-chief-1236959870/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘Percy Jackson and the Olympians’ Star Leah Sava Jeffries on Her Idea for Annabeth’s Gray Contacts and the Big Fan Surprise Coming in the Season 3 Finale: A ‘Dream Came True’",
-      "when": "27 Nov",
+      "title": "France Knights ‘Autobiography,’ ‘Tiger Stripes’ Producer Yulia Evina Bhara at JAFF Market",
+      "when": "28 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/percy-jackson-season-3-gray-contacts-finale-1236958463/"
+      "url": "https://variety.com/2026/film/markets-festivals/france-knights-tiger-stripes-producer-yulia-evina-bhara-1236959888/"
     },
     {
       "cat": "Film/TV",
-      "title": "‘The Hunting Wives’ Stars and Creator Break Down Margo and Sophie’s Dangerous Love Affair in Season 2: ‘It’s a F—-ed Up Commitment’ to ‘Move Past’ Murder",
-      "when": "27 Nov",
+      "title": "WWE Star Bronson Reed Dies at 38",
+      "when": "28 Nov",
       "source": "Variety",
-      "url": "https://variety.com/2026/tv/news/hunting-wives-brittany-snow-malin-akerman-season-2-sex-murder-1236952232/"
+      "url": "https://variety.com/2026/tv/news/bronson-reed-dead-jermaine-haley-wwe-wrestler-1236959879/"
     },
     {
       "cat": "Trek/Wars",
@@ -173,7 +173,7 @@
     {
       "repo": "jamessw-ntv.github.io",
       "desc": "",
-      "pushed": "8h ago",
+      "pushed": "7h ago",
       "lang": "HTML",
       "commit": ""
     },
